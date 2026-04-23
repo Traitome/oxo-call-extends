@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oxo-call Community Skills | Bioconda CLI Tool Skills for AI</title>
+    <meta name="description" content="Community-curated skill files for 6000+ bioconda CLI tools. Help AI assistants generate accurate bioinformatics commands.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center; padding: 50px 40px;
+            background: rgba(255,255,255,0.98); border-radius: 24px;
+            margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative; overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+        .logo { font-size: 3.5rem; margin-bottom: 10px; }
+        h1 {
+            font-size: 2.8rem; font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 12px;
+        }
+        .subtitle { font-size: 1.2rem; color: #555; margin-bottom: 25px; font-weight: 300; }
+        .stats {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 25px;
+            margin-top: 25px; padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa, #e4e8ec); border-radius: 16px;
+        }
+        .stat-item { text-align: center; padding: 12px 20px; }
+        .stat-number {
+            font-size: 2.5rem; font-weight: 800;
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+        .search-box { max-width: 700px; margin: 25px auto 0; position: relative; }
+        .search-box input {
+            width: 100%; padding: 16px 24px 16px 48px;
+            border: 2px solid #e0e0e0; border-radius: 50px;
+            font-size: 1.05rem; outline: none; transition: all 0.3s; background: #fff;
+        }
+        .search-box input:focus { border-color: #667eea; box-shadow: 0 0 0 4px rgba(102,126,234,0.1); }
+        .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; }
+        .categories {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px; margin: 30px 0;
+        }
+        .category-card {
+            background: rgba(255,255,255,0.95); padding: 15px 12px;
+            border-radius: 12px; text-align: center; cursor: pointer;
+            transition: all 0.3s; border: 2px solid transparent;
+        }
+        .category-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); border-color: #667eea; }
+        .category-card.active { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+        .category-card.active .category-name, .category-card.active .category-count { color: #fff; }
+        .category-name { font-weight: 700; color: #333; margin-bottom: 4px; font-size: 0.9rem; }
+        .category-count { color: #888; font-size: 0.75rem; }
+        .tools-section {
+            background: rgba(255,255,255,0.95); padding: 30px;
+            border-radius: 20px; margin-bottom: 40px;
+        }
+        .tools-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .tools-header h2 { color: #333; font-size: 1.4rem; }
+        .results-info { color: #888; font-size: 0.9rem; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+        .tool-card {
+            background: #fff; padding: 16px; border-radius: 12px;
+            transition: all 0.2s; border: 1px solid #eee;
+        }
+        .tool-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: #667eea; }
+        .tool-name { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+        .tool-name a { color: #667eea; text-decoration: none; }
+        .tool-name a:hover { text-decoration: underline; color: #764ba2; }
+        .tool-category {
+            font-size: 0.7rem; color: #fff;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 2px 10px; border-radius: 20px;
+            display: inline-block; margin-bottom: 8px; text-transform: capitalize;
+        }
+        .tool-desc { font-size: 0.82rem; color: #666; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .load-more { text-align: center; margin: 25px 0; }
+        .load-more button {
+            padding: 14px 45px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff; border: none; border-radius: 50px;
+            font-size: 1rem; cursor: pointer; transition: all 0.3s; font-weight: 600;
+        }
+        .load-more button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102,126,234,0.4); }
+        .how-to-use {
+            background: rgba(255,255,255,0.95); padding: 45px;
+            border-radius: 24px; margin-bottom: 40px;
+        }
+        .how-to-use h2 { color: #333; margin-bottom: 20px; font-size: 1.7rem; }
+        .how-to-use h3 { color: #667eea; margin: 25px 0 12px; font-size: 1.15rem; }
+        .how-to-use p, .how-to-use li { color: #555; line-height: 1.8; }
+        .how-to-use ul { margin: 12px 0; padding-left: 25px; }
+        .how-to-use li { margin-bottom: 8px; }
+        .code-block {
+            background: #1a1a2e; padding: 20px; border-radius: 12px;
+            margin: 12px 0; font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            overflow-x: auto; border: 1px solid #333;
+        }
+        .code-block code { color: #e0e0e0; font-size: 0.88rem; line-height: 1.6; }
+        .cm { color: #6a9955; }
+        footer { text-align: center; padding: 45px 20px; color: rgba(255,255,255,0.85); }
+        footer a { color: #a8b5ff; text-decoration: none; margin: 0 12px; transition: color 0.3s; }
+        footer a:hover { color: #fff; text-decoration: underline; }
+        .hidden { display: none !important; }
+        .loading { text-align: center; padding: 40px; color: #999; }
+        .no-results { text-align: center; padding: 40px; color: #999; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .stats { gap: 12px; }
+            .stat-number { font-size: 1.8rem; }
+            .how-to-use { padding: 25px 18px; }
+            header { padding: 30px 18px; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🧬</div>
+            <h1>oxo-call Community Skills</h1>
+            <p class="subtitle">Bioconda CLI Tool Skills for AI-Assisted Bioinformatics</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">6103</div>
+                    <div class="stat-label">Total Tools</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="skills-count">-</div>
+                    <div class="stat-label">Skills Generated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Search tools (e.g., samtools, bwa, fastqc, spades...)">
+            </div>
+        </header>
+
+        <section class="categories" id="categories">
+            <div class="category-card active" onclick="filterByCategory('all')" data-category="all">
+                <div class="category-name">All</div>
+                <div class="category-count">Show all</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('alignment')" data-category="alignment">
+                <div class="category-name">Alignment</div>
+                <div class="category-count">Read mapping</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('variant-calling')" data-category="variant-calling">
+                <div class="category-name">Variant Calling</div>
+                <div class="category-count">SNP/Indel</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('assembly')" data-category="assembly">
+                <div class="category-name">Assembly</div>
+                <div class="category-count">De novo</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('qc')" data-category="qc">
+                <div class="category-name">QC</div>
+                <div class="category-count">Quality control</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('annotation')" data-category="annotation">
+                <div class="category-name">Annotation</div>
+                <div class="category-count">Gene prediction</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('expression')" data-category="expression">
+                <div class="category-name">Expression</div>
+                <div class="category-count">RNA-seq</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('metagenomics')" data-category="metagenomics">
+                <div class="category-name">Metagenomics</div>
+                <div class="category-count">Binning</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('epigenomics')" data-category="epigenomics">
+                <div class="category-name">Epigenomics</div>
+                <div class="category-count">Methylation</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('population-genomics')" data-category="population-genomics">
+                <div class="category-name">Population</div>
+                <div class="category-count">Genomics</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('formatting')" data-category="formatting">
+                <div class="category-name">Formatting</div>
+                <div class="category-count">File tools</div>
+            </div>
+            <div class="category-card" onclick="filterByCategory('utility')" data-category="utility">
+                <div class="category-name">Utility</div>
+                <div class="category-count">General</div>
+            </div>
+        </section>
+
+        <section class="tools-section" id="tools-section">
+            <div class="tools-header">
+                <h2 id="tools-title">All Skills</h2>
+                <div class="results-info" id="results-info"></div>
+            </div>
+            <div class="tools-grid" id="tools-grid">
+                <div class="loading">Loading skills index...</div>
+            </div>
+            <div class="load-more" id="load-more-container">
+                <button onclick="loadMoreTools()">Load More</button>
+            </div>
+        </section>
+
+        <section class="how-to-use">
+            <h2>📖 How to Use oxo-call Skills</h2>
+            <p>oxo-call skills are domain-expert knowledge files that help AI assistants generate accurate bioinformatics commands. Each skill file contains:</p>
+            <ul>
+                <li><strong>Concepts</strong>: Mental model of how the tool works, input/output formats, and key workflows</li>
+                <li><strong>Pitfalls</strong>: Common mistakes, version differences, and how to avoid them</li>
+                <li><strong>Examples</strong>: Real-world command examples with detailed explanations</li>
+            </ul>
+            <h3>🚀 Loading a Skill in oxo-call</h3>
+            <div class="code-block"><code><span class="cm"># Download a skill file</span>
+curl -O https://traitome.github.io/oxo-call-extends/skill/samtools.md
+
+<span class="cm"># Load into oxo-call</span>
+oxo-call load-skill samtools.md
+
+<span class="cm"># Or reference by URL in your AI assistant</span>
+<span class="cm"># The AI will fetch and use the skill automatically</span></code></div>
+            <h3>📝 Skill File Format</h3>
+            <div class="code-block"><code>---
+name: samtools
+category: formatting
+description: Tools for dealing with SAM, BAM and CRAM files
+tags: [samtools, formatting, bam, sam]
+author: oxo-call-community
+source_url: "https://github.com/samtools/samtools"
+---
+
+## Concepts
+- **Tool Overview**: Utilities for manipulating SAM/BAM/CRAM files
+- **Core Function**: View, sort, index, and convert alignment files
+- **Input/Output**: SAM, BAM, CRAM formats
+
+## Pitfalls
+- **Index Required**: Many operations need .bai index files
+
+## Examples
+### Convert SAM to BAM
+**Args:** `view -b input.sam`
+**Explanation:** Converts SAM to BAM format</code></div>
+        </section>
+
+        <footer>
+            <p>
+                <a href="https://github.com/Traitome/oxo-call">oxo-call</a> |
+                <a href="https://github.com/Traitome/oxo-call-extends">oxo-call-extends</a> |
+                <a href="https://bioconda.github.io">Bioconda</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">Generated by oxo-call Community</p>
+        </footer>
+    </div>
+
+    <script>
+        let allSkillsData = [];
+        let filteredSkills = [];
+        let displayedCount = 0;
+        const batchSize = 60;
+        let currentCategory = 'all';
+
+        async function loadSkillsIndex() {
+            try {
+                const response = await fetch('skill/index.json');
+                const data = await response.json();
+                allSkillsData = data.skills || [];
+                filteredSkills = [...allSkillsData];
+                document.getElementById('skills-count').textContent = allSkillsData.length;
+                document.getElementById('results-info').textContent = `${allSkillsData.length} skills`;
+                renderTools();
+            } catch (e) {
+                console.log('Skills index not found:', e);
+                document.getElementById('tools-grid').innerHTML = '<div class="loading">Skills are being generated. Check back soon!</div>';
+                document.getElementById('load-more-container').classList.add('hidden');
+            }
+        }
+
+        function renderTools() {
+            const grid = document.getElementById('tools-grid');
+            const nextBatch = filteredSkills.slice(displayedCount, displayedCount + batchSize);
+
+            if (displayedCount === 0) grid.innerHTML = '';
+
+            if (filteredSkills.length === 0) {
+                grid.innerHTML = '<div class="no-results">No skills found matching your search.</div>';
+                document.getElementById('load-more-container').classList.add('hidden');
+                return;
+            }
+
+            nextBatch.forEach(skill => {
+                const card = document.createElement('div');
+                card.className = 'tool-card';
+                card.innerHTML = `
+                    <div class="tool-name"><a href="skill/${skill.file}" download>${escapeHtml(skill.name)}</a></div>
+                    <div class="tool-category">${escapeHtml(skill.category)}</div>
+                    <div class="tool-desc">${escapeHtml(skill.description)}</div>
+                `;
+                grid.appendChild(card);
+            });
+
+            displayedCount += nextBatch.length;
+            document.getElementById('results-info').textContent = `Showing ${displayedCount} of ${filteredSkills.length}`;
+
+            const loadMoreBtn = document.getElementById('load-more-container');
+            if (displayedCount >= filteredSkills.length) {
+                loadMoreBtn.classList.add('hidden');
+            } else {
+                loadMoreBtn.classList.remove('hidden');
+            }
+        }
+
+        function loadMoreTools() {
+            renderTools();
+        }
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.category-card').forEach(c => {
+                c.classList.toggle('active', c.dataset.category === category);
+            });
+
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            filteredSkills = allSkillsData.filter(s => {
+                const matchCat = category === 'all' || s.category === category;
+                const matchQuery = !query || s.name.toLowerCase().includes(query) || s.description.toLowerCase().includes(query);
+                return matchCat && matchQuery;
+            });
+
+            displayedCount = 0;
+            document.getElementById('tools-title').textContent = category === 'all' ? 'All Skills' : category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            renderTools();
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str || '';
+            return div.innerHTML;
+        }
+
+        let searchTimeout;
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterByCategory(currentCategory);
+            }, 200);
+        });
+
+        loadSkillsIndex();
+    </script>
+</body>
+</html>

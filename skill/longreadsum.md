@@ -1,0 +1,30 @@
+---
+name: longreadsum
+category: qc
+description: Long read sequencing data quality control tool
+tags: [longreadsum, qc]
+author: oxo-call-community
+source_url: "https://github.com/WGLab/LongReadSum"
+---
+
+## Concepts
+
+- **Tool Overview**: longreadsum v1.3.1 - A fast and flexible QC tool for long read sequencing data..
+- **Core Function**: Long read sequencing data quality control tool
+- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Installation**: `conda install -c bioconda longreadsum`
+
+## Pitfalls
+
+- **Version Differences**: Options may vary between versions.
+- **Input Format**: Ensure correct input format for your data.
+
+## Examples
+
+### Display help
+**Args:** `--help`
+**Explanation:** Shows available options.
+
+### Basic usage
+**Args:** `<input_file>`
+**Explanation:** Process input file with default parameters.

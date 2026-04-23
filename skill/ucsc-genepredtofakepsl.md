@@ -1,0 +1,30 @@
+---
+name: ucsc-genepredtofakepsl
+category: alignment
+description: Create a psl of fake-mRNA aligned to gene-preds from a file or table.
+tags: [ucsc-genepredtofakepsl, alignment]
+author: oxo-call-community
+source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+---
+
+## Concepts
+
+- **Tool Overview**: ucsc-genepredtofakepsl (v482) - Create a psl of fake-mRNA aligned to gene-preds from a file or table.
+- **Core Function**: Create a psl of fake-mRNA aligned to gene-preds from a file or table.
+- **Input/Output**: Depends on specific tool functionality.
+- **Installation**: `conda install -c bioconda ucsc-genepredtofakepsl`
+
+## Pitfalls
+
+- **Version Differences**: Options may vary between versions; always check with `--help`.
+- **Input Format**: Ensure correct input format before running.
+
+## Examples
+
+### Display help
+**Args:** `--help`
+**Explanation:** Shows available options and usage information.
+
+### Basic usage
+**Args:** `<input_file> -o <output_file>`
+**Explanation:** Standard input/output pattern for most bioinformatics tools.

@@ -1,0 +1,30 @@
+---
+name: microbeannotator
+category: annotation
+description: A user friendly microbe genome annotation tool
+tags: [microbeannotator, annotation]
+author: oxo-call-community
+source_url: "https://github.com/cruizperez/MicrobeAnnotator"
+---
+
+## Concepts
+
+- **Tool Overview**: microbeannotator v2.0.5 - A user friendly microbe genome annotation tool.
+- **Core Function**: A user friendly microbe genome annotation tool
+- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Installation**: `conda install -c bioconda microbeannotator`
+
+## Pitfalls
+
+- **Version Differences**: Options may vary between versions.
+- **Input Format**: Ensure correct input format for your data.
+
+## Examples
+
+### Display help
+**Args:** `--help`
+**Explanation:** Shows available options.
+
+### Basic usage
+**Args:** `<input_file>`
+**Explanation:** Process input file with default parameters.

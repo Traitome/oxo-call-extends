@@ -1,0 +1,30 @@
+---
+name: hmmer
+category: utility
+description: Biosequence analysis using profile hidden Markov models.
+tags: [hmmer, utility]
+author: oxo-call-community
+source_url: "http://hmmer.org/documentation.html"
+---
+
+## Concepts
+
+- **Tool Overview**: hmmer (v3.4) - Biosequence analysis using profile hidden Markov models.
+- **Core Function**: Provides functionality for utility tasks.
+- **Input/Output**: Standard bioinformatics formats supported.
+- **Installation**: `conda install -c bioconda hmmer`
+
+## Pitfalls
+
+- **Version Differences**: Options may vary between versions.
+- **Input Format**: Ensure correct input format.
+
+## Examples
+
+### Display help
+**Args:** `--help`
+**Explanation:** Shows available options and usage information.
+
+### Basic usage
+**Args:** `<input_file> -o <output_file>`
+**Explanation:** Process input file and generate output.
