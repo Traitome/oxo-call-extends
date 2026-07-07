@@ -1,30 +1,32 @@
 ---
 name: ucsc-wigtobigwig
-category: formatting
-description: Convert ascii format wig file (in fixedStep, variableStep).
-tags: [ucsc-wigtobigwig, formatting]
+category: utility
+description: UCSC wigToBigWig - Tool for converting WIG to BigWig.
+tags: [ucsc-wigtobigwig, ucsc, wig, bigwig, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-wigtobigwig (v482) - Convert ascii format wig file (in fixedStep, variableStep).
-- **Core Function**: Convert ascii format wig file (in fixedStep, variableStep).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-wigtobigwig`
+- **Tool Overview**: UCSC wigToBigWig - A tool for converting WIG to BigWig format.
+- **Core Function**: Converts WIG format to compressed binary BigWig format.
+- **Input**: WIG file, chrom.sizes file.
+- **Output**: BigWig file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser tracks, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chromosome Sizes**: Requires chrom.sizes file.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert WIG to BigWig
+**Args:** `wigToBigWig input.wig chrom.sizes output.bw`
+**Explanation:** Convert WIG to BigWig format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wigToBigWig -verbose input.wig chrom.sizes output.bw`
+**Explanation:** Convert with verbose output.

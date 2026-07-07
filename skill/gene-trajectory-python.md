@@ -1,30 +1,43 @@
 ---
 name: gene-trajectory-python
 category: expression
-description: Compute gene trajectories
-tags: [gene-trajectory-python, expression]
+description: GeneTrajectory - Compute gene expression trajectories from single-cell RNA-seq data.
+tags: [gene-trajectory-python, single-cell, gene-expression, trajectory-analysis]
 author: oxo-call-community
 source_url: "https://github.com/KlugerLab/GeneTrajectory-python"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gene-trajectory-python (v1.0.4) - Compute gene trajectories
-- **Core Function**: Provides functionality for expression tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gene-trajectory-python`
+- **Trajectory Analysis**: Analyzes gene expression trajectories.
+- **Single-cell Analysis**: Processes single-cell RNA-seq data.
+- **Pseudotime Inference**: Infers pseudotemporal ordering of cells.
+- **Gene Dynamics**: Models gene expression dynamics over time.
+- **Differential Expression**: Identifies differentially expressed genes.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Requires high-quality single-cell data.
+- **Computational Resources**: Large datasets require significant resources.
+- **Parameter Sensitivity**: Results depend on parameter settings.
+- **Noise Handling**: Requires careful noise filtering.
+- **Interpretation**: Trajectory results require careful biological interpretation.
 
 ## Examples
+### Compute gene trajectories
+**Args:** `gene-trajectory -i expression.h5ad -o trajectories.txt`
+**Explanation:** Computes gene expression trajectories from single-cell data.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With pseudotime
+**Args:** `gene-trajectory -i expression.h5ad -p pseudotime.txt -o trajectories.txt`
+**Explanation:** Uses provided pseudotime ordering.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Identify dynamic genes
+**Args:** `gene-trajectory -i expression.h5ad -d -o dynamic_genes.txt`
+**Explanation:** Identifies dynamically expressed genes.
+
+### Visualize trajectories
+**Args:** `gene-trajectory -i expression.h5ad -v -o trajectory_plot.png`
+**Explanation:** Generates visualization of gene trajectories.
+
+### Differential analysis
+**Args:** `gene-trajectory -i expression.h5ad -diff -o diff_results.txt`
+**Explanation:** Performs differential expression analysis along trajectory.

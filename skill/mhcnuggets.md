@@ -1,30 +1,47 @@
 ---
 name: mhcnuggets
 category: variant-calling
-description: MHCnuggets: Neoantigen peptide MHC binding prediction for class I and II
-tags: [mhcnuggets, variant-calling]
+description: "MHCnuggets: Neoantigen peptide MHC binding prediction for class I and II"
+tags: [mhcnuggets, variant-calling, immunology]
 author: oxo-call-community
 source_url: "http://karchinlab.org/apps/mhcnuggets.html"
 ---
-
 ## Concepts
 
-- **Tool Overview**: mhcnuggets v2.4.1 - # MHCnuggets  Welcome to MHCnuggets! Presumably you're here to do some peptide-MHC prediction and not because you were [hungry](https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-4-piece.html).  ### Usage ### For an overview of how to use MHCnuggets please refer to the Jupyter notebook called `user_guide.ipynb` in the repository  ### Installation ###  MHCnuggets is `pip` installable as: ```bash pip install mhcnuggets ```  **Required pacakges:**  * numpy * scipy * scikit-learn * tensorflow * keras  You might want to check if the Keras backend is configured to use the Tensforflow backend..
-- **Core Function**: MHCnuggets: Neoantigen peptide MHC binding prediction for class I and II
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mhcnuggets`
+- **Tool Overview**: MHCnuggets v2.4.1 predicts neoantigen peptide-MHC binding for class I and II.
+- **Core Function**: Predicts peptide-MHC binding for neoantigen identification.
+- **Neoantigen Prediction**: Identifies potential neoantigens from somatic mutations.
+- **Deep Learning**: Uses deep learning models for binding prediction.
+- **Input/Output**: Accepts peptide sequences; outputs binding predictions.
+- **Cancer Immunology**: Used in cancer immunotherapy research.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Deep Learning Dependencies**: Requires TensorFlow/Keras.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal predictions.
+- **Data Quality**: Prediction accuracy depends on input data quality.
+- **Model Training**: Requires model training on large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Predict MHC binding
+**Args:** `mhcnuggets predict -i peptides.txt -o predictions.txt`
+**Explanation:** Predicts peptide-MHC binding affinity.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### MHC class I prediction
+**Args:** `mhcnuggets predict -i peptides.txt -o predictions.txt -c I`
+**Explanation:** Predicts MHC class I binding.
+
+### MHC class II prediction
+**Args:** `mhcnuggets predict -i peptides.txt -o predictions.txt -c II`
+**Explanation:** Predicts MHC class II binding.
+
+### With specific allele
+**Args:** `mhcnuggets predict -i peptides.txt -o predictions.txt -a HLA-A*02:01`
+**Explanation:** Predicts binding to specific MHC allele.
+
+### Batch processing
+**Args:** `mhcnuggets predict -i peptides/ -o predictions/`
+**Explanation:** Processes multiple peptide files in batch mode.

@@ -1,30 +1,48 @@
 ---
 name: msi
 category: utility
-description: Metabarcoding sequences identification - from nanopore reads to taxa tables.
-tags: [msi, utility]
+description: Metabarcoding sequences identification from nanopore reads to taxa tables.
+tags: [msi, utility, metagenomics]
 author: oxo-call-community
-source_url: "https://github.com/nunofonseca/msi"
+source_url: "https://github.com/nunofoneca/msi"
 ---
 
 ## Concepts
 
-- **Tool Overview**: msi v0.3.8 - Metabarcoding sequences identification - from nanopore reads to taxa tables..
-- **Core Function**: Metabarcoding sequences identification - from nanopore reads to taxa tables.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda msi`
+- **Tool Overview**: MSI v0.3.8 identifies metabarcoding sequences from nanopore data.
+- **Core Function**: Processes nanopore reads for taxonomic classification.
+- **Metabarcoding**: Specialized for DNA metabarcoding analysis.
+- **Nanopore Support**: Optimized for Oxford Nanopore sequencing data.
+- **Taxonomic Assignment**: Assigns taxonomy to sequencing reads.
+- **Input/Output**: Accepts FASTQ reads; outputs taxa tables.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Nanopore Specific**: Designed for nanopore sequencing data.
+- **Barcode Quality**: Results depend on barcode quality.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for classification.
+- **Database Dependence**: Requires reference database for classification.
+- **Computational Resources**: Large datasets may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Identify sequences
+**Args:** `msi -i reads.fastq -o taxa_table.txt`
+**Explanation:** Identifies taxonomic composition from reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom database
+**Args:** `msi -i reads.fastq -d custom_db -o taxa_table.txt`
+**Explanation:** Uses custom reference database.
+
+### Generate taxa table
+**Args:** `msi -i reads.fastq -t -o taxa_table.csv`
+**Explanation:** Outputs formatted taxa table.
+
+### Batch processing
+**Args:** `msi -i fastq/ -o results/`
+**Explanation:** Processes multiple sample files.
+
+### Generate report
+**Args:** `msi -i reads.fastq -r report.html -o taxa_table.txt`
+**Explanation:** Generates analysis report.

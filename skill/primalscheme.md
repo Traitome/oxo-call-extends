@@ -1,31 +1,56 @@
 ---
 name: primalscheme
 category: genome-editing
-description: primalscheme is a tool for designing primer panels for multiplex PCR
-tags: ["primalscheme", "genome-editing"]
+description: primalscheme designs primer panels for multiplex PCR.
+tags: [primalscheme, genome-editing, primers, pcr]
 author: oxo-call-community
 source_url: "https://github.com/aresti/primalscheme"
 ---
 
 ## Concepts
 
-- **Tool Overview**: primalscheme is a tool for designing primer panels for multiplex PCR (version 1.4.1)
-- **Core Function**: Processes bioinformatics data related to genome-editing
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda primalscheme`
+- **Tool Overview**: primalscheme designs primers.
+- **Core Function**: Primer panel design.
+- **Algorithm**: Uses thermodynamic methods.
+- **Input Format**: Accepts FASTA files.
+- **Output**: Produces primer sets.
+- **Use Case**: Multiplex PCR, amplicon sequencing.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large genomes require memory.
+- **Data Quality**: Results depend on sequence quality.
+- **Primer Specificity**: May have off-target binding.
+- **Runtime**: Design may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `primalscheme --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Design primers
+**Args:** `primalscheme design -i target.fasta -o primers.csv`
+**Explanation:** Designs primer panel for target region.
 
+### With parameters
+**Args:** `primalscheme design -i target.fasta -p params.yaml -o primers.csv`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `primalscheme -v design -i target.fasta -o primers.csv`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `primalscheme -t 4 design -i target.fasta -o primers.csv`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `primalscheme design -i target.fasta -o primers.bed --bed`
+**Explanation:** Outputs in BED format.
+
+### Generate report
+**Args:** `primalscheme design -i target.fasta -o primers.csv --report report.html`
+**Explanation:** Generates HTML report.

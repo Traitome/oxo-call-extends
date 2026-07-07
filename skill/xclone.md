@@ -1,30 +1,32 @@
 ---
 name: xclone
-category: utility
-description: Inference of clonal Copy Number Alterations in single cells.
-tags: [xclone, utility]
+category: bioinformatics
+description: xclone - Single-cell copy number analysis.
+tags: [xclone, single-cell, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://xclone-cnv.readthedocs.io/en/latest"
+source_url: "https://github.com/single-cell-genetics/XClone"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xclone (v0.4.0) - Inference of clonal Copy Number Alterations in single cells.
-- **Core Function**: Inference of clonal Copy Number Alterations in single cells.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xclone`
+- **Tool Overview**: xclone - Single-cell copy number analysis tool.
+- **Core Function**: Analyzes copy number variations in single cells.
+- **Input**: Single-cell sequencing data.
+- **Output**: Copy number profiles.
+- **Installation**: Install via pip
+- **Use Case**: Single-cell analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze single-cell CNV
+**Args:** `xclone analyze -i input.h5ad -o cnv.txt`
+**Explanation:** Analyze copy number variations.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xclone analyze -i input.h5ad -o cnv.txt -t 8`
+**Explanation:** Use 8 threads.

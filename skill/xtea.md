@@ -1,30 +1,32 @@
 ---
 name: xtea
-category: utility
-description: TE insertion caller for both short and long reads
-tags: [xtea, utility]
+category: bioinformatics
+description: XTEA - RNA-seq analysis tool.
+tags: [xtea, rna-seq, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/parklab/xTea"
+source_url: "https://github.com/yangcao77/XTEA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xtea (v0.1.9) - TE insertion caller for both short and long reads
-- **Core Function**: TE insertion caller for both short and long reads
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xtea`
+- **Tool Overview**: XTEA - Alternative splicing detection tool.
+- **Core Function**: Detects alternative splicing events.
+- **Input**: RNA-seq data.
+- **Output**: Splicing events.
+- **Installation**: Install via pip or conda
+- **Use Case**: RNA-seq analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect splicing
+**Args:** `xtea -i input.bam -o splicing.txt`
+**Explanation:** Detect alternative splicing.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xtea -i input.bam -o splicing.txt -t 8`
+**Explanation:** Use 8 threads.

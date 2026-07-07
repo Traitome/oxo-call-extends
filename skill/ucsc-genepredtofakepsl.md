@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredtofakepsl
-category: alignment
-description: Create a psl of fake-mRNA aligned to gene-preds from a file or table.
-tags: [ucsc-genepredtofakepsl, alignment]
+category: utility
+description: UCSC genePredToFakePsl - Tool for converting gene predictions to fake PSL.
+tags: [ucsc-genepredtofakepsl, ucsc, gene-prediction, psl, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredtofakepsl (v482) - Create a psl of fake-mRNA aligned to gene-preds from a file or table.
-- **Core Function**: Create a psl of fake-mRNA aligned to gene-preds from a file or table.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredtofakepsl`
+- **Tool Overview**: UCSC genePredToFakePsl - A tool for creating fake PSL from gene predictions.
+- **Core Function**: Generates PSL-like format from gene predictions.
+- **Input**: Gene prediction file.
+- **Output**: Fake PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, compatibility, visualization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Fake PSL**: Not a true alignment, just PSL-like format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to fake PSL
+**Args:** `genePredToFakePsl genes.txt > genes.psl`
+**Explanation:** Create fake PSL from gene predictions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredToFakePsl -name=gene genes.txt > genes.psl`
+**Explanation:** Add name prefix.

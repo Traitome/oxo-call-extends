@@ -1,30 +1,52 @@
 ---
 name: longqc
 category: qc
-description: LongQC is a tool for the data quality control of the PacBio and ONT long reads
-tags: [longqc, qc]
+description: LongQC - Quality control tool for PacBio and ONT long reads
+tags: [longqc, qc, quality-control, PacBio, ONT, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/yfukasawa/LongQC"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longqc v1.2.0c - LongQC is a tool for the data quality control of the PacBio and ONT long reads.
-- **Core Function**: LongQC is a tool for the data quality control of the PacBio and ONT long reads
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longqc`
+- **Quality Control**: Quality assessment of sequencing data
+- **PacBio Data**: Analysis of PacBio sequencing data
+- **ONT Data**: Analysis of Oxford Nanopore sequencing data
+- **Read Statistics**: Read quality statistics generation
+- **Visualization**: Quality metrics visualization
+- **Data Filtering**: Filtering low-quality reads
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect analysis
+- **Data Format**: Strict format requirements
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Metrics**: May produce inaccurate quality metrics
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run QC
+**Args:** `longqc sampleqc -i reads.fastq -o qc_report/`
+**Explanation:** Runs quality control on long reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### PacBio mode
+**Args:** `longqc sampleqc -i reads.fastq -o qc_report/ -p pacbio`
+**Explanation:** Optimized for PacBio data.
+
+### ONT mode
+**Args:** `longqc sampleqc -i reads.fastq -o qc_report/ -p ont`
+**Explanation:** Optimized for ONT data.
+
+### Minimum length
+**Args:** `longqc sampleqc -i reads.fastq -o qc_report/ -l 1000`
+**Explanation:** Filters reads shorter than 1000bp.
+
+### Output format
+**Args:** `longqc sampleqc -i reads.fastq -o qc_report/ -f html`
+**Explanation:** Generates HTML report.
+
+### Verbose output
+**Args:** `longqc sampleqc -i reads.fastq -o qc_report/ -v`
+**Explanation:** Provides detailed output.

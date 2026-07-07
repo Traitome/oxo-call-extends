@@ -1,30 +1,32 @@
 ---
 name: ucsc-xmltosql
-category: formatting
-description: Convert XML dump into a fairly normalized relational database.
-tags: [ucsc-xmltosql, formatting]
+category: utility
+description: UCSC xmlToSql - Tool for converting XML to SQL.
+tags: [ucsc-xmltosql, ucsc, xml, sql, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-xmltosql (v482) - Convert XML dump into a fairly normalized relational database.
-- **Core Function**: Convert XML dump into a fairly normalized relational database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-xmltosql`
+- **Tool Overview**: UCSC xmlToSql - A tool for converting XML to SQL statements.
+- **Core Function**: Generates SQL from XML data.
+- **Input**: XML file.
+- **Output**: SQL statements.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data migration, database import, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large XML files.
+- **XML Structure**: Requires proper XML structure.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert XML to SQL
+**Args:** `xmlToSql input.xml > output.sql`
+**Explanation:** Convert XML to SQL.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xmlToSql -verbose input.xml > output.sql`
+**Explanation:** Convert with verbose output.

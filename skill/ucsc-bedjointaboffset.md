@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedjointaboffset
 category: utility
-description: given a bed file and tab file where each have a column with matching values: first get the value of column0, the offset and line length from inTabFile. Then go over the bed file, use the name field and append its offset and length to the bed file as two separate fields. Write the new bed file to outBed.
-tags: [ucsc-bedjointaboffset, utility]
+description: UCSC bedJoinTabOffset - Tool for joining BED files with tab-delimited data.
+tags: [ucsc-bedjointaboffset, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedjointaboffset (v377) - given a bed file and tab file where each have a column with matching values: first get the value of column0, the offset and line length from inTabFile. Then go over the bed file, use the name field and append its offset and length to the bed file as two separate fields. Write the new bed file to outBed.
-- **Core Function**: given a bed file and tab file where each have a column with matching values: first get the value of column0, the offset and line length from inTabFile. Then go over the bed file, use the name field and append its offset and length to the bed file as two separate fields. Write the new bed file to outBed.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedjointaboffset`
+- **Tool Overview**: UCSC bedJoinTabOffset - A tool for joining BED files with tab-delimited offset data.
+- **Core Function**: Merges BED coordinates with additional tab-delimited data.
+- **Input**: BED file, tab-delimited data file.
+- **Output**: Combined BED file with additional columns.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data integration, annotation merging, track generation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Coordinate Matching**: Requires exact coordinate matching.
+- **File Format**: Requires specific input format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Join BED with data
+**Args:** `bedJoinTabOffset -i regions.bed -d data.txt > output.bed`
+**Explanation:** Join BED regions with tab-delimited data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With offset
+**Args:** `bedJoinTabOffset -i regions.bed -d data.txt -offset=2 > output.bed`
+**Explanation:** Join with column offset.

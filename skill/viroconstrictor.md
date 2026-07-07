@@ -1,30 +1,32 @@
 ---
 name: viroconstrictor
-category: hpc
-description: ViroConstrictor is a flexible pipeline for analysis of targeted viral sequencing data
-tags: [viroconstrictor, hpc]
+category: bioinformatics
+description: ViroConstrictor - Viral genome compression.
+tags: [viroconstrictor, viral-genomics, compression, bioinformatics]
 author: oxo-call-community
-source_url: "https://rivm-bioinformatics.github.io/ViroConstrictor/"
+source_url: "https://github.com/viroconstrictor/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viroconstrictor (v1.6.6) - ViroConstrictor is a flexible pipeline for analysis of targeted viral sequencing data
-- **Core Function**: ViroConstrictor is a flexible pipeline for analysis of targeted viral sequencing data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viroconstrictor`
+- **Tool Overview**: ViroConstrictor - Compresses viral sequence data.
+- **Core Function**: Efficiently compresses viral genome data.
+- **Input**: Viral sequence file.
+- **Output**: Compressed file.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data compression, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Decompression**: Requires decompression to use data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compress sequence
+**Args:** `viroconstrictor -i viral.fasta -o viral.vco`
+**Explanation:** Compress viral sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viroconstrictor -i viral.fasta -o viral.vco -l 9`
+**Explanation:** Maximum compression level.

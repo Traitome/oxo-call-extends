@@ -1,30 +1,64 @@
 ---
 name: gtotree
-category: formatting
-description: GToTree is a user-friendly workflow for phylogenomics.
-tags: [gtotree, formatting]
+category: bioinformatics
+description: GToTree is a user-friendly workflow for phylogenomics, enabling rapid construction of phylogenetic trees from genomic data.
+tags: [gtotree, phylogenomics, tree-construction, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/AstrobioMike/GToTree/wiki"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gtotree (v1.8.16) - GToTree is a user-friendly workflow for phylogenomics.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gtotree`
+- **Phylogenomics Workflow**: GToTree provides a complete phylogenomics workflow.
+
+- **Tree Construction**: Constructs phylogenetic trees from genomic data.
+
+- **Genome Integration**: Integrates multiple genomes into a single analysis.
+
+- **Marker Genes**: Uses conserved marker genes for tree inference.
+
+- **Alignment**: Performs multiple sequence alignment.
+
+- **Visualization**: Supports tree visualization and annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Genome Quality**: Results depend on input genome quality.
+
+- **Computational Resources**: Large datasets may require significant resources.
+
+- **Marker Gene Selection**: Choose appropriate marker genes for analysis.
+
+- **Alignment Quality**: Poor alignments affect tree accuracy.
+
+- **Result Interpretation**: Interpret phylogenetic results carefully.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run complete workflow
+**Args:** `GToTree -f genomes/ -o tree/`
+**Explanation:** Runs the complete phylogenomics workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Add reference genomes
+**Args:** `GToTree -f genomes/ -r references/ -o tree/`
+**Explanation:** Includes reference genomes in analysis.
+
+### Specify marker genes
+**Args:** `GToTree -f genomes/ -m markers.txt -o tree/`
+**Explanation:** Uses custom marker gene set.
+
+### Generate visualization
+**Args:** `GToTree -f genomes/ -o tree/ -p`
+**Explanation:** Generates tree visualization.
+
+### Batch processing
+**Args:** `GToTree batch -d datasets/ -o results/`
+**Explanation:** Processes multiple datasets.
+
+### Check dependencies
+**Args:** `GToTree check`
+**Explanation:** Verifies required dependencies are installed.
+
+### Help command
+**Args:** `GToTree --help`
+**Explanation:** Shows available options and usage information.

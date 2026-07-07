@@ -1,30 +1,32 @@
 ---
 name: uropa
-category: variant-calling
-description: UROPA (Universal RObust Peak Annotator) is a command line based tool, intended for genomic region annotation from e.g. peak calling. It detects the most appropriate annotation by taking parameters such as feature type, anchor, direction and strand into account. Furthermore, it allows filtering for GTF attribute values, e.g. protein_coding.
-tags: [uropa, variant-calling]
+category: bioinformatics
+description: UROPA - Universal RObust Peak Annotator.
+tags: [uropa, peak-annotation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://uropa-manual.readthedocs.io"
+source_url: "https://github.com/Gaius-Augustus/UROPA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: uropa (v4.0.3) - UROPA (Universal RObust Peak Annotator) is a command line based tool, intended for genomic region annotation from e.g. peak calling. It detects the most appropriate annotation by taking parameters such as feature type, anchor, direction and strand into account. Furthermore, it allows filtering for GTF attribute values, e.g. protein_coding.
-- **Core Function**: UROPA (Universal RObust Peak Annotator) is a command line based tool, intended for genomic region annotation from e.g. peak calling. It detects the most appropriate annotation by taking parameters such as feature type, anchor, direction and strand into account. Furthermore, it allows filtering for GTF attribute values, e.g. protein_coding.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda uropa`
+- **Tool Overview**: UROPA - A tool for robust peak annotation in ChIP-seq data.
+- **Core Function**: Annotates peaks with genomic features.
+- **Input**: Peak file (BED), annotation database.
+- **Output**: Annotated peaks.
+- **Installation**: Install via conda or source
+- **Use Case**: ChIP-seq analysis, peak annotation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database Requirements**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate peaks
+**Args:** `uropa -i peaks.bed -a annotations.gtf -o annotated_peaks.txt`
+**Explanation:** Annotate peaks with genomic features.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `uropa -i peaks.bed -a annotations.gtf -o annotated_peaks.txt -d 5000`
+**Explanation:** Set distance threshold.

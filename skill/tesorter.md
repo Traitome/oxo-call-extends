@@ -1,30 +1,36 @@
 ---
 name: tesorter
 category: annotation
-description: Lineage-level classification of transposable elements using conserved protein domains.
-tags: [tesorter, annotation]
+description: TESorter - Transposable Element (TE) classifier based on protein domain analysis.
+tags: [tesorter, transposable-element, classification, protein-domain, te-annotation, repeat]
 author: oxo-call-community
-source_url: "https://github.com/zhangrengang/TEsorter/blob/v1.5.1/README.md"
+source_url: "https://github.com/bergmanlab/TESorter"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tesorter (v1.5.1) - Lineage-level classification of transposable elements using conserved protein domains.
-- **Core Function**: Lineage-level classification of transposable elements using conserved protein domains.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tesorter`
+- **Tool Overview**: TESorter - A tool that classifies transposable elements by analyzing protein domains of TE-encoded proteins.
+- **Core Function**: Identifies and classifies TEs into known families by screening TE protein sequences against protein domain databases (Pfam, REX).
+- **Input**: TE sequences (DNA or protein) or genome assembly with TE candidates.
+- **Output**: TE classification with family assignment, protein domain annotations, and visualization.
+- **Installation**: `pip install tesorter` or `conda install -c bioconda tesorter`
+- **Use Case**: TE annotation, studying TE diversity, evolutionary analysis of TE families.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Protein-coding TEs**: Only works for TEs with protein-coding capacity (Class I retrotransposons).
+- **Database Coverage**: Classification depends on completeness of protein domain databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify TEs
+**Args:** `tesorter -i te_sequences.fasta -o classification_results/`
+**Explanation:** Classify transposable elements by protein domain analysis.
 
-### Basic usage
-**Args:** `tesorter -i <input.fasta> -o <output.gff>`
-**Explanation:** Run tesorter with typical input and output options.
+### From genome
+**Args:** `tesorter -g genome.fasta -o te_analysis/`
+**Explanation:** Identify and classify TEs directly from genome assembly.
+
+### Generate report
+**Args:** `tesorter -i te.fasta --report -o results/`
+**Explanation:** Generate detailed classification report with statistics.

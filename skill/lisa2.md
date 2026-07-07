@@ -1,30 +1,52 @@
 ---
 name: lisa2
 category: expression
-description: Lisa: inferring transcriptional regulators through integrative modeling of public chromatin accessibility and ChIP-seq data. X. Shirley Liu Lab, 2020
-tags: [lisa2, expression]
+description: LISA2 - Inferring transcriptional regulators through integrative modeling
+tags: [lisa2, expression, transcription-factors, chromatin, ChIP-seq, bioinformatics]
 author: oxo-call-community
 source_url: "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1934-6"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lisa2 v2.3.2 - Lisa: inferring transcriptional regulators through integrative modeling of public chromatin accessibility and ChIP-seq data. X. Shirley Liu Lab, 2020.
-- **Core Function**: Lisa: inferring transcriptional regulators through integrative modeling of public chromatin accessibility and ChIP-seq data. X. Shirley Liu Lab, 2020
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lisa2`
+- **Transcriptional Regulation**: Inferring transcriptional regulators
+- **Chromatin Accessibility**: Analysis of chromatin accessibility data
+- **ChIP-seq Analysis**: Analysis of ChIP-seq data
+- **Integrative Modeling**: Integrative modeling of multiple data types
+- **Gene Regulation**: Understanding gene regulatory networks
+- **Machine Learning**: Machine learning approaches for regulatory inference
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Data Quality**: Poor quality data affects predictions
+- **Reference Data**: Requires high-quality reference datasets
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Memory Usage**: Memory-intensive for large datasets
+- **Interpretation**: Results require careful biological interpretation
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Infer regulators
+**Args:** `lisa2 -i peaks.bed -o regulators.txt`
+**Explanation:** Infers transcriptional regulators from peaks.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### ChIP-seq analysis
+**Args:** `lisa2 -i peaks.bed -c chip_data/ -o regulators.txt`
+**Explanation:** Integrates ChIP-seq data for regulatory inference.
+
+### Chromatin accessibility
+**Args:** `lisa2 -i peaks.bed -a accessibility.bed -o regulators.txt`
+**Explanation:** Uses chromatin accessibility data.
+
+### Threads
+**Args:** `lisa2 -i peaks.bed -o regulators.txt -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Output plots
+**Args:** `lisa2 -i peaks.bed -o results/ -p`
+**Explanation:** Generates visualization plots.
+
+### Differential analysis
+**Args:** `lisa2 -i peaks.bed -d diff_peaks.bed -o diff_regulators.txt`
+**Explanation:** Performs differential regulatory analysis.

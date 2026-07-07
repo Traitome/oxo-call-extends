@@ -1,31 +1,56 @@
 ---
 name: relocate2
 category: alignment
-description: a high resolution transposable element insertion sites mapping tool for population resequencing
-tags: ["relocate2", "alignment"]
+description: RelocaTE2 is a high-resolution transposable element insertion site mapping tool for population resequencing.
+tags: [relocate2, alignment, transposable-elements, insertion-sites]
 author: oxo-call-community
 source_url: "https://github.com/stajichlab/RelocaTE2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: a high resolution transposable element insertion sites mapping tool for population resequencing (version 2.0.1)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda relocate2`
+- **Tool Overview**: relocate2 maps insertions.
+- **Core Function**: TE insertion mapping.
+- **Algorithm**: Uses alignment methods.
+- **Input Format**: Accepts sequencing reads.
+- **Output**: Produces insertion sites.
+- **Use Case**: Population genomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Read Quality**: Affects mapping.
+- **Parameters**: Must be configured.
+- **Runtime**: Mapping may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `relocate2 --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Map insertions
+**Args:** `relocate2 map -i reads.fastq -r reference.fasta -o insertions.bed`
+**Explanation:** Maps transposable element insertions.
 
+### With parameters
+**Args:** `relocate2 map -i reads.fastq -p params.yaml -o insertions.bed`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `relocate2 -v map -i reads.fastq -o insertions.bed`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `relocate2 -t 4 map -i reads.fastq -o insertions.bed`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With TE library
+**Args:** `relocate2 map -i reads.fastq -t te_library.fasta -o insertions.bed`
+**Explanation:** Uses custom TE library.
+
+### Generate report
+**Args:** `relocate2 map -i reads.fastq -o insertions.bed --report report.html`
+**Explanation:** Generates HTML report.

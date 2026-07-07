@@ -1,30 +1,52 @@
 ---
 name: konezumiaid
-category: variant-calling
-description: This is used for automatically designing gRNAs for genome editing by Target-AID.
-tags: [konezumiaid, variant-calling]
+category: genome-editing
+description: Automated gRNA design for Target-AID genome editing system
+tags: [konezumiaid, genome-editing, CRISPR, gRNA, Target-AID]
 author: oxo-call-community
 source_url: "https://github.com/aki2274/KOnezumi-AID"
 ---
 
 ## Concepts
 
-- **Tool Overview**: konezumiaid v0.3.6.1 - This is used for automatically designing gRNAs for genome editing by Target-AID..
-- **Core Function**: This is used for automatically designing gRNAs for genome editing by Target-AID.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda konezumiaid`
+- **gRNA Design**: Automatically designs guide RNAs for Target-AID system
+- **Target-AID Support**: Specialized for Target-AID base editing system
+- **Automated Design**: Streamlines gRNA selection process
+- **Off-target Analysis**: Evaluates potential off-target sites
+- **Efficiency Prediction**: Predicts gRNA efficiency scores
+- **Multi-species Support**: Supports design across multiple species
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- ** PAM Compatibility**: Requires correct PAM sequence for Target-AID
+- **Target Range**: Base editing efficiency varies by target position
+- **Off-target Risk**: May design guides with off-target potential
+- **Species Specificity**: gRNA efficiency varies between species
+- **Window Selection**: Editing window selection affects outcomes
+- **sgRNA Length**: Proper sgRNA length is critical for efficiency
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Design gRNAs for target
+**Args:** `konezumiaid design -i target_sequence.fasta -o guides.txt`
+**Explanation:** Designs gRNAs for input target sequence.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify PAM sequence
+**Args:** `konezumiaid design -i sequence.fasta -p NGG -o guides.txt`
+**Explanation:** Specifies PAM sequence for Target-AID.
+
+### Off-target analysis
+**Args:** `konezumiaid off-target -g guides.txt -r reference_genome -o analysis.txt`
+**Explanation:** Analyzes potential off-target sites.
+
+### Efficiency scoring
+**Args:** `konezumiaid score -g guides.txt -o scores.txt`
+**Explanation:** Scores gRNA efficiency predictions.
+
+### Batch design
+**Args:** `konezumiaid batch -d sequences/ -o results/`
+**Explanation:** Designs gRNAs for multiple sequences.
+
+### Export results
+**Args:** `konezumiaid export -i results/ -o final_guides.csv`
+**Explanation:** Exports designed guides to CSV format.

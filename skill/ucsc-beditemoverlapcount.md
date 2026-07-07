@@ -1,30 +1,32 @@
 ---
 name: ucsc-beditemoverlapcount
-category: utility
-description: Count number of times a base is overlapped by the items in a bed file.
-tags: [ucsc-beditemoverlapcount, utility]
+category: analysis
+description: UCSC bedItemOverlapCount - Tool for counting overlaps in BED files.
+tags: [ucsc-beditemoverlapcount, ucsc, overlap-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-beditemoverlapcount (v482) - Count number of times a base is overlapped by the items in a bed file.
-- **Core Function**: Count number of times a base is overlapped by the items in a bed file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-beditemoverlapcount`
+- **Tool Overview**: UCSC bedItemOverlapCount - A tool for counting overlaps between BED items.
+- **Core Function**: Counts how many items in one BED file overlap with items in another.
+- **Input**: Two BED files.
+- **Output**: Overlap counts.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Peak analysis, region annotation, overlap statistics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Strand Consideration**: May not consider strand information by default.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Count overlaps
+**Args:** `bedItemOverlapCount regions.bed annotations.bed > counts.txt`
+**Explanation:** Count overlaps between regions and annotations.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With strand
+**Args:** `bedItemOverlapCount -strand + regions.bed annotations.bed > counts.txt`
+**Explanation:** Count overlaps considering strand.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-matrixclustercolumns
-category: hpc
-description: Group the columns of a matrix into clusters, and output a matrix with the same number of rows and generally much fewer columns. Combines columns by taking mean.
-tags: [ucsc-matrixclustercolumns, hpc]
+category: utility
+description: UCSC matrixClusterColumns - Tool for clustering matrix columns.
+tags: [ucsc-matrixclustercolumns, ucsc, matrix, clustering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-matrixclustercolumns (v482) - Group the columns of a matrix into clusters, and output a matrix with the same number of rows and generally much fewer columns. Combines columns by taking mean.
-- **Core Function**: Group the columns of a matrix into clusters, and output a matrix with the same number of rows and generally much fewer columns. Combines columns by taking mean.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-matrixclustercolumns`
+- **Tool Overview**: UCSC matrixClusterColumns - A tool for clustering matrix columns.
+- **Core Function**: Clusters columns in a matrix based on similarity.
+- **Input**: Matrix file.
+- **Output**: Clustered matrix.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Matrix analysis, clustering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large matrices.
+- **Format Requirements**: Requires proper matrix format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster matrix columns
+**Args:** `matrixClusterColumns input.txt > clustered.txt`
+**Explanation:** Cluster matrix columns.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `matrixClusterColumns -k=5 input.txt > clustered.txt`
+**Explanation:** Number of clusters.

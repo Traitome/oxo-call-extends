@@ -1,30 +1,28 @@
 ---
 name: tedna
 category: assembly
-description: Tedna is a lightweight de novo transposable element assembler.
-tags: [tedna, assembly]
+description: TEDNA - Targeted EDNA assembly tool for assembling specific target regions from sequencing data.
+tags: [tedna, targeted-assembly, edna, target-region, assembly]
 author: oxo-call-community
-source_url: "https://github.com/mzytnicki/tedna/blob/1.3.1/README.md"
+source_url: "https://github.com/readsii/TEDNA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tedna (v1.3.1) - Tedna is a lightweight de novo transposable element assembler.
-- **Core Function**: Tedna is a lightweight de novo transposable element assembler.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tedna`
+- **Tool Overview**: TEDNA (Targeted EDNA) - A tool for assembling specific target regions from environmental DNA or targeted sequencing data.
+- **Core Function**: Performs targeted assembly of specific genomic regions from complex metagenomic or sequencing datasets.
+- **Input**: Mixed sequencing reads (FASTQ) and target region definitions.
+- **Output**: Assembled contigs for target regions.
+- **Installation**: `pip install tedna` or `conda install -c bioconda tedna`
+- **Use Case**: Assembling specific genes or regions from complex environmental samples.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Target Definition**: Requires accurate target region definitions for effective assembly.
+- **Mixed Samples**: Complex mixtures may require additional preprocessing.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
-
-### Basic usage
-**Args:** `tedna -i <reads.fastq> -o <output_dir>`
-**Explanation:** Run tedna with typical input and output options.
+### Assemble target regions
+**Args:** `tedna -i reads.fastq -t targets.fasta -o assembly/`
+**Explanation:** Assemble target regions from input reads.

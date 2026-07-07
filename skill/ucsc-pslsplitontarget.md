@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslsplitontarget
 category: utility
-description: Split psl files into one per target.
-tags: [ucsc-pslsplitontarget, utility]
+description: UCSC pslSplitOnTarget - Tool for splitting PSL on target.
+tags: [ucsc-pslsplitontarget, ucsc, psl, splitting, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslsplitontarget (v482) - Split psl files into one per target.
-- **Core Function**: Split psl files into one per target.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslsplitontarget`
+- **Tool Overview**: UCSC pslSplitOnTarget - A tool for splitting PSL alignments on target.
+- **Core Function**: Splits alignments based on target regions.
+- **Input**: PSL file, target regions.
+- **Output**: Split PSL files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data partitioning, target-based splitting, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Split PSL on target
+**Args:** `pslSplitOnTarget targets.bed input.psl`
+**Explanation:** Split alignments by target regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslSplitOnTarget -verbose targets.bed input.psl`
+**Explanation:** Split with verbose output.

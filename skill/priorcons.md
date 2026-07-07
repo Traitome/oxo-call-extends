@@ -1,31 +1,56 @@
 ---
 name: priorcons
 category: genome-editing
-description: Prior-guided integration tool that improves viral consensus sequences by filling masked regions using candidate sequences validated against evolutionary priors.
-tags: ["priorcons", "genome-editing"]
+description: priorcons improves viral consensus sequences using evolutionary priors.
+tags: [priorcons, genome-editing, viral-sequencing, consensus]
 author: oxo-call-community
 source_url: "https://github.com/GERMAN00VP/priorcons"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Prior-guided integration tool that improves viral consensus sequences by filling masked regions using candidate sequences validated against evolutionary priors. (version 0.1.4)
-- **Core Function**: Processes bioinformatics data related to genome-editing
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda priorcons`
+- **Tool Overview**: priorcons refines viral sequences.
+- **Core Function**: Consensus sequence improvement.
+- **Algorithm**: Uses evolutionary prior methods.
+- **Input Format**: Accepts sequence files.
+- **Output**: Produces improved consensus.
+- **Use Case**: Viral genomics, sequence analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Prior Selection**: May affect results.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `priorcons --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Improve consensus
+**Args:** `priorcons -i consensus.fasta -o improved.fasta`
+**Explanation:** Improves viral consensus sequence.
 
+### With parameters
+**Args:** `priorcons -i consensus.fasta -p params.yaml -o improved.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `priorcons -v -i consensus.fasta -o improved.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `priorcons -t 4 -i consensus.fasta -o improved.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `priorcons -i consensus.fasta -o improved.txt --txt`
+**Explanation:** Outputs in text format.
+
+### Generate report
+**Args:** `priorcons -i consensus.fasta -o improved.fasta --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,22 +1,43 @@
 ---
 name: gambit
 category: metagenomics
-description: Tool for rapid taxonomic identification of microbial pathogens
-tags: [gambit, metagenomics]
+description: Tool for rapid taxonomic identification of microbial pathogens.
+tags: [gambit, taxonomic identification, pathogen, metagenomics]
 author: oxo-call-community
 source_url: "https://github.com/jlumpe/gambit"
 ---
 
 ## Concepts
-- **Tool Overview**: GAMBIT (Genomic Approximation Method for Bacterial Identification and Tracking) is a tool for rapid taxonomic identification of microbial pathogens. It uses an extremely efficient genomic distance metric along with a curated database of approximately 50,000 reference genomes (derived from NCBI RefSeq) to identify unknown bacterial genomes within seconds.
-- **Core Function**: Tool for rapid taxonomic identification of microbial pathogens
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda gambit`
+- **Genomic Distance**: Uses efficient genomic distance metric.
+- **Large Database**: Curated database of ~50,000 reference genomes.
+- **Fast Identification**: Identifies genomes within seconds.
+- **NCBI RefSeq**: Based on NCBI RefSeq reference genomes.
+- **Bacterial Pathogens**: Optimized for bacterial pathogen identification.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Database Size**: Large database requires significant storage.
+- **Novel Organisms**: May miss novel or distantly related organisms.
+- **Computational Resources**: Requires adequate computational resources.
+- **Database Updates**: Needs regular database updates.
+- **Query Complexity**: Complex queries may take longer.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Identify genome
+**Args:** `gambit query -i genome.fasta -o results.csv`
+**Explanation:** Identifies genome from query sequence.
+
+### With taxonomy filter
+**Args:** `gambit query -i genome.fasta --taxon genus -o results.csv`
+**Explanation:** Filters results by genus.
+
+### Create database
+**Args:** `gambit create-database -i genomes/ -o gambit.db`
+**Explanation:** Creates GAMBIT database from genomes.
+
+### Check database
+**Args:** `gambit check-database -d gambit.db`
+**Explanation:** Checks database integrity.
+
+### Export results
+**Args:** `gambit export -i results.csv -f json -o results.json`
+**Explanation:** Exports results to JSON format.

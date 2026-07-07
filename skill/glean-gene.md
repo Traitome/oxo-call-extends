@@ -1,30 +1,43 @@
 ---
 name: glean-gene
-category: alignment
-description: GLEAN is an unsupervised learning system to integrate disparate sources of gene structure evidence (gene model predictions, EST/protein genomic sequence alignments, SAGE/peptide tags, etc) to produce a consensus gene prediction, without prior training.
-tags: [glean-gene, alignment]
+category: gene-prediction
+description: GLEAN - Consensus gene prediction by integrating multiple evidence sources.
+tags: [glean-gene, gene-prediction, integration, evidence]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/glean-gene/"
 ---
 
 ## Concepts
-
-- **Tool Overview**: glean-gene (v1.0.1) - GLEAN is an unsupervised learning system to integrate disparate sources of gene structure evidence (gene model predictions, EST/protein genomic sequence alignments, SAGE/peptide tags, etc) to produce a consensus gene prediction, without prior training.
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda glean-gene`
+- **Consensus Prediction**: Integrates multiple evidence sources.
+- **Unsupervised Learning**: No prior training required.
+- **Evidence Integration**: Combines gene predictions, EST, protein alignments.
+- **Gene Structure**: Predicts gene structures.
+- **Annotation**: Produces consensus annotations.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Evidence Quality**: Depends on input evidence quality.
+- **Complex Loci**: May struggle with complex loci.
+- **Computational Resources**: Requires resources.
+- **Parameter Selection**: May require parameter tuning.
+- **Result Validation**: Results should be validated.
 
 ## Examples
+### Run GLEAN
+**Args:** `glean -i evidence.txt -o genes.gff3`
+**Explanation:** Runs GLEAN gene prediction.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `glean -i evidence.txt -c 0.8 -o genes.gff3`
+**Explanation:** Uses confidence threshold.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Generate report
+**Args:** `glean -i evidence.txt -r -o report.html`
+**Explanation:** Generates prediction report.
+
+### Validate output
+**Args:** `glean -i evidence.txt -v -o genes.gff3`
+**Explanation:** Validates output.
+
+### Batch processing
+**Args:** `glean -l samples.txt -o ./results/`
+**Explanation:** Processes multiple samples.

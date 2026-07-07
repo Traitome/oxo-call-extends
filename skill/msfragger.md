@@ -1,30 +1,48 @@
 ---
 name: msfragger
-category: utility
-description: Ultrafast, comprehensive peptide identification for mass spectrometry–based proteomics
-tags: [msfragger, utility]
+category: proteomics
+description: Ultrafast, comprehensive peptide identification for mass spectrometry proteomics.
+tags: [msfragger, proteomics, mass-spectrometry]
 author: oxo-call-community
 source_url: "https://github.com/Nesvilab/MSFragger"
 ---
 
 ## Concepts
 
-- **Tool Overview**: msfragger v4.2 - MSFragger is an ultrafast database search tool for peptide identification in mass spectrometry-based proteomics. It has demonstrated excellent performance across a wide range of datasets and applications. MSFragger is suitable for standard shotgun proteomics analyses as well as large datasets (including timsTOF PASEF data), enzyme unconstrained searches (e.g., peptidome), open database searches (e.g., precursor mass tolerance set to hundreds of Daltons) for identification of modified peptides, and glycopeptide identification (N-linked and O-linked).  MSFragger is available freely for academic research and educational purposes only, in accordance with the terms at https://msfragger.arsci.com/upgrader/MSFragger-LICENSE.pdf..
-- **Core Function**: Ultrafast, comprehensive peptide identification for mass spectrometry–based proteomics
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda msfragger`
+- **Tool Overview**: MSFragger v4.2 performs ultrafast peptide identification.
+- **Core Function**: Searches MS/MS spectra against protein databases.
+- **Fast Search**: Optimized for rapid database searching.
+- **Open Search**: Supports large precursor mass tolerance.
+- **Glycopeptide Analysis**: Handles N-linked and O-linked glycopeptides.
+- **Input/Output**: Accepts MS data and database; outputs peptide identifications.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Proteomics Specific**: Designed for mass spectrometry data.
+- **Database Requirement**: Requires protein sequence database.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for search.
+- **Computational Resources**: Large datasets may require significant resources.
+- **FDR Control**: Requires post-processing for false discovery rate control.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run database search
+**Args:** `msfragger -i raw_data/ -d uniprot.fasta -o results.tsv`
+**Explanation:** Searches MS/MS spectra against database.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Open modification search
+**Args:** `msfragger -i raw_data/ -d uniprot.fasta -open_mod -o results.tsv`
+**Explanation:** Performs open modification search.
+
+### Glycopeptide identification
+**Args:** `msfragger -i raw_data/ -d uniprot.fasta -glyco -o results.tsv`
+**Explanation:** Identifies glycopeptides.
+
+### With timsTOF data
+**Args:** `msfragger -i tims_data/ -d uniprot.fasta -o results.tsv`
+**Explanation:** Processes timsTOF PASEF data.
+
+### Specify enzyme cleavage
+**Args:** `msfragger -i raw_data/ -d uniprot.fasta -enzyme trypsin -o results.tsv`
+**Explanation:** Uses trypsin cleavage rules.

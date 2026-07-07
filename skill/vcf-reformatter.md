@@ -1,30 +1,32 @@
 ---
 name: vcf-reformatter
-category: variant-calling
-description: Fast VCF file parser and reformatter with VEP and SnpEff annotation support
-tags: [vcf-reformatter, variant-calling, vcf]
+category: bioinformatics
+description: vcf-reformatter - VCF reformatting tool.
+tags: [vcf-reformatter, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/flalom/vcf-reformatter/blob/main/README.md"
+source_url: "https://github.com/vcf-reformatter/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf-reformatter (v0.3.0) - A Rust command-line tool for parsing and reformatting VCF (Variant Call Format) files, with support for VEP (Variant Effect Predictor) and SnpEff annotations. This tool flattens complex VCF files into tab-separated values (TSV) format for easier downstream analysis.
-- **Core Function**: Fast VCF file parser and reformatter with VEP and SnpEff annotation support
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf-reformatter`
+- **Tool Overview**: vcf-reformatter - Reformats VCF files.
+- **Core Function**: Converts VCF files to different formats or styles.
+- **Input**: VCF file.
+- **Output**: Reformatted VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: VCF normalization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Format Compatibility**: Output format must be compatible.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Reformat VCF
+**Args:** `vcf-reformatter -i input.vcf -o output.vcf`
+**Explanation:** Reformat VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf-reformatter -i input.vcf -o output.vcf -f compact`
+**Explanation:** Use compact format.

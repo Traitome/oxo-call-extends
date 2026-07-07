@@ -1,30 +1,32 @@
 ---
 name: ucsc-autodtd
-category: formatting
-description: Give this a XML document to look at and it will come up with a DTD.
-tags: [ucsc-autodtd, formatting]
+category: utility
+description: UCSC autoDtd - Tool for generating DTD files from autoSql schemas.
+tags: [ucsc-autodtd, ucsc, dtd-generation, schema, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-autodtd (v482) - Give this a XML document to look at and it will come up with a DTD.
-- **Core Function**: Give this a XML document to look at and it will come up with a DTD.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-autodtd`
+- **Tool Overview**: UCSC autoDtd - A tool for generating DTD (Document Type Definition) files from autoSql schemas.
+- **Core Function**: Converts autoSql schema definitions to XML DTD format.
+- **Input**: autoSql schema file.
+- **Output**: DTD file for XML validation.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Schema generation, XML validation, data standardization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Schema Format**: Requires proper autoSql schema format.
+- **Validation**: Generated DTD requires validation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate DTD
+**Args:** `autoDtd schema.as > output.dtd`
+**Explanation:** Generate DTD from autoSql schema.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With output file
+**Args:** `autoDtd -o schema.dtd input.as`
+**Explanation:** Generate DTD with specified output file.

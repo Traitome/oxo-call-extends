@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslcheck
 category: utility
-description: Validate PSL files.
-tags: [ucsc-pslcheck, utility]
+description: UCSC pslCheck - Tool for checking PSL files.
+tags: [ucsc-pslcheck, ucsc, psl, validation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslcheck (v482) - Validate PSL files.
-- **Core Function**: Validate PSL files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslcheck`
+- **Tool Overview**: UCSC pslCheck - A tool for validating PSL files.
+- **Core Function**: Checks PSL file format and integrity.
+- **Input**: PSL file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data validation, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper PSL format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check PSL file
+**Args:** `pslCheck input.psl`
+**Explanation:** Validate PSL file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslCheck -verbose input.psl`
+**Explanation:** Detailed validation report.

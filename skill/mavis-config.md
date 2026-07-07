@@ -1,30 +1,52 @@
 ---
 name: mavis-config
 category: utility
-description: Config validation for running MAVIS via Snakemake
-tags: [mavis-config, utility]
+description: Configuration validation for running MAVIS structural variant detection via Snakemake.
+tags: [mavis-config, structural-variants, configuration]
 author: oxo-call-community
 source_url: "https://github.com/bcgsc/mavis_config.git"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mavis-config v1.2.2 - Config validation for running MAVIS via Snakemake.
-- **Core Function**: Config validation for running MAVIS via Snakemake
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: mavis-config validates configurations for MAVIS pipeline.
+- **Core Function**: Validates and prepares configuration files for MAVIS.
+- **Snakemake Integration**: Works with Snakemake workflow management.
+- **Schema Validation**: Validates config against predefined schema.
+- **Input/Output**: Accepts YAML config files, produces validated output.
 - **Installation**: `conda install -c bioconda mavis-config`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Configuration Complexity**: MAVIS config can be complex.
+- **Dependency Versions**: Requires specific versions of dependencies.
+- **Schema Changes**: Schema may change between versions.
+- **Path Configuration**: Requires correct path configuration.
+- **Validation Errors**: May produce cryptic validation errors.
+- **Documentation**: Requires careful reading of documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Validate config
+**Args:** `mavis-config validate config.yaml`
+**Explanation:** Validates configuration file against schema.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Generate template
+**Args:** `mavis-config template -o config_template.yaml`
+**Explanation:** Generates configuration template.
+
+### Check dependencies
+**Args:** `mavis-config check-deps`
+**Explanation:** Checks required dependencies.
+
+### Convert config
+**Args:** `mavis-config convert old_config.yaml -o new_config.yaml`
+**Explanation:** Converts between config formats.
+
+### Show schema
+**Args:** `mavis-config schema`
+**Explanation:** Displays configuration schema.
+
+### Help documentation
+**Args:** `mavis-config --help`
+**Explanation:** Displays available commands and options.

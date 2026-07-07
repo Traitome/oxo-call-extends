@@ -1,30 +1,43 @@
 ---
 name: gfflu
 category: annotation
-description: Annotate Influenza A virus gene segment sequences and output GFF3 files.
-tags: [gfflu, annotation, GFF]
+description: gfflu - Annotate Influenza A virus gene segment sequences and output GFF3 files.
+tags: [gfflu, annotation, influenza, virus, GFF3]
 author: oxo-call-community
 source_url: "https://github.com/CFIA-NCFAD/gfflu"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfflu (v0.0.2) - Annotate Influenza A virus gene segment sequences and output GFF3 files.
-- **Core Function**: Provides functionality for annotation tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfflu`
+- **Influenza Annotation**: Annotates Influenza A segments.
+- **Virus Analysis**: Analyzes viral gene sequences.
+- **Segment Identification**: Identifies viral segments.
+- **GFF3 Output**: Outputs standard GFF3 format.
+- **Gene Prediction**: Predicts viral genes.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Segment Specificity**: Designed for Influenza A only.
+- **Sequence Quality**: Requires high-quality sequences.
+- **Annotation Accuracy**: Results should be validated.
+- **Segment Detection**: May miss unusual segments.
+- **Data Format**: Requires correct input format.
 
 ## Examples
+### Annotate influenza
+**Args:** `gfflu -i influenza_segments.fasta -o annotations.gff3`
+**Explanation:** Annotates Influenza A segments.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With species
+**Args:** `gfflu -i segments.fasta -s "H1N1" -o annotations.gff3`
+**Explanation:** Specifies influenza subtype.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gfflu -l samples.txt -o ./annotations/`
+**Explanation:** Processes multiple samples.
+
+### Generate report
+**Args:** `gfflu -i segments.fasta -r -o report.html`
+**Explanation:** Generates annotation report.
+
+### Validate output
+**Args:** `gfflu -i segments.fasta -v -o annotations.gff3`
+**Explanation:** Validates GFF3 output.

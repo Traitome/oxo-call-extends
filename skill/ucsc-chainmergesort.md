@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainmergesort
 category: utility
-description: Combine sorted files into larger sorted file.
-tags: [ucsc-chainmergesort, utility]
+description: UCSC chainMergeSort - Tool for merging and sorting chain alignments.
+tags: [ucsc-chainmergesort, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainmergesort (v482) - Combine sorted files into larger sorted file.
-- **Core Function**: Combine sorted files into larger sorted file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainmergesort`
+- **Tool Overview**: UCSC chainMergeSort - A tool for merging and sorting chain alignments.
+- **Core Function**: Merges multiple chain files and sorts by target coordinates.
+- **Input**: Multiple chain alignment files.
+- **Output**: Merged and sorted chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment merging, data organization, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Chromosome Consistency**: Requires matching chromosome names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Merge and sort
+**Args:** `chainMergeSort chain1.txt chain2.txt > merged.chain`
+**Explanation:** Merge and sort chain alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With output file
+**Args:** `chainMergeSort -output merged.chain chain*.txt`
+**Explanation:** Merge multiple chain files.

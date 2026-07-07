@@ -1,30 +1,32 @@
 ---
 name: varfish-server-worker
-category: utility
-description: Rust-based tool for the heavy lifting in varfish-server.
-tags: [varfish-server-worker, utility]
+category: bioinformatics
+description: VarFish Server Worker - Background worker for VarFish server.
+tags: [varfish-server-worker, varfish, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/varfish-org/varfish-server-worker"
+source_url: "https://github.com/varfish-org/varfish-server"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varfish-server-worker (v0.17.3) - Rust-based tool for the heavy lifting in varfish-server.
-- **Core Function**: Rust-based tool for the heavy lifting in varfish-server.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varfish-server-worker`
+- **Tool Overview**: VarFish Server Worker - Background worker process for VarFish server.
+- **Core Function**: Processes variant analysis jobs in background.
+- **Input**: Job queue.
+- **Output**: Analysis results.
+- **Installation**: Install via pip
+- **Use Case**: Server administration, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for processing.
+- **Configuration**: Requires proper server configuration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Start worker
+**Args:** `varfish-server-worker --queue default --workers 4`
+**Explanation:** Start background worker.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `varfish-server-worker --queue default --workers 4 --timeout 3600`
+**Explanation:** Set timeout to 1 hour.

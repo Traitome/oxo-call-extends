@@ -1,30 +1,52 @@
 ---
 name: sgdemux
 category: utility
-description: Tool for demultiplexing sequencing data generated on Singular Genomics' sequencing instruments.
-tags: [sgdemux, utility]
+description: sgdemux - Demultiplexing for Singular Genomics sequencing instruments
+tags: ["sgdemux", "utility", "demultiplexing", "sequencing"]
 author: oxo-call-community
 source_url: "https://github.com/Singular-Genomics/singular-demux"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sgdemux (v1.2.0) - Tool for demultiplexing sequencing data generated on Singular Genomics' sequencing instruments.
-- **Core Function**: Tool for demultiplexing sequencing data generated on Singular Genomics' sequencing instruments.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sgdemux`
+- **Tool Overview**: sgdemux (v1.2.0) demultiplexes sequencing data from Singular Genomics instruments.
+- **Core Function**: Separates pooled sequencing data into individual samples.
+- **Algorithm**: Uses barcode matching for sample identification.
+- **Input/Output**: Accepts raw sequencing data and produces demultiplexed FASTQ files.
+- **Demultiplexing**: Focuses on sample separation using barcodes.
+- **Applications**: Sequencing data processing, NGS analysis, and sample management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Input Format**: Requires correct sequencing data format.
+- **Performance**: May be slow for extremely large files.
+- **Barcode Quality**: Results depend on barcode quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Demultiplex reads
+**Args:** `sgdemux -i input_data/ -o output/ -b barcodes.csv`
+**Explanation:** `-i` input directory; `-o` output directory; `-b` barcode file.
 
-### Basic usage
-**Args:** `sgdemux -i <input_file> -o <output_file>`
-**Explanation:** Run sgdemux with typical input and output options.
+### With mismatches
+**Args:** `sgdemux -i input_data/ -o output/ -b barcodes.csv -m 2`
+**Explanation:** `-m 2` allows 2 barcode mismatches.
+
+### Verbose logging
+**Args:** `sgdemux -v -i input_data/ -o output/ -b barcodes.csv`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `sgdemux --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sgdemux --version`
+**Explanation:** Shows current version.
+
+### Sample sheet
+**Args:** `sgdemux -i input_data/ -o output/ -s samplesheet.csv`
+**Explanation:** `-s` sample sheet file.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-findmotif
-category: utility
-description: Find specified motif in sequence.
-tags: [ucsc-findmotif, utility]
+category: analysis
+description: UCSC findMotif - Tool for finding sequence motifs.
+tags: [ucsc-findmotif, ucsc, motif-finding, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-findmotif (v482) - Find specified motif in sequence.
-- **Core Function**: Find specified motif in sequence.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-findmotif`
+- **Tool Overview**: UCSC findMotif - A tool for discovering sequence motifs.
+- **Core Function**: Identifies conserved motifs in sequences.
+- **Input**: Sequence file.
+- **Output**: Motif discovery results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Motif analysis, transcription factor binding, regulatory analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Computation Time**: May be slow for large datasets.
+- **Memory**: May require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find motifs
+**Args:** `findMotif input.fa > motifs.txt`
+**Explanation:** Discover motifs in sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `findMotif -minLength=6 input.fa > motifs.txt`
+**Explanation:** Minimum motif length.

@@ -1,12 +1,11 @@
 ---
 name: fairease-source
 category: utility
-description: SOURCE: Sea Observations Utility for Reprocessing, Calibration and Evaluation.
+description: "SOURCE: Sea Observations Utility for Reprocessing, Calibration and Evaluation."
 tags: [fairease-source, utility]
 author: oxo-call-community
 source_url: "https://github.com/fair-ease/Source"
 ---
-
 ## Concepts
 - **Tool Overview**: SOURCE: Sea Observations Utility for Reprocessing, Calibration and Evaluation.
 - **Core Function**: SOURCE: Sea Observations Utility for Reprocessing, Calibration and Evaluation.

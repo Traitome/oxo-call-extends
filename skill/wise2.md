@@ -1,30 +1,32 @@
 ---
 name: wise2
-category: utility
-description: The Wise2.4 package is the "revival" release of Wise2
-tags: [wise2, utility]
+category: bioinformatics
+description: Wise2 - Sequence analysis tool.
+tags: [wise2, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://www.ebi.ac.uk/~birney/wise2/"
+source_url: "https://github.com/wise2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wise2 (v2.4.1) - The Wise2.4 package is the "revival" release of Wise2
-- **Core Function**: The Wise2.4 package is the "revival" release of Wise2
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wise2`
+- **Tool Overview**: Wise2 - Sequence analysis tool.
+- **Core Function**: Analyzes sequences.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Download from official site
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequence
+**Args:** `wise2 -i sequence.fasta -o analysis.txt`
+**Explanation:** Analyze sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wise2 -i sequence.fasta -o analysis.txt -m detailed`
+**Explanation:** Detailed analysis.

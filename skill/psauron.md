@@ -1,31 +1,56 @@
 ---
 name: psauron
 category: annotation
-description: PSAURON: a machine learning model for rapid assessment of protein coding gene annotation
-tags: ["psauron", "annotation"]
+description: psauron uses machine learning to assess protein-coding gene annotation quality.
+tags: [psauron, annotation, machine-learning, gene-annotation]
 author: oxo-call-community
 source_url: "https://github.com/salzberg-lab/PSAURON"
 ---
 
 ## Concepts
 
-- **Tool Overview**: PSAURON: a machine learning model for rapid assessment of protein coding gene annotation (version 1.1.0)
-- **Core Function**: Processes bioinformatics data related to annotation
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda psauron`
+- **Tool Overview**: psauron evaluates gene annotations.
+- **Core Function**: Annotation assessment.
+- **Algorithm**: Uses ML classification.
+- **Input Format**: Accepts genome/annotation files.
+- **Output**: Produces quality scores.
+- **Use Case**: Genome annotation.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large genomes require memory.
+- **Data Quality**: Results depend on input quality.
+- **Model Performance**: May have biases.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `psauron --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Annotate features
-**Args:** `-i genome.fasta -o annotation.gff`
-**Explanation:** Predicts and annotates genomic features.
+### Assess annotation
+**Args:** `psauron -i genome.fasta -a annotation.gff -o scores.txt`
+**Explanation:** Evaluates gene annotation quality.
 
+### With parameters
+**Args:** `psauron -i genome.fasta -a annotation.gff --params params.yaml -o scores.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `psauron -v -i genome.fasta -a annotation.gff -o scores.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `psauron -t 4 -i genome.fasta -a annotation.gff -o scores.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `psauron -i genome.fasta -a annotation.gff -o scores.csv --csv`
+**Explanation:** Outputs in CSV format.
+
+### Generate report
+**Args:** `psauron -i genome.fasta -a annotation.gff -o scores.txt --report report.html`
+**Explanation:** Generates HTML report.

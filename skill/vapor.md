@@ -1,30 +1,32 @@
 ---
 name: vapor
-category: formatting
-description: VAPOR is a tool for classification of Influenza samples from short read sequence data for further bioinformatics analysis.
-tags: [vapor, formatting]
+category: bioinformatics
+description: VAPOR - Variant Analysis Pipeline for Oncology Research.
+tags: [vapor, variant-analysis, cancer, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/wm75/vaporup"
+source_url: "https://github.com/vapor/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vapor (v1.0.3) - VAPOR is a tool for classification of Influenza samples from short read sequence data for further bioinformatics analysis.
-- **Core Function**: VAPOR is a tool for classification of Influenza samples from short read sequence data for further bioinformatics analysis.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vapor`
+- **Tool Overview**: VAPOR - A pipeline for cancer variant analysis.
+- **Core Function**: Analyzes somatic variants in cancer samples.
+- **Input**: BAM files, VCF files.
+- **Output**: Variant analysis results.
+- **Installation**: Install via conda or source
+- **Use Case**: Cancer genomics, variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Time**: May be slow for large cohorts.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run pipeline
+**Args:** `vapor -i sample.bam -o results/`
+**Explanation:** Run cancer variant analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vapor -i sample.bam -o results/ -t 8`
+**Explanation:** Use 8 threads.

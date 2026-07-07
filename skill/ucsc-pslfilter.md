@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslfilter
-category: qc
-description: Filter out psl file.
-tags: [ucsc-pslfilter, qc]
+category: utility
+description: UCSC pslFilter - Tool for filtering PSL alignments.
+tags: [ucsc-pslfilter, ucsc, psl, filtering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslfilter (v482) - Filter out psl file.
-- **Core Function**: Filter out psl file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslfilter`
+- **Tool Overview**: UCSC pslFilter - A tool for filtering PSL alignments.
+- **Core Function**: Filters PSL alignments based on criteria.
+- **Input**: PSL file.
+- **Output**: Filtered PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment filtering, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Filter Criteria**: Requires proper filter specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter PSL alignments
+**Args:** `pslFilter input.psl > filtered.psl`
+**Explanation:** Filter PSL alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslFilter -minScore=100 input.psl > filtered.psl`
+**Explanation:** Minimum alignment score filter.

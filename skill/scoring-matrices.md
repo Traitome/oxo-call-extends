@@ -1,30 +1,56 @@
 ---
 name: scoring-matrices
-category: utility
-description: Dependency free, Cython-compatible scoring matrices to use with biological sequences.
-tags: [scoring-matrices, utility]
+category: sequence-analysis
+description: scoring-matrices - Dependency free, Cython-compatible scoring matrices for biological sequences
+tags: ["scoring-matrices", "sequence-analysis", "alignment", "bioinformatics"]
 author: oxo-call-community
 source_url: "https://scoring-matrices.readthedocs.org"
 ---
 
 ## Concepts
 
-- **Tool Overview**: scoring-matrices (v0.3.4) - Dependency free, Cython-compatible scoring matrices to use with biological sequences.
-- **Core Function**: Dependency free, Cython-compatible scoring matrices to use with biological sequences.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda scoring-matrices`
+- **Tool Overview**: scoring-matrices (v0.3.4) provides dependency-free, Cython-compatible scoring matrices for biological sequences.
+- **Core Function**: Offers standardized scoring matrices for sequence alignment and comparison.
+- **Algorithm**: Implements various scoring matrices including BLOSUM and PAM matrices.
+- **Input/Output**: Accepts sequence data and produces alignment scores.
+- **Performance**: Optimized for fast computation with Cython support.
+- **Applications**: Sequence alignment, protein comparison, and bioinformatics analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Matrix Selection**: Choosing the wrong matrix affects alignment quality.
+- **Gap Penalties**: Requires appropriate gap penalty settings.
+- **Memory Usage**: Large matrices may require significant memory.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Performance**: May require optimization for very large datasets.
+- **Documentation**: Some advanced features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load BLOSUM62 matrix
+**Args:** `from scoring_matrices import BLOSUM62; matrix = BLOSUM62()`
+**Explanation:** Loads BLOSUM62 scoring matrix.
 
-### Basic usage
-**Args:** `scoring-matrices -i <input_file> -o <output_file>`
-**Explanation:** Run scoring-matrices with typical input and output options.
+### Load PAM250 matrix
+**Args:** `from scoring_matrices import PAM250; matrix = PAM250()`
+**Explanation:** Loads PAM250 scoring matrix.
+
+### Get score
+**Args:** `score = matrix['A']['T']`
+**Explanation:** Gets alignment score for amino acids A and T.
+
+### Custom matrix
+**Args:** `from scoring_matrices import ScoringMatrix; custom = ScoringMatrix(matrix_dict)`
+**Explanation:** Creates custom scoring matrix.
+
+### Save matrix
+**Args:** `matrix.to_file('matrix.txt')`
+**Explanation:** Saves matrix to file.
+
+### Load from file
+**Args:** `from scoring_matrices import load_matrix; matrix = load_matrix('matrix.txt')`
+**Explanation:** Loads matrix from file.
+
+### Matrix properties
+**Args:** `size = matrix.size; is_symmetric = matrix.is_symmetric`
+**Explanation:** Gets matrix properties.

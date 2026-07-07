@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafspecieslist
 category: utility
-description: Scan maf and output all species used in it.
-tags: [ucsc-mafspecieslist, utility]
+description: UCSC mafSpeciesList - Tool for species list from MAF.
+tags: [ucsc-mafspecieslist, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafspecieslist (v482) - Scan maf and output all species used in it.
-- **Core Function**: Scan maf and output all species used in it.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafspecieslist`
+- **Tool Overview**: UCSC mafSpeciesList - A tool for extracting species list from MAF.
+- **Core Function**: Extracts list of species present in MAF alignments.
+- **Input**: MAF file.
+- **Output**: Species list.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Species analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract species list
+**Args:** `mafSpeciesList input.maf > species.txt`
+**Explanation:** Extract species list from MAF.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafSpeciesList -count input.maf > species.txt`
+**Explanation:** Include count with species list.

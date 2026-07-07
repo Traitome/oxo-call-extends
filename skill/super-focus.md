@@ -1,12 +1,11 @@
 ---
 name: super-focus
 category: metagenomics
-description: SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
+description: "SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data"
 tags: [super-focus, metagenomics]
 author: oxo-call-community
 source_url: "https://edwards.sdsu.edu/SUPERFOCUS"
 ---
-
 ## Concepts
 
 - **Tool Overview**: super-focus (v1.6) - SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data

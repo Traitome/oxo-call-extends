@@ -1,30 +1,32 @@
 ---
 name: ucsc-transmappsltogenepred
-category: alignment
-description: Convert PSL alignments of mRNAs to gene annotations.
-tags: [ucsc-transmappsltogenepred, alignment]
+category: utility
+description: UCSC transMapPslToGenePred - Tool for converting transMap PSL to genePred.
+tags: [ucsc-transmappsltogenepred, ucsc, transmap, psl, genepred]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-transmappsltogenepred (v482) - Convert PSL alignments of mRNAs to gene annotations.
-- **Core Function**: Convert PSL alignments of mRNAs to gene annotations.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-transmappsltogenepred`
+- **Tool Overview**: UCSC transMapPslToGenePred - A tool for converting transMap PSL to genePred format.
+- **Core Function**: Converts transMap alignments to gene prediction format.
+- **Input**: PSL file.
+- **Output**: genePred file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene prediction, alignment processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert transMap PSL to genePred
+**Args:** `transMapPslToGenePred input.psl > output.gp`
+**Explanation:** Convert transMap PSL to genePred.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `transMapPslToGenePred -verbose input.psl > output.gp`
+**Explanation:** Convert with verbose output.

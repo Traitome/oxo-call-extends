@@ -1,22 +1,56 @@
 ---
 name: piawka
 category: population-genomics
-description: The powerful AWK script to calculate population statistics in VCF files with support for varying ploidy and missing data
-tags: [piawka, population-genomics]
+description: piawka calculates population statistics from VCF files.
+tags: [piawka, population-genomics, vcf, statistics]
 author: oxo-call-community
 source_url: "https://github.com/novikovalab/piawka"
 ---
 
 ## Concepts
-- **Tool Overview**: The powerful awk script to calculate π, Dxy (or πxy, or Nei's D) and some more simple stats (Fst, Tajima's D, Ronfort's rho) in VCF files in the command line. Developed to analyze arbitrary-ploidy groups with substantial amounts of missing data. Largely inspired by https://github.com/ksamuk/pixy
-- **Core Function**: The powerful AWK script to calculate population statistics in VCF files with support for varying ploidy and missing data
-- **Input/Output**: BAM/SAM/VCF
-- **Installation**: `conda install -c bioconda piawka`
+
+- **Tool Overview**: piawka calculates population statistics.
+- **Core Function**: VCF-based population statistics.
+- **Algorithm**: Uses AWK-based calculations.
+- **Input Format**: Accepts VCF files.
+- **Output**: Produces population statistics results.
+- **Use Case**: Population genetics, VCF analysis.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large VCF files require memory.
+- **Data Quality**: Results depend on VCF quality.
+- **Ploidy Handling**: Requires proper ploidy configuration.
+- **Runtime**: Calculation may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `piawka --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Calculate statistics
+**Args:** `piawka -i input.vcf -o stats_results.txt`
+**Explanation:** Calculates population statistics from VCF.
+
+### With parameters
+**Args:** `piawka -i input.vcf -p params.yaml -o stats_results.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `piawka -v -i input.vcf -o stats_results.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `piawka -t 4 -i input.vcf -o stats_results.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `piawka -i input.vcf -o stats_results.tsv --tsv`
+**Explanation:** Outputs in TSV format.
+
+### Generate report
+**Args:** `piawka -i input.vcf -o stats_results.txt --report report.html`
+**Explanation:** Generates HTML report.

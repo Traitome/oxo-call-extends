@@ -1,30 +1,32 @@
 ---
 name: vibrant
-category: annotation
-description: Virus Identification By iteRative ANnoTation
-tags: [vibrant, annotation]
+category: bioinformatics
+description: VIBRANT - Virus identification tool.
+tags: [vibrant, virus-identification, metagenomics, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/AnantharamanLab/VIBRANT"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vibrant (v1.2.1) - Virus Identification By iteRative ANnoTation
-- **Core Function**: Virus Identification By iteRative ANnoTation
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vibrant`
+- **Tool Overview**: VIBRANT - Virus identification from metagenomics.
+- **Core Function**: Identifies viral sequences in metagenomic data.
+- **Input**: Contig sequences.
+- **Output**: Viral sequence predictions.
+- **Installation**: Install via conda or source
+- **Use Case**: Virus discovery, metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **False Positives**: May report false positives.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run VIBRANT
+**Args:** `VIBRANT_run.py -i contigs.fasta -o results/`
+**Explanation:** Identify viral sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `VIBRANT_run.py -i contigs.fasta -o results/ -t 8`
+**Explanation:** Use 8 threads.

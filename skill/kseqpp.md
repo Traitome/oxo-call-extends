@@ -1,30 +1,52 @@
 ---
 name: kseqpp
 category: formatting
-description: C++11 re-implementation of kseq by Heng Li
-tags: [kseqpp, formatting]
+description: C++11 kseq re-implementation with modern API and resource management
+tags: [kseqpp, formatting, FASTA, FASTQ, parser, C++, sequencing]
 author: oxo-call-community
 source_url: "https://github.com/cartoonist/kseqpp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kseqpp v1.1.2 - The goal for re-implementation of kseq is providing modern API and resource management while preserving its flexibility and performance. Like original kseq, this parser is based on generic stream buffer and works with different file types..
-- **Core Function**: C++11 re-implementation of kseq by Heng Li
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kseqpp`
+- **Kseq Re-implementation**: Modern C++11 re-implementation of Heng Li's kseq
+- **FASTA/FASTQ Parsing**: Efficient parsing of sequence files
+- **Generic Stream Buffer**: Based on generic stream buffer implementation
+- **Modern API**: Provides updated API for sequence file handling
+- **Resource Management**: Improved memory and resource management
+- **Cross-platform**: Works on multiple platforms and compilers
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Library Integration**: Requires proper library integration
+- **Build Requirements**: Needs C++11 compatible compiler
+- **API Changes**: Different API from original kseq
+- **Error Handling**: New error handling mechanisms
+- **Buffer Size**: Default buffer sizes may need adjustment
+- **Compilation Flags**: May need specific compilation flags
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Parse FASTQ file
+**Args:** `kseqpp parse -i sequences.fastq -o parsed.txt`
+**Explanation:** Parses FASTQ file and outputs sequence data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Process FASTA
+**Args:** `kseqpp parse -i genome.fasta -o sequences.txt`
+**Explanation:** Parses FASTA genome file.
+
+### Specify format
+**Args:** `kseqpp parse -i reads.fastq --format fastq -o output.txt`
+**Explanation:** Explicitly specifies input format.
+
+### Batch processing
+**Args:** `kseqpp batch -d sequences/ -o results/`
+**Explanation:** Processes multiple sequence files.
+
+### Export statistics
+**Args:** `kseqpp stats -i sequences.fastq -o statistics.txt`
+**Explanation:** Generates sequence statistics.
+
+### Quality filtering
+**Args:** `kseqpp filter -i reads.fastq --min-qual 20 -o filtered.fastq`
+**Explanation:** Filters reads by quality score.

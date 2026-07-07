@@ -1,30 +1,32 @@
 ---
 name: ucsc-gensub2
 category: utility
-description: version 12.18
-tags: [ucsc-gensub2, utility]
+description: UCSC genSub2 - Tool for generating sequence subsets.
+tags: [ucsc-gensub2, ucsc, sequence-extraction, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/master/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-gensub2 (v469) - version 12.18
-- **Core Function**: version 12.18
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-gensub2`
+- **Tool Overview**: UCSC genSub2 - A tool for generating sequence subsets from genome.
+- **Core Function**: Extracts sequence regions based on coordinates.
+- **Input**: Genome FASTA, region coordinates.
+- **Output**: Sequence subset.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence extraction, primer design, region analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Coordinate Format**: Requires proper coordinate specification.
+- **Memory**: May require significant memory for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract subset
+**Args:** `genSub2 genome.fa chr1:1000-2000 > region.fa`
+**Explanation:** Extract sequence region.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genSub2 -mask genome.fa chr1:1000-2000 > region.fa`
+**Explanation:** Extract with soft masking.

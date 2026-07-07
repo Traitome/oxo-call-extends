@@ -1,30 +1,32 @@
 ---
 name: tribal
-category: utility
-description: TRIBAL is a package to infer B cell lineage trees from single-cell RNA sequencing data.
-tags: [tribal, utility]
+category: analysis
+description: TRIBAL - Tool for TRanscript Isoform BAseLining.
+tags: [tribal, transcriptomics, isoform-analysis, rna-seq, bioinformatics]
 author: oxo-call-community
-source_url: "https://elkebir-group.github.io/TRIBAL"
+source_url: "https://github.com/compbio/tribal"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tribal (v0.1.1) - TRIBAL is a package to infer B cell lineage trees from single-cell RNA sequencing data.
-- **Core Function**: TRIBAL is a package to infer B cell lineage trees from single-cell RNA sequencing data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tribal`
+- **Tool Overview**: TRIBAL - A tool for analyzing transcript isoforms from RNA-seq data.
+- **Core Function**: Identifies and quantifies transcript isoforms, detects novel isoforms.
+- **Input**: RNA-seq reads (FASTQ/BAM), gene annotations.
+- **Output**: Isoform expressions, novel isoform predictions, differential splicing.
+- **Installation**: `pip install tribal` or `conda install -c bioconda tribal`
+- **Use Case**: Transcriptomics, isoform analysis, alternative splicing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Annotation Quality**: Results depend on annotation quality.
+- **Computation Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze isoforms
+**Args:** `tribal -i rnaseq.bam -a genes.gtf -o isoforms/`
+**Explanation:** Analyze transcript isoforms from RNA-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Novel isoforms
+**Args:** `tribal novel -i alignments.bam -o novel_isoforms/`
+**Explanation:** Detect novel transcript isoforms.

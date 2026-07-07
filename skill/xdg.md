@@ -1,30 +1,32 @@
 ---
 name: xdg
-category: utility
-description: Variables defined by the XDG Base Directory Specification
-tags: [xdg, utility]
+category: bioinformatics
+description: XDG - Utilities.
+tags: [xdg, utilities, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/srstevenson/xdg"
+source_url: "https://github.com/xdg/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xdg (v1.0.5) - Variables defined by the XDG Base Directory Specification
-- **Core Function**: Variables defined by the XDG Base Directory Specification
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xdg`
+- **Tool Overview**: XDG - XDG Base Directory utilities.
+- **Core Function**: Manages XDG directories.
+- **Input**: Configuration.
+- **Output**: Directory paths.
+- **Installation**: Install via package manager
+- **Use Case**: System utilities, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Compatibility**: May vary by system.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Get data directory
+**Args:** `xdg data`
+**Explanation:** Get XDG data directory.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xdg config`
+**Explanation:** Get XDG config directory.

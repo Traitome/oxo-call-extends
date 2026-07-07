@@ -1,30 +1,32 @@
 ---
 name: ucsc-psldropoverlap
-category: alignment
-description: Deletes all overlapping self alignments.
-tags: [ucsc-psldropoverlap, alignment]
+category: utility
+description: UCSC pslDropOverlap - Tool for removing overlapping alignments.
+tags: [ucsc-psldropoverlap, ucsc, psl, overlap, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-psldropoverlap (v482) - Deletes all overlapping self alignments.
-- **Core Function**: Deletes all overlapping self alignments.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-psldropoverlap`
+- **Tool Overview**: UCSC pslDropOverlap - A tool for removing overlapping alignments.
+- **Core Function**: Removes overlapping regions from PSL alignments.
+- **Input**: PSL file.
+- **Output**: Filtered PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment processing, deduplication, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Drop overlapping alignments
+**Args:** `pslDropOverlap input.psl > output.psl`
+**Explanation:** Remove overlapping alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslDropOverlap -minCover=80 input.psl > output.psl`
+**Explanation:** Minimum coverage threshold.

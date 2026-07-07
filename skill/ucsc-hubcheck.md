@@ -1,30 +1,32 @@
 ---
 name: ucsc-hubcheck
 category: utility
-description: Check a track data hub for integrity.
-tags: [ucsc-hubcheck, utility]
+description: UCSC hubCheck - Tool for checking track hubs.
+tags: [ucsc-hubcheck, ucsc, hub, track, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hubcheck (v482) - Check a track data hub for integrity.
-- **Core Function**: Check a track data hub for integrity.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hubcheck`
+- **Tool Overview**: UCSC hubCheck - A tool for validating track hubs.
+- **Core Function**: Validates track hub configuration and data.
+- **Input**: Hub URL or directory.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, track hub validation, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **URL Access**: Requires network access for remote hubs.
+- **Format Requirements**: Requires proper hub format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check track hub
+**Args:** `hubCheck hub.txt`
+**Explanation:** Validate track hub configuration.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hubCheck -verbose hub.txt`
+**Explanation:** Validate with verbose output.

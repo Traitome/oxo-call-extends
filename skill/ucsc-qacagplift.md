@@ -1,30 +1,32 @@
 ---
 name: ucsc-qacagplift
-category: assembly
-description: Use AGP to combine per-scaffold qac into per-chrom qac.
-tags: [ucsc-qacagplift, assembly]
+category: utility
+description: UCSC qaCagpLift - Tool for lifting QAC to AGP.
+tags: [ucsc-qacagplift, ucsc, qac, agp, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-qacagplift (v482) - Use AGP to combine per-scaffold qac into per-chrom qac.
-- **Core Function**: Use AGP to combine per-scaffold qac into per-chrom qac.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-qacagplift`
+- **Tool Overview**: UCSC qaCagpLift - A tool for lifting QAC to AGP format.
+- **Core Function**: Converts QAC format to AGP format.
+- **Input**: QAC file, chain file.
+- **Output**: AGP file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper QAC/chain format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Lift QAC to AGP
+**Args:** `qaCagpLift input.qac chain.txt > output.agp`
+**Explanation:** Convert QAC to AGP format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `qaCagpLift -verbose input.qac chain.txt > output.agp`
+**Explanation:** Convert with verbose output.

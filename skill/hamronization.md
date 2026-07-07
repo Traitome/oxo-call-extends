@@ -1,30 +1,64 @@
 ---
 name: hamronization
-category: formatting
-description: Tool to convert and summarize AMR gene detection outputs using the hAMRonization specification
-tags: [hamronization, formatting]
+category: bioinformatics
+description: hAMRonization converts and summarizes AMR gene detection outputs using a standardized specification for antimicrobial resistance analysis.
+tags: [hamronization, AMR, antimicrobial-resistance, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/pha4ge/hAMRonization/blob/master/README.md"
+source_url: "https://github.com/pha4ge/hAMRonization"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hamronization (v1.1.9) - Tool to convert and summarize AMR gene detection outputs using the hAMRonization specification
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hamronization`
+- **AMR Output Conversion**: hAMRonization converts AMR detection outputs.
+
+- **Standardized Format**: Uses hAMRonization specification for consistency.
+
+- **Result Summarization**: Summarizes AMR detection results.
+
+- **Tool Agnostic**: Works with various AMR detection tools.
+
+- **Data Integration**: Integrates results from different sources.
+
+- **Quality Control**: Validates AMR detection outputs.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Tool Compatibility**: Ensure compatibility with AMR tools.
+
+- **Format Compliance**: Requires proper input format.
+
+- **Reference Database**: Results depend on database version.
+
+- **Result Consistency**: Different tools may produce different results.
+
+- **Annotation Quality**: Check annotation quality carefully.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert AMR output
+**Args:** `hamronize convert -i input.txt -o output.json`
+**Explanation:** Converts AMR detection output to standardized format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Summarize results
+**Args:** `hamronize summarize -i amr_results/ -o summary.txt`
+**Explanation:** Summarizes AMR detection results.
+
+### Validate output
+**Args:** `hamronize validate -i input.json`
+**Explanation:** Validates AMR output against specification.
+
+### Batch conversion
+**Args:** `for f in *.txt; do hamronize convert -i $f -o ${f%.txt}.json; done`
+**Explanation:** Converts multiple AMR output files.
+
+### Merge results
+**Args:** `hamronize merge -i results/ -o merged.json`
+**Explanation:** Merges multiple AMR results into single file.
+
+### Generate report
+**Args:** `hamronize report -i input.json -o report.html`
+**Explanation:** Generates report from AMR results.
+
+### Help command
+**Args:** `hamronize --help`
+**Explanation:** Shows available options and usage information.

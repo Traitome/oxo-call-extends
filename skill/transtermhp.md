@@ -1,30 +1,32 @@
 ---
 name: transtermhp
-category: expression
-description: TransTermHP finds rho-independent transcription terminators in bacterial genomes.
-tags: [transtermhp, expression]
+category: analysis
+description: TransTermHP - Tool for predicting transcription terminators.
+tags: [transtermhp, transcription-terminator, prediction, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://transterm.cbcb.umd.edu/index.php"
+source_url: "https://github.com/compbio/transtermhp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transtermhp (v2.09) - TransTermHP finds rho-independent transcription terminators in bacterial genomes.
-- **Core Function**: TransTermHP finds rho-independent transcription terminators in bacterial genomes.
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TransTermHP - A tool for predicting rho-independent transcription terminators in bacterial genomes.
+- **Core Function**: Identifies transcription terminator sequences and predicts termination sites.
+- **Input**: Genome sequences (FASTA), optional gene annotations.
+- **Output**: Terminator predictions, confidence scores, termination signals.
 - **Installation**: `conda install -c bioconda transtermhp`
+- **Use Case**: Genome annotation, gene expression regulation, bacterial genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Bacteria Specific**: Designed for bacterial genomes, not eukaryotes.
+- **Rho-dependent**: Does not predict rho-dependent terminators.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict terminators
+**Args:** `transtermhp genome.fasta > terminators.txt`
+**Explanation:** Predict transcription terminators in genome sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With annotations
+**Args:** `transtermhp -a genes.gff genome.fasta -o terminators.gff`
+**Explanation:** Predict terminators with gene annotations.

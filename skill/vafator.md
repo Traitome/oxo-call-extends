@@ -1,30 +1,32 @@
 ---
 name: vafator
-category: alignment
-description: VAFator annotates the variants in a VCF file with technical annotations extracted from one or more BAM alignment files. We implement a set of basic coverage annotations and also more sophisticated published annotations used to assess the quality of every variant call.
-tags: [vafator, alignment, bam, vcf]
+category: bioinformatics
+description: VAFator - Variant Allele Frequency analysis tool.
+tags: [vafator, vaf, variant-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/tron-bioinformatics/vafator"
+source_url: "https://github.com/genome/vafator"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vafator (v3.0.0) - VAFator annotates the variants in a VCF file with technical annotations extracted from one or more BAM alignment files. We implement a set of basic coverage annotations and also more sophisticated published annotations used to assess the quality of every variant call.
-- **Core Function**: VAFator annotates the variants in a VCF file with technical annotations extracted from one or more BAM alignment files. We implement a set of basic coverage annotations and also more sophisticated published annotations used to assess the quality of every variant call.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vafator`
+- **Tool Overview**: VAFator - A tool for analyzing Variant Allele Frequencies.
+- **Core Function**: Calculates and analyzes VAFs from sequencing data.
+- **Input**: BAM file, VCF file.
+- **Output**: VAF statistics.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, cancer genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Coverage**: Results depend on sequencing coverage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate VAF
+**Args:** `vafator -b sample.bam -v variants.vcf -o vaf_results.txt`
+**Explanation:** Calculate variant allele frequencies.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vafator -b sample.bam -v variants.vcf -o vaf_results.txt -q 30`
+**Explanation:** Set minimum mapping quality.

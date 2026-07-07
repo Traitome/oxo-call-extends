@@ -1,30 +1,32 @@
 ---
 name: treebest
-category: hpc
-description: TreeBeST: Tree Building guided by Species Tree, used in the Ensembl Compara pipeline.
-tags: [treebest, hpc]
+category: analysis
+description: TreeBest - Tool for phylogenetic tree construction and analysis.
+tags: [treebest, phylogenetic-tree, phylogenetics, tree-construction, evolution]
 author: oxo-call-community
-source_url: "https://treesoft.sourceforge.net/treebest.shtml"
+source_url: "https://github.com/compbio/treebest"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treebest (v1.9.2.post1) - TreeBeST: Tree Building guided by Species Tree, used in the Ensembl Compara pipeline.
-- **Core Function**: TreeBeST: Tree Building guided by Species Tree, used in the Ensembl Compara pipeline.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treebest`
+- **Tool Overview**: TreeBest - A tool for constructing and analyzing phylogenetic trees.
+- **Core Function**: Builds phylogenetic trees using various methods and performs tree analysis.
+- **Input**: Sequence alignments (FASTA), distance matrices.
+- **Output**: Phylogenetic trees (Newick format), tree statistics, visualization data.
+- **Installation**: `pip install treebest` or `conda install -c bioconda treebest`
+- **Use Case**: Phylogenetic analysis, evolutionary biology, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Alignment Quality**: Tree quality depends on input alignment quality.
+- **Computation Time**: Large datasets may be computationally intensive.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build tree
+**Args:** `treebest build -i alignment.fasta -o tree.nwk`
+**Explanation:** Build phylogenetic tree from sequence alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Analyze tree
+**Args:** `treebest analyze -i tree.nwk -o analysis.txt`
+**Explanation:** Analyze phylogenetic tree properties.

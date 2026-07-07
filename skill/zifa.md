@@ -1,30 +1,32 @@
 ---
 name: zifa
-category: expression
-description: Dimensionality reduction for zero-inflated single-cell gene expression analysis
-tags: [zifa, expression]
+category: bioinformatics
+description: ZIFA - Dimensionality reduction.
+tags: [zifa, dimensionality-reduction, bioinformatics, single-cell]
 author: oxo-call-community
 source_url: "https://github.com/epierson9/ZIFA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zifa (v0.1.0) - Dimensionality reduction for zero-inflated single-cell gene expression analysis
-- **Core Function**: Dimensionality reduction for zero-inflated single-cell gene expression analysis
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zifa`
+- **Tool Overview**: ZIFA - Zero-Inflated Factor Analysis.
+- **Core Function**: Dimensionality reduction for scRNA-seq.
+- **Input**: Gene expression matrix.
+- **Output**: Low-dimensional representation.
+- **Installation**: Install via pip
+- **Use Case**: Single-cell analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run ZIFA
+**Args:** `python -c "from ZIFA import ZIFA; model = ZIFA()"`
+**Explanation:** Create ZIFA model.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "ZIFA.fit(data, k=10)"`
+**Explanation:** Fit with 10 factors.

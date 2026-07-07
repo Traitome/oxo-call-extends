@@ -1,30 +1,43 @@
 ---
 name: gffutils
-category: formatting
-description: Work with GFF and GTF files in a flexible database framework
-tags: [gffutils, formatting, GFF, GTF]
+category: database
+description: gffutils - Work with GFF and GTF files in a flexible database framework.
+tags: [gffutils, database, GFF, GTF, bioinformatics]
 author: oxo-call-community
 source_url: "http://daler.github.io/gffutils/"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gffutils (v0.14) - Work with GFF and GTF files in a flexible database framework
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gffutils`
+- **Database Framework**: Uses database for GFF processing.
+- **GFF/GTF Handling**: Handles GFF and GTF formats.
+- **Feature Management**: Manages genomic features.
+- **Transcript Analysis**: Analyzes transcript data.
+- **SQLite Backend**: Uses SQLite for efficient storage.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Size**: Large annotations create large databases.
+- **Memory Usage**: Requires significant memory.
+- **Format Compatibility**: Requires correct input format.
+- **Version Updates**: Database may need updates.
+- **Performance**: Complex queries may be slow.
 
 ## Examples
+### Create database
+**Args:** `python -c "import gffutils; db = gffutils.create_db('annotations.gtf', dbf='annotation.db')"`
+**Explanation:** Creates GFFutils database.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Feature iteration
+**Args:** `python -c "import gffutils; db = gffutils.Database('annotation.db'); genes = list(db.features_of_type('gene'))"`
+**Explanation:** Iterates over genes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Get transcripts
+**Args:** `python -c "import gffutils; db = gffutils.Database('annotation.db'); transcripts = list(db.features_of_type('transcript'))"`
+**Explanation:** Gets transcript features.
+
+### Find by location
+**Args:** `python -c "import gffutils; db = gffutils.Database('annotation.db'); features = db.region('chr1:1-10000')"`
+**Explanation:** Finds features in region.
+
+### Export to GFF
+**Args:** `python -c "import gffutils; db = gffutils.Database('annotation.db'); db.update_db('new.gtf'); db.to_gff('output.gtf')"`
+**Explanation:** Exports to GFF format.

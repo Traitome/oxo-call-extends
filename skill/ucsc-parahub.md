@@ -1,30 +1,32 @@
 ---
 name: ucsc-parahub
 category: utility
-description: parasol hub server version 12.18
-tags: [ucsc-parahub, utility]
+description: UCSC paraHub - Tool for managing parallel hubs.
+tags: [ucsc-parahub, ucsc, parallel, hub, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/master/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-parahub (v469) - parasol hub server version 12.18
-- **Core Function**: parasol hub server version 12.18
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-parahub`
+- **Tool Overview**: UCSC paraHub - A tool for managing parallel processing hubs.
+- **Core Function**: Manages and coordinates parallel processing nodes.
+- **Input**: Configuration files.
+- **Output**: Hub status and results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Parallel computing, cluster management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Configuration**: Requires proper configuration.
+- **Dependencies**: Requires cluster environment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Start parallel hub
+**Args:** `paraHub start config.json`
+**Explanation:** Start parallel processing hub.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraHub -verbose start config.json`
+**Explanation:** Start with verbose output.

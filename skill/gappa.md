@@ -1,22 +1,43 @@
 ---
 name: gappa
 category: utility
-description: Genesis Applications for Phylogenetic Placement Analysis
-tags: [gappa, utility]
+description: Genesis Applications for Phylogenetic Placement Analysis.
+tags: [gappa, phylogenetics, phylogenetic placement, EPA-ng]
 author: oxo-call-community
 source_url: "https://github.com/lczech/gappa"
 ---
 
 ## Concepts
-- **Tool Overview**: gappa is a collection of commands for working with phylogenetic data. Its main focus are evolutionary placements of short environmental sequences on a reference phylogenetic tree. Such data are typically produced by tools such as EPA-ng, RAxML-EPA or pplacer, and usually stored in jplace files.
-- **Core Function**: Genesis Applications for Phylogenetic Placement Analysis
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda gappa`
+- **Phylogenetic Placement**: Places short sequences on reference trees.
+- **Jplace Format**: Works with jplace format files.
+- **Tree Analysis**: Analyzes phylogenetic tree structures.
+- **EPA-ng Integration**: Integrates with EPA-ng for placement.
+- **Statistical Analysis**: Provides statistical analysis of placements.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Tree Quality**: Results depend on reference tree quality.
+- **Jplace Format**: Requires proper jplace format.
+- **Computational Time**: Large datasets can be slow.
+- **Memory Usage**: High memory for large analyses.
+- **Parameter Selection**: Requires careful parameter selection.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Examine placement
+**Args:** `gappa examine --jplace placements.jplace -o results/`
+**Explanation:** Examines phylogenetic placements.
+
+### Assign taxonomy
+**Args:** `gappa assign --jplace placements.jplace --taxonomy taxonomy.tsv -o assigned/`
+**Explanation:** Assigns taxonomy to placed sequences.
+
+### Draw tree
+**Args:** `gappa draw --jplace placements.jplace --tree tree.nwk -o tree.png`
+**Explanation:** Generates tree visualization.
+
+### Analyze redundancy
+**Args:** `gappa analyze redundancy --jplace placements.jplace -o redundancy.txt`
+**Explanation:** Analyzes placement redundancy.
+
+### Export results
+**Args:** `gappa export --jplace placements.jplace --format csv -o results.csv`
+**Explanation:** Exports results to CSV format.

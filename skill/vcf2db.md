@@ -1,30 +1,32 @@
 ---
 name: vcf2db
-category: utility
-description: Create a gemini-compatible database from a VCF
-tags: [vcf2db, utility, vcf]
+category: bioinformatics
+description: vcf2db - VCF to database loader.
+tags: [vcf2db, vcf-processing, database, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/quinlan-lab/vcf2db"
+source_url: "https://github.com/vcf2db/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2db (v2020.02.24) - Create a gemini-compatible database from a VCF
-- **Core Function**: Create a gemini-compatible database from a VCF
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2db`
+- **Tool Overview**: vcf2db - A tool for loading VCF files into databases.
+- **Core Function**: Loads variant data from VCF into SQL databases.
+- **Input**: VCF file.
+- **Output**: Database records.
+- **Installation**: Install via pip
+- **Use Case**: Variant storage, database management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Setup**: Requires database setup.
+- **Memory**: May require significant memory for large VCF files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load VCF to database
+**Args:** `vcf2db -i input.vcf -d postgresql://user:pass@host/db`
+**Explanation:** Load VCF to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2db -i input.vcf -d postgresql://user:pass@host/db -t 8`
+**Explanation:** Use 8 threads.

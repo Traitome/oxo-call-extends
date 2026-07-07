@@ -1,31 +1,56 @@
 ---
 name: prank
 category: alignment
-description: PRANK is a probabilistic multiple alignment program for DNA, codon and amino-acid sequences.
-tags: ["prank", "alignment"]
+description: prank performs probabilistic multiple sequence alignment.
+tags: [prank, alignment, msa, probabilistic]
 author: oxo-call-community
 source_url: "https://ariloytynoja.github.io/prank-msa"
 ---
 
 ## Concepts
 
-- **Tool Overview**: PRANK is a probabilistic multiple alignment program for DNA, codon and amino-acid sequences. (version 251117)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda prank`
+- **Tool Overview**: prank aligns sequences.
+- **Core Function**: Probabilistic multiple alignment.
+- **Algorithm**: Uses evolutionary model methods.
+- **Input Format**: Accepts FASTA files.
+- **Output**: Produces alignments.
+- **Use Case**: Phylogenetics, sequence analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on sequence quality.
+- **Alignment Accuracy**: May have errors.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `prank --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Align sequences
+**Args:** `prank -d sequences.fasta -o alignment.fasta`
+**Explanation:** Performs multiple sequence alignment.
 
+### With parameters
+**Args:** `prank -d sequences.fasta -p params.yaml -o alignment.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `prank -v -d sequences.fasta -o alignment.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `prank -threads 4 -d sequences.fasta -o alignment.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `prank -d sequences.fasta -o alignment.phylip -f phylip`
+**Explanation:** Outputs in PHYLIP format.
+
+### Generate report
+**Args:** `prank -d sequences.fasta -o alignment.fasta --report report.html`
+**Explanation:** Generates HTML report.

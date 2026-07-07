@@ -1,12 +1,11 @@
 ---
 name: abpoa
 category: alignment
-description: abPOA: fast SIMD-based partial order alignment using adaptive band.
+description: "abPOA: fast SIMD-based partial order alignment using adaptive band."
 tags: [abpoa, alignment, msa, poa, consensus, simd]
 author: oxo-call-community
 source_url: "https://github.com/yangao07/abPOA"
 ---
-
 ## Concepts
 
 - **Tool Overview**: An SIMD-based C library for fast partial order alignment using adaptive banded dynamic programming. Performs multiple sequence alignment (MSA) and consensus calling. Version 1.5.6.

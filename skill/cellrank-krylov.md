@@ -1,30 +1,43 @@
 ---
 name: cellrank-krylov
-category: alignment
-description: CellRank for directed single-cell fate mapping
-tags: [cellrank-krylov, alignment]
+category: single-cell
+description: CellRank Krylov solver for directed single-cell fate mapping
+tags: [cellrank-krylov, cellrank, single-cell, fate-mapping, markov-model]
 author: oxo-call-community
 source_url: "https://cellrank.org"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cellrank-krylov (v1.5.1) - CellRank for directed single-cell fate mapping
-- **Core Function**: CellRank is a toolkit to uncover cellular dynamics based on Markov state modeling of single-cell data. It contains two main modules: kernels compute cell-cell transition probabilities and estimators g...
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda cellrank-krylov`
+- **Tool Overview**: cellrank-krylov provides Krylov subspace methods for CellRank's fate mapping.
+- **Core Function**: Efficiently computes cellular trajectories using Markov state modeling.
+- **Algorithm**: Uses Krylov subspace methods for large-scale eigenvalue problems.
+- **Input**: Single-cell RNA-seq data (AnnData format).
+- **Output**: Cell fate probabilities and trajectory predictions.
+- **Application**: Mapping cellular differentiation paths and lineage tracing.
+- **Installation**: Install via bioconda: `conda install -c bioconda cellrank-krylov`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Requirements**: Requires properly preprocessed scRNA-seq data.
+- **Computational Resources**: Large datasets may require significant compute.
+- **Parameter Tuning**: Transition matrix parameters may need adjustment.
+- **Convergence**: Ensure Markov chain converges properly.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Import and initialize
+**Args:** `python -c "import cellrank as cr; from cellrank.krylov import *"`
+**Explanation:** Imports cellrank and krylov module.
 
-### Basic usage
-**Args:** `-i input.fastq -r reference.fasta -o output.sam`
-**Explanation:** Align reads to a reference genome
+### Compute fate probabilities
+**Args:** `cr.krylov.compute_fate_probabilities(adata, n_components=10)`
+**Explanation:** Computes fate probabilities using Krylov methods.
+
+### Fit transition matrix
+**Args:** `cr.krylov.fit(adata, method='krylov', max_iter=1000)`
+**Explanation:** Fits transition matrix using Krylov subspace methods.
+
+### Display help
+**Args:** `python -c "from cellrank.krylov import help"`
+**Explanation:** Shows available functions and documentation.

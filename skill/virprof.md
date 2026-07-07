@@ -1,30 +1,32 @@
 ---
 name: virprof
-category: expression
-description: Virus Identification, Quantification and Genome Recovery from RNA-Seq NGS data
-tags: [virprof, expression]
+category: bioinformatics
+description: VirProf - Viral profiling tool.
+tags: [virprof, viral-genomics, profiling, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/seiboldlab/virprof"
+source_url: "https://github.com/virprof/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virprof (v0.9.2) - VirProf is a dual RNA-seq analysis pipeline integrating host expression profile generation with virus identification, quantification, and genome recovery from host tissue RNA sequencing data. VirProf combines an unguided metagenomic assembly workflow with interleaved host read depletion followed by BLAST based binning, scaffolding and classification. Application of VirProf to poly-A selected RNA-seq data from nasal swabs with respiratory virus qPCR data, revealed that VirProf was able to a) quantify a range of viral infections at detection limits and precision comparable to qPCR and b) recover complete, accurate viral genomes suitable for phylogenetic analysis.
-- **Core Function**: Virus Identification, Quantification and Genome Recovery from RNA-Seq NGS data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virprof`
+- **Tool Overview**: VirProf - Profiles viral communities.
+- **Core Function**: Characterizes viral community composition.
+- **Input**: Metagenomics reads.
+- **Output**: Taxonomic profile.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database**: Requires reference database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Profile virome
+**Args:** `virprof -i reads.fastq -o profile.txt`
+**Explanation:** Profile viral community.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virprof -i reads.fastq -o profile.txt -d viral_db`
+**Explanation:** Use custom database.

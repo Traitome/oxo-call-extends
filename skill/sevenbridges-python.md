@@ -1,30 +1,56 @@
 ---
 name: sevenbridges-python
 category: programming
-description: SBG API python client bindings
-tags: [sevenbridges-python, programming]
+description: sevenbridges-python - Seven Bridges API Python client bindings
+tags: ["sevenbridges-python", "programming", "API", "cloud"]
 author: oxo-call-community
 source_url: "https://github.com/sbg/sevenbridges-python"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sevenbridges-python (v2.11.2) - SBG API python client bindings
-- **Core Function**: SBG API python client bindings
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sevenbridges-python`
+- **Tool Overview**: sevenbridges-python (v2.11.2) provides Python bindings for the Seven Bridges API.
+- **Core Function**: Enables programmatic access to Seven Bridges cloud computing platform.
+- **Algorithm**: Implements REST API client for cloud workflow management.
+- **Input/Output**: Accepts API calls and produces cloud resources.
+- **Cloud Integration**: Focuses on bioinformatics workflow management.
+- **Applications**: Cloud computing, workflow orchestration, and data management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **API Credentials**: Requires proper API key configuration.
+- **Network Requirements**: Requires internet connectivity.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
+- **Rate Limiting**: API rate limits may affect performance.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Initialize client
+**Args:** `from sevenbridges import Api; api = Api(url='https://api.sbgenomics.com/v2', token='your_token')`
+**Explanation:** Initializes API client.
 
-### Basic usage
-**Args:** `sevenbridges-python <config_file>`
-**Explanation:** Run sevenbridges-python with typical input and output options.
+### List projects
+**Args:** `projects = api.projects.query()`
+**Explanation:** Lists available projects.
+
+### Upload file
+**Args:** `api.files.upload(project='my_project', local_path='local_file.txt', name='remote_file.txt')`
+**Explanation:** Uploads file to project.
+
+### Run task
+**Args:** `task = api.tasks.create(name='my_task', app='my_app', project='my_project', inputs={...})`
+**Explanation:** Creates and runs analysis task.
+
+### Help command
+**Args:** `python -c "from sevenbridges import Api; help(Api)"`
+**Explanation:** Shows available methods.
+
+### Version check
+**Args:** `python -c "import sevenbridges; print(sevenbridges.__version__)"`
+**Explanation:** Shows current version.
+
+### List files
+**Args:** `files = api.files.query(project='my_project')`
+**Explanation:** Lists files in project.

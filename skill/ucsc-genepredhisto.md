@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredhisto
 category: utility
-description: Get data for generating histograms from a genePred file.
-tags: [ucsc-genepredhisto, utility]
+description: UCSC genePredHisto - Tool for generating gene prediction histograms.
+tags: [ucsc-genepredhisto, ucsc, gene-prediction, visualization, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredhisto (v482) - Get data for generating histograms from a genePred file.
-- **Core Function**: Get data for generating histograms from a genePred file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredhisto`
+- **Tool Overview**: UCSC genePredHisto - A tool for generating histograms from gene predictions.
+- **Core Function**: Creates histogram data from gene prediction statistics.
+- **Input**: Gene prediction file.
+- **Output**: Histogram data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene analysis, visualization, statistics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Output Format**: Requires appropriate output format specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate histogram
+**Args:** `genePredHisto genes.txt > histo.txt`
+**Explanation:** Generate gene prediction histogram.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredHisto -bins=50 genes.txt > histo.txt`
+**Explanation:** Number of histogram bins.

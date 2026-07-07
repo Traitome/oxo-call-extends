@@ -1,30 +1,32 @@
 ---
 name: watchdog
-category: utility
-description: Filesystem events monitoring
-tags: [watchdog, utility]
+category: bioinformatics
+description: Watchdog - Pipeline monitoring tool.
+tags: [watchdog, pipeline-monitoring, bioinformatics, workflow]
 author: oxo-call-community
-source_url: "http://github.com/gorakhargosh/watchdog"
+source_url: "https://github.com/gorakhargosh/watchdog"
 ---
 
 ## Concepts
 
-- **Tool Overview**: watchdog (v0.8.3) - Filesystem events monitoring
-- **Core Function**: Filesystem events monitoring
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda watchdog`
+- **Tool Overview**: Watchdog - File system monitoring tool.
+- **Core Function**: Monitors file system events.
+- **Input**: Directory path.
+- **Output**: Event notifications.
+- **Installation**: Install via pip
+- **Use Case**: Workflow automation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Performance**: May impact system performance.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Monitor directory
+**Args:** `watchmedo monitor -d /path/to/dir`
+**Explanation:** Monitor directory for changes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `watchmedo shell-command -d /path/to/dir -c "echo changed"`
+**Explanation:** Execute command on change.

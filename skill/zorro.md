@@ -1,30 +1,38 @@
 ---
 name: zorro
 category: alignment
-description: ZORRO is a probabilistic masking program that assigns confidence scores to each column in a multiple sequence alignment.
-tags: [zorro, alignment]
+description: Probabilistic masking program for multiple sequence alignments
+tags: [zorro, alignment, masking, phylogenetics, confidence-score]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/probmask/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zorro (v2011.12.01) - ZORRO is a probabilistic masking program that assigns confidence scores to each column in a multiple sequence alignment.
-- **Core Function**: ZORRO is a probabilistic masking program that assigns confidence scores to each column in a multiple sequence alignment.
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: ZORRO is a probabilistic masking program that assigns confidence scores to each column in a multiple sequence alignment
+- **Confidence Scoring**: Uses statistical models to assess alignment reliability
+- **Phylogenetic Integration**: Scores can be used to filter unreliable alignment regions before phylogenetic inference
+- **Automated Masking**: Removes subjectivity from manual masking by providing quantitative confidence values
+- **Output Formats**: Produces confidence scores that can be used with RAxML and other phylogenetic tools
 - **Installation**: `conda install -c bioconda zorro`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires pre-aligned sequences in FASTA or PHYLIP format
+- **Score Interpretation**: Confidence scores are rational numbers; may need conversion for tools requiring integers
+- **Alignment Quality**: Results depend on the quality of the input alignment
+- **Computational Time**: May be slow for very large multiple sequence alignments
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate confidence scores
+**Args:** `zorro -i alignment.fasta -o confidence.txt`
+**Explanation:** Calculate confidence scores for each column in the alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Generate masked alignment
+**Args:** `zorro -i alignment.fasta -o masked.fasta -c 0.5`
+**Explanation:** Generate masked alignment, keeping only columns with confidence >= 0.5.
+
+### Output weights for RAxML
+**Args:** `zorro -i alignment.fasta -w weights.txt`
+**Explanation:** Output weight file for use with RAxML's -a option.

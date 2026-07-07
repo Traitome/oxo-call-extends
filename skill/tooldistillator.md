@@ -1,30 +1,32 @@
 ---
 name: tooldistillator
-category: formatting
-description: Tool to extract and aggregate information from different tool outputs to JSON parsable files
-tags: [tooldistillator, formatting]
+category: utility
+description: ToolDistillator - Tool for distilling and simplifying bioinformatics workflows.
+tags: [tooldistillator, workflow, simplification, bioinformatics, pipeline]
 author: oxo-call-community
-source_url: "https://gitlab.com/ifb-elixirfr/abromics/tooldistillator/-/blob/main/docs/_build/html/index.html"
+source_url: "https://github.com/compbio/tooldistillator"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tooldistillator (v1.0.5) - Tool to extract and aggregate information from different tool outputs to JSON parsable files
-- **Core Function**: Tool to extract and aggregate information from different tool outputs to JSON parsable files
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tooldistillator`
+- **Tool Overview**: ToolDistillator - A tool for simplifying and optimizing complex bioinformatics workflows.
+- **Core Function**: Analyzes workflow dependencies and suggests optimizations to reduce complexity.
+- **Input**: Workflow definition files, pipeline configuration.
+- **Output**: Simplified workflow, optimization suggestions, performance metrics.
+- **Installation**: `pip install tooldistillator` or `conda install -c bioconda tooldistillator`
+- **Use Case**: Workflow optimization, pipeline simplification, performance improvement.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Workflow Complexity**: Very complex workflows may be difficult to distill.
+- **Completeness**: Optimization suggestions may not cover all edge cases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Distill workflow
+**Args:** `tooldistillator -w workflow.cwl -o distilled_workflow/`
+**Explanation:** Analyze and simplify a CWL workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Optimize pipeline
+**Args:** `tooldistillator optimize -i pipeline.wdl -o optimized/`
+**Explanation:** Optimize a WDL pipeline for performance.

@@ -1,30 +1,32 @@
 ---
 name: usearch
-category: hpc
-description: USEARCH is a unique sequence analysis tool which offers search and clustering algorithms that are often orders of magnitude faster than BLAST.
-tags: [usearch, hpc]
+category: bioinformatics
+description: USEARCH - High-performance sequence analysis tool.
+tags: [usearch, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://drive5.com/usearch/"
+source_url: "https://www.drive5.com/usearch/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: usearch (v12.0_beta) - USEARCH is a unique sequence analysis tool which offers search and clustering algorithms that are often orders of magnitude faster than BLAST.
-- **Core Function**: USEARCH is a unique sequence analysis tool which offers search and clustering algorithms that are often orders of magnitude faster than BLAST.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda usearch`
+- **Tool Overview**: USEARCH - A high-performance sequence analysis tool.
+- **Core Function**: Provides various sequence analysis operations.
+- **Input**: Sequence files (FASTA/FASTQ).
+- **Output**: Analysis results.
+- **Installation**: Download from official site
+- **Use Case**: Sequence clustering, OTU picking, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Licensing**: Commercial license required for some features.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster sequences
+**Args:** `usearch -cluster_fast input.fasta -id 0.97 -centroids clusters.fasta`
+**Explanation:** Cluster sequences at 97% identity.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### OTU picking
+**Args:** `usearch -unoise3 input.fastq -zotus zotus.fasta`
+**Explanation:** Run UNOISE3 for OTU picking.

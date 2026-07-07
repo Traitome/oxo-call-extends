@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslpostarget
 category: utility
-description: flip psl strands so target is positive and implicit
-tags: [ucsc-pslpostarget, utility]
+description: UCSC pslPosTarget - Tool for positioning target sequences.
+tags: [ucsc-pslpostarget, ucsc, psl, target, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslpostarget (v482) - flip psl strands so target is positive and implicit
-- **Core Function**: flip psl strands so target is positive and implicit
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslpostarget`
+- **Tool Overview**: UCSC pslPosTarget - A tool for positioning target sequences.
+- **Core Function**: Positions target sequences based on PSL alignments.
+- **Input**: PSL file.
+- **Output**: Positioned targets.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence positioning, alignment analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Position target sequences
+**Args:** `pslPosTarget input.psl > positioned.txt`
+**Explanation:** Position target sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslPosTarget -verbose input.psl > positioned.txt`
+**Explanation:** Position with verbose output.

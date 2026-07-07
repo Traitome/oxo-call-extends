@@ -1,30 +1,32 @@
 ---
 name: wisestork
-category: variant-calling
-description: Within-sample CNV calling
-tags: [wisestork, variant-calling]
+category: bioinformatics
+description: Wisestork - Structural variant detection.
+tags: [wisestork, structural-variants, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/sndrtj/wisestork"
+source_url: "https://github.com/wisestork/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wisestork (v0.1.2) - Within-sample CNV calling
-- **Core Function**: Within-sample CNV calling
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wisestork`
+- **Tool Overview**: Wisestork - Structural variant detection tool.
+- **Core Function**: Detects structural variants.
+- **Input**: BAM file.
+- **Output**: SV calls.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect SVs
+**Args:** `wisestork -i input.bam -o svs.vcf`
+**Explanation:** Detect structural variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wisestork -i input.bam -o svs.vcf -t 8`
+**Explanation:** Use 8 threads.

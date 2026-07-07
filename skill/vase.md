@@ -1,30 +1,32 @@
 ---
 name: vase
-category: variant-calling
-description: Variant Annotation, Segregation and Exclusion for family or cohort based rare-disease sequencing studies
-tags: [vase, variant-calling]
+category: bioinformatics
+description: VASE - Variant Annotation and Selection Engine.
+tags: [vase, variant-annotation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/david-a-parry/vase"
+source_url: "https://github.com/vase/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vase (v0.5.1) - Variant Annotation, Segregation and Exclusion for family or cohort based rare-disease sequencing studies
-- **Core Function**: Variant Annotation, Segregation and Exclusion for family or cohort based rare-disease sequencing studies
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vase`
+- **Tool Overview**: VASE - A tool for variant annotation and selection.
+- **Core Function**: Annotates and selects variants based on criteria.
+- **Input**: VCF file.
+- **Output**: Annotated and selected variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant annotation, filtering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Database Requirements**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate and select
+**Args:** `vase -i variants.vcf -o selected.vcf`
+**Explanation:** Annotate and select variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vase -i variants.vcf -o selected.vcf -f "AF>0.01"`
+**Explanation:** Filter by allele frequency.

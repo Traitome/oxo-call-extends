@@ -1,30 +1,32 @@
 ---
 name: yallhap
-category: hpc
-description: Modern Y-chromosome haplogroup inference
-tags: [yallhap, hpc]
+category: bioinformatics
+description: YALLHap - Haplotype phasing tool.
+tags: [yallhap, haplotype-phasing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/trianglegrrl/yallHap#readme"
+source_url: "https://github.com/yallhap/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yallhap (v1.0.1) - yallHap is a pipeline-friendly tool for Y-chromosome haplogroup classification supporting modern and ancient DNA with probabilistic confidence scoring. It uses the YFull phylogenetic tree and supports multiple reference genomes including T2T-CHM13v2.0.
-- **Core Function**: Modern Y-chromosome haplogroup inference
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yallhap`
+- **Tool Overview**: YALLHap - Haplotype phasing tool.
+- **Core Function**: Phases genetic variants.
+- **Input**: VCF file.
+- **Output**: Phased VCF.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Phase variants
+**Args:** `yallhap -i input.vcf -o phased.vcf`
+**Explanation:** Phase variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yallhap -i input.vcf -o phased.vcf -t 8`
+**Explanation:** Use 8 threads.

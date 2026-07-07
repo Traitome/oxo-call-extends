@@ -1,30 +1,32 @@
 ---
 name: yahmm
-category: programming
-description: YAHMM is a HMM package for Python, implemented in Cython for speed.
-tags: [yahmm, programming]
+category: bioinformatics
+description: YA-HMM - Hidden Markov Model library.
+tags: [yahmm, hmm, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://pypi.org/project/yahmm"
+source_url: "https://github.com/hmmlearn/hmmlearn"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yahmm (v1.1.3) - YAHMM is a HMM package for Python, implemented in Cython for speed.
-- **Core Function**: YAHMM is a HMM package for Python, implemented in Cython for speed.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yahmm`
+- **Tool Overview**: YA-HMM - Hidden Markov Model implementation.
+- **Core Function**: Implements HMM algorithms.
+- **Input**: Sequence data.
+- **Output**: Model predictions.
+- **Installation**: Install via pip
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Train HMM
+**Args:** `python -c "from hmmlearn import hmm; model = hmm.GaussianHMM()"`
+**Explanation:** Create HMM model.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "model.fit(X)"`
+**Explanation:** Train model.

@@ -1,30 +1,32 @@
 ---
 name: yamda
-category: utility
-description: A highly scalable GPU-accelerated de novo motif discovery software package
-tags: [yamda, utility]
+category: bioinformatics
+description: YAMDA - Sequence analysis tool.
+tags: [yamda, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/daquang/YAMDA"
+source_url: "https://github.com/yamda/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yamda (v0.1.00e9c9d) - A highly scalable GPU-accelerated de novo motif discovery software package
-- **Core Function**: A highly scalable GPU-accelerated de novo motif discovery software package
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yamda`
+- **Tool Overview**: YAMDA - Sequence analysis tool.
+- **Core Function**: Analyzes sequence data.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequences
+**Args:** `yamda -i sequences.fasta -o analysis.txt`
+**Explanation:** Analyze sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yamda -i sequences.fasta -o analysis.txt -t 8`
+**Explanation:** Use 8 threads.

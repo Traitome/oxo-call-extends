@@ -1,30 +1,32 @@
 ---
 name: vcflib
-category: utility
-description: Command-line tools for manipulating VCF files.
-tags: [vcflib, utility, vcf]
+category: bioinformatics
+description: vcflib - VCF manipulation library and tools.
+tags: [vcflib, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/vcflib/vcflib/blob/v1.0.15/README.md"
+source_url: "https://github.com/vcflib/vcflib"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcflib (v1.0.15) - Command-line tools for manipulating VCF files.
-- **Core Function**: Command-line tools for manipulating VCF files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcflib`
+- **Tool Overview**: vcflib - A C++ library for parsing and manipulating VCF files.
+- **Core Function**: Provides command-line utilities for VCF processing.
+- **Input**: VCF file.
+- **Output**: Modified VCF or derived data.
+- **Installation**: Install via conda or source
+- **Use Case**: VCF manipulation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: Many separate tools with different interfaces.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter VCF
+**Args:** `vcffilter -f "QUAL > 30" input.vcf > filtered.vcf`
+**Explanation:** Filter VCF by quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Sort VCF
+**Args:** `vcfstreamsort input.vcf > sorted.vcf`
+**Explanation:** Sort VCF by position.

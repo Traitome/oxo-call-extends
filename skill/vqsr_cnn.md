@@ -1,30 +1,32 @@
 ---
 name: vqsr_cnn
-category: variant-calling
-description: Variant quality score recalibration with Convolutional Neural Networks
-tags: [vqsr_cnn, variant-calling]
+category: bioinformatics
+description: VQSR-CNN - Variant quality recalibration.
+tags: [vqsr_cnn, variant-analysis, machine-learning, bioinformatics]
 author: oxo-call-community
-source_url: "https://broadinstitute.org/"
+source_url: "https://github.com/vqsr-cnn/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vqsr_cnn (v0.0.194) - Variant quality score recalibration with Convolutional Neural Networks
-- **Core Function**: Variant quality score recalibration with Convolutional Neural Networks
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vqsr_cnn`
+- **Tool Overview**: VQSR-CNN - CNN-based variant quality recalibration.
+- **Core Function**: Uses CNN to recalibrate variant quality scores.
+- **Input**: VCF file.
+- **Output**: Recalibrated VCF.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Training**: Requires model training.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Recalibrate variants
+**Args:** `vqsr_cnn -i input.vcf -o recalibrated.vcf`
+**Explanation:** Recalibrate variant quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vqsr_cnn -i input.vcf -o recalibrated.vcf -m model.pt`
+**Explanation:** Use custom model.

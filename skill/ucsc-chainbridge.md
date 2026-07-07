@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainbridge
-category: alignment
-description: Attempt to extend alignments through double-sided gaps of similar size
-tags: [ucsc-chainbridge, alignment]
+category: utility
+description: UCSC chainBridge - Tool for bridging chain alignments.
+tags: [ucsc-chainbridge, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainbridge (v377) - Attempt to extend alignments through double-sided gaps of similar size
-- **Core Function**: Attempt to extend alignments through double-sided gaps of similar size
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainbridge`
+- **Tool Overview**: UCSC chainBridge - A tool for bridging gaps in chain alignments.
+- **Core Function**: Connects fragmented chain alignments across gaps.
+- **Input**: Chain alignment file.
+- **Output**: Bridged chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment improvement, gap filling, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Gap Size**: May not handle large gaps properly.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Bridge chains
+**Args:** `chainBridge input.chain > bridged.chain`
+**Explanation:** Bridge gaps in chain alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With max gap
+**Args:** `chainBridge -maxGap=1000 input.chain > bridged.chain`
+**Explanation:** Bridge gaps up to specified size.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainscore
-category: alignment
-description: Remove chain-breaking alignments from chains that break nested chains.
-tags: [ucsc-chainscore, alignment]
+category: analysis
+description: UCSC chainScore - Tool for scoring chain alignments.
+tags: [ucsc-chainscore, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainscore (v455) - Remove chain-breaking alignments from chains that break nested chains.
-- **Core Function**: Remove chain-breaking alignments from chains that break nested chains.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainscore`
+- **Tool Overview**: UCSC chainScore - A tool for scoring chain alignments.
+- **Core Function**: Calculates quality scores for chain alignments.
+- **Input**: Chain alignment file.
+- **Output**: Scored chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment quality assessment, scoring, filtering.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Scoring Parameters**: Requires appropriate scoring parameters.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Score chains
+**Args:** `chainScore input.chain > scored.chain`
+**Explanation:** Score chain alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With matrix
+**Args:** `chainScore -matrix=matrix.txt input.chain > scored.chain`
+**Explanation:** Score using custom scoring matrix.

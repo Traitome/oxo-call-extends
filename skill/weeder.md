@@ -1,30 +1,32 @@
 ---
 name: weeder
-category: expression
-description: Motif (transcription factor binding sites) discovery in sequences from coregulated genes of a single species. This is a new Weeder release rewritten to be faster and optimized for large ChIP-Seq data.
-tags: [weeder, expression]
+category: bioinformatics
+description: Weeder - Motif discovery tool.
+tags: [weeder, motif-discovery, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://159.149.160.51/modtools/"
+source_url: "https://github.com/weeder/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: weeder (v2.0) - Motif (transcription factor binding sites) discovery in sequences from coregulated genes of a single species. This is a new Weeder release rewritten to be faster and optimized for large ChIP-Seq data.
-- **Core Function**: Motif (transcription factor binding sites) discovery in sequences from coregulated genes of a single species. This is a new Weeder release rewritten to be faster and optimized for large ChIP-Seq data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda weeder`
+- **Tool Overview**: Weeder - Motif discovery tool.
+- **Core Function**: Discovers sequence motifs.
+- **Input**: Sequence data.
+- **Output**: Motif predictions.
+- **Installation**: Download from official site
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Discover motifs
+**Args:** `weeder -i sequences.fasta -o motifs.txt`
+**Explanation:** Discover motifs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `weeder -i sequences.fasta -o motifs.txt -l 8`
+**Explanation:** Search for 8-mer motifs.

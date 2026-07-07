@@ -1,31 +1,56 @@
 ---
 name: rilseq
 category: utility
-description: Processing RILSeq experiments results
-tags: ["rilseq", "utility"]
+description: RILSeq processes RNA interaction data from RIL-seq experiments.
+tags: [rilseq, utility, rna-interaction, sequencing]
 author: oxo-call-community
 source_url: "http://github.com/asafpr/RILseq"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Processing RILSeq experiments results (version 0.82)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rilseq`
+- **Tool Overview**: rilseq processes RIL-seq data.
+- **Core Function**: RNA interaction analysis.
+- **Algorithm**: Uses bioinformatics methods.
+- **Input Format**: Accepts sequencing data.
+- **Output**: Produces interaction results.
+- **Use Case**: RNA biology.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Affects analysis.
+- **Parameters**: Must be configured.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rilseq --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Process data
+**Args:** `rilseq process -i reads.fastq -o results/`
+**Explanation:** Processes RIL-seq experiment data.
 
+### With parameters
+**Args:** `rilseq process -i reads.fastq -p params.yaml -o results/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rilseq -v process -i reads.fastq -o results/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rilseq -t 4 process -i reads.fastq -o results/`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With reference
+**Args:** `rilseq process -i reads.fastq -r genome.fasta -o results/`
+**Explanation:** Uses reference genome.
+
+### Generate report
+**Args:** `rilseq process -i reads.fastq -o results/ --report report.html`
+**Explanation:** Generates HTML report.

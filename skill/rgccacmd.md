@@ -1,31 +1,56 @@
 ---
 name: rgccacmd
 category: formatting
-description: Multiblock data analysis concerns the analysis of several sets of variables (blocks) observed on the same group of individuals. The main aims of the RGCCA package are (i) to study the relationships between blocks and (ii) to identify subsets of variables of each block which are active in their relationships with the other blocks.
-tags: ["rgccacmd", "formatting", "sam"]
+description: RGCCA performs multiblock data analysis for studying relationships between datasets.
+tags: [rgccacmd, formatting, multiblock-analysis, statistics]
 author: oxo-call-community
 source_url: "https://github.com/BrainAndSpineInstitute/rgcca_ui#readme"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Multiblock data analysis concerns the analysis of several sets of variables (blocks) observed on the same group of individuals. The main aims of the RGCCA package are (i) to study the relationships between blocks and (ii) to identify subsets of variables of each block which are active in their relationships with the other blocks. (version 3.0.3)
-- **Core Function**: Processes bioinformatics data related to formatting
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rgccacmd`
+- **Tool Overview**: rgccacmd analyzes multiblock data.
+- **Core Function**: Multiblock component analysis.
+- **Algorithm**: Uses statistical methods.
+- **Input Format**: Accepts multiple data blocks.
+- **Output**: Produces component scores.
+- **Use Case**: Multi-omics analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Block Quality**: Affects analysis.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `R -e "?RGCCA::rgcca"`
+**Explanation:** Shows available options and usage instructions.
 
-### Convert format
-**Args:** `-i input.file -o output.file`
-**Explanation:** Converts between file formats.
+### Run analysis
+**Args:** `Rscript -e "RGCCA::rgcca(data_blocks)"`
+**Explanation:** Performs multiblock component analysis.
 
+### With parameters
+**Args:** `Rscript -e "RGCCA::rgcca(data_blocks, params)"`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `Rscript -e "RGCCA::rgcca(data_blocks, verbose=TRUE)"`
+**Explanation:** Runs with verbose output.
+
+### Multiple cores
+**Args:** `Rscript -e "RGCCA::rgcca(data_blocks, ncores=4)"`
+**Explanation:** Uses 4 cores for parallel processing.
+
+### With scale
+**Args:** `Rscript -e "RGCCA::rgcca(data_blocks, scale=TRUE)"`
+**Explanation:** Scales data blocks.
+
+### Generate plot
+**Args:** `Rscript -e "RGCCA::plot(rgcca_result)"`
+**Explanation:** Generates visualization plot.

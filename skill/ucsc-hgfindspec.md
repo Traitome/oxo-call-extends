@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgfindspec
 category: utility
-description: Create hgFindSpec table from trackDb.ra files.
-tags: [ucsc-hgfindspec, utility]
+description: UCSC hgFindSpec - Tool for creating hgFindSpec files.
+tags: [ucsc-hgfindspec, ucsc, configuration, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgfindspec (v482) - Create hgFindSpec table from trackDb.ra files.
-- **Core Function**: Create hgFindSpec table from trackDb.ra files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgfindspec`
+- **Tool Overview**: UCSC hgFindSpec - A tool for creating hgFindSpec configuration files.
+- **Core Function**: Generates configuration files for genome browser search.
+- **Input**: Database information.
+- **Output**: hgFindSpec file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser configuration, search setup.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Format Requirements**: Requires proper format specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create hgFindSpec
+**Args:** `hgFindSpec -db=hg38 > hgFindSpec.txt`
+**Explanation:** Create hgFindSpec file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgFindSpec -db=hg38 -includeAll > hgFindSpec.txt`
+**Explanation:** Include all tables.

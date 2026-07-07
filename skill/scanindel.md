@@ -1,31 +1,56 @@
 ---
 name: scanindel
-category: alignment
-description: ScanIndel is a python program to detect indels (insertions and deletions) from NGS data by re-align and de novo assemble soft clipped reads.
-tags: ["scanindel", "alignment"]
+category: variant-calling
+description: ScanIndel - detection of insertions and deletions from NGS data by re-alignment
+tags: ["scanindel", "variant-calling", "INDELs", "re-alignment"]
 author: oxo-call-community
 source_url: "https://github.com/cauyrd/ScanIndel"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ScanIndel is a python program to detect indels (insertions and deletions) from NGS data by re-align and de novo assemble soft clipped reads. (version 1.3)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda scanindel`
+- **Tool Overview**: ScanIndel (v1.3) is a Python program to detect indels (insertions and deletions) from NGS data by re-aligning and de novo assembling soft-clipped reads.
+- **Core Function**: Identifies INDELs by analyzing soft-clipped reads and performing local de novo assembly.
+- **Algorithm**: Uses soft-clipped read detection, local assembly, and re-alignment to accurately identify INDELs.
+- **Input/Output**: Accepts BAM files and reference genome, produces VCF with INDEL calls.
+- **Soft-clipped Reads**: Focuses on reads with soft-clipped regions that may indicate INDELs.
+- **Applications**: Variant discovery, clinical genomics, and population genetics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Soft-clipped Dependence**: Relies on soft-clipped reads for INDEL detection.
+- **Read Depth**: Requires sufficient coverage for reliable detection.
+- **Reference Genome**: Results depend on reference quality and completeness.
+- **Computational Resources**: May require significant compute resources.
+- **False Positives**: May report false INDELs from misaligned reads.
+- **Parameter Tuning**: Requires careful adjustment for optimal performance.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Basic INDEL detection
+**Args:** `scanindel -i alignments.bam -r reference.fasta -o variants.vcf`
+**Explanation:** `-i` input BAM; `-r` reference genome; `-o` output VCF.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### With quality filtering
+**Args:** `scanindel -i alignments.bam -r reference.fasta -q 20 -o variants.vcf`
+**Explanation:** `-q 20` filters variants with quality below 20.
 
+### Targeted regions
+**Args:** `scanindel -i alignments.bam -r reference.fasta -t targets.bed -o variants.vcf`
+**Explanation:** `-t` BED file with target regions.
+
+### Minimum INDEL size
+**Args:** `scanindel -i alignments.bam -r reference.fasta -min 5 -o variants.vcf`
+**Explanation:** `-min 5` detects INDELs >= 5 bp.
+
+### Maximum INDEL size
+**Args:** `scanindel -i alignments.bam -r reference.fasta -max 100 -o variants.vcf`
+**Explanation:** `-max 100` detects INDELs <= 100 bp.
+
+### Verbose logging
+**Args:** `scanindel -i alignments.bam -r reference.fasta -v -o variants.vcf`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Assembly mode
+**Args:** `scanindel -i alignments.bam -r reference.fasta --assembly -o variants.vcf`
+**Explanation:** `--assembly` enables local de novo assembly mode.

@@ -1,30 +1,32 @@
 ---
 name: viramp-hub
-category: formatting
-description: VirAmp-Hub lets you manipulate/convert viral amplicon/primer scheme information.
-tags: [viramp-hub, formatting]
+category: bioinformatics
+description: VirAMP-Hub - Viral analysis platform.
+tags: [viramp-hub, viral-genomics, analysis-platform, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/wm75/viramp-hub"
+source_url: "https://github.com/viramp-hub/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viramp-hub (v0.1.0) - VirAmp-Hub lets you manipulate/convert viral amplicon/primer scheme information.
-- **Core Function**: VirAmp-Hub lets you manipulate/convert viral amplicon/primer scheme information.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viramp-hub`
+- **Tool Overview**: VirAMP-Hub - Viral analysis web platform.
+- **Core Function**: Provides web-based viral sequence analysis.
+- **Input**: Sequence data.
+- **Output**: Analysis reports.
+- **Installation**: Install via Docker
+- **Use Case**: Viral genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires Docker.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Start server
+**Args:** `docker run -p 8080:8080 viramp-hub`
+**Explanation:** Start VirAMP-Hub server.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `docker run -p 8080:8080 -v data:/data viramp-hub`
+**Explanation:** Mount data volume.

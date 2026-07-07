@@ -1,31 +1,56 @@
 ---
 name: reffinder
 category: formatting
-description: refFinder: Fast Lightweighttool for extracting nucleotides from fastafile using streams.
-tags: ["reffinder", "formatting", "fasta"]
+description: RefFinder is a fast lightweight tool for extracting nucleotides from FASTA files using streams.
+tags: [reffinder, formatting, fasta, nucleotide-extraction]
 author: oxo-call-community
 source_url: "https://github.com/ANGSD/refFinder"
 ---
 
 ## Concepts
 
-- **Tool Overview**: refFinder: Fast Lightweighttool for extracting nucleotides from fastafile using streams. (version 0.81)
-- **Core Function**: Processes bioinformatics data related to formatting
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda reffinder`
+- **Tool Overview**: reffinder extracts nucleotides.
+- **Core Function**: Nucleotide extraction.
+- **Algorithm**: Uses streaming methods.
+- **Input Format**: Accepts FASTA files.
+- **Output**: Produces extracted sequences.
+- **Use Case**: Sequence processing.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large files require memory.
+- **File Format**: Affects extraction.
+- **Parameters**: Must be configured.
+- **Runtime**: Extraction may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `reffinder --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Convert format
-**Args:** `-i input.file -o output.file`
-**Explanation:** Converts between file formats.
+### Extract nucleotides
+**Args:** `reffinder extract -i input.fasta -o output.fasta`
+**Explanation:** Extracts nucleotides from FASTA.
 
+### With parameters
+**Args:** `reffinder extract -i input.fasta -p params.yaml -o output.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `reffinder -v extract -i input.fasta -o output.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `reffinder -t 4 extract -i input.fasta -o output.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With regions
+**Args:** `reffinder extract -i input.fasta -r regions.txt -o output.fasta`
+**Explanation:** Extracts specific regions.
+
+### Generate report
+**Args:** `reffinder extract -i input.fasta -o output.fasta --report report.html`
+**Explanation:** Generates HTML report.

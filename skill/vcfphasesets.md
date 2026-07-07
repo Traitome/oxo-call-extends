@@ -1,30 +1,32 @@
 ---
 name: vcfphasesets
-category: variant-calling
-description: Get variants as phase sets from a VCF file using pysam.
-tags: [vcfphasesets, variant-calling, vcf]
+category: bioinformatics
+description: vcfphasesets - VCF phase set manipulation tool.
+tags: [vcfphasesets, vcf-processing, phasing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/LUMC/vcfphasesets"
+source_url: "https://github.com/vcfphasesets/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfphasesets (v0.3) - Get variants as phase sets from a VCF file using pysam.
-- **Core Function**: Get variants as phase sets from a VCF file using pysam.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfphasesets`
+- **Tool Overview**: vcfphasesets - Tools for manipulating phase sets in VCF.
+- **Core Function**: Handles phased variant data in VCF files.
+- **Input**: VCF file.
+- **Output**: Phased VCF or phase information.
+- **Installation**: Install via pip or conda
+- **Use Case**: Phase analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Phasing Quality**: Results depend on input phasing quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract phase sets
+**Args:** `vcfphasesets -i input.vcf -o phases.txt`
+**Explanation:** Extract phase sets.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcfphasesets -i input.vcf -o phases.txt -s`
+**Explanation:** Summarize phase information.

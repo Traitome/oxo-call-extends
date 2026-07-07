@@ -1,31 +1,56 @@
 ---
 name: rhocall
 category: utility
-description: Call regions of homozygosity and make tentative UPD calls.
-tags: ["rhocall", "utility"]
+description: RhoCall detects regions of homozygosity and makes UPD calls.
+tags: [rhocall, utility, homozygosity, upd-calling]
 author: oxo-call-community
 source_url: "https://github.com/dnil/rhocall"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Call regions of homozygosity and make tentative UPD calls. (version 0.5.1)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rhocall`
+- **Tool Overview**: rhocall detects homozygosity regions.
+- **Core Function**: Regions of homozygosity calling.
+- **Algorithm**: Uses statistical methods.
+- **Input Format**: Accepts VCF files.
+- **Output**: Produces ROH calls.
+- **Use Case**: Genetic analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large files require memory.
+- **Variant Quality**: Affects calling.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rhocall --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Call ROIs
+**Args:** `rhocall call -i input.vcf -o rohs.bed`
+**Explanation:** Calls regions of homozygosity.
 
+### With parameters
+**Args:** `rhocall call -i input.vcf -p params.yaml -o rohs.bed`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rhocall -v call -i input.vcf -o rohs.bed`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rhocall -t 4 call -i input.vcf -o rohs.bed`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With reference
+**Args:** `rhocall call -i input.vcf -r reference.fasta -o rohs.bed`
+**Explanation:** Uses reference genome.
+
+### Generate plot
+**Args:** `rhocall call -i input.vcf -o rohs.bed --plot plot.png`
+**Explanation:** Generates visualization plot.

@@ -1,30 +1,32 @@
 ---
 name: usher
-category: utility
-description: Ultrafast Sample Placement on Existing Trees (UShER).
-tags: [usher, utility]
+category: bioinformatics
+description: UShER - Ultrafast Sample placement on Existing tRees.
+tags: [usher, phylogenetic-tree, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://usher-wiki.readthedocs.io/en/latest"
+source_url: "https://github.com/yatisht/usher"
 ---
 
 ## Concepts
 
-- **Tool Overview**: usher (v0.6.6) - Ultrafast Sample Placement on Existing Trees (UShER).
-- **Core Function**: Ultrafast Sample Placement on Existing Trees (UShER).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda usher`
+- **Tool Overview**: UShER - A tool for rapid placement of samples on phylogenetic trees.
+- **Core Function**: Places new sequences onto existing phylogenetic trees.
+- **Input**: Reference tree, sequence variants.
+- **Output**: Updated phylogenetic tree.
+- **Installation**: Install via conda or source
+- **Use Case**: Phylogenetics, viral evolution, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large trees.
+- **Tree Format**: Requires specific tree format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Place samples
+**Args:** `usher -t tree.nwk -v variants.vcf -o updated_tree.nwk`
+**Explanation:** Place variants onto tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `usher -t tree.nwk -v variants.vcf -o updated_tree.nwk -m 10`
+**Explanation:** Set maximum placements.

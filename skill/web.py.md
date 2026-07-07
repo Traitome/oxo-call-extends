@@ -1,30 +1,32 @@
 ---
 name: web.py
-category: utility
-description: web.py makes web apps
-tags: [web.py, utility]
+category: bioinformatics
+description: web.py - Web framework.
+tags: [web.py, web-framework, python, bioinformatics]
 author: oxo-call-community
-source_url: "http://webpy.org/"
+source_url: "https://github.com/webpy/webpy"
 ---
 
 ## Concepts
 
-- **Tool Overview**: web.py (v0.37) - web.py makes web apps
-- **Core Function**: web.py makes web apps
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda web.py`
+- **Tool Overview**: web.py - Lightweight Python web framework.
+- **Core Function**: Builds web applications.
+- **Input**: Python code.
+- **Output**: Web application.
+- **Installation**: Install via pip
+- **Use Case**: Web development, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Security**: Requires security best practices.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create app
+**Args:** `python app.py`
+**Explanation:** Run web.py application.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python app.py 8080`
+**Explanation:** Run on port 8080.

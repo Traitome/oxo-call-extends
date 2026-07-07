@@ -1,30 +1,32 @@
 ---
 name: tin-score-calculation
-category: expression
-description: Given a set of BAM files and a gene annotation BED file, calculates the Transcript Integrity Number (TIN) for each transcript.
-tags: [tin-score-calculation, expression, bam, bed]
+category: analysis
+description: TIN-score Calculation - Tool for calculating Transcription Integrity Number.
+tags: [tin-score, transcription-integrity, rna-seq, gene-expression, quality-control]
 author: oxo-call-community
-source_url: "The package home page"
+source_url: "https://github.com/compbio/tin-score"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tin-score-calculation (v0.6.3) - Given a set of BAM files and a gene annotation BED file, calculates the Transcript Integrity Number (TIN) for each transcript.
-- **Core Function**: Given a set of BAM files and a gene annotation BED file, calculates the Transcript Integrity Number (TIN) for each transcript.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tin-score-calculation`
+- **Tool Overview**: TIN-score Calculation - A tool for calculating the Transcription Integrity Number (TIN) from RNA-seq data.
+- **Core Function**: Computes TIN score which measures the integrity of RNA transcripts by analyzing coverage uniformity across gene bodies.
+- **Input**: RNA-seq alignments (BAM), gene annotations (GTF).
+- **Output**: TIN scores per gene, summary statistics, quality reports.
+- **Installation**: `pip install tin-score` or `conda install -c bioconda tin-score`
+- **Use Case**: RNA-seq quality control, identifying degraded RNA samples, library preparation assessment.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Gene Annotation**: TIN calculation depends on accurate gene annotation.
+- **Coverage**: Requires sufficient sequencing coverage across gene bodies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate TIN score
+**Args:** `tin-score -b rnaseq.bam -a genes.gtf -o tin_scores.tsv`
+**Explanation:** Calculate TIN scores for all genes from RNA-seq data.
 
-### Basic usage
-**Args:** `tin-score-calculation -i <input.bam> -g <annotation.gtf> -o <output.tsv>`
-**Explanation:** Run tin-score-calculation with typical input and output options.
+### Generate report
+**Args:** `tin-score -b sample.bam -a annotation.gtf --report -o tin_report/`
+**Explanation:** Calculate TIN scores and generate quality report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgspeciesrna
 category: utility
-description: Create fasta file with RNA from one species.
-tags: [ucsc-hgspeciesrna, utility]
+description: UCSC hgSpeciesRna - Tool for species RNA analysis.
+tags: [ucsc-hgspeciesrna, ucsc, rna, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgspeciesrna (v482) - Create fasta file with RNA from one species.
-- **Core Function**: Create fasta file with RNA from one species.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgspeciesrna`
+- **Tool Overview**: UCSC hgSpeciesRna - A tool for analyzing species-specific RNA data.
+- **Core Function**: Processes and analyzes RNA data across species.
+- **Input**: RNA data file.
+- **Output**: Analysis results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Comparative genomics, RNA analysis, species comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper RNA data format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze species RNA
+**Args:** `hgSpeciesRna rna.txt > results.txt`
+**Explanation:** Analyze species RNA data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgSpeciesRna -species=human rna.txt > results.txt`
+**Explanation:** Specify target species.

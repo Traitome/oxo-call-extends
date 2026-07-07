@@ -1,30 +1,33 @@
 ---
 name: burrito
 category: programming
-description: Framework for wrapping and controlling command-line applications.
-tags: [burrito, programming]
+description: Framework for wrapping and controlling command-line applications in Python
+tags: [burrito, python, framework, command-line, wrapper]
 author: oxo-call-community
 source_url: "https://github.com/biocore/burrito"
 ---
 
 ## Concepts
 
-- **Tool Overview**: burrito (v0.9.1) - Framework for wrapping and controlling command-line applications.
-- **Core Function**: Framework for wrapping and controlling command-line applications.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda burrito`
+- **Tool Overview**: burrito is a Python framework for wrapping and controlling command-line applications.
+- **Core Function**: Provides a consistent interface for executing external tools within Python scripts.
+- **Features**: Process management, input/output handling, error capturing, and tool wrapping.
+- **Application**: Building bioinformatics pipelines and workflows in Python.
+- **Installation**: Install via bioconda: `conda install -c bioconda burrito`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Python Library**: This is a Python library, not a command-line tool.
+- **Command Path**: Ensure wrapped tools are in system PATH or specify full path.
+- **Error Handling**: Properly handle tool exit codes and stderr output.
+- **Dependency Management**: Ensure wrapped tools are installed separately.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Basic wrapper usage
+**Args:** `from burrito.util import CommandLineApp; app = CommandLineApp('tool_command')`
+**Explanation:** Creates a wrapper for a command-line tool.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Run command with arguments
+**Args:** `result = app('-i', 'input.txt', '-o', 'output.txt')`
+**Explanation:** Executes the wrapped command with specified arguments.

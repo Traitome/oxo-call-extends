@@ -1,30 +1,32 @@
 ---
 name: ucsc-oligomatch
 category: utility
-description: find perfect matches in sequence.
-tags: [ucsc-oligomatch, utility]
+description: UCSC oligoMatch - Tool for finding oligonucleotide matches.
+tags: [ucsc-oligomatch, ucsc, oligonucleotide, matching, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-oligomatch (v482) - find perfect matches in sequence.
-- **Core Function**: find perfect matches in sequence.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-oligomatch`
+- **Tool Overview**: UCSC oligoMatch - A tool for finding oligonucleotide matches.
+- **Core Function**: Finds matches of oligonucleotides in sequences.
+- **Input**: Oligo file, sequence file.
+- **Output**: Match locations.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Primer design, sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Format Requirements**: Requires proper input format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find oligonucleotide matches
+**Args:** `oligoMatch oligos.txt genome.fa > matches.txt`
+**Explanation:** Find oligo matches in genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `oligoMatch -minScore=10 oligos.txt genome.fa > matches.txt`
+**Explanation:** Minimum match score.

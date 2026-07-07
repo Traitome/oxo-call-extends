@@ -1,30 +1,32 @@
 ---
 name: varpubs
-category: variant-calling
-description: Tool for finding PubMed evidence on genetic variants and generating LLM-based summaries
-tags: [varpubs, variant-calling]
+category: bioinformatics
+description: VarPubs - Variant publication analysis tool.
+tags: [varpubs, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/koesterlab/varpubs"
+source_url: "https://github.com/varpubs/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varpubs (v1.0.0) - Tool for finding PubMed evidence on genetic variants and generating LLM-based summaries
-- **Core Function**: Tool for finding PubMed evidence on genetic variants and generating LLM-based summaries
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varpubs`
+- **Tool Overview**: VarPubs - A tool for analyzing variant publications.
+- **Core Function**: Analyzes publications related to genetic variants.
+- **Input**: Variant identifiers.
+- **Output**: Publication analysis.
+- **Installation**: Install via pip
+- **Use Case**: Literature mining, variant prioritization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Rate Limits**: May have API rate limits.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze publications
+**Args:** `varpubs -i variants.txt -o publications.txt`
+**Explanation:** Analyze variant publications.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `varpubs -i variants.txt -o publications.txt -l 10`
+**Explanation:** Limit to 10 publications per variant.

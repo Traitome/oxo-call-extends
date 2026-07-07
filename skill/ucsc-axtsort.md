@@ -1,30 +1,32 @@
 ---
 name: ucsc-axtsort
 category: utility
-description: Sort axt files.
-tags: [ucsc-axtsort, utility]
+description: UCSC axtSort - Tool for sorting axt format alignments.
+tags: [ucsc-axtsort, ucsc, alignment-sorting, axt-format, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-axtsort (v482) - Sort axt files.
-- **Core Function**: Sort axt files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-axtsort`
+- **Tool Overview**: UCSC axtSort - A tool for sorting axt format alignment files.
+- **Core Function**: Sorts axt format alignments by position.
+- **Input**: Unsorted axt format alignment file.
+- **Output**: Sorted axt format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment processing, data organization, genome analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper axt format.
+- **Memory**: Large files may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sort axt file
+**Args:** `axtSort unsorted.axt sorted.axt`
+**Explanation:** Sort axt format alignment file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With multiple files
+**Args:** `axtSort -inputDir alignments/ -output sorted.axt`
+**Explanation:** Sort multiple axt files.

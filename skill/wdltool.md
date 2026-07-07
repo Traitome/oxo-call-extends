@@ -1,30 +1,32 @@
 ---
 name: wdltool
-category: utility
-description: Command line utilities for interacting with WDL
-tags: [wdltool, utility]
+category: bioinformatics
+description: WDLTool - WDL workflow tool.
+tags: [wdltool, workflow, wdl, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/broadinstitute/wdltool"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wdltool (v0.14) - Command line utilities for interacting with WDL
-- **Core Function**: Command line utilities for interacting with WDL
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wdltool`
+- **Tool Overview**: WDLTool - WDL workflow processing tool.
+- **Core Function**: Processes and validates WDL workflows.
+- **Input**: WDL file.
+- **Output**: Processed workflow.
+- **Installation**: Install via Java or conda
+- **Use Case**: Workflow development, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for complex workflows.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate workflow
+**Args:** `wdltool validate workflow.wdl`
+**Explanation:** Validate WDL workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wdltool compile workflow.wdl -o compiled.wdl`
+**Explanation:** Compile workflow.

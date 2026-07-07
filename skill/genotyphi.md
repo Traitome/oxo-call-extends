@@ -1,30 +1,43 @@
 ---
 name: genotyphi
-category: expression
-description: Assign genotypes to Salmonella Typhi genomes based on VCF files (mapped to Typhi CT18 reference genome)
-tags: [genotyphi, expression, VCF]
+category: microbial-genomics
+description: GenoTyphi - Assign genotypes to Salmonella Typhi genomes based on VCF files mapped to Typhi CT18 reference genome.
+tags: [genotyphi, salmonella, microbial-genomics, VCF]
 author: oxo-call-community
 source_url: "https://github.com/typhoidgenomics/genotyphi"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genotyphi (v2.0) - Assign genotypes to Salmonella Typhi genomes based on VCF files (mapped to Typhi CT18 reference genome)
-- **Core Function**: Provides functionality for expression tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genotyphi`
+- **Salmonella Genotyping**: Genotypes Salmonella Typhi strains.
+- **VCF Analysis**: Analyzes VCF files for genotyping.
+- **Reference Mapping**: Uses Typhi CT18 as reference.
+- **Phylogenetic Analysis**: Supports phylogenetic classification.
+- **Outbreak Tracking**: Helps track disease outbreaks.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Reference Specificity**: Designed specifically for Salmonella Typhi.
+- **Mapping Quality**: Requires accurate mapping to reference.
+- **Data Quality**: Requires high-quality sequencing data.
+- **Database Updates**: Requires regular database updates.
+- **Validation**: Results should be validated experimentally.
 
 ## Examples
+### Genotype Salmonella
+**Args:** `genotyphi -i variants.vcf -o genotype.txt`
+**Explanation:** Assigns genotype to Salmonella Typhi from VCF.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Batch processing
+**Args:** `genotyphi -i ./vcfs/ -o ./genotypes/`
+**Explanation:** Processes multiple VCF files in batch.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Update database
+**Args:** `genotyphi --update-db`
+**Explanation:** Updates reference database.
+
+### Generate report
+**Args:** `genotyphi -i variants.vcf -r -o report.html`
+**Explanation:** Generates genotyping report.
+
+### Validate genotype
+**Args:** `genotyphi -i variants.vcf -v -o validation.txt`
+**Explanation:** Validates genotype prediction.

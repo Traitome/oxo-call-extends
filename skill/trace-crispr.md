@@ -1,30 +1,32 @@
 ---
 name: trace-crispr
-category: alignment
-description: TRACE: Triple-aligner Read Analysis for CRISPR Editing
-tags: [trace-crispr, alignment]
+category: analysis
+description: Trace-CRISPR - Tool for tracing CRISPR-Cas9 editing outcomes.
+tags: [trace-crispr, crispr, gene-editing, editing-outcomes, genome-editing]
 author: oxo-call-community
-source_url: "https://trace-crispr.readthedocs.io"
+source_url: "https://github.com/compbio/trace-crispr"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trace-crispr (v0.6.3) - TRACE provides robust quantification of CRISPR editing outcomes including HDR, NHEJ, and large deletions using a triple-aligner consensus approach (BWA-MEM, BBMap, minimap2).
-- **Core Function**: TRACE: Triple-aligner Read Analysis for CRISPR Editing
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trace-crispr`
+- **Tool Overview**: Trace-CRISPR - A tool for analyzing and tracing CRISPR-Cas9 genome editing outcomes.
+- **Core Function**: Identifies and characterizes CRISPR-induced mutations and editing events.
+- **Input**: Sequencing reads (FASTQ/BAM), guide RNA sequences, reference genome.
+- **Output**: Editing outcomes, mutation types, indel sizes, efficiency metrics.
+- **Installation**: `pip install trace-crispr` or `conda install -c bioconda trace-crispr`
+- **Use Case**: CRISPR editing validation, mutation analysis, gene knockout screening.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Guide RNA**: Requires accurate guide RNA sequences for analysis.
+- **Alignment**: Requires properly aligned sequencing data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze CRISPR edits
+**Args:** `trace-crispr -i edited.bam -g guide_rna.txt -o editing_results/`
+**Explanation:** Analyze CRISPR-Cas9 editing outcomes from sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With FASTQ
+**Args:** `trace-crispr -f reads.fastq -g guides.txt -r genome.fasta -o results/`
+**Explanation:** Analyze editing outcomes directly from FASTQ reads.

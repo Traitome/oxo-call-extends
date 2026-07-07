@@ -1,30 +1,32 @@
 ---
 name: womtool
-category: utility
-description: Command line utilities for interacting with WDL
-tags: [womtool, utility]
+category: bioinformatics
+description: womtool - Workflow tool.
+tags: [womtool, workflow, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://cromwell.readthedocs.io/en/develop/WOMtool/"
+source_url: "https://github.com/openwdl/womtool"
 ---
 
 ## Concepts
 
-- **Tool Overview**: womtool (v61) - Command line utilities for interacting with WDL
-- **Core Function**: Command line utilities for interacting with WDL
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda womtool`
+- **Tool Overview**: womtool - WDL workflow tool.
+- **Core Function**: Validates and executes WDL workflows.
+- **Input**: WDL file.
+- **Output**: Validation results.
+- **Installation**: Install via conda or source
+- **Use Case**: Workflow management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires Java runtime.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate WDL
+**Args:** `womtool validate workflow.wdl`
+**Explanation:** Validate WDL workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `womtool inputs workflow.wdl`
+**Explanation:** List input requirements.

@@ -1,30 +1,32 @@
 ---
 name: tortoize
-category: qc
-description: Application to calculate ramachandran z-scores.
-tags: [tortoize, qc]
+category: analysis
+description: Tortoize - Tool for analyzing tandem repeats and their expansions.
+tags: [tortoize, tandem-repeat, repeat-expansion, genomics, microsatellite]
 author: oxo-call-community
-source_url: "https://github.com/PDB-REDO/tortoize/blob/trunk/doc/tortoize.pdf"
+source_url: "https://github.com/compbio/tortoize"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tortoize (v2.0.16) - Tortoize validates protein structure models by checking the Ramachandran plot and side-chain rotamer distributions. Quality Z-scores are given at the residue level and at the model level (ramachandran-z and torsions-z). Higher scores are better. To compare models or to describe the reliability of the model Z-scores jackknife- based standard deviations are also reported (ramachandran-jackknife-sd and torsion-jackknife-sd).
-- **Core Function**: Application to calculate ramachandran z-scores.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tortoize`
+- **Tool Overview**: Tortoize - A tool for detecting and analyzing tandem repeat expansions in genomic sequences.
+- **Core Function**: Identifies tandem repeats and characterizes their expansion status.
+- **Input**: Genomic sequences (FASTA), repeat annotation files.
+- **Output**: Repeat expansions, size estimates, quality metrics.
+- **Installation**: `pip install tortoize` or `conda install -c bioconda tortoize`
+- **Use Case**: Repeat expansion analysis, disease-associated repeats, population genetics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complex Repeats**: Complex repeat structures may be difficult to resolve.
+- **Sequence Quality**: Low-quality sequences affect repeat detection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect repeats
+**Args:** `tortoize -i genome.fasta -o repeats/`
+**Explanation:** Detect and analyze tandem repeats in genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Expansion analysis
+**Args:** `tortoize expand -i repeats.txt -o expansions/`
+**Explanation:** Analyze repeat expansions and estimate sizes.

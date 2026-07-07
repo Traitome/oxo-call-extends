@@ -1,30 +1,32 @@
 ---
 name: woltka
-category: utility
-description: versatile meta-omic data classifier
-tags: [woltka, utility]
+category: bioinformatics
+description: Woltka - Microbiome analysis tool.
+tags: [woltka, microbiome, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/qiyunzhu/woltka"
+source_url: "https://github.com/qiyunlab/woltka"
 ---
 
 ## Concepts
 
-- **Tool Overview**: woltka (v0.1.7) - versatile meta-omic data classifier
-- **Core Function**: versatile meta-omic data classifier
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda woltka`
+- **Tool Overview**: Woltka - Microbiome analysis tool.
+- **Core Function**: Analyzes microbiome data.
+- **Input**: Sequence reads.
+- **Output**: Taxonomic profiles.
+- **Installation**: Install via pip or conda
+- **Use Case**: Microbiome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze microbiome
+**Args:** `woltka classify -i reads.fastq -o taxonomy.txt`
+**Explanation:** Classify reads taxonomically.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `woltka classify -i reads.fastq -o taxonomy.txt -t 8`
+**Explanation:** Use 8 threads.

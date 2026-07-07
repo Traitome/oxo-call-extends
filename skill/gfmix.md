@@ -1,30 +1,43 @@
 ---
 name: gfmix
-category: utility
-description: Accelerated Estimation of Frequency Classes in Site-heterogeneous Profile Mixture Models
-tags: [gfmix, utility]
+category: statistical-analysis
+description: gfmix - Accelerated estimation of frequency classes in site-heterogeneous profile mixture models.
+tags: [gfmix, statistical-analysis, mixture-models, phylogenetics]
 author: oxo-call-community
 source_url: "https://www.mathstat.dal.ca/~tsusko/doc/gfmix.pdf"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfmix (v1.0.2) - Accelerated Estimation of Frequency Classes in Site-heterogeneous Profile Mixture Models
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfmix`
+- **Mixture Models**: Implements profile mixture models.
+- **Frequency Estimation**: Estimates frequency classes.
+- **Site Heterogeneity**: Models site-specific rates.
+- **Phylogenetics**: Used in phylogenetic analysis.
+- **Acceleration**: Uses accelerated algorithms.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Model Complexity**: Complex model parameters.
+- **Convergence Issues**: May have convergence problems.
+- **Computational Resources**: Requires computational resources.
+- **Data Requirements**: Requires sufficient data.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Run gfmix
+**Args:** `gfmix -i alignment.fasta -o results.txt`
+**Explanation:** Runs mixture model estimation.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gfmix -i alignment.fasta -c 4 -o results.txt`
+**Explanation:** Uses 4 frequency classes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gfmix -l alignments.txt -o ./results/`
+**Explanation:** Processes multiple alignments.
+
+### Generate report
+**Args:** `gfmix -i alignment.fasta -r -o report.html`
+**Explanation:** Generates analysis report.
+
+### Validate results
+**Args:** `gfmix -i alignment.fasta -v -o results.txt`
+**Explanation:** Validates mixture model results.

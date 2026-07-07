@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainfilter
-category: qc
-description: Filter chain files.  Output goes to standard out.
-tags: [ucsc-chainfilter, qc]
+category: utility
+description: UCSC chainFilter - Tool for filtering chain alignments.
+tags: [ucsc-chainfilter, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainfilter (v482) - Filter chain files.  Output goes to standard out.
-- **Core Function**: Filter chain files.  Output goes to standard out.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainfilter`
+- **Tool Overview**: UCSC chainFilter - A tool for filtering chain alignments based on various criteria.
+- **Core Function**: Filters chain alignments by score, size, or other properties.
+- **Input**: Chain alignment file.
+- **Output**: Filtered chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment filtering, quality control, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Filter Criteria**: Requires appropriate filter parameters.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter chains
+**Args:** `chainFilter input.chain > filtered.chain`
+**Explanation:** Filter chain alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With score filter
+**Args:** `chainFilter -minScore=5000 input.chain > filtered.chain`
+**Explanation:** Filter chains by minimum score.

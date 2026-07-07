@@ -1,30 +1,32 @@
 ---
 name: ucsc-facount
 category: utility
-description: Count base statistics and CpGs in FA files.
-tags: [ucsc-facount, utility]
+description: UCSC faCount - Tool for counting bases in FASTA sequences.
+tags: [ucsc-facount, ucsc, fasta, sequence-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-facount (v482) - Count base statistics and CpGs in FA files.
-- **Core Function**: Count base statistics and CpGs in FA files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-facount`
+- **Tool Overview**: UCSC faCount - A tool for counting nucleotide bases in FASTA sequences.
+- **Core Function**: Counts A, C, G, T, N, and other bases in sequences.
+- **Input**: FASTA file.
+- **Output**: Base count statistics.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence analysis, quality control, genome statistics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Ambiguity Codes**: May not handle all ambiguity codes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Count bases
+**Args:** `faCount genome.fa > counts.txt`
+**Explanation:** Count bases in FASTA file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `faCount -verbose genome.fa > counts.txt`
+**Explanation:** Count with detailed output.

@@ -1,30 +1,64 @@
 ---
 name: gzrt
-category: programming
-description: Unofficial build of the gzip Recovery Toolkit aka gzrecover.
-tags: [gzrt, programming]
+category: bioinformatics
+description: gzrt (gzip Recovery Toolkit) recovers data from corrupted gzip files, essential for bioinformatics data recovery.
+tags: [gzrt, gzip, data-recovery, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/arenn/gzrt/blob/v0.9.1/README"
+source_url: "https://github.com/arenn/gzrt"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gzrt (v0.9.1) - Unofficial build of the gzip Recovery Toolkit aka gzrecover.
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gzrt`
+- **Data Recovery**: gzrt recovers data from corrupted gzip files.
+
+- **gzip Decompression**: Attempts to decompress damaged gzip archives.
+
+- **Error Handling**: Handles various types of gzip file corruption.
+
+- **Partial Recovery**: Recovers as much data as possible from damaged files.
+
+- **Bioinformatics Data**: Particularly useful for large sequencing data files.
+
+- **Forensic Analysis**: Aids in data recovery for forensic analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Severe Corruption**: Severe corruption may prevent full recovery.
+
+- **Data Loss**: Some data may be unrecoverable depending on corruption.
+
+- **Output Integrity**: Verify recovered data integrity if possible.
+
+- **Memory Usage**: Large files may require significant memory.
+
+- **Time Consuming**: Recovery from heavily corrupted files may be slow.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Recover data from corrupted gzip
+**Args:** `gzrecover corrupted.gz`
+**Explanation:** Attempts to recover data from corrupted gzip file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Save recovered data
+**Args:** `gzrecover corrupted.gz > recovered.dat`
+**Explanation:** Saves recovered data to file.
+
+### Batch recovery
+**Args:** `for f in *.gz; do gzrecover $f > ${f%.gz}_recovered; done`
+**Explanation:** Attempts recovery on multiple files.
+
+### Force recovery
+**Args:** `gzrecover -f corrupted.gz > recovered.dat`
+**Explanation:** Forces recovery attempts even with severe errors.
+
+### Check file integrity
+**Args:** `gzip -t file.gz`
+**Explanation:** Checks gzip file integrity before recovery.
+
+### Recover with verbose output
+**Args:** `gzrecover -v corrupted.gz > recovered.dat`
+**Explanation:** Shows verbose recovery information.
+
+### Help command
+**Args:** `gzrecover --help`
+**Explanation:** Shows available options and usage information.

@@ -1,30 +1,32 @@
 ---
 name: xpclr
-category: utility
-description: Code to compute xp-clr values to detect selection as per Chen, Patterson & Reich 2010.
-tags: [xpclr, utility]
+category: bioinformatics
+description: XPCLR - Population genetic analysis.
+tags: [xpclr, population-genetics, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/hardingnj/xpclr"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xpclr (v1.1.2) - Code to compute xp-clr values to detect selection as per Chen, Patterson & Reich 2010.
-- **Core Function**: Code to compute xp-clr values to detect selection as per Chen, Patterson & Reich 2010.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xpclr`
+- **Tool Overview**: XPCLR - Cross-population composite likelihood ratio.
+- **Core Function**: Detects positive selection.
+- **Input**: Genotype data.
+- **Output**: Selection scores.
+- **Installation**: Install via pip or conda
+- **Use Case**: Population genetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect selection
+**Args:** `xpclr -i genotypes.txt -o selection.txt`
+**Explanation:** Detect positive selection.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xpclr -i genotypes.txt -o selection.txt -w 100`
+**Explanation:** Use window size 100.

@@ -1,30 +1,44 @@
 ---
 name: cmv
 category: utility
-description: A collection of tools for the visualisation of Hidden Markov Models (HMMV) and RNA-family models (CMV).
-tags: [cmv, utility]
+description: Visualization tools for Hidden Markov Models (HMM) and RNA covariance models (CM)
+tags: [cmv, visualization, hmm, covariance-model, rna-analysis, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/eggzilla/cmv"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cmv (v1.0.8) - A collection of tools for the visualisation of Hidden Markov Models (HMMV) and RNA-family models (CMV).
-- **Core Function**: A collection of tools for the visualisation of Hidden Markov Models (HMMV) and RNA-family models (CMV).
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda cmv`
+- **Tool Overview**: cmv is a collection of visualization tools for Hidden Markov Models (HMM) and RNA covariance models (CM), providing graphical representations of these computational models.
+- **Core Function**: Visualizes HMM and CM structures, including states, transitions, and emission probabilities.
+- **Algorithm**: Parses model files and generates graphical representations using various output formats.
+- **Input**: HMM or CM model files (e.g., HMMER, Infernal format).
+- **Output**: Visual representations in various formats (PNG, SVG, PDF).
+- **Application**: Model debugging, publication-quality figures, and model documentation.
+- **Installation**: Install via bioconda: `conda install -c bioconda cmv`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Model Format**: Requires properly formatted HMM or CM files.
+- **Complex Models**: Very complex models may produce cluttered visualizations.
+- **Output Resolution**: May require adjustment for publication-quality figures.
+- **Dependencies**: May require additional graphics libraries for certain output formats.
+- **Model Size**: Large models may require significant memory for rendering.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Visualize HMM model
+**Args:** `cmv -i model.hmm -o model.png`
+**Explanation:** Generates visualization of HMM model.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Visualize covariance model
+**Args:** `cmv -i model.cm -o model.svg`
+**Explanation:** Generates SVG visualization of RNA covariance model.
+
+### With custom layout
+**Args:** `cmv -i model.hmm -o model.png -l circular`
+**Explanation:** Uses circular layout for visualization.
+
+### Display help
+**Args:** `cmv --help`
+**Explanation:** Shows all available options and usage information.

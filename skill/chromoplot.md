@@ -1,30 +1,44 @@
 ---
 name: chromoplot
-category: alignment
+category: visualization
 description: Publication-quality genome and chromosome visualization toolkit
-tags: [chromoplot, alignment]
+tags: [chromoplot, visualization, genome, chromosome, publication, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/aseetharam/chromoplot#readme"
 ---
 
 ## Concepts
 
-- **Tool Overview**: chromoplot (v0.1.0) - Publication-quality genome and chromosome visualization toolkit
-- **Core Function**: Chromoplot is a Python library for creating publication-quality genome visualizations. It provides a track-based system for plotting genomic features, haplotypes, gene models, alignments, coverage, an...
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda chromoplot`
+- **Tool Overview**: ChromoPlot is a Python library for creating publication-quality genome and chromosome visualizations.
+- **Core Function**: Provides a track-based system for plotting genomic features, haplotypes, gene models, alignments, and coverage data.
+- **Features**: Track-based visualization, support for multiple genomic data types, customizable styling, and publication-quality output.
+- **Input**: Genomic feature files (BED, GFF, VCF), alignment data, and coverage tracks.
+- **Output**: High-quality figures in various formats (PNG, PDF, SVG).
+- **Application**: Genomic data visualization for publications, presentations, and exploratory analysis.
+- **Installation**: Install via bioconda: `conda install -c bioconda chromoplot`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Format**: Requires properly formatted input files.
+- **Plot Complexity**: Too many tracks may reduce visual clarity.
+- **Memory Usage**: May require significant memory for large datasets.
+- **Styling**: Requires careful parameter tuning for optimal visual results.
+- **Output Size**: High-resolution figures may be large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Basic genome visualization
+**Args:** `chromoplot -i features.bed -o genome_plot.png`
+**Explanation:** Creates visualization of genomic features.
 
-### Basic usage
-**Args:** `-i input.fastq -r reference.fasta -o output.sam`
-**Explanation:** Align reads to a reference genome
+### Multiple tracks
+**Args:** `chromoplot -i genes.gff variants.vcf coverage.bed -o multi_track.png`
+**Explanation:** Creates multi-track visualization with genes, variants, and coverage.
+
+### Custom styling
+**Args:** `chromoplot -i features.bed -o styled_plot.png --style custom_style.yaml`
+**Explanation:** Applies custom styling to visualization.
+
+### Display help
+**Args:** `chromoplot --help`
+**Explanation:** Shows all available options and usage information.

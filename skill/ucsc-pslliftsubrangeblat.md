@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslliftsubrangeblat
-category: alignment
-description: Lift PSLs from blat subrange alignments.
-tags: [ucsc-pslliftsubrangeblat, alignment]
+category: utility
+description: UCSC pslLiftSubrangeBlat - Tool for lifting subrange BLAT alignments.
+tags: [ucsc-pslliftsubrangeblat, ucsc, psl, lift, blat, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslliftsubrangeblat (v482) - Lift PSLs from blat subrange alignments.
-- **Core Function**: Lift PSLs from blat subrange alignments.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslliftsubrangeblat`
+- **Tool Overview**: UCSC pslLiftSubrangeBlat - A tool for lifting subrange BLAT alignments.
+- **Core Function**: Lifts subrange alignments to target coordinates.
+- **Input**: PSL file, chain file.
+- **Output**: Lifted PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Liftover, coordinate conversion, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL/chain format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Lift subrange BLAT
+**Args:** `pslLiftSubrangeBlat input.psl chain.txt > lifted.psl`
+**Explanation:** Lift subrange BLAT alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslLiftSubrangeBlat -verbose input.psl chain.txt > lifted.psl`
+**Explanation:** Lift with verbose output.

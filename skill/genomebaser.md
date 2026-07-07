@@ -1,30 +1,43 @@
 ---
 name: genomebaser
-category: utility
-description: GenomeBaser manages complete (bacterial) genomes from NCBI
-tags: [genomebaser, utility]
+category: data-management
+description: GenomeBaser - Manages complete (bacterial) genomes from NCBI.
+tags: [genomebaser, genome-management, ncbi, bacterial-genomics]
 author: oxo-call-community
 source_url: "http://github.com/mscook/GenomeBaser"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genomebaser (v0.1.2) - GenomeBaser manages complete (bacterial) genomes from NCBI
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genomebaser`
+- **Genome Management**: Manages complete bacterial genomes.
+- **NCBI Integration**: Integrates with NCBI databases.
+- **Data Retrieval**: Retrieves genome data from NCBI.
+- **Genome Annotation**: Manages genome annotations.
+- **Database Management**: Maintains local genome database.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Network Dependency**: Requires network access for NCBI queries.
+- **Data Updates**: Requires regular database updates.
+- **Storage Requirements**: Large genomes require significant storage.
+- **Format Compatibility**: Requires specific input/output formats.
+- **Data Integrity**: Requires data validation.
 
 ## Examples
+### Retrieve genome
+**Args:** `genomebaser get -a NC_000913 -o ecoli.fasta`
+**Explanation:** Retrieves genome by accession number.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Search genomes
+**Args:** `genomebaser search -s "Escherichia coli" -o results.txt`
+**Explanation:** Searches for genomes by species name.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Download batch
+**Args:** `genomebaser batch -l accessions.txt -o ./genomes/`
+**Explanation:** Downloads multiple genomes in batch.
+
+### Update database
+**Args:** `genomebaser update`
+**Explanation:** Updates local genome database.
+
+### List genomes
+**Args:** `genomebaser list -o genomes.txt`
+**Explanation:** Lists all genomes in local database.

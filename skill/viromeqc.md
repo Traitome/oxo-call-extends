@@ -1,30 +1,32 @@
 ---
 name: viromeqc
-category: qc
-description: Provides an enrichment score for VLP viromes with respect to metagenomes
-tags: [viromeqc, qc]
+category: bioinformatics
+description: ViromeQC - Virome quality control.
+tags: [viromeqc, viral-genomics, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/SegataLab/viromeqc"
+source_url: "https://github.com/viromeqc/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viromeqc (v1.0.2) - Provides an enrichment score for VLP viromes with respect to metagenomes
-- **Core Function**: Provides an enrichment score for VLP viromes with respect to metagenomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viromeqc`
+- **Tool Overview**: ViromeQC - Quality control for virome data.
+- **Core Function**: Assesses quality of virome sequencing data.
+- **Input**: FASTQ files.
+- **Output**: QC report.
+- **Installation**: Install via pip or conda
+- **Use Case**: Quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run QC
+**Args:** `viromeqc -i reads.fastq -o qc_report.txt`
+**Explanation:** Run virome quality control.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viromeqc -i reads.fastq -o qc_report.txt -t 8`
+**Explanation:** Use 8 threads.

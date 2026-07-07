@@ -2,21 +2,42 @@
 name: gargammel
 category: formatting
 description: Tool for simulating ancient DNA datasets.
-tags: [gargammel, formatting]
+tags: [gargammel, ancient DNA, simulation, aDNA]
 author: oxo-call-community
 source_url: "https://github.com/grenaud/gargammel"
 ---
 
 ## Concepts
-- **Tool Overview**: gargammel is a set of programs aimed at simulating ancient DNA fragments. For ancient hominin samples our program can also simulate various levels of present-day human contamination and microbial contamination.
-- **Core Function**: Tool for simulating ancient DNA datasets.
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda gargammel`
+- **Ancient DNA Simulation**: Simulates ancient DNA fragments.
+- **Damage Patterns**: Simulates characteristic aDNA damage.
+- **Contamination Modeling**: Models present-day human contamination.
+- **Microbial Contamination**: Simulates microbial contamination.
+- **Fragment Simulation**: Generates realistic aDNA fragments.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Damage Model**: Damage patterns may not match real aDNA.
+- **Complex Parameters**: Many parameters require careful selection.
+- **Reference Quality**: Simulated data depends on reference quality.
+- **Computational Time**: Large simulations can be slow.
+- **Database Requirements**: Requires appropriate reference databases.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Simulate aDNA fragments
+**Args:** `gargammel -ref reference.fasta -o simulated/`
+**Explanation:** Simulates ancient DNA fragments.
+
+### With contamination
+**Args:** `gargammel -ref reference.fasta -contam 0.05 -o simulated/`
+**Explanation:** Simulates with 5% contamination.
+
+### Damage simulation
+**Args:** `gargammel -ref reference.fasta -dmg -o simulated/`
+**Explanation:** Includes aDNA damage patterns.
+
+### Paired-end simulation
+**Args:** `gargammel -ref reference.fasta -pe -o simulated/`
+**Explanation:** Simulates paired-end reads.
+
+### Specify fragment length
+**Args:** `gargammel -ref reference.fasta -l 50-100 -o simulated/`
+**Explanation:** Sets fragment length range 50-100bp.

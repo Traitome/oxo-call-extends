@@ -1,12 +1,11 @@
 ---
 name: damasker
 category: programming
-description: DAMASKER: Module to determine where repeats are and make soft-masks of said.
+description: "DAMASKER: Module to determine where repeats are and make soft-masks of said."
 tags: [damasker, programming]
 author: oxo-call-community
 source_url: "https://github.com/thegenemyers/DAMASKER"
 ---
-
 ## Concepts
 
 - **Tool Overview**: damasker (v1.0p1) - DAMASKER: Module to determine where repeats are and make soft-masks of said.

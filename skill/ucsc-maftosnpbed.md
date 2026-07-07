@@ -1,30 +1,32 @@
 ---
 name: ucsc-maftosnpbed
-category: variant-calling
-description: Finds SNPs in MAF and builds a bed with their functional consequence.
-tags: [ucsc-maftosnpbed, variant-calling]
+category: utility
+description: UCSC mafToSnpBed - Tool for converting MAF to SNP BED.
+tags: [ucsc-maftosnpbed, ucsc, maf, snp, bed, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maftosnpbed (v482) - Finds SNPs in MAF and builds a bed with their functional consequence.
-- **Core Function**: Finds SNPs in MAF and builds a bed with their functional consequence.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maftosnpbed`
+- **Tool Overview**: UCSC mafToSnpBed - A tool for converting MAF to SNP BED format.
+- **Core Function**: Extracts SNPs from MAF alignments into BED format.
+- **Input**: MAF file.
+- **Output**: SNP BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: SNP analysis, variant calling, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert MAF to SNP BED
+**Args:** `mafToSnpBed input.maf > snps.bed`
+**Explanation:** Extract SNPs from MAF to BED.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafToSnpBed -minScore=100 input.maf > snps.bed`
+**Explanation:** Minimum alignment score filter.

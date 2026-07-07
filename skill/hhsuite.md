@@ -1,30 +1,60 @@
 ---
 name: hhsuite
-category: annotation
-description: HH-suite3 for fast remote homology detection and deep protein annotation.
-tags: [hhsuite, annotation]
+category: bioinformatics
+description: HH-suite3 performs fast remote homology detection and deep protein annotation using profile hidden Markov models.
+tags: [hhsuite, protein-analysis, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/soedinglab/hh-suite/wiki"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hhsuite (v3.3.0) - HH-suite3 for fast remote homology detection and deep protein annotation.
-- **Core Function**: Provides functionality for annotation tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hhsuite`
+- **Remote Homology Detection**: HH-suite detects distant protein relationships.
+
+- **Profile HMMs**: Uses profile hidden Markov models.
+
+- **Protein Annotation**: Provides deep protein annotation.
+
+- **Sequence Comparison**: Compares protein sequences efficiently.
+
+- **Database Search**: Searches protein databases.
+
+- **Structure Prediction**: Aids in protein structure prediction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Download**: Requires large database downloads.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Database Updates**: Databases need regular updates.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Search database
+**Args:** `hhblits -i query.fasta -d uniprot20_2023_02 -o results.hhr`
+**Explanation:** Searches protein database with HHblits.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Build profile
+**Args:** `hhbuild -i query.fasta -o query.hhm`
+**Explanation:** Builds profile HMM from sequence.
+
+### Align profiles
+**Args:** `hhalign -i1 query.hhm -i2 target.hhm -o alignment.hhr`
+**Explanation:** Aligns two profile HMMs.
+
+### Batch processing
+**Args:** `for f in *.fasta; do hhblits -i $f -d uniprot20_2023_02 -o ${f%.fasta}.hhr; done`
+**Explanation:** Processes multiple query sequences.
+
+### Generate report
+**Args:** `hhblits -i query.fasta -d uniprot20_2023_02 -o results.hhr -report`
+**Explanation:** Generates comprehensive report.
+
+### Help command
+**Args:** `hhblits -h`
+**Explanation:** Shows available options and usage information.

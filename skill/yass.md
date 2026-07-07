@@ -1,30 +1,32 @@
 ---
 name: yass
-category: formatting
-description: YASS is a genomic similarity search tool, for nucleic (DNA/RNA) sequences in fasta or plain text format.
-tags: [yass, formatting]
+category: bioinformatics
+description: YASS - Sequence alignment tool.
+tags: [yass, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://bioinfo.lifl.fr/yass"
+source_url: "https://github.com/yass/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yass (v1.16) - YASS is a genomic similarity search tool, for nucleic (DNA/RNA) sequences in fasta or plain text format.
-- **Core Function**: YASS is a genomic similarity search tool, for nucleic (DNA/RNA) sequences in fasta or plain text format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yass`
+- **Tool Overview**: YASS - Sequence alignment tool.
+- **Core Function**: Aligns sequences.
+- **Input**: Sequence files.
+- **Output**: Alignment.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence alignment, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `yass -i input.fasta -o alignment.fasta`
+**Explanation:** Align sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yass -i input.fasta -o alignment.fasta -t 8`
+**Explanation:** Use 8 threads.

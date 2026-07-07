@@ -1,30 +1,52 @@
 ---
 name: lepwrap
-category: utility
-description: The Snakemake pipeline to use Lep-Map3 to create linkage maps and LepAnchor for anchoring+orienting genome assemblies.
-tags: [lepwrap, utility]
+category: workflow
+description: Snakemake pipeline for linkage map construction and genome assembly anchoring
+tags: [lepwrap, workflow, linkage-map, genome-assembly, snakemake, Lep-Map3]
 author: oxo-call-community
 source_url: "https://github.com/pdimens/LepWrap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lepwrap v5.0 - The Snakemake pipeline to use Lep-Map3 to create linkage maps and LepAnchor for anchoring+orienting genome assemblies..
-- **Core Function**: The Snakemake pipeline to use Lep-Map3 to create linkage maps and LepAnchor for anchoring+orienting genome assemblies.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lepwrap`
+- **Linkage Mapping**: Constructs genetic linkage maps
+- **Genome Anchoring**: Anchors and orients genome assemblies
+- **Snakemake Pipeline**: Built on Snakemake workflow management
+- **Lep-Map3 Integration**: Uses Lep-Map3 for linkage mapping
+- **LepAnchor**: Anchors scaffolds to linkage groups
+- **Automated Workflow**: Streamlines complex analysis pipeline
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Input Data Quality**: Poor quality sequencing data affects mapping
+- **Computational Resources**: Large datasets require significant resources
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Reference Genome**: Needs good quality reference genome
+- **Memory Usage**: Memory-intensive operations
+- **Software Dependencies**: Requires multiple dependencies
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run pipeline
+**Args:** `snakemake --snakefile LepWrap.smk`
+**Explanation:** Runs the complete LepWrap pipeline.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify config
+**Args:** `snakemake --snakefile LepWrap.smk --configfile config.yaml`
+**Explanation:** Uses custom configuration file.
+
+### Linkage map only
+**Args:** `snakemake --snakefile LepWrap.smk linkage_map`
+**Explanation:** Runs only linkage map construction.
+
+### Genome anchoring only
+**Args:** `snakemake --snakefile LepWrap.smk anchor`
+**Explanation:** Runs only genome anchoring step.
+
+### Parallel execution
+**Args:** `snakemake --snakefile LepWrap.smk --jobs 8`
+**Explanation:** Runs pipeline with 8 parallel jobs.
+
+### Dry run
+**Args:** `snakemake --snakefile LepWrap.smk --dryrun`
+**Explanation:** Shows what would be executed without running.

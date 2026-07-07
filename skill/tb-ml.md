@@ -1,30 +1,42 @@
 ---
 name: tb-ml
-category: containerization
-description: A simple tool for creating machine learning antimicrobial resistance prediction pipelines using Docker containers for M. tuberculosis.
-tags: [tb-ml, containerization]
+category: machine-learning
+description: Machine learning tools for tuberculosis research including prediction and classification models.
+tags: [tb-ml, tuberculosis, machine-learning, prediction, classification, mycobacterium]
 author: oxo-call-community
 source_url: "https://github.com/jodyphelan/tb-ml"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tb-ml (v0.1.1) - A simple tool for creating machine learning antimicrobial resistance prediction pipelines using Docker containers for M. tuberculosis.
-- **Core Function**: A simple tool for creating machine learning antimicrobial resistance prediction pipelines using Docker containers for M. tuberculosis.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tb-ml`
+- **Tool Overview**: tb-ml - Machine learning utilities for Mycobacterium tuberculosis research, including prediction models for drug resistance, lineage classification, and treatment outcome prediction.
+- **Core Function**: Provides pre-trained ML models and training pipelines for TB genomic data analysis, including variant calling results as features.
+- **Input**: VCF files or variant call tables from TB genome sequencing, with optional phenotypic data.
+- **Output**: Predictions for drug resistance, lineage, or treatment outcomes with confidence scores.
+- **Installation**: `pip install tb-ml` or `conda install -c bioconda tb-ml`
+- **Use Case**: Predicting drug resistance phenotypes from genomic data without running phenotypic assays.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Model Version**: ML models are trained on specific datasets - ensure model version matches your population/setting.
+- **Feature Requirements**: Models require specific variant positions - incomplete variant calling may reduce accuracy.
+- **Database Updates**: Drug resistance mutations evolve - models need periodic retraining with updated data.
+- **Interpretation**: Predictions are probabilistic - always confirm critical results phenotypically.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### List available models
+**Args:** `tb-ml list`
+**Explanation:** Display all available pre-trained models for prediction.
 
-### Basic usage
-**Args:** `tb-ml -i <input_file> -o <output_file>`
-**Explanation:** Run tb-ml with typical input and output options.
+### Predict drug resistance
+**Args:** `tb-ml predict --model drug_resistance --input variants.vcf`
+**Explanation:** Predict drug resistance phenotypes from variant call file.
+
+### Lineage classification
+**Args:** `tb-ml predict --model lineage --input sample.vcf`
+**Explanation:** Classify M. tuberculosis lineage from genomic variants.
+
+### Train custom model
+**Args:** `tb-ml train --data training_set.tsv --labels labels.csv --output model.pkl`
+**Explanation:** Train a custom model on your own dataset with known phenotypes.

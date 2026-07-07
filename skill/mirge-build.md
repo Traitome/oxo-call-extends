@@ -1,30 +1,47 @@
 ---
 name: mirge-build
 category: utility
-description: miRge-build: Building libraries of small RNA sequencing Data
-tags: [mirge-build, utility]
+description: "miRge-build: Building libraries of small RNA sequencing Data"
+tags: [mirge-build, utility, microrna]
 author: oxo-call-community
 source_url: "https://github.com/mhalushka/miRge3_build"
 ---
-
 ## Concepts
 
-- **Tool Overview**: mirge-build v0.0.1 - miRge-build: Building libraries of small RNA sequencing Data.
-- **Core Function**: miRge-build: Building libraries of small RNA sequencing Data
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mirge-build`
+- **Tool Overview**: miRge-build v0.0.1 builds small RNA reference libraries.
+- **Core Function**: Creates custom small RNA reference databases.
+- **Reference Building**: Generates databases for miRNA analysis.
+- **Custom Libraries**: Builds species-specific small RNA libraries.
+- **Input/Output**: Accepts sequence data; outputs reference libraries.
+- **miRNA Analysis**: Supports downstream miRNA quantification.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Database Building**: Designed for reference library construction.
+- **Computational Resources**: Building large libraries may require significant resources.
+- **Memory Requirements**: Memory usage depends on database size.
+- **Parameter Tuning**: May require parameter adjustment for optimal library building.
+- **Data Quality**: Results depend on input sequence quality.
+- **Reference Sequences**: Requires high-quality input sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Build reference library
+**Args:** `mirge-build -i sequences.fasta -o library/`
+**Explanation:** Builds small RNA reference library.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With annotations
+**Args:** `mirge-build -i sequences.fasta -a annotations.gtf -o library/`
+**Explanation:** Includes annotation information.
+
+### Custom parameters
+**Args:** `mirge-build -i sequences.fasta -o library/ -k 21`
+**Explanation:** Uses custom k-mer size.
+
+### Batch processing
+**Args:** `mirge-build -i fasta/ -o libraries/`
+**Explanation:** Processes multiple FASTA files.
+
+### Generate statistics
+**Args:** `mirge-build -i sequences.fasta -o library/ -s stats.txt`
+**Explanation:** Generates library statistics.

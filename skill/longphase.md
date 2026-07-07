@@ -1,31 +1,52 @@
 ---
 name: longphase
-category: epigenomics
-description: LongPhase is an ultra-fast program for simultaneously co-phasing SNPs, small indels, large SVs, and (5mC) modifications for Nanopore and PacBio platforms.
-tags: [longphase, epigenomics]
+category: variant-calling
+description: LongPhase - Ultra-fast co-phasing of SNPs, indels, SVs, and 5mC modifications
+tags: [longphase, variant-calling, phasing, haplotypes, epigenomics, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/twolinin/longphase"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longphase v2.0.1 - LongPhase is an ultra-fast program for simultaneously co-phasing SNPs, small indels, large SVs, and (5mC) modifications for Nanopore and PacBio platforms..
-- **Core Function**: LongPhase is an ultra-fast program for simultaneously co-phasing SNPs, small indels, large SVs, and (5mC) modifications for Nanopore and PacBio platforms.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longphase`
+- **Haplotype Phasing**: Determining haplotype phase from reads
+- **SNP Phasing**: Single-nucleotide polymorphism phasing
+- **Indel Phasing**: Insertion and deletion phasing
+- **SV Phasing**: Structural variant phasing
+- **5mC Modifications**: Detection of DNA methylation
+- **Multi-platform**: Support for Nanopore and PacBio platforms
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect phasing
+- **Mapping Quality**: Requires accurate read mapping
+- **Coverage Depth**: Requires sufficient coverage depth
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **False Phasing**: May produce incorrect haplotype calls
 
 ## Examples
-
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
 
 ### Phase haplotypes
 **Args:** `longphase haplotype -r reference.fa -b reads.bam -o phased_output`
 **Explanation:** Phases haplotypes from long-read data.
 
+### Detect modifications
+**Args:** `longphase haplotype -r reference.fa -b reads.bam -o phased_output -m`
+**Explanation:** Detects 5mC modifications.
+
+### Threads
+**Args:** `longphase haplotype -r reference.fa -b reads.bam -o phased_output -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Output format
+**Args:** `longphase haplotype -r reference.fa -b reads.bam -o phased_output -f vcf`
+**Explanation:** Outputs results in VCF format.
+
+### Quality filtering
+**Args:** `longphase haplotype -r reference.fa -b reads.bam -o phased_output -q 30`
+**Explanation:** Filters by minimum quality score.
+
+### Verbose output
+**Args:** `longphase haplotype -r reference.fa -b reads.bam -o phased_output -v`
+**Explanation:** Provides detailed output.

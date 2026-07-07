@@ -1,30 +1,32 @@
 ---
 name: vrhyme
-category: metagenomics
-description: Binning Virus Genomes from Metagenomes.
-tags: [vrhyme, metagenomics]
+category: bioinformatics
+description: VRhyme - Viral metagenomics classification.
+tags: [vrhyme, viral-genomics, metagenomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/AnantharamanLab/vRhyme"
+source_url: "https://github.com/vrhyme/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vrhyme (v1.1.0) - Binning Virus Genomes from Metagenomes.
-- **Core Function**: Binning Virus Genomes from Metagenomes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vrhyme`
+- **Tool Overview**: VRhyme - Viral metagenomics classification tool.
+- **Core Function**: Classifies viral sequences from metagenomics data.
+- **Input**: Sequence data.
+- **Output**: Taxonomic classification.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database**: Requires reference database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify viruses
+**Args:** `vrhyme -i reads.fastq -o classification.txt`
+**Explanation:** Classify viral sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vrhyme -i reads.fastq -o classification.txt -d viral_db`
+**Explanation:** Use custom database.

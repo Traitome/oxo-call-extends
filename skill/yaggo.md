@@ -1,30 +1,32 @@
 ---
 name: yaggo
-category: formatting
-description: Yaggo is a tool to generate command line parsers for C++. Yaggo stands for "Yet Another GenGetOpt" and is inspired by GNU Gengetopt.
-tags: [yaggo, formatting]
+category: bioinformatics
+description: Yaggo - CLI generator.
+tags: [yaggo, cli, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/gmarcais/yaggo"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yaggo (v1.5.10) - Yaggo is a tool to generate command line parsers for C++. Yaggo stands for "Yet Another GenGetOpt" and is inspired by GNU Gengetopt.
-- **Core Function**: Yaggo is a tool to generate command line parsers for C++. Yaggo stands for "Yet Another GenGetOpt" and is inspired by GNU Gengetopt.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yaggo`
+- **Tool Overview**: Yaggo - YACC-style CLI parser generator.
+- **Core Function**: Generates CLI parsers.
+- **Input**: Configuration file.
+- **Output**: CLI parser code.
+- **Installation**: Install via gem
+- **Use Case**: CLI development, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires Ruby.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate CLI
+**Args:** `yaggo config.yaggo`
+**Explanation:** Generate CLI parser.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yaggo -o parser.cpp config.yaggo`
+**Explanation:** Output to file.

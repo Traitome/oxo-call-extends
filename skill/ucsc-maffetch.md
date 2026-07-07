@@ -1,30 +1,32 @@
 ---
 name: ucsc-maffetch
 category: utility
-description: Get overlapping records from an MAF using an index table.
-tags: [ucsc-maffetch, utility]
+description: UCSC mafFetch - Tool for fetching MAF alignments.
+tags: [ucsc-maffetch, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maffetch (v482) - Get overlapping records from an MAF using an index table.
-- **Core Function**: Get overlapping records from an MAF using an index table.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maffetch`
+- **Tool Overview**: UCSC mafFetch - A tool for fetching MAF alignments.
+- **Core Function**: Extracts alignments from MAF files.
+- **Input**: MAF file, region coordinates.
+- **Output**: MAF alignments for specified region.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment retrieval, region analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Coordinate Format**: Requires proper coordinate specification.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Fetch MAF alignments
+**Args:** `mafFetch input.maf chr1:1000-2000 > region.maf`
+**Explanation:** Fetch alignments for specified region.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafFetch -species=hg38,panTro4 input.maf chr1:1000-2000 > region.maf`
+**Explanation:** Fetch specific species only.

@@ -1,31 +1,56 @@
 ---
 name: refseq_masher
 category: utility
-description: refseq_masher finds what NCBI RefSeq genomes match or are contained within your sequence data using Mash
-tags: ["refseq_masher", "utility"]
+description: RefSeq Masher finds NCBI RefSeq genomes matching sequence data using MinHash-based Mash algorithm.
+tags: [refseq_masher, utility, genome-matching, mash]
 author: oxo-call-community
 source_url: "https://github.com/phac-nml/refseq_masher"
 ---
 
 ## Concepts
 
-- **Tool Overview**: refseq_masher finds what NCBI RefSeq genomes match or are contained within your sequence data using Mash (version 0.1.2)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda refseq_masher`
+- **Tool Overview**: refseq_masher matches genomes.
+- **Core Function**: Genome matching.
+- **Algorithm**: Uses MinHash methods.
+- **Input Format**: Accepts sequence data.
+- **Output**: Produces genome matches.
+- **Use Case**: Sequence identification.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large databases require memory.
+- **Sequence Quality**: Affects matching.
+- **Parameters**: Must be configured.
+- **Runtime**: Matching may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `refseq_masher --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Match genomes
+**Args:** `refseq_masher match -i sequence.fasta -o matches.txt`
+**Explanation:** Finds matching RefSeq genomes.
 
+### With parameters
+**Args:** `refseq_masher match -i sequence.fasta -p params.yaml -o matches.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `refseq_masher -v match -i sequence.fasta -o matches.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `refseq_masher -t 4 match -i sequence.fasta -o matches.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With database
+**Args:** `refseq_masher match -i sequence.fasta -d refseq_db.msh -o matches.txt`
+**Explanation:** Uses custom database.
+
+### Generate report
+**Args:** `refseq_masher match -i sequence.fasta -o matches.txt --report report.html`
+**Explanation:** Generates HTML report.

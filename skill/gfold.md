@@ -1,30 +1,43 @@
 ---
 name: gfold
-category: expression
-description: Find differentially expressed genes from RNA-seq data with few replicates using generalized fold changes.
-tags: [gfold, expression]
+category: differential-expression
+description: gfold - Find differentially expressed genes from RNA-seq data using generalized fold changes.
+tags: [gfold, differential-expression, RNA-seq, bioinformatics]
 author: oxo-call-community
 source_url: "http://compbio.tongji.edu.cn/~fengjx/GFOLD/gfold.html"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfold (v1.1.4) - Find differentially expressed genes from RNA-seq data with few replicates using generalized fold changes.
-- **Core Function**: Provides functionality for expression tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfold`
+- **Differential Expression**: Identifies differentially expressed genes.
+- **Generalized Fold Change**: Uses generalized fold change metric.
+- **RNA-seq Analysis**: Analyzes RNA-seq data.
+- **Statistical Significance**: Computes statistical significance.
+- **Few Replicates**: Works with few biological replicates.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Replicate Number**: Designed for few replicates.
+- **Read Count**: Requires accurate read counts.
+- **Normalization**: Requires proper normalization.
+- **Parameter Sensitivity**: Results sensitive to parameters.
+- **Validation**: Results should be validated.
 
 ## Examples
+### Run differential expression
+**Args:** `gfold diff -s1 treatment.txt -s2 control.txt -o results.txt`
+**Explanation:** Finds differentially expressed genes.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gfold diff -s1 treatment.txt -s2 control.txt -s 0.05 -o results.txt`
+**Explanation:** Uses significance threshold of 0.05.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Generate ranking
+**Args:** `gfold rank -s treatment.txt -o ranking.txt`
+**Explanation:** Ranks genes by expression.
+
+### Batch processing
+**Args:** `gfold diff -l samples.txt -o ./results/`
+**Explanation:** Processes multiple sample pairs.
+
+### Generate report
+**Args:** `gfold diff -s1 treatment.txt -s2 control.txt -r -o report.html`
+**Explanation:** Generates analysis report.

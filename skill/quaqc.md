@@ -1,31 +1,56 @@
 ---
 name: quaqc
 category: qc
-description: Quick ATAC-seq Quality Control.
-tags: ["quaqc", "qc"]
+description: QuaQC provides quick quality control for ATAC-seq data analysis.
+tags: [quaqc, qc, atac-seq, quality-control]
 author: oxo-call-community
 source_url: "https://github.com/bjmt/quaqc/blob/v1.5/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Quick ATAC-seq Quality Control. (version 1.5)
-- **Core Function**: Processes bioinformatics data related to qc
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda quaqc`
+- **Tool Overview**: quaqc performs ATAC-seq QC.
+- **Core Function**: Quality control.
+- **Algorithm**: Uses statistical methods.
+- **Input Format**: Accepts BAM/FASTQ files.
+- **Output**: Produces QC metrics.
+- **Use Case**: ATAC-seq analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Input Type**: Must be correct.
+- **Parameters**: Must be configured.
+- **Runtime**: QC may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `quaqc --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Quality check
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Generates quality control metrics and reports.
+### Run QC
+**Args:** `quaqc run -i aligned.bam -o qc_report/`
+**Explanation:** Runs ATAC-seq quality control.
 
+### With parameters
+**Args:** `quaqc run -i aligned.bam -p params.yaml -o qc_report/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `quaqc -v run -i aligned.bam -o qc_report/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `quaqc -t 4 run -i aligned.bam -o qc_report/`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### From FASTQ
+**Args:** `quaqc run -i reads.fastq -g genome.fasta -o qc_report/`
+**Explanation:** Runs QC from raw reads.
+
+### Generate report
+**Args:** `quaqc run -i aligned.bam -o qc_report/ --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-splitfile
 category: utility
-description: Split up a file.
-tags: [ucsc-splitfile, utility]
+description: UCSC splitFile - Tool for splitting files.
+tags: [ucsc-splitfile, ucsc, split, file, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-splitfile (v482) - Split up a file.
-- **Core Function**: Split up a file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-splitfile`
+- **Tool Overview**: UCSC splitFile - A tool for splitting files into smaller chunks.
+- **Core Function**: Splits a file into multiple smaller files.
+- **Input**: Input file, chunk size.
+- **Output**: Multiple smaller files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: File splitting, data management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Chunk Size**: Requires appropriate chunk size specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Split file
+**Args:** `splitFile -lines=10000 input.txt`
+**Explanation:** Split file into 10000-line chunks.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `splitFile -lines=10000 -prefix=chunk input.txt`
+**Explanation:** Split with custom prefix.

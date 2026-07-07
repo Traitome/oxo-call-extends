@@ -1,30 +1,43 @@
 ---
 name: geco2
-category: utility
-description: A fast tool to compress DNA sequences
-tags: [geco2, utility]
+category: formatting
+description: Fast DNA sequence compression tool using context-based compression algorithms.
+tags: [geco2, dna-compression, bioinformatics, data-compression]
 author: oxo-call-community
 source_url: "https://github.com/cobilab/geco2"
 ---
 
 ## Concepts
-
-- **Tool Overview**: geco2 (v1.1) - A fast tool to compress DNA sequences
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda geco2`
+- **DNA Compression**: Specialized compression for DNA sequence data.
+- **Context-based Compression**: Uses context models for efficient compression.
+- **Fast Compression**: Optimized for high-speed compression and decompression.
+- **Reference-free**: Does not require a reference genome for compression.
+- **Multiple Formats**: Supports FASTA, FASTQ, and other sequence formats.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Sequence Type**: Optimized for DNA sequences, not general text.
+- **Memory Usage**: Large sequences require significant memory.
+- **Compression Ratio**: May not achieve optimal ratio for highly repetitive sequences.
+- **Format Support**: Limited to specific sequence formats.
+- **Parallel Processing**: May not fully utilize multi-core processors.
 
 ## Examples
+### Compress FASTA file
+**Args:** `geco2 compress -i genome.fasta -o genome.geco2`
+**Explanation:** Compresses a FASTA file using Geco2 algorithm.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Decompress file
+**Args:** `geco2 decompress -i genome.geco2 -o genome.fasta`
+**Explanation:** Decompresses a Geco2 compressed file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Compress with maximum compression
+**Args:** `geco2 compress -i genome.fasta -o genome.geco2 -c 9`
+**Explanation:** Compresses with maximum compression level (level 9).
+
+### Compress FASTQ file
+**Args:** `geco2 compress -i reads.fastq -o reads.geco2 -f fastq`
+**Explanation:** Compresses a FASTQ file specifying input format.
+
+### Benchmark compression
+**Args:** `geco2 benchmark -i genome.fasta -o benchmark_results.txt`
+**Explanation:** Runs benchmark tests on compression performance.

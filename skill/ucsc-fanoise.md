@@ -1,30 +1,32 @@
 ---
 name: ucsc-fanoise
 category: utility
-description: Add noise to .fa file.
-tags: [ucsc-fanoise, utility]
+description: UCSC faNoise - Tool for adding noise to FASTA sequences.
+tags: [ucsc-fanoise, ucsc, fasta, sequence-manipulation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fanoise (v482) - Add noise to .fa file.
-- **Core Function**: Add noise to .fa file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fanoise`
+- **Tool Overview**: UCSC faNoise - A tool for adding random noise to FASTA sequences.
+- **Core Function**: Introduces random mutations into sequences.
+- **Input**: FASTA file.
+- **Output**: Noisy FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Simulation, testing, error analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Mutation Rate**: Requires appropriate mutation rate setting.
+- **Determinism**: May not produce reproducible results without seed.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Add noise
+**Args:** `faNoise -rate=0.01 input.fa > noisy.fa`
+**Explanation:** Add 1% random mutations.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With seed
+**Args:** `faNoise -rate=0.01 -seed=123 input.fa > noisy.fa`
+**Explanation:** Add noise with fixed seed.

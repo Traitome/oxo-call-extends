@@ -1,30 +1,43 @@
 ---
 name: gerp
-category: alignment
-description: GERP identifies constrained elements in multiple alignments by quantifying substitution deficits.
-tags: [gerp, alignment]
+category: comparative-genomics
+description: GERP - Identifies constrained elements in multiple alignments by quantifying substitution deficits.
+tags: [gerp, comparative-genomics, constraint-analysis, conservation]
 author: oxo-call-community
 source_url: "http://mendel.stanford.edu/SidowLab/downloads/gerp/index.html"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gerp (v2.1) - GERP identifies constrained elements in multiple alignments by quantifying substitution deficits.
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gerp`
+- **Constraint Analysis**: Identifies evolutionarily constrained genomic regions.
+- **Multiple Alignment**: Analyzes multiple sequence alignments.
+- **Substitution Rate**: Quantifies substitution deficits.
+- **Phylogenetic Analysis**: Uses phylogenetic information.
+- **Conservation Scoring**: Scores evolutionary conservation.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Alignment Quality**: Requires high-quality multiple alignments.
+- **Phylogenetic Tree**: Requires appropriate phylogenetic tree.
+- **Computational Resources**: Large datasets require resources.
+- **Parameter Sensitivity**: Results sensitive to parameters.
+- **Interpretation**: Requires careful interpretation of scores.
 
 ## Examples
+### Run GERP on alignment
+**Args:** `gerp -f alignment.mfa -t tree.nwk -o scores.txt`
+**Explanation:** Runs GERP on multiple alignment with tree.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gerp -f alignment.mfa -t tree.nwk -w 100 -o scores.txt`
+**Explanation:** Uses window size of 100 for scoring.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gerp -l alignments.txt -t tree.nwk -o ./results/`
+**Explanation:** Processes multiple alignments.
+
+### Generate constrained elements
+**Args:** `gerp -f alignment.mfa -t tree.nwk -c -o elements.bed`
+**Explanation:** Outputs constrained elements in BED format.
+
+### Generate report
+**Args:** `gerp -f alignment.mfa -t tree.nwk -r -o report.html`
+**Explanation:** Generates analysis report.

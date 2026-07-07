@@ -1,30 +1,43 @@
 ---
 name: ggd
-category: containerization
-description: GoGetData (GGD) is a genomic data managment system. It provide simple and reproducible access to a repository of genomic data. Simply put, it is 'Conda' for genomic data
-tags: [ggd, containerization]
+category: data-management
+description: ggd - GoGetData genomic data management system, like Conda for genomic data.
+tags: [ggd, data-management, genomic-data, repository]
 author: oxo-call-community
 source_url: "https://github.com/gogetdata/ggd-cli"
 ---
 
 ## Concepts
-
-- **Tool Overview**: ggd (v1.1.3) - GoGetData (GGD) is a genomic data managment system. It provide simple and reproducible access to a repository of genomic data. Simply put, it is 'Conda' for genomic data
-- **Core Function**: Provides functionality for containerization tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda ggd`
+- **Data Management**: Manages genomic data repositories.
+- **Data Sharing**: Enables reproducible data access.
+- **Version Control**: Tracks data versions.
+- **Data Retrieval**: Retrieves genomic data.
+- **Repository Access**: Accesses genomic data repositories.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Network Dependency**: Requires network access.
+- **Storage Requirements**: Large datasets require storage.
+- **Repository Availability**: Depends on data availability.
+- **Data Format**: May require specific formats.
+- **Access Permissions**: Some data requires permissions.
 
 ## Examples
+### Install data package
+**Args:** `ggd install -s hg38 -p reference_genome`
+**Explanation:** Installs reference genome package.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Search packages
+**Args:** `ggd search -t reference`
+**Explanation:** Searches for available packages.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### List installed
+**Args:** `ggd list`
+**Explanation:** Lists installed data packages.
+
+### Uninstall package
+**Args:** `ggd uninstall -p reference_genome`
+**Explanation:** Removes installed package.
+
+### Get data info
+**Args:** `ggd show -p reference_genome`
+**Explanation:** Shows package information.

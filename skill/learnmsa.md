@@ -1,30 +1,52 @@
 ---
 name: learnmsa
 category: alignment
-description: learnMSA: Learning and Aligning large Protein Families
-tags: [learnmsa, alignment]
+description: Learning and aligning large protein families using machine learning
+tags: [learnmsa, alignment, protein-alignment, machine-learning, MSA]
 author: oxo-call-community
 source_url: "https://github.com/Gaius-Augustus/learnMSA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: learnmsa v2.0.16 - learnMSA: Learning and Aligning large Protein Families.
-- **Core Function**: learnMSA: Learning and Aligning large Protein Families
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda learnmsa`
+- **Machine Learning**: Uses ML for multiple sequence alignment
+- **Protein Families**: Designed for large protein family alignments
+- **Deep Learning**: Deep learning based alignment approach
+- **Large-scale**: Handles large numbers of sequences
+- **Profile HMM**: Uses profile hidden Markov models
+- **Homology Detection**: Detects homologous sequences
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Large alignments require significant resources
+- **Model Training**: Training may require large computational resources
+- **Memory Usage**: Very large datasets need careful memory management
+- **Sequence Quality**: Poor quality sequences affect alignment
+- **Divergence**: Highly divergent sequences may align poorly
+- **Training Data**: Model performance depends on training data quality
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Align sequences
+**Args:** `learnMSA -i sequences.fasta -o alignment.fasta`
+**Explanation:** Creates multiple sequence alignment.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Train model
+**Args:** `learnMSA train -i training.fasta -o model.pkl`
+**Explanation:** Trains alignment model on training data.
+
+### Use pre-trained model
+**Args:** `learnMSA -i sequences.fasta -m model.pkl -o alignment.fasta`
+**Explanation:** Uses pre-trained model for alignment.
+
+### Specify iteration
+**Args:** `learnMSA -i sequences.fasta --iterations 100 -o alignment.fasta`
+**Explanation:** Runs 100 alignment iterations.
+
+### Batch processing
+**Args:** `learnMSA batch -d sequences/ -o alignments/`
+**Explanation:** Processes multiple sequence files.
+
+### Export profile
+**Args:** `learnMSA -i sequences.fasta --export-profile -o profile.hmm`
+**Explanation:** Exports profile HMM from alignment.

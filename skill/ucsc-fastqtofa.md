@@ -1,30 +1,32 @@
 ---
 name: ucsc-fastqtofa
-category: formatting
-description: Convert from fastq to fasta format.
-tags: [ucsc-fastqtofa, formatting, fastq]
+category: utility
+description: UCSC fastqToFa - Tool for converting FASTQ to FASTA.
+tags: [ucsc-fastqtofa, ucsc, fastq, fasta, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fastqtofa (v482) - Convert from fastq to fasta format.
-- **Core Function**: Convert from fastq to fasta format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fastqtofa`
+- **Tool Overview**: UCSC fastqToFa - A tool for converting FASTQ to FASTA format.
+- **Core Function**: Converts FASTQ sequences to FASTA format.
+- **Input**: FASTQ file.
+- **Output**: FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, sequence analysis, data preparation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Format**: Requires proper FASTQ format.
+- **Quality Scores**: Quality scores are discarded in FASTA format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to FASTA
+**Args:** `fastqToFa input.fastq > output.fa`
+**Explanation:** Convert FASTQ to FASTA.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `fastqToFa -strip input.fastq > output.fa`
+**Explanation:** Convert and strip quality information.

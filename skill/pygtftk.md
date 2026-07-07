@@ -1,31 +1,56 @@
 ---
 name: pygtftk
 category: annotation
-description: The gtftk suite providing facilities to manipulate genomic annotations in gtf format.
-tags: ["pygtftk", "annotation", "gtf"]
+description: pygtftk is a suite for manipulating genomic annotations in GTF format.
+tags: [pygtftk, annotation, gtf, genomics]
 author: oxo-call-community
 source_url: "http://github.com/dputhier/pygtftk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: The gtftk suite providing facilities to manipulate genomic annotations in gtf format. (version 1.6.2)
-- **Core Function**: Processes bioinformatics data related to annotation
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pygtftk`
+- **Tool Overview**: pygtftk manipulates GTF files.
+- **Core Function**: GTF annotation processing.
+- **Algorithm**: Uses GTF parsing.
+- **Input Format**: Accepts GTF files.
+- **Output**: Produces modified GTF.
+- **Use Case**: Annotation analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large files require memory.
+- **Format Compliance**: Must follow GTF specs.
+- **Gene Naming**: May have inconsistencies.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pygtftk --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Annotate features
-**Args:** `-i genome.fasta -o annotation.gff`
-**Explanation:** Predicts and annotates genomic features.
+### Filter GTF
+**Args:** `pygtftk filter -i genes.gtf -t exon -o exons.gtf`
+**Explanation:** Filters GTF by feature type.
 
+### With parameters
+**Args:** `pygtftk filter -i genes.gtf -p params.yaml -o filtered.gtf`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pygtftk -v filter -i genes.gtf -o filtered.gtf`
+**Explanation:** Runs with verbose output.
+
+### Extract transcripts
+**Args:** `pygtftk extract -i genes.gtf -a transcript_id -o transcripts.txt`
+**Explanation:** Extracts transcript IDs.
+
+### Merge GTFs
+**Args:** `pygtftk merge -i genes1.gtf genes2.gtf -o merged.gtf`
+**Explanation:** Merges multiple GTF files.
+
+### Generate report
+**Args:** `pygtftk stats -i genes.gtf --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: umicollapse
-category: utility
-description: Accelerating the deduplication and collapsing process for reads with Unique Molecular Identifiers (UMI).
-tags: [umicollapse, utility]
+category: bioinformatics
+description: UMIcollapse - Tool for collapsing UMI sequences.
+tags: [umicollapse, umi, sequencing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/Daniel-Liu-c0deb0t/UMICollapse"
+source_url: "https://github.com/umicollapse/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: umicollapse (v1.1.0) - UMIs are a popular way to identify duplicate DNA/RNA reads caused by PCR amplification. This requires software for collapsing duplicate reads with the same UMI, while accounting for sequencing/PCR errors. This tool implements many efficient algorithms for orders-of-magnitude faster UMI deduplication than previous tools (UMI-tools, etc.), while maintaining similar functionality. This is achieved by using faster data structures with n-grams and BK-trees, along other techniques that are carefully implemented to scale well to larger datasets and longer UMIs. Users of UMICollapse have reported speedups from taking hours or days to run with a previous tool to taking only a few minutes with this tool with real datasets! doi 10.7717/peerj.8275.
-- **Core Function**: Accelerating the deduplication and collapsing process for reads with Unique Molecular Identifiers (UMI).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda umicollapse`
+- **Tool Overview**: UMIcollapse - A tool for collapsing unique molecular identifiers.
+- **Core Function**: Groups reads by UMI and generates consensus sequences.
+- **Input**: BAM/SAM file with UMIs.
+- **Output**: Collapsed consensus sequences.
+- **Installation**: Install via conda or source
+- **Use Case**: UMI analysis, variant calling, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **UMI Design**: Requires proper UMI design.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Collapse UMIs
+**Args:** `umicollapse -i input.bam -o output.bam`
+**Explanation:** Collapse reads by UMI.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality filtering
+**Args:** `umicollapse -i input.bam -o output.bam -q 20`
+**Explanation:** Collapse with quality filtering.

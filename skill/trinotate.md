@@ -1,30 +1,32 @@
 ---
 name: trinotate
-category: expression
-description: Trinotate is a comprehensive annotation suite designed for automatic functional annotation of transcriptomes, particularly de novo assembled transcriptomes, from model or non-model organisms
-tags: [trinotate, expression]
+category: analysis
+description: Trinotate - Comprehensive annotation suite for transcriptomes.
+tags: [trinotate, transcriptome-annotation, bioinformatics, rna-seq, genomics]
 author: oxo-call-community
-source_url: "https://trinotate.github.io/"
+source_url: "https://github.com/Trinotate/Trinotate"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trinotate (v4.0.2) - Trinotate is a comprehensive annotation suite designed for automatic functional annotation of transcriptomes, particularly de novo assembled transcriptomes, from model or non-model organisms
-- **Core Function**: Trinotate is a comprehensive annotation suite designed for automatic functional annotation of transcriptomes, particularly de novo assembled transcriptomes, from model or non-model organisms
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: Trinotate - A comprehensive annotation suite for functional annotation of transcriptomes.
+- **Core Function**: Integrates multiple annotation tools to provide functional annotation of transcripts.
+- **Input**: Transcript sequences (FASTA), optional expression data.
+- **Output**: Functional annotations, GO terms, protein domains, expression levels.
 - **Installation**: `conda install -c bioconda trinotate`
+- **Use Case**: Transcriptome annotation, gene function prediction, RNA-seq analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Requirements**: Requires multiple annotation databases.
+- **Computation Time**: May be slow for large transcriptomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run annotation
+**Args:** `Trinotate Trinotate.sqlite init`
+**Explanation:** Initialize Trinotate annotation database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Analyze transcriptome
+**Args:** `Trinotate Trinotate.sqlite --transcript_fasta transcripts.fasta --gene_fasta genes.fasta -S`
+**Explanation:** Perform comprehensive transcriptome annotation.

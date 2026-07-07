@@ -1,31 +1,52 @@
 ---
 name: masurca
 category: assembly
-description: MaSuRCA (Maryland Super-Read Celera Assembler) genome assembly software.
-tags: [masurca, assembly]
+description: MaSuRCA genome assembler combining de Bruijn graph and overlap-layout-consensus approaches.
+tags: [masurca, genome-assembly, hybrid-assembly]
 author: oxo-call-community
 source_url: "https://masurca.blogspot.co.uk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: masurca v4.1.4 - MaSuRCA (Maryland Super-Read Celera Assembler) genome assembly software. MaSuRCA requires Illumina data, and supports third-generation PacBio/Nanopore MinION reads for hybrid assembly..
-- **Core Function**: MaSuRCA (Maryland Super-Read Celera Assembler) genome assembly software.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MaSuRCA is a hybrid genome assembler combining multiple assembly approaches.
+- **Core Function**: Assembles genomes using Illumina and optionally PacBio/Nanopore data.
+- **Assembly Strategy**: Combines de Bruijn graph with overlap-layout-consensus.
+- **Hybrid Assembly**: Supports Illumina-only and hybrid (Illumina + long reads) assembly.
+- **Input/Output**: Accepts FASTQ reads, produces assembled contigs/scaffolds.
 - **Installation**: `conda install -c bioconda masurca`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Configuration Complexity**: Requires detailed configuration file setup.
+- **Memory Requirements**: High memory usage for large genomes.
+- **Computation Time**: Very slow for complex genomes.
+- **Data Quality**: Requires high-quality sequencing data.
+- **Reference Dependencies**: May require reference-guided assembly options.
+- **Output Size**: Large assemblies generate large output files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create configuration file
+**Args:** `masurca -c config.txt`
+**Explanation:** Creates template configuration file.
 
-### Assemble genome
-**Args:** `masurca config.txt`
-**Explanation:** Runs MaSuRCA assembler with configuration file.
+### Run assembly
+**Args:** `bash assemble.sh`
+**Explanation:** Runs MaSuRCA assembler using generated script.
 
+### Hybrid assembly
+**Args:** `masurca hybrid_config.txt`
+**Explanation:** Configures hybrid assembly with Illumina and long reads.
+
+### Illumina-only assembly
+**Args:** `masurca illumina_config.txt`
+**Explanation:** Assembles using only Illumina data.
+
+### Specify genome size
+**Args:** `masurca --genome-size 3000000000 config.txt`
+**Explanation:** Sets expected genome size for assembly.
+
+### Help documentation
+**Args:** `masurca --help`
+**Explanation:** Displays available options and parameters.

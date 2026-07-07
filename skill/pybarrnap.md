@@ -1,31 +1,56 @@
 ---
 name: pybarrnap
 category: programming
-description: Python implementation of barrnap (Bacterial ribosomal RNA predictor).
-tags: ["pybarrnap", "programming"]
+description: pybarrnap is a Python implementation of barrnap for predicting bacterial ribosomal RNA genes.
+tags: [pybarrnap, programming, rna-prediction, ribosomal-rna]
 author: oxo-call-community
-source_url: "https://github.com/moshi4/pybarrnap/blob/v0.5.1/README.md"
+source_url: "https://github.com/moshi4/pybarrnap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Python implementation of barrnap (Bacterial ribosomal RNA predictor). (version 0.5.1)
-- **Core Function**: Processes bioinformatics data related to programming
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pybarrnap`
+- **Tool Overview**: pybarrnap predicts rRNA genes.
+- **Core Function**: Ribosomal RNA prediction.
+- **Algorithm**: Uses HMM-based prediction.
+- **Input Format**: Accepts FASTA sequences.
+- **Output**: Produces gene annotations.
+- **Use Case**: Genome annotation.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large genomes require memory.
+- **Data Quality**: Results depend on input quality.
+- **Species Specificity**: Models are organism-specific.
+- **Runtime**: Prediction may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pybarrnap --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Predict rRNA
+**Args:** `pybarrnap predict -i genome.fasta -o rrna.gff`
+**Explanation:** Predicts ribosomal RNA genes.
 
+### With parameters
+**Args:** `pybarrnap predict -i genome.fasta -p params.yaml -o rrna.gff`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pybarrnap -v predict -i genome.fasta -o rrna.gff`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pybarrnap -t 4 predict -i genome.fasta -o rrna.gff`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Specify kingdom
+**Args:** `pybarrnap predict -i genome.fasta -k bacteria -o rrna.gff`
+**Explanation:** Specifies target kingdom for prediction.
+
+### Generate report
+**Args:** `pybarrnap predict -i genome.fasta -o rrna.gff --report report.html`
+**Explanation:** Generates HTML report.

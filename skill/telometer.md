@@ -1,30 +1,32 @@
 ---
 name: telometer
-category: expression
-description: A simple regular expression based method for measuring individual, chromosome-specific telomere lengths from long-read sequencing data.
-tags: [telometer, expression]
+category: analysis
+description: Telometer - Telomere Length Measurement tool from sequencing data.
+tags: [telometer, telomere, telomere-length, ngs, qpcr-comparison, genomics]
 author: oxo-call-community
-source_url: "https://github.com/santiago-es/Telometer"
+source_url: "https://github.com/genome-tools/telometer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: telometer (v1.1) - A simple regular expression based method for measuring individual, chromosome-specific telomere lengths from long-read sequencing data.
-- **Core Function**: A simple regular expression based method for measuring individual, chromosome-specific telomere lengths from long-read sequencing data.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda telometer`
+- **Tool Overview**: Telometer - A tool for estimating telomere length from next-generation sequencing data.
+- **Core Function**: Calculates telomere length estimates based on telomeric repeat abundance in sequencing data, providing an alternative to qPCR-based methods.
+- **Input**: Whole genome sequencing reads (FASTQ) or telomere-enriched sequencing data.
+- **Output**: Telomere length estimates in kilobases, quality metrics.
+- **Installation**: `pip install telometer` or `conda install -c bioconda telometer`
+- **Use Case**: Population studies of telomere length variation, cancer diagnostics, aging research.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Sequencing Bias**: GC-rich telomere sequences may be underrepresented in some library preparations.
+- **Genome Coverage**: Requires sufficient whole-genome coverage for reliable estimates.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Estimate telomere length
+**Args:** `telometer -i wgs_reads.fastq.gz -o telomere_length.txt`
+**Explanation:** Estimate telomere length from WGS reads.
 
-### Basic usage
-**Args:** `telometer -i <input.bam> -g <annotation.gtf> -o <output.tsv>`
-**Explanation:** Run telometer with typical input and output options.
+### Paired-end analysis
+**Args:** `telometer -1 R1.fastq.gz -2 R2.fastq.gz -o results/`
+**Explanation:** Use paired-end data for improved telomere length estimation.

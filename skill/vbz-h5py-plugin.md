@@ -1,30 +1,32 @@
 ---
 name: vbz-h5py-plugin
 category: utility
-description: Oxford Nanopore Technologies VBZ HDF plugin for h5py.
-tags: [vbz-h5py-plugin, utility]
+description: VBZ HDF5 Plugin - Compression plugin for HDF5.
+tags: [vbz-h5py-plugin, hdf5, compression, utility]
 author: oxo-call-community
-source_url: "https://github.com/nanoporetech/vbz-h5py-plugin"
+source_url: "https://github.com/nanoporetech/vbz_compression"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vbz-h5py-plugin (v1.0.1) - Oxford Nanopore Technologies VBZ HDF plugin for h5py.
-- **Core Function**: Oxford Nanopore Technologies VBZ HDF plugin for h5py.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vbz-h5py-plugin`
+- **Tool Overview**: VBZ HDF5 Plugin - A compression plugin for HDF5 files.
+- **Core Function**: Provides compression for HDF5 files used in sequencing data.
+- **Input**: HDF5 files.
+- **Output**: Compressed HDF5 files.
+- **Installation**: Install via conda or source
+- **Use Case**: Data compression, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Compatibility**: Requires compatible HDF5 version.
+- **Performance**: Compression may slow down I/O.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compress file
+**Args:** `h5repack -f GZIP=9 input.h5 output.h5`
+**Explanation:** Compress HDF5 file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With VBZ compression
+**Args:** `h5repack -f VBZ=5 input.h5 output.h5`
+**Explanation:** Use VBZ compression.

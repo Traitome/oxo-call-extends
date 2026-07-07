@@ -1,31 +1,56 @@
 ---
 name: pretextsnapshot
 category: alignment
-description: Commandline image generator for Pretext Hi-C genome contact maps.
-tags: ["pretextsnapshot", "alignment"]
+description: pretextsnapshot generates images from Pretext Hi-C contact maps.
+tags: [pretextsnapshot, alignment, visualization, hi-c]
 author: oxo-call-community
 source_url: "https://github.com/wtsi-hpag/PretextSnapshot"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Commandline image generator for Pretext Hi-C genome contact maps. (version 0.0.7)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pretextsnapshot`
+- **Tool Overview**: pretextsnapshot creates visualizations.
+- **Core Function**: Image generation.
+- **Algorithm**: Uses rendering methods.
+- **Input Format**: Accepts Pretext files.
+- **Output**: Produces image files.
+- **Use Case**: Hi-C visualization, publication.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Rendering Quality**: May have artifacts.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `PretextSnapshot --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Generate image
+**Args:** `PretextSnapshot -i contact_map.pretext -o image.png`
+**Explanation:** Generates image from contact map.
 
+### With parameters
+**Args:** `PretextSnapshot -i contact_map.pretext -p params.yaml -o image.png`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `PretextSnapshot -v -i contact_map.pretext -o image.png`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `PretextSnapshot -t 4 -i contact_map.pretext -o image.png`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `PretextSnapshot -i contact_map.pretext -o image.pdf --pdf`
+**Explanation:** Outputs in PDF format.
+
+### Generate report
+**Args:** `PretextSnapshot -i contact_map.pretext -o image.png --report report.html`
+**Explanation:** Generates HTML report.

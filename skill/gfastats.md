@@ -1,30 +1,43 @@
 ---
 name: gfastats
 category: assembly
-description: The swiss army knife for genome assembly
-tags: [gfastats, assembly]
+description: gfastats - The swiss army knife for genome assembly statistics.
+tags: [gfastats, assembly, statistics, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/vgl-hub/gfastats"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfastats (v1.3.11) - The swiss army knife for genome assembly
-- **Core Function**: Provides functionality for assembly tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfastats`
+- **Assembly Statistics**: Computes genome assembly statistics.
+- **Sequence Analysis**: Analyzes assembly sequences.
+- **Quality Assessment**: Assesses assembly quality.
+- **Contig Analysis**: Analyzes contig properties.
+- **Data Reporting**: Generates comprehensive reports.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Input Quality**: Requires high-quality assembly data.
+- **Format Compatibility**: Requires correct input format.
+- **Memory Usage**: Large assemblies require significant memory.
+- **Computational Resources**: May require computational resources.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Compute assembly stats
+**Args:** `gfastats assembly.fasta -o stats.txt`
+**Explanation:** Computes statistics for assembly.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detailed output
+**Args:** `gfastats assembly.fasta -d -o stats.txt`
+**Explanation:** Generates detailed statistics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With plot
+**Args:** `gfastats assembly.fasta -p -o plot.png`
+**Explanation:** Generates assembly statistics plot.
+
+### Batch processing
+**Args:** `gfastats -l assemblies.txt -o ./stats/`
+**Explanation:** Processes multiple assemblies.
+
+### Compare assemblies
+**Args:** `gfastats -c ref.fasta query.fasta -o comparison.txt`
+**Explanation:** Compares two assemblies.

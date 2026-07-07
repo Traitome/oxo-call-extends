@@ -1,30 +1,52 @@
 ---
 name: lmas
-category: alignment
+category: assembly
 description: LMAS - Last (Meta)Genomic Assembler Standing
-tags: [lmas, alignment]
+tags: [lmas, assembly, metagenomics, de-novo, genome-assembly, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/B-UMMI/LMAS"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lmas v2.0.8 - LMAS - Last (Meta)Genomic Assembler Standing.
-- **Core Function**: LMAS - Last (Meta)Genomic Assembler Standing
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lmas`
+- **Metagenomic Assembly**: Metagenomic sequence assembly
+- **De Novo Assembly**: De novo assembly from metagenomic reads
+- **Mixed Reads**: Handles mixed microbial community data
+- **Contig Assembly**: Assembles reads into contigs
+- **Binning Support**: Supports metagenomic binning
+- **Long Reads**: Optimized for long-read sequencing data
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Community Complexity**: Complex microbial communities may affect assembly
+- **Read Quality**: Poor quality reads affect assembly accuracy
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Contamination**: Contaminating sequences may affect results
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Assemble metagenome
+**Args:** `lmas -i reads.fastq -o assembly.fasta`
+**Explanation:** Assembles metagenomic reads into contigs.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Long-read mode
+**Args:** `lmas -i reads.fastq -o assembly.fasta -l`
+**Explanation:** Optimized for long-read sequencing data.
+
+### Threads
+**Args:** `lmas -i reads.fastq -o assembly.fasta -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Minimum contig length
+**Args:** `lmas -i reads.fastq -o assembly.fasta -m 500`
+**Explanation:** Sets minimum contig length to 500bp.
+
+### Binning
+**Args:** `lmas -i reads.fastq -o assembly/ -b`
+**Explanation:** Performs metagenomic binning.
+
+### Verbose output
+**Args:** `lmas -i reads.fastq -o assembly.fasta -v`
+**Explanation:** Provides detailed output.

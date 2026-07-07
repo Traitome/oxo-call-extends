@@ -1,30 +1,32 @@
 ---
 name: vcfpy
-category: programming
-description: Python 3 VCF library with good support for both reading and writing.
-tags: [vcfpy, programming, vcf]
+category: bioinformatics
+description: vcfpy - Python VCF library.
+tags: [vcfpy, vcf-processing, python, bioinformatics]
 author: oxo-call-community
-source_url: "https://vcfpy.readthedocs.io/en/stable"
+source_url: "https://github.com/vcfpy/vcfpy"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfpy (v0.14.2) - Python 3 VCF library with good support for both reading and writing.
-- **Core Function**: Python 3 VCF library with good support for both reading and writing.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfpy`
+- **Tool Overview**: vcfpy - A Python library for reading and writing VCF files.
+- **Core Function**: Provides intuitive API for VCF file manipulation.
+- **Input**: VCF file.
+- **Output**: VCF file or variant data.
+- **Installation**: Install via pip
+- **Use Case**: VCF processing, Python scripting, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Performance**: May be slower than C-based parsers.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Read VCF
+**Args:** `python -c "import vcfpy; reader = vcfpy.Reader.from_path('input.vcf')"`
+**Explanation:** Read VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Filter and write
+**Args:** `python -c "import vcfpy; writer = vcfpy.Writer.from_path('output.vcf', reader.header)"`
+**Explanation:** Write filtered VCF.

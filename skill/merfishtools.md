@@ -1,30 +1,48 @@
 ---
 name: merfishtools
 category: expression
-description: MERFISHtools implement a Bayesian framework for accurately predicting gene or transcript expression from MERFISH data. On top, differential expression analysis can be performed for two or multiple conditions, including credible intervals for fold change and coefficient of variation, and controlling the expected false discovery rate.
-tags: [merfishtools, expression]
+description: Bayesian framework for MERFISH data analysis and differential expression.
+tags: [merfishtools, merfish, spatial-transcriptomics]
 author: oxo-call-community
 source_url: "https://merfishtools.github.io"
 ---
 
 ## Concepts
 
-- **Tool Overview**: merfishtools v1.5.0 - MERFISHtools implement a Bayesian framework for accurately predicting gene or transcript expression from MERFISH data. On top, differential expression analysis can be performed for two or multiple conditions, including credible intervals for fold change and coefficient of variation, and controlling the expected false discovery rate..
-- **Core Function**: MERFISHtools implement a Bayesian framework for accurately predicting gene or transcript expression from MERFISH data. On top, differential expression analysis can be performed for two or multiple conditions, including credible intervals for fold change and coefficient of variation, and controlling the expected false discovery rate.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MERFISHtools analyzes MERFISH spatial transcriptomics data.
+- **Core Function**: Gene expression prediction from MERFISH.
+- **Bayesian Framework**: Uses Bayesian statistics for analysis.
+- **Differential Expression**: Compares expression across conditions.
+- **Credible Intervals**: Provides statistical confidence intervals.
 - **Installation**: `conda install -c bioconda merfishtools`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Data Requirements**: Requires specific MERFISH data format.
+- **Computation Time**: Slow for large datasets.
+- **Memory Requirements**: High memory usage.
+- **Parameter Tuning**: Requires careful Bayesian parameter setting.
+- **Model Selection**: Choosing appropriate model is critical.
+- **Expertise Required**: Requires statistical expertise.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze MERFISH data
+**Args:** `Rscript -e "library(MERFISHtools); analyze('merfish_data.RDS')"`
+**Explanation:** Analyzes MERFISH data in R.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Differential expression
+**Args:** `Rscript -e "library(MERFISHtools); de_analysis('data.RDS', 'conditions.txt')"`
+**Explanation:** Performs differential expression analysis.
+
+### Predict expression
+**Args:** `Rscript -e "library(MERFISHtools); predict_expr('raw_counts.txt')"`
+**Explanation:** Predicts gene expression.
+
+### Generate report
+**Args:** `Rscript -e "library(MERFISHtools); generate_report('results/')"`
+**Explanation:** Generates analysis report.
+
+### Help documentation
+**Args:** `Rscript -e "library(MERFISHtools); ?MERFISHtools"`
+**Explanation:** Displays package documentation.

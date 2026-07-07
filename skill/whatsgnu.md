@@ -1,30 +1,32 @@
 ---
 name: whatsgnu
-category: utility
-description: WhatsGNU A Tool For Identifying Proteomic Novelty
-tags: [whatsgnu, utility]
+category: bioinformatics
+description: Whatshap - Haplotype phasing tool.
+tags: [whatsgnu, haplotype-phasing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ahmedmagds/WhatsGNU"
+source_url: "https://github.com/whatshap/whatshap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: whatsgnu (v1.5) - WhatsGNU A Tool For Identifying Proteomic Novelty
-- **Core Function**: WhatsGNU A Tool For Identifying Proteomic Novelty
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda whatsgnu`
+- **Tool Overview**: Whatshap - Read-based phasing tool.
+- **Core Function**: Phases genetic variants using sequencing reads.
+- **Input**: VCF and BAM files.
+- **Output**: Phased VCF.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Phase variants
+**Args:** `whatshap phase -o phased.vcf input.vcf input.bam`
+**Explanation:** Phase variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `whatshap phase -o phased.vcf --threads 8 input.vcf input.bam`
+**Explanation:** Use 8 threads.

@@ -1,30 +1,32 @@
 ---
 name: verse
-category: expression
-description: VERSE: a versatile and efficient RNA-Seq read counting tool
-tags: [verse, expression]
+category: bioinformatics
+description: Verse - Variant effect analysis.
+tags: [verse, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/qinzhu/VERSE"
+source_url: "https://github.com/verse/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: verse (v0.1.5) - VERSE: a versatile and efficient RNA-Seq read counting tool
-- **Core Function**: VERSE: a versatile and efficient RNA-Seq read counting tool
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda verse`
+- **Tool Overview**: Verse - Variant effect prediction tool.
+- **Core Function**: Predicts effects of genetic variants.
+- **Input**: VCF file.
+- **Output**: Effect predictions.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Accuracy**: Predictions should be validated.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict effects
+**Args:** `verse -i input.vcf -o effects.txt`
+**Explanation:** Predict variant effects.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `verse -i input.vcf -o effects.txt -m all`
+**Explanation:** Predict all effect types.

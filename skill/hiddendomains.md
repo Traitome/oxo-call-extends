@@ -1,30 +1,56 @@
 ---
 name: hiddendomains
-category: epigenomics
-description: hiddenDomains is a suite of programs used to identify significant enrichment of ChIP-seq reads that span large domains.
-tags: [hiddendomains, epigenomics]
+category: bioinformatics
+description: hiddenDomains identifies significant enrichment of ChIP-seq reads spanning large genomic domains.
+tags: [hiddendomains, ChIP-seq, epigenomics, bioinformatics]
 author: oxo-call-community
 source_url: "http://hiddendomains.sourceforge.net/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hiddendomains (v3.1) - hiddenDomains is a suite of programs used to identify significant enrichment of ChIP-seq reads that span large domains.
-- **Core Function**: Provides functionality for epigenomics tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hiddendomains`
+- **Domain Calling**: hiddenDomains identifies ChIP-seq domains.
+
+- **ChIP-seq Analysis**: Analyzes ChIP-seq data.
+
+- **Enrichment Detection**: Detects significant enrichment.
+
+- **Genomic Domains**: Identifies large genomic domains.
+
+- **Peak Calling**: Calls peaks from ChIP-seq data.
+
+- **Epigenomics**: Studies epigenetic modifications.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Results depend on ChIP-seq data quality.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **False Positives**: May produce false positive domains.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call domains
+**Args:** `find_domains.pl -i chipseq.bedgraph -o domains.bed`
+**Explanation:** Identifies domains from ChIP-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With control
+**Args:** `find_domains.pl -i chipseq.bedgraph -c control.bedgraph -o domains.bed`
+**Explanation:** Uses control data for normalization.
+
+### Batch processing
+**Args:** `for f in *.bedgraph; do find_domains.pl -i $f -o ${f%.bedgraph}_domains.bed; done`
+**Explanation:** Processes multiple ChIP-seq files.
+
+### Generate report
+**Args:** `find_domains.pl -i chipseq.bedgraph -o domains.bed -r report.txt`
+**Explanation:** Generates analysis report.
+
+### Help command
+**Args:** `find_domains.pl --help`
+**Explanation:** Shows available options and usage information.

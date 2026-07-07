@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigbedtobed
-category: formatting
-description: Convert from bigBed to ascii bed format.
-tags: [ucsc-bigbedtobed, formatting]
+category: utility
+description: UCSC bigBedToBed - Tool for converting BigBed to BED format.
+tags: [ucsc-bigbedtobed, ucsc, format-conversion, bigbed, bed]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigbedtobed (v482) - Convert from bigBed to ascii bed format.
-- **Core Function**: Convert from bigBed to ascii bed format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigbedtobed`
+- **Tool Overview**: UCSC bigBedToBed - A tool for converting BigBed format to BED format.
+- **Core Function**: Converts indexed BigBed files to plain BED format.
+- **Input**: BigBed file.
+- **Output**: BED format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data extraction, analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Size**: Output may be significantly larger than input.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to BED
+**Args:** `bigBedToBed input.bb output.bed`
+**Explanation:** Convert BigBed to BED format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With region
+**Args:** `bigBedToBed -chrom=chr1 -start=1 -end=1000000 input.bb output.bed`
+**Explanation:** Extract specific region from BigBed.

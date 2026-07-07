@@ -2,29 +2,51 @@
 name: kernel_density_plots
 category: alignment
 description: Python tool for generating SNP density and closest neighbor plots from aligned SNP FASTA files.
-tags: [kernel_density_plots, alignment, FASTA]
+tags: [kernel_density_plots, alignment, SNP, visualization, density]
 author: oxo-call-community
 source_url: "https://github.com/kapurlab/kernel_density_plots"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kernel_density_plots (v0.1) - Python tool for generating SNP density and closest neighbor plots from aligned SNP FASTA files.
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kernel_density_plots`
+- **Tool Overview**: kernel_density_plots (v0.1) - Generates SNP density and neighbor plots.
+- **SNP Density**: Visualizes SNP distribution across sequences.
+- **Kernel Density Estimation**: Uses KDE for smooth density plots.
+- **Neighbor Analysis**: Analyzes closest neighbor distances.
+- **Visualization**: Generates publication-quality plots.
+- **FASTA Input**: Works with aligned SNP FASTA files.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Alignment Quality**: Requires properly aligned sequences.
+- **SNP Calling**: Depends on accurate SNP calling.
+- **Memory Usage**: Large alignments require memory.
+- **Plot Size**: High-resolution plots can be large.
+- **Computation Time**: Complex plots may take time.
+- **Sequence Length**: Variable lengths affect analysis.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate SNP density plot
+**Args:** `kernel_density_plots -i snps.fasta -o density.png`
+**Explanation:** Generates SNP density plot from aligned FASTA.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Neighbor distance plot
+**Args:** `kernel_density_plots -i snps.fasta -o neighbor.png -t neighbor`
+**Explanation:** Generates closest neighbor distance plot.
+
+### High resolution
+**Args:** `kernel_density_plots -i snps.fasta -o density.png -d 300`
+**Explanation:** Generates 300 DPI high-resolution plot.
+
+### Multiple sequences
+**Args:** `kernel_density_plots -i snps.fasta -o plots/ -m`
+**Explanation:** Generates plots for each sequence.
+
+### Custom bandwidth
+**Args:** `kernel_density_plots -i snps.fasta -o density.png -b 0.5`
+**Explanation:** Sets KDE bandwidth to 0.5.
+
+### Output statistics
+**Args:** `kernel_density_plots -i snps.fasta -o stats.txt -s`
+**Explanation:** Outputs density statistics.

@@ -1,30 +1,56 @@
 ---
 name: shapemapper
 category: formatting
-description: ShapeMapper converts raw sequencing files into mutational profiles, creates SHAPE reactivity plots, and provides extensive diagnostic information useful for experiment analysis and troubleshooting.
-tags: [shapemapper, formatting]
+description: shapemapper - SHAPE reactivity analysis for RNA structure
+tags: ["shapemapper", "formatting", "RNA-structure", "SHAPE"]
 author: oxo-call-community
 source_url: "http://www.chem.unc.edu/rna/software.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: shapemapper (v1.2) - ShapeMapper converts raw sequencing files into mutational profiles, creates SHAPE reactivity plots, and provides extensive diagnostic information useful for experiment analysis and troubleshooting.
-- **Core Function**: ShapeMapper converts raw sequencing files into mutational profiles, creates SHAPE reactivity plots, and provides extensive diagnostic information useful for experiment analysis and troubleshooting.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda shapemapper`
+- **Tool Overview**: shapemapper (v1.2) converts raw sequencing files into mutational profiles.
+- **Core Function**: Creates SHAPE reactivity plots and provides diagnostic information.
+- **Algorithm**: Processes sequencing data to infer RNA structure.
+- **Input/Output**: Accepts sequencing files and produces reactivity profiles.
+- **RNA Structure Analysis**: Focuses on SHAPE-based RNA structure probing.
+- **Applications**: RNA structure determination, transcriptomics, and molecular biology.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Input Format**: Requires correct sequencing data format.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Input Quality**: Results depend on sequencing data quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run ShapeMapper
+**Args:** `ShapeMapper --target target.fasta --out results/`
+**Explanation:** `--target` target sequence; `--out` output directory.
 
-### Basic usage
-**Args:** `shapemapper -i <input_file> -o <output_file>`
-**Explanation:** Run shapemapper with typical input and output options.
+### With reads
+**Args:** `ShapeMapper --target target.fasta --fastq reads.fastq --out results/`
+**Explanation:** `--fastq` input FASTQ reads.
+
+### Paired-end
+**Args:** `ShapeMapper --target target.fasta --fastq1 reads_1.fastq --fastq2 reads_2.fastq --out results/`
+**Explanation:** `--fastq1/--fastq2` paired-end reads.
+
+### Verbose logging
+**Args:** `ShapeMapper -v --target target.fasta --out results/`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `ShapeMapper --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `ShapeMapper --version`
+**Explanation:** Shows current version.
+
+### With primer
+**Args:** `ShapeMapper --target target.fasta --primer primer.fasta --fastq reads.fastq --out results/`
+**Explanation:** `--primer` primer sequence.

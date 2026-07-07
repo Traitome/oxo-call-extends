@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslsortacc
-category: alignment
-description: Remove chain-breaking alignments from chains that break nested chains.
-tags: [ucsc-pslsortacc, alignment]
+category: utility
+description: UCSC pslSortAcc - Tool for sorting PSL by accession.
+tags: [ucsc-pslsortacc, ucsc, psl, sorting, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslsortacc (v482) - Remove chain-breaking alignments from chains that break nested chains.
-- **Core Function**: Remove chain-breaking alignments from chains that break nested chains.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslsortacc`
+- **Tool Overview**: UCSC pslSortAcc - A tool for sorting PSL by accession.
+- **Core Function**: Sorts PSL alignments by accession number.
+- **Input**: PSL file.
+- **Output**: Sorted PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data organization, accession-based sorting, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sort PSL by accession
+**Args:** `pslSortAcc input.psl > sorted.psl`
+**Explanation:** Sort by accession number.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslSortAcc -verbose input.psl > sorted.psl`
+**Explanation:** Sort with verbose output.

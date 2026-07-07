@@ -1,30 +1,52 @@
 ---
 name: longtrack
 category: metagenomics
-description: Track FMT strains using long-read metagenomic assemblies.
-tags: [longtrack, metagenomics]
+description: LongTrack - Track FMT strains using long-read metagenomic assemblies
+tags: [longtrack, metagenomics, FMT, strain-tracking, long-reads, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/fanglab/LongTrack"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longtrack v1.0.0 - Track FMT strains using long-read metagenomic assemblies..
-- **Core Function**: Track FMT strains using long-read metagenomic assemblies.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longtrack`
+- **FMT Tracking**: Tracking fecal microbiota transplantation strains
+- **Strain Identification**: Identifying specific microbial strains
+- **Metagenomics**: Analysis of metagenomic sequencing data
+- **Long-read Data**: Using long reads for strain resolution
+- **Strain Tracking**: Monitoring strain presence over time
+- **Microbiome Analysis**: Comprehensive microbiome analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect tracking
+- **Strain Complexity**: Highly similar strains may be difficult to distinguish
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Positives**: May produce false positive strain identifications
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Track strains
+**Args:** `longtrack --assemblies assemblies/ --output tracking_results/`
+**Explanation:** Tracks FMT strains across samples.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Reference database
+**Args:** `longtrack --assemblies assemblies/ --ref-db reference.fasta --output tracking_results/`
+**Explanation:** Uses custom reference database.
+
+### Threads
+**Args:** `longtrack --assemblies assemblies/ --output tracking_results/ --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Minimum coverage
+**Args:** `longtrack --assemblies assemblies/ --output tracking_results/ --min-cov 10`
+**Explanation:** Sets minimum coverage threshold.
+
+### Output format
+**Args:** `longtrack --assemblies assemblies/ --output tracking_results.json --format json`
+**Explanation:** Outputs results in JSON format.
+
+### Verbose output
+**Args:** `longtrack --assemblies assemblies/ --output tracking_results/ --verbose`
+**Explanation:** Provides detailed output.

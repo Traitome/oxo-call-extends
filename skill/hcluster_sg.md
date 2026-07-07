@@ -1,30 +1,60 @@
 ---
 name: hcluster_sg
-category: hpc
-description: A tool for hierarchically clustering on a sparse graph.
-tags: [hcluster_sg, hpc]
+category: bioinformatics
+description: hcluster_sg performs hierarchical clustering on sparse graphs.
+tags: [hcluster_sg, clustering, sparse-graph, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/douglasgscofield/hcluster"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hcluster_sg (v0.5.1) - A tool for hierarchically clustering on a sparse graph.
-- **Core Function**: Provides functionality for hpc tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hcluster_sg`
+- **Hierarchical Clustering**: hcluster_sg performs hierarchical clustering.
+
+- **Sparse Graphs**: Optimized for sparse graph data.
+
+- **Graph Analysis**: Analyzes graph structures.
+
+- **Cluster Identification**: Identifies clusters in graphs.
+
+- **Similarity Matrix**: Uses similarity matrices for clustering.
+
+- **Dendrogram Construction**: Constructs dendrograms.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Graph Density**: Performance depends on graph density.
+
+- **Memory Usage**: Large graphs may require significant memory.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Computational Resources**: May require significant resources.
+
+- **Data Format**: Ensure correct input format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster sparse graph
+**Args:** `hcluster_sg --input graph.txt --output clusters.txt`
+**Explanation:** Performs hierarchical clustering on sparse graph.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Generate dendrogram
+**Args:** `hcluster_sg --input graph.txt --dendrogram --output dendrogram.nwk`
+**Explanation:** Generates dendrogram from clustering.
+
+### Batch processing
+**Args:** `for f in *.txt; do hcluster_sg --input $f --output ${f%.txt}_clusters.txt; done`
+**Explanation:** Processes multiple graph files.
+
+### Custom linkage
+**Args:** `hcluster_sg --input graph.txt --linkage complete --output clusters.txt`
+**Explanation:** Uses complete linkage clustering.
+
+### Threshold clustering
+**Args:** `hcluster_sg --input graph.txt --threshold 0.5 --output clusters.txt`
+**Explanation:** Clusters with similarity threshold.
+
+### Help command
+**Args:** `hcluster_sg --help`
+**Explanation:** Shows available options and usage information.

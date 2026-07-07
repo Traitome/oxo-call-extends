@@ -1,30 +1,32 @@
 ---
 name: ws4py
-category: programming
-description: WebSocket library for Python
-tags: [ws4py, programming]
+category: bioinformatics
+description: ws4py - WebSocket library.
+tags: [ws4py, websocket, python, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/Lawouach/WebSocket-for-Python"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ws4py (v0.3.2) - WebSocket library for Python
-- **Core Function**: WebSocket library for Python
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ws4py`
+- **Tool Overview**: ws4py - WebSocket implementation.
+- **Core Function**: WebSocket client/server.
+- **Input**: WebSocket messages.
+- **Output**: WebSocket responses.
+- **Installation**: Install via pip
+- **Use Case**: Real-time communication, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Security**: Requires proper authentication.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create server
+**Args:** `python -c "from ws4py.server import WebSocketServer"`
+**Explanation:** Create WebSocket server.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "server = WebSocketServer(('0.0.0.0', 8080))"`
+**Explanation:** Start server on port 8080.

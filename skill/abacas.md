@@ -1,48 +1,52 @@
 ---
 name: abacas
 category: assembly
-description: ABACAS is intended to rapidly contiguate (align, order, orientate), visualize and design primers to close gaps on shotgun assembled contigs based on a reference sequence.
-tags: [abacas, assembly, scaffolding, contig, ordering, primer-design]
+description: ABACAS aligns, orders, and orients shotgun assembled contigs based on a reference sequence using MUMmer alignment.
+tags: [abacas, assembly, scaffolding, contig, ordering, primer-design, mummer]
 author: oxo-call-community
 source_url: "https://abacas.sourceforge.net/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Algorithm Based Automatic Contiguation of Assembled Sequences - orders and orients contigs based on a reference genome. Version 1.3.1.
-- **Core Function**: Takes shotgun assembled contigs and a reference sequence, then aligns, orders, and orients the contigs to match the reference, visualizes the alignment, and designs primers for gap closure.
-- **Input/Output**: Input is contigs (FASTA) and reference genome (FASTA); output is ordered/oriented contigs, visualization, and primer sequences for gap filling.
+- **Tool Overview**: ABACAS (Algorithm Based Automatic Contiguation of Assembled Sequences) orders and orients contigs based on a reference genome. Version 1.3.1.
+- **Core Function**: Takes shotgun assembled contigs and a reference sequence, aligns them using MUMmer, orders and orients contigs to match the reference, generates visualization files for ACT, and designs primers for gap closure.
+- **Input/Output**: Input is contigs (FASTA) and reference genome (FASTA); output is ordered/oriented contigs (pseudomolecule), visualization files for ACT, and primer sequences for gap filling.
 - **Installation**: Install via bioconda: `conda install -c bioconda abacas`
-- **Platform Support**: Platform-independent (noarch, Perl)
-- **MUMmer Dependency**: Uses MUMmer for contig-to-reference alignment. Requires MUMmer to be installed.
-- **Primer Design**: Automatically designs primers flanking gaps for PCR-based gap closure.
+- **Platform Support**: Platform-independent (Perl-based)
+- **MUMmer Dependency**: Uses NUCmer or PROmer from the MUMmer package for contig-to-reference alignment.
+- **ACT Visualization**: Generates comparison files that can be visualized using Artemis Comparison Tool (ACT).
 
 ## Pitfalls
 
-- **Version Differences**: Command-line options may vary between versions. Always check `--help` for your installed version.
+- **CRITICAL: Command Name**: The command is `abacas.pl`, not `abacas`. Use `abacas.pl` to invoke the tool.
 - **Reference Dependency**: Quality of ordering depends heavily on reference similarity. Distant references produce poor ordering.
 - **MUMmer Required**: Requires MUMmer to be installed and in PATH. ABACAS calls MUMmer externally.
 - **Gap Size Estimation**: Gap sizes are estimated from reference and may not reflect actual gap sizes in the assembly.
-- **Contig Naming**: Output contig names may be modified. Track original names for downstream analysis.
+- **Primer3 Required**: Primer design functionality requires Primer3 to be installed.
 
 ## Examples
 
-### Display help and version information
-**Args:** `--help`
+### Display help information
+**Args:** `abacas.pl -h`
 **Explanation:** Shows all available command-line options and usage information.
 
-### Order contigs against a reference
-**Args:** `contigs.fasta reference.fasta`
-**Explanation:** Aligns contigs to the reference using MUMmer and outputs ordered/oriented contigs with gap information.
+### Order contigs using NUCmer
+**Args:** `abacas.pl -r reference.fasta -q contigs.fasta -p nucmer`
+**Explanation:** Aligns contigs to the reference using NUCmer and outputs ordered/oriented contigs with gap information. NUCmer is best for closely related sequences.
 
-### Run with specific MUMmer parameters
-**Args:** `-m mummer -c contigs.fasta -r reference.fasta -o ordered_contigs.fasta`
-**Explanation:** Uses MUMmer alignment with default parameters. The -m flag specifies the alignment method (mummer, nucmer, or promer).
+### Order contigs using PROmer
+**Args:** `abacas.pl -r reference.fasta -q contigs.fasta -p promer`
+**Explanation:** Uses PROmer for alignment, which translates sequences in all six frames. Best for more divergent sequences or when comparing different species.
 
-### Generate primers for gap closure
-**Args:** `--primer contigs.fasta reference.fasta -o output_prefix`
-**Explanation:** Orders contigs and designs primers flanking each gap for PCR amplification and Sanger sequencing to close gaps.
+### Run with default parameters
+**Args:** `abacas.pl -r ref.fa -q contigs.fa -p nucmer -d`
+**Explanation:** Uses default NUCmer parameters instead of the more sensitive --maxmatch option. Useful for larger genomes or when high sensitivity is not required.
 
-### Output visualization file
-**Args:** `--draw contigs.fasta reference.fasta -o output_prefix`
-**Explanation:** Generates a visualization of contig alignment to the reference, showing order, orientation, and gap positions.
+### Generate ordered contigs file
+**Args:** `abacas.pl -r ref.fa -q contigs.fa -p nucmer -m`
+**Explanation:** Prints ordered and oriented contigs to a separate file for further analysis.
+
+### Skip contig ordering, go directly to primer design
+**Args:** `abacas.pl -r ref.fa -q ordered_contigs.fa -e`
+**Explanation:** Skips the contig ordering step and proceeds directly to primer design for gap closure. Useful when contigs are already ordered.

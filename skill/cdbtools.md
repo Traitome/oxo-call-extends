@@ -1,30 +1,43 @@
 ---
 name: cdbtools
-category: utility
-description: CDB (Constant DataBase) indexing and retrieval tools for FASTA files.
-tags: [cdbtools, utility, FASTA]
+category: sequence-analysis
+description: CDB (Constant DataBase) indexing and retrieval tools for FASTA files
+tags: [cdbtools, fasta, database, indexing, retrieval]
 author: oxo-call-community
 source_url: "http://compbio.dfci.harvard.edu/tgi"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cdbtools (v0.99) - CDB (Constant DataBase) indexing and retrieval tools for FASTA files.
-- **Core Function**: CDB (Constant DataBase) indexing and retrieval tools for FASTA files.
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda cdbtools`
+- **Tool Overview**: cdbtools provides CDB (Constant DataBase) indexing and fast retrieval for FASTA sequence files.
+- **Core Function**: Creates indexed databases from FASTA files for rapid sequence lookup.
+- **Algorithm**: Uses constant database (CDB) format for fast key-value lookups.
+- **Input**: FASTA sequence files.
+- **Output**: CDB index files and retrieved sequences.
+- **Application**: Rapid sequence retrieval from large sequence databases.
+- **Installation**: Install via bioconda: `conda install -c bioconda cdbtools`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Index Size**: CDB index files can be large for big FASTA databases.
+- **One-time Indexing**: Index needs to be rebuilt when FASTA file changes.
+- **Memory Usage**: Large databases may require significant memory.
+- **FASTA Format**: Requires properly formatted FASTA input.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create CDB index
+**Args:** `cdbfasta input.fasta`
+**Explanation:** Creates CDB index for FASTA file, generates .cdb and .idx files.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Retrieve sequence by ID
+**Args:** `cdbyank -a "seq_id" input.fasta.cdb`
+**Explanation:** Retrieves sequence with specified ID from CDB index.
+
+### Batch retrieval
+**Args:** `cdbyank -f ids.list input.fasta.cdb > retrieved.fasta`
+**Explanation:** Retrieves multiple sequences listed in ids.list file.
+
+### Display help
+**Args:** `cdbfasta --help`
+**Explanation:** Shows available options for cdbfasta.

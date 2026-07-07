@@ -1,30 +1,32 @@
 ---
 name: vg
-category: alignment
-description: Variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods
-tags: [vg, alignment]
+category: bioinformatics
+description: vg - Variation graph toolkit.
+tags: [vg, variation-graph, genomics, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/vgteam/vg"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vg (v1.70.0) - Variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods
-- **Core Function**: Variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vg`
+- **Tool Overview**: vg - Tools for building and using variation graphs.
+- **Core Function**: Constructs and queries variation graphs.
+- **Input**: FASTA, VCF files.
+- **Output**: Graph representations.
+- **Installation**: Install via conda or source
+- **Use Case**: Graph-based genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large graphs.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build graph
+**Args:** `vg construct -r ref.fasta -v variants.vcf -o graph.vg`
+**Explanation:** Build variation graph.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vg construct -r ref.fasta -v variants.vcf -o graph.vg -t 8`
+**Explanation:** Use 8 threads.

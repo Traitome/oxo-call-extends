@@ -1,30 +1,48 @@
 ---
 name: mbcgmlst
 category: variant-calling
-description: cgMLST allele calling pipeline with Ridom-style output.
-tags: [mbcgmlst, variant-calling, sequence]
+description: cgMLST allele calling pipeline with Ridom-style output for bacterial typing.
+tags: [mbcgmlst, cgMLST, bacterial-typing]
 author: oxo-call-community
 source_url: "https://github.com/liviurotiul/mbcgmlst"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mbcgmlst v0.1.0 - cgMLST allele calling pipeline that maps allele FASTA sequences against assembled genomes and emits a Ridom-style CSV..
-- **Core Function**: cgMLST allele calling pipeline with Ridom-style output.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: mbcgmlst performs cgMLST allele calling for bacterial typing.
+- **Core Function**: Maps allele sequences against assembled genomes.
+- **Allele Calling**: Identifies alleles in assembled contigs.
+- **Ridom Output**: Produces Ridom-style CSV output.
+- **Input/Output**: Accepts FASTA alleles and genomes, produces CSV results.
 - **Installation**: `conda install -c bioconda mbcgmlst`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Genome Quality**: Requires high-quality assembled genomes.
+- **Allele Database**: Requires comprehensive allele database.
+- **Memory Requirements**: Large datasets may require memory.
+- **Output Format**: Ridom format may need conversion.
+- **Parameter Tuning**: Requires careful threshold adjustment.
+- **Ambiguity Handling**: May struggle with ambiguous calls.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run cgMLST calling
+**Args:** `mbcgmlst -a alleles.fasta -g genome.fasta -o results.csv`
+**Explanation:** Calls alleles from genome against database.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Multiple genomes
+**Args:** `mbcgmlst -a alleles.fasta -g genome1.fasta genome2.fasta -o results/`
+**Explanation:** Processes multiple genomes.
+
+### Set identity threshold
+**Args:** `mbcgmlst -a alleles.fasta -g genome.fasta -i 0.95 -o results.csv`
+**Explanation:** Sets 95% identity threshold.
+
+### Verbose output
+**Args:** `mbcgmlst -a alleles.fasta -g genome.fasta -v -o results.csv`
+**Explanation:** Shows detailed processing information.
+
+### Help documentation
+**Args:** `mbcgmlst --help`
+**Explanation:** Displays available commands and options.

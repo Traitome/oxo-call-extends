@@ -1,30 +1,32 @@
 ---
 name: trackhub
-category: programming
-description: Create and manage UCSC track hubs from Python
-tags: [trackhub, programming]
+category: utility
+description: TrackHub - Tool for creating and managing genome browser track hubs.
+tags: [trackhub, genome-browser, tracks, visualization, ucsc]
 author: oxo-call-community
-source_url: "http://github.com/daler/trackhub"
+source_url: "https://github.com/compbio/trackhub"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trackhub (v1.0) - Create and manage UCSC track hubs from Python
-- **Core Function**: Create and manage UCSC track hubs from Python
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trackhub`
+- **Tool Overview**: TrackHub - A tool for creating and managing genome browser track hubs for UCSC Genome Browser.
+- **Core Function**: Creates track hubs, manages track metadata, and generates hub configurations.
+- **Input**: Genomic track files (BED, BigWig, VCF), track metadata.
+- **Output**: Track hub configuration files, hub registry entries.
+- **Installation**: `pip install trackhub`
+- **Use Case**: Genome browser track sharing, data visualization, collaborative research.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Format**: Requires specific file formats for track data.
+- **Server Requirements**: Track files must be hosted on accessible web server.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create track hub
+**Args:** `trackhub create --name my_hub --tracks tracks.txt --output hub/`
+**Explanation:** Create a genome browser track hub.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Add track
+**Args:** `trackhub add --hub hub/ --track data.bigWig --name "My Track"`
+**Explanation:** Add track to existing track hub.

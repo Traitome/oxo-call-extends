@@ -1,30 +1,32 @@
 ---
 name: yara
-category: alignment
-description: Yara is an exact tool for aligning DNA sequencing reads to reference genomes.
-tags: [yara, alignment]
+category: bioinformatics
+description: YARA - Pattern matching tool.
+tags: [yara, pattern-matching, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/seqan/seqan/tree/seqan-v2.5.1/apps/yara/README.rst"
+source_url: "https://github.com/VirusTotal/yara"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yara (v1.0.5) - Yara is an exact tool for aligning DNA sequencing reads to reference genomes.
-- **Core Function**: Yara is an exact tool for aligning DNA sequencing reads to reference genomes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yara`
+- **Tool Overview**: YARA - Pattern matching tool.
+- **Core Function**: Matches patterns in data.
+- **Input**: Pattern file and target data.
+- **Output**: Matches.
+- **Installation**: Install via package manager
+- **Use Case**: Pattern matching, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Performance**: May impact system performance.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Match patterns
+**Args:** `yara rules.yar target.bin`
+**Explanation:** Match patterns.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yara -w rules.yar target.bin`
+**Explanation:** Match with warnings.

@@ -1,30 +1,32 @@
 ---
 name: votuderep
-category: qc
-description: A tool to dereplicate and filter vOTUs
-tags: [votuderep, qc]
+category: bioinformatics
+description: VotuDeRep - OTU dereplication tool.
+tags: [votuderep, metagenomics, otu, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/quadram-institute-bioscience/votuderep"
+source_url: "https://github.com/votuderep/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: votuderep (v0.6.0) - votuderep is a tool designed to dereplicate and filter viral Operational Taxonomic Units (vOTUs).
-- **Core Function**: A tool to dereplicate and filter vOTUs
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda votuderep`
+- **Tool Overview**: VotuDeRep - OTU dereplication tool.
+- **Core Function**: Removes redundant OTUs from datasets.
+- **Input**: OTU table.
+- **Output**: Dereplicated OTU table.
+- **Installation**: Install via pip or conda
+- **Use Case**: Metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Parameters**: Threshold selection affects results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Dereplicate OTUs
+**Args:** `votuderep -i otu_table.csv -o dereplicated.csv`
+**Explanation:** Dereplicate OTUs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `votuderep -i otu_table.csv -o dereplicated.csv -t 0.99`
+**Explanation:** 99% identity threshold.

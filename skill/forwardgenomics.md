@@ -1,22 +1,43 @@
 ---
 name: forwardgenomics
 category: programming
-description: Forward Genomics is a framework to associate phenotypic differences between species to differences in their genomes
-tags: [forwardgenomics, programming]
+description: Forward Genomics is a framework to associate phenotypic differences between species to differences in their genomes.
+tags: [forwardgenomics, comparative genomics, phenotype-genotype association]
 author: oxo-call-community
 source_url: "https://github.com/hillerlab/ForwardGenomics"
 ---
 
 ## Concepts
-- **Tool Overview**: Forward Genomics is a framework to associate phenotypic differences between species to differences in their genomes
-- **Core Function**: Forward Genomics is a framework to associate phenotypic differences between species to differences in their genomes
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda forwardgenomics`
+- **Comparative Genomics**: Analyzes genomic differences across species.
+- **Phenotype-Genotype Association**: Links phenotypic traits to genomic regions.
+- **Phylogenetic Correction**: Accounts for evolutionary relationships.
+- **Whole-Genome Analysis**: Scans entire genomes for candidate regions.
+- **Functional Annotation**: Integrates functional genomic data.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Phylogenetic Dependency**: Results depend on accurate phylogenetic trees.
+- **Sample Size**: Requires sufficient species sampling for statistical power.
+- **Genome Quality**: Relies on high-quality genome assemblies.
+- **False Positives**: May identify spurious associations without proper correction.
+- **Computational Requirements**: Whole-genome analysis is computationally intensive.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run forward genomics analysis
+**Args:** `forwardgenomics --genomes genomes/ --phenotypes phenotypes.txt --output results/`
+**Explanation:** Runs Forward Genomics analysis on genomic and phenotypic data.
+
+### With phylogenetic tree
+**Args:** `forwardgenomics --genomes genomes/ --phenotypes phenotypes.txt --tree species.tree --output results/`
+**Explanation:** Runs analysis with a specified phylogenetic tree.
+
+### Functional enrichment
+**Args:** `forwardgenomics enrich --regions candidates.bed --annotations go_terms.gff --output enrichment.txt`
+**Explanation:** Performs functional enrichment analysis on candidate regions.
+
+### Permutation testing
+**Args:** `forwardgenomics --genomes genomes/ --phenotypes phenotypes.txt --permutations 1000 --output results/`
+**Explanation:** Runs permutation testing to assess significance.
+
+### Visualization
+**Args:** `forwardgenomics plot --results results/ --output manhattan.png`
+**Explanation:** Generates a Manhattan plot of results.

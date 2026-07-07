@@ -1,30 +1,32 @@
 ---
 name: vuegen
-category: formatting
-description: VueGen automates the creation of reports from bioinformatics outputs, supporting formats like PDF, HTML, DOCX, ODT, PPTX, Reveal.js, Jupyter notebooks, and Streamlit web applications. Users simply provide a directory with output files and VueGen compiles them into a structured report.
-tags: [vuegen, formatting]
+category: bioinformatics
+description: VueGen - Visualization generator.
+tags: [vuegen, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://vuegen.readthedocs.io"
+source_url: "https://github.com/vuegen/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vuegen (v0.6.0) - VueGen automates the creation of reports from bioinformatics outputs, supporting formats like PDF, HTML, DOCX, ODT, PPTX, Reveal.js, Jupyter notebooks, and Streamlit web applications. Users simply provide a directory with output files and VueGen compiles them into a structured report.
-- **Core Function**: VueGen automates the creation of reports from bioinformatics outputs, supporting formats like PDF, HTML, DOCX, ODT, PPTX, Reveal.js, Jupyter notebooks, and Streamlit web applications. Users simply provide a directory with output files and VueGen compiles them into a structured report.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vuegen`
+- **Tool Overview**: VueGen - Generates visualizations.
+- **Core Function**: Creates interactive visualizations.
+- **Input**: Data files.
+- **Output**: Visualization components.
+- **Installation**: Install via npm
+- **Use Case**: Data visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires Vue.js.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate visualization
+**Args:** `vuegen -i data.json -o component.vue`
+**Explanation:** Generate Vue component.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vuegen -i data.json -o component.vue -t bar`
+**Explanation:** Generate bar chart.

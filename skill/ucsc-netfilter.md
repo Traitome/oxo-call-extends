@@ -1,30 +1,32 @@
 ---
 name: ucsc-netfilter
-category: qc
-description: Filter out parts of net.  What passes.
-tags: [ucsc-netfilter, qc]
+category: utility
+description: UCSC netFilter - Tool for filtering net alignments.
+tags: [ucsc-netfilter, ucsc, net, filtering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-netfilter (v482) - Filter out parts of net.  What passes.
-- **Core Function**: Filter out parts of net.  What passes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-netfilter`
+- **Tool Overview**: UCSC netFilter - A tool for filtering net alignments.
+- **Core Function**: Filters net alignments based on criteria.
+- **Input**: Net file.
+- **Output**: Filtered net file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment filtering, quality control, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Filter Criteria**: Requires proper filter specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter net alignments
+**Args:** `netFilter input.net > filtered.net`
+**Explanation:** Filter net alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `netFilter -minScore=100 input.net > filtered.net`
+**Explanation:** Minimum alignment score filter.

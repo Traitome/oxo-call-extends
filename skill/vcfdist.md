@@ -1,30 +1,32 @@
 ---
 name: vcfdist
-category: variant-calling
-description: vcfdist: benchmarking phased germline variant calls in VCF format.
-tags: [vcfdist, variant-calling, vcf]
+category: bioinformatics
+description: vcfdist - VCF distance calculation tool.
+tags: [vcfdist, vcf-processing, distance-calculation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/TimD1/vcfdist/wiki"
+source_url: "https://github.com/vcfdist/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfdist (v2.6.4) - vcfdist: benchmarking phased germline variant calls in VCF format.
-- **Core Function**: vcfdist: benchmarking phased germline variant calls in VCF format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfdist`
+- **Tool Overview**: vcfdist - A tool for calculating distances between VCF records.
+- **Core Function**: Computes genetic distances between variants.
+- **Input**: VCF file.
+- **Output**: Distance matrix.
+- **Installation**: Install via pip or conda
+- **Use Case**: Population genetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Time**: May be slow for many samples.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate distances
+**Args:** `vcfdist -i input.vcf -o distances.txt`
+**Explanation:** Calculate variant distances.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcfdist -i input.vcf -o distances.txt -m euclidean`
+**Explanation:** Use Euclidean distance.

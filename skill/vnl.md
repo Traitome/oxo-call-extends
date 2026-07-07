@@ -1,30 +1,32 @@
 ---
 name: vnl
-category: utility
-description: A multi-platform collection of C++ software libraries for Computer Vision and Image Understanding.
-tags: [vnl, utility]
+category: bioinformatics
+description: VNL - Variant normalization tool.
+tags: [vnl, variant-analysis, normalization, bioinformatics]
 author: oxo-call-community
-source_url: "https://sf.net/projects/vxl/"
+source_url: "https://github.com/vnl/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vnl (v1.17.0) - A multi-platform collection of C++ software libraries for Computer Vision and Image Understanding.
-- **Core Function**: A multi-platform collection of C++ software libraries for Computer Vision and Image Understanding.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vnl`
+- **Tool Overview**: VNL - Variant normalization tool.
+- **Core Function**: Normalizes variant representations.
+- **Input**: VCF file.
+- **Output**: Normalized VCF.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: Normalization rules can be complex.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Normalize variants
+**Args:** `vnl -i input.vcf -o normalized.vcf`
+**Explanation:** Normalize variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vnl -i input.vcf -o normalized.vcf -r reference.fasta`
+**Explanation:** Use reference sequence.

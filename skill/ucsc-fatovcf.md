@@ -1,30 +1,32 @@
 ---
 name: ucsc-fatovcf
-category: alignment
-description: Extract VCF from a multi-sequence FASTA alignment.
-tags: [ucsc-fatovcf, alignment, vcf]
+category: utility
+description: UCSC faToVcf - Tool for converting FASTA to VCF format.
+tags: [ucsc-fatovcf, ucsc, fasta, vcf, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/master/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fatovcf (v482) - Extract VCF from a multi-sequence FASTA alignment.
-- **Core Function**: Extract VCF from a multi-sequence FASTA alignment.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fatovcf`
+- **Tool Overview**: UCSC faToVcf - A tool for converting FASTA sequences to VCF format.
+- **Core Function**: Creates VCF file from reference sequences.
+- **Input**: FASTA file.
+- **Output**: VCF file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, variant analysis, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chromosome Names**: Requires matching chromosome names.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to VCF
+**Args:** `faToVcf input.fa > output.vcf`
+**Explanation:** Convert FASTA to VCF format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `faToVcf -ref=hg38 input.fa > output.vcf`
+**Explanation:** Convert with reference specification.

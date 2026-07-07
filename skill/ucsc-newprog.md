@@ -1,30 +1,32 @@
 ---
 name: ucsc-newprog
 category: utility
-description: Make a new C source skeleton.
-tags: [ucsc-newprog, utility]
+description: UCSC newProg - Tool for creating new programs.
+tags: [ucsc-newprog, ucsc, development, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-newprog (v482) - Make a new C source skeleton.
-- **Core Function**: Make a new C source skeleton.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-newprog`
+- **Tool Overview**: UCSC newProg - A tool for creating new UCSC programs.
+- **Core Function**: Generates template code for new programs.
+- **Input**: Program name.
+- **Output**: Program template.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Development, code generation, software engineering.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Template Generation**: Requires proper program name.
+- **Dependencies**: Requires UCSC library dependencies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create new program
+**Args:** `newProg myProgram`
+**Explanation:** Create new program template.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `newProg -verbose myProgram`
+**Explanation:** Create with verbose output.

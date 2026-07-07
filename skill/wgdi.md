@@ -1,30 +1,32 @@
 ---
 name: wgdi
-category: programming
-description: Whole Genome Duplication Identification.
-tags: [wgdi, programming]
+category: bioinformatics
+description: WGDI - Whole-genome duplication inference.
+tags: [wgdi, comparative-genomics, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/SunPengChuan/wgdi"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgdi (v0.75) - Python utility libraries on comparative genomics.
-- **Core Function**: Whole Genome Duplication Identification.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgdi`
+- **Tool Overview**: WGDI - Whole-genome duplication inference tool.
+- **Core Function**: Identifies whole-genome duplication events.
+- **Input**: Genome sequences.
+- **Output**: Duplication analysis.
+- **Installation**: Install via pip
+- **Use Case**: Comparative genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze WGD
+**Args:** `wgdi -i config.yaml`
+**Explanation:** Run WGD analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgdi -i config.yaml -t 8`
+**Explanation:** Use 8 threads.

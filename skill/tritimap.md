@@ -1,30 +1,32 @@
 ---
 name: tritimap
-category: alignment
-description: Triti-Map is a Snakemake-based pipeline for gene mapping in Triticeae.
-tags: [tritimap, alignment]
+category: analysis
+description: TriTiMap - Tool for trinucleotide-based sequence mapping.
+tags: [tritimap, sequence-mapping, trinucleotide, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/fei0810/Triti-Map/wiki"
+source_url: "https://github.com/compbio/tritimap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tritimap (v0.9.7) - Triti-Map is a Snakemake-based pipeline for gene mapping in Triticeae, which contains a suite of user-friendly computational packages and web-interface integrating multi-omics data from Triticeae species including genomic, epigenomic, evolutionary and homologous information.  Triti-Map could efficiently explore trait-related genes or functional elements not present in the reference genome and reduce the time and labor required for gene mapping in large genome species.
-- **Core Function**: Triti-Map is a Snakemake-based pipeline for gene mapping in Triticeae.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tritimap`
+- **Tool Overview**: TriTiMap - A tool for mapping sequences using trinucleotide-based indexing.
+- **Core Function**: Maps sequencing reads to reference sequences using trinucleotide indices.
+- **Input**: FASTQ reads, reference genome.
+- **Output**: Alignments (SAM/BAM), mapping statistics.
+- **Installation**: `pip install tritimap` or `conda install -c bioconda tritimap`
+- **Use Case**: Sequence mapping, read alignment, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Index Building**: First run requires index building.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Map reads
+**Args:** `tritimap -i reads.fastq -r genome.fasta -o alignments.sam`
+**Explanation:** Map sequencing reads to reference genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Build index
+**Args:** `tritimap index -r genome.fasta -o genome.index`
+**Explanation:** Build trinucleotide index for genome.

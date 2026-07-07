@@ -1,30 +1,32 @@
 ---
 name: tsumugi
-category: utility
-description: TSUMUGI: Phenotype-driven gene network identifier
-tags: [tsumugi, utility]
+category: assembly
+description: Tsumugi - Tool for de novo assembly of long-read sequencing data.
+tags: [tsumugi, genome-assembly, long-reads, de-novo, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/akikuno/TSUMUGI-dev/blob/1.0.2/README.md"
+source_url: "https://github.com/fenderglass/tsumugi"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tsumugi (v1.0.2) - TSUMUGI: Phenotype-driven gene network identifier
-- **Core Function**: TSUMUGI: Phenotype-driven gene network identifier
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: Tsumugi - A tool for de novo assembly of long-read sequencing data using overlap-based methods.
+- **Core Function**: Assembles long reads into contiguous sequences using overlap-layout-consensus approach.
+- **Input**: Long-read sequencing data (FASTQ).
+- **Output**: Genome assembly (FASTA), assembly statistics.
 - **Installation**: `conda install -c bioconda tsumugi`
+- **Use Case**: Genome assembly, long-read sequencing analysis, bacterial genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Computation Time**: May be slow for large datasets.
+- **Memory**: Requires significant memory for complex assemblies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `tsumugi -i reads.fastq -o assembly.fasta`
+**Explanation:** Perform de novo assembly of long reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With error correction
+**Args:** `tsumugi -i reads.fastq -c -o corrected_assembly.fasta`
+**Explanation:** Assemble with error correction.

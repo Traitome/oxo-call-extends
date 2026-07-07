@@ -1,30 +1,32 @@
 ---
 name: wfmash
-category: alignment
-description: A pangenome-scale aligner.
-tags: [wfmash, alignment]
+category: bioinformatics
+description: wfmash - Sequence alignment tool.
+tags: [wfmash, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/waveygang/wfmash/blob/v0.24.2/README.md"
+source_url: "https://github.com/waveygang/wfmash"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wfmash (v0.24.2) - A pangenome-scale aligner.
-- **Core Function**: A pangenome-scale aligner.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wfmash`
+- **Tool Overview**: wfmash - Fast sequence alignment tool.
+- **Core Function**: Performs sequence alignment using wavefront algorithm.
+- **Input**: Sequence data.
+- **Output**: Alignment results.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `wfmash -x ref.fasta query.fasta > alignment.paf`
+**Explanation:** Align sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wfmash -x ref.fasta query.fasta -t 8 > alignment.paf`
+**Explanation:** Use 8 threads.

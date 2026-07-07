@@ -1,30 +1,52 @@
 ---
 name: liquorice
-category: expression
-description: A tool for bias correction and quantification of changes in coverage around regions of interest in cfDNA WGS datasets
-tags: [liquorice, expression]
+category: epigenomics
+description: LIQUORICE - Bias correction and quantification of cfDNA WGS coverage changes
+tags: [liquorice, epigenomics, cfDNA, WGS, coverage, bias-correction]
 author: oxo-call-community
 source_url: "https://github.com/epigen/LIQUORICE"
 ---
 
 ## Concepts
 
-- **Tool Overview**: liquorice v0.5.6 - See https://liquorice.readthedocs.io for more information..
-- **Core Function**: A tool for bias correction and quantification of changes in coverage around regions of interest in cfDNA WGS datasets
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda liquorice`
+- **cfDNA Analysis**: Analysis of cell-free DNA sequencing data
+- **Bias Correction**: Corrects sequencing biases in cfDNA data
+- **Coverage Quantification**: Quantifies coverage changes around regions of interest
+- **WGS Analysis**: Whole-genome sequencing data analysis
+- **Epigenetic Analysis**: Epigenetic profiling using cfDNA
+- **Region of Interest**: Focused analysis on specific genomic regions
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **GC Bias**: GC content bias affects coverage
+- **Mappability**: Low mappability regions may cause issues
+- **Sample Quality**: Poor quality cfDNA affects results
+- **Normalization**: Requires proper normalization
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Memory Usage**: Memory-intensive for large datasets
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze cfDNA coverage
+**Args:** `liquorice -i input.bam -o output.txt -r regions.bed`
+**Explanation:** Analyzes coverage around regions of interest.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Bias correction
+**Args:** `liquorice -i input.bam -o output.txt -r regions.bed -b`
+**Explanation:** Applies bias correction to coverage data.
+
+### Normalization
+**Args:** `liquorice -i input.bam -o output.txt -r regions.bed -n`
+**Explanation:** Normalizes coverage values.
+
+### Threads
+**Args:** `liquorice -i input.bam -o output.txt -r regions.bed -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### GC correction
+**Args:** `liquorice -i input.bam -o output.txt -r regions.bed -g`
+**Explanation:** Applies GC content bias correction.
+
+### Plot results
+**Args:** `liquorice -i input.bam -o output.pdf -r regions.bed -p`
+**Explanation:** Generates coverage plot.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-dbsnoop
 category: utility
-description: Produce an overview of a database.
-tags: [ucsc-dbsnoop, utility]
+description: UCSC dbSnoop - Tool for snooping database tables.
+tags: [ucsc-dbsnoop, ucsc, database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-dbsnoop (v482) - Produce an overview of a database.
-- **Core Function**: Produce an overview of a database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-dbsnoop`
+- **Tool Overview**: UCSC dbSnoop - A tool for inspecting database tables.
+- **Core Function**: Examines database table structure and content.
+- **Input**: Database connection, table name.
+- **Output**: Table metadata and sample data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Database inspection, debugging, data exploration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Permissions**: May require specific database permissions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Snoop database table
+**Args:** `dbSnoop -db=hg38 -table=refGene`
+**Explanation:** Inspect database table.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With sample data
+**Args:** `dbSnoop -db=hg38 -table=refGene -limit=10`
+**Explanation:** Show first 10 rows.

@@ -1,30 +1,47 @@
 ---
 name: mhap
 category: alignment
-description: MHAP: MinHash Alignment Protocol. A tool for finding overlaps of long-read sequences (such as PacBio or Nanopore) in bioinformatics.
-tags: [mhap, alignment]
+description: "MHAP: MinHash Alignment Protocol. A tool for finding overlaps of long-read sequences (such as PacBio or Nanopore) in bioinformatics."
+tags: [mhap, alignment, long-read]
 author: oxo-call-community
 source_url: "https://github.com/marbl/MHAP"
 ---
-
 ## Concepts
 
-- **Tool Overview**: mhap v2.1.3 - MHAP: MinHash Alignment Protocol. A tool for finding overlaps of long-read sequences (such as PacBio or Nanopore) in bioinformatics..
-- **Core Function**: MHAP: MinHash Alignment Protocol. A tool for finding overlaps of long-read sequences (such as PacBio or Nanopore) in bioinformatics.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mhap`
+- **Tool Overview**: MHAP v2.1.3 is the MinHash Alignment Protocol for finding overlaps between long-read sequences.
+- **Core Function**: Finds overlaps between long sequencing reads using MinHash algorithm.
+- **MinHash Algorithm**: Uses MinHash for efficient similarity estimation.
+- **Long-read Support**: Optimized for PacBio and Oxford Nanopore reads.
+- **Input/Output**: Accepts long-read sequences; outputs overlap information.
+- **Assembly Support**: Used in de novo assembly pipelines.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal overlap detection.
+- **Data Quality**: Overlap detection accuracy depends on read quality.
+- **Runtime**: Analysis of large read sets can be time-consuming.
+- **Read Length**: Performance may vary with different read lengths.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Find overlaps
+**Args:** `mhap -i reads.fastq -o overlaps.txt`
+**Explanation:** Finds overlaps between long-read sequences.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom k-mer size
+**Args:** `mhap -i reads.fastq -o overlaps.txt -k 21`
+**Explanation:** Uses k-mer size of 21 for MinHash.
+
+### Paired-end mode
+**Args:** `mhap -i reads_1.fastq -r reads_2.fastq -o overlaps.txt`
+**Explanation:** Processes paired-end long reads.
+
+### Generate assembly hints
+**Args:** `mhap -i reads.fastq -o overlaps.txt -a`
+**Explanation:** Generates hints for assembly.
+
+### Batch processing
+**Args:** `mhap -i fastq/ -o overlaps/`
+**Explanation:** Processes multiple read files in batch mode.

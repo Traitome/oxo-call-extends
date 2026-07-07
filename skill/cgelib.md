@@ -1,30 +1,43 @@
 ---
 name: cgelib
-category: programming
-description: This package will in time replace the cgecore package. The package contains classes and functions intended to be utilized across the CGE tools.
-tags: [cgelib, programming]
+category: genomics
+description: Future replacement for cgecore - Shared library for CGE bioinformatics tools
+tags: [cgelib, genomic-epidemiology, cge, bioinformatics, library]
 author: oxo-call-community
 source_url: "https://genomicepidemiology.org/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgelib (v0.7.5) - This package will in time replace the cgecore package. The package contains classes and functions intended to be utilized across the CGE tools.
-- **Core Function**: This package will in time replace the cgecore package. The package contains classes and functions intended to be utilized across the CGE tools.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgelib`
+- **Tool Overview**: CGELib is the next-generation core library for Center for Genomic Epidemiology tools, intended to replace cgecore.
+- **Core Function**: Provides shared classes and functions for sequence analysis, database management, and typing across CGE tools.
+- **Features**: Modern API design, improved performance, sequence processing utilities, and database integration.
+- **Input**: Bacterial genome sequences and typing data.
+- **Output**: Analysis results, typing predictions, and annotation data.
+- **Application**: Bacterial genomic epidemiology and antimicrobial resistance analysis.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgelib`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Migration Transition**: During transition from cgecore, API may change.
+- **Version Compatibility**: Ensure compatibility with other CGE tools.
+- **Documentation**: New API may have limited documentation initially.
+- **Dependency Management**: Requires specific Python version and dependencies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Import library in Python
+**Args:** `python -c "import cgelib; print(cgelib.__version__)"`
+**Explanation:** Imports CGELib and checks version.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Load sequence data
+**Args:** `python -c "from cgelib import Sequence; seq = Sequence('genome.fasta')"`
+**Explanation:** Loads sequence data using CGELib.
+
+### Run typing analysis
+**Args:** `python -c "from cgelib import MLST; result = MLST.analyze('genome.fasta')"`
+**Explanation:** Performs MLST typing using CGELib.
+
+### Display help
+**Args:** `python -c "help(cgelib)"`
+**Explanation:** Shows CGELib documentation.

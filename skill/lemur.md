@@ -1,30 +1,52 @@
 ---
 name: lemur
 category: metagenomics
-description: Lemur is a tool for rapid and accurate taxonomic profiling on long-read metagenomic datasets
-tags: [lemur, metagenomics]
+description: Rapid and accurate taxonomic profiling for long-read metagenomic datasets
+tags: [lemur, metagenomics, taxonomic-profiling, long-read, nanopore, sequencing]
 author: oxo-call-community
 source_url: "https://github.com/treangenlab/lemur"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lemur v1.0.1 - Lemur is a tool for rapid and accurate taxonomic profiling on long-read metagenomic datasets.
-- **Core Function**: Lemur is a tool for rapid and accurate taxonomic profiling on long-read metagenomic datasets
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lemur`
+- **Long-read Metagenomics**: Optimized for long-read sequencing data
+- **Taxonomic Profiling**: Identifies and quantifies microbial taxa
+- **Rapid Analysis**: Fast processing of metagenomic datasets
+- **Accurate Classification**: High accuracy taxonomic assignments
+- **Nanopore Support**: Works with Oxford Nanopore data
+- **K-mer Based**: Uses k-mer based classification approach
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect classification
+- **Database Size**: Large databases increase memory usage
+- **Species Coverage**: Limited database coverage affects results
+- **Computational Resources**: Requires significant compute resources
+- **Read Length**: Very short reads may classify poorly
+- **Memory Usage**: Large datasets need careful memory management
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Profile metagenome
+**Args:** `lemur profile -i reads.fastq -o profile.txt`
+**Explanation:** Performs taxonomic profiling on long reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify database
+**Args:** `lemur profile -i reads.fastq -d custom_db/ -o profile.txt`
+**Explanation:** Uses custom reference database.
+
+### Set k-mer size
+**Args:** `lemur profile -i reads.fastq -k 31 -o profile.txt`
+**Explanation:** Uses k-mer size of 31 for classification.
+
+### Paired-end mode
+**Args:** `lemur profile -1 reads_1.fastq -2 reads_2.fastq -o profile.txt`
+**Explanation:** Processes paired-end reads.
+
+### Generate report
+**Args:** `lemur profile -i reads.fastq -o profile.txt --report`
+**Explanation:** Creates detailed analysis report.
+
+### Batch processing
+**Args:** `lemur batch -d samples/ -o results/`
+**Explanation:** Processes multiple samples.

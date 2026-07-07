@@ -1,30 +1,32 @@
 ---
 name: troika-tb
-category: hpc
-description: A pipeline implementing TB-Profiler for batch detection and reporting of anti-microbial resistance in TB for public health and clinical use.
-tags: [troika-tb, hpc]
+category: analysis
+description: Troika-TB - Tool for analyzing tuberculosis sequencing data.
+tags: [troika-tb, tuberculosis, pathogen-genomics, variant-calling, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/kristyhoran/troika"
+source_url: "https://github.com/jodyphelan/Troika"
 ---
 
 ## Concepts
 
-- **Tool Overview**: troika-tb (v0.0.5) - A pipeline implementing TB-Profiler for batch detection and reporting of anti-microbial resistance in TB for public health and clinical use.
-- **Core Function**: A pipeline implementing TB-Profiler for batch detection and reporting of anti-microbial resistance in TB for public health and clinical use.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda troika-tb`
+- **Tool Overview**: Troika-TB - A tool for analyzing and interpreting tuberculosis genome sequencing data.
+- **Core Function**: Performs variant calling, lineage classification, and drug resistance prediction for TB.
+- **Input**: FASTQ reads or BAM files, reference genome.
+- **Output**: Variant calls, lineage assignments, drug resistance predictions.
+- **Installation**: `pip install troika-tb`
+- **Use Case**: Tuberculosis research, clinical diagnostics, public health.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Reference Genome**: Requires specific TB reference genome.
+- **Quality Control**: Requires good quality sequencing data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze TB data
+**Args:** `troika-tb -i reads.fastq -r h37rv.fasta -o results/`
+**Explanation:** Analyze tuberculosis sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Drug resistance prediction
+**Args:** `troika-tb resistance -i variants.vcf -o resistance.txt`
+**Explanation:** Predict drug resistance from variants.

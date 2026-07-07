@@ -1,22 +1,56 @@
 ---
 name: phyml
 category: population-genomics
-description: Phylogenetic estimation using (Maximum) Likelihood
-tags: [phyml, population-genomics]
+description: phyml estimates maximum likelihood phylogenies.
+tags: [phyml, population-genomics, maximum-likelihood, phylogeny]
 author: oxo-call-community
 source_url: "http://www.atgc-montpellier.fr/phyml/"
 ---
 
 ## Concepts
-- **Tool Overview**: PhyML is a software that estimates maximum likelihood phylogenies from alignments of nucleotide or amino acid sequences. The main strength of PhyML lies in the large number of substitution models coupled to various options to search the space of phylogenetic tree topologies, going from very fast and efficient methods to slower but generally more accurate approaches. PhyML was designed to process moderate to large data sets. In theory, alignments with up to 4,000 sequences 2,000,000 character-long can be processed. PhyML can process data sets made of multiple genes and fit sophisticated substitution models with heterogeneous components across partition elements.
-- **Core Function**: Phylogenetic estimation using (Maximum) Likelihood
-- **Input/Output**: FASTA/BAM/SAM/GFF/GTF
-- **Installation**: `conda install -c bioconda phyml`
+
+- **Tool Overview**: phyml estimates phylogenetic trees.
+- **Core Function**: Maximum likelihood phylogenetic estimation.
+- **Algorithm**: Uses maximum likelihood methods.
+- **Input Format**: Accepts sequence alignment files.
+- **Output**: Produces phylogenetic tree results.
+- **Use Case**: Phylogenetics, maximum likelihood analysis.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large alignments require memory.
+- **Alignment Quality**: Results depend on alignment quality.
+- **ML Estimation**: May have estimation errors.
+- **Runtime**: Estimation may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `phyml --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Estimate phylogeny
+**Args:** `phyml -i alignment.fasta -o phylogeny_tree.txt`
+**Explanation:** Estimates maximum likelihood phylogeny.
+
+### With parameters
+**Args:** `phyml -i alignment.fasta -p params.yaml -o phylogeny_tree.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `phyml -v -i alignment.fasta -o phylogeny_tree.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `phyml -t 4 -i alignment.fasta -o phylogeny_tree.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `phyml -i alignment.fasta -o phylogeny_tree.newick --newick`
+**Explanation:** Outputs in Newick format.
+
+### Generate report
+**Args:** `phyml -i alignment.fasta -o phylogeny_tree.txt --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,64 @@
 ---
 name: taco
-category: expression
-description: A tool for multi-sample transcriptome assembly from RNA-Seq
-tags: [taco, expression, sam]
+category: rna-analysis
+description: Multi-sample transcriptome assembly from RNA-Seq data.
+tags: [taco, transcriptome-assembly, rna-seq, multi-sample]
 author: oxo-call-community
 source_url: "https://github.com/tacorna/taco"
 ---
 
 ## Concepts
 
-- **Tool Overview**: taco (v0.7.3) - A tool for multi-sample transcriptome assembly from RNA-Seq
-- **Core Function**: A tool for multi-sample transcriptome assembly from RNA-Seq
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda taco`
+- **Tool Overview**: taco (v0.7.3) performs multi-sample transcriptome assembly.
+- **Core Function**: Assembles transcripts from multiple RNA-Seq samples.
+- **Algorithm**: Combines individual assemblies and resolves conflicts.
+- **Input/Output**: Input: RNA-Seq alignments; Output: Combined transcriptome.
+- **Applications**: RNA-Seq analysis, transcriptome reconstruction.
+- **Installation**: `conda install -c bioconda taco` or download from GitHub.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Requirements**: Large datasets require significant memory.
+- **Computational Time**: Processing multiple samples can be slow.
+- **Parameter Tuning**: Incorrect parameters affect assembly quality.
+- **Alignment Quality**: Requires well-aligned BAM files.
+- **Sample Heterogeneity**: Diverse samples may be challenging.
+- **Annotation Quality**: Reference annotations affect results.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `taco --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `taco -i <input.bam> -g <annotation.gtf> -o <output.tsv>`
-**Explanation:** Run taco with typical input and output options.
+### Basic transcriptome assembly
+**Args:** `taco -i samples.txt -g annotation.gtf -o assembly/`
+**Explanation:** Assemble transcriptome from multiple samples.
+
+### With reference
+**Args:** `taco -i samples.txt -g annotation.gtf -r reference.fasta -o assembly/`
+**Explanation:** Use reference genome for assembly.
+
+### Verbose mode
+**Args:** `taco -i samples.txt -g annotation.gtf -o assembly/ -v`
+**Explanation:** Run with detailed logging for debugging.
+
+### Output statistics
+**Args:** `taco -i samples.txt -g annotation.gtf -o assembly/ --stats`
+**Explanation:** Generate statistics about assembly.
+
+### Batch processing
+**Args:** `for f in bams/*.bam; do taco -i $f -g annotation.gtf -o assemblies/${f%.bam}/; done`
+**Explanation:** Process multiple BAM files.
+
+### Filter by expression
+**Args:** `taco -i samples.txt -g annotation.gtf -o assembly/ -e 1`
+**Explanation:** Filter by minimum expression level.
+
+### Include novel transcripts
+**Args:** `taco -i samples.txt -g annotation.gtf -o assembly/ --novel`
+**Explanation:** Include novel transcript discovery.
+
+### Generate report
+**Args:** `taco -i samples.txt -g annotation.gtf -o assembly/ --report`
+**Explanation:** Generate comprehensive assembly report.

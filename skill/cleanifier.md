@@ -1,30 +1,44 @@
 ---
 name: cleanifier
 category: qc
-description: A fast lightweight tool to remove contamination using k-mers.
-tags: [cleanifier, qc]
+description: Fast lightweight tool to remove contamination using k-mers
+tags: [cleanifier, qc, contamination, k-mer, sequence-cleaning]
 author: oxo-call-community
 source_url: "https://gitlab.com/rahmannlab/cleanifier"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cleanifier (v1.2.0) - A fast lightweight tool to remove contamination using k-mers.
-- **Core Function**: A fast lightweight tool to remove contamination using k-mers.
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda cleanifier`
+- **Tool Overview**: cleanifier is a fast and lightweight tool for removing contamination from sequencing data using k-mer based approach.
+- **Core Function**: Identifies and removes contaminant sequences from sequencing reads or assemblies.
+- **Algorithm**: Uses k-mer frequency analysis to distinguish between target and contaminant sequences.
+- **Input**: Sequencing reads (FASTQ) or assembled contigs (FASTA).
+- **Output**: Cleaned sequences with contaminants removed.
+- **Application**: Sequence quality control, contamination removal, and data cleaning.
+- **Installation**: Install via bioconda: `conda install -c bioconda cleanifier`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Reference Database**: Requires contaminant reference database for comparison.
+- **K-mer Selection**: Appropriate k-mer size must be chosen.
+- **Sensitivity**: May miss low-level contamination.
+- **False Positives**: May remove true sequences if not properly configured.
+- **Memory Usage**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Remove contamination from reads
+**Args:** `cleanifier -i reads.fastq -c contaminants.fasta -o clean_reads.fastq`
+**Explanation:** Removes contaminant sequences from input reads.
 
-### Basic usage
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Perform quality control analysis
+### With k-mer size
+**Args:** `cleanifier -i reads.fastq -c contaminants.fasta -k 21 -o clean_reads.fastq`
+**Explanation:** Uses specific k-mer size for contamination detection.
+
+### Clean assembled contigs
+**Args:** `cleanifier -i assembly.fasta -c contaminants.fasta -o clean_assembly.fasta`
+**Explanation:** Removes contaminant contigs from assembly.
+
+### Display help
+**Args:** `cleanifier --help`
+**Explanation:** Shows all available options and usage information.

@@ -1,30 +1,52 @@
 ---
 name: liv_utils
 category: utility
-description: Liverpool University Basic Tools
-tags: [liv_utils, utility]
+description: liv_utils - Liverpool University Basic Tools for bioinformatics
+tags: [liv_utils, utility, bioinformatics, tools, sequence-analysis, python]
 author: oxo-call-community
 source_url: "https://github.com/neilswainston/liv-utils"
 ---
 
 ## Concepts
 
-- **Tool Overview**: liv_utils v0.0.1 - Liverpool University Basic Tools.
-- **Core Function**: Liverpool University Basic Tools
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda liv_utils`
+- **Bioinformatics Utilities**: Collection of bioinformatics utility tools
+- **Sequence Analysis**: Sequence analysis tools
+- **File Format Conversion**: File format conversion utilities
+- **Data Processing**: Data processing tools
+- **Python Library**: Python-based utility library
+- **Common Operations**: Common bioinformatics operations
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Version Compatibility**: API may change between versions
+- **Documentation**: Limited documentation for some tools
+- **Dependency Management**: Requires proper dependency management
+- **Performance**: Some tools may be slow for large datasets
+- **Error Handling**: Requires careful error checking
+- **Input Validation**: Input validation may be limited
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Convert FASTA to FASTQ
+**Args:** `liv-utils convert -i input.fasta -o output.fastq`
+**Explanation:** Converts FASTA to FASTQ format.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Reverse complement
+**Args:** `liv-utils revcomp -i input.fasta -o output.fasta`
+**Explanation:** Computes reverse complement of sequences.
+
+### Sequence statistics
+**Args:** `liv-utils stats -i input.fasta -o stats.txt`
+**Explanation:** Generates sequence statistics.
+
+### Filter sequences
+**Args:** `liv-utils filter -i input.fasta -o filtered.fasta -m 100`
+**Explanation:** Filters sequences by minimum length.
+
+### Merge files
+**Args:** `liv-utils merge -i files.txt -o merged.fasta`
+**Explanation:** Merges multiple sequence files.
+
+### Split sequences
+**Args:** `liv-utils split -i input.fasta -o output/ -n 1000`
+**Explanation:** Splits sequences into chunks of 1000.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainsplit
 category: utility
-description: Split chains up by target or query sequence.
-tags: [ucsc-chainsplit, utility]
+description: UCSC chainSplit - Tool for splitting chain alignments.
+tags: [ucsc-chainsplit, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainsplit (v482) - Split chains up by target or query sequence.
-- **Core Function**: Split chains up by target or query sequence.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainsplit`
+- **Tool Overview**: UCSC chainSplit - A tool for splitting chain alignments into smaller pieces.
+- **Core Function**: Splits large chain alignments into smaller segments.
+- **Input**: Chain alignment file.
+- **Output**: Multiple smaller chain files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment splitting, parallel processing, memory management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Fragment Size**: Requires appropriate fragment size specification.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Split chains
+**Args:** `chainSplit input.chain output_dir/`
+**Explanation:** Split chain alignments into smaller files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With size limit
+**Args:** `chainSplit -maxSize=1000000 input.chain output_dir/`
+**Explanation:** Split chains with maximum size limit.

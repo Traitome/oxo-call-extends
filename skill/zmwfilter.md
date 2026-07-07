@@ -1,30 +1,51 @@
 ---
 name: zmwfilter
-category: qc
-description: PacBio utility to filter reads on ZMW ID(s)
-tags: [zmwfilter, qc]
+category: sequencing
+description: PacBio utility to filter reads based on ZMW (Zero-Mode Waveguide) IDs
+tags: [zmwfilter, pacbio, sequencing, filtering, zmw]
 author: oxo-call-community
-source_url: "https://github.com/PacificBiosciences/zmwfilter"
+source_url: "https://github.com/PacificBiosciences/pbtk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zmwfilter (v1.0.0) - PacBio utility to filter reads on ZMW ID(s)
-- **Core Function**: PacBio utility to filter reads on ZMW ID(s)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zmwfilter`
+- **Tool Overview**: zmwfilter is part of the PacBio BAM Toolkit (pbtk) for filtering sequencing data
+- **ZMW Filtering**: Filters reads based on Zero-Mode Waveguide (ZMW) hole numbers
+- **Input/Output**: Accepts BAM, FASTA, FASTQ, and XML formats; outputs filtered files in the same format
+- **Downsampling**: Supports proportional downsampling (--downsample) and count-based downsampling (--downsample-count)
+- **Read Name Filtering**: Supports filtering by read names (--names) for BAM/XML only
+- **Installation**: `conda install -c bioconda pbtk`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Compatibility**: Ensure input format matches expected format for filtering operations
+- **ZMW Number Format**: ZMW numbers can be comma-separated list or a file with one number per line
+- **Memory Usage**: Processing large BAM files may require significant memory
+- **Downsample Seed**: Use --downsample-seed for reproducible random sampling
+- **Read Name Filtering**: Only works with BAM/XML formats, not FASTA/FASTQ
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Include specific ZMWs
+**Args:** `zmwfilter --include 1,2,4,8,16 in.bam out.bam`
+**Explanation:** Use --include with comma-separated ZMW hole numbers to keep only reads from specified ZMWs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Exclude specific ZMWs
+**Args:** `zmwfilter --exclude hole_numbers.txt in.fasta out.fasta`
+**Explanation:** Use --exclude with a file containing ZMW numbers to remove reads from those ZMWs.
+
+### Random proportional downsampling
+**Args:** `zmwfilter --downsample 0.333 in.bam out.bam`
+**Explanation:** Use --downsample to randomly select 33.3% of reads from the input file.
+
+### Count-based downsampling with seed
+**Args:** `zmwfilter --downsample-count 1024 --downsample-seed 42 in.bam out.bam`
+**Explanation:** Use --downsample-count to select exactly 1024 reads and --downsample-seed 42 for reproducible sampling.
+
+### Show all ZMW numbers
+**Args:** `zmwfilter --show-all in.bam > zmws.txt`
+**Explanation:** Use --show-all to list all ZMW hole numbers in the input file without filtering.
+
+### Filter by read names
+**Args:** `zmwfilter --names read_names.txt in.bam out.bam`
+**Explanation:** Use --names with a file containing read names to filter BAM/XML files by specific read identifiers.

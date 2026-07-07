@@ -1,30 +1,51 @@
 ---
 name: kipoiseq
-category: utility
-description: kipoiseq: sequence-based data-laoders for Kipoi
-tags: [kipoiseq, utility]
+category: machine-learning
+description: "kipoiseq: sequence-based data-loaders for Kipoi"
+tags: [kipoiseq, machine-learning, data-loading, genomics, sequences]
 author: oxo-call-community
 source_url: "https://kipoi.org/kipoiseq/"
 ---
-
 ## Concepts
 
-- **Tool Overview**: kipoiseq (v0.7.1) - kipoiseq: sequence-based data-laoders for Kipoi
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kipoiseq`
+- **Sequence Data Loading**: Efficiently loads genomic sequence data for machine learning
+- **Data Augmentation**: Supports sequence augmentation for training robustness
+- **One-hot Encoding**: Converts DNA sequences to one-hot encoded matrices
+- **Variant Integration**: Handles genetic variants in sequence context
+- **Streaming Processing**: Enables streaming large genomic datasets
+- **Model Compatibility**: Designed to work seamlessly with Kipoi models
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Management**: Large genomes require careful memory management
+- **Sequence Length**: Fixed sequence lengths may truncate important regions
+- **Strand Handling**: Proper strand orientation is critical for predictions
+- **Variant Representation**: Variant encoding affects model performance
+- **Reference Genome**: Must match the reference used for model training
+- **Batch Processing**: Optimal batch size depends on hardware capabilities
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load FASTA sequences
+**Args:** `kipoiseq load fasta genome.fa --regions regions.bed -o sequences.npz`
+**Explanation:** Loads sequences from FASTA file for specified genomic regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### One-hot encode sequences
+**Args:** `kipoiseq one-hot -i sequences.fasta -o encoded.npy`
+**Explanation:** Converts DNA sequences to one-hot encoded numpy arrays.
+
+### Apply variant effects
+**Args:** `kipoiseq variant-effect -i variants.vcf -r genome.fa -o affected_seqs.fasta`
+**Explanation:** Applies variants to reference sequences to create alternative sequences.
+
+### Augment sequences
+**Args:** `kipoiseq augment -i sequences.fasta -o augmented.fasta --mutate 0.01`
+**Explanation:** Augments sequences with random mutations for training.
+
+### Stream large dataset
+**Args:** `kipoiseq stream -i big_genome.fa -r regions.bed --batch-size 32`
+**Explanation:** Streams sequences in batches to avoid loading entire genome into memory.
+
+### Create TFRecord dataset
+**Args:** `kipoiseq tfrecord -i sequences.fasta -o dataset.tfrecord`
+**Explanation:** Converts sequences to TensorFlow TFRecord format for efficient training.

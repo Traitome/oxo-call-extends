@@ -1,12 +1,11 @@
 ---
 name: mtb-snp-it
 category: alignment
-description: SNP-IT: Whole genome SNP based identification of members of the Mycobacterium tuberculosis complex.
+description: "SNP-IT: Whole genome SNP based identification of members of the Mycobacterium tuberculosis complex."
 tags: [mtb-snp-it, alignment, sequence, alignment, variant]
 author: oxo-call-community
 source_url: "https://github.com/samlipworth/snpit"
 ---
-
 ## Concepts
 
 - **Tool Overview**: mtb-snp-it v1.1 - Whole genome SNP based identification of members of the Mycobacterium tuberculosis complex. Based on code originally written by Samuel Lipworth and turned into a package by Philip Fowler.  SNP-IT allows rapid Mycobacterial speciation of VCF or FASTA files aligned to NC000962 (H37rV)..

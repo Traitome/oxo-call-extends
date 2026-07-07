@@ -1,30 +1,32 @@
 ---
 name: ucsc-rmfadups
 category: utility
-description: Remove duplicate records in FA file.
-tags: [ucsc-rmfadups, utility]
+description: UCSC rmFaDups - Tool for removing duplicate sequences.
+tags: [ucsc-rmfadups, ucsc, fasta, duplicates, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-rmfadups (v482) - Remove duplicate records in FA file.
-- **Core Function**: Remove duplicate records in FA file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-rmfadups`
+- **Tool Overview**: UCSC rmFaDups - A tool for removing duplicate FASTA sequences.
+- **Core Function**: Removes duplicate sequences from FASTA files.
+- **Input**: FASTA file.
+- **Output**: Deduplicated FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence deduplication, data cleaning, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper FASTA format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Remove duplicate sequences
+**Args:** `rmFaDups input.fa > unique.fa`
+**Explanation:** Remove duplicate sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `rmFaDups -verbose input.fa > unique.fa`
+**Explanation:** Remove with verbose output.

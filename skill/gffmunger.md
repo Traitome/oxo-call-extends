@@ -1,30 +1,43 @@
 ---
 name: gffmunger
 category: formatting
-description: Munges GFF3 files exported from Chado database to make them suitable for loading into WebApollo
-tags: [gffmunger, formatting, GFF]
+description: gffmunger - Munges GFF3 files exported from Chado database for WebApollo.
+tags: [gffmunger, formatting, GFF3, Chado, WebApollo]
 author: oxo-call-community
 source_url: "https://github.com/sanger-pathogens/gffmunger"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gffmunger (v0.1.3) - Munges GFF3 files exported from Chado database to make them suitable for loading into WebApollo
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gffmunger`
+- **GFF3 Processing**: Processes GFF3 from Chado.
+- **WebApollo Preparation**: Prepares files for WebApollo.
+- **Data Transformation**: Transforms annotation data.
+- **Format Conversion**: Converts between annotation formats.
+- **Database Export**: Handles Chado exports.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Chado Specific**: Designed for Chado exports.
+- **Format Compatibility**: Requires correct input format.
+- **Data Loss**: May lose some annotation information.
+- **WebApollo Compatibility**: Must meet WebApollo requirements.
+- **Validation**: Requires validation after processing.
 
 ## Examples
+### Munge GFF3
+**Args:** `gffmunger -i chado_export.gff3 -o webapollo.gff3`
+**Explanation:** Converts Chado GFF3 to WebApollo format.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gffmunger -i chado_export.gff3 -t -o webapollo.gff3`
+**Explanation:** Preserves transcript information.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gffmunger -l files.txt -o ./processed/`
+**Explanation:** Processes multiple files.
+
+### Validate output
+**Args:** `gffmunger -i chado_export.gff3 -v -o webapollo.gff3`
+**Explanation:** Validates output format.
+
+### Generate report
+**Args:** `gffmunger -i chado_export.gff3 -r -o report.html`
+**Explanation:** Generates processing report.

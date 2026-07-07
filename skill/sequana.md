@@ -1,30 +1,56 @@
 ---
 name: sequana
-category: programming
-description: A set of standalone application and snakemake pipelines dedicated to NGS (new generation sequencing) analysis.
-tags: [sequana, programming]
+category: workflow
+description: sequana - Snakemake pipelines for NGS analysis
+tags: ["sequana", "workflow", "NGS", "snakemake"]
 author: oxo-call-community
 source_url: "https://sequana.readthedocs.io"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sequana (v0.21.1) - A set of standalone application and snakemake pipelines dedicated to NGS (new generation sequencing) analysis.
-- **Core Function**: A set of standalone application and snakemake pipelines dedicated to NGS (new generation sequencing) analysis.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sequana`
+- **Tool Overview**: sequana (v0.21.1) provides Snakemake pipelines for NGS analysis.
+- **Core Function**: Implements standardized pipelines for next-generation sequencing analysis.
+- **Algorithm**: Uses Snakemake workflow management system.
+- **Input/Output**: Accepts sequencing data and produces analysis results.
+- **Pipeline Management**: Focuses on reproducible NGS data analysis.
+- **Applications**: RNA-seq, ChIP-seq, variant calling, and quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Configuration Complexity**: Pipeline configuration can be complex.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Initialize project
+**Args:** `sequana init my_project --pipeline rnaseq`
+**Explanation:** Initializes RNA-seq project.
 
-### Basic usage
-**Args:** `sequana <config_file>`
-**Explanation:** Run sequana with typical input and output options.
+### Run pipeline
+**Args:** `sequana run config.yaml`
+**Explanation:** Runs pipeline with configuration file.
+
+### List pipelines
+**Args:** `sequana pipelines`
+**Explanation:** Lists available pipelines.
+
+### Verbose logging
+**Args:** `sequana -v run config.yaml`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `sequana --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sequana --version`
+**Explanation:** Shows current version.
+
+### Create report
+**Args:** `sequana report -i input_dir -o report.html`
+**Explanation:** Generates HTML report.

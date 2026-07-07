@@ -1,30 +1,32 @@
 ---
 name: treetime
-category: utility
-description: Maximum-Likelihood dating and ancestral inference for phylogenetic trees.
-tags: [treetime, utility]
+category: analysis
+description: TreeTime - Tool for molecular clock analysis and ancestral sequence reconstruction.
+tags: [treetime, molecular-clock, phylogenetics, ancestral-reconstruction, evolution]
 author: oxo-call-community
-source_url: "https://treetime.readthedocs.io/en/latest/index.html"
+source_url: "https://github.com/neherlab/treetime"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treetime (v0.11.5) - Maximum-Likelihood dating and ancestral inference for phylogenetic trees.
-- **Core Function**: Maximum-Likelihood dating and ancestral inference for phylogenetic trees.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treetime`
+- **Tool Overview**: TreeTime - A tool for molecular clock analysis and ancestral sequence reconstruction.
+- **Core Function**: Estimates evolutionary rates, divergence times, and reconstructs ancestral sequences.
+- **Input**: Phylogenetic tree (Newick format), sequence alignment, sampling dates.
+- **Output**: Time-calibrated tree, ancestral sequences, evolutionary rates.
+- **Installation**: `pip install treetime`
+- **Use Case**: Molecular evolution, time-scaled phylogenies, viral evolution.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Clock Assumption**: Requires molecular clock assumption.
+- **Calibration**: Needs temporal calibration points.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Time-calibrate tree
+**Args:** `treetime --tree tree.nwk --aln alignment.fasta --dates dates.txt`
+**Explanation:** Time-calibrate phylogenetic tree using molecular clock.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Ancestral reconstruction
+**Args:** `treetime ancestral --tree tree.nwk --aln alignment.fasta -o ancestors/`
+**Explanation:** Reconstruct ancestral sequences.

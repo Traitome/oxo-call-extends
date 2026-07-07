@@ -1,30 +1,32 @@
 ---
 name: virchip
-category: expression
-description: Virtual ChIP-seq predicts transcription factor binding in any cell type with chromatin accessibility and transcriptome data. Manuscript DOI: https://doi.org/10.1101/168419
-tags: [virchip, expression]
+category: bioinformatics
+description: VirChip - Viral microarray analysis.
+tags: [virchip, viral-genomics, microarray, bioinformatics]
 author: oxo-call-community
-source_url: "https://virchip.hoffmanlab.org"
+source_url: "https://github.com/virchip/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virchip (v1.2.2) - Virtual ChIP-seq predicts transcription factor binding in any cell type with chromatin accessibility and transcriptome data. Manuscript DOI: https://doi.org/10.1101/168419
-- **Core Function**: Virtual ChIP-seq predicts transcription factor binding in any cell type with chromatin accessibility and transcriptome data. Manuscript DOI: https://doi.org/10.1101/168419
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virchip`
+- **Tool Overview**: VirChip - Viral microarray data analysis.
+- **Core Function**: Analyzes viral microarray data.
+- **Input**: Microarray data file.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral diagnostics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Data Format**: Requires specific input format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze microarray
+**Args:** `virchip -i microarray.txt -o results/`
+**Explanation:** Analyze viral microarray data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virchip -i microarray.txt -o results/ -n normalization`
+**Explanation:** Apply normalization.

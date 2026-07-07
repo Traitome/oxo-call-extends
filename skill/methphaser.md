@@ -1,30 +1,47 @@
 ---
 name: methphaser
 category: variant-calling
-description: MethPhaser: methylation-based haplotype phasing of human genomes
-tags: [methphaser, variant-calling]
+description: "MethPhaser: methylation-based haplotype phasing of human genomes"
+tags: [methphaser, variant-calling, haplotype-phasing]
 author: oxo-call-community
 source_url: "https://github.com/treangenlab/methphaser"
 ---
-
 ## Concepts
 
-- **Tool Overview**: methphaser v0.0.3 - MethPhaser: methylation-based haplotype phasing of human genomes.
-- **Core Function**: MethPhaser: methylation-based haplotype phasing of human genomes
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda methphaser`
+- **Tool Overview**: MethPhaser v0.0.3 is a tool for methylation-based haplotype phasing of human genomes.
+- **Core Function**: Performs haplotype phasing using DNA methylation information.
+- **Methylation-based Phasing**: Uses methylation patterns to phase genetic variants.
+- **Single-molecule Resolution**: Leverages single-molecule sequencing data for phasing.
+- **Input/Output**: Accepts sequencing reads with methylation calls; outputs phased haplotypes.
+- **Phase Integration**: Integrates methylation information with genetic variant data.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Human Genome Focus**: Designed primarily for human genome analysis.
+- **Computational Resources**: Processing large datasets may require significant computational resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal phasing.
+- **Data Quality**: Phasing accuracy depends on input data quality.
+- **Methylation Coverage**: Requires sufficient methylation coverage for accurate phasing.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Phase haplotypes
+**Args:** `methphaser -i reads.bam -o haplotypes.txt`
+**Explanation:** Performs methylation-based haplotype phasing.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With variant file
+**Args:** `methphaser -i reads.bam -v variants.vcf -o haplotypes.txt`
+**Explanation:** Uses known variants for improved phasing.
+
+### With reference genome
+**Args:** `methphaser -i reads.bam -r reference.fasta -o haplotypes.txt`
+**Explanation:** Uses reference genome for phasing.
+
+### Generate visualization
+**Args:** `methphaser -i reads.bam -o haplotypes.txt -p plot.png`
+**Explanation:** Generates phasing visualization.
+
+### Detailed output
+**Args:** `methphaser -i reads.bam -o haplotypes.txt -v`
+**Explanation:** Generates detailed phasing report.

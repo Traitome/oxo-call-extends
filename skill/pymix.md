@@ -1,31 +1,56 @@
 ---
 name: pymix
 category: programming
-description: Python mixture package
-tags: ["pymix", "programming"]
+description: pymix is a Python mixture modeling package for statistical analysis.
+tags: [pymix, programming, statistics, mixture-modeling]
 author: oxo-call-community
 source_url: "http://www.pymix.org/pymix"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Python mixture package (version 0.8)
-- **Core Function**: Processes bioinformatics data related to programming
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pymix`
+- **Tool Overview**: pymix performs mixture modeling.
+- **Core Function**: Statistical mixture analysis.
+- **Algorithm**: Uses EM algorithm.
+- **Input Format**: Accepts numerical data.
+- **Output**: Produces mixture models.
+- **Use Case**: Data clustering.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Initialization**: Affects convergence.
+- **Component Number**: Must choose appropriately.
+- **Runtime**: Training may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pymix --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Run mixture analysis
+**Args:** `pymix analyze -i data.txt -k 3 -o model.pkl`
+**Explanation:** Performs mixture modeling with 3 components.
 
+### With parameters
+**Args:** `pymix analyze -i data.txt -p params.yaml -o model.pkl`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pymix -v analyze -i data.txt -o model.pkl`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pymix -t 4 analyze -i data.txt -o model.pkl`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Evaluate model
+**Args:** `pymix evaluate -i model.pkl -d test_data.txt -o results.txt`
+**Explanation:** Evaluates model on test data.
+
+### Generate report
+**Args:** `pymix analyze -i data.txt -o model.pkl --report report.html`
+**Explanation:** Generates HTML report.

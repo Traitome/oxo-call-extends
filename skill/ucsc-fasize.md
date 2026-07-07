@@ -1,30 +1,32 @@
 ---
 name: ucsc-fasize
 category: utility
-description: Print total base count in fa files.
-tags: [ucsc-fasize, utility]
+description: UCSC faSize - Tool for calculating FASTA sequence sizes.
+tags: [ucsc-fasize, ucsc, fasta, sequence-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fasize (v482) - Print total base count in fa files.
-- **Core Function**: Print total base count in fa files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fasize`
+- **Tool Overview**: UCSC faSize - A tool for calculating sizes of FASTA sequences.
+- **Core Function**: Reports total bases and sequence lengths.
+- **Input**: FASTA file.
+- **Output**: Size statistics.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence statistics, genome analysis, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Ambiguity Codes**: May not count ambiguous bases correctly.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate sizes
+**Args:** `faSize genome.fa > sizes.txt`
+**Explanation:** Calculate sequence sizes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With detailed output
+**Args:** `faSize -detailed genome.fa > sizes.txt`
+**Explanation:** Detailed size information.

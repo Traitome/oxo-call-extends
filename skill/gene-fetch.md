@@ -1,30 +1,44 @@
 ---
 name: gene-fetch
-category: utility
-description: High-throughput NCBI Sequence Retrieval Tool
-tags: [gene-fetch, utility]
+category: data-retrieval
+description: GeneFetch - High-throughput NCBI Sequence Retrieval Tool for downloading sequences from NCBI databases.
+tags: [gene-fetch, ncbi, sequence-retrieval, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/bge-barcoding/gene_fetch"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gene-fetch (v1.0.21) - High-throughput NCBI Sequence Retrieval Tool
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gene-fetch`
+- **NCBI Database Access**: Accesses NCBI sequence databases.
+- **Batch Retrieval**: Supports high-throughput sequence retrieval.
+- **Sequence Download**: Downloads sequences in various formats.
+- **Accession Handling**: Processes GenBank accession numbers.
+- **Format Conversion**: Converts sequences to different formats.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Network Dependency**: Requires internet connection.
+- **Rate Limiting**: NCBI imposes rate limits on downloads.
+- **Large Datasets**: May require significant storage.
+- **Format Compatibility**: Ensure output format matches downstream tools.
+- **Accession Validation**: Invalid accessions can cause errors.
 
 ## Examples
+### Fetch single sequence
+**Args:** `gene-fetch -a NM_000518 -o BRCA1.fasta`
+**Explanation:** Downloads sequence for BRCA1 gene.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Batch fetch sequences
+**Args:** `gene-fetch -l accessions.txt -o sequences/`
+**Explanation:** Downloads multiple sequences from accession list.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Fetch in GenBank format
+**Args:** `gene-fetch -a NM_000518 -f genbank -o BRCA1.gb`
+**Explanation:** Downloads sequence in GenBank format.
+
+### Fetch protein sequences
+**Args:** `gene-fetch -a NP_000509 -db protein -o BRCA1_protein.fasta`
+**Explanation:** Downloads protein sequence from Protein database.
+
+### Fetch with taxonomy filter
+**Args:** `gene-fetch -l accessions.txt -t 9606 -o human_sequences/`
+**Explanation:** Filters sequences by taxonomy ID (human).
+

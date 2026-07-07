@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedclip
 category: utility
-description: Remove lines from bed file that refer to off-chromosome locations.
-tags: [ucsc-bedclip, utility]
+description: UCSC bedClip - Tool for clipping BED file coordinates.
+tags: [ucsc-bedclip, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedclip (v482) - Remove lines from bed file that refer to off-chromosome locations.
-- **Core Function**: Remove lines from bed file that refer to off-chromosome locations.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedclip`
+- **Tool Overview**: UCSC bedClip - A tool for clipping BED file coordinates to chromosome boundaries.
+- **Core Function**: Ensures BED coordinates are within valid chromosome ranges.
+- **Input**: BED file, chromosome sizes file.
+- **Output**: Clipped BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: BED file validation, coordinate normalization, data cleaning.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chromosome Names**: Requires matching chromosome names.
+- **Coordinate System**: Requires 0-based or 1-based consistency.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Clip BED file
+**Args:** `bedClip input.bed chrom.sizes output.bed`
+**Explanation:** Clip BED coordinates to chromosome boundaries.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With padding
+**Args:** `bedClip -padding 100 input.bed chrom.sizes output.bed`
+**Explanation:** Clip with padding around boundaries.

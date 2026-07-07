@@ -2,29 +2,47 @@
 name: minialign
 category: alignment
 description: Fast and accurate alignment tool for PacBio and Nanopore long reads.
-tags: [minialign, alignment]
+tags: [minialign, alignment, long-read]
 author: oxo-call-community
 source_url: "https://github.com/ocxtal/minialign"
 ---
 
 ## Concepts
 
-- **Tool Overview**: minialign v0.6.0 - Minialign is a little bit fast and moderately accurate nucleotide sequence alignment tool designed for PacBio and Nanopore long reads. It is built on three key algorithms, minimizer-based index of the minimap overlapper, array-based seed chaining, and SIMD-parallel Smith-Waterman-Gotoh extension..
-- **Core Function**: Fast and accurate alignment tool for PacBio and Nanopore long reads.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda minialign`
+- **Tool Overview**: MiniAlign v0.6.0 aligns long-read sequences from PacBio and Nanopore.
+- **Core Function**: Aligns long sequencing reads to reference sequences.
+- **Minimizer Index**: Uses minimizer-based indexing for speed.
+- **Seed Chaining**: Implements array-based seed chaining.
+- **SIMD Parallelism**: Uses SIMD for parallel Smith-Waterman extension.
+- **Long-read Support**: Optimized for PacBio and Oxford Nanopore reads.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Long-read Specific**: Designed for long sequencing reads.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large reference genomes.
+- **Parameter Tuning**: May require parameter adjustment for optimal alignment.
+- **Data Quality**: Alignment accuracy depends on read quality.
+- **Reference Genome**: Requires appropriate reference sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Align long reads
+**Args:** `minialign -i reads.fastq -r reference.fasta -o alignments.sam`
+**Explanation:** Aligns long reads to reference genome.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom k-mer size
+**Args:** `minialign -i reads.fastq -r reference.fasta -o alignments.sam -k 15`
+**Explanation:** Uses k-mer size of 15 for minimizer index.
+
+### Paired-end alignment
+**Args:** `minialign -i reads_1.fastq -R reads_2.fastq -r reference.fasta -o alignments.sam`
+**Explanation:** Processes paired-end long reads.
+
+### Batch processing
+**Args:** `minialign -i fastq/ -r reference.fasta -o alignments/`
+**Explanation:** Processes multiple read files in batch mode.
+
+### Generate statistics
+**Args:** `minialign -i reads.fastq -r reference.fasta -o alignments.sam -s stats.txt`
+**Explanation:** Generates alignment statistics.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-liftover
-category: assembly
-description: Move annotations from one assembly to another.
-tags: [ucsc-liftover, assembly]
+category: utility
+description: UCSC liftOver - Tool for coordinate conversion between assemblies.
+tags: [ucsc-liftover, ucsc, coordinate-conversion, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-liftover (v482) - Move annotations from one assembly to another.
-- **Core Function**: Move annotations from one assembly to another.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-liftover`
+- **Tool Overview**: UCSC liftOver - A tool for converting genome coordinates between assemblies.
+- **Core Function**: Maps coordinates from one genome assembly to another using chain files.
+- **Input**: BED file with coordinates, chain file.
+- **Output**: BED file with converted coordinates.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome assembly conversion, coordinate mapping, data integration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chain File**: Requires appropriate chain file for assembly conversion.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Lift over coordinates
+**Args:** `liftOver input.bed hg19ToHg38.over.chain output.bed unMapped.bed`
+**Explanation:** Convert coordinates from hg19 to hg38.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `liftOver -minMatch=0.9 input.bed hg19ToHg38.over.chain output.bed unMapped.bed`
+**Explanation:** Minimum match ratio.

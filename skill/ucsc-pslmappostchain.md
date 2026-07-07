@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslmappostchain
-category: alignment
-description: Post genomic pslMap (TransMap) chaining. This takes transcripts that have been mapped via genomic chains adds back in blocks that didn't get include in genomic chains due to complex rearrangements or other issues.
-tags: [ucsc-pslmappostchain, alignment]
+category: utility
+description: UCSC pslMapPostChain - Tool for mapping post-chain PSL alignments.
+tags: [ucsc-pslmappostchain, ucsc, psl, mapping, chain, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslmappostchain (v482) - Post genomic pslMap (TransMap) chaining. This takes transcripts that have been mapped via genomic chains adds back in blocks that didn't get include in genomic chains due to complex rearrangements or other issues.
-- **Core Function**: Post genomic pslMap (TransMap) chaining. This takes transcripts that have been mapped via genomic chains adds back in blocks that didn't get include in genomic chains due to complex rearrangements or other issues.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslmappostchain`
+- **Tool Overview**: UCSC pslMapPostChain - A tool for mapping post-chain PSL alignments.
+- **Core Function**: Maps PSL alignments after chain processing.
+- **Input**: PSL file, chain file.
+- **Output**: Mapped PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment mapping, liftover, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL/chain format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Map post-chain PSL
+**Args:** `pslMapPostChain input.psl chain.txt > mapped.psl`
+**Explanation:** Map post-chain PSL alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslMapPostChain -verbose input.psl chain.txt > mapped.psl`
+**Explanation:** Map with verbose output.

@@ -1,30 +1,32 @@
 ---
 name: trackplot
-category: expression
-description: The trackplot is a tool for visualizing various next-generation sequencing (NGS) data, including DNA-seq, RNA-seq, single-cell RNA-seq and full-length sequencing datasets.
-tags: [trackplot, expression]
+category: visualization
+description: TrackPlot - Tool for plotting genomic track data.
+tags: [trackplot, genomic-tracks, visualization, plotting, bioinformatics]
 author: oxo-call-community
-source_url: "https://trackplot.readthedocs.io/en/latest/"
+source_url: "https://github.com/compbio/trackplot"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trackplot (v0.5.7) - The trackplot is a tool for visualizing various next-generation sequencing (NGS) data, including DNA-seq, RNA-seq, single-cell RNA-seq and full-length sequencing datasets.
-- **Core Function**: The trackplot is a tool for visualizing various next-generation sequencing (NGS) data, including DNA-seq, RNA-seq, single-cell RNA-seq and full-length sequencing datasets.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trackplot`
+- **Tool Overview**: TrackPlot - A tool for visualizing and plotting genomic track data.
+- **Core Function**: Generates publication-quality plots from genomic track files.
+- **Input**: Genomic track files (BigWig, BED, etc.), region coordinates.
+- **Output**: Plot images, publication-quality figures.
+- **Installation**: `pip install trackplot` or `conda install -c bioconda trackplot`
+- **Use Case**: Data visualization, publication figure generation, data exploration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: Large track files may require significant memory.
+- **Resolution**: High-resolution figures may be computationally intensive.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Plot track
+**Args:** `trackplot -i data.bigWig -r chr1:1-100000 -o track.png`
+**Explanation:** Plot genomic track data for specified region.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Multiple tracks
+**Args:** `trackplot -i track1.bw track2.bw -r chr2:1-50000 -o multi_track.png`
+**Explanation:** Plot multiple tracks together.

@@ -1,30 +1,43 @@
 ---
 name: cgview
-category: annotation
-description: CGView is a Java package for generating high quality, zoomable maps of circular genomes. Its primary purpose is to serve as a component of sequence annotation pipelines, as a means of generating visual output suitable for the web.
-tags: [cgview, annotation]
+category: visualization
+description: Java package for generating high-quality, zoomable circular genome maps
+tags: [cgview, genome-visualization, circular-maps, java, bioinformatics]
 author: oxo-call-community
 source_url: "http://wishart.biology.ualberta.ca/cgview/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgview (v1.0) - CGView is a Java package for generating high quality, zoomable maps of circular genomes. Its primary purpose is to serve as a component of sequence annotation pipelines, as a means of generating visual output suitable for the web.
-- **Core Function**: CGView is a Java package for generating high quality, zoomable maps of circular genomes. Its primary purpose is to serve as a component of sequence annotation pipelines, as a means of generating visual output suitable for the web.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgview`
+- **Tool Overview**: CGView is a Java package for generating high-quality, interactive circular genome maps suitable for web display.
+- **Core Function**: Creates visual representations of circular genomes with annotated features.
+- **Features**: Interactive zooming, customizable colors, gene annotations, and web-ready output.
+- **Input**: GenBank, EMBL, or GFF annotation files with genome sequence.
+- **Output**: Interactive SVG/HTML maps and static image files.
+- **Application**: Genome visualization, sequence annotation pipelines, and comparative genomics.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgview`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Java Dependencies**: Requires Java Runtime Environment.
+- **Memory Usage**: Large genomes may require increased heap space.
+- **Annotation Format**: Requires specific input format for annotations.
+- **Web Server**: Interactive features require web server hosting.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Generate circular genome map
+**Args:** `cgview -i genome.gb -o genome_map.html`
+**Explanation:** Creates interactive circular map from GenBank file.
 
-### Basic usage
-**Args:** `-i assembly.fasta -o annotation.gff`
-**Explanation:** Annotate genomic features
+### With custom colors
+**Args:** `cgview -i genome.gb -o genome_map.html --colors custom_colors.txt`
+**Explanation:** Uses custom color scheme for genome features.
+
+### Generate static image
+**Args:** `cgview -i genome.gb -o genome_map.png --format png`
+**Explanation:** Outputs static PNG image instead of interactive HTML.
+
+### Display help
+**Args:** `cgview --help`
+**Explanation:** Shows all available options and usage information.

@@ -1,30 +1,48 @@
 ---
 name: medusa-data-fusion
 category: utility
-description: Medusa is an approach to detect size-k modules of objects that, taken together, appear most significant to another set of objects. It builds on collective matrix factorization to derive different semantics, and it formulates the growing of the modules as a submodular optimization program.
-tags: [medusa-data-fusion, utility]
+description: Submodular optimization for detecting significant modules in multi-omics data.
+tags: [medusa-data-fusion, data-fusion, submodular-optimization]
 author: oxo-call-community
 source_url: "https://github.com/marinkaz/medusa"
 ---
 
 ## Concepts
 
-- **Tool Overview**: medusa-data-fusion v0.1 - Medusa is an approach to detect size-k modules of objects that, taken together, appear most significant to another set of objects. It builds on collective matrix factorization to derive different semantics, and it formulates the growing of the modules as a submodular optimization program..
-- **Core Function**: Medusa is an approach to detect size-k modules of objects that, taken together, appear most significant to another set of objects. It builds on collective matrix factorization to derive different semantics, and it formulates the growing of the modules as a submodular optimization program.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Medusa detects significant modules in multi-omics data.
+- **Core Function**: Uses submodular optimization for module detection.
+- **Matrix Factorization**: Builds on collective matrix factorization.
+- **Multi-omics Integration**: Integrates multiple data types.
+- **Submodular Optimization**: Formulates module detection as optimization.
 - **Installation**: `conda install -c bioconda medusa-data-fusion`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computation Time**: Optimization can be slow.
+- **Parameter Tuning**: Requires careful parameter adjustment.
+- **Memory Requirements**: High memory for large datasets.
+- **Module Size**: Choosing appropriate module size is challenging.
+- **Data Quality**: Depends on high-quality input data.
+- **Result Interpretation**: Modules require biological interpretation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Detect modules
+**Args:** `medusa -i data/matrix.txt -o modules.txt`
+**Explanation:** Detects significant modules from data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With k size
+**Args:** `medusa -i data/matrix.txt -k 10 -o modules.txt`
+**Explanation:** Detects modules of size 10.
+
+### Multi-omics data
+**Args:** `medusa -i data/omics1.txt data/omics2.txt -o modules.txt`
+**Explanation:** Integrates multiple omics datasets.
+
+### Verbose output
+**Args:** `medusa -i data/matrix.txt -v -o modules.txt`
+**Explanation:** Shows detailed optimization progress.
+
+### Help documentation
+**Args:** `medusa --help`
+**Explanation:** Displays available options.

@@ -1,31 +1,56 @@
 ---
 name: pout2mzid
 category: utility
-description: Adds percolator statistics to mzIdentML files that were used as input to percolator
-tags: ["pout2mzid", "utility"]
+description: pout2mzid adds percolator statistics to mzIdentML files.
+tags: [pout2mzid, utility, proteomics, mass-spectrometry]
 author: oxo-call-community
 source_url: "https://github.com/percolator/pout2mzid"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Adds percolator statistics to mzIdentML files that were used as input to percolator (version 0.3.03)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pout2mzid`
+- **Tool Overview**: pout2mzid processes proteomics data.
+- **Core Function**: Statistics annotation.
+- **Algorithm**: Uses percolator output methods.
+- **Input Format**: Accepts mzIdentML files.
+- **Output**: Produces annotated mzIdentML.
+- **Use Case**: Proteomics analysis, mass spectrometry.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Format Compatibility**: May have format issues.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pout2mzid --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Add statistics
+**Args:** `pout2mzid -i input.mzid -p percolator.out -o annotated.mzid`
+**Explanation:** Adds percolator stats to mzIdentML.
 
+### With parameters
+**Args:** `pout2mzid -i input.mzid -p percolator.out -c params.yaml -o annotated.mzid`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pout2mzid -v -i input.mzid -p percolator.out -o annotated.mzid`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pout2mzid -t 4 -i input.mzid -p percolator.out -o annotated.mzid`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `pout2mzid -i input.mzid -p percolator.out -o annotated.xml --xml`
+**Explanation:** Outputs in XML format.
+
+### Generate report
+**Args:** `pout2mzid -i input.mzid -p percolator.out -o annotated.mzid --report report.html`
+**Explanation:** Generates HTML report.

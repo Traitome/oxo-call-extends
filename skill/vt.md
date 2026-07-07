@@ -1,30 +1,32 @@
 ---
 name: vt
-category: variant-calling
-description: A tool set for short variant discovery in genetic sequence data
-tags: [vt, variant-calling]
+category: bioinformatics
+description: VT - Variant tools.
+tags: [vt, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://genome.sph.umich.edu/wiki/Vt"
+source_url: "https://github.com/atks/vt"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vt (v2015.11.10) - A tool set for short variant discovery in genetic sequence data
-- **Core Function**: A tool set for short variant discovery in genetic sequence data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vt`
+- **Tool Overview**: VT - Variant manipulation tools.
+- **Core Function**: Manipulates and processes VCF files.
+- **Input**: VCF file.
+- **Output**: Processed VCF.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Decompose variants
+**Args:** `vt decompose -s input.vcf -o decomposed.vcf`
+**Explanation:** Decompose multi-allelic variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vt normalize -r reference.fasta input.vcf -o normalized.vcf`
+**Explanation:** Normalize variants.

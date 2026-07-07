@@ -1,30 +1,32 @@
 ---
 name: ucsc-bamtopsl
-category: formatting
-description: Convert a bam file to a psl and optionally also a fasta file that contains the reads.
-tags: [ucsc-bamtopsl, formatting, bam]
+category: utility
+description: UCSC bamToPsl - Tool for converting BAM alignments to PSL format.
+tags: [ucsc-bamtopsl, ucsc, format-conversion, bam, psl, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bamtopsl (v482) - Convert a bam file to a psl and optionally also a fasta file that contains the reads.
-- **Core Function**: Convert a bam file to a psl and optionally also a fasta file that contains the reads.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bamtopsl`
+- **Tool Overview**: UCSC bamToPsl - A tool for converting BAM format alignments to PSL format.
+- **Core Function**: Converts BAM alignments to PSL format for visualization.
+- **Input**: BAM format alignment file.
+- **Output**: PSL format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser visualization, alignment analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **BAM Index**: Requires indexed BAM file.
+- **Memory**: Large BAM files may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert BAM to PSL
+**Args:** `bamToPsl input.bam output.psl`
+**Explanation:** Convert BAM alignment to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With filter
+**Args:** `bamToPsl -minMapQ 30 input.bam output.psl`
+**Explanation:** Convert with minimum mapping quality filter.

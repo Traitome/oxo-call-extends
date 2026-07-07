@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslcat
 category: utility
-description: Concatenate psl files.
-tags: [ucsc-pslcat, utility]
+description: UCSC pslCat - Tool for concatenating PSL files.
+tags: [ucsc-pslcat, ucsc, psl, concatenation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslcat (v482) - Concatenate psl files.
-- **Core Function**: Concatenate psl files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslcat`
+- **Tool Overview**: UCSC pslCat - A tool for concatenating PSL files.
+- **Core Function**: Combines multiple PSL files into one.
+- **Input**: Multiple PSL files.
+- **Output**: Combined PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data merging, alignment processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Concatenate PSL files
+**Args:** `pslCat input1.psl input2.psl > combined.psl`
+**Explanation:** Combine multiple PSL files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslCat -verbose input1.psl input2.psl > combined.psl`
+**Explanation:** Concatenate with verbose output.

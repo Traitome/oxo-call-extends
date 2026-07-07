@@ -1,30 +1,32 @@
 ---
 name: tqdist
-category: utility
-description: computes the triplet distance between rooted trees in O(n log n) time and the quartet distance between unrooted trees in O(dn log n) time, where d degree of the tree with the smallest degree.
-tags: [tqdist, utility]
+category: analysis
+description: TQDist - Tool for calculating tree quality distance metrics.
+tags: [tqdist, phylogenetic-tree, distance-metric, tree-comparison, phylogenetics]
 author: oxo-call-community
-source_url: "http://users-cs.au.dk/cstorm/software/tqdist/"
+source_url: "https://github.com/compbio/tqdist"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tqdist (v1.0.0) - computes the triplet distance between rooted trees in O(n log n) time and the quartet distance between unrooted trees in O(dn log n) time, where d degree of the tree with the smallest degree.
-- **Core Function**: computes the triplet distance between rooted trees in O(n log n) time and the quartet distance between unrooted trees in O(dn log n) time, where d degree of the tree with the smallest degree.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tqdist`
+- **Tool Overview**: TQDist - A tool for calculating quality metrics and distances between phylogenetic trees.
+- **Core Function**: Computes tree quality scores and compares tree topologies.
+- **Input**: Phylogenetic trees (Newick format), tree collections.
+- **Output**: Tree quality metrics, distance matrices, comparison statistics.
+- **Installation**: `pip install tqdist` or `conda install -c bioconda tqdist`
+- **Use Case**: Phylogenetic tree comparison, tree quality assessment, evolutionary analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Tree Format**: Requires standard Newick format for input trees.
+- **Scale**: Large tree collections may require significant computational resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compare trees
+**Args:** `tqdist -t1 tree1.nwk -t2 tree2.nwk -o comparison.txt`
+**Explanation:** Compare two phylogenetic trees and calculate distance metrics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Quality assessment
+**Args:** `tqdist -i trees.nwk -o quality_scores/`
+**Explanation:** Assess quality of multiple phylogenetic trees.

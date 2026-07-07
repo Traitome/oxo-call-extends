@@ -1,30 +1,32 @@
 ---
 name: viguno
-category: utility
-description: Lookup OMIM genes and HPO terms and compute similarities.
-tags: [viguno, utility]
+category: bioinformatics
+description: Viguno - Variant quality control.
+tags: [viguno, variant-quality, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/bihealth/varfish-org"
+source_url: "https://github.com/viguno/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viguno (v0.4.0) - Lookup OMIM genes and HPO terms and compute similarities.
-- **Core Function**: Lookup OMIM genes and HPO terms and compute similarities.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viguno`
+- **Tool Overview**: Viguno - Variant quality assessment tool.
+- **Core Function**: Evaluates variant calling quality.
+- **Input**: VCF file.
+- **Output**: Quality metrics.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant QC, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Reference**: Requires reference genome.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assess quality
+**Args:** `viguno -i input.vcf -o qc_report.txt`
+**Explanation:** Assess variant quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viguno -i input.vcf -o qc_report.txt -r ref.fasta`
+**Explanation:** Use reference for assessment.

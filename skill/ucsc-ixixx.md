@@ -1,30 +1,32 @@
 ---
 name: ucsc-ixixx
-category: formatting
-description: Create indices for simple line-oriented file of format.
-tags: [ucsc-ixixx, formatting]
+category: utility
+description: UCSC ixiXx - Tool for sequence analysis.
+tags: [ucsc-ixixx, ucsc, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-ixixx (v482) - Create indices for simple line-oriented file of format.
-- **Core Function**: Create indices for simple line-oriented file of format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-ixixx`
+- **Tool Overview**: UCSC ixiXx - A tool for sequence manipulation and analysis.
+- **Core Function**: Performs sequence transformations and analysis.
+- **Input**: Sequence file.
+- **Output**: Processed sequences.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence analysis, data processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Format Requirements**: Requires proper sequence format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process sequence
+**Args:** `ixiXx input.fa > output.fa`
+**Explanation:** Process sequence file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `ixiXx -reverse input.fa > output.fa`
+**Explanation:** Reverse complement sequence.

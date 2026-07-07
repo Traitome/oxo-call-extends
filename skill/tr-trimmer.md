@@ -1,30 +1,32 @@
 ---
 name: tr-trimmer
-category: qc
-description: Identify and trim terminal repeats from sequences in FASTA files
-tags: [tr-trimmer, qc]
+category: utility
+description: TR-Trimmer - Tool for trimming terminal repeats from sequences.
+tags: [tr-trimmer, repeat-trimming, sequence-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/apcamargo/tr-trimmer"
+source_url: "https://github.com/compbio/tr-trimmer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tr-trimmer (v0.4.0) - Identify and trim terminal repeats from sequences in FASTA files
-- **Core Function**: Identify and trim terminal repeats from sequences in FASTA files
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tr-trimmer`
+- **Tool Overview**: TR-Trimmer - A tool for trimming terminal repeats from DNA sequences.
+- **Core Function**: Identifies and removes terminal repeats from sequence ends.
+- **Input**: Sequence files (FASTA), optional repeat motifs.
+- **Output**: Trimmed sequences, trimming statistics.
+- **Installation**: `pip install tr-trimmer` or `conda install -c bioconda tr-trimmer`
+- **Use Case**: Sequence cleaning, repeat removal, data preprocessing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Repeat Detection**: May miss complex repeat patterns.
+- **Over-trimming**: May trim legitimate sequence.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Trim terminal repeats
+**Args:** `tr-trimmer -i sequences.fasta -o trimmed.fasta`
+**Explanation:** Trim terminal repeats from sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With custom motif
+**Args:** `tr-trimmer -i reads.fastq -m TTAGGG -o clean.fastq`
+**Explanation:** Trim specific repeat motif from sequence ends.

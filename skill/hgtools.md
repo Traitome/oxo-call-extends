@@ -1,30 +1,56 @@
 ---
 name: hgtools
-category: utility
-description: Classes for Mercurial and Git repositories.
-tags: [hgtools, utility]
+category: programming
+description: hgtools provides classes for working with Mercurial and Git repositories.
+tags: [hgtools, version-control, git, mercurial]
 author: oxo-call-community
 source_url: "https://github.com/jaraco/jaraco.vcs/blob/main/README.rst"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hgtools (v10.1.0) - Classes for Mercurial and Git repositories.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hgtools`
+- **Version Control**: hgtools interfaces with version control systems.
+
+- **Mercurial Support**: Works with Mercurial repositories.
+
+- **Git Support**: Works with Git repositories.
+
+- **Repository Management**: Manages version control repositories.
+
+- **Automation**: Automates version control tasks.
+
+- **Release Management**: Assists with software release processes.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Repository Access**: Requires proper repository access permissions.
+
+- **Network Access**: Remote operations require network access.
+
+- **Branch Management**: Handle branches carefully.
+
+- **Merge Conflicts**: May encounter merge conflicts.
+
+- **Version Compatibility**: Ensure compatibility with Git/Mercurial versions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Initialize repository
+**Args:** `python -c "from hgtools import Repository; repo = Repository('.')"`
+**Explanation:** Creates repository object.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Get repository info
+**Args:** `python -c "from hgtools import Repository; print(Repository('.').version)"`
+**Explanation:** Gets repository version.
+
+### Tag release
+**Args:** `python -c "from hgtools import Repository; repo = Repository('.'); repo.tag('v1.0.0')"`
+**Explanation:** Tags a new release.
+
+### Batch processing
+**Args:** `for dir in */; do python -c "from hgtools import Repository; print(Repository(dir).version)"; done`
+**Explanation:** Checks versions in multiple repositories.
+
+### Help command
+**Args:** `python -c "from hgtools import Repository; help(Repository)"`
+**Explanation:** Shows available methods and usage.

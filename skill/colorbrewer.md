@@ -1,30 +1,44 @@
 ---
 name: colorbrewer
 category: programming
-description: An easy way to get access to ColorBrewer schemes from within a Python program.
-tags: [colorbrewer, programming]
+description: Access ColorBrewer color schemes from Python programs
+tags: [colorbrewer, python, visualization, color-schemes, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/hoffmangroup/colorbrewer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: colorbrewer (v0.3) - An easy way to get access to ColorBrewer schemes from within a Python program.
-- **Core Function**: An easy way to get access to ColorBrewer schemes from within a Python program.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda colorbrewer`
+- **Tool Overview**: colorbrewer is a Python package that provides easy access to ColorBrewer color schemes for data visualization in scientific applications.
+- **Core Function**: Provides programmatic access to ColorBrewer's carefully designed color palettes optimized for scientific visualization.
+- **Algorithm**: Implements ColorBrewer color scheme definitions with validation and accessibility features.
+- **Input**: Color scheme names and parameters.
+- **Output**: Color values in various formats (RGB, hex, etc.).
+- **Application**: Data visualization, plotting, and scientific figure generation.
+- **Installation**: Install via bioconda: `conda install -c bioconda colorbrewer`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Color Blindness**: Some schemes are not colorblind-friendly.
+- **Print Quality**: Some schemes optimized for screens may not print well.
+- **Scheme Selection**: Must choose appropriate scheme type (sequential, diverging, qualitative).
+- **Number of Colors**: Each scheme has specific number of colors available.
+- **License**: ColorBrewer schemes have specific usage restrictions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Get color scheme
+**Args:** `python -c "from colorbrewer import get_scheme; colors = get_scheme('Blues', 5)"`
+**Explanation:** Retrieves 5-color Blues sequential scheme.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Get all schemes
+**Args:** `python -c "from colorbrewer import all_schemes; print(all_schemes.keys())"`
+**Explanation:** Lists all available ColorBrewer schemes.
+
+### Export to file
+**Args:** `python -c "from colorbrewer import export; export(' Reds', 7, 'colors.txt')"`
+**Explanation:** Exports 7-color Reds scheme to text file.
+
+### Display help
+**Args:** `python -c "import colorbrewer; help(colorbrewer)"`
+**Explanation:** Shows available functions and documentation.

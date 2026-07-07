@@ -1,30 +1,48 @@
 ---
 name: ms2rescore
 category: utility
-description: Modular and user-friendly platform for AI-assisted rescoring of peptide identifications.
-tags: [ms2rescore, utility]
+description: AI-assisted rescoring platform for peptide identifications from mass spectrometry.
+tags: [ms2rescore, utility, proteomics]
 author: oxo-call-community
 source_url: "https://github.com/compomics/ms2rescore"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ms2rescore v3.2.1 - Modular and user-friendly platform for AI-assisted rescoring of peptide identifications..
-- **Core Function**: Modular and user-friendly platform for AI-assisted rescoring of peptide identifications.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda ms2rescore`
+- **Tool Overview**: MS2Rescore v3.2.1 uses AI to improve peptide identification.
+- **Core Function**: Rescores peptide identifications using machine learning.
+- **Peptide ID**: Improves confidence of peptide assignments.
+- **AI-powered**: Leverages deep learning for rescoring.
+- **Proteomics**: Specialized for proteomics data analysis.
+- **Input/Output**: Accepts search results; outputs rescored identifications.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Proteomics Specific**: Designed for mass spectrometry data.
+- **Search Engine Output**: Requires output from search engines.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for rescoring.
+- **Data Quality**: Results depend on initial search quality.
+- **Computational Resources**: Large datasets may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Rescore peptide identifications
+**Args:** `ms2rescore -i search_results.mzid -o rescored.txt`
+**Explanation:** Rescores peptide identifications.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With machine learning model
+**Args:** `ms2rescore -i search_results.mzid -m model.pt -o rescored.txt`
+**Explanation:** Uses specific ML model for rescoring.
+
+### Generate q-value report
+**Args:** `ms2rescore -i search_results.mzid -q -o results.txt`
+**Explanation:** Calculates q-values for identifications.
+
+### Batch processing
+**Args:** `ms2rescore -i mzid/ -o results/`
+**Explanation:** Processes multiple search result files.
+
+### Export for downstream analysis
+**Args:** `ms2rescore -i search_results.mzid -e tsv -o results.tsv`
+**Explanation:** Exports results in TSV format.

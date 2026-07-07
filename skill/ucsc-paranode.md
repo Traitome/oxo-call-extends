@@ -1,30 +1,32 @@
 ---
 name: ucsc-paranode
 category: utility
-description: Parasol node server.
-tags: [ucsc-paranode, utility]
+description: UCSC paraNode - Tool for managing parallel nodes.
+tags: [ucsc-paranode, ucsc, parallel, node, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-paranode (v482) - Parasol node server.
-- **Core Function**: Parasol node server.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-paranode`
+- **Tool Overview**: UCSC paraNode - A tool for managing parallel processing nodes.
+- **Core Function**: Manages individual parallel processing nodes.
+- **Input**: Node configuration.
+- **Output**: Node status.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Cluster management, parallel computing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Configuration**: Requires proper node configuration.
+- **Network**: Requires network connectivity.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Manage parallel node
+**Args:** `paraNode status node_id`
+**Explanation:** Check node status.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraNode -verbose status node_id`
+**Explanation:** Detailed node status.

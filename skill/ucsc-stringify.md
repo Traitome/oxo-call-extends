@@ -1,30 +1,32 @@
 ---
 name: ucsc-stringify
-category: formatting
-description: Convert file to C strings.
-tags: [ucsc-stringify, formatting]
+category: utility
+description: UCSC stringify - Tool for converting to string format.
+tags: [ucsc-stringify, ucsc, string, format-conversion, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-stringify (v482) - Convert file to C strings.
-- **Core Function**: Convert file to C strings.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-stringify`
+- **Tool Overview**: UCSC stringify - A tool for converting data to string format.
+- **Core Function**: Converts various data formats to string representation.
+- **Input**: Input data.
+- **Output**: String representation.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data conversion, text processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large data.
+- **Encoding**: Requires proper encoding handling.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Stringify data
+**Args:** `stringify input.txt > output.txt`
+**Explanation:** Convert data to string format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `stringify -verbose input.txt > output.txt`
+**Explanation:** Convert with verbose output.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadmaf
 category: utility
-description: Load a maf file index into the database.
-tags: [ucsc-hgloadmaf, utility]
+description: UCSC hgLoadMaf - Tool for loading MAF files into database.
+tags: [ucsc-hgloadmaf, ucsc, database, maf, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadmaf (v482) - Load a maf file index into the database.
-- **Core Function**: Load a maf file index into the database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadmaf`
+- **Tool Overview**: UCSC hgLoadMaf - A tool for loading MAF alignment files into database.
+- **Core Function**: Loads MAF multiple alignment data into genome browser database.
+- **Input**: MAF file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, multiple alignment, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load MAF to database
+**Args:** `hgLoadMaf -db=hg38 -table=maf input.maf`
+**Explanation:** Load MAF file to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadMaf -db=hg38 -table=maf -verbose input.maf`
+**Explanation:** Load with verbose output.

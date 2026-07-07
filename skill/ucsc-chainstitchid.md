@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainstitchid
 category: utility
-description: Join chain fragments with the same chain ID into a single chain per ID.
-tags: [ucsc-chainstitchid, utility]
+description: UCSC chainStitchId - Tool for stitching chain alignments.
+tags: [ucsc-chainstitchid, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainstitchid (v482) - Join chain fragments with the same chain ID into a single chain per ID.
-- **Core Function**: Join chain fragments with the same chain ID into a single chain per ID.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainstitchid`
+- **Tool Overview**: UCSC chainStitchId - A tool for stitching together chain alignments.
+- **Core Function**: Connects fragmented chain alignments.
+- **Input**: Chain alignment file.
+- **Output**: Stitched chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment reconstruction, gap filling, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Overlap Requirement**: Requires overlapping alignments.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Stitch chains
+**Args:** `chainStitchId input.chain > stitched.chain`
+**Explanation:** Stitch together fragmented chain alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With tolerance
+**Args:** `chainStitchId -tolerance=100 input.chain > stitched.chain`
+**Explanation:** Stitch with position tolerance.

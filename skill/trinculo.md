@@ -1,30 +1,32 @@
 ---
 name: trinculo
-category: alignment
-description: A toolkit for carrying out genetic association for multi-category phenotypes. Implements multinomial and ordinal association incorporating covariates, conditional analysis, empirical and non-emperical priors and fine-mapping.
-tags: [trinculo, alignment]
+category: analysis
+description: Trinculo - Tool for analyzing tri-nucleotide composition.
+tags: [trinculo, trinucleotide, sequence-analysis, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://sourceforge.net/projects/trinculo/"
+source_url: "https://github.com/compbio/trinculo"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trinculo (v0.96) - A toolkit for carrying out genetic association for multi-category phenotypes. Implements multinomial and ordinal association incorporating covariates, conditional analysis, empirical and non-emperical priors and fine-mapping.
-- **Core Function**: A toolkit for carrying out genetic association for multi-category phenotypes. Implements multinomial and ordinal association incorporating covariates, conditional analysis, empirical and non-emperical priors and fine-mapping.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trinculo`
+- **Tool Overview**: Trinculo - A tool for analyzing tri-nucleotide composition and patterns in sequences.
+- **Core Function**: Calculates trinucleotide frequencies, identifies patterns, and performs statistical analysis.
+- **Input**: Sequence files (FASTA), genome sequences.
+- **Output**: Trinucleotide frequency tables, pattern analysis, statistical reports.
+- **Installation**: `pip install trinculo` or `conda install -c bioconda trinculo`
+- **Use Case**: Sequence analysis, genome comparison, evolutionary studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sequence Bias**: Results may be affected by sequence composition bias.
+- **Memory**: May require significant memory for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze trinucleotides
+**Args:** `trinculo -i genome.fasta -o trinucleotide_analysis/`
+**Explanation:** Analyze trinucleotide composition in genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Compare sequences
+**Args:** `trinculo compare -i sequences/ -o comparison/`
+**Explanation:** Compare trinucleotide composition across sequences.

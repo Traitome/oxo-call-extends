@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgbbidblink
 category: utility
-description: Add table that just contains a pointer to a bbiFile to database.  This program.
-tags: [ucsc-hgbbidblink, utility]
+description: UCSC hgBbIdBlink - Tool for building ID blink database.
+tags: [ucsc-hgbbidblink, ucsc, database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgbbidblink (v482) - Add table that just contains a pointer to a bbiFile to database.  This program.
-- **Core Function**: Add table that just contains a pointer to a bbiFile to database.  This program.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgbbidblink`
+- **Tool Overview**: UCSC hgBbIdBlink - A tool for building ID blink databases.
+- **Core Function**: Creates ID mapping databases for genome browser.
+- **Input**: ID mapping data.
+- **Output**: Blink database.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, ID mapping, annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build blink database
+**Args:** `hgBbIdBlink -db=hg38 -table=idBlink`
+**Explanation:** Build ID blink database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgBbIdBlink -db=hg38 -table=idBlink -verbose`
+**Explanation:** Build with verbose output.

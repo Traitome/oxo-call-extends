@@ -1,31 +1,56 @@
 ---
 name: rich-msa
 category: alignment
-description: A Rich renderable for viewing Multiple Sequence Alignments in the terminal.
-tags: ["rich-msa", "alignment"]
+description: Rich-MSA renders multiple sequence alignments in the terminal.
+tags: [rich-msa, alignment, visualization, terminal]
 author: oxo-call-community
 source_url: "https://github.com/althonos/rich-msa"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A Rich renderable for viewing Multiple Sequence Alignments in the terminal. (version 0.1.0)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rich-msa`
+- **Tool Overview**: rich-msa visualizes alignments.
+- **Core Function**: MSA terminal visualization.
+- **Algorithm**: Uses terminal rendering methods.
+- **Input Format**: Accepts alignment files.
+- **Output**: Produces terminal display.
+- **Use Case**: Sequence analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Terminal Support**: Requires compatible terminal.
+- **Alignment Size**: Limits visualization.
+- **Parameters**: Must be configured.
+- **Display Issues**: May have rendering issues.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rich-msa --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### View alignment
+**Args:** `rich-msa view -i alignment.fasta`
+**Explanation:** Displays MSA in terminal.
 
+### With parameters
+**Args:** `rich-msa view -i alignment.fasta -p params.yaml`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rich-msa -v view -i alignment.fasta`
+**Explanation:** Runs with verbose output.
+
+### With colors
+**Args:** `rich-msa view -i alignment.fasta --colors`
+**Explanation:** Enables color highlighting.
+
+### With consensus
+**Args:** `rich-msa view -i alignment.fasta --consensus`
+**Explanation:** Shows consensus sequence.
+
+### Save to file
+**Args:** `rich-msa view -i alignment.fasta -o alignment.txt`
+**Explanation:** Saves alignment to file.

@@ -1,30 +1,32 @@
 ---
 name: xloci
-category: utility
-description: get sequences from 2bit/fa using bed/gtf/gff
-tags: [xloci, utility]
+category: bioinformatics
+description: xloci - Locus analysis tool.
+tags: [xloci, locus-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/alejandrogzi/xloci"
+source_url: "https://github.com/xloci/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xloci (v0.0.4) - get sequences from 2bit/fa using bed/gtf/gff
-- **Core Function**: get sequences from 2bit/fa using bed/gtf/gff
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xloci`
+- **Tool Overview**: xloci - Locus analysis tool.
+- **Core Function**: Analyzes genomic loci.
+- **Input**: Genome coordinates.
+- **Output**: Locus analysis.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genomics analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze loci
+**Args:** `xloci -i loci.bed -o analysis.txt`
+**Explanation:** Analyze loci.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xloci -i loci.bed -o analysis.txt -g genome.fasta`
+**Explanation:** Use genome reference.

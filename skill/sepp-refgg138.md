@@ -1,30 +1,56 @@
 ---
 name: sepp-refgg138
-category: population-genomics
-description: SATe-enabled phylogenetic placement
-tags: [sepp-refgg138, population-genomics]
+category: phylogenetics
+description: sepp-refgg138 - SEPP reference package for Greengenes 13_8
+tags: ["sepp-refgg138", "phylogenetics", "reference-database", "Greengenes"]
 author: oxo-call-community
 source_url: "https://github.com/smirarab/sepp-refs"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sepp-refgg138 (v4.5.1) - SATe-enabled phylogenetic placement
-- **Core Function**: SATe-enabled phylogenetic placement
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sepp-refgg138`
+- **Tool Overview**: sepp-refgg138 (v4.5.1) provides SEPP reference package for Greengenes 13_8 database.
+- **Core Function**: Provides reference data for phylogenetic placement with Greengenes taxonomy.
+- **Algorithm**: Works with SEPP for accurate phylogenetic placement.
+- **Input/Output**: Used as reference database for SEPP placement.
+- **Reference Data**: Contains pre-built trees and alignments for Greengenes 13_8.
+- **Applications**: Metagenomics, microbial community analysis, and taxonomy classification.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Large File Size**: Reference database may be large.
+- **Memory Usage**: May require significant memory for loading.
+- **Version Compatibility**: Must match SEPP version.
+- **Disk Space**: Requires sufficient disk space for database.
+- **Update Frequency**: Reference database may become outdated.
+- **Dependency**: Requires SEPP for usage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Use with SEPP
+**Args:** `run_sepp.py -a query.fasta -r gg_13_8 -o output/`
+**Explanation:** Uses Greengenes 13_8 reference database.
 
-### Basic usage
-**Args:** `sepp-refgg138 -i <input.vcf> -o <output_dir>`
-**Explanation:** Run sepp-refgg138 with typical input and output options.
+### Install reference
+**Args:** `conda install -c bioconda sepp-refgg138`
+**Explanation:** Installs Greengenes 13_8 reference package.
+
+### Check installation
+**Args:** `python -c "from sepp import refs; print(refs.available_refs())"`
+**Explanation:** Lists available reference packages.
+
+### Help documentation
+**Args:** `python -m sepp --help`
+**Explanation:** Shows SEPP documentation.
+
+### Version check
+**Args:** `conda list sepp-refgg138`
+**Explanation:** Shows installed version.
+
+### Download reference
+**Args:** `sepp-install-refs gg_13_8`
+**Explanation:** Downloads and installs reference database.
+
+### List references
+**Args:** `sepp-list-refs`
+**Explanation:** Lists available reference databases.

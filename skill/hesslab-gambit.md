@@ -1,12 +1,11 @@
 ---
 name: hesslab-gambit
 category: programming
-description: IMPORTANT: This recipe is out of date. Use "gambit" instead: http://bioconda.github.io/recipes/gambit/README.html
+description: 'IMPORTANT: This recipe is out of date. Use "gambit" instead: http://bioconda.github.io/recipes/gambit/README.html'
 tags: [hesslab-gambit, programming]
 author: oxo-call-community
 source_url: "https://gambit-genomics.readthedocs.io/en/latest"
 ---
-
 ## Concepts
 
 - **Tool Overview**: hesslab-gambit (v0.5.1) - IMPORTANT: This recipe is out of date. Use "gambit" instead: http://bioconda.github.io/recipes/gambit/README.html

@@ -1,30 +1,32 @@
 ---
 name: tissuumaps
-category: alignment
-description: TissUUmaps is a lightweight viewer that uses basic web tools to visualize gene expression data or any kind of point data on top of whole slide images
-tags: [tissuumaps, alignment]
+category: visualization
+description: TissUUmaps - Interactive visualization tool for spatial transcriptomics data.
+tags: [tissuumaps, spatial-transcriptomics, visualization, spatial-data, rna-seq]
 author: oxo-call-community
-source_url: "https://tissuumaps.research.it.uu.se/"
+source_url: "https://github.com/TissUUmaps/TissUUmaps"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tissuumaps (v3.2.1.14) - TissUUmaps is a lightweight viewer that uses basic web tools to visualize gene expression data or any kind of point data on top of whole slide images
-- **Core Function**: TissUUmaps is a lightweight viewer that uses basic web tools to visualize gene expression data or any kind of point data on top of whole slide images
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tissuumaps`
+- **Tool Overview**: TissUUmaps - An interactive visualization tool for exploring spatial transcriptomics data.
+- **Core Function**: Provides interactive visualization of gene expression in spatial context, enabling exploration of tissue architecture.
+- **Input**: Spatial transcriptomics data (Visium, Slide-seq, etc.), gene expression matrices.
+- **Output**: Interactive web-based visualization, publication-quality figures.
+- **Installation**: `pip install tissuumaps` or use web version
+- **Use Case**: Spatial transcriptomics analysis, tissue architecture exploration, data sharing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Size**: Large spatial datasets may require subsampling for visualization.
+- **Browser Requirements**: Web-based visualization requires modern browser.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Launch visualization
+**Args:** `tissuumaps --input spatial_data.h5ad --output visualization/`
+**Explanation:** Launch TissUUmaps visualization for spatial transcriptomics data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Export figure
+**Args:** `tissuumaps export -i data.h5ad -g gene_name -o figure.png`
+**Explanation:** Export publication-quality figure of gene expression.

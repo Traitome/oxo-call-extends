@@ -1,30 +1,32 @@
 ---
 name: ucsc-mktime
-category: formatting
-description: Convert date string to unix timestamp.
-tags: [ucsc-mktime, formatting]
+category: utility
+description: UCSC mkTime - Tool for creating time values.
+tags: [ucsc-mktime, ucsc, time, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mktime (v482) - Convert date string to unix timestamp.
-- **Core Function**: Convert date string to unix timestamp.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mktime`
+- **Tool Overview**: UCSC mkTime - A tool for creating time values.
+- **Core Function**: Generates time values from input.
+- **Input**: Time string or components.
+- **Output**: Time value.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Time processing, data analysis, logging.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format**: Requires proper time format.
+- **Time Zone**: Requires correct time zone specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create time value
+**Args:** `mkTime "2024-01-01 12:00:00"`
+**Explanation:** Create time value from string.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mkTime -utc "2024-01-01 12:00:00"`
+**Explanation:** Create UTC time value.

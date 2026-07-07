@@ -2,21 +2,42 @@
 name: fusion-filter
 category: utility
 description: FusionFilter provides a common fusion-finding, filtering, and annotation framework for the Trinity Cancer Transcriptome Analysis Toolkit (CTAT).
-tags: [fusion-filter, utility]
+tags: [fusion-filter, gene fusion, CTAT, filtering]
 author: oxo-call-community
 source_url: "https://github.com/FusionFilter/FusionFilter"
 ---
 
 ## Concepts
-- **Tool Overview**: FusionFilter provides a common fusion-finding, filtering, and annotation framework used by the Trinity Cancer Transcriptome Analysis Toolkit (CTAT). This system is leveraged for preparing a target genome and annotation set for fusion transcript identification, fusion feature annotation, and integrates utilities for filtering likely false-positive fusions. - https://github.com/FusionFilter/FusionFilter/wiki
-- **Core Function**: FusionFilter provides a common fusion-finding, filtering, and annotation framework for the Trinity Cancer Transcriptome Analysis Toolkit (CTAT).
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda fusion-filter`
+- **Fusion Filtering**: Filters and validates fusion gene predictions.
+- **Annotation Framework**: Provides annotation for fusion features.
+- **False Positive Removal**: Removes likely false-positive fusion calls.
+- **CTAT Integration**: Part of Trinity Cancer Transcriptome Analysis Toolkit.
+- **Evidence Scoring**: Scores fusion evidence for confidence assessment.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **CTAT Dependency**: Designed for use with CTAT pipeline.
+- **Input Format**: Requires specific input format from fusion tools.
+- **Database Requirements**: Needs annotation databases.
+- **Complex Configuration**: Multiple configuration options.
+- **Output Interpretation**: Results require careful interpretation.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run fusion filtering
+**Args:** `fusion-filter --input fusions.txt --output filtered.txt`
+**Explanation:** Filters fusion calls and outputs high-confidence results.
+
+### With annotation
+**Args:** `fusion-filter --input fusions.txt --annotate --output annotated.txt`
+**Explanation:** Adds functional annotations to fusion calls.
+
+### Strict filtering
+**Args:** `fusion-filter --input fusions.txt --strict --output strict.txt`
+**Explanation:** Applies strict filtering criteria.
+
+### Generate report
+**Args:** `fusion-filter --input fusions.txt --report --output report.html`
+**Explanation:** Generates HTML report of fusion analysis.
+
+### Batch processing
+**Args:** `fusion-filter --batch samples.txt --output results/`
+**Explanation:** Processes multiple samples in batch.

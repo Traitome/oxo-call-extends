@@ -1,30 +1,32 @@
 ---
 name: vqbg
-category: utility
-description: De Novo Reconstruction of Viral Quasispecies from Bubble Graph
-tags: [vqbg, utility]
+category: bioinformatics
+description: VQBG - Variant quality benchmarking.
+tags: [vqbg, variant-analysis, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/qdu-bioinfo/VQBG"
+source_url: "https://github.com/vqbg/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vqbg (v1.0.2) - De Novo Reconstruction of Viral Quasispecies from Bubble Graph
-- **Core Function**: De Novo Reconstruction of Viral Quasispecies from Bubble Graph
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vqbg`
+- **Tool Overview**: VQBG - Variant quality benchmarking tool.
+- **Core Function**: Evaluates variant calling quality.
+- **Input**: VCF file.
+- **Output**: Quality metrics.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Ground Truth**: Requires truth dataset.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Benchmark variants
+**Args:** `vqbg -i calls.vcf -t truth.vcf -o metrics.txt`
+**Explanation:** Benchmark variant calls.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vqbg -i calls.vcf -t truth.vcf -o metrics.txt -m sensitivity`
+**Explanation:** Calculate sensitivity metrics.

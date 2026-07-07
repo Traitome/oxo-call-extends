@@ -1,30 +1,32 @@
 ---
 name: zeroc-ice
-category: utility
-description: Ice is a comprehensive RPC framework that helps you network your software with minimal effort.
-tags: [zeroc-ice, utility]
+category: bioinformatics
+description: ZeroC Ice - RPC framework.
+tags: [zeroc-ice, rpc, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/zeroc-ice"
+source_url: "https://zeroc.com/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zeroc-ice (v3.7.1) - Ice is a comprehensive RPC framework that helps you network your software with minimal effort.
-- **Core Function**: Ice is a comprehensive RPC framework that helps you network your software with minimal effort.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zeroc-ice`
+- **Tool Overview**: ZeroC Ice - RPC framework.
+- **Core Function**: Remote procedure calls.
+- **Input**: Service definition.
+- **Output**: RPC communication.
+- **Installation**: Install via package manager
+- **Use Case**: Distributed systems, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires Ice runtime.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run server
+**Args:** `icebox --Ice.Config=config.server`
+**Explanation:** Start Ice server.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `icegridadmin --Ice.Config=config.admin`
+**Explanation:** Admin console.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslstats
 category: utility
-description: Collect statistics from a psl file.
-tags: [ucsc-pslstats, utility]
+description: UCSC pslStats - Tool for generating PSL statistics.
+tags: [ucsc-pslstats, ucsc, psl, statistics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslstats (v482) - Collect statistics from a psl file.
-- **Core Function**: Collect statistics from a psl file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslstats`
+- **Tool Overview**: UCSC pslStats - A tool for generating PSL alignment statistics.
+- **Core Function**: Computes statistical metrics from PSL alignments.
+- **Input**: PSL file.
+- **Output**: Statistics report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quality control, alignment analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate PSL statistics
+**Args:** `pslStats input.psl > stats.txt`
+**Explanation:** Generate alignment statistics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslStats -verbose input.psl > stats.txt`
+**Explanation:** Detailed statistics report.

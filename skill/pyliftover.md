@@ -1,31 +1,56 @@
 ---
 name: pyliftover
 category: programming
-description: Pure-python implementation of UCSC ``liftOver`` genome coordinate conversion.
-tags: ["pyliftover", "programming"]
+description: pyliftover is a pure-Python implementation of UCSC liftOver for genome coordinate conversion.
+tags: [pyliftover, programming, liftOver, coordinates]
 author: oxo-call-community
 source_url: "https://github.com/konstantint/pyliftover"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Pure-python implementation of UCSC ``liftOver`` genome coordinate conversion. (version 0.4.1)
-- **Core Function**: Processes bioinformatics data related to programming
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pyliftover`
+- **Tool Overview**: pyliftover converts genome coordinates.
+- **Core Function**: Coordinate liftover.
+- **Algorithm**: Uses chain files.
+- **Input Format**: Accepts BED/coordinates.
+- **Output**: Produces converted coordinates.
+- **Use Case**: Genome assembly conversion.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Chain File**: Requires chain file.
+- **Coordinate Format**: Must be correct.
+- **Assembly Compatibility**: Must match chain file.
+- **Runtime**: Conversion may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pyliftover --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Lift over coordinates
+**Args:** `pyliftover hg19ToHg38.over.chain.gz input.bed -o output.bed`
+**Explanation:** Converts coordinates between assemblies.
 
+### With parameters
+**Args:** `pyliftover chain.chain -i input.bed -p params.yaml -o output.bed`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pyliftover -v chain.chain -i input.bed -o output.bed`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pyliftover -t 4 chain.chain -i input.bed -o output.bed`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### List available chains
+**Args:** `pyliftover --list-chains`
+**Explanation:** Lists available chain files.
+
+### Generate report
+**Args:** `pyliftover chain.chain -i input.bed -o output.bed --report report.html`
+**Explanation:** Generates HTML report.

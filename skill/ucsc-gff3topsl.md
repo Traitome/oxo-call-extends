@@ -1,30 +1,32 @@
 ---
 name: ucsc-gff3topsl
-category: formatting
-description: Convert a GFF3 CIGAR file to a PSL file.
-tags: [ucsc-gff3topsl, formatting]
+category: utility
+description: UCSC gff3ToPsl - Tool for converting GFF3 to PSL format.
+tags: [ucsc-gff3topsl, ucsc, gff3, psl, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-gff3topsl (v482) - Convert a GFF3 CIGAR file to a PSL file.
-- **Core Function**: Convert a GFF3 CIGAR file to a PSL file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-gff3topsl`
+- **Tool Overview**: UCSC gff3ToPsl - A tool for converting GFF3 to PSL format.
+- **Core Function**: Converts GFF3 annotations to PSL format.
+- **Input**: GFF3 file.
+- **Output**: PSL format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment visualization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper GFF3 format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert GFF3 to PSL
+**Args:** `gff3ToPsl input.gff3 > output.psl`
+**Explanation:** Convert GFF3 to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `gff3ToPsl -score input.gff3 > output.psl`
+**Explanation:** Include score in output.

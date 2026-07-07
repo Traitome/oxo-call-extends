@@ -1,22 +1,47 @@
 ---
 name: fastspar
 category: programming
-description: Rapid and scalable correlation estimation for compositional data
-tags: [fastspar, programming]
+description: "Rapid and scalable correlation estimation for compositional data"
+tags: [fastspar, programming, correlation-analysis, compositional-data, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/scwatts/fastspar"
 ---
 
 ## Concepts
-- **Tool Overview**: FastSpar is a C++ implementation of the SparCC algorithm which is up to several thousand times faster than the original Python2 release and uses much less memory. The FastSpar implementation provides threading support and a p-value estimator which accounts for the possibility of repetitious data permutations.
-- **Core Function**: Rapid and scalable correlation estimation for compositional data
-- **Input/Output**: Depends on tool configuration and data formats.
+
+- **Tool Overview**: FastSpar is a fast C++ implementation of the SparCC algorithm for estimating correlations in compositional data, commonly used in microbiome analysis.
+- **Core Function**: Estimates correlations between compositional data vectors.
+- **Input/Output**: Input: Compositional data matrix. Output: Correlation matrix, p-values.
+- **Algorithm**: Implements SparCC algorithm with optimized C++ implementation.
+- **Key Features**: Fast computation, threading support, p-value estimation, large dataset support, compositional data handling.
 - **Installation**: `conda install -c bioconda fastspar`
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Compositional Data**: Designed specifically for compositional data.
+- **Memory Usage**: Large datasets may require significant memory.
+- **Computation Time**: Very large datasets may require substantial processing time.
+- **Threading**: Optimal thread count may require tuning.
+- **Version Compatibility**: Options may vary between versions.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Basic correlation estimation
+**Args:** `fastspar -i abundance.tsv -o correlations.tsv`
+**Explanation:** Estimates correlations from abundance data.
+
+### With p-values
+**Args:** `fastspar -i abundance.tsv -o correlations.tsv -p pvalues.tsv`
+**Explanation:** Computes p-values for correlations.
+
+### Threaded processing
+**Args:** `fastspar -i abundance.tsv -o correlations.tsv -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Permutation testing
+**Args:** `fastspar -i abundance.tsv -o correlations.tsv -n 100`
+**Explanation:** Runs 100 permutations for p-value estimation.
+
+### Filter low-abundance
+**Args:** `fastspar -i abundance.tsv -o correlations.tsv --filter-min 0.01`
+**Explanation:** Filters low-abundance features.

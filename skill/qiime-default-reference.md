@@ -1,31 +1,56 @@
 ---
 name: qiime-default-reference
 category: utility
-description: Default reference data files for use with QIIME.
-tags: ["qiime-default-reference", "utility"]
+description: QIIME default reference data files for microbial ecology analysis.
+tags: [qiime-default-reference, utility, qiime, reference]
 author: oxo-call-community
 source_url: "http://www.qiime.org"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Default reference data files for use with QIIME. (version 0.1.3)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda qiime-default-reference`
+- **Tool Overview**: qiime-default-reference provides reference data.
+- **Core Function**: Reference management.
+- **Algorithm**: Data retrieval.
+- **Input Format**: Accepts configuration.
+- **Output**: Produces reference files.
+- **Use Case**: QIIME analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large databases require memory.
+- **Reference Version**: Must match.
+- **Download**: Requires network.
+- **Runtime**: Installation may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `qiime-default-reference --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Install reference
+**Args:** `qiime-default-reference install -o reference_dir/`
+**Explanation:** Installs default reference data.
 
+### With parameters
+**Args:** `qiime-default-reference install -p params.yaml -o reference_dir/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `qiime-default-reference -v install -o reference_dir/`
+**Explanation:** Runs with verbose output.
+
+### List references
+**Args:** `qiime-default-reference list`
+**Explanation:** Shows available references.
+
+### Update reference
+**Args:** `qiime-default-reference update -o reference_dir/`
+**Explanation:** Updates reference data.
+
+### Generate report
+**Args:** `qiime-default-reference install -o reference_dir/ --report report.html`
+**Explanation:** Generates HTML report.

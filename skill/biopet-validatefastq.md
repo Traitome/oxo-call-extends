@@ -1,30 +1,35 @@
 ---
 name: biopet-validatefastq
 category: qc
-description: This tool validates a FASTQ file.
-tags: [biopet-validatefastq, qc, FASTQ, SAM]
+description: Validate FASTQ files for format correctness and paired-end consistency
+tags: [fastq, validation, quality-control, paired-end]
 author: oxo-call-community
 source_url: "https://github.com/biopet/validatefastq"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biopet-validatefastq (v0.1.1) - This tool validates a FASTQ file.
-- **Core Function**: This tool validates a FASTQ file. When data is paired it can also validate a pair of FASTQ files. ValidateFastq will check if the FASTQ is in valid FASTQ format. This includes checking for duplicate r...
-- **Input/Output**: FASTQ input; processed output
-- **Installation**: `conda install -c bioconda biopet-validatefastq`
+- **Tool Overview**: ValidateFastq validates FASTQ files for format correctness, checking for proper formatting, duplicate read names, and valid quality scores.
+- **Validation Checks**: Verifies FASTQ format structure, quality score encoding, read name consistency, and paired-end read pair matching.
+- **Paired-End Support**: Can validate paired FASTQ files to ensure read pairs match correctly.
+- **Error Detection**: Identifies duplicate read names, invalid characters, and format violations.
+- **Applications**: FASTQ quality control, pre-processing validation, pipeline input verification.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Encoding Detection**: Must correctly identify quality encoding (Sanger/Illumina 1.8+ vs older formats).
+- **Paired Files**: For paired-end data, both files must be properly synchronized.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Validate single FASTQ
+**Args:** `java -jar ValidateFastq.jar -i reads.fq -o validation_report.txt`
+**Explanation:** Validates a single FASTQ file.
 
-### Basic usage
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Perform quality control analysis
+### Validate paired-end FASTQ
+**Args:** `java -jar ValidateFastq.jar -i R1.fq -i2 R2.fq -o validation_report.txt`
+**Explanation:** Validates paired-end FASTQ files, checking read pair consistency.
+
+### Check for duplicates
+**Args:** `java -jar ValidateFastq.jar -i reads.fq --check-duplicates -o report.txt`
+**Explanation:** Validates FASTQ and specifically checks for duplicate read names.

@@ -1,30 +1,32 @@
 ---
 name: xmltramp2
-category: formatting
-description: A modern refactoring of the venerable xmltramp application
-tags: [xmltramp2, formatting]
+category: bioinformatics
+description: xmltramp2 - XML parser.
+tags: [xmltramp2, xml, python, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/tBaxter/xmltramp2"
+source_url: "https://github.com/nicfit/xmltramp2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xmltramp2 (v3.1.1) - A modern refactoring of the venerable xmltramp application
-- **Core Function**: A modern refactoring of the venerable xmltramp application
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xmltramp2`
+- **Tool Overview**: xmltramp2 - XPath-like XML parsing.
+- **Core Function**: Parses XML with XPath-like access.
+- **Input**: XML string or file.
+- **Output**: Parsed object.
+- **Installation**: Install via pip
+- **Use Case**: XML parsing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large XML files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Parse XML
+**Args:** `python -c "from xmltramp2 import parse; doc = parse('input.xml')"`
+**Explanation:** Parse XML file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "value = doc.root.child"`
+**Explanation:** Access element.

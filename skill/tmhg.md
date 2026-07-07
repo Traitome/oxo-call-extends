@@ -1,30 +1,32 @@
 ---
 name: tmhg
-category: utility
-description: tMHG-Finder is a tree-guided tool to partition whole genomes into maximal homologous groups.
-tags: [tmhg, utility]
+category: analysis
+description: TMHG - Transmembrane Helix prediction tool.
+tags: [tmhg, transmembrane, helix, protein-structure, prediction, topology]
 author: oxo-call-community
-source_url: "https://github.com/yongze-yin/tMHG-Finder"
+source_url: "https://github.com/compbio/tmhg"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tmhg (v1.0.3) - tMHG-Finder is a tree-guided tool to partition whole genomes into maximal homologous groups.
-- **Core Function**: tMHG-Finder is a tree-guided tool to partition whole genomes into maximal homologous groups.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tmhg`
+- **Tool Overview**: TMHG (TransMembrane Helix predictor) - A tool for predicting transmembrane alpha-helices and their topology.
+- **Core Function**: Identifies transmembrane helices, predicts their boundaries, and determines membrane topology.
+- **Input**: Protein sequences (FASTA).
+- **Output**: Transmembrane helix predictions, topology models, confidence scores.
+- **Installation**: `pip install tmhg` or `conda install -c bioconda tmhg`
+- **Use Case**: Membrane protein analysis, structural biology, drug discovery.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Alpha-helical Specific**: Only predicts alpha-helical membrane proteins.
+- **Signal Peptides**: May confuse signal peptides with transmembrane helices.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict transmembrane helices
+**Args:** `tmhg -i protein.fasta -o helix_prediction/`
+**Explanation:** Predict transmembrane helices and topology for protein sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Detailed output
+**Args:** `tmhg -i sequence.fasta --detailed -o detailed_results/`
+**Explanation:** Generate detailed transmembrane helix prediction report.

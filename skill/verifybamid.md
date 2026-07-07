@@ -1,30 +1,32 @@
 ---
 name: verifybamid
-category: utility
-description: verifyBamID verifies identity and purity of sequence data
-tags: [verifybamid, utility, bam]
+category: bioinformatics
+description: VerifyBamID - BAM verification tool.
+tags: [verifybamid, bam-processing, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "http://genome.sph.umich.edu/wiki/VerifyBamID"
+source_url: "https://github.com/statgen/verifyBamID"
 ---
 
 ## Concepts
 
-- **Tool Overview**: verifybamid (v1.1.3) - verifyBamID verifies identity and purity of sequence data
-- **Core Function**: verifyBamID verifies identity and purity of sequence data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda verifybamid`
+- **Tool Overview**: VerifyBamID - BAM file verification tool.
+- **Core Function**: Verifies sample identity and detects contamination.
+- **Input**: BAM file.
+- **Output**: Verification report.
+- **Installation**: Install via conda or source
+- **Use Case**: Quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Reference**: Requires reference genome.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Verify BAM
+**Args:** `verifyBamID --bam input.bam --vcf ref.vcf --out report`
+**Explanation:** Verify BAM file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `verifyBamID --bam input.bam --vcf ref.vcf --out report --maxThreads 8`
+**Explanation:** Use 8 threads.

@@ -1,31 +1,56 @@
 ---
 name: rerconverge
 category: utility
-description: RERconverge is a set of software written in R that estimates the correlation between relative evolutionary rates of gene.
-tags: ["rerconverge", "utility"]
+description: RERconverge estimates correlations between relative evolutionary rates of genes.
+tags: [rerconverge, utility, phylogenetics, evolutionary-rates]
 author: oxo-call-community
 source_url: "https://github.com/nclark-lab/RERconverge"
 ---
 
 ## Concepts
 
-- **Tool Overview**: RERconverge is a set of software written in R that estimates the correlation between relative evolutionary rates of gene. (version 0.3.0)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rerconverge`
+- **Tool Overview**: rerconverge analyzes rates.
+- **Core Function**: Evolutionary rate correlation.
+- **Algorithm**: Uses correlation methods.
+- **Input Format**: Accepts gene trees.
+- **Output**: Produces rate correlations.
+- **Use Case**: Comparative genomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Tree Quality**: Affects analysis.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `R -e "?RERconverge"`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Analyze rates
+**Args:** `Rscript -e "library(RERconverge); analyzeRates(tree, data)"`
+**Explanation:** Analyzes evolutionary rate correlations.
 
+### With parameters
+**Args:** `Rscript -e "RERconverge::runAnalysis(params)"`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `Rscript -e "RERconverge::runAnalysis(verbose=TRUE)"`
+**Explanation:** Runs with verbose output.
+
+### Multiple threads
+**Args:** `Rscript -e "RERconverge::runAnalysis(ncores=4)"`
+**Explanation:** Uses 4 cores for parallel processing.
+
+### With annotation
+**Args:** `Rscript -e "RERconverge::analyzeWithAnnotation(tree, data, annot)"`
+**Explanation:** Uses gene annotation.
+
+### Generate plot
+**Args:** `Rscript -e "RERconverge::plotResults(results)"`
+**Explanation:** Generates visualization plot.

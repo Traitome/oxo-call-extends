@@ -1,30 +1,32 @@
 ---
 name: varlociraptor
 category: variant-calling
-description: Flexible, uncertainty-aware variant calling with parameter free filtration via FDR control.
-tags: [varlociraptor, variant-calling]
+description: VarLociraptor - Variant calling and filtering tool.
+tags: [varlociraptor, variant-calling, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://varlociraptor.github.io"
+source_url: "https://github.com/varlociraptor/varlociraptor"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varlociraptor (v8.9.5) - Flexible, uncertainty-aware variant calling with parameter free filtration via FDR control.
-- **Core Function**: Flexible, uncertainty-aware variant calling with parameter free filtration via FDR control.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varlociraptor`
+- **Tool Overview**: VarLociraptor - A tool for variant calling and filtering.
+- **Core Function**: Calls and filters variants from sequencing data.
+- **Input**: BAM file, VCF file.
+- **Output**: Filtered variants.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant calling, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Configuration**: Requires proper configuration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call variants
+**Args:** `varlociraptor call -i sample.bam -o variants.vcf`
+**Explanation:** Call variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `varlociraptor call -i sample.bam -o variants.vcf -t 8`
+**Explanation:** Use 8 threads.

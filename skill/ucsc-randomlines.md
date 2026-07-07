@@ -1,30 +1,32 @@
 ---
 name: ucsc-randomlines
 category: utility
-description: Pick out random lines from file.
-tags: [ucsc-randomlines, utility]
+description: UCSC randomLines - Tool for selecting random lines.
+tags: [ucsc-randomlines, ucsc, random, sampling, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-randomlines (v482) - Pick out random lines from file.
-- **Core Function**: Pick out random lines from file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-randomlines`
+- **Tool Overview**: UCSC randomLines - A tool for selecting random lines from files.
+- **Core Function**: Randomly selects lines from input files.
+- **Input**: Input file.
+- **Output**: Randomly selected lines.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Random sampling, data analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Random Seed**: Results may vary without fixed seed.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Select random lines
+**Args:** `randomLines -count=100 input.txt > random.txt`
+**Explanation:** Select 100 random lines.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `randomLines -count=100 -seed=42 input.txt > random.txt`
+**Explanation:** Select with fixed seed.

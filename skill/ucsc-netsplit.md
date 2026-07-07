@@ -1,30 +1,32 @@
 ---
 name: ucsc-netsplit
 category: utility
-description: Split a genome net file into chromosome net files.
-tags: [ucsc-netsplit, utility]
+description: UCSC netSplit - Tool for splitting net alignments.
+tags: [ucsc-netsplit, ucsc, net, splitting, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-netsplit (v482) - Split a genome net file into chromosome net files.
-- **Core Function**: Split a genome net file into chromosome net files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-netsplit`
+- **Tool Overview**: UCSC netSplit - A tool for splitting net alignments.
+- **Core Function**: Splits net alignments into smaller pieces.
+- **Input**: Net file.
+- **Output**: Split net files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment processing, parallel analysis, data management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper net format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Split net alignments
+**Args:** `netSplit input.net > output.net`
+**Explanation:** Split net alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `netSplit -maxSize=1000 input.net > output.net`
+**Explanation:** Maximum split size.

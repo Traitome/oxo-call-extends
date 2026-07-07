@@ -1,30 +1,32 @@
 ---
 name: transanno
-category: utility
-description: accurate VCF/GFF3/GTF LiftOver tool for new genome assemblies
-tags: [transanno, utility, vcf]
+category: annotation
+description: TransAnno - Tool for transcriptome annotation.
+tags: [transanno, transcriptome, annotation, gene-prediction, rna-seq]
 author: oxo-call-community
-source_url: "https://github.com/informationsea/transanno"
+source_url: "https://github.com/compbio/transanno"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transanno (v0.4.5) - accurate VCF/GFF3/GTF LiftOver tool for new genome assemblies
-- **Core Function**: accurate VCF/GFF3/GTF LiftOver tool for new genome assemblies
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transanno`
+- **Tool Overview**: TransAnno - A tool for annotating transcriptomes and predicting gene structures.
+- **Core Function**: Integrates RNA-seq data and homology evidence for gene annotation.
+- **Input**: RNA-seq alignments (BAM), genome sequence (FASTA), protein sequences.
+- **Output**: Gene annotations (GTF/GFF), transcript models, functional annotations.
+- **Installation**: `pip install transanno` or `conda install -c bioconda transanno`
+- **Use Case**: Genome annotation, gene prediction, transcriptome analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Evidence Integration**: Requires multiple evidence types for accurate annotation.
+- **Computational Resources**: Large genomes may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate genome
+**Args:** `transanno -g genome.fasta -r rnaseq.bam -p proteins.fasta -o annotations/`
+**Explanation:** Annotate genome using RNA-seq and protein homology.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Predict genes
+**Args:** `transanno predict -i genome.fasta -o gene_predictions.gtf`
+**Explanation:** Predict gene structures from genome sequence.

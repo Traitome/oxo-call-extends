@@ -1,30 +1,32 @@
 ---
 name: wgatools
-category: alignment
-description: A Rust library and tools for whole genome alignment files.
-tags: [wgatools, alignment]
+category: bioinformatics
+description: WGAtools - Whole-genome alignment tools.
+tags: [wgatools, genome-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/wjwei-handsome/wgatools"
+source_url: "https://github.com/wgatools/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgatools (v1.1.0) - A Rust library and tools for whole genome alignment files.
-- **Core Function**: A Rust library and tools for whole genome alignment files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgatools`
+- **Tool Overview**: WGAtools - Whole-genome alignment utilities.
+- **Core Function**: Processes whole-genome alignments.
+- **Input**: Alignment files.
+- **Output**: Processed alignments.
+- **Installation**: Install via conda or source
+- **Use Case**: Comparative genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process alignment
+**Args:** `wgatools process -i alignment.maf -o processed.maf`
+**Explanation:** Process alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgatools filter -i alignment.maf -o filtered.maf -q 30`
+**Explanation:** Filter by quality.

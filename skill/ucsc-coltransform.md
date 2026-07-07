@@ -1,30 +1,32 @@
 ---
 name: ucsc-coltransform
-category: formatting
-description: Add and/or multiply column by constant.
-tags: [ucsc-coltransform, formatting]
+category: utility
+description: UCSC colTransform - Tool for transforming column values.
+tags: [ucsc-coltransform, ucsc, data-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-coltransform (v482) - Add and/or multiply column by constant.
-- **Core Function**: Add and/or multiply column by constant.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-coltransform`
+- **Tool Overview**: UCSC colTransform - A tool for transforming column values in tabular data.
+- **Core Function**: Applies mathematical transformations to column values.
+- **Input**: Tab-delimited file.
+- **Output**: Transformed tab-delimited file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data normalization, value transformation, statistical analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Column Specification**: Requires correct column specification.
+- **Transformation Syntax**: Requires proper transformation expression.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Transform column
+**Args:** `colTransform -col=2 -expr="log10(x)" input.txt > output.txt`
+**Explanation:** Apply log10 transformation to column 2.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Multiple transformations
+**Args:** `colTransform -col=3 -expr="x*2+1" input.txt > output.txt`
+**Explanation:** Apply linear transformation to column 3.

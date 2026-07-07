@@ -1,30 +1,32 @@
 ---
 name: vmatch
-category: utility
-description: The Vmatch large scale sequence analysis software.
-tags: [vmatch, utility]
+category: bioinformatics
+description: Vmatch - Sequence alignment tool.
+tags: [vmatch, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://www.vmatch.de"
+source_url: "https://www.vmatch.de/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vmatch (v2.3.1) - The Vmatch large scale sequence analysis software.
-- **Core Function**: The Vmatch large scale sequence analysis software.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vmatch`
+- **Tool Overview**: Vmatch - Efficient sequence alignment tool.
+- **Core Function**: Performs fast sequence matching.
+- **Input**: Sequence files.
+- **Output**: Alignment results.
+- **Installation**: Download from official site
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Match sequences
+**Args:** `vmatch -d database.fasta -q query.fasta -o results.txt`
+**Explanation:** Match query sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vmatch -d database.fasta -q query.fasta -o results.txt -e 3`
+**Explanation:** Allow 3 mismatches.

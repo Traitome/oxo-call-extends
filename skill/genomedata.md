@@ -1,30 +1,43 @@
 ---
 name: genomedata
-category: utility
-description: Tools for accessing large amounts of genomic data.
-tags: [genomedata, utility]
+category: data-access
+description: GenomeData - Tools for accessing large amounts of genomic data.
+tags: [genomedata, data-access, genomic-data, bioinformatics]
 author: oxo-call-community
 source_url: "https://genomedata.readthedocs.io/en/latest"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genomedata (v1.7.4) - Tools for accessing large amounts of genomic data.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genomedata`
+- **Data Access**: Provides efficient access to large genomic datasets.
+- **Data Storage**: Stores genomic data in optimized formats.
+- **Data Retrieval**: Retrieves genomic data efficiently.
+- **Data Integration**: Integrates multiple genomic data sources.
+- **Data Query**: Supports complex queries on genomic data.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require significant memory.
+- **Data Format**: Requires specific input formats.
+- **Index Building**: Requires time to build indexes.
+- **Network Dependency**: Remote data access requires network.
+- **Data Integrity**: Requires data validation.
 
 ## Examples
+### Create genome data archive
+**Args:** `genomedata-create -i genome.fasta -o archive.genomedata`
+**Explanation:** Creates a genome data archive.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Query data
+**Args:** `genomedata-query -i archive.genomedata -r chr1:1-1000 -o region.txt`
+**Explanation:** Queries genomic region from archive.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### List contents
+**Args:** `genomedata-ls -i archive.genomedata`
+**Explanation:** Lists contents of genome data archive.
+
+### Extract sequence
+**Args:** `genomedata-extract -i archive.genomedata -r chr1 -o sequence.fasta`
+**Explanation:** Extracts sequence from archive.
+
+### Batch processing
+**Args:** `genomedata-batch -i ./genomes/ -o ./archives/`
+**Explanation:** Processes multiple genome files in batch.

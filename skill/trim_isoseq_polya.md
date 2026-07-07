@@ -1,30 +1,32 @@
 ---
 name: trim_isoseq_polya
-category: qc
-description: Trims polyA tails from IsoSeq FASTA files
-tags: [trim_isoseq_polya, qc]
+category: utility
+description: Trim Iso-seq PolyA - Tool for trimming polyA tails from Iso-seq reads.
+tags: [trim_isoseq_polya, isoseq, polya-trimming, long-reads, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/PacificBiosciences/trim_isoseq_polyA"
+source_url: "https://github.com/PacificBiosciences/IsoSeq_Analysis"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trim_isoseq_polya (v0.0.3) - Trims polyA tails from IsoSeq FASTA files
-- **Core Function**: Trims polyA tails from IsoSeq FASTA files
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trim_isoseq_polya`
+- **Tool Overview**: Trim Iso-seq PolyA - A tool for trimming polyA tails from PacBio Iso-seq sequencing reads.
+- **Core Function**: Identifies and removes polyA tails from long-read sequencing data.
+- **Input**: FASTQ/FASTA files from Iso-seq sequencing.
+- **Output**: Trimmed sequences, polyA statistics.
+- **Installation**: Part of PacBio SMRT Analysis suite
+- **Use Case**: Iso-seq data processing, long-read sequencing analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **PolyA Length**: Variable polyA tail lengths may affect trimming.
+- **Sequence Quality**: Low-quality sequences may cause issues.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Trim polyA tails
+**Args:** `trim_isoseq_polya -i reads.fastq -o trimmed.fastq`
+**Explanation:** Trim polyA tails from Iso-seq reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality filtering
+**Args:** `trim_isoseq_polya -i raw.fastq -q 20 -o clean.fastq`
+**Explanation:** Trim polyA tails with quality filtering.

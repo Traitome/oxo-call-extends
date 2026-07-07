@@ -1,30 +1,32 @@
 ---
 name: varcode
-category: variant-calling
-description: Variant annotation in Python.
-tags: [varcode, variant-calling]
+category: bioinformatics
+description: Varcode - Variant annotation library.
+tags: [varcode, variant-annotation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/openvax/varcode"
+source_url: "https://github.com/hammerlab/varcode"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varcode (v2.6.0) - Variant annotation in Python.
-- **Core Function**: Variant annotation in Python.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varcode`
+- **Tool Overview**: Varcode - A library for variant annotation.
+- **Core Function**: Annotates genetic variants with effect predictions.
+- **Input**: Variant data.
+- **Output**: Annotated variants.
+- **Installation**: Install via pip
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependency**: Requires reference genome.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate variants
+**Args:** `python -c "import varcode; variants = varcode.load_vcf('variants.vcf'); effects = variants.effects()"`
+**Explanation:** Annotate variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Get effects
+**Args:** `python -c "import varcode; v = varcode.Variant('chr1', 1000, 'A', 'T'); print(v.effects())"`
+**Explanation:** Get variant effects.

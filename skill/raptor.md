@@ -1,31 +1,56 @@
 ---
 name: raptor
 category: qc
-description: Raptor: A fast and space-efficient pre-filter for querying very large collections of nucleotide sequences
-tags: ["raptor", "qc"]
+description: Raptor is a fast and space-efficient pre-filter for querying very large collections of nucleotide sequences.
+tags: [raptor, qc, pre-filter, sequence-query]
 author: oxo-call-community
 source_url: "https://seqan-raptor.vercel.app"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Raptor: A fast and space-efficient pre-filter for querying very large collections of nucleotide sequences (version 3.0.1)
-- **Core Function**: Processes bioinformatics data related to qc
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda raptor`
+- **Tool Overview**: raptor filters sequences.
+- **Core Function**: Sequence pre-filtering.
+- **Algorithm**: Uses filtering methods.
+- **Input Format**: Accepts nucleotide sequences.
+- **Output**: Produces filtered results.
+- **Use Case**: Sequence search.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Filter Threshold**: Affects results.
+- **Parameters**: Must be configured.
+- **Runtime**: Filtering may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `raptor --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Quality check
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Generates quality control metrics and reports.
+### Build index
+**Args:** `raptor build -i sequences.fasta -o index/`
+**Explanation:** Builds filter index.
 
+### Query sequences
+**Args:** `raptor query -i query.fasta -d index/ -o results.txt`
+**Explanation:** Queries sequence collection.
+
+### With parameters
+**Args:** `raptor query -i query.fasta -p params.yaml -o results.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `raptor -v query -i query.fasta -o results.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `raptor -t 4 query -i query.fasta -o results.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Generate report
+**Args:** `raptor query -i query.fasta -o results.txt --report report.html`
+**Explanation:** Generates HTML report.

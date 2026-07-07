@@ -1,30 +1,46 @@
 ---
 name: igda-script
 category: variant-calling
-description: The wrapper script of iGDA to detect and phase minor SNVs from long-read sequencing data
-tags: [igda-script, variant-calling]
+description: Wrapper script for iGDA (integrated Genomic Data Analysis) to detect and phase minor SNVs from long-read sequencing data.
+tags: [igda-script, variant-calling, SNV, long-read, phasing]
 author: oxo-call-community
 source_url: "https://github.com/zhixingfeng/shell"
 ---
 
 ## Concepts
 
-- **Tool Overview**: igda-script (v1.0.1) - The wrapper script of iGDA to detect and phase minor SNVs from long-read sequencing data
-- **Core Function**: Provides functionality for variant-calling tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda igda-script`
+- **Minor SNV Detection**: Specialized tool for detecting low-frequency single nucleotide variants.
+- **Long-read Sequencing**: Optimized for long-read data from technologies like PacBio and Oxford Nanopore.
+- **Variant Phasing**: Determines haplotype phase for detected variants.
+- **iGDA Integration**: Wrapper for the iGDA pipeline components.
+- **Shell Script Wrapper**: Simplifies running complex iGDA analyses through a unified interface.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Long-read Specific**: Designed for long-read data; may not work optimally with short reads.
+- **iGDA Dependencies**: Requires iGDA tools to be installed and configured.
+- **Computational Resources**: Long-read analysis can be computationally intensive.
+- **Variant Frequency**: May miss very low-frequency variants depending on coverage.
+- **Phasing Accuracy**: Depends on read length and coverage depth.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect minor SNVs from long-read data
+**Args:** `igda-script --bam input.bam --ref reference.fasta --out results/`
+**Explanation:** Runs iGDA pipeline to detect and phase minor SNVs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With custom parameters
+**Args:** `igda-script --bam input.bam --ref ref.fa --min-af 0.01 --out results/`
+**Explanation:** Sets minimum allele frequency threshold to 0.01.
+
+### Phase detected variants
+**Args:** `igda-script --bam input.bam --ref ref.fa --phase --out phased_results/`
+**Explanation:** Enables variant phasing analysis.
+
+### With parallel processing
+**Args:** `igda-script --bam input.bam --ref ref.fa --threads 8 --out results/`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Generate VCF output
+**Args:** `igda-script --bam input.bam --ref ref.fa --vcf --out variants.vcf`
+**Explanation:** Outputs detected variants in VCF format.

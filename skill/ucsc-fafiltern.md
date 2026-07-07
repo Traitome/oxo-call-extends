@@ -1,30 +1,32 @@
 ---
 name: ucsc-fafiltern
-category: qc
-description: Get rid of sequences with too many N's.
-tags: [ucsc-fafiltern, qc]
+category: utility
+description: UCSC faFilterN - Tool for filtering Ns in FASTA sequences.
+tags: [ucsc-fafiltern, ucsc, fasta, sequence-filtering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fafiltern (v482) - Get rid of sequences with too many N's.
-- **Core Function**: Get rid of sequences with too many N's.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fafiltern`
+- **Tool Overview**: UCSC faFilterN - A tool for filtering sequences by N content.
+- **Core Function**: Removes sequences with high N content.
+- **Input**: FASTA file.
+- **Output**: Filtered FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence filtering, quality control, genome assembly.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Threshold Setting**: Requires appropriate N content threshold.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter by N content
+**Args:** `faFilterN -maxN=0.05 input.fa > filtered.fa`
+**Explanation:** Remove sequences with >5% N content.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `faFilterN -maxN=0.1 -minSize=1000 input.fa > filtered.fa`
+**Explanation:** Filter by N content and size.

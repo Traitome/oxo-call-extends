@@ -1,30 +1,32 @@
 ---
 name: vine-phylo
-category: utility
-description: VINE (phylogenetics): Variational Inference with Node Embeddings
-tags: [vine-phylo, utility]
+category: bioinformatics
+description: vine-phylo - Phylogenetic analysis tool.
+tags: [vine-phylo, phylogenetics, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/CshlSiepelLab/vine"
+source_url: "https://github.com/vine-phylo/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vine-phylo (v0.3.4) - VINE is a tool for Bayesian variational phylogenetic inference.
-- **Core Function**: VINE (phylogenetics): Variational Inference with Node Embeddings
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vine-phylo`
+- **Tool Overview**: vine-phylo - Phylogenetic tree construction.
+- **Core Function**: Builds phylogenetic trees from sequence data.
+- **Input**: Sequence alignment.
+- **Output**: Phylogenetic tree.
+- **Installation**: Install via pip or conda
+- **Use Case**: Phylogenetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build tree
+**Args:** `vine-phylo -i alignment.fasta -o tree.nwk`
+**Explanation:** Build phylogenetic tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vine-phylo -i alignment.fasta -o tree.nwk -m maximum-likelihood`
+**Explanation:** Use maximum likelihood method.

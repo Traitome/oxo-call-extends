@@ -1,30 +1,44 @@
 ---
 name: clairvoyante
-category: alignment
-description: Identifying the variants of DNA sequences sensitively and accurately is an important but challenging task in the field of genomics. This task is particularly difficult when dealing with Single Molecule Sequencing, the error rate of which is still tens to hundreds of times higher than Next Generation Sequencing. With the increasing prevalence of Single Molecule Sequencing, an efficient variant caller will not only expedite basic research but also enable various downstream applications. To meet this demand, we developed Clairvoyante, a multi-task five-layer convolutional neural network model for predicting variant type, zygosity, alternative allele and Indel length. On NA12878, Clairvoyante achieved 99.73%, 97.68% and 95.36% accuracy on known variants, and achieved 98.65%, 92.57%, 77.89% F1 score on the whole genome, in Illumina, PacBio, and Oxford Nanopore data, respectively. Training Clairvoyante with a sample and call variant on another shows that Clairvoyante is sample agnostic and general for variant calling. A slim version of Clairvoyante with reduced model parameters produced a much lower F1, suggesting the full model's power in disentangling subtle details in read alignment. Clairvoyante is the first method for Single Molecule Sequencing to finish a whole genome variant calling in two hours on a 28 CPU-core machine, with top-tier accuracy and sensitivity. A toolset was developed to train, utilize and visualize the Clairvoyante model easily, and is publically available here is this repo.
-tags: [clairvoyante, alignment, SAM]
+category: variant-calling
+description: Deep learning-based variant caller for single-molecule sequencing data
+tags: [clairvoyante, variant-calling, long-reads, deep-learning, snp, indel]
 author: oxo-call-community
 source_url: "https://github.com/aquaskyline/Clairvoyante"
 ---
 
 ## Concepts
 
-- **Tool Overview**: clairvoyante (v1.02) - Identifying the variants of DNA sequences sensitively and accurately is an important but challenging task in the field of genomics. This task is particularly difficult when dealing with Single Molecule Sequencing, the error rate of which is still tens to hundreds of times higher than Next Generation Sequencing. With the increasing prevalence of Single Molecule Sequencing, an efficient variant caller will not only expedite basic research but also enable various downstream applications. To meet this demand, we developed Clairvoyante, a multi-task five-layer convolutional neural network model for predicting variant type, zygosity, alternative allele and Indel length. On NA12878, Clairvoyante achieved 99.73%, 97.68% and 95.36% accuracy on known variants, and achieved 98.65%, 92.57%, 77.89% F1 score on the whole genome, in Illumina, PacBio, and Oxford Nanopore data, respectively. Training Clairvoyante with a sample and call variant on another shows that Clairvoyante is sample agnostic and general for variant calling. A slim version of Clairvoyante with reduced model parameters produced a much lower F1, suggesting the full model's power in disentangling subtle details in read alignment. Clairvoyante is the first method for Single Molecule Sequencing to finish a whole genome variant calling in two hours on a 28 CPU-core machine, with top-tier accuracy and sensitivity. A toolset was developed to train, utilize and visualize the Clairvoyante model easily, and is publically available here is this repo.
-- **Core Function**: Identifying the variants of DNA sequences sensitively and accurately is an important but challenging task in the field of genomics. This task is particularly difficult when dealing with Single Molecule Sequencing, the error rate of which is still tens to hundreds of times higher than Next Generation Sequencing. With the increasing prevalence of Single Molecule Sequencing, an efficient variant caller will not only expedite basic research but also enable various downstream applications. To meet this demand, we developed Clairvoyante, a multi-task five-layer convolutional neural network model for predicting variant type, zygosity, alternative allele and Indel length. On NA12878, Clairvoyante achieved 99.73%, 97.68% and 95.36% accuracy on known variants, and achieved 98.65%, 92.57%, 77.89% F1 score on the whole genome, in Illumina, PacBio, and Oxford Nanopore data, respectively. Training Clairvoyante with a sample and call variant on another shows that Clairvoyante is sample agnostic and general for variant calling. A slim version of Clairvoyante with reduced model parameters produced a much lower F1, suggesting the full model's power in disentangling subtle details in read alignment. Clairvoyante is the first method for Single Molecule Sequencing to finish a whole genome variant calling in two hours on a 28 CPU-core machine, with top-tier accuracy and sensitivity. A toolset was developed to train, utilize and visualize the Clairvoyante model easily, and is publically available here is this repo.
-- **Input/Output**: BAM/SAM alignment input/output
-- **Installation**: `conda install -c bioconda clairvoyante`
+- **Tool Overview**: Clairvoyante is a deep learning-based variant caller for single-molecule sequencing data (ONT, PacBio, Illumina), using a multi-task convolutional neural network.
+- **Core Function**: Predicts variant type, zygosity, alternative allele, and indel length from aligned sequencing data.
+- **Algorithm**: Uses a five-layer convolutional neural network for multi-task variant prediction.
+- **Input**: Aligned BAM/SAM file and reference genome (FASTA).
+- **Output**: VCF file with variant calls and quality scores.
+- **Application**: Germline variant calling from long-read and short-read sequencing data.
+- **Installation**: Install via bioconda: `conda install -c bioconda clairvoyante`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Computational Resources**: Requires significant computational resources for training and prediction.
+- **Reference Genome**: Must match the reference used for alignment.
+- **Model Complexity**: Full model requires more resources but provides better accuracy.
+- **BAM Index**: Input BAM must be indexed.
+- **Data Quality**: Performance depends on input data quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Call variants from BAM
+**Args:** `runClairvoyante.py --bam reads.bam --ref reference.fa --model model.pb --output output.vcf`
+**Explanation:** Calls variants from aligned BAM file using pre-trained model.
 
-### Basic usage
-**Args:** `-i input.fastq -r reference.fasta -o output.sam`
-**Explanation:** Align reads to a reference genome
+### Train custom model
+**Args:** `trainClairvoyante.py --train_bam train.bam --train_vcf train.vcf --ref reference.fa --output model.pb`
+**Explanation:** Trains a custom Clairvoyante model on labeled data.
+
+### Evaluate model
+**Args:** `evaluateClairvoyante.py --bam test.bam --vcf truth.vcf --ref reference.fa --model model.pb`
+**Explanation:** Evaluates model performance against truth variants.
+
+### Display help
+**Args:** `runClairvoyante.py --help`
+**Explanation:** Shows all available options and usage information.

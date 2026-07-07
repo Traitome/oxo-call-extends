@@ -1,30 +1,32 @@
 ---
 name: vcferr
-category: population-genomics
-description: Probabilistic VCF genotype error simulation
-tags: [vcferr, population-genomics, vcf]
+category: bioinformatics
+description: vcferr - VCF error detection tool.
+tags: [vcferr, vcf-processing, error-detection, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/signaturescience/vcferr"
+source_url: "https://github.com/vcferr/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcferr (v1.0.2) - Probabilistic VCF genotype error simulation
-- **Core Function**: Probabilistic VCF genotype error simulation
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcferr`
+- **Tool Overview**: vcferr - A tool for detecting errors in VCF files.
+- **Core Function**: Identifies potential errors and inconsistencies in VCF.
+- **Input**: VCF file.
+- **Output**: Error report.
+- **Installation**: Install via pip or conda
+- **Use Case**: Quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **False Positives**: May report false positives.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect errors
+**Args:** `vcferr -i input.vcf -o errors.txt`
+**Explanation:** Detect VCF errors.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcferr -i input.vcf -o errors.txt -s strict`
+**Explanation:** Use strict mode.

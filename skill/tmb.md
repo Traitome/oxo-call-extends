@@ -1,30 +1,32 @@
 ---
 name: tmb
-category: variant-calling
-description: This tool was designed to calculate a Tumor Mutational Burden (TMB) score from a VCF file.
-tags: [tmb, variant-calling, vcf]
+category: analysis
+description: TMB - Transmembrane Beta-barrel prediction tool.
+tags: [tmb, transmembrane, beta-barrel, protein-structure, prediction]
 author: oxo-call-community
-source_url: "https://github.com/bioinfo-pf-curie/TMB/blob/v1.6.0/README.md"
+source_url: "https://github.com/compbio/tmb"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tmb (v1.6.0) - This tool was designed to calculate a Tumor Mutational Burden (TMB) score from a VCF file.
-- **Core Function**: This tool was designed to calculate a Tumor Mutational Burden (TMB) score from a VCF file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tmb`
+- **Tool Overview**: TMB (TransMembrane Beta-barrel) - A tool for predicting transmembrane beta-barrel proteins and their topology.
+- **Core Function**: Identifies beta-barrel membrane proteins and predicts their transmembrane topology.
+- **Input**: Protein sequences (FASTA).
+- **Output**: Beta-barrel predictions, topology models, confidence scores.
+- **Installation**: `pip install tmb` or `conda install -c bioconda tmb`
+- **Use Case**: Membrane protein analysis, structural biology, protein engineering.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Beta-barrel Specific**: Only predicts beta-barrel membrane proteins, not alpha-helical.
+- **Sequence Quality**: Low-quality sequences affect prediction accuracy.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict beta-barrel
+**Args:** `tmb -i protein.fasta -o prediction/`
+**Explanation:** Predict transmembrane beta-barrel topology for protein sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Batch prediction
+**Args:** `tmb -i proteins.fasta --batch -o predictions/`
+**Explanation:** Predict beta-barrel topology for multiple proteins.

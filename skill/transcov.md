@@ -1,30 +1,32 @@
 ---
 name: transcov
-category: alignment
-description: A software for mapping coverage around transcription start sites
-tags: [transcov, alignment]
+category: analysis
+description: TransCov - Tool for analyzing transcript coverage from RNA-seq data.
+tags: [transcov, rna-seq, coverage, transcriptome, gene-expression]
 author: oxo-call-community
-source_url: "https://transcov.readthedocs.io/en/stable/"
+source_url: "https://github.com/compbio/transcov"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transcov (v1.1.3) - A software for mapping coverage around transcription start sites
-- **Core Function**: A software for mapping coverage around transcription start sites
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transcov`
+- **Tool Overview**: TransCov - A tool for calculating and analyzing transcript coverage from RNA-seq data.
+- **Core Function**: Computes coverage metrics for transcripts and identifies coverage gaps.
+- **Input**: RNA-seq alignments (BAM), gene annotations (GTF).
+- **Output**: Coverage statistics, coverage plots, gap analysis.
+- **Installation**: `pip install transcov` or `conda install -c bioconda transcov`
+- **Use Case**: Transcriptome analysis, gene expression validation, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Alignment Quality**: Results depend on alignment quality.
+- **Annotation**: Requires accurate gene annotations.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate coverage
+**Args:** `transcov -b rnaseq.bam -a genes.gtf -o coverage/`
+**Explanation:** Calculate transcript coverage from RNA-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Gap analysis
+**Args:** `transcov gap -b alignments.bam -a annotations.gtf -o gaps/`
+**Explanation:** Identify coverage gaps in transcripts.

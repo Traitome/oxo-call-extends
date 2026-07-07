@@ -1,30 +1,32 @@
 ---
 name: ucsc-countchars
 category: utility
-description: Count the number of occurrences of a particular char.
-tags: [ucsc-countchars, utility]
+description: UCSC countChars - Tool for counting characters.
+tags: [ucsc-countchars, ucsc, text-processing, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-countchars (v482) - Count the number of occurrences of a particular char.
-- **Core Function**: Count the number of occurrences of a particular char.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-countchars`
+- **Tool Overview**: UCSC countChars - A tool for counting characters in files.
+- **Core Function**: Counts characters, lines, or bytes in input files.
+- **Input**: Text file.
+- **Output**: Character count statistics.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text analysis, file statistics, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Encoding**: May require proper character encoding.
+- **Large Files**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Count characters
+**Args:** `countChars input.txt`
+**Explanation:** Count characters in file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Count lines
+**Args:** `countChars -lines input.txt`
+**Explanation:** Count lines in file.

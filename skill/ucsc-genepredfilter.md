@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredfilter
-category: qc
-description: Filter a genePred file.
-tags: [ucsc-genepredfilter, qc]
+category: utility
+description: UCSC genePredFilter - Tool for filtering gene predictions.
+tags: [ucsc-genepredfilter, ucsc, gene-prediction, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredfilter (v482) - Filter a genePred file.
-- **Core Function**: Filter a genePred file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredfilter`
+- **Tool Overview**: UCSC genePredFilter - A tool for filtering gene predictions.
+- **Core Function**: Filters gene predictions based on various criteria.
+- **Input**: Gene prediction file.
+- **Output**: Filtered gene predictions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene filtering, quality control, annotation refinement.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Filter Criteria**: Requires appropriate filter parameters.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter gene predictions
+**Args:** `genePredFilter -minExons=3 genes.txt > filtered.txt`
+**Explanation:** Filter by minimum exons.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With multiple filters
+**Args:** `genePredFilter -minExons=3 -minScore=100 genes.txt > filtered.txt`
+**Explanation:** Multiple filter criteria.

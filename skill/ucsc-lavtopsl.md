@@ -1,30 +1,32 @@
 ---
 name: ucsc-lavtopsl
-category: formatting
-description: Convert blastz lav to psl format.
-tags: [ucsc-lavtopsl, formatting]
+category: utility
+description: UCSC lavToPsl - Tool for converting LAV to PSL format.
+tags: [ucsc-lavtopsl, ucsc, lav, psl, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-lavtopsl (v482) - Convert blastz lav to psl format.
-- **Core Function**: Convert blastz lav to psl format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-lavtopsl`
+- **Tool Overview**: UCSC lavToPsl - A tool for converting LAV to PSL format.
+- **Core Function**: Converts LAV alignment format to PSL format.
+- **Input**: LAV file.
+- **Output**: PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment visualization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper LAV format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert LAV to PSL
+**Args:** `lavToPsl input.lav > output.psl`
+**Explanation:** Convert LAV to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `lavToPsl -score input.lav > output.psl`
+**Explanation:** Include score in output.

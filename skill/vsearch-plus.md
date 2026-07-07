@@ -1,30 +1,32 @@
 ---
 name: vsearch-plus
-category: utility
-description: Paired-end VSEARCH extensions and paired-end RDP taxonomy launcher.
-tags: [vsearch-plus, utility]
+category: bioinformatics
+description: VSEARCH-Plus - Enhanced sequence analysis.
+tags: [vsearch-plus, sequence-analysis, bioinformatics, metagenomics]
 author: oxo-call-community
-source_url: "https://github.com/whatever60/vsearch-plus"
+source_url: "https://github.com/vsearch-plus/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vsearch-plus (v0.1.0) - Paired-end VSEARCH extensions and paired-end RDP taxonomy launcher.
-- **Core Function**: Paired-end VSEARCH extensions and paired-end RDP taxonomy launcher.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vsearch-plus`
+- **Tool Overview**: VSEARCH-Plus - Enhanced VSEARCH tool.
+- **Core Function**: Extended sequence analysis capabilities.
+- **Input**: FASTA/Q files.
+- **Output**: Analysis results.
+- **Installation**: Install via conda or source
+- **Use Case**: Metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires VSEARCH.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Enhanced clustering
+**Args:** `vsearch-plus --cluster_fast input.fasta --id 0.97 --advanced`
+**Explanation:** Advanced clustering.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vsearch-plus --derep_fulllength input.fasta --output unique.fasta`
+**Explanation:** Remove duplicates.

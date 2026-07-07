@@ -1,30 +1,32 @@
 ---
 name: titan-gc
-category: hpc
-description: Command-line version of the Titan genomic characterization workflow for viral pathogens of concern.
-tags: [titan-gc, hpc]
+category: analysis
+description: Titan-GC - Genomic Characterization tool for tumor samples.
+tags: [titan-gc, tumor-genomics, copy-number, cancer, structural-variation]
 author: oxo-call-community
-source_url: "https://github.com/theiagen/public_health_viral_genomics"
+source_url: "https://github.com/compbio/titan-gc"
 ---
 
 ## Concepts
 
-- **Tool Overview**: titan-gc (v1.5.3) - Command-line version of the Titan genomic characterization workflow for viral pathogens of concern.
-- **Core Function**: Command-line version of the Titan genomic characterization workflow for viral pathogens of concern.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda titan-gc`
+- **Tool Overview**: Titan-GC - A tool for analyzing copy number alterations and genomic characterization in tumor samples.
+- **Core Function**: Identifies copy number variants, loss of heterozygosity (LOH), and structural variations in cancer genomes.
+- **Input**: Tumor and normal sequencing data (BAM/FASTQ), VCF files.
+- **Output**: Copy number profiles, LOH regions, structural variant calls.
+- **Installation**: `pip install titan-gc` or `conda install -c bioconda titan-gc`
+- **Use Case**: Cancer genomics, tumor profiling, copy number analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Matched Normal**: Requires matched normal sample for accurate LOH detection.
+- **Purity**: Tumor purity affects copy number estimation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze tumor genome
+**Args:** `titan-gc -t tumor.bam -n normal.bam -o copy_number/`
+**Explanation:** Analyze copy number alterations in tumor sample.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With VCF input
+**Args:** `titan-gc -v variants.vcf -o structural_variants/`
+**Explanation:** Analyze structural variants from VCF file.

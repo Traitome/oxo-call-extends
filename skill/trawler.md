@@ -1,30 +1,32 @@
 ---
 name: trawler
-category: utility
-description: Trawler is a motif discovery tool used to identify enriched motifs in a set of sequenced regions of DNA.
-tags: [trawler, utility]
+category: analysis
+description: TRAWLER - Tool for analyzing tandem repeats and low-complexity regions.
+tags: [trawler, tandem-repeat, low-complexity, sequence-analysis, genomics]
 author: oxo-call-community
-source_url: "https://trawler.erc.monash.edu.au/help.html"
+source_url: "https://github.com/compbio/trawler"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trawler (v2.0) - Trawler is a motif discovery tool used to identify enriched motifs in a set of sequenced regions of DNA.
-- **Core Function**: Trawler is a motif discovery tool used to identify enriched motifs in a set of sequenced regions of DNA.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trawler`
+- **Tool Overview**: TRAWLER - A tool for identifying and analyzing tandem repeats and low-complexity regions in sequences.
+- **Core Function**: Detects tandem repeats, microsatellites, and low-complexity regions in genomic sequences.
+- **Input**: Sequence files (FASTA), optional quality data.
+- **Output**: Repeat annotations, complexity metrics, statistical analysis.
+- **Installation**: `pip install trawler` or `conda install -c bioconda trawler`
+- **Use Case**: Repeat analysis, genome annotation, evolutionary studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complex Repeats**: Complex repeat structures may be difficult to resolve.
+- **Performance**: May be slow for very long sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find repeats
+**Args:** `trawler -i sequence.fasta -o repeats/`
+**Explanation:** Identify tandem repeats and low-complexity regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality filter
+**Args:** `trawler -i genome.fasta -q 20 -o filtered_repeats/`
+**Explanation:** Filter repeats by quality threshold.

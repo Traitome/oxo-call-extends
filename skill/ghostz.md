@@ -1,30 +1,43 @@
 ---
 name: ghostz
-category: formatting
-description: GHOSTZ is a highly efficient remote homologue detection tool.
-tags: [ghostz, formatting]
+category: homology-search
+description: ghostz - Highly efficient remote homologue detection tool.
+tags: [ghostz, homology-search, sequence-analysis, bioinformatics]
 author: oxo-call-community
 source_url: "http://www.bi.cs.titech.ac.jp/ghostz"
 ---
 
 ## Concepts
-
-- **Tool Overview**: ghostz (v1.0.2) - GHOSTZ is a highly efficient remote homologue detection tool.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda ghostz`
+- **Remote Homologue Detection**: Detects distant homologues.
+- **Efficient Algorithm**: Uses efficient search algorithm.
+- **Sequence Comparison**: Compares sequences.
+- **Database Search**: Searches sequence databases.
+- **Similarity Scoring**: Computes similarity scores.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Quality**: Requires high-quality database.
+- **Parameter Selection**: Requires parameter optimization.
+- **Computational Resources**: Requires computational resources.
+- **Result Validation**: Results should be validated.
+- **Memory Usage**: Large databases require memory.
 
 ## Examples
+### Search homologues
+**Args:** `ghostz search -d database.fasta -q query.fasta -o results.txt`
+**Explanation:** Searches for homologues.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `ghostz search -d database.fasta -q query.fasta -e 1e-10 -o results.txt`
+**Explanation:** Uses e-value threshold.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Build database
+**Args:** `ghostz make -d sequences.fasta -o database`
+**Explanation:** Creates search database.
+
+### Batch search
+**Args:** `ghostz search -d database -l queries.txt -o ./results/`
+**Explanation:** Searches multiple queries.
+
+### Generate report
+**Args:** `ghostz search -d database -q query.fasta -r -o report.html`
+**Explanation:** Generates search report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-expmatrixtobarchartbed
 category: utility
-description: Generate a barChart bed6+5 file from a matrix, meta data, and coordinates.
-tags: [ucsc-expmatrixtobarchartbed, utility]
+description: UCSC expMatrixToBarChartBed - Tool for converting expression matrix to BED.
+tags: [ucsc-expmatrixtobarchartbed, ucsc, expression, visualization, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/master/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-expmatrixtobarchartbed (v469) - Generate a barChart bed6+5 file from a matrix, meta data, and coordinates.
-- **Core Function**: Generate a barChart bed6+5 file from a matrix, meta data, and coordinates.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-expmatrixtobarchartbed`
+- **Tool Overview**: UCSC expMatrixToBarChartBed - A tool for converting expression matrices to BED format.
+- **Core Function**: Transforms gene expression data into BED format for visualization.
+- **Input**: Expression matrix file.
+- **Output**: BED file for bar chart display.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Expression visualization, genome browser tracks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Matrix Format**: Requires proper matrix format.
+- **Gene Names**: Requires matching gene identifiers.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert expression matrix
+**Args:** `expMatrixToBarChartBed matrix.txt > output.bed`
+**Explanation:** Convert expression matrix to BED.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `expMatrixToBarChartBed -normalize matrix.txt > output.bed`
+**Explanation:** Convert with normalization.

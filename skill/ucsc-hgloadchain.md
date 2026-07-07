@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadchain
 category: utility
-description: Load a generic Chain file into database.
-tags: [ucsc-hgloadchain, utility]
+description: UCSC hgLoadChain - Tool for loading chain files into database.
+tags: [ucsc-hgloadchain, ucsc, database, chain, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadchain (v482) - Load a generic Chain file into database.
-- **Core Function**: Load a generic Chain file into database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadchain`
+- **Tool Overview**: UCSC hgLoadChain - A tool for loading chain files into database.
+- **Core Function**: Loads chain alignment data into genome browser database.
+- **Input**: Chain file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, alignment data, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load chain to database
+**Args:** `hgLoadChain -db=hg38 -table=chain input.chain`
+**Explanation:** Load chain file to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadChain -db=hg38 -table=chain -verbose input.chain`
+**Explanation:** Load with verbose output.

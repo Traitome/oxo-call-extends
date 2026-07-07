@@ -1,22 +1,56 @@
 ---
 name: plasmar
 category: annotation
-description: Plasmid Like Assembly Sequence Matching Algorithm for Resistance (PLASMAR)
-tags: [plasmar, annotation]
+description: plasmar identifies antibiotic resistance plasmids.
+tags: [plasmar, annotation, antibiotic-resistance, plasmid]
 author: oxo-call-community
-source_url: "https://https://github.com/rastanton/PLASMAR"
+source_url: "https://github.com/rastanton/PLASMAR"
 ---
 
 ## Concepts
-- **Tool Overview**: Plasmid Like Assembly Sequence Matching Algorithm for Resistance (PLASMAR)
-- **Core Function**: Plasmid Like Assembly Sequence Matching Algorithm for Resistance (PLASMAR)
-- **Input/Output**: FASTA
-- **Installation**: `conda install -c bioconda plasmar`
+
+- **Tool Overview**: plasmar identifies resistance plasmids.
+- **Core Function**: Antibiotic resistance plasmid detection.
+- **Algorithm**: Uses sequence matching methods.
+- **Input Format**: Accepts assembly sequence files.
+- **Output**: Produces resistance plasmid results.
+- **Use Case**: Antibiotic resistance research.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on data quality.
+- **Detection Accuracy**: May have detection errors.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `plasmar --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Identify resistance plasmids
+**Args:** `plasmar -i assembly.fasta -o resistance_plasmids.txt`
+**Explanation:** Identifies antibiotic resistance plasmids.
+
+### With parameters
+**Args:** `plasmar -i assembly.fasta -p params.yaml -o resistance_plasmids.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `plasmar -v -i assembly.fasta -o resistance_plasmids.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `plasmar -t 4 -i assembly.fasta -o resistance_plasmids.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `plasmar -i assembly.fasta -o resistance_plasmids.gff --gff`
+**Explanation:** Outputs in GFF format.
+
+### Generate report
+**Args:** `plasmar -i assembly.fasta -o resistance_plasmids.txt --report report.html`
+**Explanation:** Generates HTML report.

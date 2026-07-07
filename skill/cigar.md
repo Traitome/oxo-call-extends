@@ -1,30 +1,44 @@
 ---
 name: cigar
 category: formatting
-description: manipulate SAM cigar strings
-tags: [cigar, formatting, SAM]
+description: Manipulate SAM CIGAR strings
+tags: [cigar, formatting, SAM, BAM, alignment, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/brentp/cigar"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cigar (v0.1.3) - manipulate SAM cigar strings
-- **Core Function**: manipulate SAM cigar strings
-- **Input/Output**: BAM/SAM alignment input/output
-- **Installation**: `conda install -c bioconda cigar`
+- **Tool Overview**: cigar provides utilities for manipulating and analyzing CIGAR strings from SAM/BAM alignment files.
+- **Core Function**: Parses, manipulates, and extracts information from CIGAR strings used in sequence alignment.
+- **Features**: CIGAR string parsing, length calculations, soft/hard clipping handling, and alignment statistics.
+- **Input**: CIGAR strings from SAM/BAM files or alignment data.
+- **Output**: Parsed CIGAR information, alignment statistics, and modified CIGAR strings.
+- **Application**: Alignment processing, variant calling, and sequence analysis.
+- **Installation**: Install via bioconda: `conda install -c bioconda cigar`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **CIGAR Format**: Requires properly formatted CIGAR strings.
+- **Clipping**: Soft and hard clipping require different handling.
+- **Indels**: Insertions and deletions affect coordinate calculations.
+- **Reference Length**: CIGAR operations must match reference length.
+- **Quality Scores**: May need additional quality filtering for soft-clipped regions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Parse CIGAR string
+**Args:** `cigar parse -c "100M2D50M"`
+**Explanation:** Parses and displays CIGAR string components.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Calculate alignment length
+**Args:** `cigar length -c "100M2D50M"`
+**Explanation:** Calculates total alignment length from CIGAR.
+
+### Extract clipped regions
+**Args:** `cigar clip -c "5S100M" -t soft`
+**Explanation:** Extracts soft-clipped portion from CIGAR.
+
+### Display help
+**Args:** `cigar --help`
+**Explanation:** Shows all available commands and options.

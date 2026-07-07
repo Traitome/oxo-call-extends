@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredtoprot
-category: annotation
-description: Create protein sequences by translating gene annotations.
-tags: [ucsc-genepredtoprot, annotation]
+category: utility
+description: UCSC genePredToProt - Tool for translating gene predictions to protein sequences.
+tags: [ucsc-genepredtoprot, ucsc, gene-prediction, translation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredtoprot (v482) - Create protein sequences by translating gene annotations.
-- **Core Function**: Create protein sequences by translating gene annotations.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredtoprot`
+- **Tool Overview**: UCSC genePredToProt - A tool for translating gene predictions to proteins.
+- **Core Function**: Translates gene predictions to amino acid sequences.
+- **Input**: Gene prediction file, FASTA genome.
+- **Output**: Protein FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Protein analysis, sequence translation, gene annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **FASTA Requirement**: Requires genome FASTA file.
+- **Frame Selection**: Requires correct reading frame.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Translate to protein
+**Args:** `genePredToProt genes.txt genome.fa > proteins.fa`
+**Explanation:** Translate gene predictions to proteins.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredToProt -noStop genes.txt genome.fa > proteins.fa`
+**Explanation:** Remove stop codons.

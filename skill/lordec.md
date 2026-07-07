@@ -1,30 +1,52 @@
 ---
 name: lordec
-category: utility
-description: A hybrid error correction program for long, PacBio reads
-tags: [lordec, utility]
+category: assembly
+description: LoRDEC - Hybrid error correction for long PacBio reads
+tags: [lordec, assembly, error-correction, PacBio, bioinformatics]
 author: oxo-call-community
 source_url: "http://www.atgc-montpellier.fr/lordec/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lordec v0.9 - A hybrid error correction program for long, PacBio reads.
-- **Core Function**: A hybrid error correction program for long, PacBio reads
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lordec`
+- **Error Correction**: Correcting sequencing errors in reads
+- **Hybrid Correction**: Combining short and long reads
+- **PacBio Reads**: Analysis of PacBio sequencing data
+- **Long-read Data**: Handling long-read sequencing data
+- **Sequence Correction**: Improving sequence accuracy
+- **Assembly Preparation**: Preparing reads for assembly
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect correction
+- **Short Read Requirement**: Requires short read data for hybrid correction
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Over-correction**: May over-correct valid variations
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Error correction
+**Args:** `lordec-correct -i long_reads.fastq -s short_reads.fastq -o corrected.fastq`
+**Explanation:** Corrects long reads using short reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### K-mer size
+**Args:** `lordec-correct -i long_reads.fastq -s short_reads.fastq -o corrected.fastq -k 21`
+**Explanation:** Uses k-mer size 21 for correction.
+
+### Threads
+**Args:** `lordec-correct -i long_reads.fastq -s short_reads.fastq -o corrected.fastq -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Error rate
+**Args:** `lordec-correct -i long_reads.fastq -s short_reads.fastq -o corrected.fastq -e 0.15`
+**Explanation:** Sets expected error rate to 15%.
+
+### Output format
+**Args:** `lordec-correct -i long_reads.fastq -s short_reads.fastq -o corrected.fasta -f fasta`
+**Explanation:** Outputs in FASTA format.
+
+### Verbose output
+**Args:** `lordec-correct -i long_reads.fastq -s short_reads.fastq -o corrected.fastq -v`
+**Explanation:** Provides detailed output.

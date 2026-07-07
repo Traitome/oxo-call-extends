@@ -1,30 +1,32 @@
 ---
 name: ucsc-axtchain
 category: alignment
-description: Chain together axt alignments.
-tags: [ucsc-axtchain, alignment]
+description: UCSC axtChain - Tool for aligning two genomes using chain format.
+tags: [ucsc-axtchain, ucsc, genome-alignment, chain-format, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-axtchain (v482) - Chain together axt alignments.
-- **Core Function**: Chain together axt alignments.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-axtchain`
+- **Tool Overview**: UCSC axtChain - A tool for creating pairwise genome alignments in chain format.
+- **Core Function**: Aligns two genomes and outputs alignments in chain format.
+- **Input**: Two genome sequences (FASTA), optional alignment hints.
+- **Output**: Chain format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome alignment, comparative genomics, synteny analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Alignment Time**: May be slow for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align genomes
+**Args:** `axtChain -linearGap=medium target.fa query.fa output.chain`
+**Explanation:** Create chain alignment between two genomes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With netting
+**Args:** `axtChain -preNet target.fa query.fa chain.raw chain.net`
+**Explanation:** Create alignment with pre-netting.

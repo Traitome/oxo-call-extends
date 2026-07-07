@@ -1,30 +1,32 @@
 ---
 name: ucsc-paranodestatus
 category: utility
-description: Check status of paraNode on a list of machines.
-tags: [ucsc-paranodestatus, utility]
+description: UCSC paraNodeStatus - Tool for checking parallel node status.
+tags: [ucsc-paranodestatus, ucsc, parallel, node, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-paranodestatus (v482) - Check status of paraNode on a list of machines.
-- **Core Function**: Check status of paraNode on a list of machines.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-paranodestatus`
+- **Tool Overview**: UCSC paraNodeStatus - A tool for checking parallel node status.
+- **Core Function**: Reports status of parallel processing nodes.
+- **Input**: Node identifier.
+- **Output**: Node status information.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Cluster management, monitoring, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Permissions**: Requires proper permissions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check node status
+**Args:** `paraNodeStatus node_id`
+**Explanation:** Check parallel node status.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraNodeStatus -detailed node_id`
+**Explanation:** Detailed status information.

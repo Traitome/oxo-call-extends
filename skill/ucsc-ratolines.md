@@ -1,30 +1,32 @@
 ---
 name: ucsc-ratolines
 category: utility
-description: Output .ra file stanzas as single lines, with pipe-separated fields.
-tags: [ucsc-ratolines, utility]
+description: UCSC raToLines - Tool for converting ra to lines.
+tags: [ucsc-ratolines, ucsc, ra, lines, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-ratolines (v482) - Output .ra file stanzas as single lines, with pipe-separated fields.
-- **Core Function**: Output .ra file stanzas as single lines, with pipe-separated fields.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-ratolines`
+- **Tool Overview**: UCSC raToLines - A tool for converting ra format to lines.
+- **Core Function**: Converts ra format to line-based format.
+- **Input**: ra file.
+- **Output**: Line-based output.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper ra format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert ra to lines
+**Args:** `raToLines input.ra > output.txt`
+**Explanation:** Convert ra to lines.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `raToLines -verbose input.ra > output.txt`
+**Explanation:** Convert with verbose output.

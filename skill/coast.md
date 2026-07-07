@@ -1,30 +1,44 @@
 ---
 name: coast
 category: alignment
-description: Alignment search tool that identifies similar proteomes.
-tags: [coast, alignment]
+description: Alignment search tool that identifies similar proteomes
+tags: [coast, proteomics, sequence-comparison, bioinformatics, comparative-genomics]
 author: oxo-call-community
 source_url: "https://gitlab.com/coast_tool/COAST"
 ---
 
 ## Concepts
 
-- **Tool Overview**: coast (v0.2.2) - Alignment search tool that identifies similar proteomes.
-- **Core Function**: Alignment search tool that identifies similar proteomes.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda coast`
+- **Tool Overview**: COAST is an alignment search tool designed to identify similar proteomes across different organisms using sequence comparison.
+- **Core Function**: Compares proteomes to find similarities and evolutionary relationships between organisms.
+- **Algorithm**: Uses sequence alignment and similarity scoring to identify related proteomes.
+- **Input**: Protein sequences in FASTA format.
+- **Output**: Similarity scores and alignment results between proteomes.
+- **Application**: Comparative genomics, evolutionary biology, and proteome analysis.
+- **Installation**: Install via bioconda: `conda install -c bioconda coast`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Sequence Quality**: Requires high-quality protein sequences.
+- **Computational Resources**: May require significant resources for large proteomes.
+- **Parameter Tuning**: May require adjustment of similarity thresholds.
+- **Memory Usage**: May require significant memory for large datasets.
+- **Result Interpretation**: Similarity scores require careful interpretation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Compare proteomes
+**Args:** `coast -i proteome1.fasta proteome2.fasta -o results.txt`
+**Explanation:** Compares two proteomes and outputs similarity results.
 
-### Basic usage
-**Args:** `-i input.fastq -r reference.fasta -o output.sam`
-**Explanation:** Align reads to a reference genome
+### With custom thresholds
+**Args:** `coast -i proteome1.fasta proteome2.fasta -t 0.8 -o results.txt`
+**Explanation:** Sets similarity threshold to 0.8.
+
+### Batch comparison
+**Args:** `coast -i *.fasta -o comparison_matrix.txt`
+**Explanation:** Compares multiple proteomes against each other.
+
+### Display help
+**Args:** `coast --help`
+**Explanation:** Shows all available options and usage information.

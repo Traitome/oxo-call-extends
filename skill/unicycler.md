@@ -1,30 +1,32 @@
 ---
 name: unicycler
 category: assembly
-description: Hybrid assembly pipeline for bacterial genomes.
-tags: [unicycler, assembly]
+description: Unicycler - Hybrid genome assembly tool.
+tags: [unicycler, genome-assembly, hybrid, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/rrwick/Unicycler/wiki"
+source_url: "https://github.com/rrwick/Unicycler"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unicycler (v0.5.1) - Hybrid assembly pipeline for bacterial genomes.
-- **Core Function**: Hybrid assembly pipeline for bacterial genomes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unicycler`
+- **Tool Overview**: Unicycler - A tool for hybrid genome assembly using short and long reads.
+- **Core Function**: Assembles genomes from Illumina and long-read sequencing data.
+- **Input**: Short reads (FASTQ), long reads (FASTQ).
+- **Output**: Assembled genome (FASTA).
+- **Installation**: Install via conda or source
+- **Use Case**: Genome assembly, microbial genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Computation Time**: May be slow for complex genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `unicycler -1 reads_1.fastq -2 reads_2.fastq -l long_reads.fastq -o assembly/`
+**Explanation:** Assemble genome from short and long reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unicycler -1 reads_1.fastq -2 reads_2.fastq -l long_reads.fastq -o assembly/ --min_fasta_length 1000`
+**Explanation:** Set minimum contig length.

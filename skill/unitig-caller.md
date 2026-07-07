@@ -1,30 +1,32 @@
 ---
 name: unitig-caller
-category: utility
-description: Determines presence/absence of sequence elements in bacterial sequence data.
-tags: [unitig-caller, utility]
+category: bioinformatics
+description: Unitig-Caller - Tool for calling unitigs from assemblies.
+tags: [unitig-caller, unitigs, assembly, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/bacpop/unitig-caller"
+source_url: "https://github.com/unitig-caller/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unitig-caller (v1.3.2) - Determines presence/absence of sequence elements in bacterial sequence data.
-- **Core Function**: Determines presence/absence of sequence elements in bacterial sequence data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unitig-caller`
+- **Tool Overview**: Unitig-Caller - A tool for extracting unitigs from assemblies.
+- **Core Function**: Identifies and extracts unitigs from sequence assemblies.
+- **Input**: Assembly file (FASTA).
+- **Output**: Unitigs file.
+- **Installation**: Install via conda or source
+- **Use Case**: Assembly analysis, graph-based genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large assemblies.
+- **Complexity**: May be slow for highly fragmented assemblies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call unitigs
+**Args:** `unitig-caller -i assembly.fasta -o unitigs.fasta`
+**Explanation:** Extract unitigs from assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unitig-caller -i assembly.fasta -o unitigs.fasta -min_length 100`
+**Explanation:** Set minimum unitig length.

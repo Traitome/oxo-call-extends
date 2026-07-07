@@ -1,30 +1,32 @@
 ---
 name: yamllint
-category: utility
-description: A linter for YAML files.
-tags: [yamllint, utility]
+category: bioinformatics
+description: yamllint - YAML linter.
+tags: [yamllint, yaml, linting, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/adrienverge/yamllint"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yamllint (v1.2.1) - A linter for YAML files.
-- **Core Function**: A linter for YAML files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yamllint`
+- **Tool Overview**: yamllint - YAML file linter.
+- **Core Function**: Validates YAML files.
+- **Input**: YAML file.
+- **Output**: Lint results.
+- **Installation**: Install via pip
+- **Use Case**: Code quality, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Strictness**: May require configuration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Lint YAML
+**Args:** `yamllint config.yaml`
+**Explanation:** Lint YAML file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yamllint -f pretty config.yaml`
+**Explanation:** Pretty output.

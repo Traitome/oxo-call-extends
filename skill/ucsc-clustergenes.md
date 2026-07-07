@@ -1,30 +1,32 @@
 ---
 name: ucsc-clustergenes
-category: hpc
-description: Cluster genes from genePred tracks
-tags: [ucsc-clustergenes, hpc]
+category: analysis
+description: UCSC clusterGenes - Tool for clustering genes.
+tags: [ucsc-clustergenes, ucsc, gene-clustering, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-clustergenes (v377) - Cluster genes from genePred tracks
-- **Core Function**: Cluster genes from genePred tracks
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-clustergenes`
+- **Tool Overview**: UCSC clusterGenes - A tool for clustering gene annotations.
+- **Core Function**: Groups genes into clusters based on overlap or proximity.
+- **Input**: Gene annotation file.
+- **Output**: Clustered gene file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene analysis, functional annotation, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Cluster Parameters**: Requires appropriate clustering thresholds.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster genes
+**Args:** `clusterGenes genes.bed > clusters.bed`
+**Explanation:** Cluster genes based on overlap.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With distance
+**Args:** `clusterGenes -maxDistance=1000 genes.bed > clusters.bed`
+**Explanation:** Cluster with maximum distance threshold.

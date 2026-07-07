@@ -1,30 +1,39 @@
 ---
 name: czlab_perl_lib
 category: formatting
-description: mCross Perl script
-tags: [czlab_perl_lib, formatting]
+description: Perl library for mCross - RNA-protein cross-link site identification
+tags: [czlab_perl_lib, formatting, Perl, RNA-protein, cross-linking]
 author: oxo-call-community
 source_url: "https://github.com/huijfeng/czlab_perl_lib"
 ---
 
 ## Concepts
 
-- **Tool Overview**: czlab_perl_lib (v1.0.1) - mCross Perl script
-- **Core Function**: czlab_per_lib is the core CLI and perl library used in mCross, which is a bioinformatic tool to identify RNA-protein cross-link sites. See details of the methods in Feng et al. (2019), Modeling the in...
-- **Input/Output**: Standard bioinformatics formats
+- **Tool Overview**: czlab_perl_lib (v1.0.1+) is a Perl library used in mCross for identifying RNA-protein cross-link sites.
+- **Core Function**: Provides core functionality for analyzing CLIP-seq data to identify RNA-protein interaction sites.
+- **Input/Output**: Input: Sequencing reads, cross-link data. Output: Cross-link site annotations, statistics.
+- **Algorithm**: Implements methods described in Feng et al. (2019) for modeling RNA-protein cross-linking events.
+- **Key Features**: Cross-link site identification, statistical analysis, integration with mCross pipeline.
 - **Installation**: `conda install -c bioconda czlab_perl_lib`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Perl Dependencies**: Requires Perl and specific Perl modules.
+- **Data Format**: Requires specific input format for cross-link data.
+- **Reference Genome**: Requires properly formatted reference genome.
+- **Memory Usage**: Large datasets may require significant memory.
+- **Documentation**: Limited documentation available; refer to original publication.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run mCross pipeline
+**Args:** `mCross.pl -i reads.fastq -r reference.fasta -o crosslink_sites.txt`
+**Explanation:** Identify RNA-protein cross-link sites using mCross.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Analyze cross-link data
+**Args:** `czlab_analyze.pl -i crosslink_data.txt -o results.txt`
+**Explanation:** Perform statistical analysis on cross-link data.
+
+### Generate visualization
+**Args:** `czlab_plot.pl -i crosslink_sites.txt -o plot.png`
+**Explanation:** Generate visualization of cross-link site distribution.

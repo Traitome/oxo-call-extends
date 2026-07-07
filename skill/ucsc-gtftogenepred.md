@@ -1,30 +1,32 @@
 ---
 name: ucsc-gtftogenepred
-category: formatting
-description: Convert a GTF file to a genePred.
-tags: [ucsc-gtftogenepred, formatting]
+category: utility
+description: UCSC gtfToGenePred - Tool for converting GTF to genePred.
+tags: [ucsc-gtftogenepred, ucsc, gtf, gene-prediction, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-gtftogenepred (v482) - Convert a GTF file to a genePred.
-- **Core Function**: Convert a GTF file to a genePred.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-gtftogenepred`
+- **Tool Overview**: UCSC gtfToGenePred - A tool for converting GTF to genePred format.
+- **Core Function**: Converts GTF annotations to genePred format.
+- **Input**: GTF file.
+- **Output**: genePred format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome annotation, gene prediction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper GTF format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert GTF to genePred
+**Args:** `gtfToGenePred input.gtf > genes.txt`
+**Explanation:** Convert GTF to genePred format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `gtfToGenePred -geneNameAsName2 input.gtf > genes.txt`
+**Explanation:** Use gene name as name2 field.

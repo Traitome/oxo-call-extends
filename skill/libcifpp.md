@@ -1,30 +1,52 @@
 ---
 name: libcifpp
-category: variant-calling
-description: Library containing code to manipulate mmCIF and PDB files.
-tags: [libcifpp, variant-calling]
+category: structural-biology
+description: Library for manipulating mmCIF and PDB structure files
+tags: [libcifpp, structural-biology, mmCIF, PDB, protein-structure]
 author: oxo-call-community
 source_url: "https://github.com/PDB-REDO/libcifpp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libcifpp v10.0.3 - This library, libcifpp, is a generic CIF library with some specific additions to work with mmCIF files. The main focus of this library is to make sure that files read or written are valid. That is, they are syntactically valid and their content is valid with respect to a CIF dictionary, if such a dictionary is available and specified..
-- **Core Function**: Library containing code to manipulate mmCIF and PDB files.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libcifpp`
+- **mmCIF Handling**: Manipulation of mmCIF format files
+- **PDB Support**: Support for PDB format
+- **Validation**: Ensures file validity against dictionaries
+- **Data Parsing**: Parsing and processing structural data
+- **File Conversion**: Conversion between formats
+- **Dictionary Validation**: Validates against CIF dictionaries
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Format Complexity**: mmCIF format is complex
+- **Dictionary Dependencies**: Requires proper dictionary files
+- **Version Incompatibilities**: Different mmCIF versions
+- **Large Files**: Very large structure files may cause issues
+- **Memory Usage**: Memory-intensive for large structures
+- **Parsing Errors**: Invalid files may cause parsing failures
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Read mmCIF file
+**Args:** `cifpp read -i structure.cif -o parsed.json`
+**Explanation:** Reads and parses mmCIF file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Validate file
+**Args:** `cifpp validate -i structure.cif -d dictionary.dic`
+**Explanation:** Validates mmCIF against dictionary.
+
+### Convert to PDB
+**Args:** `cifpp convert -i structure.cif -o structure.pdb`
+**Explanation:** Converts mmCIF to PDB format.
+
+### Extract data
+**Args:** `cifpp extract -i structure.cif -f author -o author.txt`
+**Explanation:** Extracts specific field from mmCIF.
+
+### Modify file
+**Args:** `cifpp modify -i structure.cif -s title="New Title" -o modified.cif`
+**Explanation:** Modifies field in mmCIF file.
+
+### Statistics
+**Args:** `cifpp stats -i structure.cif`
+**Explanation:** Shows file statistics.

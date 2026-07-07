@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafcoverage
 category: utility
-description: Analyse coverage by maf files - chromosome by.
-tags: [ucsc-mafcoverage, utility]
+description: UCSC mafCoverage - Tool for calculating coverage from MAF.
+tags: [ucsc-mafcoverage, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafcoverage (v482) - Analyse coverage by maf files - chromosome by.
-- **Core Function**: Analyse coverage by maf files - chromosome by.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafcoverage`
+- **Tool Overview**: UCSC mafCoverage - A tool for calculating coverage from MAF alignments.
+- **Core Function**: Computes coverage statistics from MAF alignments.
+- **Input**: MAF file.
+- **Output**: Coverage statistics.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment analysis, coverage analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate coverage
+**Args:** `mafCoverage input.maf > coverage.txt`
+**Explanation:** Calculate coverage from MAF alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafCoverage -species=hg38 input.maf > coverage.txt`
+**Explanation:** Calculate coverage for specific species.

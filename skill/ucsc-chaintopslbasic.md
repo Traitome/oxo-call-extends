@@ -1,30 +1,32 @@
 ---
 name: ucsc-chaintopslbasic
-category: formatting
-description: Basic conversion chain file to psl format.
-tags: [ucsc-chaintopslbasic, formatting]
+category: utility
+description: UCSC chainToPslBasic - Tool for converting chains to basic PSL format.
+tags: [ucsc-chaintopslbasic, ucsc, format-conversion, chain, psl]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chaintopslbasic (v482) - Basic conversion chain file to psl format.
-- **Core Function**: Basic conversion chain file to psl format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chaintopslbasic`
+- **Tool Overview**: UCSC chainToPslBasic - A tool for converting chain alignments to basic PSL format.
+- **Core Function**: Converts chain format to simplified PSL format.
+- **Input**: Chain alignment file.
+- **Output**: Basic PSL format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, simplified alignment output.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Limitation**: Produces basic PSL without full features.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to basic PSL
+**Args:** `chainToPslBasic input.chain > output.psl`
+**Explanation:** Convert chain to basic PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With FASTA
+**Args:** `chainToPslBasic -fasta target.fa input.chain > output.psl`
+**Explanation:** Convert with FASTA sequence information.

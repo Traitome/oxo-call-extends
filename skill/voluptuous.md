@@ -1,30 +1,32 @@
 ---
 name: voluptuous
-category: programming
-description: Python data validation library
-tags: [voluptuous, programming]
+category: bioinformatics
+description: Voluptuous - Schema validation library.
+tags: [voluptuous, schema-validation, python, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/alecthomas/voluptuous"
 ---
 
 ## Concepts
 
-- **Tool Overview**: voluptuous (v0.8.8) - Python data validation library
-- **Core Function**: Python data validation library
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda voluptuous`
+- **Tool Overview**: Voluptuous - Python schema validation library.
+- **Core Function**: Validates data structures against schemas.
+- **Input**: Data and schema.
+- **Output**: Validation result.
+- **Installation**: Install via pip
+- **Use Case**: Data validation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: Schema definition may be complex.
+- **Versioning**: Schema changes may break validation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate data
+**Args:** `python -c "from voluptuous import Schema; s = Schema({'name': str})"`
+**Explanation:** Define and use schema.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "s({'name': 'test'})"`
+**Explanation:** Validate data against schema.

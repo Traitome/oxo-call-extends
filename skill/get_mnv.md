@@ -1,30 +1,43 @@
 ---
 name: get_mnv
 category: variant-calling
-description: Tool to identify Multi-Nucleotide Variants (MNVs) in genomic sequences.
-tags: [get_mnv, variant-calling, SAM]
+description: get_mnv - Tool to identify Multi-Nucleotide Variants (MNVs) in genomic sequences.
+tags: [get_mnv, variant-calling, MNV, genomic-variants]
 author: oxo-call-community
 source_url: "https://github.com/PathoGenOmics-Lab/get_mnv"
 ---
 
 ## Concepts
-
-- **Tool Overview**: get_mnv (v1.1.2) - Tool to identify Multi-Nucleotide Variants (MNVs) in genomic sequences.
-- **Core Function**: Provides functionality for variant-calling tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda get_mnv`
+- **MNV Detection**: Identifies multi-nucleotide variants.
+- **Variant Calling**: Calls variants from sequencing data.
+- **SNP Analysis**: Analyzes single nucleotide polymorphisms.
+- **Indel Detection**: Detects insertions and deletions.
+- **Genomic Variation**: Analyzes genomic variation.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Input Quality**: Requires high-quality sequencing data.
+- **Mapping Quality**: Depends on read mapping quality.
+- **False Positives**: May detect false MNVs.
+- **Parameter Sensitivity**: Results sensitive to parameters.
+- **Validation**: Results should be validated.
 
 ## Examples
+### Call MNVs
+**Args:** `get_mnv -i variants.vcf -o mnvs.vcf`
+**Explanation:** Identifies MNVs from VCF file.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With BAM input
+**Args:** `get_mnv -b aligned.bam -r genome.fasta -o mnvs.vcf`
+**Explanation:** Calls MNVs directly from BAM file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Filter by quality
+**Args:** `get_mnv -i variants.vcf -q 30 -o mnvs.vcf`
+**Explanation:** Filters MNVs by quality score.
+
+### Batch processing
+**Args:** `get_mnv -l vcfs.txt -o ./mnvs/`
+**Explanation:** Processes multiple VCF files.
+
+### Generate report
+**Args:** `get_mnv -i variants.vcf -r -o report.html`
+**Explanation:** Generates MNV detection report.

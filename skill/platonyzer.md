@@ -1,22 +1,56 @@
 ---
 name: platonyzer
 category: utility
-description: An application to create restraints for metal sites
-tags: [platonyzer, utility]
+description: platonyzer creates restraints for metal sites.
+tags: [platonyzer, utility, metal-sites, restraints]
 author: oxo-call-community
 source_url: "https://github.com/PDB-REDO/platonyzer"
 ---
 
 ## Concepts
-- **Tool Overview**: This is the repository for platonyzer, an application to create restraints for metal sites. This program is part of the [PDB-REDO](https://pdb-redo.eu/) suite of programs.
-- **Core Function**: An application to create restraints for metal sites
-- **Input/Output**: Various formats
-- **Installation**: `conda install -c bioconda platonyzer`
+
+- **Tool Overview**: platonyzer creates metal site restraints.
+- **Core Function**: Metal site restraint generation.
+- **Algorithm**: Uses structural analysis methods.
+- **Input Format**: Accepts PDB structure files.
+- **Output**: Produces restraint definitions.
+- **Use Case**: Protein structure refinement, crystallography.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large structures require memory.
+- **Data Quality**: Results depend on structure quality.
+- **Restraint Accuracy**: May have restraint errors.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `platonyzer --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Process structure
+**Args:** `platonyzer -i structure.pdb -o restraints.txt`
+**Explanation:** Creates restraints for metal sites.
+
+### With parameters
+**Args:** `platonyzer -i structure.pdb -p params.yaml -o restraints.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `platonyzer -v -i structure.pdb -o restraints.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `platonyzer -t 4 -i structure.pdb -o restraints.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `platonyzer -i structure.pdb -o restraints.cif --cif`
+**Explanation:** Outputs in CIF format.
+
+### Generate report
+**Args:** `platonyzer -i structure.pdb -o restraints.txt --report report.html`
+**Explanation:** Generates HTML report.

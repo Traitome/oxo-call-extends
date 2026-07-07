@@ -1,30 +1,32 @@
 ---
 name: zavolan-multiqc-plugins
-category: qc
-description: MultiQC plugins for the Zavolan Lab@ University of Basel, Switzerland
-tags: [zavolan-multiqc-plugins, qc]
+category: bioinformatics
+description: Zavolan-MultiQC-Plugins - MultiQC plugins.
+tags: [zavolan-multiqc-plugins, multiqc, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/zavolanlab/multiqc-plugins"
+source_url: "https://github.com/zavolan-multiqc-plugins/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zavolan-multiqc-plugins (v1.3) - MultiQC plugins for the Zavolan Lab@ University of Basel, Switzerland
-- **Core Function**: MultiQC plugins for the Zavolan Lab@ University of Basel, Switzerland
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zavolan-multiqc-plugins`
+- **Tool Overview**: Zavolan-MultiQC-Plugins - MultiQC plugin collection.
+- **Core Function**: Extends MultiQC functionality.
+- **Input**: MultiQC report.
+- **Output**: Enhanced report.
+- **Installation**: Install via pip
+- **Use Case**: Quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires MultiQC.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Use plugin
+**Args:** `multiqc . -p zavolan_plugin`
+**Explanation:** Run MultiQC with plugin.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `multiqc . -p zavolan_plugin -o report/`
+**Explanation:** Output to directory.

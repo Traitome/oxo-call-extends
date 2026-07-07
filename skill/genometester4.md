@@ -1,30 +1,43 @@
 ---
 name: genometester4
-category: programming
-description: A toolkit for performing set operations - union, intersection and complement - on k-mer lists.
-tags: [genometester4, programming]
+category: k-mer-analysis
+description: GenomeTester4 - A toolkit for performing set operations on k-mer lists.
+tags: [genometester4, k-mer, set-operations, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/bioinfo-ut/GenomeTester4"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genometester4 (v4.0) - A toolkit for performing set operations - union, intersection and complement - on k-mer lists.
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genometester4`
+- **k-mer Operations**: Performs set operations on k-mer lists.
+- **Set Theory**: Applies set theory to genomic data.
+- **Sequence Analysis**: Analyzes sequences using k-mers.
+- **Data Comparison**: Compares k-mer profiles.
+- **Genome Comparison**: Compares genomes using k-mers.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large k-mer lists require significant memory.
+- **k-mer Size**: Results depend on k-mer size.
+- **Computational Time**: Large datasets require time.
+- **Result Interpretation**: Requires careful interpretation.
+- **Format Compatibility**: Requires specific input formats.
 
 ## Examples
+### Union of k-mer sets
+**Args:** `gt4-union -i kmers1.txt kmers2.txt -o union.txt`
+**Explanation:** Computes union of two k-mer sets.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Intersection of k-mer sets
+**Args:** `gt4-intersect -i kmers1.txt kmers2.txt -o intersection.txt`
+**Explanation:** Computes intersection of two k-mer sets.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Complement of k-mer sets
+**Args:** `gt4-complement -i kmers.txt -d all_kmers.txt -o complement.txt`
+**Explanation:** Computes complement of k-mer set.
+
+### Count k-mers
+**Args:** `gt4-count -i genome.fasta -k 21 -o kmer_counts.txt`
+**Explanation:** Counts k-mers in genome.
+
+### Batch processing
+**Args:** `gt4-union -i ./kmer_files/ -o union.txt`
+**Explanation:** Computes union of multiple k-mer files.

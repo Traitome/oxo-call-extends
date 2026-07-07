@@ -1,30 +1,52 @@
 ---
 name: libdb
-category: utility
-description: The Berkeley DB embedded database system.
-tags: [libdb, utility]
+category: database
+description: Berkeley DB embedded database system
+tags: [libdb, database, berkeley-db, embedded, key-value]
 author: oxo-call-community
 source_url: "http://www.oracle.com/technology/software/products/berkeley-db/index.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libdb v6.1.26 - The Berkeley DB embedded database system..
-- **Core Function**: The Berkeley DB embedded database system.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libdb`
+- **Embedded Database**: Embedded key-value store
+- **Transaction Support**: ACID-compliant transactions
+- **Multiple Data Models**: Supports B-tree, hash, queue, and recno
+- **High Performance**: Optimized for speed
+- **Concurrent Access**: Multi-threaded access support
+- **Recovery**: Automatic recovery from crashes
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Management**: Manual memory handling required
+- **Locking Issues**: Deadlocks possible with concurrent access
+- **File Corruption**: Database corruption possible
+- **Backup Strategy**: Requires proper backup procedures
+- **Version Migration**: Database format may change between versions
+- **Size Limitations**: Database size limits depending on configuration
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create database
+**Args:** `db_create -d btree -h database/`
+**Explanation:** Creates B-tree database.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Insert record
+**Args:** `db_put -h database/ -k key1 -v value1`
+**Explanation:** Inserts key-value pair.
+
+### Retrieve record
+**Args:** `db_get -h database/ -k key1`
+**Explanation:** Retrieves value by key.
+
+### Delete record
+**Args:** `db_del -h database/ -k key1`
+**Explanation:** Deletes record by key.
+
+### Backup database
+**Args:** `db_backup -h database/ -o backup/`
+**Explanation:** Creates database backup.
+
+### Statistics
+**Args:** `db_stat -h database/`
+**Explanation:** Shows database statistics.

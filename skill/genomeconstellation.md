@@ -1,30 +1,43 @@
 ---
 name: genomeconstellation
-category: utility
-description: Fast, accurate and versatile k-mer based classification system.
-tags: [genomeconstellation, utility]
+category: classification
+description: Genome Constellation - Fast, accurate and versatile k-mer based classification system.
+tags: [genomeconstellation, k-mer, classification, metagenomics]
 author: oxo-call-community
 source_url: "https://bitbucket.org/berkeleylab/jgi-genomeconstellation"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genomeconstellation (v0.21.1) - Fast, accurate and versatile k-mer based classification system.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genomeconstellation`
+- **k-mer Classification**: Uses k-mer based classification.
+- **Genome Classification**: Classifies genomes based on k-mer profiles.
+- **Metagenomic Analysis**: Analyzes metagenomic data.
+- **Fast Comparison**: Enables fast genome comparison.
+- **Taxonomic Identification**: Identifies taxonomic relationships.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **k-mer Size Selection**: Results depend on k-mer size.
+- **Memory Usage**: Large k-mer databases require significant memory.
+- **Database Building**: Requires time to build k-mer databases.
+- **Sensitivity**: May miss divergent sequences.
+- **False Positives**: May have false positive matches.
 
 ## Examples
+### Build k-mer index
+**Args:** `genomeconstellation build -i genomes.fasta -o index/`
+**Explanation:** Builds k-mer index from reference genomes.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify sequence
+**Args:** `genomeconstellation classify -i query.fasta -d index/ -o results.txt`
+**Explanation:** Classifies query sequence using k-mer index.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Compare genomes
+**Args:** `genomeconstellation compare -i genome1.fasta genome2.fasta -o comparison.txt`
+**Explanation:** Compares two genomes using k-mers.
+
+### Batch classification
+**Args:** `genomeconstellation classify -i ./queries/ -d index/ -o ./results/`
+**Explanation:** Classifies multiple sequences in batch.
+
+### Generate report
+**Args:** `genomeconstellation classify -i query.fasta -d index/ -r -o report.html`
+**Explanation:** Generates detailed classification report.

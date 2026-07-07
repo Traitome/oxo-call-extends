@@ -1,30 +1,36 @@
 ---
 name: thapbi-pict
-category: metagenomics
-description: THAPBI Phytophthora ITS1 Classifier Tool (PICT).
-tags: [thapbi-pict, metagenomics]
+category: analysis
+description: THapBI - fungal metabarcoding analysis pipeline for Phytophthora detection.
+tags: [thapbi-pict, metabarcoding, fungi, phytophthora, its, pathogen-detection, ngs]
 author: oxo-call-community
-source_url: "https://thapbi-pict.readthedocs.io/en/latest/"
+source_url: "https://github.com/peterjc/thapbi-pict"
 ---
 
 ## Concepts
 
-- **Tool Overview**: thapbi-pict (v1.0.22) - THAPBI Phytophthora ITS1 Classifier Tool (PICT).
-- **Core Function**: THAPBI Phytophthora ITS1 Classifier Tool (PICT).
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda thapbi-pict`
+- **Tool Overview**: THapBI (Tools for Haplotype Analysis of Phytophthora barcode markers) - A pipeline for metabarcoding analysis of fungal and Phytophthora species from environmental samples.
+- **Core Function**: Processes ITS barcode amplicon sequencing data for identification and quantification of Phytophthora and other oomycete species.
+- **Input**: ITS1 or ITS2 amplicon sequencing reads (FASTQ), barcode/marker database.
+- **Output**: Species identification reports, abundance tables, phylogenetic placements.
+- **Installation**: `pip install thapbi-pict` or `conda install -c bioconda thapbi-pict`
+- **Use Case**: Phytophthora detection in environmental samples, plant disease surveillance, biodiversity surveys.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **ITS Marker**: Relies on ITS barcode markers - may not resolve closely related species.
+- **Database Quality**: Species identification accuracy depends on reference database completeness.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Basic ITS analysis
+**Args:** `thapbi_pict import -i reads.fastq.gz -o analysis/`
+**Explanation:** Import and analyze ITS amplicon reads for Phytophthora detection.
 
-### Basic usage
-**Args:** `thapbi-pict -i <input.fastq> -d <database> -o <output_dir>`
-**Explanation:** Run thapbi-pict with typical input and output options.
+### Sample comparison
+**Args:** `thapbi_pict compare -s sample1.tsv -s sample2.tsv -o comparison/`
+**Explanation:** Compare Phytophthora communities between samples.
+
+### Report generation
+**Args:** `thapbi_pict summary -i results/ -o report.pdf`
+**Explanation:** Generate summary report of metabarcoding analysis.

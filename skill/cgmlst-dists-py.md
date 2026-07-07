@@ -1,30 +1,43 @@
 ---
 name: cgmlst-dists-py
-category: utility
-description: High-performance pairwise Hamming distance calculator for cgMLST data with GPU acceleration.
-tags: [cgmlst-dists-py, utility]
+category: genomics
+description: High-performance pairwise Hamming distance calculator for cgMLST data with GPU acceleration
+tags: [cgmlst-dists-py, cgmlst, distance-matrix, gpu, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/genpat-it/cgmlst-dists-py"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgmlst-dists-py (v0.1.3) - High-performance pairwise Hamming distance calculator for cgMLST data with GPU acceleration.
-- **Core Function**: High-performance pairwise Hamming distance calculator for cgMLST data with GPU acceleration.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgmlst-dists-py`
+- **Tool Overview**: cgmlst-dists-py is a high-performance pairwise Hamming distance calculator optimized for cgMLST data with optional GPU acceleration.
+- **Core Function**: Computes pairwise genetic distances between bacterial isolates using Hamming distance metric.
+- **Algorithm**: Implements optimized Hamming distance calculation with GPU support for parallel processing.
+- **Input**: cgMLST allele table in CSV or tab-delimited format.
+- **Output**: Distance matrix in various formats (PHYLIP, CSV, JSON).
+- **Application**: Rapid bacterial strain comparison for epidemiological analysis.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgmlst-dists-py`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **GPU Availability**: GPU acceleration requires compatible NVIDIA GPU and CUDA.
+- **Memory Requirements**: Large datasets may require significant GPU memory.
+- **Input Format**: Requires specific cgMLST allele table format.
+- **CUDA Setup**: Proper CUDA installation required for GPU acceleration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Calculate distances with CPU
+**Args:** `cgmlst-dists-py -i alleles.csv -o distances.matrix`
+**Explanation:** Computes pairwise distances using CPU.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Enable GPU acceleration
+**Args:** `cgmlst-dists-py -i alleles.csv -o distances.matrix --gpu`
+**Explanation:** Uses GPU for accelerated distance calculation.
+
+### Output PHYLIP format
+**Args:** `cgmlst-dists-py -i alleles.csv -o distances.phylip --format phylip`
+**Explanation:** Outputs distance matrix in PHYLIP format.
+
+### Display help
+**Args:** `cgmlst-dists-py --help`
+**Explanation:** Shows all available options and usage information.

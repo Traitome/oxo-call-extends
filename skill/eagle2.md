@@ -2,21 +2,46 @@
 name: eagle2
 category: variant-calling
 description: "The Eagle software estimates haplotype phase either within a genotyped cohort or using a phased reference panel."
-tags: [eagle2, variant-calling]
+tags: [eagle2, variant-calling, phasing, haplotype, imputation]
 author: oxo-call-community
 source_url: "https://github.com/poruloh/Eagle"
 ---
 
 ## Concepts
-- **Tool Overview**: Eagle2 is now the default phasing method used by the Sanger and Michigan imputation servers and uses a new very fast HMM-based algorithm that improves speed and accuracy over existing methods via two key ideas; a new data structure based on the positional Burrows-Wheeler transform and a rapid search algorithm that explores only the most relevant paths through the HMM. Compared to the Eagle1 algorithm, Eagle2 has similar speed but much greater accuracy at sample sizes <50,000; as such, we have made the Eagle2 algorithm the default option. (The Eagle1 algorithm can be accessed via the --v1 flag.) Eagle v2.3+ supports phasing sequence data with or without a reference and also supports phasing chrX.
-- **Core Function**: The Eagle software estimates haplotype phase either within a genotyped cohort or using a phased reference panel.
-- **Input/Output**: Standard bioinformatics formats (FASTA/FASTQ/BAM/VCF/GFF)
+
+- **Tool Overview**: Eagle2 is a fast and accurate haplotype phasing tool using an HMM-based algorithm with positional Burrows-Wheeler transform for improved speed and accuracy.
+- **Core Function**: Estimates haplotype phase within a genotyped cohort or using a phased reference panel.
+- **Input/Output**: Input: VCF files (genotypes), reference panel (optional). Output: Phased VCF with haplotype information.
+- **Algorithm**: Uses Hidden Markov Model (HMM) with positional Burrows-Wheeler transform for efficient haplotype inference.
+- **Key Features**: Very fast phasing, high accuracy, supports sequence data, chrX phasing, reference-based and reference-free modes.
 - **Installation**: `conda install -c bioconda eagle2`
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Reference Panel**: Requires phased reference panel for optimal performance in reference-based mode.
+- **VCF Format**: Input VCF must be properly formatted and sorted by position.
+- **Memory Usage**: Large datasets may require significant RAM.
+- **Version Compatibility**: Eagle1 algorithm available via --v1 flag for legacy compatibility.
+- **Sample Size**: Optimal performance achieved with cohort sizes <50,000.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Phase VCF with reference panel
+**Args:** `--vcf input.vcf --refRefHaps ref_panel.vcf --out phased.vcf`
+**Explanation:** Phases genotypes using a reference panel for improved accuracy.
+
+### Reference-free phasing
+**Args:** `--vcf input.vcf --out phased.vcf`
+**Explanation:** Performs phasing without using a reference panel.
+
+### Phase chrX
+**Args:** `--vcf input.vcf --refRefHaps ref_panel.vcf --out phased.vcf --chrX`
+**Explanation:** Enables X chromosome phasing with proper handling of pseudo-autosomal regions.
+
+### Use Eagle1 algorithm
+**Args:** `--vcf input.vcf --refRefHaps ref_panel.vcf --out phased.vcf --v1`
+**Explanation:** Uses the older Eagle1 algorithm instead of Eagle2.
+
+### Threaded execution
+**Args:** `--vcf input.vcf --refRefHaps ref_panel.vcf --out phased.vcf --numThreads 8`
+**Explanation:** Uses 8 threads for faster phasing.

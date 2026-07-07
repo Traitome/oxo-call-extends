@@ -1,30 +1,32 @@
 ---
 name: vambcore
-category: utility
-description: Performant backend functions for the Vamb binning tool.
-tags: [vambcore, utility]
+category: bioinformatics
+description: VAMBcore - Core module for VAMB metagenomic binning.
+tags: [vambcore, metagenomics, binning, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/jakobnissen/vambcore"
+source_url: "https://github.com/RasmussenLab/vamb"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vambcore (v0.1.2) - Performant backend functions for the Vamb binning tool.
-- **Core Function**: Performant backend functions for the Vamb binning tool.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vambcore`
+- **Tool Overview**: VAMBcore - Core module for metagenomic binning.
+- **Core Function**: Provides utilities for metagenomic binning.
+- **Input**: Metagenomic data.
+- **Output**: Binned contigs.
+- **Installation**: Install via pip
+- **Use Case**: Metagenomics, binning, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Computation Time**: May be slow for complex datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run binning
+**Args:** `vambcore -i contigs.fasta -o bins/`
+**Explanation:** Perform metagenomic binning.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vambcore -i contigs.fasta -o bins/ -t 8`
+**Explanation:** Use 8 threads.

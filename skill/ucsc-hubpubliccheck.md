@@ -1,30 +1,32 @@
 ---
 name: ucsc-hubpubliccheck
 category: utility
-description: Checks that the labels in hubPublic match what is in the hub labels.
-tags: [ucsc-hubpubliccheck, utility]
+description: UCSC hubPublicCheck - Tool for checking public track hubs.
+tags: [ucsc-hubpubliccheck, ucsc, hub, track, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hubpubliccheck (v482) - Checks that the labels in hubPublic match what is in the hub labels.
-- **Core Function**: Checks that the labels in hubPublic match what is in the hub labels.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hubpubliccheck`
+- **Tool Overview**: UCSC hubPublicCheck - A tool for validating public track hubs.
+- **Core Function**: Validates public track hub configuration and accessibility.
+- **Input**: Hub URL.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, public hub validation, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network Access**: Requires network access for remote hubs.
+- **URL Accessibility**: Hub must be publicly accessible.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check public hub
+**Args:** `hubPublicCheck https://example.com/hub.txt`
+**Explanation:** Validate public track hub.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hubPublicCheck -verbose https://example.com/hub.txt`
+**Explanation:** Validate with verbose output.

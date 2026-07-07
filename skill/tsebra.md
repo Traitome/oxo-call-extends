@@ -1,30 +1,32 @@
 ---
 name: tsebra
-category: expression
-description: TSEBRA is a combiner tool that selects transcripts from gene predictions based on the support by extrisic evidence in form of introns and start/stop codons.
-tags: [tsebra, expression]
+category: assembly
+description: TSEBRA - Tool for merging gene annotations from multiple sources.
+tags: [tsebra, gene-annotation, annotation-merging, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/Gaius-Augustus/TSEBRA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tsebra (v1.1.2.5) - TSEBRA is a combiner tool that selects transcripts from gene predictions based on the support by extrisic evidence in form of introns and start/stop codons.
-- **Core Function**: TSEBRA is a combiner tool that selects transcripts from gene predictions based on the support by extrisic evidence in form of introns and start/stop codons.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tsebra`
+- **Tool Overview**: TSEBRA - A tool for merging gene annotations from multiple prediction tools.
+- **Core Function**: Combines annotations from multiple sources into a consensus annotation set.
+- **Input**: Multiple GFF/GTF annotation files.
+- **Output**: Merged annotation file, consensus gene models.
+- **Installation**: `pip install tsebra`
+- **Use Case**: Genome annotation, gene prediction integration, annotation improvement.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Compatibility**: Requires consistent GFF/GTF formatting.
+- **Conflicts**: May have conflicts between annotation sources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Merge annotations
+**Args:** `tsebra -g annotations.gff -m evidence.txt -o merged.gff`
+**Explanation:** Merge gene annotations from multiple sources.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With hints
+**Args:** `tsebra -g gffs/ -m hints.txt -o consensus.gff`
+**Explanation:** Merge annotations using evidence hints.

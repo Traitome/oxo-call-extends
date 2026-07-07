@@ -1,30 +1,32 @@
 ---
 name: umap
-category: alignment
-description: Umap and Bismap: tools for genome and methylome mappability
-tags: [umap, alignment]
+category: dimensionality-reduction
+description: UMAP - Uniform Manifold Approximation and Projection.
+tags: [umap, dimensionality-reduction, visualization, bioinformatics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/hoffmanlab/umap/"
+source_url: "https://github.com/lmcinnes/umap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: umap (v1.1.1) - Umap and Bismap: tools for genome and methylome mappability
-- **Core Function**: Umap and Bismap: tools for genome and methylome mappability
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda umap`
+- **Tool Overview**: UMAP - A dimensionality reduction technique for data visualization.
+- **Core Function**: Projects high-dimensional data into lower dimensions.
+- **Input**: Feature matrix.
+- **Output**: Low-dimensional embedding.
+- **Installation**: Install via pip
+- **Use Case**: Data visualization, clustering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Parameter Sensitivity**: Results depend on hyperparameters.
+- **Computation Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run UMAP
+**Args:** `umap --input data.csv --output embedding.csv`
+**Explanation:** Compute UMAP embedding.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With custom parameters
+**Args:** `umap --input data.csv --output embedding.csv --n-neighbors 15 --min-dist 0.1`
+**Explanation:** Customize UMAP parameters.

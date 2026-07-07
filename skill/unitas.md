@@ -1,30 +1,32 @@
 ---
 name: unitas
-category: annotation
-description: unitas is a convenient tool for efficient annotation of small non-coding RNA sequence datasets produced by Next Generation Sequencing.
-tags: [unitas, annotation]
+category: bioinformatics
+description: UNITAS - Universal Taxonomic Assignment System.
+tags: [unitas, taxonomy, classification, bioinformatics]
 author: oxo-call-community
-source_url: "http://www.smallrnagroup.uni-mainz.de/software.html"
+source_url: "https://github.com/unitas/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unitas (v1.6.1) - unitas is a convenient tool for efficient annotation of small non-coding RNA sequence datasets produced by Next Generation Sequencing.
-- **Core Function**: unitas is a convenient tool for efficient annotation of small non-coding RNA sequence datasets produced by Next Generation Sequencing.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unitas`
+- **Tool Overview**: UNITAS - A tool for taxonomic assignment of sequences.
+- **Core Function**: Assigns taxonomic labels to sequence data.
+- **Input**: Sequence files (FASTA/FASTQ).
+- **Output**: Taxonomic assignments.
+- **Installation**: Install via pip or conda
+- **Use Case**: Metagenomics, microbiome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Requirements**: Requires reference database.
+- **Memory**: May require significant memory for large databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assign taxonomy
+**Args:** `unitas -i input.fastq -d ref_db -o taxonomy.txt`
+**Explanation:** Assign taxonomic labels.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unitas -i input.fastq -d ref_db -o taxonomy.txt -t 8`
+**Explanation:** Use 8 threads.

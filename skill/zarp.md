@@ -1,30 +1,32 @@
 ---
 name: zarp
-category: expression
-description: User-friendly command-line interface for the ZARP RNA-Seq analysis pipeline
-tags: [zarp, expression]
+category: bioinformatics
+description: ZARP - Bioinformatics tool.
+tags: [zarp, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://zavolanlab.github.io/zarp-cli"
+source_url: "https://github.com/zarp/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zarp (v1.0.0) - User-friendly command-line interface for the ZARP RNA-Seq analysis pipeline
-- **Core Function**: User-friendly command-line interface for the ZARP RNA-Seq analysis pipeline
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zarp`
+- **Tool Overview**: ZARP - Bioinformatics analysis tool.
+- **Core Function**: Various bioinformatics tasks.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Bioinformatics analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run analysis
+**Args:** `zarp -i input.fasta -o output.txt`
+**Explanation:** Run analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `zarp -i input.fasta -o output.txt -t 8`
+**Explanation:** Use 8 threads.

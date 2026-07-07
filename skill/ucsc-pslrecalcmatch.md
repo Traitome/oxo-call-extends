@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslrecalcmatch
 category: utility
-description: Recalculate match, mismatch, repMatch columns in psl file.
-tags: [ucsc-pslrecalcmatch, utility]
+description: UCSC pslRecalcMatch - Tool for recalculating match counts.
+tags: [ucsc-pslrecalcmatch, ucsc, psl, recalculate, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslrecalcmatch (v482) - Recalculate match, mismatch, repMatch columns in psl file.
-- **Core Function**: Recalculate match, mismatch, repMatch columns in psl file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslrecalcmatch`
+- **Tool Overview**: UCSC pslRecalcMatch - A tool for recalculating match counts.
+- **Core Function**: Recalculates match statistics for PSL alignments.
+- **Input**: PSL file, sequence file.
+- **Output**: Recalculated PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment analysis, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Recalculate match counts
+**Args:** `pslRecalcMatch input.psl ref.fa > recalc.psl`
+**Explanation:** Recalculate match statistics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslRecalcMatch -verbose input.psl ref.fa > recalc.psl`
+**Explanation:** Recalculate with verbose output.

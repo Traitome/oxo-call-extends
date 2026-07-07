@@ -1,30 +1,48 @@
 ---
 name: mgltools
 category: utility
-description: MGLTools is an program for visualization and analisys of molecular structures.
-tags: [mgltools, utility]
+description: MGLTools is a program for visualization and analysis of molecular structures.
+tags: [mgltools, utility, molecular-visualization]
 author: oxo-call-community
 source_url: "http://mgltools.scripps.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mgltools v1.5.7 - MGLTools is an program for visualization and analisys of molecular structures..
-- **Core Function**: MGLTools is an program for visualization and analisys of molecular structures.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mgltools`
+- **Tool Overview**: MGLTools v1.5.7 is a suite of tools for molecular structure visualization and analysis.
+- **Core Function**: Visualizes and analyzes molecular structures.
+- **3D Visualization**: Displays 3D structures of molecules.
+- **Molecular Modeling**: Supports molecular modeling and simulation.
+- **Input/Output**: Accepts molecular structure files; outputs visualizations and analyses.
+- **Multiple Formats**: Supports various molecular structure formats.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Graphical Requirements**: Requires graphical environment for visualization.
+- **Memory Requirements**: Memory usage can be high for complex structures.
+- **Parameter Tuning**: May require parameter adjustment for optimal visualization.
+- **Structure Complexity**: Very large structures may be difficult to visualize.
+- **Format Compatibility**: May not support all molecular structure formats.
+- **Performance**: Complex visualizations may be slow.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Visualize molecular structure
+**Args:** `mgltools -i molecule.pdb -o visualization.png`
+**Explanation:** Visualizes molecular structure from PDB file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Analyze structure
+**Args:** `mgltools analyze -i molecule.pdb -o analysis.txt`
+**Explanation:** Performs structural analysis.
+
+### Convert format
+**Args:** `mgltools convert -i molecule.pdb -o molecule.mol2`
+**Explanation:** Converts molecular structure format.
+
+### Generate surface
+**Args:** `mgltools surface -i molecule.pdb -o surface.ply`
+**Explanation:** Generates molecular surface.
+
+### Batch processing
+**Args:** `mgltools batch -i structures/ -o visualizations/`
+**Explanation:** Processes multiple structures in batch mode.

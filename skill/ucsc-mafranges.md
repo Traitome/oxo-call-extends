@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafranges
 category: utility
-description: Extract ranges of target (or query) coverage from maf and.
-tags: [ucsc-mafranges, utility]
+description: UCSC mafRanges - Tool for extracting ranges from MAF.
+tags: [ucsc-mafranges, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafranges (v482) - Extract ranges of target (or query) coverage from maf and.
-- **Core Function**: Extract ranges of target (or query) coverage from maf and.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafranges`
+- **Tool Overview**: UCSC mafRanges - A tool for extracting ranges from MAF alignments.
+- **Core Function**: Extracts specific ranges from MAF alignments.
+- **Input**: MAF file, range file.
+- **Output**: Extracted ranges.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment extraction, region analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract ranges from MAF
+**Args:** `mafRanges ranges.txt input.maf > output.maf`
+**Explanation:** Extract specified ranges from MAF.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafRanges -verbose ranges.txt input.maf > output.maf`
+**Explanation:** Extract with verbose output.

@@ -1,30 +1,32 @@
 ---
 name: validators
-category: programming
-description: Python Data Validation for Humans.
-tags: [validators, programming]
+category: utility
+description: validators - Python data validation library.
+tags: [validators, validation, python, utility]
 author: oxo-call-community
-source_url: "https://github.com/kvesteri/validators"
+source_url: "https://github.com/python-validators/validators"
 ---
 
 ## Concepts
 
-- **Tool Overview**: validators (v0.14.0) - Python Data Validation for Humans.
-- **Core Function**: Python Data Validation for Humans.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda validators`
+- **Tool Overview**: validators - A Python library for data validation.
+- **Core Function**: Provides various validation functions.
+- **Input**: Data to validate.
+- **Output**: Validation result.
+- **Installation**: Install via pip
+- **Use Case**: Data validation, form processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Validation Scope**: Limited to specific validation types.
+- **Performance**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate email
+**Args:** `python -c "import validators; print(validators.email('test@example.com'))"`
+**Explanation:** Validate email address.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Validate URL
+**Args:** `python -c "import validators; print(validators.url('https://example.com'))"`
+**Explanation:** Validate URL.

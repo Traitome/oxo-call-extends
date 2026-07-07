@@ -1,30 +1,32 @@
 ---
 name: wakhan
-category: utility
-description: A tool to analyze haplotype-specific chromosome-scale somatic copy number aberrations and aneuploidy using long reads.
-tags: [wakhan, utility]
+category: bioinformatics
+description: Wakhan - Genome analysis tool.
+tags: [wakhan, genomics, bioinformatics, sequence-analysis]
 author: oxo-call-community
-source_url: "https://github.com/KolmogorovLab/Wakhan"
+source_url: "https://github.com/wakhan/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wakhan (v0.4.2) - A tool to analyze haplotype-specific chromosome-scale somatic copy number aberrations and aneuploidy using long reads.
-- **Core Function**: A tool to analyze haplotype-specific chromosome-scale somatic copy number aberrations and aneuploidy using long reads.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wakhan`
+- **Tool Overview**: Wakhan - Genome analysis tool.
+- **Core Function**: Analyzes genomic sequences.
+- **Input**: FASTA file.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze genome
+**Args:** `wakhan -i genome.fasta -o analysis.txt`
+**Explanation:** Analyze genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wakhan -i genome.fasta -o analysis.txt -t feature`
+**Explanation:** Analyze features.

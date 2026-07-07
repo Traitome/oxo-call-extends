@@ -1,30 +1,52 @@
 ---
 name: lddt
-category: utility
-description: A superposition-free score that evaluates local distance differences in a model compared to a reference structure.
-tags: [lddt, utility]
+category: structure
+description: Local Distance Difference Test - evaluates model quality without superposition
+tags: [lddt, structure, protein-structure, quality-assessment, bioinformatics]
 author: oxo-call-community
-source_url: "https://swissmodel.expasy.org/lddt"
+source_url: "https://github.com/swissmodel/lddt"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lddt v2.2 - A superposition-free score that evaluates local distance differences in a model compared to a reference structure..
-- **Core Function**: A superposition-free score that evaluates local distance differences in a model compared to a reference structure.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lddt`
+- **Superposition-free**: Evaluates model quality without structural superposition
+- **Local Distance**: Focuses on local distance differences
+- **Structure Quality**: Assesses protein structure model quality
+- **Per-residue Score**: Provides per-residue quality scores
+- **Reference Comparison**: Compares model against reference structure
+- **Multiple Cutoffs**: Uses multiple distance cutoffs for evaluation
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Reference Required**: Needs reference structure for comparison
+- **Resolution Limits**: Performance depends on reference resolution
+- **Sequence Identity**: Low identity affects score interpretation
+- **Disordered Regions**: Disordered regions may give low scores
+- **Model Completeness**: Incomplete models affect scoring
+- **Missing Residues**: Missing residues affect local scores
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Calculate LDDT score
+**Args:** `lddt -m model.pdb -r reference.pdb -o score.txt`
+**Explanation:** Computes LDDT score for model vs reference.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Per-residue output
+**Args:** `lddt -m model.pdb -r reference.pdb --per-residue -o scores.txt`
+**Explanation:** Outputs per-residue LDDT scores.
+
+### Multiple cutoffs
+**Args:** `lddt -m model.pdb -r reference.pdb --cutoffs 1,2,4,8 -o score.txt`
+**Explanation:** Uses custom distance cutoffs.
+
+### Batch processing
+**Args:** `lddt batch -d models/ -r reference.pdb -o results/`
+**Explanation:** Processes multiple model files.
+
+### Generate plot
+**Args:** `lddt -m model.pdb -r reference.pdb --plot -o plot.png`
+**Explanation:** Creates quality plot.
+
+### JSON output
+**Args:** `lddt -m model.pdb -r reference.pdb --json -o score.json`
+**Explanation:** Outputs results in JSON format.

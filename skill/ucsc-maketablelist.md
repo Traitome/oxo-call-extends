@@ -1,30 +1,32 @@
 ---
 name: ucsc-maketablelist
 category: utility
-description: Create/recreate tableList tables (cache of SHOW TABLES and DESCRIBE).
-tags: [ucsc-maketablelist, utility]
+description: UCSC makeTableList - Tool for creating table lists.
+tags: [ucsc-maketablelist, ucsc, database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maketablelist (v482) - Create/recreate tableList tables (cache of SHOW TABLES and DESCRIBE).
-- **Core Function**: Create/recreate tableList tables (cache of SHOW TABLES and DESCRIBE).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maketablelist`
+- **Tool Overview**: UCSC makeTableList - A tool for creating database table lists.
+- **Core Function**: Generates lists of database tables.
+- **Input**: Database name.
+- **Output**: Table list.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Database management, metadata extraction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Permissions**: Requires proper permissions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create table list
+**Args:** `makeTableList -db=hg38 > tables.txt`
+**Explanation:** Create list of database tables.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `makeTableList -db=hg38 -verbose > tables.txt`
+**Explanation:** Create with verbose output.

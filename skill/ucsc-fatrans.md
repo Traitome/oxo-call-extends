@@ -1,30 +1,32 @@
 ---
 name: ucsc-fatrans
 category: utility
-description: Translate DNA .fa file to peptide.
-tags: [ucsc-fatrans, utility]
+description: UCSC faTrans - Tool for translating FASTA sequences.
+tags: [ucsc-fatrans, ucsc, fasta, translation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fatrans (v482) - Translate DNA .fa file to peptide.
-- **Core Function**: Translate DNA .fa file to peptide.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fatrans`
+- **Tool Overview**: UCSC faTrans - A tool for translating nucleotide sequences.
+- **Core Function**: Translates DNA sequences to protein sequences.
+- **Input**: Nucleotide FASTA file.
+- **Output**: Protein FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence translation, protein analysis, gene prediction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Frame Selection**: Requires correct reading frame.
+- **Stop Codons**: May produce truncated proteins.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Translate sequences
+**Args:** `faTrans input.fa > output.pep`
+**Explanation:** Translate DNA to protein.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With frame
+**Args:** `faTrans -frame=2 input.fa > output.pep`
+**Explanation:** Translate with specific reading frame.

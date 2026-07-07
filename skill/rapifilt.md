@@ -1,31 +1,56 @@
 ---
 name: rapifilt
 category: qc
-description: RAPIFILT:RAPId FILTer is a quality control of DNA sequences
-tags: ["rapifilt", "qc"]
+description: RAPIFILT (RAPId FILTer) performs quality control filtering of DNA sequences.
+tags: [rapifilt, qc, quality-control, filtering]
 author: oxo-call-community
 source_url: "https://github.com/andvides/RAPIFILT.git"
 ---
 
 ## Concepts
 
-- **Tool Overview**: RAPIFILT:RAPId FILTer is a quality control of DNA sequences (version 1.0)
-- **Core Function**: Processes bioinformatics data related to qc
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rapifilt`
+- **Tool Overview**: rapifilt filters sequences.
+- **Core Function**: Quality control filtering.
+- **Algorithm**: Uses filtering methods.
+- **Input Format**: Accepts DNA sequences.
+- **Output**: Produces filtered sequences.
+- **Use Case**: Sequence QC.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Sequence Quality**: Affects filtering.
+- **Parameters**: Must be configured.
+- **Runtime**: Filtering may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rapifilt --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Quality check
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Generates quality control metrics and reports.
+### Filter sequences
+**Args:** `rapifilt filter -i sequences.fasta -o filtered.fasta`
+**Explanation:** Filters DNA sequences.
 
+### With parameters
+**Args:** `rapifilt filter -i sequences.fasta -p params.yaml -o filtered.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rapifilt -v filter -i sequences.fasta -o filtered.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rapifilt -t 4 filter -i sequences.fasta -o filtered.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With quality threshold
+**Args:** `rapifilt filter -i sequences.fasta -q 30 -o filtered.fasta`
+**Explanation:** Uses quality threshold.
+
+### Generate report
+**Args:** `rapifilt filter -i sequences.fasta -o filtered.fasta --report report.html`
+**Explanation:** Generates HTML report.

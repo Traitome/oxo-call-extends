@@ -1,30 +1,43 @@
 ---
 name: ccp4srs
-category: formatting
-description: CCP4 Storage, Retrieval and Search framework for small-molecule data
-tags: [ccp4srs, formatting]
+category: protein-structure
+description: CCP4 Storage, Retrieval and Search framework for small-molecule crystallographic data
+tags: [ccp4srs, ccp4, crystallography, cif, small-molecule]
 author: oxo-call-community
-source_url: "https://ccp4forge.rc-harwell.ac.uk/ccp4/ccp4srs/-/tree/935b2d99b73f5f8b2396a5f2b6cdc617610131b5/doc-html/html"
+source_url: "https://ccp4forge.rc-harwell.ac.uk/ccp4/ccp4srs"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ccp4srs (v2024.06.14) - CCP4 Storage, Retrieval and Search framework for small-molecule data
-- **Core Function**: CCP4SRS is a vital part of the CCP4 suite designed for handling and generating Crystallographic Information File (CIF) library files. It provides a robust framework for storing, retrieving, and search...
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ccp4srs`
+- **Tool Overview**: CCP4SRS is part of the CCP4 suite for handling crystallographic small-molecule data.
+- **Core Function**: Stores, retrieves, and searches Crystallographic Information File (CIF) library files.
+- **Database Management**: Manages small-molecule crystallographic data and CIF format libraries.
+- **Input**: CIF files and small-molecule structure data.
+- **Output**: Structured crystallographic data and search results.
+- **Application**: Protein-ligand complex analysis and crystallographic structure determination.
+- **Installation**: Install via bioconda: `conda install -c bioconda ccp4srs`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **CIF Format**: Requires properly formatted CIF files.
+- **Database Setup**: May require initial database configuration.
+- **Memory Usage**: Large crystallographic databases may require significant memory.
+- **CCP4 Integration**: Designed to work within the CCP4 suite environment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Search for small molecules
+**Args:** `ccp4srs search -p "benzene" -o results.cif`
+**Explanation:** Searches CCP4SRS database for benzene-related structures.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Retrieve structure by ID
+**Args:** `ccp4srs retrieve -i "COD-12345" -o structure.cif`
+**Explanation:** Retrieves specific structure from database by ID.
+
+### Build local database
+**Args:** `ccp4srs build -d cif_files/ -o local_db/`
+**Explanation:** Builds local CCP4SRS database from CIF files.
+
+### Display help
+**Args:** `ccp4srs --help`
+**Explanation:** Shows all available options and usage information.

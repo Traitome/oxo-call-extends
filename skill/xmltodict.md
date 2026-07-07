@@ -1,30 +1,32 @@
 ---
 name: xmltodict
-category: formatting
-description: Makes working with XML feel like you are working with JSON
-tags: [xmltodict, formatting]
+category: bioinformatics
+description: xmltodict - XML parser.
+tags: [xmltodict, xml, python, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/martinblech/xmltodict"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xmltodict (v0.9.2) - Makes working with XML feel like you are working with JSON
-- **Core Function**: Makes working with XML feel like you are working with JSON
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xmltodict`
+- **Tool Overview**: xmltodict - XML to Python dictionary converter.
+- **Core Function**: Parses XML into Python dictionaries.
+- **Input**: XML string or file.
+- **Output**: Python dictionary.
+- **Installation**: Install via pip
+- **Use Case**: XML parsing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large XML files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Parse XML
+**Args:** `python -c "import xmltodict; d = xmltodict.parse(xml_string)"`
+**Explanation:** Parse XML to dict.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "d = xmltodict.parse(xml_string, attr_prefix='')"`
+**Explanation:** Parse without attribute prefix.

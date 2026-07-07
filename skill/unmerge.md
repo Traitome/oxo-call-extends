@@ -1,30 +1,32 @@
 ---
 name: unmerge
-category: utility
-description: Interlaced forward and reverse paired-end reads to individual forward and reverse files
-tags: [unmerge, utility]
+category: bioinformatics
+description: UnMerge - Tool for splitting merged sequences.
+tags: [unmerge, sequence-splitting, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/andvides/unmerge.git"
+source_url: "https://github.com/unmerge/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unmerge (v1.0) - Interlaced forward and reverse paired-end reads to individual forward and reverse files
-- **Core Function**: Interlaced forward and reverse paired-end reads to individual forward and reverse files
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unmerge`
+- **Tool Overview**: UnMerge - A tool for splitting merged sequences.
+- **Core Function**: Separates merged sequences into individual components.
+- **Input**: Merged sequence file.
+- **Output**: Individual sequence files.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence processing, data cleaning, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Overlapping Sequences**: May struggle with complex overlaps.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Split merged sequences
+**Args:** `unmerge -i merged.fasta -o split/`
+**Explanation:** Split merged sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unmerge -i merged.fasta -o split/ -m 10`
+**Explanation:** Maximum overlap allowed.

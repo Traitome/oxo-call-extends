@@ -1,30 +1,64 @@
 ---
 name: gtfsort
-category: formatting
-description: A chr/pos/feature GTF sorter that uses a lexicographically-based index ordering algorithm.
-tags: [gtfsort, formatting, GTF]
+category: bioinformatics
+description: gtfsort sorts GTF files by chromosome, position, and feature type using a lexicographically-based index ordering algorithm.
+tags: [gtfsort, GTF-sorting, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/alejandrogzi/gtfsort"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gtfsort (v0.2.2) - A chr/pos/feature GTF sorter that uses a lexicographically-based index ordering algorithm.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gtfsort`
+- **GTF Sorting**: gtfsort sorts GTF files by genomic coordinates.
+
+- **Lexicographic Ordering**: Uses lexicographic ordering for chromosome names.
+
+- **Coordinate Sorting**: Sorts by position within each chromosome.
+
+- **Feature Type**: Optionally sorts by feature type.
+
+- **Efficient Algorithm**: Optimized for large GTF files.
+
+- **Stream Processing**: Supports streaming for memory efficiency.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Sorting very large files may require significant memory.
+
+- **Chromosome Naming**: Ensure consistent chromosome naming.
+
+- **Coordinate System**: Be aware of 0-based vs 1-based coordinates.
+
+- **Output Format**: Verify output format matches expectations.
+
+- **Compression**: Handle compressed files appropriately.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sort GTF file
+**Args:** `gtfsort -i input.gtf -o sorted.gtf`
+**Explanation:** Sorts GTF file by chromosome and position.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Sort with compression
+**Args:** `gtfsort -i input.gtf.gz -o sorted.gtf.gz`
+**Explanation:** Handles compressed input and output.
+
+### Sort by feature type
+**Args:** `gtfsort -i input.gtf -o sorted.gtf -f`
+**Explanation:** Sorts by feature type in addition to coordinates.
+
+### Batch sorting
+**Args:** `for f in *.gtf; do gtfsort -i $f -o sorted_$f; done`
+**Explanation:** Sorts multiple GTF files in batch.
+
+### Check sorted status
+**Args:** `gtfsort -c input.gtf`
+**Explanation:** Checks if GTF file is already sorted.
+
+### Custom chromosome order
+**Args:** `gtfsort -i input.gtf -o sorted.gtf -k chrom_order.txt`
+**Explanation:** Uses custom chromosome ordering file.
+
+### Help command
+**Args:** `gtfsort --help`
+**Explanation:** Shows available options and usage information.

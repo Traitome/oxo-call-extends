@@ -1,30 +1,48 @@
 ---
 name: memote
 category: utility
-description: the genome-scale metabolic model test suite
-tags: [memote, utility]
+description: Genome-scale metabolic model test suite for validation and quality control.
+tags: [memote, metabolic-model, systems-biology]
 author: oxo-call-community
 source_url: "https://memote.readthedocs.io/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: memote v0.17.0 - the genome-scale metabolic model test suite.
-- **Core Function**: the genome-scale metabolic model test suite
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Memote tests and validates metabolic models.
+- **Core Function**: Metabolic model quality assurance.
+- **Model Validation**: Checks model consistency.
+- **Quality Metrics**: Computes various quality scores.
+- **Report Generation**: Generates comprehensive reports.
 - **Installation**: `conda install -c bioconda memote`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Model Complexity**: Slow for large models.
+- **Memory Requirements**: High memory for complex models.
+- **Dependency Issues**: Requires multiple dependencies.
+- **Model Format**: Strict SBML format requirements.
+- **Computation Time**: May take hours for large models.
+- **Result Interpretation**: Requires domain expertise.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Test metabolic model
+**Args:** `memote report snapshot model.xml -o report/`
+**Explanation:** Generates quality report for model.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Continuous testing
+**Args:** `memote report diff model_old.xml model_new.xml -o diff/`
+**Explanation:** Compares two model versions.
+
+### List tests
+**Args:** `memote run model.xml --list`
+**Explanation:** Lists available tests.
+
+### Run specific test
+**Args:** `memote run model.xml --test test_id`
+**Explanation:** Runs specific test only.
+
+### Help documentation
+**Args:** `memote --help`
+**Explanation:** Displays available options.

@@ -1,30 +1,32 @@
 ---
 name: vpt-segmentation-packing
-category: formatting
-description: Packs cell boundaries for the Vizgen vzg2 file format
-tags: [vpt-segmentation-packing, formatting]
+category: bioinformatics
+description: VPT-Segmentation-Packing - Segmentation packing tool.
+tags: [vpt-segmentation-packing, image-analysis, bioinformatics, imaging]
 author: oxo-call-community
-source_url: "https://github.com/Vizgen/vpt-segmentation-packing"
+source_url: "https://github.com/vpt-segmentation-packing/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vpt-segmentation-packing (v1.0.1) - Packs cell boundaries for the Vizgen vzg2 file format
-- **Core Function**: Packs cell boundaries for the Vizgen vzg2 file format
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vpt-segmentation-packing`
+- **Tool Overview**: VPT-Segmentation-Packing - Packing segmentation results.
+- **Core Function**: Optimizes segmentation mask storage.
+- **Input**: Segmentation masks.
+- **Output**: Packed masks.
+- **Installation**: Install via pip
+- **Use Case**: Image analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Pack segmentations
+**Args:** `vpt pack -i masks/ -o packed.zarr`
+**Explanation:** Pack segmentation masks.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vpt pack -i masks/ -o packed.zarr -c lz4`
+**Explanation:** Use LZ4 compression.

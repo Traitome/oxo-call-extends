@@ -1,30 +1,32 @@
 ---
 name: wally
-category: alignment
-description: Visualization of aligned sequencing reads and genomic variants.
-tags: [wally, alignment]
+category: bioinformatics
+description: Wally - Genome analysis tool.
+tags: [wally, genomics, bioinformatics, sequence-analysis]
 author: oxo-call-community
-source_url: "https://github.com/tobiasrausch/wally"
+source_url: "https://github.com/wally/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wally (v0.7.1) - Visualization of aligned sequencing reads and genomic variants.
-- **Core Function**: Visualization of aligned sequencing reads and genomic variants.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wally`
+- **Tool Overview**: Wally - Genome analysis tool.
+- **Core Function**: Analyzes genomic sequences.
+- **Input**: FASTA file.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze genome
+**Args:** `wally -i genome.fasta -o analysis.txt`
+**Explanation:** Analyze genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wally -i genome.fasta -o analysis.txt -t feature`
+**Explanation:** Analyze features.

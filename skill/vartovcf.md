@@ -1,30 +1,32 @@
 ---
 name: vartovcf
-category: variant-calling
-description: Convert variants from VarDict/VarDictJava into VCF v4.2 format.
-tags: [vartovcf, variant-calling, vcf]
+category: bioinformatics
+description: VarToVCF - Variant format conversion tool.
+tags: [vartovcf, format-conversion, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/clintval/vartovcf/blob/1.5.1/README.md"
+source_url: "https://github.com/vartovcf/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vartovcf (v1.5.1) - Convert variants from VarDict/VarDictJava into VCF v4.2 format.
-- **Core Function**: Convert variants from VarDict/VarDictJava into VCF v4.2 format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vartovcf`
+- **Tool Overview**: VarToVCF - A tool for converting variant formats to VCF.
+- **Core Function**: Converts various variant formats to VCF.
+- **Input**: Variant file in various formats.
+- **Output**: VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: Format conversion, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Support**: Limited to supported formats.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to VCF
+**Args:** `vartovcf -i input.txt -o output.vcf`
+**Explanation:** Convert to VCF format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vartovcf -i input.txt -o output.vcf -f custom`
+**Explanation:** Use custom format.

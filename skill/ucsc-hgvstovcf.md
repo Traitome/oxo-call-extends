@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgvstovcf
-category: formatting
-description: Convert HGVS terms to VCF tab-separated output
-tags: [ucsc-hgvstovcf, formatting, vcf]
+category: utility
+description: UCSC hgVSToVcf - Tool for converting VS to VCF format.
+tags: [ucsc-hgvstovcf, ucsc, vcf, format-conversion, bioinformatics]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgvstovcf (v377) - Convert HGVS terms to VCF tab-separated output
-- **Core Function**: Convert HGVS terms to VCF tab-separated output
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgvstovcf`
+- **Tool Overview**: UCSC hgVSToVcf - A tool for converting variation tables to VCF.
+- **Core Function**: Converts variation data to VCF format.
+- **Input**: Variation table.
+- **Output**: VCF file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Variant calling, format conversion, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to VCF
+**Args:** `hgVSToVcf -db=hg38 -table=snp155 > snps.vcf`
+**Explanation:** Convert variation table to VCF.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgVSToVcf -db=hg38 -table=snp155 -verbose > snps.vcf`
+**Explanation:** Convert with verbose output.

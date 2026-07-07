@@ -1,31 +1,56 @@
 ---
 name: ribotin
 category: assembly
-description: Ribosomal DNA assembly tool.
-tags: ["ribotin", "assembly"]
+description: RiboTin assembles ribosomal DNA sequences.
+tags: [ribotin, assembly, rdna, ribosomal-dna]
 author: oxo-call-community
 source_url: "https://github.com/maickrau/ribotin/blob/v1.5/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Ribosomal DNA assembly tool. (version 1.5)
-- **Core Function**: Processes bioinformatics data related to assembly
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ribotin`
+- **Tool Overview**: ribotin assembles rDNA.
+- **Core Function**: Ribosomal DNA assembly.
+- **Algorithm**: Uses assembly methods.
+- **Input Format**: Accepts sequencing reads.
+- **Output**: Produces rDNA contigs.
+- **Use Case**: Genome assembly.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Repeat Complexity**: Affects assembly.
+- **Parameters**: Must be configured.
+- **Runtime**: Assembly may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `ribotin --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Run assembly
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assembles reads into contigs/scaffolds.
+### Assemble rDNA
+**Args:** `ribotin assemble -i reads.fastq -o assembly/`
+**Explanation:** Assembles ribosomal DNA.
 
+### With parameters
+**Args:** `ribotin assemble -i reads.fastq -p params.yaml -o assembly/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `ribotin -v assemble -i reads.fastq -o assembly/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `ribotin -t 4 assemble -i reads.fastq -o assembly/`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With reference
+**Args:** `ribotin assemble -i reads.fastq -r reference.fasta -o assembly/`
+**Explanation:** Uses reference sequence.
+
+### Generate report
+**Args:** `ribotin assemble -i reads.fastq -o assembly/ --report report.html`
+**Explanation:** Generates HTML report.

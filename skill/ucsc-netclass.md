@@ -1,30 +1,32 @@
 ---
 name: ucsc-netclass
 category: utility
-description: Add classification info to net.
-tags: [ucsc-netclass, utility]
+description: UCSC netClass - Tool for classifying net alignments.
+tags: [ucsc-netclass, ucsc, net, classification, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-netclass (v482) - Add classification info to net.
-- **Core Function**: Add classification info to net.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-netclass`
+- **Tool Overview**: UCSC netClass - A tool for classifying net alignments.
+- **Core Function**: Classifies net alignment types.
+- **Input**: Net file.
+- **Output**: Classified net data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment analysis, classification, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper net format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify net alignments
+**Args:** `netClass input.net > classified.txt`
+**Explanation:** Classify net alignment types.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `netClass -verbose input.net > classified.txt`
+**Explanation:** Classify with verbose output.

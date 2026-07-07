@@ -1,30 +1,32 @@
 ---
 name: ucsc-ldhggene
-category: annotation
-description: Load database with gene predictions from a gff file.
-tags: [ucsc-ldhggene, annotation]
+category: utility
+description: UCSC ldHgGene - Tool for LD analysis with gene data.
+tags: [ucsc-ldhggene, ucsc, ld-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-ldhggene (v482) - Load database with gene predictions from a gff file.
-- **Core Function**: Load database with gene predictions from a gff file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-ldhggene`
+- **Tool Overview**: UCSC ldHgGene - A tool for linkage disequilibrium analysis with gene data.
+- **Core Function**: Analyzes LD patterns around genes.
+- **Input**: SNP data, gene data.
+- **Output**: LD analysis results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Population genetics, association studies, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database Access**: Requires database credentials.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze LD around genes
+**Args:** `ldHgGene -db=hg38 -gene=BRCA1 > ld_results.txt`
+**Explanation:** Analyze LD around specified gene.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `ldHgGene -db=hg38 -gene=BRCA1 -verbose > ld_results.txt`
+**Explanation:** Analyze with verbose output.

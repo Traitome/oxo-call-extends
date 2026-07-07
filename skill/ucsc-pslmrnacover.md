@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslmrnacover
 category: utility
-description: Make histogram of coverage percentage of mRNA in psl.
-tags: [ucsc-pslmrnacover, utility]
+description: UCSC pslMrnaCover - Tool for mRNA coverage analysis from PSL.
+tags: [ucsc-pslmrnacover, ucsc, psl, mrna, coverage, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslmrnacover (v482) - Make histogram of coverage percentage of mRNA in psl.
-- **Core Function**: Make histogram of coverage percentage of mRNA in psl.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslmrnacover`
+- **Tool Overview**: UCSC pslMrnaCover - A tool for mRNA coverage analysis.
+- **Core Function**: Analyzes mRNA coverage from PSL alignments.
+- **Input**: PSL file.
+- **Output**: Coverage statistics.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene expression, transcriptomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze mRNA coverage
+**Args:** `pslMrnaCover input.psl > coverage.txt`
+**Explanation:** Analyze mRNA coverage.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslMrnaCover -verbose input.psl > coverage.txt`
+**Explanation:** Detailed coverage analysis.

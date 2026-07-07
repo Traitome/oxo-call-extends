@@ -1,30 +1,32 @@
 ---
 name: yame
-category: epigenomics
-description: YAME: Yet Another Methylation Extractor.
-tags: [yame, epigenomics]
+category: bioinformatics
+description: YAME - Sequence analysis tool.
+tags: [yame, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://zhou-lab.github.io/YAME"
+source_url: "https://github.com/yame/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yame (v1.8) - YAME: Yet Another Methylation Extractor.
-- **Core Function**: YAME: Yet Another Methylation Extractor.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yame`
+- **Tool Overview**: YAME - Sequence analysis tool.
+- **Core Function**: Analyzes sequence data.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequences
+**Args:** `yame -i sequences.fasta -o analysis.txt`
+**Explanation:** Analyze sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yame -i sequences.fasta -o analysis.txt -t 8`
+**Explanation:** Use 8 threads.

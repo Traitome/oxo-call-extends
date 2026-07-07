@@ -1,30 +1,48 @@
 ---
 name: mrbayes_volpiano
 category: formatting
-description: Bayesian Inference of Phylogeny (Volpiano edition)
-tags: [mrbayes_volpiano, formatting]
+description: Bayesian inference for plainchant melody analysis in Volpiano format.
+tags: [mrbayes_volpiano, formatting, phylogenetics]
 author: oxo-call-community
 source_url: "https://github.com/gaballench/mrbayes_volpiano"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mrbayes_volpiano v3.2.7a - This is a fork of MrBayes v3.2.7a, a programme for estimation of phylogenetic trees using Bayesian inference. This fork differs from the original in that the standard character coding is no longer intended for morphology in biological datasets but rather for the encoding of plainchant melodies in the volpiano format. The original README is provided below as well as the license and modified source code. A note has been added to the greeting text to make it clear that this is a fork only intended to be used for analysing plainchant melodies in volpiano format rather than the original biological sequence data..
-- **Core Function**: Bayesian Inference of Phylogeny (Volpiano edition)
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mrbayes_volpiano`
+- **Tool Overview**: MrBayes Volpiano v3.2.7a analyzes plainchant melodies using Bayesian inference.
+- **Core Function**: Fork of MrBayes for Volpiano-encoded plainchant analysis.
+- **Volpiano Format**: Specialized for encoding plainchant melodies.
+- **Bayesian Inference**: Uses MCMC methods for melody evolution analysis.
+- **Music Analysis**: Repurposed for musical sequence analysis.
+- **Input/Output**: Accepts Volpiano-encoded melodies; outputs evolutionary trees.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Volpiano Specific**: Designed for plainchant melody analysis only.
+- **Not for Biology**: Not intended for biological sequence data.
+- **Computational Time**: MCMC analysis can be computationally intensive.
+- **Memory Requirements**: Memory usage depends on melody count.
+- **Parameter Tuning**: May require careful parameter adjustment.
+- **Convergence Check**: Requires checking MCMC convergence.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze plainchant melodies
+**Args:** `mb_volpiano melodies.nex`
+**Explanation:** Runs Volpiano analysis with input NEXUS file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With multiple chains
+**Args:** `mb_volpiano -n 4 melodies.nex`
+**Explanation:** Uses 4 MCMC chains.
+
+### Set run length
+**Args:** `mb_volpiano -l 1000000 melodies.nex`
+**Explanation:** Runs MCMC for 1,000,000 generations.
+
+### Check convergence
+**Args:** `mb_volpiano -c trace.txt`
+**Explanation:** Analyzes MCMC trace for convergence.
+
+### Generate consensus tree
+**Args:** `mb_volpiano -t consensus.tre melodies.nex`
+**Explanation:** Generates consensus tree from MCMC samples.

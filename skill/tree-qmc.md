@@ -1,30 +1,32 @@
 ---
 name: tree-qmc
-category: utility
-description: TREE-QMC is a quartet-based method for estimating species trees from gene trees.
-tags: [tree-qmc, utility]
+category: analysis
+description: TreeQMC - Tool for quartet-based phylogenetic tree inference.
+tags: [tree-qmc, phylogenetic-tree, quartet-method, phylogenetics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/molloy-lab/TREE-QMC"
+source_url: "https://github.com/compbio/tree-qmc"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tree-qmc (v3.0.4) - TREE-QMC is a quartet-based method for estimating species trees from gene trees.
-- **Core Function**: TREE-QMC is a quartet-based method for estimating species trees from gene trees.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tree-qmc`
+- **Tool Overview**: TreeQMC - A tool for inferring phylogenetic trees using quartet-based methods.
+- **Core Function**: Constructs trees by combining quartet topologies using QMC (Quartet MaxCut) algorithm.
+- **Input**: Sequence alignments (FASTA), distance matrices.
+- **Output**: Phylogenetic trees (Newick format), support values.
+- **Installation**: `pip install tree-qmc` or `conda install -c bioconda tree-qmc`
+- **Use Case**: Phylogenetic analysis, large-scale tree inference, evolutionary studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Computational Complexity**: May be computationally intensive for large datasets.
+- **Memory**: Requires significant memory for large alignments.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Infer tree
+**Args:** `tree-qmc -i alignment.fasta -o tree.nwk`
+**Explanation:** Infer phylogenetic tree using quartet methods.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With distance matrix
+**Args:** `tree-qmc -d distance_matrix.txt -o tree.nwk`
+**Explanation:** Build tree from distance matrix.

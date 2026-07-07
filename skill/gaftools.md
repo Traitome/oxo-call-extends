@@ -1,22 +1,43 @@
 ---
 name: gaftools
 category: alignment
-description: gaftools is a fast and comprehensive toolkit designed for processing pangenome alignments in GAF format
-tags: [gaftools, alignment]
+description: Fast and comprehensive toolkit for processing pangenome alignments in GAF format.
+tags: [gaftools, pangenome, GAF, sequence alignment]
 author: oxo-call-community
 source_url: "https://github.com/marschall-lab/gaftools"
 ---
 
 ## Concepts
-- **Tool Overview**: gaftools is a fast and comprehensive toolkit designed for processing pangenome alignments in GAF format
-- **Core Function**: gaftools is a fast and comprehensive toolkit designed for processing pangenome alignments in GAF format
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda gaftools`
+- **GAF Processing**: Comprehensive GAF file processing toolkit.
+- **Pangenome Alignments**: Handles pangenome alignment data.
+- **Fast Processing**: Optimized for high-performance processing.
+- **Format Conversion**: Converts between alignment formats.
+- **Filtering**: Filters alignments based on various criteria.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **GAF Format**: Requires proper GAF format understanding.
+- **Memory Usage**: Large files require significant memory.
+- **Indexing**: May require indexing for large files.
+- **Complex Filters**: Complex filtering options require care.
+- **Output Compatibility**: Output may need conversion for other tools.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Filter alignments
+**Args:** `gaftools filter -i alignments.gaf -o filtered.gaf -m 100`
+**Explanation:** Filters alignments with mapping quality >= 100.
+
+### Convert to PAF
+**Args:** `gaftools convert -i alignments.gaf -o alignments.paf -f paf`
+**Explanation:** Converts GAF to PAF format.
+
+### Sort alignments
+**Args:** `gaftools sort -i alignments.gaf -o sorted.gaf`
+**Explanation:** Sorts alignments by reference position.
+
+### Calculate coverage
+**Args:** `gaftools coverage -i alignments.gaf -o coverage.txt`
+**Explanation:** Calculates coverage statistics.
+
+### Merge GAF files
+**Args:** `gaftools merge -i file1.gaf file2.gaf -o merged.gaf`
+**Explanation:** Merges multiple GAF files.

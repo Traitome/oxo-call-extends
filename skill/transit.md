@@ -1,30 +1,32 @@
 ---
 name: transit
-category: utility
-description: TRANSIT
-tags: [transit, utility]
+category: analysis
+description: TRANSIT - Tool for analyzing transposon insertion sequencing data.
+tags: [transit, transposon, insertion-seq, tn-seq, functional-genomics]
 author: oxo-call-community
-source_url: "https://github.com/ioerger/transit"
+source_url: "https://github.com/mad-lab/transit"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transit (v3.3.20) - TRANSIT is a software that can be used to analyze Tn-Seq datasets. It includes various statistical calculations of essentiality of genes or genomic regions (including conditional essentiality between 2 conditions).
-- **Core Function**: TRANSIT
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transit`
+- **Tool Overview**: TRANSIT - A tool for analyzing transposon insertion sequencing (Tn-seq) data for functional genomics.
+- **Core Function**: Identifies essential genes and fitness phenotypes from transposon insertion data.
+- **Input**: Tn-seq read counts, genome annotations, insertion sites.
+- **Output**: Essential gene predictions, fitness scores, statistical analysis.
+- **Installation**: `pip install transit` or `conda install -c bioconda transit`
+- **Use Case**: Functional genomics, essential gene identification, bacterial genetics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Insertion Bias**: Transposon insertion bias may affect results.
+- **Saturation**: Requires sufficient insertion coverage for accurate analysis.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze Tn-seq data
+**Args:** `transit analyze -i counts.txt -a genes.gff -o fitness/`
+**Explanation:** Analyze Tn-seq data to identify essential genes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Fitness calculation
+**Args:** `transit fitness -i insertion_data.txt -o fitness_scores.txt`
+**Explanation:** Calculate fitness scores from transposon insertions.

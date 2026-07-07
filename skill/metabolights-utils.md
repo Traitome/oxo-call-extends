@@ -1,30 +1,48 @@
 ---
 name: metabolights-utils
 category: utility
-description: MetaboLights open metabolomics data repository command line interface (CLI), common MetaboLights data models, utility methods and classes.
-tags: [metabolights-utils, utility]
+description: Command line interface for MetaboLights metabolomics data repository.
+tags: [metabolights-utils, metabolomics, data-management]
 author: oxo-call-community
 source_url: "https://github.com/EBI-Metabolights/metabolights-utils"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metabolights-utils v1.4.27 - MetaboLights open metabolomics data repository command line interface (CLI), common MetaboLights data models, utility methods and classes..
-- **Core Function**: MetaboLights open metabolomics data repository command line interface (CLI), common MetaboLights data models, utility methods and classes.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MetaboLights-utils provides CLI for MetaboLights repository.
+- **Core Function**: Metabolomics data management and access.
+- **Data Upload**: Uploads data to MetaboLights.
+- **Data Download**: Downloads data from repository.
+- **Metadata Handling**: Manages metadata for studies.
 - **Installation**: `conda install -c bioconda metabolights-utils`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Network Requirements**: Requires internet access.
+- **Authentication**: Needs MetaboLights account.
+- **Data Format**: Strict format requirements.
+- **Rate Limiting**: Subject to API rate limits.
+- **Dependency Issues**: May have conflicting dependencies.
+- **Version Compatibility**: API changes may break tools.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Upload data
+**Args:** `ml-upload -i study_dir/ -s MTBLS123`
+**Explanation:** Uploads study to MetaboLights.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Download data
+**Args:** `ml-download -s MTBLS123 -o study_dir/`
+**Explanation:** Downloads study from MetaboLights.
+
+### Validate metadata
+**Args:** `ml-validate -i metadata.tsv`
+**Explanation:** Validates metadata format.
+
+### List studies
+**Args:** `ml-list --search "cancer"`
+**Explanation:** Searches for studies.
+
+### Help documentation
+**Args:** `ml-utils --help`
+**Explanation:** Displays available options.

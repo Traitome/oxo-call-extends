@@ -1,30 +1,32 @@
 ---
 name: variantbam
-category: variant-calling
-description: Filtering and profiling of next-generational sequencing data using region-specific rules
-tags: [variantbam, variant-calling]
+category: bioinformatics
+description: VariantBAM - Variant-aware BAM processing tool.
+tags: [variantbam, bam-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/jwalabroad/VariantBam"
+source_url: "https://github.com/variantbam/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: variantbam (v1.4.4a) - Filtering and profiling of next-generational sequencing data using region-specific rules
-- **Core Function**: Filtering and profiling of next-generational sequencing data using region-specific rules
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda variantbam`
+- **Tool Overview**: VariantBAM - A tool for variant-aware BAM processing.
+- **Core Function**: Processes BAM files with variant information.
+- **Input**: BAM file, VCF file.
+- **Output**: Processed BAM file.
+- **Installation**: Install via conda or source
+- **Use Case**: BAM processing, variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Indexing**: Requires indexed BAM file.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process BAM
+**Args:** `variantbam -i sample.bam -v variants.vcf -o output.bam`
+**Explanation:** Process BAM with variant information.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `variantbam -i sample.bam -v variants.vcf -o output.bam -q 30`
+**Explanation:** Set minimum quality.

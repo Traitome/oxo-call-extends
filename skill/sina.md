@@ -1,30 +1,56 @@
 ---
 name: sina
-category: population-genomics
-description: Reference based multiple sequence alignment
-tags: [sina, population-genomics]
+category: sequence-analysis
+description: SINA - Reference-based multiple sequence alignment
+tags: ["sina", "sequence-analysis", "alignment", "16s"]
 author: oxo-call-community
 source_url: "https://sina.readthedocs.io"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sina (v1.7.2) - Reference based multiple sequence alignment
-- **Core Function**: Reference based multiple sequence alignment
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sina`
+- **Tool Overview**: SINA (v1.7.2) performs reference-based multiple sequence alignment.
+- **Core Function**: Aligns sequences to a reference database.
+- **Algorithm**: Uses profile alignment with reference sequences.
+- **Input/Output**: Accepts FASTA sequences and produces aligned sequences.
+- **16S rRNA Analysis**: Specialized for 16S rRNA gene alignment.
+- **Applications**: Microbiome analysis, phylogenetic studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Reference Database**: Requires reference database preparation.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Input Quality**: Results depend on sequence quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some advanced features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `sina -i sequences.fasta -r reference.fasta -o aligned.fasta`
+**Explanation:** `-i` input sequences; `-r` reference; `-o` output.
 
-### Basic usage
-**Args:** `sina -i <input.vcf> -o <output_dir>`
-**Explanation:** Run sina with typical input and output options.
+### Build profile
+**Args:** `sina --build-profile -i sequences.fasta -o profile.fasta`
+**Explanation:** Builds alignment profile from sequences.
+
+### With identity filter
+**Args:** `sina -i sequences.fasta -r reference.fasta -i 0.9 -o aligned.fasta`
+**Explanation:** `-i 0.9` minimum identity threshold.
+
+### Help command
+**Args:** `sina --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sina --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `sina -v -i sequences.fasta -r reference.fasta -o aligned.fasta`
+**Explanation:** `-v` verbose output.
+
+### Threaded mode
+**Args:** `sina -t 8 -i sequences.fasta -r reference.fasta -o aligned.fasta`
+**Explanation:** `-t 8` uses 8 threads.

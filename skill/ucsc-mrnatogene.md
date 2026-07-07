@@ -1,30 +1,32 @@
 ---
 name: ucsc-mrnatogene
-category: alignment
-description: Convert PSL alignments of mRNAs to gene annotations.
-tags: [ucsc-mrnatogene, alignment]
+category: utility
+description: UCSC mrnaToGene - Tool for converting mRNA to gene.
+tags: [ucsc-mrnatogene, ucsc, mrna, gene, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mrnatogene (v482) - Convert PSL alignments of mRNAs to gene annotations.
-- **Core Function**: Convert PSL alignments of mRNAs to gene annotations.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mrnatogene`
+- **Tool Overview**: UCSC mrnaToGene - A tool for converting mRNA to gene predictions.
+- **Core Function**: Converts mRNA sequences to gene predictions.
+- **Input**: mRNA sequences.
+- **Output**: Gene predictions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene prediction, annotation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper sequence format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert mRNA to gene
+**Args:** `mrnaToGene mrna.fa > genes.txt`
+**Explanation:** Convert mRNA to gene predictions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mrnaToGene -verbose mrna.fa > genes.txt`
+**Explanation:** Convert with verbose output.

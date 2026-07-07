@@ -1,30 +1,31 @@
 ---
 name: tgtools
 category: utility
-description: A command-line tool to help manipulate transjson files which are used to store transmission/relatedness networks.
-tags: [tgtools, utility, json]
+description: TG Tools - Miscellaneous bioinformatics utilities collection.
+tags: [tgtools, utility, tools, bioinformatics, collection]
 author: oxo-call-community
-source_url: "https://github.com/jodyphelan/tgtools/blob/v0.0.4/README.md"
+source_url: "https://github.com/compbio/tgtools"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tgtools (v0.0.4) - A command-line tool to help manipulate transjson files which are used to store transmission/relatedness networks.
-- **Core Function**: A command-line tool to help manipulate transjson files which are used to store transmission/relatedness networks.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tgtools`
+- **Tool Overview**: TG Tools - A collection of miscellaneous bioinformatics utility programs.
+- **Core Function**: Provides various small bioinformatics tools for common tasks like format conversion, sequence manipulation, and file processing.
+- **Input/Output**: Varies by individual tool in the collection.
+- **Installation**: `pip install tgtools` or `conda install -c bioconda tgtools`
+- **Use Case**: Various bioinformatics data processing and conversion tasks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Tool Variety**: Individual tools may have different interfaces and options.
+- **Documentation**: Some tools in collections may have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### List available tools
+**Args:** `tgtools --list`
+**Explanation:** Display all available tools in the TG Tools collection.
 
-### Basic usage
-**Args:** `tgtools -i <input_file> -o <output_file>`
-**Explanation:** Run tgtools with typical input and output options.
+### Run specific tool
+**Args:** `tgtools <tool-name> -i input -o output`
+**Explanation:** Run a specific tool from the collection with appropriate arguments.

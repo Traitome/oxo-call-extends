@@ -2,29 +2,47 @@
 name: modifi
 category: variant-calling
 description: DNA modification detection from PacBio SMRT metagenomic data
-tags: [modifi, variant-calling]
+tags: [modifi, variant-calling, methylation]
 author: oxo-call-community
 source_url: "https://github.com/sachdevalab/MODIFI"
 ---
 
 ## Concepts
 
-- **Tool Overview**: modifi v0.0.3 - MODIFI detects DNA base modifications and infers host-mobile genetic element (MGE) linkages from PacBio metagenomic sequencing data. It supports modification calling, motif discovery, and host-MGE association for both subreads and HiFi read types. Native motif finding uses pbmotifmaker (from pbtk) on Linux if installed; otherwise use the bundled MultiMotifMaker.jar (OpenJDK). On macOS, install PacBio tools separately or rely on the JAR fallback..
-- **Core Function**: DNA modification detection from PacBio SMRT metagenomic data
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda modifi`
+- **Tool Overview**: MODIFI v0.0.3 detects DNA modifications from PacBio metagenomic data.
+- **Core Function**: Identifies DNA base modifications and host-MGE linkages.
+- **PacBio Support**: Works with both subreads and HiFi reads.
+- **Motif Discovery**: Discovers modification motifs in sequences.
+- **Host-MGE Association**: Links modifications to mobile genetic elements.
+- **Input/Output**: Accepts BAM files; outputs modification calls.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **PacBio Specific**: Designed for PacBio SMRT sequencing data.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal calling.
+- **Data Quality**: Results depend on sequencing quality.
+- **Motif Discovery**: Requires sufficient sequencing depth.
+- **Computational Resources**: Large datasets may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Detect modifications
+**Args:** `modifi -i alignments.bam -o modifications.txt`
+**Explanation:** Detects DNA modifications from PacBio data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With motif discovery
+**Args:** `modifi -i alignments.bam -m -o modifications.txt`
+**Explanation:** Enables motif discovery.
+
+### For HiFi reads
+**Args:** `modifi -i alignments.bam -t hifi -o modifications.txt`
+**Explanation:** Optimized for HiFi sequencing data.
+
+### With host-MGE analysis
+**Args:** `modifi -i alignments.bam -a -o modifications.txt`
+**Explanation:** Performs host-MGE association analysis.
+
+### Batch processing
+**Args:** `modifi -i bam/ -o results/`
+**Explanation:** Processes multiple BAM files.

@@ -1,30 +1,32 @@
 ---
 name: unmicst
-category: utility
-description: UNMICST - UnMicst Nuclear Segmentation Tool
-tags: [unmicst, utility]
+category: bioinformatics
+description: UNMICST - Unsupervised Nucleus Classification Tool.
+tags: [unmicst, nucleus-segmentation, bioinformatics, imaging]
 author: oxo-call-community
-source_url: "https://github.com/labsyspharm/UnMicst"
+source_url: "https://github.com/CellProfiling/HPA-Cell-Segmentation"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unmicst (v2.6.6) - UNMICST - UnMicst Nuclear Segmentation Tool
-- **Core Function**: UNMICST - UnMicst Nuclear Segmentation Tool
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unmicst`
+- **Tool Overview**: UNMICST - A tool for unsupervised nucleus classification in imaging data.
+- **Core Function**: Segments and classifies nuclei in microscopy images.
+- **Input**: Microscopy images.
+- **Output**: Segmented and classified nuclei.
+- **Installation**: Install via pip
+- **Use Case**: Image analysis, cell biology, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Image Quality**: Results depend on image quality.
+- **Memory**: May require significant memory for large images.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Segment nuclei
+**Args:** `unmicst -i image.tif -o segmentation/`
+**Explanation:** Segment nuclei in image.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unmicst -i image.tif -o segmentation/ -t 8`
+**Explanation:** Use 8 threads.

@@ -1,31 +1,56 @@
 ---
 name: reaper
 category: qc
-description: Tool for demultiplexing, trimming and filtering sequencing data.
-tags: ["reaper", "qc"]
+description: REAPER is a tool for demultiplexing, trimming and filtering sequencing data for quality control.
+tags: [reaper, qc, demultiplexing, trimming]
 author: oxo-call-community
 source_url: "https://www.ebi.ac.uk/~stijn/reaper/reaper.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Tool for demultiplexing, trimming and filtering sequencing data. (version 16.098)
-- **Core Function**: Processes bioinformatics data related to qc
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda reaper`
+- **Tool Overview**: reaper processes reads.
+- **Core Function**: Read processing.
+- **Algorithm**: Uses filtering methods.
+- **Input Format**: Accepts sequencing reads.
+- **Output**: Produces clean reads.
+- **Use Case**: Quality control.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Read Quality**: Affects processing.
+- **Parameters**: Must be configured.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `reaper --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Quality check
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Generates quality control metrics and reports.
+### Process reads
+**Args:** `reaper process -i reads.fastq -o clean_reads.fastq`
+**Explanation:** Processes sequencing reads.
 
+### With parameters
+**Args:** `reaper process -i reads.fastq -p params.yaml -o clean_reads.fastq`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `reaper -v process -i reads.fastq -o clean_reads.fastq`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `reaper -t 4 process -i reads.fastq -o clean_reads.fastq`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Trim reads
+**Args:** `reaper trim -i reads.fastq -q 20 -o trimmed_reads.fastq`
+**Explanation:** Trims low-quality bases.
+
+### Generate report
+**Args:** `reaper process -i reads.fastq -o clean_reads.fastq --report report.html`
+**Explanation:** Generates HTML report.

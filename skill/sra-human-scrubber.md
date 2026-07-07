@@ -1,30 +1,64 @@
 ---
 name: sra-human-scrubber
 category: qc
-description: An SRA tool identifies and removes any significant human read, and outputs the edited (cleaned) fastq file for SRA submission.
-tags: [sra-human-scrubber, qc, fastq]
+description: SRA Human Scrubber - Tool to identify and remove human reads from sequencing data
+tags: [sra-human-scrubber, qc, human-reads, privacy, sra]
 author: oxo-call-community
 source_url: "https://github.com/ncbi/sra-human-scrubber"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sra-human-scrubber (v2.2.1) - An SRA tool identifies and removes any significant human read, and outputs the edited (cleaned) fastq file for SRA submission.
-- **Core Function**: An SRA tool identifies and removes any significant human read, and outputs the edited (cleaned) fastq file for SRA submission.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: sra-human-scrubber (v2.2.1) - A human read removal tool
+- **Core Function**: Identifies and removes human reads for SRA submission
+- **Input/Output**: Accepts sequencing data; outputs cleaned FASTQ files
+- **Algorithm**: Human read identification and removal
 - **Installation**: `conda install -c bioconda sra-human-scrubber`
+- **Key Features**: Human read removal, privacy protection, SRA compliance
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly formatted sequencing data
+- **Read Quality**: Read quality affects identification accuracy
+- **Human Genome**: Human genome reference affects identification
+- **Memory Usage**: Large datasets require significant memory
+- **Output Format**: Output format depends on configuration
+- **Removal Accuracy**: Accuracy depends on read quality and reference
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `sra-human-scrubber --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `sra-human-scrubber -i <input.fastq> -o <output_dir>`
-**Explanation:** Run sra-human-scrubber with typical input and output options.
+### Basic human read removal
+**Args:** `sra-human-scrubber -i reads.fastq -o cleaned_reads.fastq`
+**Explanation:** Remove human reads from sequencing data.
+
+### With human genome reference
+**Args:** `sra-human-scrubber -i reads.fastq -r human_genome.fasta -o cleaned_reads.fastq`
+**Explanation:** Use specific human genome reference.
+
+### With sensitivity
+**Args:** `sra-human-scrubber -i reads.fastq -o cleaned_reads.fastq --sensitivity high`
+**Explanation:** Set identification sensitivity.
+
+### Multiple files
+**Args:** `sra-human-scrubber -i reads1.fastq reads2.fastq -o cleaned_reads.fastq`
+**Explanation:** Remove human reads from multiple files.
+
+### Output detailed results
+**Args:** `sra-human-scrubber -i reads.fastq -o cleaned_reads.fastq --detailed`
+**Explanation:** Output detailed removal information.
+
+### Output statistics
+**Args:** `sra-human-scrubber -i reads.fastq -o cleaned_reads.fastq --stats`
+**Explanation:** Output removal statistics.
+
+### Generate report
+**Args:** `sra-human-scrubber -i reads.fastq -o cleaned_reads.fastq --report`
+**Explanation:** Generate removal report.
+
+### With threads
+**Args:** `sra-human-scrubber -i reads.fastq -o cleaned_reads.fastq -p 8`
+**Explanation:** Use multiple threads for removal.

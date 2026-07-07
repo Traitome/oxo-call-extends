@@ -1,30 +1,44 @@
 ---
 name: constava
 category: formatting
-description: Calculate conformational states probability and variability from a protein structure ensemble
-tags: [constava, formatting, PDB]
+description: Calculate conformational states probability from protein ensembles
+tags: [constava, protein-structure, conformational-analysis, ensemble, pdb]
 author: oxo-call-community
 source_url: "https://pypi.org/project/constava/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: constava (v1.2.0) - Calculate conformational states probability and variability from a protein structure ensemble
-- **Core Function**: Constava analyzes conformational ensembles calculating conformational state propensities and conformational state variability. The conformational state propensities indicate the likelihood of a residu...
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda constava`
+- **Tool Overview**: Constava calculates conformational states probability and variability from protein structure ensembles, analyzing the likelihood of residues adopting different conformational states.
+- **Core Function**: Analyzes conformational ensembles to calculate conformational state propensities and variability for each residue in the protein structure.
+- **Algorithm**: Uses statistical analysis of dihedral angles and structural parameters across ensemble members.
+- **Input**: Protein structure ensemble files in PDB format.
+- **Output**: Conformational state probabilities and variability scores per residue.
+- **Application**: Protein dynamics analysis, NMR ensemble characterization, and conformational flexibility studies.
+- **Installation**: Install via pip: `pip install constava`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Ensemble Size**: Requires sufficient ensemble members for statistical reliability.
+- **Structure Quality**: Results depend on accurate structure determination.
+- **Missing Residues**: Missing coordinates may affect calculations.
+- **Conformational Sampling**: Limited sampling may miss rare conformations.
+- **Threshold Selection**: State definition thresholds affect results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Calculate conformational probabilities
+**Args:** `constava -i ensemble.pdb -o probabilities.txt`
+**Explanation:** Calculates conformational state probabilities from structure ensemble.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### With variability analysis
+**Args:** `constava -i ensemble.pdb --variability -o variability_scores.txt`
+**Explanation:** Calculates conformational variability per residue.
+
+### With custom thresholds
+**Args:** `constava -i ensemble.pdb -t 0.7 -o results.txt`
+**Explanation:** Sets 70% threshold for conformational state assignment.
+
+### Display help
+**Args:** `constava --help`
+**Explanation:** Shows all available options and usage information.

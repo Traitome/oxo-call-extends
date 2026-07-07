@@ -1,30 +1,56 @@
 ---
 name: seqlib
-category: alignment
-description: C++ interface to HTSlib, BWA-MEM and Fermi.
-tags: [seqlib, alignment]
+category: programming
+description: seqlib - C++ interface to HTSlib, BWA-MEM and Fermi
+tags: ["seqlib", "programming", "C++", "alignment"]
 author: oxo-call-community
 source_url: "https://github.com/walaj/SeqLib/blob/1.2.0/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: seqlib (v1.2.0) - C++ interface to HTSlib, BWA-MEM and Fermi.
-- **Core Function**: C++ interface to HTSlib, BWA-MEM and Fermi.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda seqlib`
+- **Tool Overview**: seqlib (v1.2.0) provides a C++ interface to HTSlib, BWA-MEM and Fermi.
+- **Core Function**: Provides unified C++ API for sequence alignment and variant calling.
+- **Algorithm**: Wraps HTSlib for BAM/VCF I/O and BWA-MEM for alignment.
+- **Input/Output**: Accepts FASTA/BAM/VCF files and produces aligned sequences.
+- **C++ Library**: Focuses on high-performance sequence analysis in C++.
+- **Applications**: Bioinformatics tool development, sequence alignment, and variant analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **C++ Knowledge**: Requires C++ programming knowledge.
+- **Build System**: Requires proper CMake setup.
+- **Memory Management**: Requires careful memory management in C++.
+- **Compile Time**: May have long compile times.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features may require reading source code.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Include header
+**Args:** `#include <SeqLib/SeqLib.h>`
+**Explanation:** Includes SeqLib headers.
 
-### Basic usage
-**Args:** `seqlib -i <input.fasta> -r <reference.fasta> -o <output.sam>`
-**Explanation:** Run seqlib with typical input and output options.
+### Align reads
+**Args:** `SeqLib::BWAWrapper bwa; bwa.AlignSeqs(reads, ref, alns);`
+**Explanation:** Aligns reads using BWA-MEM.
+
+### Read BAM
+**Args:** `SeqLib::BamReader reader("input.bam");`
+**Explanation:** Opens BAM file for reading.
+
+### Write BAM
+**Args:** `SeqLib::BamWriter writer("output.bam");`
+**Explanation:** Creates BAM file for writing.
+
+### Help documentation
+**Args:** `https://github.com/walaj/SeqLib/wiki`
+**Explanation:** Online documentation.
+
+### Version check
+**Args:** `SeqLib::VERSION`
+**Explanation:** Shows library version.
+
+### Build project
+**Args:** `cmake -S . -B build && cmake --build build`
+**Explanation:** Builds project using CMake.

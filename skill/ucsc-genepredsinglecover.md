@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredsinglecover
 category: utility
-description: Create single-coverage genePred files.
-tags: [ucsc-genepredsinglecover, utility]
+description: UCSC genePredSingleCover - Tool for gene prediction coverage.
+tags: [ucsc-genepredsinglecover, ucsc, gene-prediction, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredsinglecover (v482) - Create single-coverage genePred files.
-- **Core Function**: Create single-coverage genePred files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredsinglecover`
+- **Tool Overview**: UCSC genePredSingleCover - A tool for calculating single-exon coverage.
+- **Core Function**: Analyzes coverage of single-exon genes.
+- **Input**: Gene prediction file.
+- **Output**: Coverage statistics.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene analysis, coverage analysis, annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper genePred format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate coverage
+**Args:** `genePredSingleCover genes.txt > coverage.txt`
+**Explanation:** Calculate single-exon coverage.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredSingleCover -minLength=100 genes.txt > coverage.txt`
+**Explanation:** Minimum exon length.

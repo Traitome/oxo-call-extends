@@ -1,30 +1,32 @@
 ---
 name: ucsc-checkcoveragegaps
 category: utility
-description: Check for biggest gap in coverage for a list of tracks.
-tags: [ucsc-checkcoveragegaps, utility]
+description: UCSC checkCoverageGaps - Tool for checking coverage gaps.
+tags: [ucsc-checkcoveragegaps, ucsc, quality-control, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-checkcoveragegaps (v482) - Check for biggest gap in coverage for a list of tracks.
-- **Core Function**: Check for biggest gap in coverage for a list of tracks.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-checkcoveragegaps`
+- **Tool Overview**: UCSC checkCoverageGaps - A tool for identifying coverage gaps in sequencing data.
+- **Core Function**: Detects regions with insufficient sequencing coverage.
+- **Input**: BED file, coverage data.
+- **Output**: Gap regions in BED format.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quality control, coverage analysis, genome assembly.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Coverage Threshold**: Requires appropriate threshold setting.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check coverage gaps
+**Args:** `checkCoverageGaps -i coverage.bw -threshold=10 > gaps.bed`
+**Explanation:** Identify regions with coverage below threshold.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With regions
+**Args:** `checkCoverageGaps -i coverage.bw -regions=targets.bed > gaps.bed`
+**Explanation:** Check gaps in specified regions.

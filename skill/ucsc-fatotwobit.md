@@ -1,30 +1,32 @@
 ---
 name: ucsc-fatotwobit
-category: formatting
-description: Convert DNA from fasta to 2bit format.
-tags: [ucsc-fatotwobit, formatting]
+category: utility
+description: UCSC faToTwoBit - Tool for converting FASTA to 2bit format.
+tags: [ucsc-fatotwobit, ucsc, fasta, format-conversion, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fatotwobit (v482) - Convert DNA from fasta to 2bit format.
-- **Core Function**: Convert DNA from fasta to 2bit format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fatotwobit`
+- **Tool Overview**: UCSC faToTwoBit - A tool for converting FASTA to 2bit format.
+- **Core Function**: Compresses FASTA sequences into binary 2bit format.
+- **Input**: FASTA file.
+- **Output**: 2bit binary file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data compression, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Output Size**: Compressed format may not be suitable for all purposes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to 2bit
+**Args:** `faToTwoBit input.fa output.2bit`
+**Explanation:** Convert FASTA to 2bit format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `faToTwoBit -noMask input.fa output.2bit`
+**Explanation:** Convert without masking.

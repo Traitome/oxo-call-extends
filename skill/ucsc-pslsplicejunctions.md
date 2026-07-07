@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslsplicejunctions
 category: utility
-description: Extract splice junctions from a PSL file.
-tags: [ucsc-pslsplicejunctions, utility]
+description: UCSC pslSpliceJunctions - Tool for analyzing splice junctions.
+tags: [ucsc-pslsplicejunctions, ucsc, psl, splice-junctions, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslsplicejunctions (v482) - Extract splice junctions from a PSL file.
-- **Core Function**: Extract splice junctions from a PSL file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslsplicejunctions`
+- **Tool Overview**: UCSC pslSpliceJunctions - A tool for analyzing splice junctions from PSL alignments.
+- **Core Function**: Identifies and analyzes splice junction sites.
+- **Input**: PSL file.
+- **Output**: Splice junction data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: RNA-seq analysis, alternative splicing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze splice junctions
+**Args:** `pslSpliceJunctions input.psl > junctions.txt`
+**Explanation:** Identify splice junctions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslSpliceJunctions -verbose input.psl > junctions.txt`
+**Explanation:** Detailed splice junction analysis.

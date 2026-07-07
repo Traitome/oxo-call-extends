@@ -1,30 +1,32 @@
 ---
 name: ucsc-netsyntenic
 category: utility
-description: Add synteny info to net.
-tags: [ucsc-netsyntenic, utility]
+description: UCSC netSyntenic - Tool for syntenic net analysis.
+tags: [ucsc-netsyntenic, ucsc, net, synteny, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-netsyntenic (v482) - Add synteny info to net.
-- **Core Function**: Add synteny info to net.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-netsyntenic`
+- **Tool Overview**: UCSC netSyntenic - A tool for syntenic net analysis.
+- **Core Function**: Identifies syntenic regions from net alignments.
+- **Input**: Net file.
+- **Output**: Syntenic regions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Comparative genomics, synteny analysis, evolution.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper net format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze syntenic regions
+**Args:** `netSyntenic input.net > syntenic.txt`
+**Explanation:** Identify syntenic regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `netSyntenic -verbose input.net > syntenic.txt`
+**Explanation:** Analyze with verbose output.

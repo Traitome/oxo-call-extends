@@ -1,30 +1,52 @@
 ---
 name: itolparser
-category: utility
-description: Small script to produce iTOL colorstrip metadata files from a table
-tags: [itolparser, utility]
+category: visualization
+description: Parser to produce iTOL colorstrip metadata files from tabular data.
+tags: [itolparser, visualization, phylogenetics, metadata]
 author: oxo-call-community
 source_url: "https://github.com/boasvdp/itolparser"
 ---
 
 ## Concepts
 
-- **Tool Overview**: itolparser (v0.2.1) - Small script to produce iTOL colorstrip metadata files from a table
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda itolparser`
+- **Table Parsing**: Parses tabular data to generate iTOL metadata files.
+- **Colorstrip Generation**: Creates colorstrip annotations for phylogenetic trees.
+- **Data Mapping**: Maps categorical data to colors for visualization.
+- **Batch Processing**: Processes multiple data tables efficiently.
+- **Color Schemes**: Supports various color schemes for annotations.
+- **Output Customization**: Customizable output format for iTOL compatibility.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Input Format**: Requires specific table format for parsing.
+- **Column Matching**: Column names must match expected format.
+- **Color Mapping**: Poor color mapping can obscure data patterns.
+- **Data Consistency**: Inconsistent data values affect annotation quality.
+- **Output Formatting**: Output must match iTOL's exact specification.
+- **Missing Data**: Missing values may cause parsing errors.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Basic colorstrip generation
+**Args:** `itolparser --input data.csv --output colorstrip.txt`
+**Explanation:** Generates iTOL colorstrip from tabular data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With custom colors
+**Args:** `itolparser --input data.csv --colors colors.yaml --output colorstrip.txt`
+**Explanation:** Uses custom color mapping for annotations.
+
+### Multiple columns
+**Args:** `itolparser --input data.csv --columns group1,group2 --output colorstrip.txt`
+**Explanation:** Processes multiple columns for annotation.
+
+### Preview output
+**Args:** `itolparser --input data.csv --preview --output preview.html`
+**Explanation:** Generates HTML preview of colorstrip.
+
+### Batch processing
+**Args:** `itolparser --batch inputs.txt --output-dir results/`
+**Explanation:** Processes multiple input files in batch.
+
+### Validate input
+**Args:** `itolparser --validate --input data.csv`
+**Explanation:** Validates input data format before processing.

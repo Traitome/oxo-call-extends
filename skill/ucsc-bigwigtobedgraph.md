@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigwigtobedgraph
-category: formatting
-description: Convert from bigWig to bedGraph format.
-tags: [ucsc-bigwigtobedgraph, formatting]
+category: utility
+description: UCSC bigWigToBedGraph - Tool for converting BigWig to bedGraph format.
+tags: [ucsc-bigwigtobedgraph, ucsc, format-conversion, bigwig, bedgraph]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigwigtobedgraph (v482) - Convert from bigWig to bedGraph format.
-- **Core Function**: Convert from bigWig to bedGraph format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigwigtobedgraph`
+- **Tool Overview**: UCSC bigWigToBedGraph - A tool for converting BigWig format to bedGraph format.
+- **Core Function**: Converts indexed BigWig files to plain bedGraph format.
+- **Input**: BigWig file.
+- **Output**: bedGraph format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data extraction, analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Size**: Output may be significantly larger than input.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to bedGraph
+**Args:** `bigWigToBedGraph input.bw output.bedgraph`
+**Explanation:** Convert BigWig to bedGraph format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With region
+**Args:** `bigWigToBedGraph -chrom=chr1 -start=1 -end=1000000 input.bw output.bedgraph`
+**Explanation:** Extract specific region from BigWig.

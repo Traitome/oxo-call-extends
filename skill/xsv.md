@@ -1,30 +1,32 @@
 ---
 name: xsv
-category: formatting
-description: A fast CSV toolkit written in Rust.
-tags: [xsv, formatting]
+category: bioinformatics
+description: xsv - CSV processing tool.
+tags: [xsv, csv, data-processing, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/BurntSushi/xsv"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xsv (v0.10.3) - A fast CSV toolkit written in Rust.
-- **Core Function**: A fast CSV toolkit written in Rust.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xsv`
+- **Tool Overview**: xsv - Fast CSV toolkit.
+- **Core Function**: Processes CSV files.
+- **Input**: CSV file.
+- **Output**: Processed data.
+- **Installation**: Install via cargo or download
+- **Use Case**: Data processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large CSV files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Parse CSV
+**Args:** `xsv stats input.csv`
+**Explanation:** Get CSV statistics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xsv sort -k 2 input.csv -o sorted.csv`
+**Explanation:** Sort by column 2.

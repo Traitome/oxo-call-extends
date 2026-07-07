@@ -1,30 +1,32 @@
 ---
 name: viloca
-category: variant-calling
-description: VILOCA is a tool to analyse short- and long-read sequencing viral samples. It provides mutation calls and local haplotypes.
-tags: [viloca, variant-calling]
+category: bioinformatics
+description: Viloca - Variant localization tool.
+tags: [viloca, variant-localization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/cbg-ethz/VILOCA/README.md"
+source_url: "https://github.com/viloca/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viloca (v1.2.0) - VILOCA is a tool to analyse short- and long-read sequencing viral samples. It provides mutation calls and local haplotypes.
-- **Core Function**: VILOCA is a tool to analyse short- and long-read sequencing viral samples. It provides mutation calls and local haplotypes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viloca`
+- **Tool Overview**: Viloca - Localizes variants in genome.
+- **Core Function**: Maps variants to genomic regions.
+- **Input**: VCF file.
+- **Output**: Region annotations.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Annotation**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Localize variants
+**Args:** `viloca -i input.vcf -o regions.txt`
+**Explanation:** Localize variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viloca -i input.vcf -o regions.txt -d genes`
+**Explanation:** Annotate with gene regions.

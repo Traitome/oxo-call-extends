@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredtobiggenepred
-category: formatting
-description: Converts genePred or genePredExt to bigGenePred input (bed format with extra fields).
-tags: [ucsc-genepredtobiggenepred, formatting]
+category: utility
+description: UCSC genePredToBigGenePred - Tool for converting gene predictions to bigGenePred.
+tags: [ucsc-genepredtobiggenepred, ucsc, gene-prediction, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredtobiggenepred (v482) - Converts genePred or genePredExt to bigGenePred input (bed format with extra fields).
-- **Core Function**: Converts genePred or genePredExt to bigGenePred input (bed format with extra fields).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredtobiggenepred`
+- **Tool Overview**: UCSC genePredToBigGenePred - A tool for converting to bigGenePred format.
+- **Core Function**: Converts gene predictions to binary bigGenePred format.
+- **Input**: Gene prediction file.
+- **Output**: BigGenePred binary file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser tracks, data compression.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Chromosome Sizes**: Requires chrom.sizes file.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to bigGenePred
+**Args:** `genePredToBigGenePred genes.txt chrom.sizes > genes.bb`
+**Explanation:** Convert to bigGenePred format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredToBigGenePred -name=genes genes.txt chrom.sizes > genes.bb`
+**Explanation:** Add track name.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigwigcat
 category: utility
-description: Merge non-overlapping bigWig files.
-tags: [ucsc-bigwigcat, utility]
+description: UCSC bigWigCat - Tool for concatenating BigWig files.
+tags: [ucsc-bigwigcat, ucsc, bigwig, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigwigcat (v482) - Merge non-overlapping bigWig files.
-- **Core Function**: Merge non-overlapping bigWig files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigwigcat`
+- **Tool Overview**: UCSC bigWigCat - A tool for concatenating multiple BigWig files.
+- **Core Function**: Merges multiple BigWig files into a single file.
+- **Input**: Multiple BigWig files.
+- **Output**: Combined BigWig file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data merging, track aggregation, multi-sample analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Chromosome Consistency**: Requires matching chromosome names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Concatenate BigWig files
+**Args:** `bigWigCat -output combined.bw file1.bw file2.bw file3.bw`
+**Explanation:** Merge multiple BigWig files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With override
+**Args:** `bigWigCat -override -output combined.bw file*.bw`
+**Explanation:** Concatenate with override for overlapping regions.

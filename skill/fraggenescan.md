@@ -2,21 +2,42 @@
 name: fraggenescan
 category: assembly
 description: FragGeneScan is an application for finding (fragmented) genes in short reads.
-tags: [fraggenescan, assembly]
+tags: [fraggenescan, gene prediction, short reads, prokaryotic]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/fraggenescan"
 ---
 
 ## Concepts
-- **Tool Overview**: FragGeneScan is an application for finding (fragmented) genes in short reads. It can also be applied to predict prokaryotic genes in incomplete assemblies or complete genomes.
-- **Core Function**: FragGeneScan is an application for finding (fragmented) genes in short reads.
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda fraggenescan`
+- **Gene Prediction**: Predicts prokaryotic genes from short reads or incomplete assemblies.
+- **Fragmented Gene Detection**: Handles fragmented genes caused by short read sequencing.
+- **Error Handling**: Designed to handle sequencing errors in short reads.
+- **ORF Identification**: Identifies open reading frames in sequencing data.
+- **Annotation Support**: Provides gene annotations including start/stop codons.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Prokaryotic Specific**: Primarily designed for prokaryotic genomes.
+- **Read Length**: Performance may degrade with very short reads.
+- **GC Content**: May have bias with extreme GC content.
+- **False Positives**: May predict non-functional ORFs.
+- **Memory Usage**: Processing large datasets requires significant memory.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Predict genes from short reads
+**Args:** `FragGeneScan -s reads.fastq -o genes.faa -w 1`
+**Explanation:** Predicts genes from short reads using training mode 1 (Illumina).
+
+### Predict genes from assembly
+**Args:** `FragGeneScan -s contigs.fasta -o genes.faa -w 0`
+**Explanation:** Predicts genes from assembled contigs using training mode 0 (complete genome).
+
+### With quality scores
+**Args:** `FragGeneScan -s reads.fastq -q reads_qual.fastq -o genes.faa -w 1`
+**Explanation:** Uses quality scores for improved gene prediction accuracy.
+
+### Output nucleotide sequences
+**Args:** `FragGeneScan -s reads.fastq -o genes -n -w 1`
+**Explanation:** Outputs both amino acid and nucleotide sequences.
+
+### Batch processing
+**Args:** `FragGeneScan -s input_dir/ -o output_dir/ -w 1`
+**Explanation:** Processes all files in input directory.

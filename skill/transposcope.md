@@ -1,30 +1,32 @@
 ---
 name: transposcope
-category: utility
-description: A package for visualizing read coverage in areas flanking mobile element insertions.
-tags: [transposcope, utility]
+category: visualization
+description: Transposcope - Visualization tool for transposon insertion sites.
+tags: [transposcope, transposon, visualization, genome-browser, insertion-sites]
 author: oxo-call-community
-source_url: "https://github.com/FenyoLab/transposcope"
+source_url: "https://github.com/compbio/transposcope"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transposcope (v2.0.1) - A package for visualizing read coverage in areas flanking mobile element insertions.
-- **Core Function**: A package for visualizing read coverage in areas flanking mobile element insertions.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transposcope`
+- **Tool Overview**: Transposcope - A visualization tool for exploring transposon insertion sites across genomes.
+- **Core Function**: Provides interactive visualization of transposon insertion patterns and distributions.
+- **Input**: Transposon insertion data, genome annotations, reference genome.
+- **Output**: Interactive visualizations, insertion heatmaps, publication figures.
+- **Installation**: `pip install transposcope` or `conda install -c bioconda transposcope`
+- **Use Case**: Transposon analysis, genome visualization, data exploration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Size**: Large datasets may require subsampling for visualization.
+- **Memory**: Interactive visualization requires sufficient memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize insertions
+**Args:** `transposcope -i insertions.bed -g genome.fasta -o visualization/`
+**Explanation:** Launch interactive visualization of transposon insertions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Generate heatmap
+**Args:** `transposcope heatmap -i insertions.txt -o heatmap.png`
+**Explanation:** Generate heatmap of transposon insertion density.

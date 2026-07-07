@@ -2,29 +2,47 @@
 name: mice
 category: utility
 description: Markers Inferred by Compacting Elements (mice). Synteny blocks from pangenomes.
-tags: [mice, utility]
+tags: [mice, utility, pangenomics]
 author: oxo-call-community
 source_url: "https://github.com/gi-bielefeld/mice"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mice v0.1.2 - Markers Inferred by Compacting Elements (mice). Synteny blocks from pangenomes..
-- **Core Function**: Markers Inferred by Compacting Elements (mice). Synteny blocks from pangenomes.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mice`
+- **Tool Overview**: MICE v0.1.2 identifies synteny blocks from pangenomes using compacted elements.
+- **Core Function**: Identifies synteny blocks in pangenome sequences.
+- **Synteny Analysis**: Detects conserved synteny blocks across genomes.
+- **Pangenome Focus**: Optimized for pangenomic analysis.
+- **Input/Output**: Accepts genome sequences; outputs synteny blocks.
+- **Comparative Genomics**: Supports comparative genomic analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Processing large pangenomes may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal synteny detection.
+- **Data Quality**: Analysis accuracy depends on input sequence quality.
+- **Runtime**: Analysis of large pangenomes can be time-consuming.
+- **Genome Complexity**: May struggle with highly fragmented genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Identify synteny blocks
+**Args:** `mice -i genomes.fasta -o synteny.txt`
+**Explanation:** Identifies synteny blocks from pangenome sequences.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom parameters
+**Args:** `mice -i genomes.fasta -o synteny.txt -k 21`
+**Explanation:** Uses k-mer size of 21 for analysis.
+
+### Batch processing
+**Args:** `mice -i fasta/ -o synteny/`
+**Explanation:** Processes multiple genome files in batch mode.
+
+### Generate visualization
+**Args:** `mice -i genomes.fasta -o synteny.txt -p plot.png`
+**Explanation:** Generates synteny visualization.
+
+### Detailed output
+**Args:** `mice -i genomes.fasta -o synteny.txt -v`
+**Explanation:** Generates detailed synteny report.

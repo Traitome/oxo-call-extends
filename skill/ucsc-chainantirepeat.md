@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainantirepeat
 category: utility
-description: Get rid of chains that are primarily the results of repeats and degenerate DNA.
-tags: [ucsc-chainantirepeat, utility]
+description: UCSC chainAntiRepeat - Tool for removing repeat elements from chain alignments.
+tags: [ucsc-chainantirepeat, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainantirepeat (v482) - Get rid of chains that are primarily the results of repeats and degenerate DNA.
-- **Core Function**: Get rid of chains that are primarily the results of repeats and degenerate DNA.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainantirepeat`
+- **Tool Overview**: UCSC chainAntiRepeat - A tool for filtering out repeat elements from chain alignments.
+- **Core Function**: Removes alignments that map to repeat regions.
+- **Input**: Chain alignment file, repeat mask file.
+- **Output**: Filtered chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment filtering, repeat masking, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Repeat Mask Format**: Requires proper repeat mask format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter repeats
+**Args:** `chainAntiRepeat chain.txt repeats.bed > filtered.chain`
+**Explanation:** Remove repeat-containing alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With soft mask
+**Args:** `chainAntiRepeat -soft chain.txt repeats.bed > filtered.chain`
+**Explanation:** Soft-mask repeat regions.

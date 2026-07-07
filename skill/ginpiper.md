@@ -1,30 +1,43 @@
 ---
 name: ginpiper
-category: utility
-description: Package for smooth curve estimation, R_e computation and plotting.
-tags: [ginpiper, utility]
+category: statistical-analysis
+description: ginpiper - Smooth curve estimation, R_e computation and plotting.
+tags: [ginpiper, statistical-analysis, epidemiology, R_e]
 author: oxo-call-community
 source_url: "https://github.com/KleistLab/ginpiper"
 ---
 
 ## Concepts
-
-- **Tool Overview**: ginpiper (v1.0.0) - Package for smooth curve estimation, R_e computation and plotting.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda ginpiper`
+- **Curve Estimation**: Estimates smooth curves.
+- **R_e Computation**: Computes effective reproduction number.
+- **Epidemiology**: Analyzes epidemiological data.
+- **Statistical Modeling**: Uses statistical models.
+- **Visualization**: Generates plots.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Requires high-quality data.
+- **Model Selection**: Requires appropriate model.
+- **Parameter Estimation**: Requires careful estimation.
+- **Computational Resources**: May require resources.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Estimate curve
+**Args:** `ginpiper curve -i data.txt -o curve.txt`
+**Explanation:** Estimates smooth curve.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compute R_e
+**Args:** `ginpiper R_e -i data.txt -o Re.txt`
+**Explanation:** Computes R_e values.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Generate plot
+**Args:** `ginpiper plot -i data.txt -o plot.png`
+**Explanation:** Generates plot.
+
+### Batch processing
+**Args:** `ginpiper curve -l datasets.txt -o ./results/`
+**Explanation:** Processes multiple datasets.
+
+### Generate report
+**Args:** `ginpiper report -i data.txt -o report.html`
+**Explanation:** Generates analysis report.

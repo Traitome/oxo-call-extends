@@ -1,30 +1,32 @@
 ---
 name: viennarna
-category: containerization
-description: ViennaRNA package -- RNA secondary structure prediction and comparison
-tags: [viennarna, containerization]
+category: bioinformatics
+description: ViennaRNA - RNA secondary structure prediction.
+tags: [viennarna, rna-structure, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://www.tbi.univie.ac.at/RNA/"
+source_url: "https://github.com/ViennaRNA/ViennaRNA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viennarna (v2.7.2) - ViennaRNA package -- RNA secondary structure prediction and comparison
-- **Core Function**: ViennaRNA package -- RNA secondary structure prediction and comparison
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viennarna`
+- **Tool Overview**: ViennaRNA - RNA secondary structure analysis.
+- **Core Function**: Predicts RNA secondary structures.
+- **Input**: RNA sequence.
+- **Output**: Structure predictions.
+- **Installation**: Install via conda or source
+- **Use Case**: RNA analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for long sequences.
+- **Accuracy**: Predictions are probabilistic.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict structure
+**Args:** `RNAfold < input.fasta > structure.txt`
+**Explanation:** Predict RNA structure.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `RNAfold -p < input.fasta > structure.txt`
+**Explanation:** Calculate base pairing probabilities.

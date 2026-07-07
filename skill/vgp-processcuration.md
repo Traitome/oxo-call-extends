@@ -1,30 +1,32 @@
 ---
 name: vgp-processcuration
-category: alignment
-description: ProcessCurated - Toolkit for processing manually curated genome assemblies
-tags: [vgp-processcuration, alignment]
+category: bioinformatics
+description: VGP ProcessCuration - Genome curation tool.
+tags: [vgp-processcuration, genome-curation, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/vgl-hub/vgl-curation/blob/postcuration_1.0/README.md"
+source_url: "https://github.com/VGP/vgp-processcuration"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vgp-processcuration (v1.1) - ProcessCurated is a toolkit for processing manually curated genome assemblies. It reconciles AGP files manually curated in PretextView to rename, reorient, and sort assemblies in preparation for submission. The tool performs three main operations: correcting and splitting AGP files while assigning unlocalized sequences, assigning chromosome names to scaffolds, and reorienting and renaming sequences based on MashMap alignment data.
-- **Core Function**: ProcessCurated - Toolkit for processing manually curated genome assemblies
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vgp-processcuration`
+- **Tool Overview**: VGP ProcessCuration - Genome assembly curation.
+- **Core Function**: Curates and validates genome assemblies.
+- **Input**: Assembly files.
+- **Output**: Curated assembly.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Curate assembly
+**Args:** `vgp-processcuration -i assembly.fasta -o curated/`
+**Explanation:** Curate genome assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vgp-processcuration -i assembly.fasta -o curated/ -t 8`
+**Explanation:** Use 8 threads.

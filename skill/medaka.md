@@ -1,30 +1,48 @@
 ---
 name: medaka
 category: variant-calling
-description: A tool to create consensus sequences and variant calls from nanopore sequencing data using neural networks.
-tags: [medaka, variant-calling]
+description: Neural network-based consensus and variant calling for nanopore sequencing data.
+tags: [medaka, nanopore, variant-calling]
 author: oxo-call-community
 source_url: "https://github.com/nanoporetech/medaka"
 ---
 
 ## Concepts
 
-- **Tool Overview**: medaka v2.2.1 - A tool to create consensus sequences and variant calls from nanopore sequencing data using neural networks..
-- **Core Function**: A tool to create consensus sequences and variant calls from nanopore sequencing data using neural networks.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Medaka creates consensus sequences from nanopore data.
+- **Core Function**: Uses neural networks for basecalling and variant calling.
+- **Deep Learning**: Trained neural networks for accurate base prediction.
+- **Consensus Calling**: Generates high-quality consensus sequences.
+- **Variant Detection**: Identifies variants from aligned reads.
 - **Installation**: `conda install -c bioconda medaka`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Data Requirements**: Requires high-quality nanopore data.
+- **Model Selection**: Choosing right model is critical.
+- **Computation Time**: Neural network inference is computationally heavy.
+- **Memory Requirements**: High memory usage for large datasets.
+- **Reference Dependence**: Requires reference genome for variant calling.
+- **Basecalling Quality**: Depends on initial basecalling quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Generate consensus
+**Args:** `medaka_consensus -i reads.fastq -d ref.fasta -o consensus/`
+**Explanation:** Creates consensus sequence from reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Call variants
+**Args:** `medaka_variant -i variants.vcf -d ref.fasta -o calls.vcf`
+**Explanation:** Calls variants from aligned reads.
+
+### Train model
+**Args:** `medaka_train -i training_data/ -o model.hdf5`
+**Explanation:** Trains custom neural network model.
+
+### Use specific model
+**Args:** `medaka_consensus -i reads.fastq -d ref.fasta -m r941_prom_high_g360 -o consensus/`
+**Explanation:** Uses specific basecaller model.
+
+### Help documentation
+**Args:** `medaka --help`
+**Explanation:** Displays available commands and options.

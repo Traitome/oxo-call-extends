@@ -1,30 +1,56 @@
 ---
 name: sequana_pipetools
-category: programming
-description: A set of tools to help building or using Sequana pipelines
-tags: [sequana_pipetools, programming]
+category: workflow
+description: sequana_pipetools - Tools for building and using Sequana pipelines
+tags: ["sequana_pipetools", "workflow", "snakemake", "pipeline"]
 author: oxo-call-community
 source_url: "https://sequana.readthedocs.io/en/main/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sequana_pipetools (v1.5.5) - A set of tools to help building or using Sequana pipelines
-- **Core Function**: A set of tools to help building or using Sequana pipelines
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sequana_pipetools`
+- **Tool Overview**: sequana_pipetools (v1.5.5) provides tools for building and using Sequana pipelines.
+- **Core Function**: Assists in creating and managing Snakemake-based NGS pipelines.
+- **Algorithm**: Uses Snakemake workflow management system.
+- **Input/Output**: Accepts configuration files and produces pipeline outputs.
+- **Pipeline Development**: Focuses on pipeline creation and maintenance.
+- **Applications**: NGS data analysis, pipeline development, and workflow management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Configuration Complexity**: Pipeline configuration can be complex.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create pipeline
+**Args:** `sequana_pipetools create --name my_pipeline`
+**Explanation:** Creates a new pipeline project.
 
-### Basic usage
-**Args:** `sequana_pipetools <config_file>`
-**Explanation:** Run sequana_pipetools with typical input and output options.
+### Run pipeline
+**Args:** `sequana_pipetools run config.yaml`
+**Explanation:** Runs pipeline with configuration file.
+
+### List pipelines
+**Args:** `sequana_pipetools list`
+**Explanation:** Lists available pipelines.
+
+### Verbose logging
+**Args:** `sequana_pipetools -v run config.yaml`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `sequana_pipetools --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sequana_pipetools --version`
+**Explanation:** Shows current version.
+
+### Initialize project
+**Args:** `sequana_pipetools init my_project`
+**Explanation:** Initializes a new project directory.

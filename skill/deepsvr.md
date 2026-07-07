@@ -9,22 +9,31 @@ source_url: "https://github.com/griffithlab/deepsvr"
 
 ## Concepts
 
-- **Tool Overview**: DeepSVR v0.1.0 - Deep learning tool for classifying somatic variants in paired tumor sequencing data.
-- **Core Function**: Distinguishes real somatic variants from sequencing artifacts and germline variants using deep learning.
-- **Input/Output**: Expects VCF files with somatic calls; outputs refined variant calls with confidence scores.
+- **Tool Overview**: deepsvr (v0.1.0+) is a deep learning-based tool for classifying and refining somatic variants in paired tumor-normal sequencing data. It distinguishes true somatic variants from artifacts and germline variants.
+- **Core Function**: Uses deep learning to classify somatic variants as real or artifacts, improving the accuracy of somatic variant calling pipelines.
+- **Input/Output**: Input: VCF files with somatic calls, optionally with tumor-normal BAM files. Output: Refined VCF with confidence scores, filtered variants.
+- **Algorithm**: Uses deep neural networks trained on features derived from variant calls, read alignments, and quality metrics to classify variants.
+- **Key Features**: Somatic variant filtering, confidence scoring, integrates with existing pipelines, supports multiple variant callers, batch processing.
 - **Installation**: `conda install -c bioconda deepsvr`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Requires paired tumor-normal VCF files for best results.
+- **Input Requirements**: Requires paired tumor-normal data for best results.
+- **Variant Caller Compatibility**: Works best with specific variant callers.
+- **Computational Resources**: Requires significant computational resources.
+- **Training Data**: Performance depends on training dataset diversity.
+- **Confidence Threshold**: Requires appropriate threshold setting.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
-
-### Basic usage
+### Classify somatic variants
 **Args:** `deepsvr classify --vcf somatic.vcf --output refined.vcf`
 **Explanation:** Classifies and filters somatic variants using deep learning.
+
+### With BAM files
+**Args:** `deepsvr classify --vcf somatic.vcf --tumor_bam tumor.bam --normal_bam normal.bam --output refined.vcf`
+**Explanation:** Use BAM files for additional feature extraction.
+
+### Filter by confidence
+**Args:** `deepsvr classify --vcf somatic.vcf --output refined.vcf --confidence 0.9`
+**Explanation:** Filter variants with 90% confidence threshold.

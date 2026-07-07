@@ -1,30 +1,32 @@
 ---
 name: unassigner
-category: utility
-description: Type strain identification for 16S reads
-tags: [unassigner, utility]
+category: bioinformatics
+description: Unassigner - Tool for unassigned reads analysis.
+tags: [unassigner, sequencing, reads, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/PennChopMicrobiomeProgram/unassigner"
+source_url: "https://github.com/unassigner/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unassigner (v1.1.0) - Type strain identification for 16S reads
-- **Core Function**: Type strain identification for 16S reads
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unassigner`
+- **Tool Overview**: Unassigner - A tool for analyzing unassigned sequencing reads.
+- **Core Function**: Identifies and classifies unassigned reads.
+- **Input**: FASTQ file with unassigned reads.
+- **Output**: Analysis report and classified reads.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequencing quality control, read classification, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Classification Accuracy**: Depends on reference databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze unassigned reads
+**Args:** `unassigner -i unassigned.fastq -o report.txt`
+**Explanation:** Analyze unassigned reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Classify reads
+**Args:** `unassigner -i unassigned.fastq -d ref.db -o classified/`
+**Explanation:** Classify reads using reference database.

@@ -1,30 +1,52 @@
 ---
 name: kyototycoon
-category: utility
-description: a lightweight network server on top of the Kyoto Cabinet key-value database, built for high-performance and concurrency
-tags: [kyototycoon, utility]
+category: database
+description: Lightweight network server built on Kyoto Cabinet key-value database
+tags: [kyototycoon, database, key-value, network-server, Kyoto-Cabinet]
 author: oxo-call-community
 source_url: "https://github.com/alticelabs/kyoto"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kyototycoon v20170410 - a lightweight network server on top of the Kyoto Cabinet key-value database, built for high-performance and concurrency.
-- **Core Function**: a lightweight network server on top of the Kyoto Cabinet key-value database, built for high-performance and concurrency
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kyototycoon`
+- **Key-Value Store**: Provides key-value database functionality
+- **Network Server**: Lightweight network server implementation
+- **High Performance**: Built for high-performance and concurrency
+- **Kyoto Cabinet**: Based on Kyoto Cabinet database engine
+- **Multiple Protocols**: Supports various network protocols
+- **Scalable Architecture**: Designed for scalability
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Data Persistence**: Requires proper backup strategies
+- **Network Latency**: Network conditions affect performance
+- **Memory Management**: Large datasets need careful memory management
+- **Concurrency Limits**: Connection limits may affect throughput
+- **Configuration Tuning**: Requires tuning for optimal performance
+- **Data Corruption**: Requires crash recovery mechanisms
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Start server
+**Args:** `ktserver -port 1978 -db database.kch -solr`
+**Explanation:** Starts Kyoto Tycoon server on port 1978.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Store value
+**Args:** `ktremotemgr set -port 1978 key value`
+**Explanation:** Stores key-value pair in database.
+
+### Retrieve value
+**Args:** `ktremotemgr get -port 1978 key`
+**Explanation:** Retrieves value for given key.
+
+### Delete key
+**Args:** `ktremotemgr remove -port 1978 key`
+**Explanation:** Removes key from database.
+
+### List keys
+**Args:** `ktremotemgr list -port 1978`
+**Explanation:** Lists all keys in database.
+
+### Bulk import
+**Args:** `ktremotemgr import -port 1978 -file data.tsv`
+**Explanation:** Bulk imports key-value pairs from file.

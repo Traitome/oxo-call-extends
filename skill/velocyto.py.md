@@ -1,30 +1,32 @@
 ---
 name: velocyto.py
-category: programming
-description: A library for the analysis of RNA velocity.
-tags: [velocyto.py, programming]
+category: bioinformatics
+description: velocyto.py - RNA velocity analysis.
+tags: [velocyto.py, single-cell, rna-velocity, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/velocyto-team/velocyto.py"
 ---
 
 ## Concepts
 
-- **Tool Overview**: velocyto.py (v0.17.17) - A library for the analysis of RNA velocity.
-- **Core Function**: A library for the analysis of RNA velocity.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda velocyto.py`
+- **Tool Overview**: velocyto.py - RNA velocity analysis tool.
+- **Core Function**: Analyzes RNA velocity from single-cell RNA-seq data.
+- **Input**: BAM file, annotation.
+- **Output**: Velocity estimates.
+- **Installation**: Install via pip or conda
+- **Use Case**: Single-cell RNA-seq analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run velocity analysis
+**Args:** `velocyto run10x -b sample.bam -o output/ -g genes.gtf`
+**Explanation:** Run velocity analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `velocyto run10x -b sample.bam -o output/ -g genes.gtf -@ 8`
+**Explanation:** Use 8 threads.

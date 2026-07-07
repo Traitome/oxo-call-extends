@@ -1,30 +1,32 @@
 ---
 name: viral_consensus
-category: utility
-description: Fast viral consensus genome reconstruction.
-tags: [viral_consensus, utility]
+category: bioinformatics
+description: viral_consensus - Viral consensus sequence generator.
+tags: [viral_consensus, viral-genomics, consensus, bioinformatics]
 author: oxo-call-community
-source_url: "https://niema.net/ViralConsensus"
+source_url: "https://github.com/viral_consensus/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viral_consensus (v1.0.1) - Fast viral consensus genome reconstruction.
-- **Core Function**: Fast viral consensus genome reconstruction.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viral_consensus`
+- **Tool Overview**: viral_consensus - Generates viral consensus sequences.
+- **Core Function**: Creates consensus sequences from viral sequencing data.
+- **Input**: BAM file.
+- **Output**: Consensus sequence.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Coverage**: Requires sufficient coverage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate consensus
+**Args:** `viral_consensus -i input.bam -o consensus.fasta`
+**Explanation:** Generate viral consensus.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viral_consensus -i input.bam -o consensus.fasta -m 0.5`
+**Explanation:** Use 50% majority threshold.

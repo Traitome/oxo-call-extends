@@ -1,30 +1,32 @@
 ---
 name: ucsc-chaintoaxt
-category: formatting
-description: Convert from chain to axt file.
-tags: [ucsc-chaintoaxt, formatting]
+category: utility
+description: UCSC chainToAxt - Tool for converting chains to axt format.
+tags: [ucsc-chaintoaxt, ucsc, format-conversion, chain, axt]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chaintoaxt (v482) - Convert from chain to axt file.
-- **Core Function**: Convert from chain to axt file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chaintoaxt`
+- **Tool Overview**: UCSC chainToAxt - A tool for converting chain alignments to axt format.
+- **Core Function**: Converts chain format alignments to axt format.
+- **Input**: Chain alignment file, FASTA sequences.
+- **Output**: Axt format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment visualization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **FASTA Requirement**: Requires FASTA sequence files.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to axt
+**Args:** `chainToAxt input.chain target.fa query.fa > output.axt`
+**Explanation:** Convert chain to axt format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With output directory
+**Args:** `chainToAxt -outputDir=axt_dir input.chain target.fa query.fa`
+**Explanation:** Convert with output to directory.

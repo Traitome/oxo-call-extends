@@ -1,30 +1,48 @@
 ---
 name: megadepth
 category: alignment
-description: Megadepth is an efficient tool for extracting coverage related information from RNA and DNA-seq BAM and BigWig files. It supports reading whole-genome coverage from BAM files and writing either indexed TSV or BigWig files, as well as efficient region coverage summary over intervals from both types of files.
-tags: [megadepth, alignment, alignment]
+description: Efficient coverage extraction from BAM and BigWig files for sequencing data analysis.
+tags: [megadepth, coverage-analysis, sequencing]
 author: oxo-call-community
 source_url: "https://github.com/ChristopherWilks/megadepth"
 ---
 
 ## Concepts
 
-- **Tool Overview**: megadepth v1.2.0 - Megadepth is an efficient tool for extracting coverage related information from RNA and DNA-seq BAM and BigWig files. It supports reading whole-genome coverage from BAM files and writing either indexed TSV or BigWig files, as well as efficient region coverage summary over intervals from both types of files..
-- **Core Function**: Megadepth is an efficient tool for extracting coverage related information from RNA and DNA-seq BAM and BigWig files. It supports reading whole-genome coverage from BAM files and writing either indexed TSV or BigWig files, as well as efficient region coverage summary over intervals from both types of files.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Megadepth extracts coverage information from sequencing files.
+- **Core Function**: Efficiently computes coverage from BAM/BigWig files.
+- **Coverage Calculation**: Computes read coverage across regions.
+- **BigWig Support**: Directly reads and writes BigWig files.
+- **Region Summary**: Provides coverage summaries over intervals.
 - **Installation**: `conda install -c bioconda megadepth`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **File Size**: Large BAM files require memory.
+- **Index Requirements**: BAM files must be indexed.
+- **Computation Time**: Slow for very large datasets.
+- **Output Size**: Coverage files can be large.
+- **Parameter Tuning**: Requires careful bin size selection.
+- **Format Compatibility**: Limited to BAM and BigWig formats.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Compute coverage
+**Args:** `megadepth aligned.bam -o coverage.bw`
+**Explanation:** Computes coverage and outputs BigWig.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Region coverage
+**Args:** `megadepth aligned.bam --regions regions.bed -o coverage.txt`
+**Explanation:** Gets coverage for specific regions.
+
+### TSV output
+**Args:** `megadepth aligned.bam --tsv -o coverage.tsv`
+**Explanation:** Outputs coverage in TSV format.
+
+### Whole genome coverage
+**Args:** `megadepth aligned.bam --whole-genome -o wg_coverage.bw`
+**Explanation:** Computes whole-genome coverage.
+
+### Help documentation
+**Args:** `megadepth --help`
+**Explanation:** Displays available options.

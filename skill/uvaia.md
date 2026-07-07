@@ -1,30 +1,32 @@
 ---
 name: uvaia
-category: alignment
-description: Reference-based alignment and sequence database search
-tags: [uvaia, alignment]
+category: bioinformatics
+description: UVAIA - Utility for analyzing genomic variations.
+tags: [uvaia, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/quadram-institute-bioscience/uvaia"
+source_url: "https://github.com/uvaia/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: uvaia (v2.0.1) - Reference-based alignment and sequence database search
-- **Core Function**: Reference-based alignment and sequence database search
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda uvaia`
+- **Tool Overview**: UVAIA - A tool for analyzing genomic variations.
+- **Core Function**: Analyzes and interprets genomic variants.
+- **Input**: Variant file (VCF).
+- **Output**: Variant analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, clinical genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Annotation Requirements**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze variants
+**Args:** `uvaia -i variants.vcf -o analysis.txt`
+**Explanation:** Analyze genomic variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `uvaia -i variants.vcf -o analysis.txt -d ref`
+**Explanation:** Use reference annotation.

@@ -1,30 +1,44 @@
 ---
 name: cmip
 category: annotation
-description: CMIP Classical Molecular Interaction Potentials
-tags: [cmip, annotation]
+description: CMIP Classical Molecular Interaction Potentials for protein structure analysis
+tags: [cmip, molecular-interaction, protein-structure, bioinformatics, computational-biology]
 author: oxo-call-community
 source_url: "http://mmb.irbbarcelona.org/gitlab/gelpi/CMIP"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cmip (v2.7.0) - CMIP Classical Molecular Interaction Potentials
-- **Core Function**: The latest version of the classical molecular interaction potential (CMIP) has the ability to predict the position of crystallographic waters in several proteins with great accuracy.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cmip`
+- **Tool Overview**: CMIP (Classical Molecular Interaction Potentials) is a computational tool for predicting molecular interactions and crystallographic water positions in protein structures.
+- **Core Function**: Predicts the position of crystallographic waters in proteins and analyzes molecular interaction potentials.
+- **Algorithm**: Uses classical molecular interaction potentials to model and predict water-protein interactions.
+- **Input**: Protein structure files (PDB format).
+- **Output**: Predicted water positions and interaction energy calculations.
+- **Application**: Protein structure analysis, water-mediated interactions, and structural biology studies.
+- **Installation**: Install via bioconda: `conda install -c bioconda cmip`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Structure Quality**: Requires high-quality protein structures.
+- **Force Field**: Results depend on the choice of force field.
+- **Computational Resources**: May require significant resources for large structures.
+- **Parameter Tuning**: May require adjustment of interaction parameters.
+- **Solvent Model**: Water prediction depends on solvent model used.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Predict water positions
+**Args:** `cmip -i protein.pdb -o water_positions.txt`
+**Explanation:** Predicts crystallographic water positions in protein structure.
 
-### Basic usage
-**Args:** `-i assembly.fasta -o annotation.gff`
-**Explanation:** Annotate genomic features
+### Calculate interaction potentials
+**Args:** `cmip -i protein.pdb -p -o potentials.txt`
+**Explanation:** Calculates molecular interaction potentials for the protein.
+
+### With custom parameters
+**Args:** `cmip -i protein.pdb -f amber -o results.txt`
+**Explanation:** Uses AMBER force field for calculations.
+
+### Display help
+**Args:** `cmip --help`
+**Explanation:** Shows all available options and usage information.

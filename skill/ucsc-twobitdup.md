@@ -1,30 +1,32 @@
 ---
 name: ucsc-twobitdup
 category: utility
-description: check to see if a twobit file has any identical sequences in it
-tags: [ucsc-twobitdup, utility]
+description: UCSC twoBitDup - Tool for handling twoBit duplicates.
+tags: [ucsc-twobitdup, ucsc, twobit, duplicates, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-twobitdup (v482) - check to see if a twobit file has any identical sequences in it
-- **Core Function**: check to see if a twobit file has any identical sequences in it
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-twobitdup`
+- **Tool Overview**: UCSC twoBitDup - A tool for handling twoBit file duplicates.
+- **Core Function**: Removes or identifies duplicate sequences in twoBit files.
+- **Input**: TwoBit file.
+- **Output**: Processed twoBit file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence deduplication, data cleaning, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper twoBit format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Remove duplicates from twoBit
+**Args:** `twoBitDup input.2bit > output.2bit`
+**Explanation:** Remove duplicate sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `twoBitDup -verbose input.2bit > output.2bit`
+**Explanation:** Process with verbose output.

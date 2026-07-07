@@ -1,30 +1,52 @@
 ---
 name: kmerinshort
 category: expression
-description: KmerInShort counts kmers from a fasta/fastq file or list of files, and outputs results in a text file. It is limited to short kmers (k<15). It is a part of the FEELnc pipeline (V.Wucher et al.)
-tags: [kmerinshort, expression, sequence]
+description: KmerInShort counts kmers from FASTA/FASTQ files for FEELnc pipeline
+tags: [kmerinshort, expression, FEELnc, lncRNA, k-mer]
 author: oxo-call-community
 source_url: "https://github.com/rizkg/KmerInShort"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kmerinshort v1.0.1 - KmerInShort counts kmers from a fasta/fastq file or list of files, and outputs results in a text file. It is limited to short kmers (k<15). It is a part of the FEELnc pipeline (V.Wucher et al.).
-- **Core Function**: KmerInShort counts kmers from a fasta/fastq file or list of files, and outputs results in a text file. It is limited to short kmers (k<15). It is a part of the FEELnc pipeline (V.Wucher et al.)
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kmerinshort`
+- **Short K-mer Counting**: Counts k-mers with length less than 15
+- **FEELnc Integration**: Part of the FEELnc pipeline for lncRNA analysis
+- **FASTA/FASTQ Support**: Processes both FASTA and FASTQ file formats
+- **Batch Processing**: Handles multiple input files
+- **Text Output**: Outputs results in human-readable text format
+- **Efficient Algorithm**: Optimized for counting short k-mers
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **K-mer Length Limit**: Only supports k < 15, not suitable for longer k-mers
+- **Memory Usage**: Large datasets can consume significant memory
+- **Input Format**: Requires properly formatted input files
+- **Duplicate Handling**: May count duplicate k-mers multiple times
+- **Output Size**: Large k-mer sets produce large output files
+- **Compatibility**: Specifically designed for FEELnc, may not suit other purposes
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Count k-mers from FASTQ
+**Args:** `KmerInShort -i reads.fastq -k 12 -o kmer_counts.txt`
+**Explanation:** Counts 12-mers from FASTQ file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Process multiple files
+**Args:** `KmerInShort -i file1.fastq file2.fastq -k 10 -o output.txt`
+**Explanation:** Counts k-mers from multiple input files.
+
+### Use file list
+**Args:** `KmerInShort -l files.lst -k 12 -o kmer_counts.txt`
+**Explanation:** Processes files listed in a text file.
+
+### FASTA input
+**Args:** `KmerInShort -i genome.fasta -k 14 -o kmer_counts.txt`
+**Explanation:** Counts k-mers from FASTA genome file.
+
+### Filter by count
+**Args:** `KmerInShort -i reads.fastq -k 12 -o output.txt --min-count 2`
+**Explanation:** Only outputs k-mers with count >= 2.
+
+### Verbose output
+**Args:** `KmerInShort -i reads.fastq -k 12 -o output.txt -v`
+**Explanation:** Provides verbose output during processing.

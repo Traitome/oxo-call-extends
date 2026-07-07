@@ -1,30 +1,32 @@
 ---
 name: ucsc-blat
-category: utility
-description: Standalone BLAT v. 39x1 fast sequence search command line tool.
-tags: [ucsc-blat, utility]
+category: alignment
+description: UCSC BLAT - Tool for rapid sequence alignment.
+tags: [ucsc-blat, ucsc, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-blat (v482) - Standalone BLAT v. 39x1 fast sequence search command line tool.
-- **Core Function**: Standalone BLAT v. 39x1 fast sequence search command line tool.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-blat`
+- **Tool Overview**: UCSC BLAT - A tool for rapid DNA/protein sequence alignment.
+- **Core Function**: Performs fast sequence alignment against large databases.
+- **Input**: Query sequence, target database.
+- **Output**: Alignment results in various formats.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence alignment, gene finding, homology search.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large databases.
+- **Sensitivity**: May miss distant homologs.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequence
+**Args:** `blat target.fa query.fa output.psl`
+**Explanation:** Align query sequence against target database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Protein alignment
+**Args:** `blat -prot target.pep query.pep output.psl`
+**Explanation:** Perform protein-protein alignment.

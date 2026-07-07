@@ -1,31 +1,56 @@
 ---
 name: rdrpcatch
 category: utility
-description: RNA virus RdRp sequence scanner.
-tags: ["rdrpcatch", "utility"]
+description: RdRpCATCH is an RNA virus RdRp (RNA-dependent RNA polymerase) sequence scanner for virus detection.
+tags: [rdrpcatch, utility, virus-detection, rna-virus]
 author: oxo-call-community
 source_url: "https://github.com/dimitris-karapliafis/RdRpCATCH"
 ---
 
 ## Concepts
 
-- **Tool Overview**: RNA virus RdRp sequence scanner. (version 1.0.1.post1)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rdrpcatch`
+- **Tool Overview**: rdrpcatch scans viruses.
+- **Core Function**: RdRp detection.
+- **Algorithm**: Uses scanning methods.
+- **Input Format**: Accepts sequence files.
+- **Output**: Produces virus matches.
+- **Use Case**: Virus detection.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Sequence Quality**: Affects detection.
+- **Parameters**: Must be configured.
+- **Runtime**: Scanning may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rdrpcatch --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Scan for viruses
+**Args:** `rdrpcatch scan -i sequences.fasta -o virus_matches.txt`
+**Explanation:** Scans for RdRp sequences.
 
+### With parameters
+**Args:** `rdrpcatch scan -i sequences.fasta -p params.yaml -o virus_matches.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rdrpcatch -v scan -i sequences.fasta -o virus_matches.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rdrpcatch -t 4 scan -i sequences.fasta -o virus_matches.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With database
+**Args:** `rdrpcatch scan -i sequences.fasta -d virus_db.fasta -o virus_matches.txt`
+**Explanation:** Uses virus database.
+
+### Generate report
+**Args:** `rdrpcatch scan -i sequences.fasta -o virus_matches.txt --report report.html`
+**Explanation:** Generates HTML report.

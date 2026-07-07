@@ -1,12 +1,11 @@
 ---
 name: panoptes-ui
 category: hpc
-description: panoptes: monitor computational workflows in real time
+description: "panoptes: monitor computational workflows in real time"
 tags: [panoptes-ui, hpc]
 author: oxo-call-community
 source_url: "https://github.com/panoptes-organization/panoptes"
 ---
-
 ## Concepts
 - **Tool Overview**: panoptes: monitor computational workflows in real time
 - **Core Function**: Processes bioinformatics data for hpc tasks.

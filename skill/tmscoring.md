@@ -1,30 +1,32 @@
 ---
 name: tmscoring
-category: programming
-description: Python implementation of the TMscore program.
-tags: [tmscoring, programming]
+category: analysis
+description: TM-scoring - Tool for calculating Template Modeling score for protein structure comparison.
+tags: [tmscoring, tm-score, protein-structure, structure-comparison, similarity]
 author: oxo-call-community
-source_url: "https://github.com/Dapid/tmscoring/blob/master/README.md"
+source_url: "https://github.com/compbio/tmscoring"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tmscoring (v0.4.post0) - # tmscoring Python implementation of the [TMscore](https://zhanglab.ccmb.med.umich.edu/TM-score/) program to compare structures of the same protein.
-- **Core Function**: Python implementation of the TMscore program.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tmscoring`
+- **Tool Overview**: TM-scoring - A tool for calculating the Template Modeling (TM) score to measure protein structure similarity.
+- **Core Function**: Computes TM-score, RMSD, and other structural similarity metrics between protein structures.
+- **Input**: Protein structure files (PDB), alignment information.
+- **Output**: TM-score, RMSD, alignment quality metrics.
+- **Installation**: `pip install tmscoring` or `conda install -c bioconda tmscoring`
+- **Use Case**: Protein structure comparison, fold recognition, structural genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Structure Quality**: Results depend on structure resolution and completeness.
+- **Alignment**: Requires proper structural alignment for accurate scoring.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate TM-score
+**Args:** `tmscoring -p1 structure1.pdb -p2 structure2.pdb -o tm_score.txt`
+**Explanation:** Calculate TM-score between two protein structures.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Batch comparison
+**Args:** `tmscoring -i structures.list -o comparison_results/`
+**Explanation:** Compare multiple protein structures against reference.

@@ -1,31 +1,56 @@
 ---
 name: rdptools
 category: utility
-description: Metaproject for RDP Tools
-tags: ["rdptools", "utility"]
+description: RDPTools is a metaproject for RDP (Ribosomal Database Project) Tools providing various bioinformatics utilities.
+tags: [rdptools, utility, ribosomal-database, bioinformatics]
 author: oxo-call-community
 source_url: "http://rdp.cme.msu.edu/misc/resources.jsp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Metaproject for RDP Tools (version 2.0.3)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rdptools`
+- **Tool Overview**: rdptools provides utilities.
+- **Core Function**: RDP tools.
+- **Algorithm**: Uses analysis methods.
+- **Input Format**: Accepts sequence files.
+- **Output**: Produces analysis results.
+- **Use Case**: Ribosomal analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Sequence Quality**: Affects analysis.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rdptools --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Analyze sequences
+**Args:** `rdptools analyze -i sequences.fasta -o analysis.txt`
+**Explanation:** Analyzes ribosomal sequences.
 
+### With parameters
+**Args:** `rdptools analyze -i sequences.fasta -p params.yaml -o analysis.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rdptools -v analyze -i sequences.fasta -o analysis.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rdptools -t 4 analyze -i sequences.fasta -o analysis.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Align sequences
+**Args:** `rdptools align -i sequences.fasta -o aligned.fasta`
+**Explanation:** Aligns ribosomal sequences.
+
+### Generate report
+**Args:** `rdptools analyze -i sequences.fasta -o analysis.txt --report report.html`
+**Explanation:** Generates HTML report.

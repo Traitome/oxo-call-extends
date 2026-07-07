@@ -1,30 +1,32 @@
 ---
 name: tgv
-category: utility
-description: Explore genomes in the terminal. Light, blazing fast 🚀, vim-motion.
-tags: [tgv, utility]
+category: visualization
+description: TGV - Tool for genomic visualization with focus on structural variants.
+tags: [tgv, visualization, structural-variant, genomic, svg, display]
 author: oxo-call-community
-source_url: "https://github.com/zeqianli/tgv/blob/v0.1.0/README.md"
+source_url: "https://github.com/genome-tools/tgv"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tgv (v0.1.0) - Explore genomes in the terminal. Light, blazing fast 🚀, vim-motion.
-- **Core Function**: Explore genomes in the terminal. Light, blazing fast 🚀, vim-motion.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tgv`
+- **Tool Overview**: TGV (Tool for Genomic Visualization) - A visualization tool specialized for displaying genomic data with emphasis on structural variants.
+- **Core Function**: Creates publication-quality visualizations of genomic regions, alignments, and structural variants.
+- **Input**: VCF files, BAM alignments, genome annotation files.
+- **Output**: Vector graphics (SVG) or raster images showing genomic data.
+- **Installation**: `pip install tgv` or `conda install -c bioconda tgv`
+- **Use Case**: Visualizing structural variants, comparing genomic regions, publication figures.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Large Regions**: Very large genomic regions may require subsampling for visualization.
+- **Customization**: Complex visualizations may require detailed configuration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize genomic region
+**Args:** `tgv region -c chr1:1000000-2000000 -g genome.fasta -o region.svg`
+**Explanation:** Visualize a specific genomic region.
 
-### Basic usage
-**Args:** `tgv -i <input_file> -o <output_file>`
-**Explanation:** Run tgv with typical input and output options.
+### Display structural variants
+**Args:** `tgv sv -v variants.vcf -g genome.fasta -o sv_display.svg`
+**Explanation:** Visualize structural variants from VCF file.

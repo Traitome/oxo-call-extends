@@ -1,30 +1,32 @@
 ---
 name: ucsc-ratotab
-category: formatting
-description: Convert ra file to table.
-tags: [ucsc-ratotab, formatting]
+category: utility
+description: UCSC raToTab - Tool for converting ra to tab format.
+tags: [ucsc-ratotab, ucsc, ra, tab, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-ratotab (v482) - Convert ra file to table.
-- **Core Function**: Convert ra file to table.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-ratotab`
+- **Tool Overview**: UCSC raToTab - A tool for converting ra format to tab-delimited format.
+- **Core Function**: Converts ra format to tab-separated values.
+- **Input**: ra file.
+- **Output**: Tab-delimited file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper ra format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert ra to tab
+**Args:** `raToTab input.ra > output.tsv`
+**Explanation:** Convert ra to tab-delimited format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `raToTab -verbose input.ra > output.tsv`
+**Explanation:** Convert with verbose output.

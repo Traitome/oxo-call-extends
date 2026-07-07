@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafsinregion
 category: utility
-description: Extract MAFS in a genomic region.
-tags: [ucsc-mafsinregion, utility]
+description: UCSC mafSinRegion - Tool for finding MAF alignments in region.
+tags: [ucsc-mafsinregion, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafsinregion (v482) - Extract MAFS in a genomic region.
-- **Core Function**: Extract MAFS in a genomic region.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafsinregion`
+- **Tool Overview**: UCSC mafSinRegion - A tool for finding MAF alignments within a region.
+- **Core Function**: Identifies MAF alignments that fall within specified regions.
+- **Input**: MAF file, region file.
+- **Output**: MAF alignments in region.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Region analysis, alignment filtering, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find MAF in region
+**Args:** `mafSinRegion regions.txt input.maf > output.maf`
+**Explanation:** Find MAF alignments within regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafSinRegion -verbose regions.txt input.maf > output.maf`
+**Explanation:** Find with verbose output.

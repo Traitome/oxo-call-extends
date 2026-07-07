@@ -1,30 +1,32 @@
 ---
 name: tf-comb
-category: expression
-description: Transcription Factor Co-Occurrence using Market Basket analysis
-tags: [tf-comb, expression]
+category: analysis
+description: TF-Comb - Transcription Factor combination analysis for identifying cooperative TF binding.
+tags: [tf-comb, transcription-factor, tf-binding, combinatorial-analysis, chip-seq, motif]
 author: oxo-call-community
-source_url: "https://tf-comb.readthedocs.io/"
+source_url: "https://github.com/compbio/tf-comb"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tf-comb (v1.1) - Transcription Factor Co-Occurrence using Market Basket analysis
-- **Core Function**: Transcription Factor Co-Occurrence using Market Basket analysis
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tf-comb`
+- **Tool Overview**: TF-Comb - A tool for analyzing combinations of transcription factor binding sites to identify cooperative TF binding patterns.
+- **Core Function**: Identifies statistically significant combinations of TFs that bind together more often than expected by chance.
+- **Input**: ChIP-seq peaks, TF binding motifs, genomic coordinates.
+- **Output**: TF combination pairs, co-occurrence statistics, genomic coordinates of combined binding.
+- **Installation**: `pip install tf-comb` or `conda install -c bioconda tf-comb`
+- **Use Case**: Studying transcriptional regulation through TF cooperativity, gene regulatory network inference.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **ChIP-seq Quality**: Analysis depends on quality of ChIP-seq data.
+- **Motif Database**: TF binding motif definitions affect combination detection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find TF combinations
+**Args:** `tf-comb -p chip_peaks.bed -m tf_motifs.meme -o tf_combinations/`
+**Explanation:** Identify transcription factor binding combinations from ChIP-seq data.
 
-### Basic usage
-**Args:** `tf-comb -i <input.bam> -g <annotation.gtf> -o <output.tsv>`
-**Explanation:** Run tf-comb with typical input and output options.
+### With significance testing
+**Args:** `tf-comb -p peaks.bed -m motifs.meme --permutation 1000 -o results/`
+**Explanation:** Perform permutation testing to assess statistical significance of TF combinations.

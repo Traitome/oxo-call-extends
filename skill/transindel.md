@@ -1,30 +1,32 @@
 ---
 name: transindel
-category: alignment
-description: transIndel is used to detect indels (insertions and deletions) from DNA-seq or RNA-seq data by parsing chimeric alignments from BWA-MEM..
-tags: [transindel, alignment]
+category: analysis
+description: TransIndel - Tool for analyzing indels in transcript sequences.
+tags: [transindel, indel, variant-calling, rna-seq, transcriptome]
 author: oxo-call-community
-source_url: "https://github.com/cauyrd/transIndel"
+source_url: "https://github.com/compbio/transindel"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transindel (v2.0) - transIndel is used to detect indels (insertions and deletions) from DNA-seq or RNA-seq data by parsing chimeric alignments from BWA-MEM..
-- **Core Function**: transIndel is used to detect indels (insertions and deletions) from DNA-seq or RNA-seq data by parsing chimeric alignments from BWA-MEM..
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transindel`
+- **Tool Overview**: TransIndel - A tool for detecting and analyzing insertions and deletions in transcript sequences.
+- **Core Function**: Identifies indel variants from RNA-seq data and characterizes their impact.
+- **Input**: RNA-seq alignments (BAM), reference genome, gene annotations.
+- **Output**: Indel calls, functional impact predictions, variant statistics.
+- **Installation**: `pip install transindel` or `conda install -c bioconda transindel`
+- **Use Case**: Variant analysis, RNA editing, transcriptome variation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Alignment Quality**: Indel detection depends on alignment quality.
+- **False Positives**: May produce false positive indel calls.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect indels
+**Args:** `transindel -i rnaseq.bam -r genome.fasta -o indels.vcf`
+**Explanation:** Detect indel variants from RNA-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Functional impact
+**Args:** `transindel impact -i indels.vcf -a genes.gtf -o impact/`
+**Explanation:** Predict functional impact of indel variants.

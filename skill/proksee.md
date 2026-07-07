@@ -1,31 +1,56 @@
 ---
 name: proksee
 category: assembly
-description: Proksee is a suite of command line tools for performing assembly, annotation and visualization of microbial genomes.
-tags: ["proksee", "assembly"]
+description: proksee provides assembly, annotation and visualization of microbial genomes.
+tags: [proksee, assembly, genome-analysis, visualization]
 author: oxo-call-community
 source_url: "https://github.com/proksee-project/proksee-cmd"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Proksee is a suite of command line tools for performing assembly, annotation and visualization of microbial genomes. (version 1.0.0a6)
-- **Core Function**: Processes bioinformatics data related to assembly
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda proksee`
+- **Tool Overview**: proksee analyzes microbial genomes.
+- **Core Function**: Genome assembly and annotation.
+- **Algorithm**: Uses assembly methods.
+- **Input Format**: Accepts sequencing reads.
+- **Output**: Produces assembled genomes.
+- **Use Case**: Microbial genomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Assembly Quality**: May affect downstream analysis.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `proksee --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Run assembly
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assembles reads into contigs/scaffolds.
+### Run pipeline
+**Args:** `proksee -i reads.fastq -o results`
+**Explanation:** Runs assembly and annotation pipeline.
 
+### With parameters
+**Args:** `proksee -i reads.fastq -p params.yaml -o results`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `proksee -v -i reads.fastq -o results`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `proksee -t 4 -i reads.fastq -o results`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `proksee -i reads.fastq -o results --format fasta`
+**Explanation:** Outputs in FASTA format.
+
+### Generate report
+**Args:** `proksee -i reads.fastq -o results --report report.html`
+**Explanation:** Generates HTML report.

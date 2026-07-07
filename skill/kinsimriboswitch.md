@@ -1,30 +1,52 @@
 ---
 name: kinsimriboswitch
-category: hpc
-description: Pipeline for the simulation of RNA--ligand interaction kinetics as outlined in Kuehnl et al. 2017, https://doi.org/10.1186/s12859-017-1823-5
-tags: [kinsimriboswitch, hpc]
+category: rna-analysis
+description: Pipeline for the simulation of RNA-ligand interaction kinetics
+tags: [kinsimriboswitch, rna, riboswitch, simulation, kinetics]
 author: oxo-call-community
 source_url: "http://www.bioinf.uni-leipzig.de/~felix/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kinsimriboswitch (v0.3) - Pipeline for the simulation of RNA--ligand interaction kinetics as outlined in Kuehnl et al. 2017, https://doi.org/10.1186/s12859-017-1823-5
-- **Core Function**: Provides functionality for hpc tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kinsimriboswitch`
+- **RNA-Ligand Interaction**: Simulates kinetic interactions between RNA molecules and ligands
+- **Riboswitch Modeling**: Models riboswitch behavior and ligand-induced conformational changes
+- **Kinetic Simulation**: Uses stochastic simulation algorithms for molecular interactions
+- **Molecular Dynamics**: Integrates molecular dynamics principles for accurate simulations
+- **HPC Optimization**: Designed for high-performance computing environments
+- **Systems Biology**: Enables systems-level analysis of RNA regulatory networks
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Computational Complexity**: Complex simulations require significant computational resources
+- **Parameter Sensitivity**: Results can be sensitive to input parameters
+- **Model Assumptions**: Simplifying assumptions may limit biological realism
+- **Simulation Time**: Long simulation times for complex systems
+- **Memory Requirements**: Large memory footprint for detailed simulations
+- **Validation Challenges**: Validating simulation results against experimental data
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simulate riboswitch kinetics
+**Args:** `kinsimriboswitch -i rna_structure.pdb -l ligand.pdb -o simulation_results.csv`
+**Explanation:** Simulates RNA-ligand interaction kinetics and outputs results.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Run stochastic simulation
+**Args:** `kinsimriboswitch -i input.json -o output.csv --stochastic`
+**Explanation:** Performs stochastic simulation of RNA-ligand interactions.
+
+### Parameter sweep analysis
+**Args:** `kinsimriboswitch -i config.json -o sweep_results/ --sweep`
+**Explanation:** Runs parameter sweep analysis to explore parameter space.
+
+### Generate visualization
+**Args:** `kinsimriboswitch -i trajectory.dat -o animation.mp4 --visualize`
+**Explanation:** Generates visualization of RNA-ligand interaction dynamics.
+
+### Batch processing mode
+**Args:** `kinsimriboswitch --batch -d input_dir/ -o output_dir/`
+**Explanation:** Processes multiple input files in batch mode.
+
+### Energy landscape analysis
+**Args:** `kinsimriboswitch -i structure.pdb -o energy_landscape.csv --energy`
+**Explanation:** Computes and analyzes the energy landscape of RNA-ligand interactions.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-checkagpandfa
 category: utility
-description: Takes a .agp file and .fa file and ensures that they are in synch.
-tags: [ucsc-checkagpandfa, utility]
+description: UCSC checkAgpAndFa - Tool for checking AGP and FASTA files.
+tags: [ucsc-checkagpandfa, ucsc, quality-control, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-checkagpandfa (v482) - Takes a .agp file and .fa file and ensures that they are in synch.
-- **Core Function**: Takes a .agp file and .fa file and ensures that they are in synch.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-checkagpandfa`
+- **Tool Overview**: UCSC checkAgpAndFa - A tool for validating AGP and FASTA file consistency.
+- **Core Function**: Checks consistency between AGP and FASTA files.
+- **Input**: AGP file, FASTA file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quality control, genome assembly validation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Format**: Requires proper AGP format.
+- **Sequence Names**: Requires matching sequence names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check AGP and FASTA
+**Args:** `checkAgpAndFa assembly.agp assembly.fa`
+**Explanation:** Validate AGP and FASTA consistency.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With verbose output
+**Args:** `checkAgpAndFa -verbose assembly.agp assembly.fa`
+**Explanation:** Check with detailed output.

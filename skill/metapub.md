@@ -2,29 +2,47 @@
 name: metapub
 category: programming
 description: Pubmed / NCBI / eutils interaction library, handling the metadata of pubmed papers.
-tags: [metapub, programming]
+tags: [metapub, programming, pubmed, ncbi]
 author: oxo-call-community
 source_url: "https://metapub.org"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metapub v0.7.4 - Pubmed / NCBI / eutils interaction library, handling the metadata of pubmed papers..
-- **Core Function**: Pubmed / NCBI / eutils interaction library, handling the metadata of pubmed papers.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metapub`
+- **Tool Overview**: MetaPub v0.7.4 is a Python library for interacting with PubMed, NCBI, and E-Utilities to retrieve and process publication metadata.
+- **Core Function**: Provides programmatic access to PubMed and NCBI databases for literature mining and meta-analysis.
+- **API Integration**: Interfaces with NCBI E-Utilities API for querying and retrieving publication data.
+- **Metadata Extraction**: Extracts publication metadata including authors, affiliations, keywords, and citation information.
+- **Input/Output**: Accepts search queries; outputs structured publication metadata in various formats.
+- **Automation**: Enables automated literature searches and metadata collection for bioinformatics workflows.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **API Rate Limits**: Subject to NCBI API rate limits; may require API key for higher throughput.
+- **Network Dependencies**: Requires stable internet connection for API access.
+- **Data Volume**: Large queries may return substantial amounts of data.
+- **Query Complexity**: Complex queries may require careful construction for optimal results.
+- **Data Format**: May require data parsing and transformation for downstream analysis.
+- **Service Availability**: Dependent on NCBI service availability.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Search PubMed
+**Args:** `metapub search "metagenomics" --limit 10`
+**Explanation:** Searches PubMed for publications related to metagenomics.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Get publication details
+**Args:** `metapub fetch --pmid 28953945`
+**Explanation:** Retrieves detailed metadata for a specific PubMed ID.
+
+### Export to CSV
+**Args:** `metapub search "CRISPR" --output results.csv`
+**Explanation:** Searches and exports results to CSV format.
+
+### Batch fetch
+**Args:** `metapub batch --pmids pmids.txt --output results.json`
+**Explanation:** Fetches metadata for multiple PubMed IDs in batch.
+
+### Advanced search
+**Args:** `metapub search "(metagenomics) AND (human microbiome)" --since 2020`
+**Explanation:** Performs advanced search with multiple criteria.

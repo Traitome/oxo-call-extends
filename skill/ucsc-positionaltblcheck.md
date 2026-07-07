@@ -1,30 +1,32 @@
 ---
 name: ucsc-positionaltblcheck
 category: utility
-description: Check that positional tables are sorted.
-tags: [ucsc-positionaltblcheck, utility]
+description: UCSC positionalTblCheck - Tool for checking positional tables.
+tags: [ucsc-positionaltblcheck, ucsc, positional, table, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-positionaltblcheck (v482) - Check that positional tables are sorted.
-- **Core Function**: Check that positional tables are sorted.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-positionaltblcheck`
+- **Tool Overview**: UCSC positionalTblCheck - A tool for checking positional tables.
+- **Core Function**: Validates positional table formats.
+- **Input**: Positional table file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data validation, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper positional table format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check positional table
+**Args:** `positionalTblCheck table.txt`
+**Explanation:** Validate positional table.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `positionalTblCheck -verbose table.txt`
+**Explanation:** Detailed validation report.

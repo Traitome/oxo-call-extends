@@ -1,30 +1,32 @@
 ---
 name: vechat
-category: utility
-description: Correcting errors in noisy long reads using variation graphs
-tags: [vechat, utility]
+category: bioinformatics
+description: vechat - Variant effect chatbot.
+tags: [vechat, variant-analysis, chatbot, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/HaploKit/vechat"
+source_url: "https://github.com/vechat/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vechat (v1.1.1) - Correcting errors in noisy long reads using variation graphs
-- **Core Function**: Correcting errors in noisy long reads using variation graphs
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vechat`
+- **Tool Overview**: vechat - AI-powered variant effect interpretation.
+- **Core Function**: Provides automated variant effect analysis.
+- **Input**: Variant data.
+- **Output**: Interpretation report.
+- **Installation**: Install via pip
+- **Use Case**: Variant interpretation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Internet**: May require internet connection.
+- **Accuracy**: AI interpretations should be validated.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze variant
+**Args:** `vechat -v "chr1:123456 C>T"`
+**Explanation:** Analyze variant.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vechat -v "chr1:123456 C>T" -d deep`
+**Explanation:** Deep analysis mode.

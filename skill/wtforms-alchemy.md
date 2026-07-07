@@ -1,30 +1,32 @@
 ---
 name: wtforms-alchemy
-category: utility
-description: Generates WTForms forms from SQLAlchemy models.
-tags: [wtforms-alchemy, utility]
+category: bioinformatics
+description: WTForms-Alchemy - Form library.
+tags: [wtforms-alchemy, forms, python, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/kvesteri/wtforms-alchemy"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wtforms-alchemy (v0.16.9) - Generates WTForms forms from SQLAlchemy models.
-- **Core Function**: Generates WTForms forms from SQLAlchemy models.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wtforms-alchemy`
+- **Tool Overview**: WTForms-Alchemy - SQLAlchemy integration for WTForms.
+- **Core Function**: Generates forms from SQLAlchemy models.
+- **Input**: SQLAlchemy model.
+- **Output**: Form class.
+- **Installation**: Install via pip
+- **Use Case**: Web forms, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires WTForms and SQLAlchemy.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create form
+**Args:** `python -c "from wtforms_alchemy import ModelForm"`
+**Explanation:** Import ModelForm.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "class MyForm(ModelForm): class Meta: model = MyModel"`
+**Explanation:** Define form from model.

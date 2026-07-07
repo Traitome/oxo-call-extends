@@ -1,30 +1,32 @@
 ---
 name: ucsc-rasqlquery
 category: utility
-description: Do a SQL-like query on a RA file.
-tags: [ucsc-rasqlquery, utility]
+description: UCSC raSqlQuery - Tool for SQL querying.
+tags: [ucsc-rasqlquery, ucsc, sql, query, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-rasqlquery (v482) - Do a SQL-like query on a RA file.
-- **Core Function**: Do a SQL-like query on a RA file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-rasqlquery`
+- **Tool Overview**: UCSC raSqlQuery - A tool for SQL querying.
+- **Core Function**: Executes SQL queries on databases.
+- **Input**: SQL query.
+- **Output**: Query results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Database querying, data retrieval, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Permissions**: Requires proper permissions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Execute SQL query
+**Args:** `raSqlQuery -db=hg38 "SELECT * FROM refGene LIMIT 10"`
+**Explanation:** Execute SQL query.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `raSqlQuery -db=hg38 -verbose "SELECT * FROM refGene LIMIT 10"`
+**Explanation:** Execute with verbose output.

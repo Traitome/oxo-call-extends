@@ -1,30 +1,32 @@
 ---
 name: ucsc-crtreesearchbed
 category: utility
-description: Search a crTree indexed bed file and print all items that overlap query.
-tags: [ucsc-crtreesearchbed, utility]
+description: UCSC crTreeSearchBed - Tool for searching indexed BED files.
+tags: [ucsc-crtreesearchbed, ucsc, search, bed, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-crtreesearchbed (v482) - Search a crTree indexed bed file and print all items that overlap query.
-- **Core Function**: Search a crTree indexed bed file and print all items that overlap query.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-crtreesearchbed`
+- **Tool Overview**: UCSC crTreeSearchBed - A tool for searching crTree-indexed BED files.
+- **Core Function**: Performs fast spatial queries on indexed BED data.
+- **Input**: Indexed BED file, query regions.
+- **Output**: Matching regions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Fast querying, genome browser, data retrieval.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Index Requirement**: Requires pre-built crTree index.
+- **Query Format**: Requires proper query format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Search BED file
+**Args:** `crTreeSearchBed index.idx query.bed > results.bed`
+**Explanation:** Search indexed BED file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `crTreeSearchBed -overlap=50 index.idx query.bed > results.bed`
+**Explanation:** Search with minimum overlap requirement.

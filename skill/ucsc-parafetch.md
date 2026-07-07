@@ -1,30 +1,32 @@
 ---
 name: ucsc-parafetch
 category: utility
-description: Try to fetch url with multiple connections.
-tags: [ucsc-parafetch, utility]
+description: UCSC paraFetch - Tool for parallel data fetching.
+tags: [ucsc-parafetch, ucsc, parallel, fetch, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-parafetch (v482) - Try to fetch url with multiple connections.
-- **Core Function**: Try to fetch url with multiple connections.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-parafetch`
+- **Tool Overview**: UCSC paraFetch - A tool for parallel data fetching.
+- **Core Function**: Fetches data in parallel from multiple sources.
+- **Input**: URL list or data sources.
+- **Output**: Retrieved data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data retrieval, parallel processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Rate Limits**: May be subject to rate limiting.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Fetch data in parallel
+**Args:** `paraFetch urls.txt > output.txt`
+**Explanation:** Fetch data from multiple URLs in parallel.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraFetch -threads=8 urls.txt > output.txt`
+**Explanation:** Number of parallel threads.

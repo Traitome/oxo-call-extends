@@ -1,30 +1,32 @@
 ---
 name: triqler
-category: expression
-description: A combined identification and quantification error model of label-free protein quantification.
-tags: [triqler, expression]
+category: analysis
+description: Triqler - Tool for quantitative proteomics data analysis.
+tags: [triqler, proteomics, quantitative-analysis, mass-spectrometry, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/statisticalbiotechnology/triqler/wiki"
+source_url: "https://github.com/statisticalbiotechnology/triqler"
 ---
 
 ## Concepts
 
-- **Tool Overview**: triqler (v0.9.1) - A combined identification and quantification error model of label-free protein quantification.
-- **Core Function**: A combined identification and quantification error model of label-free protein quantification.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda triqler`
+- **Tool Overview**: Triqler - A tool for quantitative analysis of proteomics data from mass spectrometry experiments.
+- **Core Function**: Performs differential expression analysis for proteomics data.
+- **Input**: Quantitative proteomics data, experimental design.
+- **Output**: Differential expression results, statistical significance, fold changes.
+- **Installation**: `pip install triqler`
+- **Use Case**: Proteomics analysis, biomarker discovery, quantitative protein analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Missing Values**: Requires handling of missing values carefully.
+- **Normalization**: Requires proper normalization of data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze proteomics data
+**Args:** `triqler -i intensities.txt -d design.txt -o results/`
+**Explanation:** Perform differential expression analysis on proteomics data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With FDR control
+**Args:** `triqler -i data.txt -d design.txt -f 0.05 -o de_results/`
+**Explanation:** Analyze with FDR control at 5%.

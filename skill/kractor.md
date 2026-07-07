@@ -1,30 +1,52 @@
 ---
 name: kractor
 category: metagenomics
-description: Rapidly extract reads from a FASTQ file based on taxonomic classification via Kraken2.
-tags: [kractor, metagenomics, sequence]
+description: Extract reads from FASTQ files based on Kraken2 taxonomic classification
+tags: [kractor, metagenomics, Kraken2, read-extraction, taxonomic-classification]
 author: oxo-call-community
 source_url: "https://github.com/Sam-Sims/kractor"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kractor v4.0.0 - Rapidly extract reads from a FASTQ file based on taxonomic classification via Kraken2..
-- **Core Function**: Rapidly extract reads from a FASTQ file based on taxonomic classification via Kraken2.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kractor`
+- **Read Extraction**: Extracts reads based on taxonomic classification
+- **Kraken2 Integration**: Uses Kraken2 for taxonomic assignment
+- **FASTQ Processing**: Handles FASTQ format read files
+- **Targeted Analysis**: Enables targeted metagenomics
+- **Paired-end Support**: Supports both single and paired-end reads
+- **Flexible Taxonomic Ranks**: Extract reads at any taxonomic level
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Kraken2 Dependency**: Requires pre-installed Kraken2 database
+- **Classification Accuracy**: Depends on Kraken2 classification accuracy
+- **Database Coverage**: Limited by reference database completeness
+- **Memory Requirements**: Large Kraken2 databases require significant memory
+- **Read Quality**: Low-quality reads may be misclassified
+- **Threshold Selection**: Classification threshold affects extraction
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Extract reads by taxon
+**Args:** `kractor extract -i reads.fastq -t "Escherichia coli" -o extracted/`
+**Explanation:** Extracts reads classified as E. coli.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify taxonomic rank
+**Args:** `kractor extract -i reads.fastq --taxon "Proteobacteria" --rank phylum -o results/`
+**Explanation:** Extracts reads at phylum level.
+
+### Paired-end mode
+**Args:** `kractor extract -1 reads_1.fastq -2 reads_2.fastq -t "Staphylococcus" -o results/`
+**Explanation:** Extracts paired reads for Staphylococcus.
+
+### Confidence threshold
+**Args:** `kractor extract -i reads.fastq -t "Bacteria" --min-score 2.0 -o results/`
+**Explanation:** Uses minimum confidence score for extraction.
+
+### Batch extraction
+**Args:** `kractor batch -d samples/ -t "Viruses" -o results/`
+**Explanation:** Extracts viral reads from multiple samples.
+
+### Exclude taxon
+**Args:** `kractor extract -i reads.fastq -t "Homo sapiens" --exclude -o results/`
+**Explanation:** Extracts non-human reads by exclusion.

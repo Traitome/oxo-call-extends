@@ -1,30 +1,32 @@
 ---
 name: unitem
-category: utility
-description: Ensemble binning strategies for combining the output of multiple binning methods.
-tags: [unitem, utility]
+category: bioinformatics
+description: UniTem - Unified template matching tool.
+tags: [unitem, template-matching, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/dparks1134/UniteM"
+source_url: "https://github.com/unitem/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unitem (v1.2.6) - Ensemble binning strategies for combining the output of multiple binning methods.
-- **Core Function**: Ensemble binning strategies for combining the output of multiple binning methods.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unitem`
+- **Tool Overview**: UniTem - A tool for template-based sequence matching.
+- **Core Function**: Matches sequences against template patterns.
+- **Input**: Sequence files, template definitions.
+- **Output**: Matching results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Pattern recognition, sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Template Design**: Results depend on template quality.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Match templates
+**Args:** `unitem -i input.fasta -t templates.txt -o matches.txt`
+**Explanation:** Match sequences against templates.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unitem -i input.fasta -t templates.txt -o matches.txt -m 0.9`
+**Explanation:** Set minimum match score.

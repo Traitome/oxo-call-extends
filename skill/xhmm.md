@@ -1,30 +1,32 @@
 ---
 name: xhmm
-category: utility
-description: XHMM (eXome-Hidden Markov Model).
-tags: [xhmm, utility]
+category: bioinformatics
+description: XHMM - Copy number variation detection.
+tags: [xhmm, cnv-detection, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://atgu.mgh.harvard.edu/xhmm/index.shtml"
+source_url: "https://atgu.mgh.harvard.edu/xhmm/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xhmm (v0.0.0.2016_01_04.cc14e52) - XHMM (eXome-Hidden Markov Model).
-- **Core Function**: XHMM (eXome-Hidden Markov Model).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xhmm`
+- **Tool Overview**: XHMM - Hidden Markov Model for CNV detection.
+- **Core Function**: Detects copy number variations.
+- **Input**: Read depth data.
+- **Output**: CNV calls.
+- **Installation**: Download from official site
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect CNVs
+**Args:** `xhmm --matrix input.txt --cnv output.txt`
+**Explanation:** Detect copy number variations.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xhmm --matrix input.txt --cnv output.txt -p params.txt`
+**Explanation:** Use parameters file.

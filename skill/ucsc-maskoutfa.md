@@ -1,30 +1,32 @@
 ---
 name: ucsc-maskoutfa
 category: utility
-description: Produce a masked .fa file given an unmasked .fa and.
-tags: [ucsc-maskoutfa, utility]
+description: UCSC maskOutFa - Tool for masking FASTA sequences.
+tags: [ucsc-maskoutfa, ucsc, fasta, masking, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maskoutfa (v482) - Produce a masked .fa file given an unmasked .fa and.
-- **Core Function**: Produce a masked .fa file given an unmasked .fa and.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maskoutfa`
+- **Tool Overview**: UCSC maskOutFa - A tool for masking regions in FASTA sequences.
+- **Core Function**: Masks specified regions in FASTA sequences.
+- **Input**: FASTA file, mask regions file.
+- **Output**: Masked FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence masking, repeat masking, genome analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **Format Requirements**: Requires proper coordinate format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Mask FASTA regions
+**Args:** `maskOutFa input.fa mask.bed > masked.fa`
+**Explanation:** Mask specified regions in FASTA.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `maskOutFa -hard input.fa mask.bed > masked.fa`
+**Explanation:** Use hard masking (N's).

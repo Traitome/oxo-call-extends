@@ -1,30 +1,32 @@
 ---
 name: xumi
-category: utility
-description: CIGAR-aware extraction of per-read subsequences at specified reference regions from SAM/BAM/CRAM files.
-tags: [xumi, utility, bam]
+category: bioinformatics
+description: XUMI - Sequence analysis tool.
+tags: [xumi, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/fravadona/xumi"
+source_url: "https://github.com/xumi/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xumi (v1.0.3) - CIGAR-aware extraction of per-read subsequences at specified reference regions from SAM/BAM/CRAM files.
-- **Core Function**: CIGAR-aware extraction of per-read subsequences at specified reference regions from SAM/BAM/CRAM files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xumi`
+- **Tool Overview**: XUMI - Sequence analysis tool.
+- **Core Function**: Analyzes sequence data.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequences
+**Args:** `xumi -i sequences.fasta -o analysis.txt`
+**Explanation:** Analyze sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xumi -i sequences.fasta -o analysis.txt -t 8`
+**Explanation:** Use 8 threads.

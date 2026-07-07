@@ -1,30 +1,32 @@
 ---
 name: ushuffle
-category: expression
-description: uShuffle---a useful tool for shuffling biological sequences while preserving the k-let counts.
-tags: [ushuffle, expression]
+category: bioinformatics
+description: uShuffle - Nucleic acid sequence shuffling tool.
+tags: [ushuffle, sequence-shuffling, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://digital.cs.usu.edu/~mjiang/ushuffle"
+source_url: "https://github.com/ushuffle/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ushuffle (v1.2.2) - uShuffle---a useful tool for shuffling biological sequences while preserving the k-let counts.
-- **Core Function**: uShuffle---a useful tool for shuffling biological sequences while preserving the k-let counts.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ushuffle`
+- **Tool Overview**: uShuffle - A tool for shuffling nucleic acid sequences.
+- **Core Function**: Generates shuffled sequences while preserving k-mer frequencies.
+- **Input**: Sequence file (FASTA).
+- **Output**: Shuffled sequences.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence analysis, background modeling, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large sequences.
+- **K-mer Size**: Results depend on k-mer size parameter.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Shuffle sequences
+**Args:** `ushuffle -i input.fasta -o shuffled.fasta`
+**Explanation:** Shuffle sequences preserving k-mer frequencies.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `ushuffle -i input.fasta -o shuffled.fasta -k 3`
+**Explanation:** Preserve 3-mer frequencies.

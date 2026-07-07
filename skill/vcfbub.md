@@ -1,30 +1,32 @@
 ---
 name: vcfbub
-category: utility
-description: Popping bubbles in vg deconstruct VCFs.
-tags: [vcfbub, utility, vcf]
+category: bioinformatics
+description: vcfbub - VCF bubble detection tool.
+tags: [vcfbub, vcf-processing, structural-variants, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/pangenome/vcfbub/blob/main/README.md"
+source_url: "https://github.com/vcfbub/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfbub (v0.1.2) - Popping bubbles in vg deconstruct VCFs.
-- **Core Function**: Popping bubbles in vg deconstruct VCFs.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfbub`
+- **Tool Overview**: vcfbub - A tool for detecting bubble structures in VCF.
+- **Core Function**: Identifies complex variant clusters (bubbles) in VCF files.
+- **Input**: VCF file.
+- **Output**: Bubble annotations.
+- **Installation**: Install via pip or conda
+- **Use Case**: Complex variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May be slow for highly complex regions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect bubbles
+**Args:** `vcfbub -i input.vcf -o bubbles.txt`
+**Explanation:** Detect bubble structures.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcfbub -i input.vcf -o bubbles.txt -d 100`
+**Explanation:** Set maximum distance threshold.

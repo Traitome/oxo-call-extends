@@ -1,30 +1,32 @@
 ---
 name: vargeno
-category: variant-calling
-description: Fast SNP genotyping tool for whole genome sequence data and large SNP database.
-tags: [vargeno, variant-calling]
+category: bioinformatics
+description: VarGeno - Variant genotype analysis tool.
+tags: [vargeno, genotype-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/medvedevgroup/vargeno"
+source_url: "https://github.com/vargeno/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vargeno (v1.0.3) - Fast SNP genotyping tool for whole genome sequence data and large SNP database.
-- **Core Function**: Fast SNP genotyping tool for whole genome sequence data and large SNP database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vargeno`
+- **Tool Overview**: VarGeno - A tool for variant genotype analysis.
+- **Core Function**: Analyzes genotype data from sequencing data.
+- **Input**: VCF file, BAM file.
+- **Output**: Genotype statistics.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genotype analysis, population genetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Phasing**: Requires phased data for some analyses.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze genotypes
+**Args:** `vargeno -i variants.vcf -o genotypes.txt`
+**Explanation:** Analyze genotype data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vargeno -i variants.vcf -o genotypes.txt -f 0.05`
+**Explanation:** Set minimum allele frequency.

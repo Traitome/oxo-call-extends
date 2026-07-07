@@ -1,30 +1,32 @@
 ---
 name: vawk
-category: formatting
-description: An awk-like VCF parser
-tags: [vawk, formatting, vcf]
+category: bioinformatics
+description: vawk - VCF processing with awk-like syntax.
+tags: [vawk, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/cc2qe/vawk"
+source_url: "https://github.com/vsbuffalo/vawk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vawk (v0.0.2) - An awk-like VCF parser
-- **Core Function**: An awk-like VCF parser
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vawk`
+- **Tool Overview**: vawk - A tool for processing VCF files with awk-like syntax.
+- **Core Function**: Processes and filters VCF files using awk-like commands.
+- **Input**: VCF file.
+- **Output**: Processed VCF file or output.
+- **Installation**: Install via pip or conda
+- **Use Case**: VCF processing, filtering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Syntax**: Requires learning awk-like syntax.
+- **Memory**: May require significant memory for large VCF files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter VCF
+**Args:** `vawk -f 'QUAL > 30' input.vcf > filtered.vcf`
+**Explanation:** Filter VCF by quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Extract fields
+**Args:** `vawk '{print CHROM, POS, REF, ALT}' input.vcf > positions.txt`
+**Explanation:** Extract variant positions.

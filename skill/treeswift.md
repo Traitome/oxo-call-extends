@@ -1,30 +1,32 @@
 ---
 name: treeswift
-category: programming
-description: TreeSwift: Fast tree module for Python 2 and 3
-tags: [treeswift, programming]
+category: analysis
+description: TreeSwift - Tool for efficient phylogenetic tree manipulation.
+tags: [treeswift, phylogenetic-tree, tree-manipulation, bioinformatics, python]
 author: oxo-call-community
 source_url: "https://github.com/niemasd/TreeSwift"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treeswift (v1.1.45) - TreeSwift: Fast tree module for Python 2 and 3
-- **Core Function**: TreeSwift: Fast tree module for Python 2 and 3
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treeswift`
+- **Tool Overview**: TreeSwift - A fast Python library for phylogenetic tree manipulation and analysis.
+- **Core Function**: Provides efficient tree parsing, manipulation, and analysis operations.
+- **Input**: Phylogenetic trees (Newick/Nexus format).
+- **Output**: Modified trees, tree statistics, analysis results.
+- **Installation**: `pip install treeswift`
+- **Use Case**: Tree manipulation, phylogenetic analysis, bioinformatics pipelines.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Python Dependency**: Requires Python knowledge for full functionality.
+- **Large Trees**: Memory considerations for very large trees.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Parse and manipulate tree
+**Args:** `python -c "from treeswift import read_tree; t = read_tree('tree.nwk'); print(t)"`
+**Explanation:** Parse and print tree using TreeSwift.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Tree statistics
+**Args:** `python -c "from treeswift import read_tree; t = read_tree('tree.nwk'); print(t.distance_matrix())"`
+**Explanation:** Calculate distance matrix from tree.

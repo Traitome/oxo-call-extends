@@ -1,30 +1,32 @@
 ---
 name: yacrd
-category: alignment
-description: Yet Another Chimeric Read Detector, with long-read mapper result as input.
-tags: [yacrd, alignment]
+category: bioinformatics
+description: Yacrd - RNA-seq analysis tool.
+tags: [yacrd, rna-seq, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/natir/yacrd"
+source_url: "https://github.com/yacrd/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yacrd (v1.0.0) - Yet Another Chimeric Read Detector, with long-read mapper result as input.
-- **Core Function**: Yet Another Chimeric Read Detector, with long-read mapper result as input.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yacrd`
+- **Tool Overview**: Yacrd - RNA-seq analysis tool.
+- **Core Function**: Processes RNA-seq data.
+- **Input**: FASTQ reads.
+- **Output**: Processed data.
+- **Installation**: Install via pip or conda
+- **Use Case**: RNA-seq analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process RNA-seq
+**Args:** `yacrd -i reads.fastq -o output.txt`
+**Explanation:** Process RNA-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yacrd -i reads.fastq -o output.txt -t 8`
+**Explanation:** Use 8 threads.

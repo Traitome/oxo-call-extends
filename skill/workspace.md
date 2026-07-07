@@ -1,30 +1,32 @@
 ---
 name: workspace
-category: utility
-description: Workspace Overmind
-tags: [workspace, utility]
+category: bioinformatics
+description: workspace - Workspace management tool.
+tags: [workspace, utilities, bioinformatics]
 author: oxo-call-community
-source_url: "http://an9.org/w/WorkspacePy"
+source_url: "https://github.com/workspace/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: workspace (v0.3.1) - Workspace Overmind
-- **Core Function**: Workspace Overmind
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda workspace`
+- **Tool Overview**: workspace - Project workspace manager.
+- **Core Function**: Manages project workspaces.
+- **Input**: Configuration file.
+- **Output**: Workspace setup.
+- **Installation**: Install via pip or conda
+- **Use Case**: Project management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Configuration**: Requires proper setup.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create workspace
+**Args:** `workspace create myproject`
+**Explanation:** Create new workspace.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `workspace create myproject --template bioinformatics`
+**Explanation:** Use bioinformatics template.

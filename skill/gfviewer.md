@@ -1,30 +1,43 @@
 ---
 name: gfviewer
-category: formatting
-description: A bioinformatics tool for visualizing the localization of multi-gene families across the genome of a given organism.
-tags: [gfviewer, formatting]
+category: visualization
+description: gfviewer - Visualize localization of multi-gene families across genomes.
+tags: [gfviewer, visualization, gene-families, genome]
 author: oxo-call-community
 source_url: "https://github.com/sakshar/GFViewer"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfviewer (v1.0.4) - A bioinformatics tool for visualizing the localization of multi-gene families across the genome of a given organism.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfviewer`
+- **Gene Family Visualization**: Visualizes multi-gene families.
+- **Genome Localization**: Shows gene localization.
+- **Chromosomal Distribution**: Displays chromosomal distribution.
+- **Gene Clustering**: Identifies gene clustering patterns.
+- **Interactive Viewing**: Provides interactive visualization.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Preparation**: Requires properly formatted input.
+- **Genome Complexity**: Complex genomes may be hard to visualize.
+- **Display Resolution**: May require adjustment.
+- **Memory Usage**: Large genomes require memory.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Visualize gene families
+**Args:** `gfviewer -i genome.gff3 -g gene_families.txt -o view.html`
+**Explanation:** Visualizes gene family localization.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gfviewer -i genome.gff3 -g gene_families.txt -c chr1 -o view.html`
+**Explanation:** Visualizes specific chromosome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gfviewer -l genomes.txt -g gene_families.txt -o ./views/`
+**Explanation:** Processes multiple genomes.
+
+### Generate report
+**Args:** `gfviewer -i genome.gff3 -g gene_families.txt -r -o report.html`
+**Explanation:** Generates visualization report.
+
+### Export image
+**Args:** `gfviewer -i genome.gff3 -g gene_families.txt -f png -o view.png`
+**Explanation:** Exports visualization as image.

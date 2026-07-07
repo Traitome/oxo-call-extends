@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredtomafframes
 category: utility
-description: Create mafFrames tables from a genePreds.
-tags: [ucsc-genepredtomafframes, utility]
+description: UCSC genePredToMafFrames - Tool for converting gene predictions to MAF frames.
+tags: [ucsc-genepredtomafframes, ucsc, gene-prediction, maf, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredtomafframes (v482) - Create mafFrames tables from a genePreds.
-- **Core Function**: Create mafFrames tables from a genePreds.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredtomafframes`
+- **Tool Overview**: UCSC genePredToMafFrames - A tool for converting gene predictions to MAF frame coordinates.
+- **Core Function**: Converts gene predictions to MAF alignment coordinates.
+- **Input**: Gene prediction file, MAF file.
+- **Output**: MAF frame coordinates.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Comparative genomics, alignment analysis, gene prediction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **MAF Requirement**: Requires MAF alignment file.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to MAF frames
+**Args:** `genePredToMafFrames genes.txt alignment.maf > frames.txt`
+**Explanation:** Convert gene predictions to MAF frames.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredToMafFrames -species=hg38 genes.txt alignment.maf > frames.txt`
+**Explanation:** Specify species.

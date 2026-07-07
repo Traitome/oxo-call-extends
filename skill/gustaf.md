@@ -1,30 +1,64 @@
 ---
 name: gustaf
-category: alignment
-description: Gustaf is a tool primarily designed for multi-split mapping of sequencing reads.
-tags: [gustaf, alignment]
+category: bioinformatics
+description: Gustaf performs multi-split mapping of sequencing reads, enabling alignment across multiple genomic regions.
+tags: [gustaf, read-mapping, multi-split, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/seqan/seqan/tree/master/apps/gustaf/README.rst"
+source_url: "https://github.com/seqan/seqan"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gustaf (v1.0.10) - Gustaf is a tool primarily designed for multi-split mapping of sequencing reads.
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gustaf`
+- **Multi-split Mapping**: Gustaf maps reads that span multiple genomic regions.
+
+- **Read Alignment**: Aligns sequencing reads to reference genomes.
+
+- **Split Reads**: Handles reads that are split across exons or regions.
+
+- **Chimeric Reads**: Identifies chimeric read mappings.
+
+- **Structural Variants**: Aids in detection of structural variants.
+
+- **Efficiency**: Optimized for fast processing of large datasets.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Mapping large datasets may require significant memory.
+
+- **Reference Genome**: Requires well-indexed reference genome.
+
+- **Read Quality**: Low-quality reads affect mapping accuracy.
+
+- **Parameter Tuning**: Adjust parameters based on read characteristics.
+
+- **Output Interpretation**: Interpret split mappings carefully.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Map reads
+**Args:** `gustaf map -i reads.fastq -r reference.fasta -o alignments.sam`
+**Explanation:** Maps reads to reference genome with multi-split support.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Paired-end mapping
+**Args:** `gustaf map -i reads_1.fastq -i2 reads_2.fastq -r reference.fasta -o alignments.sam`
+**Explanation:** Maps paired-end reads with multi-split support.
+
+### Custom split size
+**Args:** `gustaf map -i reads.fastq -r reference.fasta -s 50 -o alignments.sam`
+**Explanation:** Sets minimum split size for mapping.
+
+### Batch processing
+**Args:** `for f in *.fastq; do gustaf map -i $f -r reference.fasta -o ${f%.fastq}_alignments.sam; done`
+**Explanation:** Processes multiple read files.
+
+### Generate statistics
+**Args:** `gustaf stats -i alignments.sam -o stats.txt`
+**Explanation:** Generates mapping statistics.
+
+### Filter mappings
+**Args:** `gustaf filter -i alignments.sam -q 30 -o filtered.sam`
+**Explanation:** Filters mappings by quality score.
+
+### Help command
+**Args:** `gustaf --help`
+**Explanation:** Shows available options and usage information.

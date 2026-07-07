@@ -1,30 +1,32 @@
 ---
 name: treeshrink
-category: utility
-description: An algorithm for detecting (and removing) abnormally long branches in one or more phylogenetic trees.
-tags: [treeshrink, utility]
+category: analysis
+description: TreeShrink - Tool for detecting and removing outlier taxa from phylogenetic trees.
+tags: [treeshrink, phylogenetic-tree, outlier-detection, tree-cleaning, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/uym2/TreeShrink/blob/v1.3.9/README.md"
+source_url: "https://github.com/uym2/treeshrink"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treeshrink (v1.3.9) - An algorithm for detecting (and removing) abnormally long branches in one or more phylogenetic trees.
-- **Core Function**: An algorithm for detecting (and removing) abnormally long branches in one or more phylogenetic trees.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treeshrink`
+- **Tool Overview**: TreeShrink - A tool for detecting and removing outlier taxa from phylogenetic trees.
+- **Core Function**: Identifies and removes outlier sequences that may distort phylogenetic analyses.
+- **Input**: Phylogenetic tree (Newick format), optional alignment.
+- **Output**: Cleaned tree, outlier list, statistics.
+- **Installation**: `pip install treeshrink`
+- **Use Case**: Phylogenetic analysis, tree cleaning, outlier detection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Over-filtering**: May remove legitimate taxa if parameters are too strict.
+- **Subjectivity**: Outlier detection may be subjective.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect outliers
+**Args:** `treeshrink -i tree.nwk -o cleaned_tree.nwk`
+**Explanation:** Detect and remove outlier taxa from tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With alignment
+**Args:** `treeshrink -i tree.nwk -a alignment.fasta -o result/`
+**Explanation:** Use alignment for better outlier detection.

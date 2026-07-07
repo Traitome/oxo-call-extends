@@ -1,30 +1,32 @@
 ---
 name: tpmcalculator
-category: alignment
-description: TPMCalculator quantifies mRNA abundance directly from the alignments by parsing BAM files.
-tags: [tpmcalculator, alignment, bam]
+category: analysis
+description: TPMcalculator - Tool for calculating Transcripts Per Million (TPM).
+tags: [tpmcalculator, tpm, gene-expression, rna-seq, quantification]
 author: oxo-call-community
-source_url: "https://github.com/NLM-DIR/TPMCalculator"
+source_url: "https://github.com/compbio/tpmcalculator"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tpmcalculator (v0.0.6) - TPMCalculator quantifies mRNA abundance directly from the alignments by parsing BAM files.
-- **Core Function**: TPMCalculator quantifies mRNA abundance directly from the alignments by parsing BAM files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tpmcalculator`
+- **Tool Overview**: TPMcalculator - A tool for calculating Transcripts Per Million (TPM) from RNA-seq data.
+- **Core Function**: Computes TPM values for gene expression quantification.
+- **Input**: Read counts, gene lengths, annotation files.
+- **Output**: TPM values, expression matrices, statistics.
+- **Installation**: `pip install tpmcalculator` or `conda install -c bioconda tpmcalculator`
+- **Use Case**: Gene expression analysis, RNA-seq quantification, differential expression.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Gene Length**: Accurate gene lengths are essential for correct TPM calculation.
+- **Normalization**: Requires proper normalization of raw counts.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate TPM
+**Args:** `tpmcalculator -i counts.txt -l gene_lengths.txt -o tpm_results/`
+**Explanation:** Calculate TPM values from read counts.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With RNA-seq data
+**Args:** `tpmcalculator -b rnaseq.bam -a annotations.gtf -o tpm/`
+**Explanation:** Calculate TPM directly from BAM file.

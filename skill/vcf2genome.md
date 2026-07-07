@@ -1,30 +1,32 @@
 ---
 name: vcf2genome
-category: variant-calling
-description: A tool to create a draft genome file out of a GATK VCF file and enabling users to filter the VCF in a single step.
-tags: [vcf2genome, variant-calling, vcf]
+category: bioinformatics
+description: vcf2genome - VCF to genome sequence converter.
+tags: [vcf2genome, vcf-processing, genome, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/apeltzer/vcf2genome"
+source_url: "https://github.com/vcf2genome/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2genome (v0.91) - A tool to create a draft genome file out of a GATK VCF file and enabling users to filter the VCF in a single step.
-- **Core Function**: A tool to create a draft genome file out of a GATK VCF file and enabling users to filter the VCF in a single step.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2genome`
+- **Tool Overview**: vcf2genome - A tool for generating genome sequences from VCF.
+- **Core Function**: Creates personalized genome sequences from reference and VCF.
+- **Input**: Reference FASTA, VCF file.
+- **Output**: Personalized genome FASTA.
+- **Installation**: Install via pip or conda
+- **Use Case**: Personalized genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Reference Requirements**: Requires reference genome.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate genome
+**Args:** `vcf2genome -r ref.fasta -v variants.vcf -o personalized.fasta`
+**Explanation:** Generate personalized genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2genome -r ref.fasta -v variants.vcf -o personalized.fasta -t 8`
+**Explanation:** Use 8 threads.

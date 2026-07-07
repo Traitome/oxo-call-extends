@@ -1,30 +1,32 @@
 ---
 name: virulencefinder
-category: utility
-description: VirulenceFinder identifies virulence genes in total or partial sequenced isolates of bacteria
-tags: [virulencefinder, utility]
+category: bioinformatics
+description: VirulenceFinder - Virulence gene detection.
+tags: [virulencefinder, bacterial-genomics, virulence, bioinformatics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/genomicepidemiology/virulencefinder"
+source_url: "https://github.com/genomicepidemiology/virulencefinder"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virulencefinder (v3.2.0) - VirulenceFinder identifies virulence genes in total or partial sequenced isolates of bacteria
-- **Core Function**: VirulenceFinder identifies virulence genes in total or partial sequenced isolates of bacteria
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virulencefinder`
+- **Tool Overview**: VirulenceFinder - Detects virulence genes.
+- **Core Function**: Identifies virulence factors in bacterial genomes.
+- **Input**: Genome sequence.
+- **Output**: Virulence gene predictions.
+- **Installation**: Install via pip or conda
+- **Use Case**: Bacterial genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Database**: Requires virulence database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect virulence genes
+**Args:** `virulencefinder -i genome.fasta -o results/`
+**Explanation:** Detect virulence genes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virulencefinder -i genome.fasta -o results/ -t 8`
+**Explanation:** Use 8 threads.

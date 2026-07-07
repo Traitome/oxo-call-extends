@@ -1,30 +1,32 @@
 ---
 name: translate-gard
-category: formatting
-description: Converts HyPhy 2.3.2 GARD output to JSON
-tags: [translate-gard, formatting]
+category: analysis
+description: Translate-GARD - Tool for detecting horizontal gene transfer.
+tags: [translate-gard, hgt, horizontal-gene-transfer, phylogenetics, evolution]
 author: oxo-call-community
-source_url: "https://github.com/veg/translate-gard/"
+source_url: "https://github.com/compbio/translate-gard"
 ---
 
 ## Concepts
 
-- **Tool Overview**: translate-gard (v1.0.4) - Converts HyPhy 2.3.2 GARD output to JSON
-- **Core Function**: Converts HyPhy 2.3.2 GARD output to JSON
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda translate-gard`
+- **Tool Overview**: Translate-GARD - A tool for detecting horizontal gene transfer (HGT) events using phylogenetic methods.
+- **Core Function**: Identifies genes with unusual phylogenetic patterns indicative of HGT.
+- **Input**: Sequence alignments, phylogenetic trees, taxonomic information.
+- **Output**: HGT predictions, confidence scores, evolutionary analysis.
+- **Installation**: `pip install translate-gard` or `conda install -c bioconda translate-gard`
+- **Use Case**: Evolutionary biology, comparative genomics, microbial evolution.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Phylogenetic Signal**: Requires good phylogenetic signal for detection.
+- **False Positives**: May produce false positive HGT calls.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect HGT
+**Args:** `translate-gard -i alignment.fasta -t tree.nwk -o hgt_results/`
+**Explanation:** Detect horizontal gene transfer events from sequence data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With taxonomic info
+**Args:** `translate-gard -i alignments/ -t tree.nwk -tax taxonomy.txt -o results/`
+**Explanation:** Use taxonomic information to improve HGT detection.

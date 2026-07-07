@@ -2,29 +2,47 @@
 name: mirtop
 category: expression
 description: Small RNA-seq annotation.
-tags: [mirtop, expression]
+tags: [mirtop, expression, microrna]
 author: oxo-call-community
 source_url: "https://github.com/mirtop/mirtop"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mirtop v0.4.30 - Small RNA-seq annotation..
-- **Core Function**: Small RNA-seq annotation.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mirtop`
+- **Tool Overview**: mirtop v0.4.30 annotates small RNA sequencing data.
+- **Core Function**: Annotates and quantifies small RNA species.
+- **Small RNA Annotation**: Identifies and classifies small RNA types.
+- **miRNA Analysis**: Focuses on microRNA annotation and quantification.
+- **Input/Output**: Accepts aligned reads; outputs annotated results.
+- **Standardized Format**: Produces standardized annotation output.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Small RNA Specific**: Designed for small RNA sequencing data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal annotation.
+- **Data Quality**: Results depend on input alignment quality.
+- **Annotation Standards**: Requires consistent input format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Annotate small RNA-seq
+**Args:** `mirtop gff -i alignments.bam -o annotations.gff`
+**Explanation:** Annotates small RNA alignments.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With reference
+**Args:** `mirtop gff -i alignments.bam -r reference.gff -o annotations.gff`
+**Explanation:** Uses reference annotation.
+
+### Quantify expression
+**Args:** `mirtop quantify -i alignments.bam -o counts.tsv`
+**Explanation:** Quantifies small RNA expression.
+
+### Batch processing
+**Args:** `mirtop gff -i bam/ -o gff/`
+**Explanation:** Processes multiple BAM files.
+
+### Generate report
+**Args:** `mirtop report -i annotations.gff -o report.html`
+**Explanation:** Generates annotation report.

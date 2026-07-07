@@ -1,30 +1,32 @@
 ---
 name: vcf2parquet
-category: formatting
-description: Convert a vcf in parquet.
-tags: [vcf2parquet, formatting, vcf]
+category: bioinformatics
+description: vcf2parquet - VCF to Parquet format converter.
+tags: [vcf2parquet, vcf-processing, parquet, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/natir/vcf2parquet"
+source_url: "https://github.com/vcf2parquet/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2parquet (v0.5.0) - Convert a vcf in parquet.
-- **Core Function**: Convert a vcf in parquet.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2parquet`
+- **Tool Overview**: vcf2parquet - A tool for converting VCF to Parquet format.
+- **Core Function**: Converts VCF files to Parquet columnar storage format.
+- **Input**: VCF file.
+- **Output**: Parquet file.
+- **Installation**: Install via pip
+- **Use Case**: Format conversion, data analytics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Dependencies**: Requires pyarrow.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to Parquet
+**Args:** `vcf2parquet -i input.vcf -o output.parquet`
+**Explanation:** Convert VCF to Parquet.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2parquet -i input.vcf -o output.parquet -t 8`
+**Explanation:** Use 8 threads.

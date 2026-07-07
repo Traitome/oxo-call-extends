@@ -1,30 +1,32 @@
 ---
 name: ucsc-gmtime
-category: formatting
-description: Convert unix timestamp to date string.
-tags: [ucsc-gmtime, formatting]
+category: utility
+description: UCSC gmTime - Tool for converting time formats.
+tags: [ucsc-gmtime, ucsc, time-conversion, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-gmtime (v482) - Convert unix timestamp to date string.
-- **Core Function**: Convert unix timestamp to date string.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-gmtime`
+- **Tool Overview**: UCSC gmTime - A tool for converting between time formats.
+- **Core Function**: Converts time between local and GMT.
+- **Input**: Time string.
+- **Output**: Converted time.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Time conversion, log analysis, data processing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Time Zone**: Requires correct time zone specification.
+- **Format**: Requires proper time format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to GMT
+**Args:** `gmTime "2024-01-01 12:00:00"`
+**Explanation:** Convert local time to GMT.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### From GMT
+**Args:** `gmTime -local "2024-01-01 12:00:00"`
+**Explanation:** Convert GMT to local time.

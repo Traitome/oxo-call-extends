@@ -1,30 +1,32 @@
 ---
 name: tqdm
 category: utility
-description: A Fast, Extensible Progress Meter
-tags: [tqdm, utility]
+description: tqdm - Fast, extensible progress bar for Python and CLI.
+tags: [tqdm, progress-bar, python, cli, utility]
 author: oxo-call-community
 source_url: "https://github.com/tqdm/tqdm"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tqdm (v4.7.2) - A Fast, Extensible Progress Meter
-- **Core Function**: A Fast, Extensible Progress Meter
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tqdm`
+- **Tool Overview**: tqdm - A fast and extensible progress bar library for Python and command-line applications.
+- **Core Function**: Provides visual progress tracking for iterative processes and loops.
+- **Input**: Iterable objects, command-line pipelines.
+- **Output**: Progress bar display, completion statistics.
+- **Installation**: `pip install tqdm`
+- **Use Case**: Progress tracking, long-running tasks, data processing pipelines.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Overhead**: Very small iterations may have noticeable overhead.
+- **Output**: Progress bar may interfere with other output streams.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Python usage
+**Args:** `from tqdm import tqdm; for i in tqdm(range(1000)): process(i)`
+**Explanation:** Add progress bar to Python loop.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### CLI usage
+**Args:** `find . -name "*.txt" | tqdm | wc -l`
+**Explanation:** Add progress bar to shell pipeline.

@@ -1,30 +1,32 @@
 ---
 name: ultraheatmap
-category: alignment
-description: ultraheatmaps facilitates the production of deepTools heatmaps
-tags: [ultraheatmap, alignment]
+category: visualization
+description: UltraHeatmap - Tool for generating heatmaps.
+tags: [ultraheatmap, heatmap, visualization, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/maxplanck-ie/ultraheatmap/"
+source_url: "https://github.com/ultraheatmap/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ultraheatmap (v1.3.1) - ultraheatmaps facilitates the production of deepTools heatmaps
-- **Core Function**: ultraheatmaps facilitates the production of deepTools heatmaps
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ultraheatmap`
+- **Tool Overview**: UltraHeatmap - A tool for generating publication-quality heatmaps.
+- **Core Function**: Creates heatmaps from matrix data.
+- **Input**: Matrix data file.
+- **Output**: Heatmap image.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data visualization, bioinformatics, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large matrices.
+- **Dependencies**: Requires Python and matplotlib.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate heatmap
+**Args:** `ultraheatmap -i matrix.txt -o heatmap.png`
+**Explanation:** Generate heatmap from matrix.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Customize heatmap
+**Args:** `ultraheatmap -i matrix.txt -o heatmap.png -cmap viridis`
+**Explanation:** Customize colormap.

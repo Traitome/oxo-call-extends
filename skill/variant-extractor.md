@@ -1,30 +1,32 @@
 ---
 name: variant-extractor
-category: variant-calling
-description: Deterministic and standard extractor of indels, SNVs and structural variants (SVs) from VCF files.
-tags: [variant-extractor, variant-calling, vcf]
+category: bioinformatics
+description: Variant Extractor - Tool for extracting variants.
+tags: [variant-extractor, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://pypi.org/project/variant-extractor/"
+source_url: "https://github.com/variant-extractor/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: variant-extractor (v5.1.0) - Deterministic and standard extractor of indels, SNVs and structural variants (SVs) from VCF files.
-- **Core Function**: Deterministic and standard extractor of indels, SNVs and structural variants (SVs) from VCF files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda variant-extractor`
+- **Tool Overview**: Variant Extractor - A tool for extracting variants from data.
+- **Core Function**: Extracts specific variants based on criteria.
+- **Input**: VCF file.
+- **Output**: Extracted variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant filtering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Filter Criteria**: Requires well-defined filter criteria.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract variants
+**Args:** `variant-extractor -i variants.vcf -o extracted.vcf -f "QUAL>30"`
+**Explanation:** Extract variants by quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `variant-extractor -i variants.vcf -o extracted.vcf -f "AF>0.05"`
+**Explanation:** Extract variants by allele frequency.

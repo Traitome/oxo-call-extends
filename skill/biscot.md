@@ -1,30 +1,34 @@
 ---
 name: biscot
 category: assembly
-description: Bionano SCaffolding Correction Tool
-tags: [biscot, assembly]
+description: Bionano Scaffolding Correction Tool for genome assembly improvement
+tags: [bionano, scaffolding, assembly, genome]
 author: oxo-call-community
 source_url: "https://github.com/institut-de-genomique/biscot"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biscot (v2.3.3) - Bionano SCaffolding Correction Tool
-- **Core Function**: Bionano SCaffolding Correction Tool
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda biscot`
+- **Tool Overview**: Biscot (Bionano Scaffolding Correction Tool) is designed to correct errors and improve genome assemblies using Bionano optical mapping data.
+- **Bionano Integration**: Uses Bionano optical maps to identify and correct misassemblies in sequence assemblies.
+- **Scaffold Correction**: Detects chimeric scaffolds, incorrect joins, and other assembly errors.
+- **Applications**: Genome assembly improvement, structural variation detection, assembly validation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Bionano Data Required**: Requires Bionano optical map data as input.
+- **Reference Assembly**: Works best with existing sequence assemblies for comparison.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Correct assembly with Bionano
+**Args:** `biscot.py -i assembly.fasta -b bionano.cmap -o corrected_assembly/`
+**Explanation:** Corrects assembly using Bionano optical map data.
 
-### Basic usage
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assemble reads into contigs
+### Run with specific parameters
+**Args:** `biscot.py -i assembly.fasta -b bionano.cmap -o output/ --min-length 1000`
+**Explanation:** Corrects assembly with minimum scaffold length filter.
+
+### Generate report
+**Args:** `biscot.py -i assembly.fasta -b bionano.cmap -o output/ --report`
+**Explanation:** Generates detailed correction report.

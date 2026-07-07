@@ -1,30 +1,32 @@
 ---
 name: ucsc-ticktodate
-category: formatting
-description: Convert seconds since 1970 to time and date.
-tags: [ucsc-ticktodate, formatting]
+category: utility
+description: UCSC tickToDate - Tool for converting ticks to dates.
+tags: [ucsc-ticktodate, ucsc, tick, date, conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-ticktodate (v482) - Convert seconds since 1970 to time and date.
-- **Core Function**: Convert seconds since 1970 to time and date.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-ticktodate`
+- **Tool Overview**: UCSC tickToDate - A tool for converting ticks to dates.
+- **Core Function**: Converts tick values to human-readable dates.
+- **Input**: Tick value.
+- **Output**: Date string.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Date conversion, time processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Time Zone**: Requires correct time zone handling.
+- **Tick Format**: Requires proper tick format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert tick to date
+**Args:** `tickToDate 1609459200`
+**Explanation:** Convert tick to date.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `tickToDate -utc 1609459200`
+**Explanation:** Convert to UTC date.

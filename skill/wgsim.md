@@ -1,30 +1,32 @@
 ---
 name: wgsim
-category: utility
-description: Wgsim is a small tool for simulating sequence reads from a reference genome.
-tags: [wgsim, utility]
+category: bioinformatics
+description: wgsim - Whole-genome sequencing read simulator.
+tags: [wgsim, sequence-simulation, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/lh3/wgsim"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgsim (v1.0) - Wgsim is a small tool for simulating sequence reads from a reference genome.
-- **Core Function**: Wgsim is a small tool for simulating sequence reads from a reference genome.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgsim`
+- **Tool Overview**: wgsim - Sequencing read simulator.
+- **Core Function**: Simulates sequencing reads from reference genome.
+- **Input**: Reference genome.
+- **Output**: Simulated FASTQ reads.
+- **Installation**: Install via conda or source
+- **Use Case**: Simulation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simulate reads
+**Args:** `wgsim -1 100 -2 100 ref.fasta read1.fq read2.fq`
+**Explanation:** Simulate paired-end reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgsim -e 0.01 -d 500 ref.fasta read1.fq read2.fq`
+**Explanation:** Simulate with 1% error rate.

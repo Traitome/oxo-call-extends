@@ -2,29 +2,47 @@
 name: mity
 category: variant-calling
 description: Mity is a bioinformatic analysis pipeline designed to call mitochondrial SNV and INDEL variants from Whole Genome Sequencing (WGS) data.
-tags: [mity, variant-calling]
+tags: [mity, variant-calling, mitochondrial]
 author: oxo-call-community
 source_url: "https://github.com/KCCG/mity"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mity v2.0.1 - *Mity* can: - identify very low-heteroplasmy variants, even <1% heteroplasmy when there is sufficient read-depth (eg >1000x) - filter out common artefacts that arise from high-depth sequencing - easily integrate with existing nuclear DNA analysis pipelines (mity merge) - provide an annotated report, designed for clinicians and researchers to interrogate.
-- **Core Function**: Mity is a bioinformatic analysis pipeline designed to call mitochondrial SNV and INDEL variants from Whole Genome Sequencing (WGS) data.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mity`
+- **Tool Overview**: Mity v2.0.1 calls mitochondrial SNV and INDEL variants from WGS data.
+- **Core Function**: Identifies low-heteroplasmy mitochondrial variants.
+- **Low Heteroplasmy**: Detects variants with <1% heteroplasmy.
+- **Variant Calling**: Calls SNVs and INDELs in mtDNA.
+- **Input/Output**: Accepts WGS data; outputs variant calls.
+- **Clinical Reporting**: Generates annotated reports for clinicians.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Mitochondrial Specific**: Designed for mtDNA variant calling.
+- **Computational Resources**: Processing may require significant resources.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal calling.
+- **Data Quality**: Results depend on input data quality.
+- **High Depth**: Requires sufficient read depth for low-heteroplasmy detection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Call mitochondrial variants
+**Args:** `mity call --bam alignments.bam --output variants.vcf`
+**Explanation:** Calls mtDNA variants from aligned reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With filtering
+**Args:** `mity call --bam alignments.bam --output variants.vcf --min-af 0.01`
+**Explanation:** Uses minimum allele frequency of 1%.
+
+### Merge with nuclear variants
+**Args:** `mity merge --mity variants.vcf --nuclear nuclear.vcf --output merged.vcf`
+**Explanation:** Merges mtDNA and nuclear variants.
+
+### Generate report
+**Args:** `mity report --vcf variants.vcf --output report.html`
+**Explanation:** Generates annotated clinical report.
+
+### Batch processing
+**Args:** `mity call --bam bam/ --output variants/`
+**Explanation:** Processes multiple BAM files.

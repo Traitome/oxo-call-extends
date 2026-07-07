@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedtopsl
-category: formatting
-description: Convert bed format files to psl format.
-tags: [ucsc-bedtopsl, formatting]
+category: utility
+description: UCSC bedToPsl - Tool for converting BED to PSL format.
+tags: [ucsc-bedtopsl, ucsc, format-conversion, bed, psl]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedtopsl (v482) - Convert bed format files to psl format.
-- **Core Function**: Convert bed format files to psl format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedtopsl`
+- **Tool Overview**: UCSC bedToPsl - A tool for converting BED format alignments to PSL format.
+- **Core Function**: Converts BED alignments to PSL format for visualization.
+- **Input**: BED format alignment file.
+- **Output**: PSL format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser visualization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper BED format with alignment info.
+- **Strand Handling**: Requires correct strand information.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert BED to PSL
+**Args:** `bedToPsl input.bed output.psl`
+**Explanation:** Convert BED alignment to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality
+**Args:** `bedToPsl -q input.bed output.psl`
+**Explanation:** Convert with quality scores.

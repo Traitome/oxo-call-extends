@@ -1,30 +1,52 @@
 ---
 name: lorikeet-genome
 category: variant-calling
-description: Metagenomic Variant Calling & Diversity Analysis
-tags: [lorikeet-genome, variant-calling]
+description: Lorikeet - Metagenomic variant calling and diversity analysis
+tags: [lorikeet-genome, variant-calling, metagenomics, diversity, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/rhysnewell/Lorikeet"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lorikeet-genome v0.8.2 - Lorikeet aims to call variants in metagenomes using local reassembly of haplotypes..
-- **Core Function**: Metagenomic Variant Calling & Diversity Analysis
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lorikeet-genome`
+- **Metagenomics**: Analysis of microbial community data
+- **Variant Calling**: Detection of genetic variants in metagenomes
+- **Diversity Analysis**: Analysis of microbial diversity
+- **Local Reassembly**: Local reassembly of haplotypes
+- **Haplotype Analysis**: Analysis of microbial haplotypes
+- **Population Genetics**: Population genetic analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect variant calling
+- **Community Complexity**: Complex communities may affect accuracy
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Positives**: May produce false positive calls
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Call variants
+**Args:** `lorikeet call --bam input.bam --ref reference.fasta --output variants.vcf`
+**Explanation:** Calls variants in metagenomic data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Diversity analysis
+**Args:** `lorikeet diversity --bam input.bam --ref reference.fasta --output diversity.txt`
+**Explanation:** Performs diversity analysis.
+
+### Local reassembly
+**Args:** `lorikeet reassemble --bam input.bam --ref reference.fasta --output reassembled.fasta`
+**Explanation:** Performs local reassembly.
+
+### Threads
+**Args:** `lorikeet call --bam input.bam --ref reference.fasta --output variants.vcf --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Quality filtering
+**Args:** `lorikeet call --bam input.bam --ref reference.fasta --output variants.vcf --min-qual 30`
+**Explanation:** Filters by minimum quality score.
+
+### Verbose output
+**Args:** `lorikeet call --bam input.bam --ref reference.fasta --output variants.vcf --verbose`
+**Explanation:** Provides detailed output.

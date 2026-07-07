@@ -1,30 +1,32 @@
 ---
 name: visor
-category: variant-calling
-description: Haplotype-aware structural variants simulator for short, long and linked reads
-tags: [visor, variant-calling]
+category: bioinformatics
+description: Visor - Genome visualization tool.
+tags: [visor, visualization, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/davidebolo1993/VISOR.git"
+source_url: "https://github.com/visor/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: visor (v1.1.2.1) - Haplotype-aware structural variants simulator for short, long and linked reads
-- **Core Function**: Haplotype-aware structural variants simulator for short, long and linked reads
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda visor`
+- **Tool Overview**: Visor - Genome browser visualization tool.
+- **Core Function**: Visualizes genomic data.
+- **Input**: Genomic data files.
+- **Output**: Visualization.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires visualization libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize genome
+**Args:** `visor -i genome.bam -o view.html`
+**Explanation:** Visualize genome data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `visor -i genome.bam -o view.html -r chr1:1000-2000`
+**Explanation:** View specific region.

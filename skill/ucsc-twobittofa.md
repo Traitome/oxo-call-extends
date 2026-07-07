@@ -1,30 +1,32 @@
 ---
 name: ucsc-twobittofa
-category: formatting
-description: Convert all or part of .2bit file to fasta.
-tags: [ucsc-twobittofa, formatting]
+category: utility
+description: UCSC twoBitToFa - Tool for converting twoBit to FASTA.
+tags: [ucsc-twobittofa, ucsc, twobit, fasta, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/master/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-twobittofa (v482) - Convert all or part of .2bit file to fasta.
-- **Core Function**: Convert all or part of .2bit file to fasta.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-twobittofa`
+- **Tool Overview**: UCSC twoBitToFa - A tool for converting twoBit to FASTA format.
+- **Core Function**: Extracts sequences from twoBit files to FASTA.
+- **Input**: TwoBit file, optionally with region specification.
+- **Output**: FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, sequence extraction, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Region Specification**: Requires correct region format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert twoBit to FASTA
+**Args:** `twoBitToFa input.2bit output.fa`
+**Explanation:** Convert entire twoBit to FASTA.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Extract specific region
+**Args:** `twoBitToFa input.2bit stdout -seq=chr1:1-1000`
+**Explanation:** Extract specific region.

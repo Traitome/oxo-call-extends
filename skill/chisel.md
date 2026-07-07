@@ -1,30 +1,44 @@
 ---
 name: chisel
-category: qc
+category: single-cell
 description: Copy-number Haplotype Inference in Single-cell by Evolutionary Links
-tags: [chisel, qc]
+tags: [chisel, single-cell, copy-number, haplotype, dna-sequencing, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/raphael-group/chisel"
 ---
 
 ## Concepts
 
-- **Tool Overview**: chisel (v1.1.4) - Copy-number Haplotype Inference in Single-cell by Evolutionary Links
-- **Core Function**: CHISEL is an algorithm to infer allele- and haplotype-specififc copy numbers in individual cells from low-coverage single-cell DNA sequencing data. Specifically, the current implementation of CHISEL h...
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda chisel`
+- **Tool Overview**: CHISEL infers allele- and haplotype-specific copy numbers in individual cells from low-coverage single-cell DNA sequencing data.
+- **Core Function**: Uses evolutionary links between cells to accurately reconstruct copy number profiles at the haplotype level.
+- **Algorithm**: Integrates single-cell sequencing data with population allele frequencies to resolve haplotype-specific copy numbers.
+- **Input**: Low-coverage single-cell DNA sequencing data and variant calls.
+- **Output**: Haplotype-specific copy number profiles for each cell.
+- **Application**: Cancer genomics, single-cell sequencing analysis, and copy number variation studies.
+- **Installation**: Install via bioconda: `conda install -c bioconda chisel`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Coverage Requirements**: Designed for low-coverage data but requires sufficient depth for reliable inference.
+- **Variant Quality**: Depends on accurate variant calling and phasing information.
+- **Computational Time**: May be computationally intensive for large cell populations.
+- **Memory Usage**: Requires significant memory for large datasets.
+- **Evolutionary Model**: Assumes cells are related through an evolutionary tree.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run CHISEL analysis
+**Args:** `chisel -i bam_files/ -v variants.vcf -o results/`
+**Explanation:** Runs copy number inference on single-cell data.
 
-### Basic usage
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Perform quality control analysis
+### With phasing information
+**Args:** `chisel -i bam_files/ -v variants.vcf -p phasing.txt -o results/`
+**Explanation:** Uses pre-computed phasing information for improved accuracy.
+
+### Specify ploidy
+**Args:** `chisel -i bam_files/ -v variants.vcf -p 2 -o results/`
+**Explanation:** Specifies expected ploidy for copy number inference.
+
+### Display help
+**Args:** `chisel --help`
+**Explanation:** Shows all available options and usage information.

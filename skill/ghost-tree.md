@@ -1,30 +1,43 @@
 ---
 name: ghost-tree
-category: formatting
-description: ghost-tree is a bioinformatics tool that combines sequence data from two genetic marker databases into one phylogenetic tree that can be used for diversity analyses.
-tags: [ghost-tree, formatting]
+category: phylogenetics
+description: ghost-tree - Combines sequence data from two genetic marker databases into one phylogenetic tree.
+tags: [ghost-tree, phylogenetics, marker-genes, phylogenetic-tree]
 author: oxo-call-community
 source_url: "https://github.com/JTFouquier/ghost-tree"
 ---
 
 ## Concepts
-
-- **Tool Overview**: ghost-tree (v0.2.2) - ghost-tree is a bioinformatics tool that combines sequence data from two genetic marker databases into one phylogenetic tree that can be used for diversity analyses.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda ghost-tree`
+- **Marker Gene Combination**: Combines different marker genes.
+- **Phylogenetic Tree Building**: Builds phylogenetic trees.
+- **Database Integration**: Integrates multiple databases.
+- **Diversity Analysis**: Analyzes microbial diversity.
+- **Sequence Analysis**: Analyzes genetic sequences.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Compatibility**: Requires compatible databases.
+- **Sequence Quality**: Requires high-quality sequences.
+- **Tree Construction**: May produce unreliable trees.
+- **Parameter Selection**: Requires careful parameter selection.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Combine markers
+**Args:** `ghost-tree -i marker1.fasta marker2.fasta -o combined_tree.nwk`
+**Explanation:** Combines two marker genes.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With taxonomy
+**Args:** `ghost-tree -i marker1.fasta marker2.fasta -t taxonomy.txt -o combined_tree.nwk`
+**Explanation:** Includes taxonomy information.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Specify database
+**Args:** `ghost-tree -i marker.fasta -d silva -o tree.nwk`
+**Explanation:** Uses specific database.
+
+### Generate report
+**Args:** `ghost-tree -i marker1.fasta marker2.fasta -r -o report.html`
+**Explanation:** Generates analysis report.
+
+### Batch processing
+**Args:** `ghost-tree -l samples.txt -o ./results/`
+**Explanation:** Processes multiple samples.

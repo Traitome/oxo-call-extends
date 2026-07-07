@@ -1,30 +1,43 @@
 ---
 name: gmsc-mapper
-category: alignment
-description: GMSC-mapper is a command line tool to query the Global Microbial smORFs Catalog (GMSC).
-tags: [gmsc-mapper, alignment]
+category: metagenomics
+description: gmsc-mapper - Query the Global Microbial smORFs Catalog (GMSC).
+tags: [gmsc-mapper, metagenomics, smORFs, GMSC]
 author: oxo-call-community
 source_url: "https://github.com/BigDataBiology/GMSC-mapper"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gmsc-mapper (v0.2.0) - GMSC-mapper is a command line tool to query the Global Microbial smORFs Catalog (GMSC).
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gmsc-mapper`
+- **smORF Detection**: Detects small open reading frames.
+- **Catalog Query**: Queries GMSC database.
+- **Metagenomics**: Analyzes metagenomic data.
+- **Functional Annotation**: Provides functional annotations.
+- **Taxonomic Assignment**: Assigns taxonomy.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **smORF Definition**: smORF length definition varies.
+- **Database Coverage**: Limited to catalog coverage.
+- **Sequence Quality**: Requires high-quality sequences.
+- **E-value Selection**: Requires proper e-value.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Query smORFs
+**Args:** `gmsc-mapper query -i smorfs.fasta -o results.txt`
+**Explanation:** Queries GMSC for smORFs.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With taxonomy
+**Args:** `gmsc-mapper query -i smorfs.fasta -t -o results.txt`
+**Explanation:** Includes taxonomy assignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch query
+**Args:** `gmsc-mapper query -l samples.txt -o ./results/`
+**Explanation:** Queries multiple samples.
+
+### Generate report
+**Args:** `gmsc-mapper query -i smorfs.fasta -r -o report.html`
+**Explanation:** Generates query report.
+
+### Update database
+**Args:** `gmsc-mapper update -o gmsc.db`
+**Explanation:** Updates local database.

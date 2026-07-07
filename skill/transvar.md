@@ -1,30 +1,32 @@
 ---
 name: transvar
-category: variant-calling
-description: Transcript-based variant annotator.
-tags: [transvar, variant-calling]
+category: analysis
+description: TransVar - Tool for translating genetic variants to functional consequences.
+tags: [transvar, variant-annotation, genetic-variants, vcf, bioinformatics]
 author: oxo-call-community
-source_url: "https://transvar.readthedocs.io"
+source_url: "https://github.com/yangfangs/transvar"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transvar (v2.5.10.20211024) - TransVar is a multi-way annotator for genetic elements and genetic variations. It supports genomic, cDNA, and protein-level variant annotation.
-- **Core Function**: Transcript-based variant annotator.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transvar`
+- **Tool Overview**: TransVar - A tool for translating genetic variants to their functional consequences.
+- **Core Function**: Annotates variants with functional impact, amino acid changes, and clinical relevance.
+- **Input**: VCF files, variant coordinates, gene annotations.
+- **Output**: Variant annotations, functional predictions, clinical interpretations.
+- **Installation**: `pip install transvar`
+- **Use Case**: Variant analysis, clinical genomics, personalized medicine.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Updates**: Requires up-to-date annotation databases.
+- **Complex Variants**: Complex structural variants may be challenging.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate variants
+**Args:** `transvar annotate -i variants.vcf -o annotations.txt`
+**Explanation:** Annotate genetic variants with functional consequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Query variant
+**Args:** `transvar query -c "chr1:1234567A>T" -o result.txt`
+**Explanation:** Query functional consequences of a specific variant.

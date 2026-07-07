@@ -1,30 +1,32 @@
 ---
 name: ucsc-getrna
 category: utility
-description: Get mrna for GenBank or RefSeq sequences found in a database.
-tags: [ucsc-getrna, utility]
+description: UCSC getRna - Tool for extracting RNA sequences.
+tags: [ucsc-getrna, ucsc, rna-seq, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-getrna (v482) - Get mrna for GenBank or RefSeq sequences found in a database.
-- **Core Function**: Get mrna for GenBank or RefSeq sequences found in a database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-getrna`
+- **Tool Overview**: UCSC getRna - A tool for extracting RNA sequences from gene predictions.
+- **Core Function**: Extracts spliced RNA sequences from genome.
+- **Input**: Gene prediction file, genome FASTA.
+- **Output**: RNA sequences.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: RNA analysis, transcriptomics, gene expression.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **FASTA Requirement**: Requires genome FASTA file.
+- **Memory**: May require significant memory for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract RNA sequences
+**Args:** `getRna genes.txt genome.fa > rna.fa`
+**Explanation:** Extract RNA sequences from gene predictions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `getRna -cdsOnly genes.txt genome.fa > cds.fa`
+**Explanation:** Extract only CDS regions.

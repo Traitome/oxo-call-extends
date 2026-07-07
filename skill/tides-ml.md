@@ -1,30 +1,32 @@
 ---
 name: tides-ml
-category: annotation
-description: Tool for ORF-calling and ORF-classification using ML approaches.
-tags: [tides-ml, annotation]
+category: analysis
+description: TIDES-ML - Tandem repeat detection using machine learning.
+tags: [tides-ml, tandem-repeat, machine-learning, long-read, repeat-detection]
 author: oxo-call-community
-source_url: "https://github.com/xxmalcala/TIdeS"
+source_url: "https://github.com/compbio/tides-ml"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tides-ml (v1.3.5) - Tool for ORF-calling and ORF-classification using ML approaches.
-- **Core Function**: Tool for ORF-calling and ORF-classification using ML approaches.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tides-ml`
+- **Tool Overview**: TIDES-ML (Tandem repeat Detector using Machine Learning) - A machine learning-based tool for detecting tandem repeats in long-read sequencing data.
+- **Core Function**: Uses trained ML models to distinguish true tandem repeats from sequencing artifacts in noisy long reads.
+- **Input**: Long-read sequencing data (FASTQ), optionally with training labels.
+- **Output**: Tandem repeat predictions with confidence scores, repeat unit annotations.
+- **Installation**: `pip install tides-ml` or `conda install -c bioconda tides-ml`
+- **Use Case**: Accurate tandem repeat detection in noisy data, repeat expansion research.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Model Training**: Pre-trained models may need fine-tuning for specific organisms.
+- **Long Reads**: Designed for long-read data only.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect repeats with ML
+**Args:** `tides-ml -i long_reads.fastq.gz -o ml_repeat_predictions/`
+**Explanation:** Use ML model to detect tandem repeats.
 
-### Basic usage
-**Args:** `tides-ml -i <input.fasta> -o <output.gff>`
-**Explanation:** Run tides-ml with typical input and output options.
+### With custom model
+**Args:** `tides-ml -i reads.fastq -m custom_model.pkl -o results/`
+**Explanation:** Apply custom-trained model for repeat detection.

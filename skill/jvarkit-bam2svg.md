@@ -1,30 +1,52 @@
 ---
 name: jvarkit-bam2svg
 category: formatting
-description: BAM to Scalar Vector Graphics (SVG)
-tags: [jvarkit-bam2svg, formatting, BAM]
+description: Converts BAM alignment files to Scalar Vector Graphics (SVG) format.
+tags: [jvarkit-bam2svg, formatting, BAM, SVG, visualization]
 author: oxo-call-community
 source_url: "http://lindenb.github.io/jvarkit/BamToSVG.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: jvarkit-bam2svg (v201904251722) - BAM to Scalar Vector Graphics (SVG)
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda jvarkit-bam2svg`
+- **Tool Overview**: jvarkit-bam2svg (v201904251722) - Converts BAM alignment files to SVG visualization format.
+- **BAM to SVG**: Converts sequence alignments to scalable vector graphics.
+- **Visualization**: Generates visual representation of alignments.
+- **Region Selection**: Supports visualization of specific genomic regions.
+- **Quality Display**: Shows alignment quality information.
+- **Java Tool**: Part of the jvarkit Java tool suite.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Java Dependencies**: Requires Java runtime environment.
+- **Memory Usage**: Large BAM files require significant memory.
+- **SVG Size**: Complex alignments can produce large SVG files.
+- **Region Limits**: Very large regions may not render properly.
+- **BAM Index**: Requires indexed BAM file for region queries.
+- **Rendering Time**: Complex visualizations can be slow to generate.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert BAM to SVG
+**Args:** `java -jar jvarkit-bam2svg.jar -i alignments.bam -o output.svg`
+**Explanation:** Converts entire BAM file to SVG visualization.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Specific region
+**Args:** `java -jar jvarkit-bam2svg.jar -i alignments.bam -R chr1:1000-2000 -o region.svg`
+**Explanation:** Visualizes specific genomic region.
+
+### Include quality
+**Args:** `java -jar jvarkit-bam2svg.jar -i alignments.bam -o output.svg -quality`
+**Explanation:** Includes quality information in visualization.
+
+### Simplified output
+**Args:** `java -jar jvarkit-bam2svg.jar -i alignments.bam -o output.svg -simple`
+**Explanation:** Generates simplified SVG output.
+
+### Custom colors
+**Args:** `java -jar jvarkit-bam2svg.jar -i alignments.bam -o output.svg -colors custom.txt`
+**Explanation:** Uses custom color scheme.
+
+### Filter reads
+**Args:** `java -jar jvarkit-bam2svg.jar -i alignments.bam -o output.svg -mapq 30`
+**Explanation:** Only includes reads with mapping quality >= 30.

@@ -1,22 +1,56 @@
 ---
 name: nirvana
 category: variant-calling
-description: Clinical-grade annotation of genomic variants (SNVs, MNVs, insertions, deletions, indels, and SVs)
-tags: [nirvana, variant-calling]
+description: Nirvana provides clinical-grade annotation of genomic variants including SNVs, MNVs, indels, and SVs.
+tags: [nirvana, variant-calling, annotation, clinical]
 author: oxo-call-community
 source_url: "https://github.com/Illumina/Nirvana"
 ---
 
 ## Concepts
-- **Tool Overview**: Nirvana provides clinical-grade annotation of genomic variants. It processes VCF files and outputs structured JSON representations of variant annotations. While this open-source version is no longer actively maintained, users are directed to Illumina Connected Annotations for the current maintained version.
-- **Core Function**: Processes bioinformatics data for variant-calling tasks.
-- **Input/Output**: Standard bioinformatics formats (FASTA/FASTQ, BAM, VCF, etc.).
-- **Installation**: `conda install -c bioconda nirvana`
+
+- **Tool Overview**: Nirvana annotates genomic variants with clinical-grade precision.
+- **Core Function**: Provides comprehensive variant annotation including functional impact.
+- **Algorithm**: Integrates multiple annotation sources for accurate variant classification.
+- **Input Format**: Accepts VCF files with variant calls.
+- **Output**: Produces JSON or VCF with annotated variants.
+- **Use Case**: Clinical genomics, variant interpretation, and precision medicine.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Reference Data**: Requires up-to-date annotation databases.
+- **Memory Usage**: Large datasets require memory.
+- **Computational Cost**: Annotation can be computationally intensive.
+- **Database Updates**: Requires regular database updates.
+- **License**: Check licensing for commercial use.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `Nirvana --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Annotate VCF
+**Args:** `Nirvana -i variants.vcf -r reference.fasta -d data/ -o annotated.json`
+**Explanation:** Annotates variants in VCF file.
+
+### VCF output
+**Args:** `Nirvana -i variants.vcf -r reference.fasta -d data/ -o annotated.vcf --vcf`
+**Explanation:** Outputs annotated variants in VCF format.
+
+### Full annotation
+**Args:** `Nirvana -i variants.vcf -r reference.fasta -d data/ -o annotated.json --full`
+**Explanation:** Includes all available annotations.
+
+### Threads
+**Args:** `Nirvana -i variants.vcf -r reference.fasta -d data/ -t 8 -o annotated.json`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Cache mode
+**Args:** `Nirvana -i variants.vcf -r reference.fasta -d data/ -c -o annotated.json`
+**Explanation:** Uses cache for faster processing.
+
+### Quiet mode
+**Args:** `Nirvana -i variants.vcf -r reference.fasta -d data/ -q -o annotated.json`
+**Explanation:** Runs in quiet mode with minimal output.

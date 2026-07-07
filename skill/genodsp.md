@@ -1,30 +1,43 @@
 ---
 name: genodsp
-category: utility
-description: General workbench for processing signals along genomic (chromosomal) intervals
-tags: [genodsp, utility]
+category: signal-processing
+description: GenoDSP - General workbench for processing signals along genomic (chromosomal) intervals.
+tags: [genodsp, signal-processing, genomics, intervals]
 author: oxo-call-community
 source_url: "https://github.com/rsharris/genodsp"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genodsp (v0.0.10) - General workbench for processing signals along genomic (chromosomal) intervals
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genodsp`
+- **Signal Processing**: Processes signals along genomic intervals.
+- **Genomic Intervals**: Analyzes data across chromosomal intervals.
+- **Data Aggregation**: Aggregates signal data across regions.
+- **Signal Normalization**: Normalizes genomic signals.
+- **Interval Analysis**: Analyzes data within defined intervals.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Signal Quality**: Requires high-quality signal data.
+- **Interval Definitions**: Requires accurate interval definitions.
+- **Data Alignment**: Requires proper data alignment.
+- **Normalization**: Signal normalization requires careful handling.
+- **Memory Usage**: Large datasets require significant memory.
 
 ## Examples
+### Process signals
+**Args:** `genodsp -i signal.bedgraph -r regions.bed -o output.txt`
+**Explanation:** Processes signals within defined genomic intervals.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Aggregate signals
+**Args:** `genodsp -i signal.bedgraph -r regions.bed -a mean -o output.txt`
+**Explanation:** Aggregates signals using mean statistic.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Normalize signals
+**Args:** `genodsp -i signal.bedgraph -n -o normalized.txt`
+**Explanation:** Normalizes signal data.
+
+### Compare signals
+**Args:** `genodsp -i signal1.bedgraph signal2.bedgraph -r regions.bed -c -o comparison.txt`
+**Explanation:** Compares multiple signal tracks.
+
+### Batch processing
+**Args:** `genodsp -i ./signals/ -r regions.bed -o ./results/`
+**Explanation:** Processes multiple signal files in batch.

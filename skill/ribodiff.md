@@ -1,31 +1,56 @@
 ---
 name: ribodiff
 category: expression
-description: RiboDiff is a statistical tool that detects the protein translational efficiency change from Ribo-Seq (ribosome footprinting) and RNA-Seq data.
-tags: ["ribodiff", "expression"]
+description: RiboDiff detects translational efficiency changes from Ribo-Seq and RNA-Seq data.
+tags: [ribodiff, expression, translational-efficiency, ribo-seq]
 author: oxo-call-community
 source_url: "http://public.bmi.inf.ethz.ch/user/zhongy/RiboDiff/index.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: RiboDiff is a statistical tool that detects the protein translational efficiency change from Ribo-Seq (ribosome footprinting) and RNA-Seq data. (version 0.2.2)
-- **Core Function**: Processes bioinformatics data related to expression
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ribodiff`
+- **Tool Overview**: ribodiff analyzes translation.
+- **Core Function**: Translational efficiency detection.
+- **Algorithm**: Uses statistical methods.
+- **Input Format**: Accepts Ribo-Seq and RNA-Seq data.
+- **Output**: Produces differential translation results.
+- **Use Case**: Gene expression analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Affects analysis.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `RiboDiff --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Analyze translation
+**Args:** `RiboDiff -r riboseq.bam -n rnaseq.bam -o results/`
+**Explanation:** Detects translational efficiency changes.
 
+### With parameters
+**Args:** `RiboDiff -r riboseq.bam -p params.yaml -o results/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `RiboDiff -v -r riboseq.bam -o results/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `RiboDiff -t 4 -r riboseq.bam -o results/`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With annotation
+**Args:** `RiboDiff -r riboseq.bam -a genes.gtf -o results/`
+**Explanation:** Uses gene annotation.
+
+### Generate plot
+**Args:** `RiboDiff -r riboseq.bam -o results/ --plot plot.png`
+**Explanation:** Generates visualization plot.

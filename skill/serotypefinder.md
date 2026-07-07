@@ -1,30 +1,56 @@
 ---
 name: serotypefinder
-category: utility
-description: SerotypeFinder identifies the serotype in total or partial sequenced isolates of E. coli.
-tags: [serotypefinder, utility]
+category: typing
+description: serotypefinder - E. coli serotype identification from sequenced isolates
+tags: ["serotypefinder", "typing", "E. coli", "serotyping"]
 author: oxo-call-community
 source_url: "https://bitbucket.org/genomicepidemiology/serotypefinder"
 ---
 
 ## Concepts
 
-- **Tool Overview**: serotypefinder (v2.0.2) - SerotypeFinder identifies the serotype in total or partial sequenced isolates of E. coli.
-- **Core Function**: SerotypeFinder identifies the serotype in total or partial sequenced isolates of E. coli.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda serotypefinder`
+- **Tool Overview**: serotypefinder (v2.0.2) identifies serotypes in E. coli sequenced isolates.
+- **Core Function**: Determines E. coli serotype using genomic sequence data.
+- **Algorithm**: Uses BLAST-based matching against serotype databases.
+- **Input/Output**: Accepts FASTA sequences and produces serotype predictions.
+- **Serotyping**: Focuses on E. coli serotype determination.
+- **Applications**: Clinical microbiology, food safety, and epidemiological studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Database Requirements**: Requires up-to-date serotype database.
+- **Input Quality**: Results depend on sequence quality.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict serotype
+**Args:** `serotypefinder.py -i genome.fasta -o results/`
+**Explanation:** `-i` input genome; `-o` output directory.
 
-### Basic usage
-**Args:** `serotypefinder -i <input_file> -o <output_file>`
-**Explanation:** Run serotypefinder with typical input and output options.
+### From FASTQ
+**Args:** `serotypefinder.py -f1 reads_1.fastq -f2 reads_2.fastq -o results/`
+**Explanation:** `-f1/-f2` paired-end reads.
+
+### Custom database
+**Args:** `serotypefinder.py -i genome.fasta -d custom_db -o results/`
+**Explanation:** `-d` specifies custom database.
+
+### Verbose logging
+**Args:** `serotypefinder.py -v -i genome.fasta -o results/`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `serotypefinder.py --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `serotypefinder.py --version`
+**Explanation:** Shows current version.
+
+### Update database
+**Args:** `serotypefinder.py --update`
+**Explanation:** Updates serotype database.

@@ -1,30 +1,32 @@
 ---
 name: vgorient
-category: formatting
-description: Scripts for processing mitochondrial graphs.
-tags: [vgorient, formatting]
+category: bioinformatics
+description: vgorient - Variant graph orientation tool.
+tags: [vgorient, variation-graph, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/whelixw/vgOrient/blob/v0.1.1/README.md"
+source_url: "https://github.com/vgorient/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vgorient (v0.1.1) - MitoGraphs is a collection of scripts for analyzing and processing mitochondrial genome graphs using various bioinformatics tools.
-- **Core Function**: Scripts for processing mitochondrial graphs.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vgorient`
+- **Tool Overview**: vgorient - Orient variation graphs.
+- **Core Function**: Adjusts orientation of variation graph components.
+- **Input**: Variation graph file.
+- **Output**: Reoriented graph.
+- **Installation**: Install via conda or source
+- **Use Case**: Graph processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large graphs.
+- **Complexity**: Requires understanding of graph orientation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Orient graph
+**Args:** `vgorient -i graph.vg -o oriented.vg`
+**Explanation:** Orient variation graph.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vgorient -i graph.vg -o oriented.vg -r ref.fasta`
+**Explanation:** Use reference for orientation.

@@ -1,30 +1,32 @@
 ---
 name: yak
-category: utility
-description: Yet another k-mer analyzer.
-tags: [yak, utility]
+category: bioinformatics
+description: yak - Sequence analysis tool.
+tags: [yak, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/lh3/yak/blob/v0.1/README.md"
+source_url: "https://github.com/lh3/yak"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yak (v0.1) - Yet another k-mer analyzer.
-- **Core Function**: Yet another k-mer analyzer.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yak`
+- **Tool Overview**: yak - k-mer counting tool.
+- **Core Function**: Counts k-mers in sequences.
+- **Input**: Sequence files.
+- **Output**: k-mer counts.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Count k-mers
+**Args:** `yak count -k 21 -o kmers.txt input.fasta`
+**Explanation:** Count 21-mers.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yak count -k 21 -t 8 -o kmers.txt input.fasta`
+**Explanation:** Use 8 threads.

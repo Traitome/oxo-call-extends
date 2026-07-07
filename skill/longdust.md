@@ -1,30 +1,52 @@
 ---
 name: longdust
-category: utility
-description: Longdust identifies long highly repetitive STRs, VNTRs, satellite DNA and other low-complexity regions (LCRs) in a genome.
-tags: [longdust, utility]
+category: sequence-analysis
+description: Longdust - Identify long highly repetitive STRs, VNTRs, satellite DNA and low-complexity regions
+tags: [longdust, sequence-analysis, repeat-detection, STRs, VNTRs, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/lh3/longdust"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longdust v1.4 - Longdust identifies long highly repetitive STRs, VNTRs, satellite DNA and other low-complexity regions (LCRs) in a genome..
-- **Core Function**: Longdust identifies long highly repetitive STRs, VNTRs, satellite DNA and other low-complexity regions (LCRs) in a genome.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longdust`
+- **Repeat Detection**: Identification of repetitive DNA sequences
+- **STRs**: Short Tandem Repeats detection
+- **VNTRs**: Variable Number Tandem Repeats detection
+- **Satellite DNA**: Satellite DNA identification
+- **Low-Complexity Regions**: Low-complexity region detection
+- **Genome Analysis**: Genome-wide repeat analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **False Positives**: May produce false positive repeat calls
+- **Memory Usage**: Memory-intensive for large genomes
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Sequence Quality**: Poor quality sequences affect results
+- **Repeat Complexity**: Highly complex repeats may be missed
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Detect repeats
+**Args:** `longdust -i genome.fasta -o repeats.bed`
+**Explanation:** Identifies repetitive regions in genome.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Minimum length
+**Args:** `longdust -i genome.fasta -o repeats.bed -l 100`
+**Explanation:** Sets minimum repeat length to 100bp.
+
+### Threads
+**Args:** `longdust -i genome.fasta -o repeats.bed -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Output format
+**Args:** `longdust -i genome.fasta -o repeats.gff -f gff`
+**Explanation:** Outputs results in GFF format.
+
+### Verbose output
+**Args:** `longdust -i genome.fasta -o repeats.bed -v`
+**Explanation:** Provides detailed output.
+
+### Mask repeats
+**Args:** `longdust -i genome.fasta -o repeats.bed -m masked.fasta`
+**Explanation:** Masks repetitive regions in output.

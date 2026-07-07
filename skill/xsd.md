@@ -1,30 +1,32 @@
 ---
 name: xsd
-category: formatting
-description: CodeSynthesis XSD is an open-source, cross-platform W3C XML Schema to C++ data binding compiler. Provided with an XML instance specification (XML Schema), it generates C++ classes that represent the given vocabulary as well as XML parsing and serialization code.
-tags: [xsd, formatting]
+category: bioinformatics
+description: XSD - XML Schema Definition.
+tags: [xsd, xml, schema, bioinformatics]
 author: oxo-call-community
-source_url: "http://www.codesynthesis.com/products/xsd/"
+source_url: "https://www.w3.org/XML/Schema"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xsd (v4.0.0_dep) - CodeSynthesis XSD is an open-source, cross-platform W3C XML Schema to C++ data binding compiler. Provided with an XML instance specification (XML Schema), it generates C++ classes that represent the given vocabulary as well as XML parsing and serialization code.
-- **Core Function**: CodeSynthesis XSD is an open-source, cross-platform W3C XML Schema to C++ data binding compiler. Provided with an XML instance specification (XML Schema), it generates C++ classes that represent the given vocabulary as well as XML parsing and serialization code.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xsd`
+- **Tool Overview**: XSD - XML Schema Definition language.
+- **Core Function**: Defines XML document structure.
+- **Input**: XML document.
+- **Output**: Validation result.
+- **Installation**: Built-in in XML tools
+- **Use Case**: XML validation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Validation**: Strict schema requirements.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate XML
+**Args:** `xmllint --noout --schema schema.xsd input.xml`
+**Explanation:** Validate XML against schema.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xmllint --noout --schema schema.xsd --valid input.xml`
+**Explanation:** Strict validation.

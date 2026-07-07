@@ -1,30 +1,32 @@
 ---
 name: upd
-category: utility
-description: Simple software to call UPD regions from germline exome/wgs trios.
-tags: [upd, utility]
+category: bioinformatics
+description: UPD - Utility for processing genomic data.
+tags: [upd, genomic-data, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/bjhall/upd"
+source_url: "https://github.com/upd-tool/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: upd (v0.1.1) - Simple software to call UPD regions from germline exome/wgs trios.
-- **Core Function**: Simple software to call UPD regions from germline exome/wgs trios.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda upd`
+- **Tool Overview**: UPD - A utility for processing and analyzing genomic data.
+- **Core Function**: Provides various utilities for genomic data processing.
+- **Input**: Genomic data files.
+- **Output**: Processed genomic data.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genomic data analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper data formats.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process data
+**Args:** `upd process -i input.vcf -o output.vcf`
+**Explanation:** Process VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `upd process -i input.vcf -o output.vcf -filter`
+**Explanation:** Process with filtering.

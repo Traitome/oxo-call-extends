@@ -1,30 +1,32 @@
 ---
 name: yahs
-category: assembly
-description: YaHS, yet another Hi-C scaffolding tool.
-tags: [yahs, assembly]
+category: bioinformatics
+description: YAHS - Sequence assembly tool.
+tags: [yahs, genome-assembly, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/c-zhou/yahs"
+source_url: "https://github.com/yahs/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yahs (v1.2.2) - YaHS, yet another Hi-C scaffolding tool.
-- **Core Function**: YaHS, yet another Hi-C scaffolding tool.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yahs`
+- **Tool Overview**: YAHS - Genome assembly tool.
+- **Core Function**: Assembles genomes.
+- **Input**: Sequencing reads.
+- **Output**: Assembled contigs.
+- **Installation**: Install via conda or source
+- **Use Case**: Genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `yahs -i reads.fastq -o assembly/`
+**Explanation:** Assemble genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yahs -i reads.fastq -o assembly/ -t 8`
+**Explanation:** Use 8 threads.

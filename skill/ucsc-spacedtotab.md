@@ -1,30 +1,32 @@
 ---
 name: ucsc-spacedtotab
-category: formatting
-description: Convert fixed width space separated fields to tab separated.
-tags: [ucsc-spacedtotab, formatting]
+category: utility
+description: UCSC spacedToTab - Tool for converting spaces to tabs.
+tags: [ucsc-spacedtotab, ucsc, spaces, tabs, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-spacedtotab (v482) - Convert fixed width space separated fields to tab separated.
-- **Core Function**: Convert fixed width space separated fields to tab separated.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-spacedtotab`
+- **Tool Overview**: UCSC spacedToTab - A tool for converting spaces to tabs.
+- **Core Function**: Converts space-separated values to tab-separated values.
+- **Input**: Space-separated file.
+- **Output**: Tab-separated file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, format conversion, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Ambiguous Spaces**: Mixed spacing may cause issues.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert spaces to tabs
+**Args:** `spacedToTab input.txt > output.tsv`
+**Explanation:** Convert spaces to tabs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `spacedToTab -verbose input.txt > output.tsv`
+**Explanation:** Convert with verbose output.

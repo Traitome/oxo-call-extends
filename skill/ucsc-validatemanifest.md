@@ -1,30 +1,32 @@
 ---
 name: ucsc-validatemanifest
 category: utility
-description: Validates the ENCODE3 manifest.txt file.
-tags: [ucsc-validatemanifest, utility]
+description: UCSC validateManifest - Tool for validating manifest files.
+tags: [ucsc-validatemanifest, ucsc, validation, manifest, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-validatemanifest (v482) - Validates the ENCODE3 manifest.txt file.
-- **Core Function**: Validates the ENCODE3 manifest.txt file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-validatemanifest`
+- **Tool Overview**: UCSC validateManifest - A tool for validating manifest files.
+- **Core Function**: Validates manifest file structure and contents.
+- **Input**: Manifest file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data management, file organization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large manifests.
+- **Format Requirements**: Requires proper manifest format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate manifest
+**Args:** `validateManifest manifest.txt`
+**Explanation:** Validate manifest file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `validateManifest -verbose manifest.txt`
+**Explanation:** Validate with verbose output.

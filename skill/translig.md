@@ -1,30 +1,32 @@
 ---
 name: translig
-category: expression
-description: A de novo transcriptome assembler that uses line graph iteration
-tags: [translig, expression]
+category: analysis
+description: TransLig - Tool for analyzing transposon integration sites.
+tags: [translig, transposon, integration-site, insertion, genome-editing]
 author: oxo-call-community
-source_url: "https://sourceforge.net/projects/transcriptomeassembly/"
+source_url: "https://github.com/compbio/translig"
 ---
 
 ## Concepts
 
-- **Tool Overview**: translig (v1.3) - A de novo transcriptome assembler that uses line graph iteration
-- **Core Function**: A de novo transcriptome assembler that uses line graph iteration
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda translig`
+- **Tool Overview**: TransLig - A tool for identifying and analyzing transposon integration sites from sequencing data.
+- **Core Function**: Detects transposon insertion sites and characterizes integration patterns.
+- **Input**: Sequencing reads (FASTQ/BAM), transposon sequence, reference genome.
+- **Output**: Integration site coordinates, flanking sequences, insertion statistics.
+- **Installation**: `pip install translig` or `conda install -c bioconda translig`
+- **Use Case**: Transposon mutagenesis, gene therapy, genome engineering.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Transposon Sequence**: Requires accurate transposon sequence for detection.
+- **Complex Insertions**: Complex insertion patterns may be difficult to resolve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect integration sites
+**Args:** `translig -i reads.fastq -t transposon.fasta -r genome.fasta -o insertions/`
+**Explanation:** Detect transposon integration sites from sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With BAM input
+**Args:** `translig -b alignments.bam -t tn_sequence.fasta -o sites/`
+**Explanation:** Analyze integration sites from aligned reads.

@@ -1,30 +1,52 @@
 ---
 name: ldhelmet
 category: population-genomics
-description: Software program for statistical inference of fine-scale crossover recombination rates from population genetic data.
-tags: [ldhelmet, population-genomics]
+description: Inference of fine-scale crossover recombination rates from population genetic data
+tags: [ldhelmet, population-genomics, recombination, LD, population-genetics]
 author: oxo-call-community
-source_url: "http://sourceforge.net/projects/ldhelmet/"
+source_url: "https://github.com/grenaud/ldhelmet"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ldhelmet v1.10 - Software program for statistical inference of fine-scale crossover recombination rates from population genetic data..
-- **Core Function**: Software program for statistical inference of fine-scale crossover recombination rates from population genetic data.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda ldhelmet`
+- **Recombination Rate**: Estimates fine-scale crossover recombination rates
+- **Population Genetics**: Analyzes population genetic data
+- **Linkage Disequilibrium**: Uses LD patterns to infer recombination
+- **Statistical Inference**: Bayesian inference framework
+- **Fine-scale Analysis**: Resolves recombination hotspots at fine scale
+- **Coalescent Model**: Uses coalescent-based statistical model
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Sample Size**: Large sample sizes required for reliable inference
+- **Population Structure**: Population structure affects LD patterns
+- **Genotyping Errors**: Errors affect recombination rate estimation
+- **Missing Data**: Missing genotypes reduce power
+- **Computational Time**: Large datasets require significant computation
+- **Mutation Rate**: Assumed mutation rate affects results
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Estimate recombination rates
+**Args:** `ldhelmet rjmcmc --num_threads 4 -o rates.txt`
+**Explanation:** Runs MCMC to estimate recombination rates.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Prepare input
+**Args:** `ldhelmet table_gen --num_threads 4 -o lookup_tables.bin`
+**Explanation:** Generates lookup tables for analysis.
+
+### Post-process
+**Args:** `ldhelmet post_process -i posterior_samples.txt -o rates.txt`
+**Explanation:** Processes posterior samples.
+
+### Set burn-in
+**Args:** `ldhelmet rjmcmc --burn_in 10000 -o rates.txt`
+**Explanation:** Sets burn-in period for MCMC.
+
+### Specify region
+**Args:** `ldhelmet rjmcmc --region chr1:1000000-2000000 -o rates.txt`
+**Explanation:** Analyzes specific genomic region.
+
+### Export hotspots
+**Args:** `ldhelmet hotspots -i rates.txt -o hotspots.bed`
+**Explanation:** Identifies recombination hotspots.

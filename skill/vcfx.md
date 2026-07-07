@@ -1,30 +1,32 @@
 ---
 name: vcfx
-category: variant-calling
-description: VCFX: A Comprehensive VCF Manipulation Toolkit
-tags: [vcfx, variant-calling, vcf]
+category: bioinformatics
+description: vcfx - VCF extension tools.
+tags: [vcfx, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://ieeta-pt.github.io/VCFX/"
+source_url: "https://github.com/vcfx/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfx (v1.1.4) - VCFX is a collection of specialized command-line tools designed for efficient manipulation, analysis, and transformation of VCF (Variant Call Format) files used in genomic research and bioinformatics. The toolkit follows the Unix philosophy, creating small, focused tools that do one thing well and can be combined into powerful workflows.
-- **Core Function**: VCFX: A Comprehensive VCF Manipulation Toolkit
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfx`
+- **Tool Overview**: vcfx - Extended VCF processing tools.
+- **Core Function**: Advanced VCF manipulation and analysis.
+- **Input**: VCF file.
+- **Output**: Modified VCF or analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Advanced VCF analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze VCF
+**Args:** `vcfx analyze -i input.vcf -o report.txt`
+**Explanation:** Analyze VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcfx analyze -i input.vcf -o report.txt -d depth`
+**Explanation:** Analyze depth metrics.

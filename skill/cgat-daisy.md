@@ -1,30 +1,43 @@
 ---
 name: cgat-daisy
-category: utility
-description: A system to design and execute benchmarks
-tags: [cgat-daisy, utility]
+category: benchmarking
+description: System to design and execute benchmarks for bioinformatics tools
+tags: [cgat-daisy, benchmarking, bioinformatics, performance-testing]
 author: oxo-call-community
 source_url: "https://github.com/cgat-developers/cgat-daisy"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgat-daisy (v0.1.12) - A system to design and execute benchmarks
-- **Core Function**: A system to design and execute benchmarks
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgat-daisy`
+- **Tool Overview**: CGAT-Daisy is a system to design and execute benchmarks for bioinformatics tools and pipelines.
+- **Core Function**: Provides framework for defining, running, and analyzing benchmark experiments.
+- **Features**: Benchmark definition, execution management, result collection, and performance analysis.
+- **Input**: Benchmark configuration files and test datasets.
+- **Output**: Performance metrics, timing results, and comparison reports.
+- **Application**: Evaluating bioinformatics tool performance and comparing different methods.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgat-daisy`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Test Data Quality**: Benchmark results depend on test dataset quality and representativeness.
+- **Resource Allocation**: Ensure consistent compute resources across benchmark runs.
+- **Reproducibility**: Requires careful environment setup for reproducible results.
+- **Runtime Variability**: Performance may vary between runs due to system load.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create benchmark definition
+**Args:** `cgat-daisy init my_benchmark`
+**Explanation:** Creates a new benchmark project with template files.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Run benchmark
+**Args:** `cgat-daisy run benchmark.yml`
+**Explanation:** Executes benchmark defined in configuration file.
+
+### Generate report
+**Args:** `cgat-daisy report --input results/ --output report.html`
+**Explanation:** Generates HTML report from benchmark results.
+
+### Display help
+**Args:** `cgat-daisy --help`
+**Explanation:** Shows all available options and usage information.

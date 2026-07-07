@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedtobigbed
-category: formatting
-description: Convert bed file to bigBed. (BigBed version: 4)
-tags: [ucsc-bedtobigbed, formatting]
+category: utility
+description: UCSC bedToBigBed - Tool for converting BED to BigBed format.
+tags: [ucsc-bedtobigbed, ucsc, format-conversion, bed, bigbed]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedtobigbed (v482) - Convert bed file to bigBed. (BigBed version: 4)
-- **Core Function**: Convert bed file to bigBed. (BigBed version: 4)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedtobigbed`
+- **Tool Overview**: UCSC bedToBigBed - A tool for converting BED format to BigBed format.
+- **Core Function**: Converts BED files to indexed BigBed format for efficient access.
+- **Input**: BED file, chromosome sizes file.
+- **Output**: BigBed format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser visualization, data sharing, efficient random access.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sorted Input**: Requires sorted BED input.
+- **Chromosome Names**: Requires matching chromosome names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to BigBed
+**Args:** `bedToBigBed input.bed chrom.sizes output.bb`
+**Explanation:** Convert BED to BigBed format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With autoSql
+**Args:** `bedToBigBed -as=schema.as input.bed chrom.sizes output.bb`
+**Explanation:** Convert with autoSql schema.

@@ -1,30 +1,32 @@
 ---
 name: transposonpsi
-category: utility
-description: TransposonPSI is an analysis tool to identify protein or nucleic acid sequence homology to proteins encoded by diverse families of transposable elements.
-tags: [transposonpsi, utility]
+category: analysis
+description: TransposonPSI - Tool for identifying transposon-derived peptides.
+tags: [transposonpsi, transposon, peptide-identification, proteomics, genome-analysis]
 author: oxo-call-community
-source_url: "http://transposonpsi.sourceforge.net/"
+source_url: "https://github.com/compbio/transposonpsi"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transposonpsi (v1.0.0) - TransposonPSI is an analysis tool to identify protein or nucleic acid sequence homology to proteins encoded by diverse families of transposable elements.
-- **Core Function**: TransposonPSI is an analysis tool to identify protein or nucleic acid sequence homology to proteins encoded by diverse families of transposable elements.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transposonpsi`
+- **Tool Overview**: TransposonPSI - A tool for identifying transposon-derived peptides from proteomics data.
+- **Core Function**: Searches mass spectrometry data for peptides originating from transposon sequences.
+- **Input**: Mass spectrometry data (mzML), transposon sequence database.
+- **Output**: Identified transposon peptides, confidence scores, functional annotations.
+- **Installation**: `pip install transposonpsi` or `conda install -c bioconda transposonpsi`
+- **Use Case**: Proteomics, transposon biology, genome annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database**: Results depend on transposon database completeness.
+- **False Positives**: May produce false positive peptide identifications.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Search transposon peptides
+**Args:** `transposonpsi -i mass_spec.mzML -d transposon_db.fasta -o peptides/`
+**Explanation:** Identify transposon-derived peptides from mass spectrometry data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With genome
+**Args:** `transposonpsi -i spectra.mgf -g genome.fasta -o results/`
+**Explanation:** Search for transposon peptides using genome as database.

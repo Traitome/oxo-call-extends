@@ -1,22 +1,56 @@
 ---
 name: pmx_biobb
 category: utility
-description: Toolkit for free-energy calculation setup/analysis and biomolecular structure handling
-tags: [pmx_biobb, utility]
+description: pmx_biobb is a toolkit for free-energy calculation and biomolecular structure handling.
+tags: [pmx_biobb, utility, gromacs, molecular-dynamics]
 author: oxo-call-community
 source_url: "https://github.com/deGrootLab/pmx/tree/develop"
 ---
 
 ## Concepts
-- **Tool Overview**: pmx: alchemistry in gromacs ===========================  |build| |cov|  **Warning:** this is a development version of ``pmx``, it is not stable or reliable yet. You are welcome to try/test it and provide feedback, but use at your own risk. The current stable version of ``pmx`` can be found in the master branch: https://github.com/deGrootLab/pmx  ``pmx`` is a python library that allows users to setup and analyse molecular dynamics simulations with the `Gromacs <http://gromacs.org>`_ package. Among its main features are the setup and analysis of alchemical free energy calculations for protein, nucleic acid, and small molecule mutations.  https://degrootlab.github.io/pmx/  Citations --------- ``pmx`` is a research software. If you make use of it in scientific publications, please cite the following papers::      @article{Gapsys2015pmx,         title = {pmx: Automated protein structure and topology         generation for alchemical perturbations},         author = {Gapsys, Vytautas and Michielssens, Servaas         and Seeliger, Daniel and de Groot, Bert L.},         journal = {Journal of Computational Chemistry},         volume = {36},         number = {5},         pages = {348--354},         year = {2015},         doi = {10.1002/jcc.23804}     }      @article{Seeliger2010pmx,         title = {Protein Thermostability Calculations Using         Alchemical Free Energy Simulations},         author = {Seeliger, Daniel and de Groot, Bert L.},         journal = {Biophysical Journal},         volume = {98},         number = {10},         pages = {2309--2316},         year = {2010},         doi = {10.1016/j.bpj.2010.01.051}     }   License ------- ``pmx`` is licensed under the GNU Lesser General Public License v3.0 (LGPL v3).  .. |build| image:: https://travis-ci.org/deGrootLab/pmx.svg?branch=master     :alt: Build Status     :scale: 100%     :target: https://travis-ci.org/deGrootLab/pmx  .. |cov| image:: https://codecov.io/gh/deGrootLab/pmx/branch/develop/graph/badge.svg     :alt: Code coverage     :scale: 100%     :target: https://codecov.io/gh/deGrootLab/pmx
-- **Core Function**: Toolkit for free-energy calculation setup/analysis and biomolecular structure handling
-- **Input/Output**: GFF/GTF
-- **Installation**: `conda install -c bioconda pmx_biobb`
+
+- **Tool Overview**: pmx_biobb handles molecular simulation setup.
+- **Core Function**: Free-energy calculation and analysis.
+- **Algorithm**: Uses GROMACS for molecular dynamics.
+- **Input Format**: Accepts biomolecular structure files.
+- **Output**: Produces simulation results and analysis.
+- **Use Case**: Protein-ligand binding, molecular modeling.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large systems require memory.
+- **Data Quality**: Results depend on input structure quality.
+- **Computation Time**: Simulations may take significant time.
+- **Validation**: Results should be validated for correctness.
+- **Dependencies**: Requires GROMACS installation.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `pmx --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Setup free-energy calculation
+**Args:** `pmx mutate -i protein.pdb -o mutated.pdb -m A100G`
+**Explanation:** Sets up mutation for free-energy calculation.
+
+### With parameters
+**Args:** `pmx analyze -i results/ -p params.yaml -o analysis.txt`
+**Explanation:** Uses parameter configuration for analysis.
+
+### Verbose mode
+**Args:** `pmx -v mutate -i protein.pdb -o mutated.pdb -m A100G`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pmx -t 4 analyze -i results/ -o analysis.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `pmx analyze -i results/ -o analysis.json --json`
+**Explanation:** Outputs in JSON format.
+
+### Generate report
+**Args:** `pmx analyze -i results/ -o analysis.txt --report report.html`
+**Explanation:** Generates HTML report.

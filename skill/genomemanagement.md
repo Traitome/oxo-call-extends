@@ -1,30 +1,43 @@
 ---
 name: genomemanagement
-category: formatting
-description: Genome Management Package for bioinformatics analysis
-tags: [genomemanagement, formatting]
+category: data-management
+description: GenomeManagement - Genome Management Package for bioinformatics analysis.
+tags: [genomemanagement, data-management, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/evolu-tion/GenomeManagement"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genomemanagement (v2.0.0) - Genome Management Package for bioinformatics analysis
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genomemanagement`
+- **Genome Management**: Manages genomic data for analysis.
+- **Data Organization**: Organizes genomic datasets.
+- **Workflow Automation**: Automates bioinformatics workflows.
+- **Quality Control**: Performs quality control on genomic data.
+- **Data Analysis**: Supports genomic data analysis.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Volume**: Requires handling large volumes of data.
+- **Configuration Complexity**: Complex configuration required.
+- **Dependency Management**: Requires careful dependency management.
+- **Performance**: Large datasets require optimization.
+- **Error Handling**: Requires robust error handling.
 
 ## Examples
+### Initialize project
+**Args:** `genomemanagement init -n my_project -o ./project/`
+**Explanation:** Initializes a new genome management project.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Add genome
+**Args:** `genomemanagement add -p ./project/ -g genome.fasta`
+**Explanation:** Adds genome to project.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Run analysis
+**Args:** `genomemanagement analyze -p ./project/ -o results/`
+**Explanation:** Runs genome analysis workflow.
+
+### Quality control
+**Args:** `genomemanagement qc -p ./project/ -o qc_report.html`
+**Explanation:** Performs quality control on data.
+
+### Export data
+**Args:** `genomemanagement export -p ./project/ -o exported_data/`
+**Explanation:** Exports project data.

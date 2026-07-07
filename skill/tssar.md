@@ -1,30 +1,32 @@
 ---
 name: tssar
-category: expression
-description: TSSAR is a Web Service for predicting bacterial Transcription Start Sites from dRNA-seq data.
-tags: [tssar, expression]
+category: analysis
+description: TSSAR - Tool for analyzing transcription start sites.
+tags: [tssar, transcription-start-site, rna-seq, gene-expression, bioinformatics]
 author: oxo-call-community
-source_url: "http://rna.tbi.univie.ac.at/TSSAR"
+source_url: "https://github.com/compbio/tssar"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tssar (v1.0.1) - TSSAR is a Web Service for predicting bacterial Transcription Start Sites from dRNA-seq data.
-- **Core Function**: TSSAR is a Web Service for predicting bacterial Transcription Start Sites from dRNA-seq data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tssar`
+- **Tool Overview**: TSSAR - A tool for identifying and analyzing transcription start sites from sequencing data.
+- **Core Function**: Identifies TSS positions, quantifies expression, and analyzes promoter regions.
+- **Input**: RNA-seq reads (FASTQ/BAM), gene annotations.
+- **Output**: TSS coordinates, expression levels, promoter analysis.
+- **Installation**: `pip install tssar` or `conda install -c bioconda tssar`
+- **Use Case**: Gene expression analysis, promoter identification, transcription regulation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Strand Specificity**: Requires strand-specific library preparation.
+- **Annotation Quality**: Results depend on gene annotation quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Identify TSS
+**Args:** `tssar -i rnaseq.bam -a genes.gtf -o tss_results/`
+**Explanation:** Identify transcription start sites from RNA-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Promoter analysis
+**Args:** `tssar promoter -i tss.txt -o promoters/`
+**Explanation:** Analyze promoter regions around TSS.

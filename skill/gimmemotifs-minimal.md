@@ -1,30 +1,43 @@
 ---
 name: gimmemotifs-minimal
-category: hpc
-description: Motif prediction pipeline and various motif-related tools.
-tags: [gimmemotifs-minimal, hpc]
+category: motif-discovery
+description: gimmemotifs-minimal - Lightweight version of motif prediction pipeline.
+tags: [gimmemotifs-minimal, motif-discovery, transcription-factors]
 author: oxo-call-community
 source_url: "https://gimmemotifs.readthedocs.io/en/master"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gimmemotifs-minimal (v0.18.2) - Motif prediction pipeline and various motif-related tools.
-- **Core Function**: Provides functionality for hpc tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gimmemotifs-minimal`
+- **Motif Discovery**: Discovers DNA motifs.
+- **Lightweight Version**: Minimal installation footprint.
+- **Transcription Factor Binding**: Identifies TF binding sites.
+- **Motif Prediction**: Predicts motifs from sequences.
+- **Efficient Processing**: Optimized for efficiency.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Reduced Features**: Limited compared to full version.
+- **Sequence Quality**: Requires high-quality sequences.
+- **Motif Length**: Motif length affects detection.
+- **Statistical Significance**: Requires proper statistics.
+- **Result Validation**: Results should be validated.
 
 ## Examples
+### Predict motifs
+**Args:** `gimmemotifs-minimal predict -i sequences.fasta -o motifs.meme`
+**Explanation:** Predicts motifs from sequences.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Scan sequences
+**Args:** `gimmemotifs-minimal scan -m motifs.meme -i sequences.fasta -o hits.txt`
+**Explanation:** Scans for motif occurrences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Enrichment analysis
+**Args:** `gimmemotifs-minimal enrichment -m motifs.meme -i targets.fasta -o enrichment.txt`
+**Explanation:** Performs motif enrichment.
+
+### Batch processing
+**Args:** `gimmemotifs-minimal predict -l samples.txt -o ./motifs/`
+**Explanation:** Processes multiple samples.
+
+### Generate report
+**Args:** `gimmemotifs-minimal report -i motifs.meme -o report.html`
+**Explanation:** Generates motif report.

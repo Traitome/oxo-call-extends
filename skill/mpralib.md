@@ -2,29 +2,47 @@
 name: mpralib
 category: expression
 description: Library to analyze count data of MPRA experiments.
-tags: [mpralib, expression]
+tags: [mpralib, expression, mpra]
 author: oxo-call-community
 source_url: "https://github.com/kircherlab/MPRAlib"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mpralib v0.10.3 - Library to analyze count data of MPRA experiments..
-- **Core Function**: Library to analyze count data of MPRA experiments.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mpralib`
+- **Tool Overview**: MPRAlib v0.10.3 analyzes count data from MPRA experiments.
+- **Core Function**: Processes and analyzes MPRA count data.
+- **MPRA Analysis**: Specialized for Massively Parallel Reporter Assay data.
+- **Count Data**: Handles read count data from sequencing experiments.
+- **Statistical Analysis**: Provides statistical methods for MPRA data.
+- **Input/Output**: Accepts count matrices; outputs analysis results.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **MPRA Specific**: Designed for MPRA experiment data.
+- **Memory Requirements**: Memory usage depends on data size.
+- **Parameter Tuning**: May require parameter adjustment for analysis.
+- **Data Quality**: Results depend on sequencing quality.
+- **Normalization**: Requires proper data normalization.
+- **Computational Resources**: Large datasets may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze MPRA data
+**Args:** `mpralib analyze -i counts.txt -o results.txt`
+**Explanation:** Performs MPRA count data analysis.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With normalization
+**Args:** `mpralib analyze -i counts.txt -n -o results.txt`
+**Explanation:** Applies normalization before analysis.
+
+### Differential expression
+**Args:** `mpralib diffexp -i counts.txt -c conditions.txt -o diffexp.txt`
+**Explanation:** Performs differential expression analysis.
+
+### Quality control
+**Args:** `mpralib qc -i counts.txt -o qc_report.html`
+**Explanation:** Generates quality control report.
+
+### Batch processing
+**Args:** `mpralib analyze -i counts/ -o results/`
+**Explanation:** Processes multiple count files.

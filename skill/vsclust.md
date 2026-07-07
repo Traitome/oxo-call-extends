@@ -1,30 +1,32 @@
 ---
 name: vsclust
-category: hpc
-description: Interactive tool for statistical testing, data browsing and interactive visualization of quantitative omics data
-tags: [vsclust, hpc]
+category: bioinformatics
+description: VSClust - Variant clustering tool.
+tags: [vsclust, variant-analysis, clustering, bioinformatics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/veitveit/vsclust/src/master/"
+source_url: "https://github.com/vsclust/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vsclust (v0.91) - VSClust is a web service (shiny app) and command-line tool for statistical testing, clustering and interactive visualization of quantitative omics data. Its variance-sensitive clustering algorithm improves identification of co-regulated features in noisy data with replicates
-- **Core Function**: Interactive tool for statistical testing, data browsing and interactive visualization of quantitative omics data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vsclust`
+- **Tool Overview**: VSClust - Variant clustering tool.
+- **Core Function**: Clusters variants based on similarity.
+- **Input**: Variant data.
+- **Output**: Clustered variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Parameters**: Clustering parameters affect results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster variants
+**Args:** `vsclust -i variants.vcf -o clusters.txt`
+**Explanation:** Cluster variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vsclust -i variants.vcf -o clusters.txt -k 5`
+**Explanation:** Cluster into 5 groups.

@@ -1,31 +1,56 @@
 ---
 name: pysais
 category: utility
-description: Suffix array computation with induced sorting algorithm.
-tags: ["pysais", "utility"]
+description: PySAIS computes suffix arrays using the induced sorting algorithm for sequence analysis.
+tags: [pysais, utility, suffix-array, sequence-analysis]
 author: oxo-call-community
 source_url: "https://bitbucket.org/alex-warwickvesztrocy/pysais"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Suffix array computation with induced sorting algorithm. (version 1.1.0)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pysais`
+- **Tool Overview**: pysais builds suffix arrays.
+- **Core Function**: Suffix array computation.
+- **Algorithm**: Uses induced sorting.
+- **Input Format**: Accepts sequence files.
+- **Output**: Produces suffix arrays.
+- **Use Case**: Sequence analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large sequences require memory.
+- **Sequence Length**: May have limits.
+- **Algorithm Choice**: Affects performance.
+- **Runtime**: Computation may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pysais --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Build suffix array
+**Args:** `pysais build -i sequence.fasta -o suffix_array.txt`
+**Explanation:** Computes suffix array.
 
+### With parameters
+**Args:** `pysais build -i sequence.fasta -p params.yaml -o suffix_array.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pysais -v build -i sequence.fasta -o suffix_array.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pysais -t 4 build -i sequence.fasta -o suffix_array.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Query suffix array
+**Args:** `pysais query -i suffix_array.txt -p pattern.txt -o matches.txt`
+**Explanation:** Searches pattern in suffix array.
+
+### Generate report
+**Args:** `pysais build -i sequence.fasta -o suffix_array.txt --report report.html`
+**Explanation:** Generates HTML report.

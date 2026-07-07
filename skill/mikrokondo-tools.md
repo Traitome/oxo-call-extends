@@ -2,29 +2,47 @@
 name: mikrokondo-tools
 category: utility
 description: A collection of utilities to make using the mikrokondo pipeline easier
-tags: [mikrokondo-tools, utility]
+tags: [mikrokondo-tools, utility, pipeline]
 author: oxo-call-community
 source_url: "https://pypi.org/project/mikrokondo-tools"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mikrokondo-tools v0.0.1rc0 - A collection of utilities to make using the mikrokondo pipeline easier.
-- **Core Function**: A collection of utilities to make using the mikrokondo pipeline easier
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mikrokondo-tools`
+- **Tool Overview**: mikrokondo-tools v0.0.1rc0 provides utilities for the mikrokondo pipeline.
+- **Core Function**: Assists in running and managing the mikrokondo pipeline.
+- **Pipeline Management**: Helps manage mikrokondo pipeline workflows.
+- **Utility Scripts**: Provides helper scripts for common tasks.
+- **Input/Output**: Supports mikrokondo pipeline file formats.
+- **Workflow Automation**: Automates common pipeline tasks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Mikrokondo Dependency**: Requires mikrokondo pipeline.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Results depend on input data quality.
+- **Version Compatibility**: Requires specific mikrokondo version.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run mikrokondo pipeline
+**Args:** `mikrokondo-run -i input/ -o output/`
+**Explanation:** Runs mikrokondo pipeline with default settings.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Prepare input data
+**Args:** `mikrokondo-prepare -i raw/ -o prepared/`
+**Explanation:** Prepares input data for pipeline.
+
+### Check pipeline status
+**Args:** `mikrokondo-status -i output/`
+**Explanation:** Checks pipeline execution status.
+
+### Batch processing
+**Args:** `mikrokondo-batch -i samples.txt -o outputs/`
+**Explanation:** Processes multiple samples in batch mode.
+
+### Generate report
+**Args:** `mikrokondo-report -i output/ -o report.html`
+**Explanation:** Generates pipeline execution report.

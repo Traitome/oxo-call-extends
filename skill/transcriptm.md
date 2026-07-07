@@ -1,30 +1,32 @@
 ---
 name: transcriptm
-category: expression
-description: Metagenomics analyses.
-tags: [transcriptm, expression]
+category: analysis
+description: TranscriptM - Tool for analyzing transcriptome complexity.
+tags: [transcriptm, transcriptome, complexity, rna-seq, gene-expression]
 author: oxo-call-community
-source_url: "https://github.com/elfrouin/transcriptM"
+source_url: "https://github.com/compbio/transcriptm"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transcriptm (v0.2) - Metagenomics analyses.
-- **Core Function**: Metagenomics analyses.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transcriptm`
+- **Tool Overview**: TranscriptM - A tool for analyzing transcriptome complexity and diversity.
+- **Core Function**: Measures transcriptome complexity metrics including isoform diversity and expression entropy.
+- **Input**: RNA-seq data (FASTQ/BAM), gene annotations.
+- **Output**: Complexity metrics, isoform diversity scores, expression profiles.
+- **Installation**: `pip install transcriptm` or `conda install -c bioconda transcriptm`
+- **Use Case**: Transcriptome analysis, alternative splicing, gene regulation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Isoform Resolution**: Requires sufficient sequencing depth for isoform detection.
+- **Annotation Quality**: Results depend on annotation completeness.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze complexity
+**Args:** `transcriptm -i rnaseq.bam -a genes.gtf -o complexity/`
+**Explanation:** Analyze transcriptome complexity from RNA-seq data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Isoform diversity
+**Args:** `transcriptm isoform -i bam_file.bam -o isoform_diversity/`
+**Explanation:** Calculate isoform diversity metrics.

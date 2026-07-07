@@ -1,30 +1,32 @@
 ---
 name: wham
-category: variant-calling
-description: Structural variant detection and association testing
-tags: [wham, variant-calling]
+category: bioinformatics
+description: WHAM - Structural variant caller.
+tags: [wham, structural-variants, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/zeeev/wham"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wham (v1.8.0.1.2017.05.03) - Structural variant detection and association testing
-- **Core Function**: Structural variant detection and association testing
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wham`
+- **Tool Overview**: WHAM - Whole-genome alignment-based SV caller.
+- **Core Function**: Calls structural variants from alignment data.
+- **Input**: BAM file.
+- **Output**: SV calls.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call SVs
+**Args:** `whamg -f ref.fasta -b input.bam -o svs.vcf`
+**Explanation:** Call structural variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `whamg -f ref.fasta -b input.bam -o svs.vcf -t 8`
+**Explanation:** Use 8 threads.

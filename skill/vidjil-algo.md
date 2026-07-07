@@ -1,30 +1,32 @@
 ---
 name: vidjil-algo
-category: utility
-description: Vidjil is an open-source platform for the analysis of high-throughput sequencing data from lymphocytes.
-tags: [vidjil-algo, utility]
+category: bioinformatics
+description: Vidjil-algo - Immunosequencing analysis.
+tags: [vidjil-algo, immunosequencing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://www.vidjil.org/doc"
+source_url: "https://github.com/vidjil/vidjil-algo"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vidjil-algo (v2025.02) - Vidjil is an open-source platform for the analysis of high-throughput sequencing data from lymphocytes.
-- **Core Function**: Vidjil is an open-source platform for the analysis of high-throughput sequencing data from lymphocytes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vidjil-algo`
+- **Tool Overview**: Vidjil-algo - T-cell and B-cell receptor analysis.
+- **Core Function**: Analyzes immunosequencing data.
+- **Input**: FASTQ files from immunosequencing.
+- **Output**: Repertoire analysis.
+- **Installation**: Install via conda or source
+- **Use Case**: Immunology, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze repertoire
+**Args:** `vidjil-algo -i reads.fastq -o results/`
+**Explanation:** Analyze immunosequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vidjil-algo -i reads.fastq -o results/ -t 8`
+**Explanation:** Use 8 threads.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedgeneparts
 category: utility
-description: Given a bed, spit out promoter, first exon, or all introns.
-tags: [ucsc-bedgeneparts, utility]
+description: UCSC bedGeneParts - Tool for extracting gene parts from BED12 files.
+tags: [ucsc-bedgeneparts, ucsc, gene-analysis, bed12, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedgeneparts (v482) - Given a bed, spit out promoter, first exon, or all introns.
-- **Core Function**: Given a bed, spit out promoter, first exon, or all introns.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedgeneparts`
+- **Tool Overview**: UCSC bedGeneParts - A tool for extracting specific parts of genes from BED12 format.
+- **Core Function**: Extracts exons, introns, promoters, and other gene features.
+- **Input**: BED12 format gene annotation file.
+- **Output**: BED file with specific gene parts.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene structure analysis, feature extraction, annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires BED12 format.
+- **Annotation Quality**: Results depend on input annotation quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract exons
+**Args:** `bedGeneParts -exons genes.bed12 > exons.bed`
+**Explanation:** Extract exon regions from gene annotations.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Extract promoters
+**Args:** `bedGeneParts -promoters=1000 genes.bed12 > promoters.bed`
+**Explanation:** Extract 1000bp promoter regions.

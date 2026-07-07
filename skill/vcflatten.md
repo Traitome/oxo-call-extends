@@ -1,30 +1,32 @@
 ---
 name: vcflatten
-category: formatting
-description: A command line tool for flattening VCF files down to simpler TSV files.
-tags: [vcflatten, formatting, vcf]
+category: bioinformatics
+description: vcflatten - VCF flattening tool.
+tags: [vcflatten, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://innovativemedicine.ca/tools/vcflatten"
+source_url: "https://github.com/vcflatten/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcflatten (v0.5.2) - A command line tool for flattening VCF files down to simpler TSV files.
-- **Core Function**: A command line tool for flattening VCF files down to simpler TSV files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcflatten`
+- **Tool Overview**: vcflatten - A tool for flattening multi-allelic VCF records.
+- **Core Function**: Converts multi-allelic variants to bi-allelic records.
+- **Input**: VCF file.
+- **Output**: Flattened VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: VCF normalization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Info Fields**: May lose some INFO field information.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Flatten VCF
+**Args:** `vcflatten -i input.vcf -o flattened.vcf`
+**Explanation:** Flatten multi-allelic variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcflatten -i input.vcf -o flattened.vcf -m`
+**Explanation:** Keep original multi-allelic info.

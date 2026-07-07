@@ -1,30 +1,32 @@
 ---
 name: ucsc-htmlcheck
 category: utility
-description: Do a little reading and verification of html file.
-tags: [ucsc-htmlcheck, utility]
+description: UCSC htmlCheck - Tool for HTML validation.
+tags: [ucsc-htmlcheck, ucsc, html, validation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-htmlcheck (v482) - Do a little reading and verification of html file.
-- **Core Function**: Do a little reading and verification of html file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-htmlcheck`
+- **Tool Overview**: UCSC htmlCheck - A tool for validating HTML files.
+- **Core Function**: Validates HTML syntax and structure.
+- **Input**: HTML file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Web development, HTML validation, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Encoding**: Requires proper character encoding.
+- **Syntax**: Requires valid HTML syntax.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check HTML file
+**Args:** `htmlCheck index.html`
+**Explanation:** Validate HTML file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `htmlCheck -verbose index.html`
+**Explanation:** Validate with verbose output.

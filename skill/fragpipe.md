@@ -1,22 +1,43 @@
 ---
 name: fragpipe
 category: utility
-description: Pipeline for comprehensive analysis of shotgun proteomics data
-tags: [fragpipe, utility]
+description: Pipeline for comprehensive analysis of shotgun proteomics data.
+tags: [fragpipe, proteomics, mass spectrometry, pipeline]
 author: oxo-call-community
 source_url: "https://github.com/Nesvilab/FragPipe"
 ---
 
 ## Concepts
-- **Tool Overview**: FragPipe is a Java Graphical User Interface (GUI) for a suite of computational tools enabling comprehensive analysis of mass spectrometry-based proteomics data. It is powered by MSFragger - an ultrafast proteomic search engine suitable for both conventional and "open" (wide precursor mass tolerance) peptide identification. FragPipe includes the Philosopher toolkit for downstream post-processing of MSFragger search results (PeptideProphet, iProphet, ProteinProphet), FDR filtering, label-based quantification, and multi-experiment summary report generation. Crystal-C and PTM-Shepherd are included to aid interpretation of open search results. Also included in FragPipe binary are TMT-Integrator for TMT/iTRAQ isobaric labeling-based quantification, IonQuant for label-free quantification with match-between-run (MBR) functionality, spectral library building with EasyPQP, and MSFragger-DIA and DIA-Umpire SE modules for direct analysis of data independent acquisition (DIA) data.
-- **Core Function**: Pipeline for comprehensive analysis of shotgun proteomics data
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda fragpipe`
+- **Proteomics Pipeline**: Comprehensive pipeline for mass spectrometry-based proteomics.
+- **MSFragger Integration**: Uses MSFragger for ultrafast peptide identification.
+- **Open Search**: Supports open (wide precursor mass tolerance) peptide identification.
+- **Quantification**: Includes label-based and label-free quantification.
+- **DIA Analysis**: Supports data-independent acquisition (DIA) data analysis.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Java Dependence**: Requires Java runtime environment.
+- **Memory Intensive**: Large datasets require significant memory.
+- **Parameter Complexity**: Many parameters require careful configuration.
+- **File Size**: Generates large intermediate files.
+- **Learning Curve**: Steep learning curve for advanced features.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Basic proteomics analysis
+**Args:** `fragpipe --config workflow.config --input raw_files/ --output results/`
+**Explanation:** Runs complete proteomics analysis pipeline.
+
+### Open search analysis
+**Args:** `fragpipe --config open_search.config --input raw_files/ --output results/`
+**Explanation:** Runs open search with wide precursor mass tolerance.
+
+### Label-free quantification
+**Args:** `fragpipe --config lfq.config --input raw_files/ --output results/`
+**Explanation:** Performs label-free quantification with MBR.
+
+### DIA analysis
+**Args:** `fragpipe --config dia.config --input raw_files/ --output results/`
+**Explanation:** Analyzes data-independent acquisition data.
+
+### TMT quantification
+**Args:** `fragpipe --config tmt.config --input raw_files/ --output results/`
+**Explanation:** Performs TMT isobaric labeling-based quantification.

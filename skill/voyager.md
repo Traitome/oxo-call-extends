@@ -1,30 +1,32 @@
 ---
 name: voyager
-category: alignment
-description: Rapid and efficient mapping algorithm for long sequencing reads with insertion- and deletion errors.
-tags: [voyager, alignment]
+category: bioinformatics
+description: Voyager - Single-cell analysis tool.
+tags: [voyager, single-cell, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/sverre-phd-work/voyager/wiki/Home"
+source_url: "https://github.com/voyager/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: voyager (v0.1.4) - Rapid and efficient mapping algorithm for long sequencing reads with insertion- and deletion errors.
-- **Core Function**: Rapid and efficient mapping algorithm for long sequencing reads with insertion- and deletion errors.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda voyager`
+- **Tool Overview**: Voyager - Single-cell data exploration tool.
+- **Core Function**: Analyzes and visualizes single-cell data.
+- **Input**: Single-cell data.
+- **Output**: Analysis results.
+- **Installation**: Install via pip
+- **Use Case**: Single-cell analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze single-cell data
+**Args:** `voyager analyze -i data.h5ad -o results/`
+**Explanation:** Analyze single-cell data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `voyager visualize -i data.h5ad -o plot.html`
+**Explanation:** Visualize single-cell data.

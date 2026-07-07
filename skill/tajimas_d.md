@@ -1,30 +1,64 @@
 ---
 name: tajimas_d
-category: utility
-description: Computes Tajimas D, the Pi- or Watterson-Estimator for multiple sequences.
-tags: [tajimas_d, utility]
+category: population-genetics
+description: Computes Tajima's D, Pi, and Watterson's estimator for population genetics analysis.
+tags: [tajimas_d, population-genetics, statistics, dna-sequences]
 author: oxo-call-community
 source_url: "https://github.com/not-a-feature/tajimas_d/blob/v2.0.4/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tajimas_d (v2.0.4) - Computes Tajimas D, the Pi- or Watterson-Estimator for multiple sequences.
-- **Core Function**: Computes Tajimas D, the Pi- or Watterson-Estimator for multiple sequences.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tajimas_d`
+- **Tool Overview**: tajimas_d (v2.0.4) computes population genetics statistics.
+- **Core Function**: Calculates Tajima's D, Pi, and Watterson's estimator.
+- **Algorithm**: Implements standard population genetics formulas.
+- **Input/Output**: Input: FASTA/FASTQ files; Output: Statistical values.
+- **Applications**: Population genetics, evolutionary biology, SNP analysis.
+- **Installation**: `conda install -c bioconda tajimas_d` or download from GitHub.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Sequence Quality**: Requires high-quality sequences.
+- **Sample Size**: Results depend on sample size.
+- **Population Model**: Assumes specific population models.
+- **Recombination**: Ignores recombination events.
+- **Selection**: Assumes neutral evolution.
+- **Missing Data**: Missing sites affect calculations.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `tajimas_d --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `tajimas_d -i <input_file> -o <output_file>`
-**Explanation:** Run tajimas_d with typical input and output options.
+### Basic Tajima's D calculation
+**Args:** `tajimas_d -i sequences.fasta -o results.txt`
+**Explanation:** Calculate Tajima's D from aligned sequences.
+
+### Calculate Pi
+**Args:** `tajimas_d -i sequences.fasta -o results.txt -m pi`
+**Explanation:** Calculate nucleotide diversity (Pi).
+
+### Verbose mode
+**Args:** `tajimas_d -i sequences.fasta -o results.txt -v`
+**Explanation:** Run with detailed logging for debugging.
+
+### Output statistics
+**Args:** `tajimas_d -i sequences.fasta -o results.txt --stats`
+**Explanation:** Generate comprehensive statistics.
+
+### Batch processing
+**Args:** `for f in fasta/*.fasta; do tajimas_d -i $f -o results/${f%.fasta}_stats.txt; done`
+**Explanation:** Process multiple sequence files.
+
+### Include Watterson's estimator
+**Args:** `tajimas_d -i sequences.fasta -o results.txt -m all`
+**Explanation:** Calculate all statistics (Tajima's D, Pi, Watterson).
+
+### Filter by quality
+**Args:** `tajimas_d -i sequences.fasta -o results.txt -q 20`
+**Explanation:** Filter low-quality sites.
+
+### Generate report
+**Args:** `tajimas_d -i sequences.fasta -o results.txt --report`
+**Explanation:** Generate comprehensive analysis report.

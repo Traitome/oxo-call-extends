@@ -1,30 +1,32 @@
 ---
 name: zgtf
-category: utility
-description: gtf conversion utility.
-tags: [zgtf, utility]
+category: bioinformatics
+description: ZGTF - GTF processing tool.
+tags: [zgtf, gtf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/zgtf/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zgtf (v0.1.2) - gtf conversion utility.
-- **Core Function**: gtf conversion utility.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zgtf`
+- **Tool Overview**: ZGTF - GTF file processing tool.
+- **Core Function**: Processes GTF files.
+- **Input**: GTF file.
+- **Output**: Processed data.
+- **Installation**: Install via pip or conda
+- **Use Case**: Gene annotation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large GTF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process GTF
+**Args:** `zgtf -i input.gtf -o output.gtf`
+**Explanation:** Process GTF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `zgtf -i input.gtf -o output.gtf -f filter.txt`
+**Explanation:** Filter genes.

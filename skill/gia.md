@@ -1,30 +1,43 @@
 ---
 name: gia
-category: utility
-description: Genomic Interval Arithmetic (gia)
-tags: [gia, utility]
+category: genomic-intervals
+description: gia - Genomic Interval Arithmetic for interval operations and analysis.
+tags: [gia, genomic-intervals, interval-operations, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/noamteyssier/gia"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gia (v0.2.23) - Genomic Interval Arithmetic (gia)
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gia`
+- **Interval Operations**: Performs arithmetic on genomic intervals.
+- **Bedtools Integration**: Extends bedtools functionality.
+- **Set Operations**: Supports union, intersection, difference.
+- **Coordinate Math**: Handles genomic coordinates.
+- **Format Support**: Supports BED and similar formats.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Coordinate System**: Must handle chromosome naming consistently.
+- **Strand Orientation**: Strand information may affect results.
+- **Format Compatibility**: Requires correct input format.
+- **Memory Usage**: Large files require memory.
+- **Result Validation**: Results should be validated.
 
 ## Examples
+### Intersect intervals
+**Args:** `gia intersect -a intervals1.bed -b intervals2.bed -o intersect.bed`
+**Explanation:** Finds intersecting intervals.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Union intervals
+**Args:** `gia union -i intervals.bed -o union.bed`
+**Explanation:** Computes union of intervals.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Subtract intervals
+**Args:** `gia subtract -a intervals1.bed -b intervals2.bed -o diff.bed`
+**Explanation:** Subtracts intervals.
+
+### Find overlaps
+**Args:** `gia overlap -a intervals1.bed -b intervals2.bed -o overlaps.bed`
+**Explanation:** Finds overlapping regions.
+
+### Generate statistics
+**Args:** `gia stats -i intervals.bed -o stats.txt`
+**Explanation:** Generates interval statistics.

@@ -1,12 +1,11 @@
 ---
 name: folddisco
 category: formatting
-description: Folddisco: fast indexing and search of discontinuous motifs in protein structures.
+description: "Folddisco: fast indexing and search of discontinuous motifs in protein structures."
 tags: [folddisco, formatting]
 author: oxo-call-community
 source_url: "https://github.com/steineggerlab/folddisco"
 ---
-
 ## Concepts
 - **Tool Overview**: Folddisco: fast indexing and search of discontinuous motifs in protein structures.
 - **Core Function**: Folddisco: fast indexing and search of discontinuous motifs in protein structures.

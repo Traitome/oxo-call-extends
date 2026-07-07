@@ -1,30 +1,32 @@
 ---
 name: vispr
-category: genome-editing
-description: VISPR is a visualization framework and analysis workflow for CRISPR/Cas9 knockout screens. VISPR is designed to display results calculated by MAGeCK.
-tags: [vispr, genome-editing]
+category: bioinformatics
+description: VisPr - Visualization tool.
+tags: [vispr, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/liulab/vispr"
+source_url: "https://github.com/vispr/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vispr (v0.4.17) - VISPR is a visualization framework and analysis workflow for CRISPR/Cas9 knockout screens. VISPR is designed to display results calculated by MAGeCK.
-- **Core Function**: VISPR is a visualization framework and analysis workflow for CRISPR/Cas9 knockout screens. VISPR is designed to display results calculated by MAGeCK.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vispr`
+- **Tool Overview**: VisPr - Interactive visualization tool.
+- **Core Function**: Creates interactive visualizations.
+- **Input**: Data files.
+- **Output**: Interactive plots.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires JavaScript libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create visualization
+**Args:** `vispr -i data.csv -o plot.html`
+**Explanation:** Create interactive plot.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vispr -i data.csv -o plot.html -t scatter`
+**Explanation:** Create scatter plot.

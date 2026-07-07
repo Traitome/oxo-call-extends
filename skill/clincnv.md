@@ -1,30 +1,44 @@
 ---
 name: clincnv
 category: qc
-description: Copy number variation detection for clinical sequencing.
-tags: [clincnv, qc]
+description: Copy number variation detection for clinical sequencing data
+tags: [clincnv, cnv, clinical-sequencing, copy-number, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/imgag/ClinCNV"
 ---
 
 ## Concepts
 
-- **Tool Overview**: clincnv (v1.19.1) - Copy number variation detection for clinical sequencing.
-- **Core Function**: Copy number variation detection for clinical sequencing.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda clincnv`
+- **Tool Overview**: ClinCNV is a specialized tool for copy number variation detection optimized for clinical sequencing data analysis.
+- **Core Function**: Detects copy number variations from clinical sequencing data with high sensitivity and specificity.
+- **Algorithm**: Uses read depth analysis and statistical methods optimized for clinical applications.
+- **Input**: Aligned BAM files and reference genome.
+- **Output**: CNV calls with clinical-grade annotations and confidence scores.
+- **Application**: Clinical diagnostics, genetic disease screening, and precision medicine.
+- **Installation**: Install via bioconda: `conda install -c bioconda clincnv`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Clinical Standards**: Must meet clinical validation requirements.
+- **Data Quality**: Requires high-quality sequencing data for clinical applications.
+- **Reference Genome**: Must use clinically validated reference genome.
+- **Quality Control**: Strict QC measures required for clinical results.
+- **Interpretation**: CNV calls require clinical interpretation by experts.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Detect CNVs
+**Args:** `clincnv -i patient.bam -r reference.fasta -o cnv_results.txt`
+**Explanation:** Detects copy number variations from patient sequencing data.
 
-### Basic usage
-**Args:** `-i input.fastq -o qc_report`
-**Explanation:** Perform quality control analysis
+### With quality filtering
+**Args:** `clincnv -i patient.bam -r reference.fasta -q -o cnv_results.txt`
+**Explanation:** Applies quality filtering for clinical-grade results.
+
+### Batch processing
+**Args:** `clincnv -d samples/ -r reference.fasta -o results/`
+**Explanation:** Processes multiple patient samples in batch mode.
+
+### Display help
+**Args:** `clincnv --help`
+**Explanation:** Shows all available options and usage information.

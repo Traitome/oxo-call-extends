@@ -2,29 +2,47 @@
 name: metaxa
 category: metagenomics
 description: Improved Identification and Taxonomic Classification of Small and Large Subunit rRNA in Metagenomic Data.
-tags: [metaxa, metagenomics]
+tags: [metaxa, metagenomics, rRNA]
 author: oxo-call-community
 source_url: "http://microbiology.se/software/metaxa2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metaxa v2.2.3 - Improved Identification and Taxonomic Classification of Small and Large Subunit rRNA in Metagenomic Data..
-- **Core Function**: Improved Identification and Taxonomic Classification of Small and Large Subunit rRNA in Metagenomic Data.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metaxa`
+- **Tool Overview**: MetaXA v2.2.3 is a tool for improved identification and taxonomic classification of small and large subunit rRNA in metagenomic data.
+- **Core Function**: Identifies and classifies rRNA sequences in metagenomic datasets.
+- **rRNA Identification**: Detects small subunit (SSU) and large subunit (LSU) rRNA sequences.
+- **Taxonomic Classification**: Classifies rRNA sequences into taxonomic groups.
+- **Input/Output**: Accepts sequencing reads or contigs; outputs rRNA annotations and classifications.
+- **High Sensitivity**: Designed for high-sensitivity detection of rRNA in complex metagenomic samples.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Database Completeness**: Classification accuracy depends on reference database completeness.
+- **Computational Resources**: Processing large datasets may require significant computational resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Sequence Quality**: Detection accuracy depends on input sequence quality.
+- **False Positives**: May detect false positive rRNA sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Identify rRNA sequences
+**Args:** `metaxa -i reads.fastq -o rRNA_results.txt`
+**Explanation:** Identifies and classifies rRNA sequences in metagenomic reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom database
+**Args:** `metaxa -i reads.fastq -d custom_db/ -o rRNA_results.txt`
+**Explanation:** Uses custom rRNA database for identification.
+
+### Paired-end analysis
+**Args:** `metaxa -i reads_1.fastq -r reads_2.fastq -o rRNA_results.txt`
+**Explanation:** Processes paired-end sequencing data.
+
+### Detailed output
+**Args:** `metaxa -i reads.fastq -o rRNA_results.txt -v`
+**Explanation:** Generates detailed rRNA identification report.
+
+### Batch processing
+**Args:** `metaxa -i fastq/ -o rRNA_results/`
+**Explanation:** Processes multiple samples in batch mode.

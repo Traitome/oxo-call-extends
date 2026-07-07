@@ -1,30 +1,43 @@
 ---
 name: gfa1
-category: assembly
-description: gfa1 toolkit
-tags: [gfa1, assembly]
+category: sequence-format
+description: gfa1 toolkit - Tools for working with GFA1 format assembly graphs.
+tags: [gfa1, sequence-format, assembly-graphs, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/lh3/gfa1"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfa1 (v0.53.alpha) - gfa1 toolkit
-- **Core Function**: Provides functionality for assembly tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfa1`
+- **GFA Format**: Handles GFA1 format assembly graphs.
+- **Assembly Graphs**: Manages sequence assembly graphs.
+- **Sequence Data**: Processes sequence data in graph format.
+- **Graph Manipulation**: Manipulates graph structures.
+- **Format Conversion**: Converts between formats.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Format Compatibility**: Requires GFA1 format.
+- **Graph Complexity**: Complex graphs may be hard to process.
+- **Memory Usage**: Large graphs require significant memory.
+- **Validation**: Requires graph validation.
+- **Tool Compatibility**: May have compatibility issues with other tools.
 
 ## Examples
+### Parse GFA file
+**Args:** `gfa1 view -i assembly.gfa -o summary.txt`
+**Explanation:** Views GFA file summary.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simplify graph
+**Args:** `gfa1 simplify -i assembly.gfa -o simplified.gfa`
+**Explanation:** Simplifies assembly graph.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Extract sequences
+**Args:** `gfa1 extract -i assembly.gfa -o sequences.fasta`
+**Explanation:** Extracts sequences from graph.
+
+### Validate graph
+**Args:** `gfa1 validate -i assembly.gfa`
+**Explanation:** Validates GFA file integrity.
+
+### Convert format
+**Args:** `gfa1 convert -i assembly.gfa -f fastg -o output.fastg`
+**Explanation:** Converts GFA to FASTG format.

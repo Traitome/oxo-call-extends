@@ -1,30 +1,32 @@
 ---
 name: xunit-wrapper
-category: programming
-description: Wrap python functions with a decorator to handle building XUnit reports.
-tags: [xunit-wrapper, programming]
+category: bioinformatics
+description: xunit-wrapper - Testing utility.
+tags: [xunit-wrapper, testing, python, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/TAMU-CPT/xunit-python-decorator"
+source_url: "https://github.com/xunit-wrapper/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xunit-wrapper (v0.12) - Wrap python functions with a decorator to handle building XUnit reports.
-- **Core Function**: Wrap python functions with a decorator to handle building XUnit reports.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xunit-wrapper`
+- **Tool Overview**: xunit-wrapper - xUnit test wrapper.
+- **Core Function**: Wraps xUnit tests.
+- **Input**: Test files.
+- **Output**: Test results.
+- **Installation**: Install via pip
+- **Use Case**: Testing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires xUnit framework.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run tests
+**Args:** `xunit-wrapper test.py`
+**Explanation:** Run tests.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xunit-wrapper test.py -v`
+**Explanation:** Verbose output.

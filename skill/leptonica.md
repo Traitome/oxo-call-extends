@@ -1,30 +1,52 @@
 ---
 name: leptonica
-category: variant-calling
-description: Leptonica is a pedagogically-oriented open source site containing software that is broadly useful for image processing and image analysis applications.
-tags: [leptonica, variant-calling]
+category: image-processing
+description: Image processing and analysis library for bioinformatics applications
+tags: [leptonica, image-processing, computer-vision, library, image-analysis]
 author: oxo-call-community
 source_url: "https://github.com/DanBloomberg/leptonica"
 ---
 
 ## Concepts
 
-- **Tool Overview**: leptonica v1.73 - Leptonica is a pedagogically-oriented open source site containing software that is broadly useful for image processing and image analysis applications..
-- **Core Function**: Leptonica is a pedagogically-oriented open source site containing software that is broadly useful for image processing and image analysis applications.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda leptonica`
+- **Image Processing**: Comprehensive image processing library
+- **Image Analysis**: Tools for image analysis tasks
+- **Multi-format Support**: Supports various image formats
+- **Geometric Operations**: Image scaling, rotation, transformation
+- **Thresholding**: Image thresholding and binarization
+- **Noise Reduction**: Image noise reduction techniques
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Management**: Large images require careful memory handling
+- **Format Compatibility**: Not all formats may be supported
+- **Color Spaces**: Color space conversions may affect results
+- **Edge Cases**: Special handling needed for edge cases
+- **Performance**: Complex operations may be computationally intensive
+- **Version Compatibility**: API may change between versions
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Load and save image
+**Args:** `leptonica convert input.png output.jpg`
+**Explanation:** Converts image format.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Resize image
+**Args:** `leptonica resize input.png 50% output.png`
+**Explanation:** Resizes image to 50% of original size.
+
+### Apply threshold
+**Args:** `leptonica threshold input.png 128 output.png`
+**Explanation:** Applies binary thresholding.
+
+### Rotate image
+**Args:** `leptonica rotate input.png 90 output.png`
+**Explanation:** Rotates image 90 degrees clockwise.
+
+### Crop image
+**Args:** `leptonica crop input.png 100 100 200 200 output.png`
+**Explanation:** Extracts region from image.
+
+### Apply filter
+**Args:** `leptonica filter input.png gaussian output.png`
+**Explanation:** Applies Gaussian filter to image.

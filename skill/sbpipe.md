@@ -1,31 +1,56 @@
 ---
 name: sbpipe
-category: formatting
-description: SBpipe is a collection of pipelines for systems modelling of biological networks. It allows mathematical modellers to automatically repeat the tasks of model simulation and parameter estimation, and extract robustness information from these repeat sequences in a solid and consistent manner, facilitating model development and analysis. SBpipe can run models implemented in COPASI, Python or coded in any other programming language using Python as a wrapper module. Pipelines can run on multicore computers, Sun Grid Engine (SGE), Load Sharing Facility (LSF) clusters, or via Snakemake.
-tags: ["sbpipe", "formatting"]
+category: workflow-management
+description: SBpipe - pipelines for systems modelling of biological networks
+tags: ["sbpipe", "workflow-management", "systems-biology", "COPASI"]
 author: oxo-call-community
 source_url: "http://sbpipe.readthedocs.io"
 ---
 
 ## Concepts
 
-- **Tool Overview**: SBpipe is a collection of pipelines for systems modelling of biological networks. It allows mathematical modellers to automatically repeat the tasks of model simulation and parameter estimation, and extract robustness information from these repeat sequences in a solid and consistent manner, facilitating model development and analysis. SBpipe can run models implemented in COPASI, Python or coded in any other programming language using Python as a wrapper module. Pipelines can run on multicore computers, Sun Grid Engine (SGE), Load Sharing Facility (LSF) clusters, or via Snakemake. (version 4.21.0)
-- **Core Function**: Processes bioinformatics data related to formatting
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda sbpipe`
+- **Tool Overview**: SBpipe (v4.21.0) is a collection of pipelines for systems modelling of biological networks, enabling automated model simulation and parameter estimation.
+- **Core Function**: Automates repetitive tasks of model simulation, parameter estimation, and robustness analysis for mathematical models.
+- **Model Support**: Runs models implemented in COPASI, Python, or any programming language via Python wrapper.
+- **Execution Backends**: Supports multicore computers, SGE, LSF clusters, and Snakemake for parallel execution.
+- **Input/Output**: Accepts model files and parameter configurations, produces simulation results and analysis reports.
+- **Applications**: Systems biology model development, parameter optimization, and robustness analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Model Dependencies**: Requires COPASI or Python environment for model execution.
+- **Complex Setup**: May require significant configuration for cluster execution.
+- **Computational Resources**: Parameter estimation can be computationally intensive.
+- **Learning Curve**: Steep learning curve for pipeline configuration.
+- **Documentation**: Limited examples for advanced use cases.
+- **Version Compatibility**: May have compatibility issues with different COPASI versions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run basic simulation
+**Args:** `sbpipe run -m model.copasi -o results/`
+**Explanation:** Runs COPASI model simulation and outputs results.
 
-### Convert format
-**Args:** `-i input.file -o output.file`
-**Explanation:** Converts between file formats.
+### Parameter estimation
+**Args:** `sbpipe estimate -m model.copasi -d data.csv -o estimates/`
+**Explanation:** Performs parameter estimation using experimental data.
 
+### Sensitivity analysis
+**Args:** `sbpipe sensitivity -m model.copasi -o sensitivity/`
+**Explanation:** Runs sensitivity analysis on model parameters.
+
+### Robustness analysis
+**Args:** `sbpipe robustness -m model.copasi -n 1000 -o robustness/`
+**Explanation:** `-n 1000` runs 1000 simulations for robustness analysis.
+
+### Parallel execution
+**Args:** `sbpipe run -m model.copasi -p 8 -o results/`
+**Explanation:** `-p 8` uses 8 parallel processes for simulation.
+
+### Cluster submission
+**Args:** `sbpipe submit -m model.copasi -c sge -o results/`
+**Explanation:** `-c sge` submits job to SGE cluster.
+
+### Pipeline configuration
+**Args:** `sbpipe configure -i config.yaml -m model.copasi -o results/`
+**Explanation:** Uses custom configuration file for pipeline settings.

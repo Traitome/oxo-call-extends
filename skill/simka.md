@@ -1,30 +1,56 @@
 ---
 name: simka
-category: utility
-description: Simka and simkaMin are de novo comparative metagenomics tools. Simka represents each dataset as a k-mer spectrum and computes several classical ecological distances between them. SimkaMin outputs approximate (but very similar) results by subsampling the kmer space and requires much less computational resources.
-tags: [simka, utility, sam]
+category: metagenomics
+description: Simka - Comparative metagenomics using k-mer spectra
+tags: ["simka", "metagenomics", "k-mer", "comparative"]
 author: oxo-call-community
 source_url: "https://github.com/GATB/simka"
 ---
 
 ## Concepts
 
-- **Tool Overview**: simka (v1.5.3) - Simka and simkaMin are de novo comparative metagenomics tools. Simka represents each dataset as a k-mer spectrum and computes several classical ecological distances between them. SimkaMin outputs approximate (but very similar) results by subsampling the kmer space and requires much less computational resources.
-- **Core Function**: Simka and simkaMin are de novo comparative metagenomics tools. Simka represents each dataset as a k-mer spectrum and computes several classical ecological distances between them. SimkaMin outputs approximate (but very similar) results by subsampling the kmer space and requires much less computational resources.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda simka`
+- **Tool Overview**: Simka (v1.5.3) performs comparative metagenomics using k-mer spectra.
+- **Core Function**: Computes ecological distances between metagenomic datasets.
+- **Algorithm**: Uses k-mer based comparison and ecological distance metrics.
+- **Input/Output**: Accepts FASTQ files and produces distance matrices.
+- **Metagenomics Analysis**: Specialized for comparing microbial communities.
+- **Applications**: Microbiome analysis, metagenomics comparison, biodiversity studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **k-mer Size**: Choosing appropriate k-mer size is critical.
+- **Input Quality**: Results depend on sequencing data quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some advanced features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compare metagenomes
+**Args:** `simka -i samples.txt -o results/`
+**Explanation:** `-i` file with sample paths; `-o` output directory.
 
-### Basic usage
-**Args:** `simka -i <input_file> -o <output_file>`
-**Explanation:** Run simka with typical input and output options.
+### With k-mer size
+**Args:** `simka -i samples.txt -k 31 -o results/`
+**Explanation:** `-k 31` k-mer size.
+
+### Using simkaMin
+**Args:** `simka -i samples.txt --min -o results/`
+**Explanation:** `--min` use memory-efficient simkaMin mode.
+
+### Help command
+**Args:** `simka --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `simka --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `simka -v -i samples.txt -o results/`
+**Explanation:** `-v` verbose output.
+
+### Threaded mode
+**Args:** `simka -t 8 -i samples.txt -o results/`
+**Explanation:** `-t 8` uses 8 threads.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-matrixnormalize
 category: utility
-description: Normalize a matrix somehow - make it's columns or rows all sum to one or have vector length one.
-tags: [ucsc-matrixnormalize, utility]
+description: UCSC matrixNormalize - Tool for normalizing matrices.
+tags: [ucsc-matrixnormalize, ucsc, matrix, normalization, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-matrixnormalize (v482) - Normalize a matrix somehow - make it's columns or rows all sum to one or have vector length one.
-- **Core Function**: Normalize a matrix somehow - make it's columns or rows all sum to one or have vector length one.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-matrixnormalize`
+- **Tool Overview**: UCSC matrixNormalize - A tool for normalizing matrices.
+- **Core Function**: Normalizes matrix values.
+- **Input**: Matrix file.
+- **Output**: Normalized matrix.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Matrix analysis, normalization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large matrices.
+- **Format Requirements**: Requires proper matrix format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Normalize matrix
+**Args:** `matrixNormalize input.txt > normalized.txt`
+**Explanation:** Normalize matrix values.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `matrixNormalize -method=zscore input.txt > normalized.txt`
+**Explanation:** Use z-score normalization.

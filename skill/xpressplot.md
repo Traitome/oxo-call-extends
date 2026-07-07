@@ -1,30 +1,32 @@
 ---
 name: xpressplot
-category: expression
-description: A toolkit for navigating and analyzing gene expression datasets.
-tags: [xpressplot, expression]
+category: bioinformatics
+description: XpressPlot - Visualization tool.
+tags: [xpressplot, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/XPRESSyourself/XPRESSplot"
+source_url: "https://github.com/xpressplot/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xpressplot (v0.2.5) - A toolkit for navigating and analyzing gene expression datasets.
-- **Core Function**: A toolkit for navigating and analyzing gene expression datasets.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xpressplot`
+- **Tool Overview**: XpressPlot - High-throughput data visualization.
+- **Core Function**: Visualizes omics data.
+- **Input**: Expression data.
+- **Output**: Plots.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Plot expression
+**Args:** `xpressplot -i expression.txt -o plot.png`
+**Explanation:** Plot expression data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xpressplot -i expression.txt -o plot.png -t heatmap`
+**Explanation:** Create heatmap.

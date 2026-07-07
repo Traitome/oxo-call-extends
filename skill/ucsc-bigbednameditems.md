@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigbednameditems
 category: utility
-description: Extract item of given name from bigBed.
-tags: [ucsc-bigbednameditems, utility]
+description: UCSC bigBedNamedItems - Tool for extracting named items from BigBed files.
+tags: [ucsc-bigbednameditems, ucsc, bigbed, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigbednameditems (v482) - Extract item of given name from bigBed.
-- **Core Function**: Extract item of given name from bigBed.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigbednameditems`
+- **Tool Overview**: UCSC bigBedNamedItems - A tool for extracting named items from BigBed files.
+- **Core Function**: Retrieves items by name from indexed BigBed files.
+- **Input**: BigBed file, name list.
+- **Output**: Matching items from BigBed file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data extraction, feature retrieval, annotation lookup.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Name Matching**: Requires exact name matching.
+- **Index Requirement**: Requires indexed BigBed file.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract named items
+**Args:** `bigBedNamedItems input.bb names.txt > output.bed`
+**Explanation:** Extract items by name from BigBed file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With output format
+**Args:** `bigBedNamedItems -format=bed input.bb names.txt > output.bed`
+**Explanation:** Extract with specified output format.

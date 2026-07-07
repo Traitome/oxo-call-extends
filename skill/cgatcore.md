@@ -1,30 +1,43 @@
 ---
 name: cgatcore
-category: utility
-description: CGAT : the Computational Genomics Analysis Toolkit
-tags: [cgatcore, utility]
+category: genomics
+description: Core library for the Computational Genomics Analysis Toolkit (CGAT)
+tags: [cgatcore, genomics, toolkit, bioinformatics, python]
 author: oxo-call-community
 source_url: "https://github.com/cgat-developers/cgat-core"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgatcore (v0.6.22) - CGAT : the Computational Genomics Analysis Toolkit
-- **Core Function**: CGAT : the Computational Genomics Analysis Toolkit
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgatcore`
+- **Tool Overview**: CGATCore is the core library for the Computational Genomics Analysis Toolkit, providing shared infrastructure for CGAT tools.
+- **Core Function**: Provides common utilities, workflow management, and data handling for genomic analysis pipelines.
+- **Features**: Workflow management, logging, configuration handling, and common bioinformatics utilities.
+- **Input**: Various bioinformatics data formats.
+- **Output**: Processed data and pipeline execution results.
+- **Application**: Foundation for building bioinformatics pipelines and tools.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgatcore`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Version Compatibility**: Must match CGAT-Apps version requirements.
+- **Dependency Management**: Requires careful management of dependencies.
+- **Configuration**: Complex pipelines require proper configuration setup.
+- **Python Version**: Requires specific Python version for compatibility.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Initialize CGAT pipeline
+**Args:** `cgat-core init pipeline_name`
+**Explanation:** Initializes a new CGAT pipeline.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Run pipeline
+**Args:** `cgat-core run pipeline.yml`
+**Explanation:** Executes a CGAT pipeline from configuration file.
+
+### Check dependencies
+**Args:** `cgat-core check`
+**Explanation:** Checks system dependencies and configuration.
+
+### Display help
+**Args:** `cgat-core --help`
+**Explanation:** Shows all available options and usage information.

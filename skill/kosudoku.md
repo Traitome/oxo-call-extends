@@ -1,30 +1,52 @@
 ---
 name: kosudoku
-category: programming
-description: kosudoku: a suite to rapidly create whole genome knockout collections for microorganisms
-tags: [kosudoku, programming]
+category: genetics
+description: Suite for creating whole genome knockout collections in microorganisms
+tags: [kosudoku, genetics, knockout, transposon, microbial-genetics]
 author: oxo-call-community
 source_url: "https://github.com/tuncK/kosudoku"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kosudoku v1.0 - kosudoku: a suite to rapidly create whole genome knockout collections for microorganisms.
-- **Core Function**: kosudoku: a suite to rapidly create whole genome knockout collections for microorganisms
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kosudoku`
+- **Whole Genome Knockout**: Creates comprehensive knockout collections
+- **Transposon Mutagenesis**: Uses transposon-based approaches
+- **Microbial Genetics**: Specialized for microorganisms
+- **High-throughput**: Enables large-scale knockout screening
+- **Sequencing Analysis**: Integrates with sequencing analysis
+- **Fitness Profiling**: Supports fitness profiling of mutants
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Insertion Bias**: Transposon insertion has sequence biases
+- **Essential Genes**: Essential genes cannot be knocked out
+- **Growth Conditions**: Knockout fitness depends on conditions
+- **Library Complexity**: Large libraries require careful QC
+- **Mapping Accuracy**: Accurate insertion site mapping is critical
+- **Statistical Analysis**: Requires proper statistical methods
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create knockout library
+**Args:** `kosudoku create -i genome.fasta -o library/`
+**Explanation:** Creates whole genome knockout library.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify transposon
+**Args:** `kosudoku create -i genome.fasta -tTn5 -o library/`
+**Explanation:** Uses Tn5 transposon for mutagenesis.
+
+### Analyze insertions
+**Args:** `kosudoku analyze -i library.saf -o results/`
+**Explanation:** Analyzes transposon insertion sites.
+
+### Fitness profiling
+**Args:** `kosudoku fitness -i library/ -c conditions.txt -o fitness.tsv`
+**Explanation:** Profiles fitness under different conditions.
+
+### Map insertions
+**Args:** `kosudoku map -i reads.fastq -g genome.fasta -o insertions.bed`
+**Explanation:** Maps transposon insertion locations.
+
+### Batch analysis
+**Args:** `kosudoku batch -d libraries/ -o results/`
+**Explanation:** Processes multiple knockout libraries.

@@ -1,30 +1,64 @@
 ---
 name: hippunfold-dev
 category: utility
-description: Meta-package that installs hippunfold with development dependencies.
-tags: [hippunfold-dev, utility]
+description: Meta-package that installs hippunfold with development dependencies for testing and development purposes.
+tags: [hippunfold-dev, development, neuroimaging, utility]
 author: oxo-call-community
 source_url: "https://github.com/khanlab/hippunfold"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hippunfold-dev (v2.0.0) - Meta-package that installs hippunfold with development dependencies.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hippunfold-dev`
+- **Development Environment**: Provides all dependencies needed for HippUnfold development.
+
+- **Meta-package**: Installs the main hippunfold package along with development tools.
+
+- **Testing Support**: Includes testing frameworks and dependencies.
+
+- **Debugging Tools**: Provides tools for debugging and profiling.
+
+- **Continuous Integration**: Supports CI/CD workflows for development.
+
+- **Pre-release Features**: May include unreleased features for testing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Unstable Features**: Development version may contain experimental or unstable features.
+
+- **Compatibility**: May not be compatible with production pipelines.
+
+- **Documentation**: Documentation may be incomplete for new features.
+
+- **Dependency Conflicts**: Development dependencies may conflict with other packages.
+
+- **Version Compatibility**: Ensure compatibility with other neuroimaging tools.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Install hippunfold-dev
+**Args:** `conda install -c bioconda hippunfold-dev`
+**Explanation:** Installs hippunfold with development dependencies.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Install in development mode
+**Args:** `pip install -e .[dev]`
+**Explanation:** Installs in editable mode with development extras.
+
+### Run tests
+**Args:** `pytest tests/`
+**Explanation:** Runs the test suite for hippunfold.
+
+### Build documentation
+**Args:** `sphinx-build docs/ docs/_build/html`
+**Explanation:** Builds the documentation locally.
+
+### Run with debug mode
+**Args:** `hippunfold /input/dir /output/dir participant --debug`
+**Explanation:** Runs HippUnfold with debug logging enabled.
+
+### Check version
+**Args:** `hippunfold --version`
+**Explanation:** Shows the installed version.
+
+### Help command
+**Args:** `hippunfold --help`
+**Explanation:** Shows available options and usage information.

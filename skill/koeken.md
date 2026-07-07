@@ -1,30 +1,52 @@
 ---
 name: koeken
-category: utility
-description: A Linear Discriminant Analysis (LEfSe) wrapper.
-tags: [koeken, utility]
+category: metagenomics
+description: Linear Discriminant Analysis (LEfSe) wrapper for biomarker discovery
+tags: [koeken, metagenomics, LEfSe, biomarker, LDA, statistical-analysis]
 author: oxo-call-community
 source_url: "https://github.com/twbattaglia/koeken"
 ---
 
 ## Concepts
 
-- **Tool Overview**: koeken v0.2.6 - A Linear Discriminant Analysis (LEfSe) wrapper..
-- **Core Function**: A Linear Discriminant Analysis (LEfSe) wrapper.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda koeken`
+- **LEfSe Analysis**: Implements Linear Discriminant Analysis Effect Size analysis
+- **Biomarker Discovery**: Identifies biomarkers that explain biological differences
+- **Statistical Testing**: Performs non-parametric statistical tests
+- **Effect Size Estimation**: Estimates magnitude of biological differences
+- **Visualization**: Generates plots for biomarker visualization
+- **Metagenomics Support**: Designed for microbiome and metagenomics data
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Sample Size**: Small sample sizes reduce statistical power
+- **Multiple Testing**: Requires correction for multiple comparisons
+- **Effect Size Thresholds**: Threshold selection affects biomarker identification
+- **Data Normalization**: Proper normalization is critical for accurate results
+- **Class Imbalance**: Imbalanced class sizes affect results
+- **Biological Interpretation**: Statistical significance doesn't always mean biological relevance
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run LEfSe analysis
+**Args:** `koeken -i abundance_table.tsv -c class.txt -o results/`
+**Explanation:** Performs LEfSe analysis on abundance data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify subclass
+**Args:** `koeken -i table.tsv -c class.txt -s subclass.txt -o results/`
+**Explanation:** Includes subclass variable in analysis.
+
+### Set LDA threshold
+**Args:** `koeken -i table.tsv -c class.txt -o results/ --lda 3.0`
+**Explanation:** Only reports features with LDA score >= 3.0.
+
+### Generate visualization
+**Args:** `koeken -i table.tsv -c class.txt -o results/ --plot`
+**Explanation:** Generates LDA effect size bar plot.
+
+### Export biomarkers
+**Args:** `koeken -i table.tsv -c class.txt -o results/ --export-biomarkers`
+**Explanation:** Exports list of identified biomarkers.
+
+### Batch processing
+**Args:** `koeken batch -d tables/ -o results/`
+**Explanation:** Processes multiple abundance tables.

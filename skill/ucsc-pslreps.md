@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslreps
-category: alignment
-description: Analyze repeats and generate genome-wide best alignments from a sorted set of local alignments.
-tags: [ucsc-pslreps, alignment]
+category: utility
+description: UCSC pslReps - Tool for repeat analysis from PSL.
+tags: [ucsc-pslreps, ucsc, psl, repeats, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslreps (v482) - Analyze repeats and generate genome-wide best alignments from a sorted set of local alignments.
-- **Core Function**: Analyze repeats and generate genome-wide best alignments from a sorted set of local alignments.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslreps`
+- **Tool Overview**: UCSC pslReps - A tool for repeat analysis from PSL alignments.
+- **Core Function**: Identifies and analyzes repeat elements.
+- **Input**: PSL file.
+- **Output**: Repeat analysis results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Repeat masking, genome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze repeats
+**Args:** `pslReps input.psl > repeats.txt`
+**Explanation:** Analyze repeat elements.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslReps -verbose input.psl > repeats.txt`
+**Explanation:** Detailed repeat analysis.

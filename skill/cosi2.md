@@ -1,30 +1,48 @@
 ---
 name: cosi2
 category: population-genomics
-description: cosi2 is an efficient coalescent simulator with support for selection, population structure, variable recombination rates, and gene conversion. It supports exact and approximate simulation modes.
-tags: [cosi2, population-genomics]
+description: Efficient coalescent simulator with selection and population structure support
+tags: [cosi2, coalescent-simulation, population-genetics, selection, recombination]
 author: oxo-call-community
 source_url: "https://www.broadinstitute.org/mpg/cosi2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cosi2 (v2.3.0rc4) - cosi2 is an efficient coalescent simulator with support for selection, population structure, variable recombination rates, and gene conversion. It supports exact and approximate simulation modes.
-- **Core Function**: cosi2 is an efficient coalescent simulator with support for selection, population structure, variable recombination rates, and gene conversion. It supports exact and approximate simulation modes.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cosi2`
+- **Tool Overview**: cosi2 is an efficient coalescent simulator that supports selection, population structure, variable recombination rates, and gene conversion, with both exact and approximate simulation modes.
+- **Core Function**: Simulates genetic variation under the coalescent model with various evolutionary forces.
+- **Algorithm**: Implements coalescent theory with extensions for selection, recombination, gene conversion, and population structure.
+- **Input**: Configuration file defining population parameters, demographic history, and simulation settings.
+- **Output**: Simulated genetic sequences, variant data in various formats (FASTA, VCF, etc.).
+- **Application**: Population genetics research, testing statistical methods, generating benchmark datasets.
+- **Installation**: Install via bioconda: `conda install -c bioconda cosi2`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Parameter Complexity**: Requires careful specification of demographic and selection parameters.
+- **Computational Time**: Exact simulation mode can be slow for large populations.
+- **Memory Usage**: May require significant memory for complex simulations.
+- **Approximation Accuracy**: Approximate mode trades accuracy for speed.
+- **Model Assumptions**: Results depend on correct specification of evolutionary model.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Basic simulation
+**Args:** `cosi2 -c config.txt -o output.vcf`
+**Explanation:** Runs simulation using configuration file and outputs VCF.
 
-### Basic usage
-**Args:** `-i genotypes.vcf -o analysis_dir`
-**Explanation:** Perform population genetics analysis
+### Approximate mode
+**Args:** `cosi2 -c config.txt -a -o output.vcf`
+**Explanation:** Uses approximate simulation mode for faster results.
+
+### Output FASTA format
+**Args:** `cosi2 -c config.txt -f fasta -o output.fasta`
+**Explanation:** Outputs simulated sequences in FASTA format.
+
+### Multiple replicates
+**Args:** `cosi2 -c config.txt -r 10 -o output_`
+**Explanation:** Runs 10 simulation replicates.
+
+### Display help
+**Args:** `cosi2 --help`
+**Explanation:** Shows all available options and usage information.

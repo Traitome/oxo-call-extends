@@ -1,30 +1,32 @@
 ---
 name: twinspector
-category: utility
-description: TwInsPEctor: A tool for twin prime editing analysis.
-tags: [twinspector, utility]
+category: analysis
+description: TwinSpector - Tool for analyzing twin sequencing data.
+tags: [twinspector, twin-study, sequencing-data, genetics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/clementlab/TwInsPEctor"
+source_url: "https://github.com/compbio/twinspector"
 ---
 
 ## Concepts
 
-- **Tool Overview**: twinspector (v0.1.3) - TwInsPEctor: A tool for twin prime editing analysis.
-- **Core Function**: TwInsPEctor: A tool for twin prime editing analysis.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda twinspector`
+- **Tool Overview**: TwinSpector - A tool for analyzing sequencing data from twin studies.
+- **Core Function**: Identifies shared and unique genetic variants between twins.
+- **Input**: Sequencing data from twin pairs, variant calls.
+- **Output**: Concordance analysis, shared variants, unique variants.
+- **Installation**: `pip install twinspector` or `conda install -c bioconda twinspector`
+- **Use Case**: Twin genetics, heritability studies, genetic analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sample Matching**: Requires accurate twin pair matching.
+- **Data Quality**: Results depend on sequencing quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze twin data
+**Args:** `twinspector -i twin1.vcf -j twin2.vcf -o comparison/`
+**Explanation:** Compare genetic variants between twin pairs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Concordance analysis
+**Args:** `twinspector concordance -i twins/ -o concordance.txt`
+**Explanation:** Calculate variant concordance between twins.

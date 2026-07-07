@@ -1,30 +1,32 @@
 ---
 name: virsorter
-category: utility
-description: VirSorter2 --  A multi-classifier, expert-guided approach to detect diverse DNA and RNA virus genomes
-tags: [virsorter, utility]
+category: bioinformatics
+description: VirSorter - Viral sequence identification.
+tags: [virsorter, viral-genomics, sequence-identification, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/jiarong/VirSorter2"
+source_url: "https://github.com/srouxjgi/virsorter"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virsorter (v2.2.4) - VirSorter2 --  A multi-classifier, expert-guided approach to detect diverse DNA and RNA virus genomes
-- **Core Function**: VirSorter2 --  A multi-classifier, expert-guided approach to detect diverse DNA and RNA virus genomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virsorter`
+- **Tool Overview**: VirSorter - Identifies viral sequences.
+- **Core Function**: Detects viral sequences in metagenomics data.
+- **Input**: Contig sequences.
+- **Output**: Viral sequence predictions.
+- **Installation**: Install via conda or source
+- **Use Case**: Virus discovery, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **False Positives**: May report false positives.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Identify viruses
+**Args:** `virsorter run -i contigs.fasta -o results/`
+**Explanation:** Identify viral sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virsorter run -i contigs.fasta -o results/ --threads 8`
+**Explanation:** Use 8 threads.

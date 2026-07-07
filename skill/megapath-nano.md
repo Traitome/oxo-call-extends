@@ -1,30 +1,48 @@
 ---
 name: megapath-nano
 category: qc
-description: MegaPath-Nano: Accurate Compositional Analysis and Drug-level Antimicrobial Resistance Detection Software for Oxford Nanopore Long-read Metagenomics; MegaPath-Nano-Amplicon: filtering module for metagenomic amplicon data; MegaPath-Nano-Amplicon: filtering module for metagenomic amplicon data
-tags: [megapath-nano, qc]
+description: Pathogen detection and AMR analysis for Oxford Nanopore long-read metagenomics.
+tags: [megapath-nano, nanopore, pathogen-detection]
 author: oxo-call-community
 source_url: "https://github.com/HKU-BAL/MegaPath-Nano"
 ---
 
 ## Concepts
 
-- **Tool Overview**: megapath-nano v2 - MegaPath-Nano: Accurate Compositional Analysis and Drug-level Antimicrobial Resistance Detection Software for Oxford Nanopore Long-read Metagenomics; MegaPath-Nano-Amplicon: filtering module for metagenomic amplicon data; MegaPath-Nano-Amplicon: filtering module for metagenomic amplicon data.
-- **Core Function**: MegaPath-Nano: Accurate Compositional Analysis and Drug-level Antimicrobial Resistance Detection Software for Oxford Nanopore Long-read Metagenomics; MegaPath-Nano-Amplicon: filtering module for metagenomic amplicon data; MegaPath-Nano-Amplicon: filtering module for metagenomic amplicon data
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MegaPath-Nano analyzes Nanopore metagenomic data.
+- **Core Function**: Detects pathogens and AMR from long-read data.
+- **Nanopore Optimization**: Optimized for long-read sequencing.
+- **Compositional Analysis**: Analyzes microbial composition.
+- **Drug-level AMR**: Detects drug-specific AMR profiles.
 - **Installation**: `conda install -c bioconda megapath-nano`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Data Quality**: Requires high-quality Nanopore data.
+- **Computation Time**: Slow for large datasets.
+- **Memory Requirements**: High memory usage.
+- **Basecalling Quality**: Depends on initial basecalling.
+- **False Positives**: May produce false positive detections.
+- **Database Updates**: Requires updated reference databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze Nanopore data
+**Args:** `megapath-nano -i reads.fastq -o results/`
+**Explanation:** Analyzes Nanopore metagenomic data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### AMR detection
+**Args:** `megapath-nano -i reads.fastq --amr -o results/`
+**Explanation:** Detects antimicrobial resistance.
+
+### Amplicon filtering
+**Args:** `megapath-nano-amplicon -i reads.fastq -o filtered.fastq`
+**Explanation:** Filters amplicon data for Nanopore.
+
+### Verbose mode
+**Args:** `megapath-nano -i reads.fastq -v -o results/`
+**Explanation:** Shows detailed processing information.
+
+### Help documentation
+**Args:** `megapath-nano --help`
+**Explanation:** Displays available options.

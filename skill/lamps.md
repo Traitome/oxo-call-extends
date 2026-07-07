@@ -1,30 +1,52 @@
 ---
 name: lamps
 category: annotation
-description: Liverpool Annotation of metabolites using Mass Spectrometry
-tags: [lamps, annotation]
+description: Liverpool Annotation of Metabolites using Mass Spectrometry
+tags: [lamps, annotation, metabolomics, mass-spectrometry, metabolite]
 author: oxo-call-community
-source_url: "https://pypi.org/project/lamps/"
+source_url: "https://github.com/MJW1860/LAMPS"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lamps v1.0.4 - Liverpool Annotation of metabolites using Mass Spectrometry.
-- **Core Function**: Liverpool Annotation of metabolites using Mass Spectrometry
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lamps`
+- **Metabolite Annotation**: Annotates metabolites from mass spectrometry data
+- **MS/MS Support**: Uses tandem mass spectrometry for identification
+- **Database Search**: Searches against metabolite databases
+- **Fragment Matching**: Matches fragment patterns for identification
+- **Confidence Scoring**: Provides confidence scores for annotations
+- **Metabolomics**: Designed for metabolomics workflows
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Spectral Quality**: Poor quality spectra give incorrect annotations
+- **Database Coverage**: Limited database coverage affects identification
+- **Isomers**: Structural isomers may have identical spectra
+- **Concentration Effects**: Ion suppression affects detection
+- **Fragmentation Energy**: Different energies produce different fragments
+- **Adduct Detection**: Multiple adducts complicate interpretation
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Annotate metabolites
+**Args:** `lamps -i spectrum.mgf -o results.csv`
+**Explanation:** Annotates metabolites from MS/MS spectra.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify database
+**Args:** `lamps -i spectrum.mgf -d hmdb.csv -o results.csv`
+**Explanation:** Uses HMDB metabolite database.
+
+### Set mass tolerance
+**Args:** `lamps -i spectrum.mgf -t 0.01 -o results.csv`
+**Explanation:** Sets 0.01 Da mass tolerance.
+
+### Filter by score
+**Args:** `lamps -i spectrum.mgf -s 0.8 -o results.csv`
+**Explanation:** Only keeps annotations with score >= 0.8.
+
+### Export report
+**Args:** `lamps -i spectrum.mgf -o results.csv --report`
+**Explanation:** Creates detailed annotation report.
+
+### Batch processing
+**Args:** `lamps batch -d spectra/ -o results/`
+**Explanation:** Processes multiple spectral files.

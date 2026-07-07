@@ -1,30 +1,52 @@
 ---
 name: logomaker
-category: utility
-description: Package for making Sequence Logos
-tags: [logomaker, utility]
+category: visualization
+description: logomaker - Python package for creating sequence logos
+tags: [logomaker, visualization, sequence-logo, python, bioinformatics]
 author: oxo-call-community
 source_url: "http://logomaker.readthedocs.io"
 ---
 
 ## Concepts
 
-- **Tool Overview**: logomaker v0.8 - Package for making Sequence Logos.
-- **Core Function**: Package for making Sequence Logos
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda logomaker`
+- **Sequence Logos**: Visual representation of sequence alignments
+- **Python Package**: Python-based logo generation
+- **Information Content**: Shows information content at each position
+- **Multiple Formats**: Supports various input/output formats
+- **Customization**: High degree of logo customization
+- **Publication Quality**: Publication-quality figures
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Alignment Quality**: Poor quality alignments affect logos
+- **Memory Usage**: Memory-intensive for large alignments
+- **Customization Complexity**: May require significant customization
+- **Dependency Management**: Requires proper dependency management
+- **Output Format**: Limited output formats available
+- **Performance**: May be slow for large datasets
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create logo from matrix
+**Args:** `import logomaker; logo = logomaker.Logo(matrix); logo.ax.set_title('Sequence Logo')`
+**Explanation:** Creates sequence logo from matrix.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Save logo
+**Args:** `logo.savefig('logo.png', dpi=300)`
+**Explanation:** Saves logo to PNG file.
+
+### Custom colors
+**Args:** `logo = logomaker.Logo(matrix, color_scheme='classic')`
+**Explanation:** Uses classic color scheme.
+
+### Logo size
+**Args:** `logo.style_spines(visible=False); logo.style_xticks(rotation=90)`
+**Explanation:** Customizes logo appearance.
+
+### Information content
+**Args:** `logo = logomaker.Logo(matrix, width_per_position=0.8)`
+**Explanation:** Sets custom width per position.
+
+### Stacked logo
+**Args:** `logo = logomaker.Logo(matrix, stack_order='biggest_on_top')`
+**Explanation:** Stacks letters by size.

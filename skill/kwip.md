@@ -1,31 +1,52 @@
 ---
 name: kwip
 category: population-genomics
-description: kWIP implements a de novo, alignment free measure of sample genetic dissimilarity
-tags: [kwip, population-genomics, alignment]
+description: De novo alignment-free genetic dissimilarity measure using k-mer weighted inner products
+tags: [kwip, population-genomics, k-mer, genetic-dissimilarity, alignment-free]
 author: oxo-call-community
 source_url: "https://github.com/kdmurray91/kWIP"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kwip v0.2.0 - kWIP implements a de novo, alignment free measure of sample genetic dissimilarity.
-- **Core Function**: kWIP implements a de novo, alignment free measure of sample genetic dissimilarity
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kwip`
+- **K-mer Weights**: Uses weighted k-mer counts for analysis
+- **Alignment-free**: No sequence alignment required
+- **Genetic Dissimilarity**: Measures genetic dissimilarity between samples
+- **De novo Analysis**: Works without reference genome
+- **Population Genomics**: Designed for population-level analysis
+- **Fast Computation**: Efficient k-mer based computation
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **K-mer Size**: K-mer size affects dissimilarity estimates
+- **Hash Independence**: Different hash functions give different results
+- **Sample Depth**: Coverage differences affect k-mer counts
+- **Genome Size**: Large genomes need more k-mers
+- **Memory Usage**: Large populations require significant memory
+- **Normalization**: Proper normalization is critical
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Compute distance matrix
+**Args:** `kwip -k hash1.kwip -k hash2.kwip -o dist_matrix.txt`
+**Explanation:** Computes weighted inner product distance.
 
-### Compute distance
-**Args:** `kwip -k hash1.kh -k hash2.kh -o dist_matrix.txt`
-**Explanation:** Computes weighted inner product distance between samples.
+### Create hash files
+**Args:** `kwip hash -i sample1.fastq -o sample1.kwip`
+**Explanation:** Creates k-mer hash for a sample.
 
+### Batch distance computation
+**Args:** `kwip dist -k samples.txt -o distance_matrix.tsv`
+**Explanation:** Computes distances for multiple samples.
+
+### Specify k-mer size
+**Args:** `kwip hash -i sample.fastq -k 21 -o sample.kwip`
+**Explanation:** Uses k-mer size of 21 for hashing.
+
+### Export tree
+**Args:** `kwip tree -i distance_matrix.tsv -o phylogeny.nwk`
+**Explanation:** Generates neighbor-joining tree.
+
+### Filter k-mers
+**Args:** `kwip hash -i sample.fastq --min-count 5 -o filtered.kwip`
+**Explanation:** Only includes k-mers with count >= 5.

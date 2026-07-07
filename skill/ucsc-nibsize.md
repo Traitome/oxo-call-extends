@@ -1,30 +1,32 @@
 ---
 name: ucsc-nibsize
 category: utility
-description: Print size of nibs.
-tags: [ucsc-nibsize, utility]
+description: UCSC nibSize - Tool for getting nib file sizes.
+tags: [ucsc-nibsize, ucsc, nib, size, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-nibsize (v482) - Print size of nibs.
-- **Core Function**: Print size of nibs.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-nibsize`
+- **Tool Overview**: UCSC nibSize - A tool for getting nib file sizes.
+- **Core Function**: Reports the size of nib files.
+- **Input**: Nib file.
+- **Output**: Size information.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: File management, data analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper nib format.
+- **File Access**: Requires file read permissions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Get nib size
+**Args:** `nibSize input.nib`
+**Explanation:** Get nib file size.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `nibSize -verbose input.nib`
+**Explanation:** Get detailed size information.

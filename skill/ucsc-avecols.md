@@ -1,30 +1,32 @@
 ---
 name: ucsc-avecols
 category: utility
-description: Average together columns.
-tags: [ucsc-avecols, utility]
+description: UCSC aveCols - Tool for averaging columns in tab-delimited files.
+tags: [ucsc-avecols, ucsc, data-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-avecols (v482) - Average together columns.
-- **Core Function**: Average together columns.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-avecols`
+- **Tool Overview**: UCSC aveCols - A tool for calculating averages across columns in tab-delimited files.
+- **Core Function**: Computes average values for specified columns.
+- **Input**: Tab-delimited file with numeric columns.
+- **Output**: File with averaged columns.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data analysis, statistics, genomics data processing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Numeric Data**: Requires numeric column data.
+- **Missing Values**: May handle missing values differently.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Average columns
+**Args:** `aveCols -cols=2-5 input.txt > output.txt`
+**Explanation:** Calculate average of columns 2-5.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Weighted average
+**Args:** `aveCols -cols=3 -weights=weights.txt input.txt > result.txt`
+**Explanation:** Calculate weighted average of column 3.

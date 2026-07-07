@@ -1,30 +1,32 @@
 ---
 name: ucsc-nibfrag
 category: utility
-description: Extract part of a nib file as .fa (all bases/gaps lower case by default).
-tags: [ucsc-nibfrag, utility]
+description: UCSC nibFrag - Tool for extracting nib fragments.
+tags: [ucsc-nibfrag, ucsc, nib, sequence, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-nibfrag (v482) - Extract part of a nib file as .fa (all bases/gaps lower case by default).
-- **Core Function**: Extract part of a nib file as .fa (all bases/gaps lower case by default).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-nibfrag`
+- **Tool Overview**: UCSC nibFrag - A tool for extracting fragments from nib files.
+- **Core Function**: Extracts sequence fragments from nib format.
+- **Input**: Nib file, coordinates.
+- **Output**: Sequence fragment.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence extraction, genome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper nib format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract nib fragment
+**Args:** `nibFrag input.nib chr1:1000-2000 > fragment.fa`
+**Explanation:** Extract sequence fragment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `nibFrag -verbose input.nib chr1:1000-2000 > fragment.fa`
+**Explanation:** Extract with verbose output.

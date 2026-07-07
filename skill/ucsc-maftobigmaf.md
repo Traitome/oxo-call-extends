@@ -1,30 +1,32 @@
 ---
 name: ucsc-maftobigmaf
-category: formatting
-description: Put ucsc standard maf file into bigMaf format.
-tags: [ucsc-maftobigmaf, formatting]
+category: utility
+description: UCSC mafToBigMaf - Tool for converting MAF to bigMaf.
+tags: [ucsc-maftobigmaf, ucsc, maf, bigmaf, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maftobigmaf (v482) - Put ucsc standard maf file into bigMaf format.
-- **Core Function**: Put ucsc standard maf file into bigMaf format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maftobigmaf`
+- **Tool Overview**: UCSC mafToBigMaf - A tool for converting MAF to bigMaf format.
+- **Core Function**: Converts MAF alignments to binary bigMaf format.
+- **Input**: MAF file, chrom.sizes file.
+- **Output**: bigMaf binary file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser tracks, data compression.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chromosome Sizes**: Requires chrom.sizes file.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert MAF to bigMaf
+**Args:** `mafToBigMaf input.maf chrom.sizes > output.bb`
+**Explanation:** Convert MAF to bigMaf format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafToBigMaf -name=alignments input.maf chrom.sizes > output.bb`
+**Explanation:** Add track name.

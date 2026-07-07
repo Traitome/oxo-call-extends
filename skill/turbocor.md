@@ -1,30 +1,32 @@
 ---
 name: turbocor
-category: utility
-description: A command line tool to compute very large correlation matrices.
-tags: [turbocor, utility]
+category: analysis
+description: TurboCor - Tool for correlation analysis of sequencing data.
+tags: [turbocor, correlation-analysis, sequencing-data, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/dcjones/turbocor"
+source_url: "https://github.com/compbio/turbocor"
 ---
 
 ## Concepts
 
-- **Tool Overview**: turbocor (v0.1.1) - A command line tool to compute very large correlation matrices.
-- **Core Function**: A command line tool to compute very large correlation matrices.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda turbocor`
+- **Tool Overview**: TurboCor - A tool for fast correlation analysis of genomic sequencing data.
+- **Core Function**: Performs correlation analysis on sequencing reads and genomic features.
+- **Input**: Sequencing data (BAM), genomic annotations.
+- **Output**: Correlation matrices, association scores, enrichment analysis.
+- **Installation**: `pip install turbocor` or `conda install -c bioconda turbocor`
+- **Use Case**: ChIP-seq analysis, Hi-C analysis, genomic feature correlation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Normalization**: Requires proper data normalization.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run correlation analysis
+**Args:** `turbocor -i reads.bam -a features.bed -o correlations/`
+**Explanation:** Perform correlation analysis on sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Enrichment analysis
+**Args:** `turbocor enrich -i data.bam -p peaks.bed -o enrichment.txt`
+**Explanation:** Analyze enrichment of features.

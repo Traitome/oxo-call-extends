@@ -1,22 +1,56 @@
 ---
 name: npyscreen
-category: utility
-description: Writing user interfaces without all that ugly mucking about in hyperspace
-tags: [npyscreen, utility]
+category: programming
+description: npyscreen is a Python library for creating text-based user interfaces (TUI).
+tags: [npyscreen, programming, tui, user-interface]
 author: oxo-call-community
 source_url: "http://www.npcole.com/npyscreen/"
 ---
 
 ## Concepts
-- **Tool Overview**: Writing user interfaces without all that ugly mucking about in hyperspace
-- **Core Function**: Processes bioinformatics data for utility tasks.
-- **Input/Output**: Standard bioinformatics formats (FASTA/FASTQ, BAM, VCF, etc.).
-- **Installation**: `conda install -c bioconda npyscreen`
+
+- **Tool Overview**: npyscreen provides components for building text-based user interfaces.
+- **Core Function**: Creates interactive terminal applications with forms and widgets.
+- **Algorithm**: Implements TUI components with event-driven architecture.
+- **Input Format**: Accepts Python code for UI definition.
+- **Output**: Produces interactive terminal interfaces.
+- **Use Case**: Terminal applications, command-line tools, and interactive scripts.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Terminal Compatibility**: Requires terminal with proper ANSI support.
+- **Learning Curve**: May require learning new API.
+- **Limited Features**: Less feature-rich than GUI frameworks.
+- **Documentation**: Limited documentation.
+- **Cross-platform**: May have platform-specific issues.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Install package
+**Args:** `pip install npyscreen`
+**Explanation:** Installs npyscreen package.
+
+### Import module
+**Args:** `import npyscreen`
+**Explanation:** Imports npyscreen module.
+
+### Create application
+**Args:** `class MyApp(npyscreen.NPSAppManaged): pass`
+**Explanation:** Creates basic application class.
+
+### Add form
+**Args:** `self.addForm('MAIN', npyscreen.Form, name='My App')`
+**Explanation:** Adds main form to application.
+
+### Add widget
+**Args:** `self.addWidget(npyscreen.TitleText, name='Name:')`
+**Explanation:** Adds text input widget.
+
+### Run application
+**Args:** `MyApp().run()`
+**Explanation:** Runs the application.
+
+### Modal dialog
+**Args:** `npyscreen.notify_confirm('Hello World')`
+**Explanation:** Shows confirmation dialog.

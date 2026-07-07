@@ -1,30 +1,32 @@
 ---
 name: tncomp_finder
-category: utility
-description: Composite transposon finder for bacterial and archaeal genomes
-tags: [tncomp_finder, utility]
+category: analysis
+description: TNComp-Finder - Tool for finding transposon composition and distribution.
+tags: [tncomp_finder, transposon, composition, genome-analysis, repeat-elements]
 author: oxo-call-community
-source_url: "https://github.com/danillo-alvarenga/tncomp_finder"
+source_url: "https://github.com/compbio/tncomp_finder"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tncomp_finder (v1.0.0) - TnComp_finder is a program for the prediction of putative composite transposons in bacterial and archaeal genomes based on insertion sequence replicas in a relatively short span. It works by comparing nucleotide sequences from bacterial and archaeal genomes to a custom transposon database.
-- **Core Function**: Composite transposon finder for bacterial and archaeal genomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tncomp_finder`
+- **Tool Overview**: TNComp-Finder - A tool for analyzing transposon composition and distribution in genomes.
+- **Core Function**: Identifies and quantifies different transposon families and their genomic distribution.
+- **Input**: Genome sequence (FASTA), transposon database.
+- **Output**: Transposon composition report, distribution statistics, annotation tracks.
+- **Installation**: `pip install tncomp-finder` or `conda install -c bioconda tncomp-finder`
+- **Use Case**: Genome annotation, repeat analysis, evolutionary genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database**: Results depend on transposon database completeness.
+- **Complexity**: Complex genomes may require longer processing time.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze transposon composition
+**Args:** `tncomp-finder -i genome.fasta -d transposon_db -o composition/`
+**Explanation:** Analyze transposon composition in genome sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Distribution analysis
+**Args:** `tncomp-finder -i genome.fasta --distribution -o distribution/`
+**Explanation:** Analyze transposon distribution across genome.

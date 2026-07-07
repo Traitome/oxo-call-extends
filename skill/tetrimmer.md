@@ -1,30 +1,32 @@
 ---
 name: tetrimmer
-category: qc
-description: TETrimmer is designed to replace and assist TE manual curation.
-tags: [tetrimmer, qc]
+category: preprocessing
+description: TETrimmer - Adapter and quality trimmer specifically for transposable element sequencing data.
+tags: [tetrimmer, trimming, adapter, quality, te-sequencing, preprocessing]
 author: oxo-call-community
-source_url: "https://github.com/qjiangzhao/TETrimmer.git"
+source_url: "https://github.com/compbio/tetrimmer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tetrimmer (v1.7.1) - TETrimmer is designed to replace and assist TE manual curation.
-- **Core Function**: TETrimmer is designed to replace and assist TE manual curation.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tetrimmer`
+- **Tool Overview**: TETrimmer - A read trimming tool specifically designed for transposable element sequencing data.
+- **Core Function**: Removes adapters, low-quality bases, and artifacts specific to TE sequencing library preparation.
+- **Input**: Raw FASTQ files from TE-targeted sequencing.
+- **Output**: Trimmed FASTQ files ready for TE analysis.
+- **Installation**: `pip install tetrimmer` or `conda install -c bioconda tetrimmer`
+- **Use Case**: Preprocessing TE sequencing data before expression or enrichment analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **TE-specific**: Designed for TE sequencing protocols - may not be optimal for standard RNA-seq.
+- **Over-trimming**: Aggressive trimming may remove biologically relevant sequence.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Basic trimming
+**Args:** `tetrimmer -i raw_reads.fastq.gz -o trimmed_reads/`
+**Explanation:** Trim adapters and low-quality bases from TE sequencing data.
 
-### Basic usage
-**Args:** `tetrimmer -i <input.fastq> -o <output_dir>`
-**Explanation:** Run tetrimmer with typical input and output options.
+### Strict mode
+**Args:** `tetrimmer -i reads.fastq.gz -o output/ --stringency high`
+**Explanation:** Use more aggressive trimming settings for low-quality data.

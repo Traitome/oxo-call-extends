@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadout
 category: utility
-description: Load RepeatMasker .out files into database.
-tags: [ucsc-hgloadout, utility]
+description: UCSC hgLoadOut - Tool for loading out data into database.
+tags: [ucsc-hgloadout, ucsc, database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadout (v482) - Load RepeatMasker .out files into database.
-- **Core Function**: Load RepeatMasker .out files into database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadout`
+- **Tool Overview**: UCSC hgLoadOut - A tool for loading out data into database.
+- **Core Function**: Loads out data tables into genome browser database.
+- **Input**: Out data file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, data loading, annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load out data
+**Args:** `hgLoadOut -db=hg38 -table=out input.txt`
+**Explanation:** Load out data to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadOut -db=hg38 -table=out -verbose input.txt`
+**Explanation:** Load with verbose output.

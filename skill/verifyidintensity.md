@@ -1,30 +1,32 @@
 ---
 name: verifyidintensity
-category: utility
-description: verifyIDintensity detects and estimates sample contamination using intensity data from Illumina genotyping arrays.
-tags: [verifyidintensity, utility]
+category: bioinformatics
+description: verifyidintensity - Intensity verification tool.
+tags: [verifyidintensity, intensity-analysis, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "https://genome.sph.umich.edu/wiki/VerifyIDintensity"
+source_url: "https://github.com/verifyidintensity/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: verifyidintensity (v0.0.1) - verifyIDintensity detects and estimates sample contamination using intensity data from Illumina genotyping arrays.
-- **Core Function**: verifyIDintensity detects and estimates sample contamination using intensity data from Illumina genotyping arrays.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda verifyidintensity`
+- **Tool Overview**: verifyidintensity - Verifies intensity data.
+- **Core Function**: Validates intensity values in microarray data.
+- **Input**: Intensity data file.
+- **Output**: Verification report.
+- **Installation**: Install via pip or conda
+- **Use Case**: Quality control, microarray analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Data Format**: Requires specific input format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Verify intensity
+**Args:** `verifyidintensity -i intensity.txt -o report.txt`
+**Explanation:** Verify intensity data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `verifyidintensity -i intensity.txt -o report.txt -t 0.95`
+**Explanation:** Set threshold.

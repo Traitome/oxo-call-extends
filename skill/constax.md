@@ -1,30 +1,44 @@
 ---
 name: constax
 category: metagenomics
-description: A software for accurate taxonomic classification of environmental DNA markers
-tags: [constax, metagenomics]
+description: Taxonomic classification of environmental DNA markers
+tags: [constax, metagenomics, taxonomic-classification, dna-markers, environmental-dna]
 author: oxo-call-community
 source_url: "https://constax.readthedocs.io/en/latest/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: constax (v2.0.20) - A software for accurate taxonomic classification of environmental DNA markers
-- **Core Function**: A software for accurate taxonomic classification of environmental DNA markers
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda constax`
+- **Tool Overview**: ConstaX is a software tool for accurate taxonomic classification of environmental DNA markers, designed for metabarcoding and environmental DNA analysis.
+- **Core Function**: Classifies DNA marker sequences (such as 16S rRNA, ITS, or COI) into taxonomic groups using reference databases.
+- **Algorithm**: Uses k-mer based matching and machine learning approaches for taxonomic assignment.
+- **Input**: DNA marker sequences in FASTA format.
+- **Output**: Taxonomic classifications with confidence scores.
+- **Application**: Environmental DNA studies, microbiome analysis, and biodiversity assessment.
+- **Installation**: Install via bioconda: `conda install -c bioconda constax`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Reference Database**: Classification accuracy depends on database completeness.
+- **Marker Region**: Different marker regions require specific databases.
+- **Sequence Quality**: Poor quality sequences reduce classification accuracy.
+- **Threshold Settings**: Confidence thresholds affect sensitivity and specificity.
+- **Novel Taxa**: May misclassify novel or underrepresented taxa.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Classify DNA markers
+**Args:** `constax classify -i sequences.fasta -o classifications.txt`
+**Explanation:** Performs taxonomic classification on DNA marker sequences.
 
-### Basic usage
-**Args:** `-i contigs.fasta -o bins_dir`
-**Explanation:** Perform metagenomic analysis
+### With custom database
+**Args:** `constax classify -i sequences.fasta -d custom_db/ -o classifications.txt`
+**Explanation:** Uses custom reference database for classification.
+
+### With confidence threshold
+**Args:** `constax classify -i sequences.fasta -t 0.8 -o classifications.txt`
+**Explanation:** Sets 80% confidence threshold for taxonomic assignments.
+
+### Display help
+**Args:** `constax --help`
+**Explanation:** Shows all available options and usage information.

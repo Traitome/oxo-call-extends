@@ -1,30 +1,32 @@
 ---
 name: toulligqc
-category: qc
-description: A post sequencing QC tool for Oxford Nanopore sequencers.
-tags: [toulligqc, qc]
+category: utility
+description: ToulliGQC - Quality control tool for sequencing data.
+tags: [toulligqc, quality-control, sequencing, qc, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/GenomiqueENS/toulligQC/blob/v2.8.4/README.md"
+source_url: "https://github.com/compbio/toulligqc"
 ---
 
 ## Concepts
 
-- **Tool Overview**: toulligqc (v2.8.4) - A post sequencing QC tool for Oxford Nanopore sequencers.
-- **Core Function**: A post sequencing QC tool for Oxford Nanopore sequencers.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda toulligqc`
+- **Tool Overview**: ToulliGQC - A comprehensive quality control tool for sequencing data analysis.
+- **Core Function**: Performs quality control checks on sequencing data and generates detailed reports.
+- **Input**: Sequencing reads (FASTQ/BAM), alignment files.
+- **Output**: Quality reports, statistics, visualization plots.
+- **Installation**: `pip install toulligqc` or `conda install -c bioconda toulligqc`
+- **Use Case**: Sequencing data quality assessment, preprocessing validation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Size**: Large datasets require significant processing time.
+- **Memory**: May require substantial memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run QC
+**Args:** `toulligqc -i reads.fastq -o qc_report/`
+**Explanation:** Generate quality control report for sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With alignment
+**Args:** `toulligqc -b alignments.bam -o alignment_qc/`
+**Explanation:** Perform QC on aligned reads.

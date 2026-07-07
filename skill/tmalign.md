@@ -1,30 +1,32 @@
 ---
 name: tmalign
-category: alignment
-description: TM-align sequence-order independent protein structure alignment.
-tags: [tmalign, alignment]
+category: analysis
+description: TMalign - Protein structure alignment tool for comparing protein structures.
+tags: [tmalign, protein-structure, alignment, structural-biology, pdb]
 author: oxo-call-community
-source_url: "https://aideepmed.com/TM-align"
+source_url: "https://zhanggroup.org/TM-align/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tmalign (v20240303) - TM-align sequence-order independent protein structure alignment.
-- **Core Function**: TM-align sequence-order independent protein structure alignment.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tmalign`
+- **Tool Overview**: TMalign - A tool for aligning protein structures and calculating structural similarity.
+- **Core Function**: Performs structural alignment of protein structures and calculates TM-score for similarity measurement.
+- **Input**: Protein structure files (PDB format).
+- **Output**: Structural alignment, TM-score, RMSD, aligned structures.
+- **Installation**: Download from official website, compile from source
+- **Use Case**: Protein structure comparison, fold recognition, structural genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Structure Quality**: Alignment quality depends on input structure resolution.
+- **Sequence Length**: Works best with structures of similar size.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align two structures
+**Args:** `TMalign protein1.pdb protein2.pdb`
+**Explanation:** Align two protein structures and calculate TM-score.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Output aligned structure
+**Args:** `TMalign structure1.pdb structure2.pdb -o aligned.pdb`
+**Explanation:** Align structures and output aligned PDB file.

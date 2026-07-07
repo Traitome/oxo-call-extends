@@ -1,30 +1,32 @@
 ---
 name: valet
-category: metagenomics
-description: Pipeline for detecting mis-assemblies in metagenomic assemblies
-tags: [valet, metagenomics]
+category: bioinformatics
+description: VALET - Variant Analysis and Locus Evaluation Tool.
+tags: [valet, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/marbl/VALET"
+source_url: "https://github.com/valet/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: valet (v1.0) - Pipeline for detecting mis-assemblies in metagenomic assemblies
-- **Core Function**: Pipeline for detecting mis-assemblies in metagenomic assemblies
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda valet`
+- **Tool Overview**: VALET - A tool for variant analysis and locus evaluation.
+- **Core Function**: Evaluates and annotates genomic loci.
+- **Input**: Variant file (VCF).
+- **Output**: Evaluated variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, clinical genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Annotation Requirements**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Evaluate variants
+**Args:** `valet -i variants.vcf -o evaluated.txt`
+**Explanation:** Evaluate genomic variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `valet -i variants.vcf -o evaluated.txt -d clinvar`
+**Explanation:** Use ClinVar database.

@@ -1,30 +1,52 @@
 ---
 name: libgtextutils
 category: programming
-description: Gordon Text utils Library
-tags: [libgtextutils, programming]
+description: Gordon Text Utils - C++ library for text processing
+tags: [libgtextutils, programming, text-processing, C++, utilities]
 author: oxo-call-community
 source_url: "https://github.com/agordon/libgtextutils"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libgtextutils v0.7 - Gordon Text utils Library.
-- **Core Function**: Gordon Text utils Library
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libgtextutils`
+- **Text Processing**: Utilities for text manipulation and parsing
+- **String Operations**: String handling and manipulation functions
+- **File I/O**: Text file reading and writing utilities
+- **Tokenization**: Text tokenization and parsing
+- **Data Conversion**: Conversion between text formats
+- **Unicode Support**: Handling of Unicode text
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Management**: Manual memory handling required in C++
+- **Encoding Issues**: Requires proper character encoding handling
+- **Buffer Overflow**: Risk of buffer overflow with large inputs
+- **Error Handling**: Requires careful error checking
+- **Thread Safety**: Not thread-safe by default
+- **Performance**: May require optimization for large text files
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Read text file
+**Args:** `gtextutils read -i input.txt -o output.dat`
+**Explanation:** Reads text file into internal format.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Write text file
+**Args:** `gtextutils write -i input.dat -o output.txt`
+**Explanation:** Writes text data to file.
+
+### Tokenize text
+**Args:** `gtextutils tokenize -i input.txt -o tokens.txt`
+**Explanation:** Tokenizes text into words.
+
+### Count lines
+**Args:** `gtextutils count -i input.txt`
+**Explanation:** Counts lines in text file.
+
+### Search pattern
+**Args:** `gtextutils grep -i input.txt -p pattern`
+**Explanation:** Searches for pattern in text.
+
+### Replace text
+**Args:** `gtextutils replace -i input.txt -o output.txt -f old -r new`
+**Explanation:** Replaces text patterns.

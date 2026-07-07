@@ -1,30 +1,52 @@
 ---
 name: libopenms
-category: utility
-description: Libraries and headers for developing with OpenMS. They are also a dependency of pyopenms and openms (tools).
-tags: [libopenms, utility]
+category: proteomics
+description: OpenMS libraries for mass spectrometry data analysis
+tags: [libopenms, proteomics, mass-spectrometry, OpenMS, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/OpenMS/OpenMS"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libopenms v3.5.0 - Libraries and headers for developing with OpenMS. They are also a dependency of pyopenms and openms (tools)..
-- **Core Function**: Libraries and headers for developing with OpenMS. They are also a dependency of pyopenms and openms (tools).
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libopenms`
+- **Mass Spectrometry**: Analysis of mass spectrometry data
+- **Proteomics**: Protein identification and quantification
+- **Peptide Identification**: Peptide sequence identification
+- **Data Processing**: Raw data processing and analysis
+- **File Formats**: Support for various MS file formats
+- **Bioinformatics Pipeline**: Integrated analysis workflows
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Complex API**: Steep learning curve
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Resources**: Requires significant compute resources
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Version Compatibility**: API may change between versions
+- **Documentation**: Limited documentation available
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Read MS data
+**Args:** `openms read -i data.mzML -o data.dat`
+**Explanation:** Reads mass spectrometry data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Identify peptides
+**Args:** `openms identify -i data.dat -d database.fasta -o identifications.txt`
+**Explanation:** Identifies peptides from MS data.
+
+### Quantify proteins
+**Args:** `openms quantify -i identifications.txt -o quantification.txt`
+**Explanation:** Quantifies protein abundances.
+
+### Filter peaks
+**Args:** `openms filter -i data.dat -o filtered.dat`
+**Explanation:** Filters mass spectrometry peaks.
+
+### Generate report
+**Args:** `openms report -i identifications.txt -o report.pdf`
+**Explanation:** Generates analysis report.
+
+### Convert format
+**Args:** `openms convert -i data.mzXML -o data.mzML`
+**Explanation:** Converts between MS file formats.

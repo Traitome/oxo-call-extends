@@ -1,30 +1,64 @@
 ---
 name: sweepfinder2
-category: variant-calling
-description: A program written in C that can perform genomic scans for recent selective sweeps selection while controlling for background selection and mutation rate variation.
-tags: [sweepfinder2, variant-calling]
+category: population-genetics
+description: Program for detecting recent selective sweeps in genomic data.
+tags: [sweepfinder2, selective-sweeps, population-genetics, natural-selection]
 author: oxo-call-community
 source_url: "https://degiorgiogroup.fau.edu/sf2.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sweepfinder2 (v1.0) - A program written in C that can perform genomic scans for recent selective sweeps selection while controlling for background selection and mutation rate variation.
-- **Core Function**: A program written in C that can perform genomic scans for recent selective sweeps selection while controlling for background selection and mutation rate variation.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sweepfinder2`
+- **Tool Overview**: sweepfinder2 (v1.0) detects recent selective sweeps in populations.
+- **Core Function**: Identifies regions under positive selection in genomes.
+- **Algorithm**: Uses composite likelihood ratio test for sweep detection.
+- **Input/Output**: Input: SNP data, recombination map; Output: Sweep scores.
+- **Applications**: Population genetics, evolutionary biology, selection detection.
+- **Installation**: `conda install -c bioconda sweepfinder2` or download from website.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Requirements**: Large datasets require significant memory.
+- **Computational Time**: Analyzing large genomes can be slow.
+- **Parameter Tuning**: Incorrect parameters affect detection.
+- **Input Quality**: Requires high-quality SNP data.
+- **Recombination Map**: Requires accurate recombination rate estimates.
+- **Population Structure**: May be affected by population structure.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `sweepfinder2 --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `sweepfinder2 -i <input.bam> -r <reference.fasta> -o <output.vcf>`
-**Explanation:** Run sweepfinder2 with typical input and output options.
+### Basic sweep detection
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt`
+**Explanation:** Detect selective sweeps from SNP data.
+
+### With window size
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt -w 10000`
+**Explanation:** Use window size of 10kb.
+
+### Verbose mode
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt -v`
+**Explanation:** Run with detailed logging for debugging.
+
+### Output statistics
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt --stats`
+**Explanation:** Generate statistics about sweep detection.
+
+### Batch processing
+**Args:** `for chr in chr1 chr2 chr3; do sweepfinder2 -i ${chr}_snps.txt -r recombination.txt -o ${chr}_scores.txt; done`
+**Explanation:** Process multiple chromosomes.
+
+### Filter by significance
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt -p 0.05`
+**Explanation:** Filter by p-value threshold.
+
+### Include neutral regions
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt -n neutral.txt`
+**Explanation:** Use neutral regions for normalization.
+
+### Generate report
+**Args:** `sweepfinder2 -i snps.txt -r recombination.txt -o scores.txt --report`
+**Explanation:** Generate comprehensive HTML report.

@@ -1,30 +1,48 @@
 ---
 name: meraculous
 category: assembly
-description: Meraculous is a whole genome assembler for Next Generation Sequencing data, geared for large genomes. It's hybrid k-mer/read-based approach capitalizes on the high accuracy of Illumina sequence by eschewing an explicit error correction step which we argue to be redundant with the assembly process. Meraculous achieves high performance with large datasets by utilizing lightweight data structures and multi-threaded parallelization, allowing to assemble human-sized genomes on a high-cpu cluster in under a day. The process pipeline implements a highly transparent and portable model of job control and monitoring where different assembly stages can be executed and re-executed separately or in unison on a wide variety of architectures.
-tags: [meraculous, assembly]
+description: Whole genome assembler for large genomes using hybrid k-mer/read-based approach.
+tags: [meraculous, genome-assembly, large-genomes]
 author: oxo-call-community
 source_url: "https://jgi.doe.gov/data-and-tools/meraculous/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: meraculous v2.2.6 - Meraculous is a whole genome assembler for Next Generation Sequencing data, geared for large genomes. It's hybrid k-mer/read-based approach capitalizes on the high accuracy of Illumina sequence by eschewing an explicit error correction step which we argue to be redundant with the assembly process. Meraculous achieves high performance with large datasets by utilizing lightweight data structures and multi-threaded parallelization, allowing to assemble human-sized genomes on a high-cpu cluster in under a day. The process pipeline implements a highly transparent and portable model of job control and monitoring where different assembly stages can be executed and re-executed separately or in unison on a wide variety of architectures..
-- **Core Function**: Meraculous is a whole genome assembler for Next Generation Sequencing data, geared for large genomes. It's hybrid k-mer/read-based approach capitalizes on the high accuracy of Illumina sequence by eschewing an explicit error correction step which we argue to be redundant with the assembly process. Meraculous achieves high performance with large datasets by utilizing lightweight data structures and multi-threaded parallelization, allowing to assemble human-sized genomes on a high-cpu cluster in under a day. The process pipeline implements a highly transparent and portable model of job control and monitoring where different assembly stages can be executed and re-executed separately or in unison on a wide variety of architectures.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Meraculous assembles large genomes using Illumina sequencing data.
+- **Core Function**: Whole genome assembly for large eukaryotic genomes.
+- **Hybrid Approach**: Combines k-mer and read-based assembly strategies.
+- **Parallel Processing**: Multi-threaded parallelization for performance.
+- **Error Correction**: Implicit error correction during assembly.
 - **Installation**: `conda install -c bioconda meraculous`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Requirements**: High memory for large genomes.
+- **Computation Time**: Slow for very large datasets.
+- **Parameter Tuning**: Requires careful k-mer selection.
+- **Input Quality**: Depends on high-quality Illumina data.
+- **Assembly Fragmentation**: May produce fragmented assemblies.
+- **Cluster Requirements**: Requires HPC cluster for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Assemble genome
+**Args:** `Meraculous.pl -config config.txt`
+**Explanation:** Runs genome assembly with configuration file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Create config
+**Args:** `Meraculous.pl -prepare -output config.txt`
+**Explanation:** Creates assembly configuration file.
+
+### Run specific stage
+**Args:** `Meraculous.pl -config config.txt -stage 2`
+**Explanation:** Runs specific assembly stage.
+
+### With multiple k-mers
+**Args:** `Meraculous.pl -config config.txt -kmer 21,33,55`
+**Explanation:** Uses multiple k-mer sizes.
+
+### Help documentation
+**Args:** `Meraculous.pl --help`
+**Explanation:** Displays available options.

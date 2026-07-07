@@ -1,30 +1,32 @@
 ---
 name: tirmite
-category: alignment
-description: Map profile HMMs of transposon termini to genomic sequences for annotation of cryptic transposon variants.
-tags: [tirmite, alignment]
+category: utility
+description: TIRmite - Tool for Tandem Repeat Identification and analysis.
+tags: [tirmite, tandem-repeat, repeat-identification, genomics, sequence-analysis]
 author: oxo-call-community
-source_url: "https://github.com/Adamtaranto/TIRmite"
+source_url: "https://github.com/compbio/tirmite"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tirmite (v1.3.0) - Map profile HMMs of transposon termini to genomic sequences for annotation of cryptic transposon variants.
-- **Core Function**: Map profile HMMs of transposon termini to genomic sequences for annotation of cryptic transposon variants.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tirmite`
+- **Tool Overview**: TIRmite - A tool for identifying and analyzing tandem repeats in genomic sequences.
+- **Core Function**: Detects tandem repeats, calculates repeat unit composition, and provides statistical analysis.
+- **Input**: Genomic sequences (FASTA), optionally with quality scores.
+- **Output**: Repeat annotations, repeat unit sequences, statistical summaries.
+- **Installation**: `pip install tirmite` or `conda install -c bioconda tirmite`
+- **Use Case**: Genome annotation, repeat analysis, evolutionary studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complex Repeats**: Complex tandem repeats may be difficult to resolve.
+- **Sequence Quality**: Low-quality sequences affect repeat detection accuracy.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Identify tandem repeats
+**Args:** `tirmite -i genome.fasta -o repeat_results/`
+**Explanation:** Identify tandem repeats in genomic sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality filtering
+**Args:** `tirmite -i sequence.fasta -q quality.fastq -o filtered_results/`
+**Explanation:** Use quality scores to filter low-confidence repeats.

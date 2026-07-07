@@ -1,30 +1,43 @@
 ---
 name: gencube
 category: annotation
-description: GenCube enables researchers to search for, download, retrieve metadata, and unify genome assemblies and diverse types of annotations for sequencing-based experimental data.
-tags: [gencube, annotation]
+description: GenCube - Unified search and retrieval of genome assemblies and annotations for sequencing-based experimental data.
+tags: [gencube, genome-assembly, annotation, data-retrieval]
 author: oxo-call-community
 source_url: "https://github.com/snu-cdrc/gencube"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gencube (v1.11.0) - GenCube enables researchers to search for, download, retrieve metadata, and unify genome assemblies and diverse types of annotations for sequencing-based experimental data.
-- **Core Function**: Provides functionality for annotation tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gencube`
+- **Genome Assembly Retrieval**: Searches and downloads genome assemblies.
+- **Annotation Integration**: Unifies diverse types of genome annotations.
+- **Metadata Retrieval**: Retrieves comprehensive metadata for genomes.
+- **Data Standardization**: Standardizes genome data formats.
+- **Cross-species Comparison**: Facilitates comparative genomics analysis.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Large Data Downloads**: Genome assemblies can be very large.
+- **Internet Dependency**: Requires network access for data retrieval.
+- **Format Conversion**: May require format conversion for downstream tools.
+- **Version Management**: Multiple genome versions can be confusing.
+- **Storage Requirements**: Requires significant storage space.
 
 ## Examples
+### Search genome assemblies
+**Args:** `gencube search -s "Homo sapiens"`
+**Explanation:** Searches for human genome assemblies.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Download genome
+**Args:** `gencube download -a GRCh38 -o genome.fasta`
+**Explanation:** Downloads GRCh38 genome assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Get annotations
+**Args:** `gencube annotations -a GRCh38 -t gene -o genes.gff`
+**Explanation:** Retrieves gene annotations for GRCh38 assembly.
+
+### List available assemblies
+**Args:** `gencube list -s "Mus musculus"`
+**Explanation:** Lists available mouse genome assemblies.
+
+### Download with metadata
+**Args:** `gencube download -a GRCh38 -o genome.fasta -m metadata.json`
+**Explanation:** Downloads genome with associated metadata.

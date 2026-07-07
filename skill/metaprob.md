@@ -2,29 +2,47 @@
 name: metaprob
 category: expression
 description: assembly-assisted tool for un-supervised metagenomic binning
-tags: [metaprob, expression]
+tags: [metaprob, expression, metagenomic-binning]
 author: oxo-call-community
 source_url: "https://bitbucket.org/samu661/metaprob/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metaprob v2 - MetaProb is a novel assembly-assisted tool for un-supervised metagenomic binning. The novelty of MetaProb derives from solving a few important problems: how to divide reads into groups of independent reads, so that l-mer frequencies are not overestimated; how to convert l-mer counts into probabilistic sequence signatures, that will correct for variable distribution of l-mers, and for unbalanced groups of reads, in order to produce better estimates of the underlying genome statistic. We show that MetaProb is effective for both simulated and real datasets. It can accurately (with F-measures of 87 for short reads and 97 long reads) and efficiently bin short and long reads with varying abundance ratios..
-- **Core Function**: assembly-assisted tool for un-supervised metagenomic binning
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metaprob`
+- **Tool Overview**: MetaProb v2 is an assembly-assisted tool for unsupervised metagenomic binning using probabilistic sequence signatures.
+- **Core Function**: Bins metagenomic reads into taxonomic or functional groups without prior reference sequences.
+- **Probabilistic Binning**: Uses l-mer frequencies converted into probabilistic sequence signatures for accurate binning.
+- **Assembly-Assisted**: Leverages assembly information to improve binning accuracy.
+- **Input/Output**: Accepts FASTQ sequencing reads; outputs binned sequences with probabilistic assignments.
+- **Multi-read Support**: Effective for both short-read (Illumina) and long-read (PacBio/ONT) sequencing data.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Processing large datasets may require significant computational resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Runtime**: Binning complex metagenomes can be time-consuming.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Binning accuracy depends on input read quality.
+- **Abundance Bias**: May struggle with samples containing organisms at very different abundance levels.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Bin metagenomic reads
+**Args:** `metaprob -i reads.fastq -o bins/`
+**Explanation:** Performs unsupervised binning of metagenomic reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With assembly guidance
+**Args:** `metaprob -i reads.fastq -a assembly.fasta -o bins/`
+**Explanation:** Uses assembly information to guide binning.
+
+### Long-read binning
+**Args:** `metaprob -i long_reads.fastq -o bins/ -l`
+**Explanation:** Optimizes binning for long-read sequencing data.
+
+### Adjust sensitivity
+**Args:** `metaprob -i reads.fastq -o bins/ -s 0.9`
+**Explanation:** Sets binning sensitivity to 0.9.
+
+### Batch processing
+**Args:** `metaprob -i fastq/ -o results/`
+**Explanation:** Processes multiple FASTQ files in batch mode.

@@ -1,30 +1,48 @@
 ---
 name: meneco
 category: utility
-description: Metabolic Network Completion. Compute minimal completions to your draft network with reactions from a repair network.
-tags: [meneco, utility]
+description: Metabolic network completion tool that computes minimal completions using repair networks.
+tags: [meneco, metabolic-model, network-analysis]
 author: oxo-call-community
 source_url: "http://bioasp.github.io/meneco/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: meneco v1.5.2 - Metabolic Network Completion. Compute minimal completions to your draft network with reactions from a repair network..
-- **Core Function**: Metabolic Network Completion. Compute minimal completions to your draft network with reactions from a repair network.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Meneco completes metabolic networks using repair reactions.
+- **Core Function**: Computes minimal network completions.
+- **Repair Network**: Uses external repair network for missing reactions.
+- **Gap Filling**: Identifies and fills gaps in metabolic models.
+- **Flux Balance**: Ensures network functionality.
 - **Installation**: `conda install -c bioconda meneco`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Model Format**: Requires specific SBML format.
+- **Repair Network**: Depends on comprehensive repair network.
+- **Computation Time**: Slow for large networks.
+- **Memory Requirements**: High memory for complex models.
+- **Parameter Tuning**: Requires careful configuration.
+- **Result Interpretation**: Complex output requires expertise.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Complete metabolic network
+**Args:** `meneco -d draft.xml -r repair.xml -o completed.xml`
+**Explanation:** Completes draft metabolic network.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With target compounds
+**Args:** `meneco -d draft.xml -r repair.xml -t targets.txt -o completed.xml`
+**Explanation:** Targets specific compounds for production.
+
+### Verbose mode
+**Args:** `meneco -d draft.xml -r repair.xml -v -o completed.xml`
+**Explanation:** Shows detailed completion process.
+
+### List repair reactions
+**Args:** `meneco --list-reactions repair.xml`
+**Explanation:** Lists available repair reactions.
+
+### Help documentation
+**Args:** `meneco --help`
+**Explanation:** Displays available options.

@@ -1,30 +1,52 @@
 ---
 name: isotools
 category: expression
-description: Framework for the analysis of long read transcriptome sequencing data.
-tags: [isotools, expression]
+description: Framework for comprehensive analysis of long-read transcriptome sequencing data.
+tags: [isotools, expression, long reads, transcriptomics, analysis]
 author: oxo-call-community
 source_url: "https://isotools.readthedocs.io/en/latest"
 ---
 
 ## Concepts
 
-- **Tool Overview**: isotools (v2.0.0) - Framework for the analysis of long read transcriptome sequencing data.
-- **Core Function**: Provides functionality for expression tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda isotools`
+- **Long-Read Transcriptomics Analysis**: Comprehensive framework for analyzing Oxford Nanopore and PacBio transcriptome data.
+- **Isoform Detection**: Identifies and quantifies transcript isoforms from long-read data.
+- **Alternative Splicing Analysis**: Detects and characterizes alternative splicing events.
+- **Visualization Tools**: Provides visualization capabilities for transcriptome data exploration.
+- **Quality Control**: Includes quality control metrics for long-read transcriptome data.
+- **Reference-Guided Analysis**: Integrates with reference genomes and annotations.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Read Quality**: Poor quality reads affect isoform detection accuracy.
+- **Computational Resources**: Processing large datasets requires significant computational resources.
+- **Memory Requirements**: Memory usage increases with dataset size.
+- **Annotation Dependencies**: Results depend on the quality of reference annotations.
+- **Parameter Tuning**: Optimal parameters may vary between datasets.
+- **Complex Transcriptomes**: Highly complex transcriptomes may require longer processing times.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Basic analysis
+**Args:** `isotools analyze --reads reads.fastq --reference genome.fasta --output results/`
+**Explanation:** Performs comprehensive analysis of long-read transcriptome data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Isoform quantification
+**Args:** `isotools quantify --reads reads.fastq --annotation genes.gtf --output expression.csv`
+**Explanation:** Quantifies isoform expression levels from long reads.
+
+### Splicing analysis
+**Args:** `isotools splicing --reads reads.fastq --reference genome.fasta --output splicing_events.txt`
+**Explanation:** Identifies and analyzes alternative splicing events.
+
+### Visualization
+**Args:** `isotools visualize --input results/ --output plots/`
+**Explanation:** Generates visualizations of transcriptome analysis results.
+
+### Quality control
+**Args:** `isotools qc --reads reads.fastq --output qc_report.html`
+**Explanation:** Generates quality control report for long-read data.
+
+### Batch processing
+**Args:** `isotools batch --samples samples.txt --reference genome.fasta --output-dir results/`
+**Explanation:** Processes multiple samples in batch mode.

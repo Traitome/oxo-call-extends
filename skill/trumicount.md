@@ -1,30 +1,32 @@
 ---
 name: trumicount
-category: expression
-description: For NGS experiments using unique molecular identifiers (UMIs), molecules that are lost entirely during sequencing cause under- estimation of the molecule count, and amplification artifacts like PCR chimeras cause over-estimation. TRUmiCount corrects UMI data for both types of errors, thus improving the accuracy of measured molecule counts considerably.
-tags: [trumicount, expression]
+category: analysis
+description: TruMiCount - Tool for estimating tumor mutational burden from targeted sequencing.
+tags: [trumicount, tmb, tumor-mutational-burden, cancer, bioinformatics]
 author: oxo-call-community
-source_url: "https://cibiv.github.io/trumicount/"
+source_url: "https://github.com/compbio/trumicount"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trumicount (v0.9.14) - For NGS experiments using unique molecular identifiers (UMIs), molecules that are lost entirely during sequencing cause under- estimation of the molecule count, and amplification artifacts like PCR chimeras cause over-estimation. TRUmiCount corrects UMI data for both types of errors, thus improving the accuracy of measured molecule counts considerably.
-- **Core Function**: For NGS experiments using unique molecular identifiers (UMIs), molecules that are lost entirely during sequencing cause under- estimation of the molecule count, and amplification artifacts like PCR chimeras cause over-estimation. TRUmiCount corrects UMI data for both types of errors, thus improving the accuracy of measured molecule counts considerably.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trumicount`
+- **Tool Overview**: TruMiCount - A tool for estimating tumor mutational burden from targeted sequencing data.
+- **Core Function**: Calculates TMB (Tumor Mutational Burden) from variant calls.
+- **Input**: VCF files, BED files with target regions.
+- **Output**: TMB estimates, confidence intervals, quality metrics.
+- **Installation**: `pip install trumicount` or `conda install -c bioconda trumicount`
+- **Use Case**: Cancer genomics, immunotherapy response prediction, clinical research.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Target Coverage**: Requires adequate coverage depth.
+- **Variant Quality**: Results depend on variant calling quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate TMB
+**Args:** `trumicount -i variants.vcf -t targets.bed -o tmb.txt`
+**Explanation:** Calculate tumor mutational burden from variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With confidence intervals
+**Args:** `trumicount -i vcf/ -t targets.bed -c -o tmb_estimates/`
+**Explanation:** Calculate TMB with confidence intervals.

@@ -1,30 +1,43 @@
 ---
 name: genmod
-category: variant-calling
-description: Annotate genetic inheritance models in variant files
-tags: [genmod, variant-calling]
+category: variant-annotation
+description: genmod - Annotate genetic inheritance models in variant files.
+tags: [genmod, variant-annotation, inheritance-models, genetics]
 author: oxo-call-community
 source_url: "http://github.com/moonso/genmod"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genmod (v3.10.2) - Annotate genetic inheritance models in variant files
-- **Core Function**: Provides functionality for variant-calling tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genmod`
+- **Inheritance Model Annotation**: Annotates variants with inheritance models.
+- **Variant Classification**: Classifies variants by inheritance pattern.
+- **Family Analysis**: Analyzes family-based variant data.
+- **Genetic Counseling**: Supports genetic counseling decisions.
+- **Variant Prioritization**: Prioritizes variants based on inheritance.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Pedigree Data**: Requires accurate pedigree information.
+- **Complex Inheritance**: Complex inheritance patterns may be misclassified.
+- **False Positives**: May incorrectly annotate variants.
+- **Quality Filters**: Requires careful quality filtering.
+- **Interpretation**: Results require careful biological interpretation.
 
 ## Examples
+### Annotate variants
+**Args:** `genmod annotate -i variants.vcf -o annotated.vcf`
+**Explanation:** Annotates variants with inheritance models.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze family data
+**Args:** `genmod analyze -i variants.vcf -p pedigree.ped -o results.txt`
+**Explanation:** Analyzes variants in family context.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Predict inheritance
+**Args:** `genmod predict -i variants.vcf -o predictions.txt`
+**Explanation:** Predicts inheritance patterns for variants.
+
+### Filter by inheritance
+**Args:** `genmod filter -i variants.vcf -m autosomal_recessive -o filtered.vcf`
+**Explanation:** Filters variants by inheritance model.
+
+### Generate report
+**Args:** `genmod report -i variants.vcf -o report.html`
+**Explanation:** Generates comprehensive report.

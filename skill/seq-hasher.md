@@ -1,30 +1,56 @@
 ---
 name: seq-hasher
-category: variant-calling
-description: Compute hash digests for DNA sequences in a FASTA file, with support for circular permutations
-tags: [seq-hasher, variant-calling, fasta]
+category: utility
+description: seq-hasher - Compute hash digests for DNA sequences with circular permutation support
+tags: ["seq-hasher", "utility", "hash", "FASTA"]
 author: oxo-call-community
 source_url: "https://github.com/apcamargo/seq-hasher"
 ---
 
 ## Concepts
 
-- **Tool Overview**: seq-hasher (v0.2.0) - Compute hash digests for DNA sequences in a FASTA file, with support for circular permutations
-- **Core Function**: Compute hash digests for DNA sequences in a FASTA file, with support for circular permutations
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda seq-hasher`
+- **Tool Overview**: seq-hasher (v0.2.0) computes hash digests for DNA sequences in FASTA files.
+- **Core Function**: Generates hash values for sequence identification and comparison.
+- **Algorithm**: Implements various hash algorithms with circular permutation support.
+- **Input/Output**: Accepts FASTA files and produces hash values.
+- **Sequence Hashing**: Focuses on generating unique identifiers for sequences.
+- **Applications**: Sequence deduplication, database indexing, and sequence comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Hash Collisions**: Potential for hash collisions with very large datasets.
+- **Memory Usage**: High memory requirements for large FASTA files.
+- **Input Format**: Requires correct FASTA format.
+- **Performance**: May be slow for very large files.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compute hashes
+**Args:** `seq-hasher -i input.fasta -o hashes.txt`
+**Explanation:** `-i` input FASTA; `-o` output hash file.
 
-### Basic usage
-**Args:** `seq-hasher -i <input.bam> -r <reference.fasta> -o <output.vcf>`
-**Explanation:** Run seq-hasher with typical input and output options.
+### Circular permutation
+**Args:** `seq-hasher -i input.fasta -c -o hashes.txt`
+**Explanation:** `-c` enables circular permutation support.
+
+### MD5 hash
+**Args:** `seq-hasher -i input.fasta -a md5 -o hashes.txt`
+**Explanation:** `-a md5` uses MD5 algorithm.
+
+### Verbose logging
+**Args:** `seq-hasher -i input.fasta -v -o hashes.txt`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `seq-hasher --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `seq-hasher --version`
+**Explanation:** Shows current version.
+
+### Compare sequences
+**Args:** `seq-hasher compare -i hashes1.txt -j hashes2.txt -o diff.txt`
+**Explanation:** Compares two hash files.

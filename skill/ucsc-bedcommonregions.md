@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedcommonregions
 category: utility
-description: Create a bed file (just bed3) that contains the regions common to all inputs.
-tags: [ucsc-bedcommonregions, utility]
+description: UCSC bedCommonRegions - Tool for finding common regions in multiple BED files.
+tags: [ucsc-bedcommonregions, ucsc, bed-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedcommonregions (v482) - Create a bed file (just bed3) that contains the regions common to all inputs.
-- **Core Function**: Create a bed file (just bed3) that contains the regions common to all inputs.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedcommonregions`
+- **Tool Overview**: UCSC bedCommonRegions - A tool for finding overlapping regions across multiple BED files.
+- **Core Function**: Identifies regions common to all input BED files.
+- **Input**: Multiple BED files.
+- **Output**: BED file with common regions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Peak calling, region intersection, data integration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Format**: Requires consistent BED format across files.
+- **Memory**: May require significant memory for many files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find common regions
+**Args:** `bedCommonRegions file1.bed file2.bed file3.bed > common.bed`
+**Explanation:** Find regions common to all BED files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With min overlap
+**Args:** `bedCommonRegions -minOverlap 0.5 file*.bed > common.bed`
+**Explanation:** Find regions with minimum 50% overlap.

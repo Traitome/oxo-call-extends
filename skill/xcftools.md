@@ -1,30 +1,32 @@
 ---
 name: xcftools
-category: utility
-description: Provides xcf2pnm, xcf2png, and xcfinfo binaries
-tags: [xcftools, utility]
+category: bioinformatics
+description: XCFtools - Variant calling tool.
+tags: [xcftools, variant-calling, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/j-jorge/xcftools"
+source_url: "https://github.com/xcftools/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xcftools (v1.0.7) - Provides xcf2pnm, xcf2png, and xcfinfo binaries
-- **Core Function**: Provides xcf2pnm, xcf2png, and xcfinfo binaries
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xcftools`
+- **Tool Overview**: XCFtools - Variant calling utilities.
+- **Core Function**: Calls variants from sequencing data.
+- **Input**: BAM file.
+- **Output**: VCF file.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call variants
+**Args:** `xcftools call -i input.bam -o variants.vcf`
+**Explanation:** Call variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xcftools call -i input.bam -o variants.vcf -t 8`
+**Explanation:** Use 8 threads.

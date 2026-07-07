@@ -1,30 +1,56 @@
 ---
 name: helitronscanner
-category: utility
-description: HelitronScanner uncovers a large overlooked cache of Helitron transposons in many genomes
-tags: [helitronscanner, utility]
+category: bioinformatics
+description: HelitronScanner identifies Helitron transposons in genomes.
+tags: [helitronscanner, transposons, bioinformatics]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/helitronscanner"
 ---
 
 ## Concepts
 
-- **Tool Overview**: helitronscanner (v1.0) - HelitronScanner uncovers a large overlooked cache of Helitron transposons in many genomes
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda helitronscanner`
+- **Helitron Identification**: HelitronScanner finds Helitron transposons.
+
+- **Transposon Analysis**: Analyzes transposable elements.
+
+- **Genome Annotation**: Annotates repetitive elements.
+
+- **Repeat Detection**: Detects repetitive DNA sequences.
+
+- **Genomic Variation**: Studies genomic variation.
+
+- **Mobile Genetic Elements**: Identifies mobile elements.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Genome Quality**: Results depend on genome assembly quality.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large genomes may require significant memory.
+
+- **False Positives**: May produce false positive predictions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Scan for Helitrons
+**Args:** `HelitronScanner.py -g genome.fasta -o helitrons.out`
+**Explanation:** Scans genome for Helitron elements.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With custom parameters
+**Args:** `HelitronScanner.py -g genome.fasta -o helitrons.out -minlen 1000`
+**Explanation:** Sets minimum element length.
+
+### Batch processing
+**Args:** `for f in *.fasta; do HelitronScanner.py -g $f -o ${f%.fasta}_helitrons.out; done`
+**Explanation:** Processes multiple genome files.
+
+### Generate GFF output
+**Args:** `HelitronScanner.py -g genome.fasta -o helitrons.gff -f gff`
+**Explanation:** Generates GFF format output.
+
+### Help command
+**Args:** `HelitronScanner.py --help`
+**Explanation:** Shows available options and usage information.

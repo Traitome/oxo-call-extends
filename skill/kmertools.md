@@ -1,30 +1,52 @@
 ---
 name: kmertools
 category: metagenomics
-description: kmertools: DNA Vectorisation Tool
-tags: [kmertools, metagenomics]
+description: DNA Vectorisation Tool - k-mer based feature extraction for metagenomics
+tags: [kmertools, metagenomics, k-mer, feature-extraction, vectorization]
 author: oxo-call-community
 source_url: "https://github.com/anuradhawick/kmertools"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kmertools v0.2.1 - kmertools is a k-mer based feature extraction tool designed to support metagenomics and other bioinformatics analytics..
-- **Core Function**: kmertools: DNA Vectorisation Tool
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kmertools`
+- **DNA Vectorization**: Converts DNA sequences to vector representations
+- **K-mer Feature Extraction**: Extracts k-mer features for machine learning applications
+- **Metagenomics Analysis**: Supports metagenomic data analysis
+- **Bioinformatics Analytics**: Designed for various bioinformatics analytics tasks
+- **Machine Learning Support**: Generates features for downstream ML analysis
+- **Sequence Comparison**: Enables efficient sequence comparison using k-mer vectors
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **K-mer Size Selection**: K-mer size significantly affects feature extraction
+- **Memory Usage**: Large datasets require significant memory
+- **Feature Dimensionality**: High-dimensional feature vectors may cause issues
+- **Data Quality**: Low-quality sequences affect feature quality
+- **Normalization**: Proper normalization is crucial for ML applications
+- **Computational Time**: Feature extraction can be time-consuming for large datasets
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Extract k-mer features
+**Args:** `kmertools extract -i input.fasta -k 21 -o features.csv`
+**Explanation:** Extracts 21-mer features from DNA sequences.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Convert to vector format
+**Args:** `kmertools vectorize -i sequences.fasta -k 31 -o vectors.npy`
+**Explanation:** Converts sequences to numerical vector representation.
+
+### Compare sequences
+**Args:** `kmertools compare -i seq1.fasta -i seq2.fasta -k 21 -o similarity.txt`
+**Explanation:** Compares sequences using k-mer based similarity.
+
+### Batch processing
+**Args:** `kmertools batch -d sequences/ -k 21 -o results/`
+**Explanation:** Processes multiple sequence files in batch mode.
+
+### Specify normalization
+**Args:** `kmertools extract -i input.fasta -k 21 --normalize -o features.csv`
+**Explanation:** Extracts and normalizes k-mer features.
+
+### Generate feature matrix
+**Args:** `kmertools matrix -i sequences/ -k 25 -o feature_matrix.csv`
+**Explanation:** Generates k-mer feature matrix for multiple sequences.

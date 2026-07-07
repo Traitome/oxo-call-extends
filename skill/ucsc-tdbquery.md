@@ -1,30 +1,32 @@
 ---
 name: ucsc-tdbquery
 category: utility
-description: Query the trackDb system using SQL syntax.
-tags: [ucsc-tdbquery, utility]
+description: UCSC tdbQuery - Tool for querying TDB databases.
+tags: [ucsc-tdbquery, ucsc, tdb, database, query]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-tdbquery (v482) - Query the trackDb system using SQL syntax.
-- **Core Function**: Query the trackDb system using SQL syntax.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-tdbquery`
+- **Tool Overview**: UCSC tdbQuery - A tool for querying TDB databases.
+- **Core Function**: Queries tiled database (TDB) files.
+- **Input**: TDB database file, query parameters.
+- **Output**: Query results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Database querying, data retrieval, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large databases.
+- **Database Access**: Requires proper TDB format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Query TDB database
+**Args:** `tdbQuery -db=data.tdb -query="SELECT * FROM table"`
+**Explanation:** Query TDB database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `tdbQuery -db=data.tdb -verbose -query="SELECT * FROM table"`
+**Explanation:** Query with verbose output.

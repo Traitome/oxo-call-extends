@@ -1,30 +1,32 @@
 ---
 name: virusrecom
-category: formatting
-description: An information-theory-based method for recombination detection of viral lineages.
-tags: [virusrecom, formatting]
+category: bioinformatics
+description: VirusRecom - Viral recombination detection.
+tags: [virusrecom, viral-genomics, recombination, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ZhijianZhou01/virusrecom"
+source_url: "https://github.com/virusrecom/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virusrecom (v1.4.0) - An information-theory-based method for recombination detection of viral lineages.
-- **Core Function**: An information-theory-based method for recombination detection of viral lineages.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virusrecom`
+- **Tool Overview**: VirusRecom - Detects viral recombination events.
+- **Core Function**: Identifies recombination breakpoints in viral sequences.
+- **Input**: Viral sequences.
+- **Output**: Recombination predictions.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral evolution, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Accuracy**: Detection may be sensitive to parameters.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect recombination
+**Args:** `virusrecom -i sequences.fasta -o recombination.txt`
+**Explanation:** Detect recombination events.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virusrecom -i sequences.fasta -o recombination.txt -t 0.9`
+**Explanation:** Use 90% confidence threshold.

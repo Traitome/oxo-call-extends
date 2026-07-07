@@ -1,30 +1,32 @@
 ---
 name: ucsc-lavtoaxt
-category: formatting
-description: Convert blastz lav file to an axt file (which includes sequence).
-tags: [ucsc-lavtoaxt, formatting]
+category: utility
+description: UCSC lavToAxt - Tool for converting LAV to AXT format.
+tags: [ucsc-lavtoaxt, ucsc, lav, axt, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-lavtoaxt (v482) - Convert blastz lav file to an axt file (which includes sequence).
-- **Core Function**: Convert blastz lav file to an axt file (which includes sequence).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-lavtoaxt`
+- **Tool Overview**: UCSC lavToAxt - A tool for converting LAV to AXT format.
+- **Core Function**: Converts LAV alignment format to AXT format.
+- **Input**: LAV file.
+- **Output**: AXT file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper LAV format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert LAV to AXT
+**Args:** `lavToAxt input.lav > output.axt`
+**Explanation:** Convert LAV to AXT format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `lavToAxt -score input.lav > output.axt`
+**Explanation:** Include score in output.

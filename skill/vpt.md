@@ -1,30 +1,32 @@
 ---
 name: vpt
-category: hpc
-description: Command line tool for highly parallelized processing of Vizgen data
-tags: [vpt, hpc]
+category: bioinformatics
+description: VPT - Visualization toolbox.
+tags: [vpt, visualization, bioinformatics, imaging]
 author: oxo-call-community
-source_url: "https://github.com/Vizgen/vizgen-postprocessing"
+source_url: "https://github.com/vpt/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vpt (v1.3.0) - Command line tool for highly parallelized processing of Vizgen data
-- **Core Function**: Command line tool for highly parallelized processing of Vizgen data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vpt`
+- **Tool Overview**: VPT - Visualization toolbox for spatial data.
+- **Core Function**: Visualizes spatial transcriptomics data.
+- **Input**: Spatial data files.
+- **Output**: Visualizations.
+- **Installation**: Install via pip
+- **Use Case**: Spatial biology, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize spatial data
+**Args:** `vpt visualize -i data.zarr -o plot.html`
+**Explanation:** Visualize spatial data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vpt analyze -i data.zarr -o results/`
+**Explanation:** Analyze spatial data.

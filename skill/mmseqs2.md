@@ -1,30 +1,47 @@
 ---
 name: mmseqs2
 category: hpc
-description: MMseqs2: ultra fast and sensitive sequence search and clustering suite
-tags: [mmseqs2, hpc]
+description: "MMseqs2: ultra fast and sensitive sequence search and clustering suite"
+tags: [mmseqs2, hpc, alignment]
 author: oxo-call-community
 source_url: "https://github.com/soedinglab/mmseqs2"
 ---
-
 ## Concepts
 
-- **Tool Overview**: mmseqs2 v18.8cc5c - MMseqs2: ultra fast and sensitive sequence search and clustering suite.
-- **Core Function**: MMseqs2: ultra fast and sensitive sequence search and clustering suite
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mmseqs2`
+- **Tool Overview**: MMseqs2 v18.8cc5c is an ultra-fast sequence search and clustering tool.
+- **Core Function**: Performs fast and sensitive sequence homology search.
+- **Sequence Clustering**: Supports efficient sequence clustering.
+- **Performance**: Optimized for speed using SIMD instructions.
+- **Input/Output**: Accepts sequence databases; outputs alignments or clusters.
+- **Scalability**: Supports large-scale sequence analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Database Requirements**: Requires pre-built sequence databases.
+- **Memory Requirements**: Memory usage depends on database size.
+- **Parameter Tuning**: May require parameter adjustment for sensitivity/speed tradeoff.
+- **Data Quality**: Results depend on input sequence quality.
+- **Index Building**: Requires time to build search indices.
+- **Computational Resources**: Large-scale searches require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Search sequences
+**Args:** `mmseqs search query.fasta target.fasta result.m8 tmp/`
+**Explanation:** Searches query sequences against target database.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Create database
+**Args:** `mmseqs createdb sequences.fasta db`
+**Explanation:** Creates MMseqs2 database from FASTA file.
+
+### Cluster sequences
+**Args:** `mmseqs cluster db result tmp/`
+**Explanation:** Clusters sequences in database.
+
+### Align sequences
+**Args:** `mmseqs align query.fasta target.fasta alignments.m8`
+**Explanation:** Aligns query sequences to target.
+
+### Batch processing
+**Args:** `mmseqs search queries/ targets/ results/ tmp/`
+**Explanation:** Processes multiple query files.

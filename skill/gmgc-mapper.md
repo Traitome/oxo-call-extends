@@ -1,30 +1,43 @@
 ---
 name: gmgc-mapper
-category: alignment
-description: Map genes and genome to the Global Microbial Gene Catalog (GMGC)
-tags: [gmgc-mapper, alignment]
+category: metagenomics
+description: gmgc-mapper - Map genes and genomes to the Global Microbial Gene Catalog.
+tags: [gmgc-mapper, metagenomics, gene-catalog, GMGC]
 author: oxo-call-community
 source_url: "https://github.com/BigDataBiology/GMGC-mapper"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gmgc-mapper (v0.2.0) - Map genes and genome to the Global Microbial Gene Catalog (GMGC)
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gmgc-mapper`
+- **Gene Mapping**: Maps genes to GMGC.
+- **Genome Comparison**: Compares genomes to catalog.
+- **Metagenomics**: Analyzes metagenomic data.
+- **Functional Annotation**: Provides functional annotations.
+- **Taxonomic Assignment**: Assigns taxonomy.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Coverage**: Limited to catalog coverage.
+- **Sequence Quality**: Requires high-quality sequences.
+- **E-value Selection**: Requires proper e-value.
+- **Annotation Completeness**: May have incomplete annotations.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Map genes
+**Args:** `gmgc-mapper map -i genes.fasta -o mapping.txt`
+**Explanation:** Maps genes to GMGC.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With taxonomy
+**Args:** `gmgc-mapper map -i genes.fasta -t -o mapping.txt`
+**Explanation:** Includes taxonomy assignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Map genome
+**Args:** `gmgc-mapper genome -i genome.fasta -o mapping.txt`
+**Explanation:** Maps genome to GMGC.
+
+### Generate report
+**Args:** `gmgc-mapper map -i genes.fasta -r -o report.html`
+**Explanation:** Generates mapping report.
+
+### Batch processing
+**Args:** `gmgc-mapper map -l genes.txt -o ./mapping/`
+**Explanation:** Processes multiple samples.

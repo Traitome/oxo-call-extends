@@ -1,30 +1,56 @@
 ---
 name: seqforge
 category: utility
-description: SeqForge: A genomics toolkit for FASTA processing, BLAST orchestration, and motif mining.
-tags: [seqforge, utility, fasta]
+description: seqforge - Genomics toolkit for FASTA processing, BLAST orchestration, and motif mining
+tags: ["seqforge", "utility", "FASTA", "BLAST"]
 author: oxo-call-community
 source_url: "https://github.com/ERBringHorvath/SeqForge"
 ---
 
 ## Concepts
 
-- **Tool Overview**: seqforge (v2.0.0) - SeqForge: A genomics toolkit for FASTA processing, BLAST orchestration, and motif mining.
-- **Core Function**: SeqForge: A genomics toolkit for FASTA processing, BLAST orchestration, and motif mining.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda seqforge`
+- **Tool Overview**: seqforge (v2.0.0) is a genomics toolkit for FASTA processing, BLAST orchestration, and motif mining.
+- **Core Function**: Provides utilities for sequence analysis and processing.
+- **Algorithm**: Implements various sequence processing algorithms.
+- **Input/Output**: Accepts FASTA files and produces processed sequences.
+- **Sequence Processing**: Focuses on FASTA manipulation and analysis.
+- **Applications**: Sequence analysis, motif discovery, and BLAST searching.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **BLAST Dependencies**: Requires BLAST installation for some features.
+- **Input Format**: Requires correct FASTA format.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process FASTA
+**Args:** `seqforge process -i input.fasta -o output.fasta`
+**Explanation:** `-i` input FASTA; `-o` output FASTA.
 
-### Basic usage
-**Args:** `seqforge -i <input_file> -o <output_file>`
-**Explanation:** Run seqforge with typical input and output options.
+### Motif mining
+**Args:** `seqforge motif -i sequences.fasta -m pattern.txt -o motifs.txt`
+**Explanation:** `-m` motif pattern file.
+
+### BLAST search
+**Args:** `seqforge blast -i query.fasta -d database.fasta -o results.txt`
+**Explanation:** Performs BLAST search.
+
+### Verbose logging
+**Args:** `seqforge process -i input.fasta -v -o output.fasta`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `seqforge --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `seqforge --version`
+**Explanation:** Shows current version.
+
+### Filter sequences
+**Args:** `seqforge filter -i input.fasta -l 100 -o filtered.fasta`
+**Explanation:** `-l 100` filters sequences longer than 100bp.

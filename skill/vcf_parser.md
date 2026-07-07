@@ -1,30 +1,32 @@
 ---
 name: vcf_parser
-category: formatting
-description: Small library for parsing vcf files.
-tags: [vcf_parser, formatting, vcf]
+category: bioinformatics
+description: vcf_parser - VCF parsing library.
+tags: [vcf_parser, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/moonso/vcf_parser"
+source_url: "https://github.com/vcf_parser/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf_parser (v1.6) - Small library for parsing vcf files.
-- **Core Function**: Small library for parsing vcf files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf_parser`
+- **Tool Overview**: vcf_parser - A Python library for parsing VCF files.
+- **Core Function**: Parses and extracts data from VCF files.
+- **Input**: VCF file.
+- **Output**: Parsed variant data.
+- **Installation**: Install via pip
+- **Use Case**: VCF parsing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Dependencies**: Requires Python environment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Parse VCF
+**Args:** `python -c "from vcf_parser import VCFParser; vcf = VCFParser('input.vcf')"`
+**Explanation:** Parse VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "from vcf_parser import VCFParser; vcf = VCFParser('input.vcf', split_variants=True)"`
+**Explanation:** Split multi-allelic variants.

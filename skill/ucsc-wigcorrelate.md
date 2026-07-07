@@ -1,30 +1,32 @@
 ---
 name: ucsc-wigcorrelate
 category: utility
-description: Produce a table that correlates all pairs of wigs.
-tags: [ucsc-wigcorrelate, utility]
+description: UCSC wigCorrelate - Tool for computing WIG correlations.
+tags: [ucsc-wigcorrelate, ucsc, wig, correlation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-wigcorrelate (v482) - Produce a table that correlates all pairs of wigs.
-- **Core Function**: Produce a table that correlates all pairs of wigs.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-wigcorrelate`
+- **Tool Overview**: UCSC wigCorrelate - A tool for computing correlations between WIG files.
+- **Core Function**: Calculates correlation coefficients between genomic signals.
+- **Input**: WIG files.
+- **Output**: Correlation matrix.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data analysis, comparative genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large WIG files.
+- **Format Requirements**: Requires proper WIG format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compute WIG correlation
+**Args:** `wigCorrelate input1.wig input2.wig`
+**Explanation:** Compute correlation between two WIG files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wigCorrelate -verbose input1.wig input2.wig`
+**Explanation:** Compute with verbose output.

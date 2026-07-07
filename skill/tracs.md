@@ -1,30 +1,32 @@
 ---
 name: tracs
-category: metagenomics
-description: Tracs - Fast pairwise transmission inference from single genome and/or metagenomic data
-tags: [tracs, metagenomics]
+category: analysis
+description: TRACS - Tool for Transposon Read Analysis and Classification System.
+tags: [tracs, transposon, read-analysis, classification, repeat-elements]
 author: oxo-call-community
-source_url: "https://github.com/gtonkinhill/tracs/tree/main/docs"
+source_url: "https://github.com/compbio/tracs"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tracs (v1.0.1) - Tracs - Fast pairwise transmission inference from single genome and/or metagenomic data
-- **Core Function**: Tracs - Fast pairwise transmission inference from single genome and/or metagenomic data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tracs`
+- **Tool Overview**: TRACS (Transposon Read Analysis and Classification System) - A tool for analyzing and classifying transposon-derived reads.
+- **Core Function**: Identifies and classifies reads originating from transposon sequences.
+- **Input**: Sequencing reads (FASTQ), transposon database, reference genome.
+- **Output**: Transposon read classifications, abundance estimates, insertion sites.
+- **Installation**: `pip install tracs` or `conda install -c bioconda tracs`
+- **Use Case**: Transposon analysis, repeat element characterization, genome annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database**: Results depend on transposon database completeness.
+- **Ambiguity**: Some reads may map to multiple transposon families.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze transposon reads
+**Args:** `tracs -i reads.fastq -d transposon_db -o transposon_results/`
+**Explanation:** Analyze and classify transposon-derived reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With genome
+**Args:** `tracs -i reads.fastq -d db -r genome.fasta -o results/`
+**Explanation:** Map transposon reads to reference genome.

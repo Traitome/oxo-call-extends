@@ -1,30 +1,32 @@
 ---
 name: vclean
-category: utility
-description: vClean: Assessing the contamination of viral genomes
-tags: [vclean, utility]
+category: bioinformatics
+description: vclean - VCF cleaning tool.
+tags: [vclean, vcf-processing, cleaning, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/TsumaR/vclean"
+source_url: "https://github.com/vclean/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vclean (v0.2.1) - vClean: Assessing the contamination of viral genomes
-- **Core Function**: vClean: Assessing the contamination of viral genomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vclean`
+- **Tool Overview**: vclean - Cleans and normalizes VCF files.
+- **Core Function**: Removes artifacts and normalizes variant representation.
+- **Input**: VCF file.
+- **Output**: Cleaned VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: VCF cleaning, normalization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Data Loss**: May remove valid variants.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Clean VCF
+**Args:** `vclean -i input.vcf -o cleaned.vcf`
+**Explanation:** Clean VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vclean -i input.vcf -o cleaned.vcf -s`
+**Explanation:** Strict cleaning mode.

@@ -1,30 +1,47 @@
 ---
 name: metawepp
 category: alignment
-description: metaWEPP: Improving resolution of metagenomic analysis using WEPP
-tags: [metawepp, alignment, alignment]
+description: "metaWEPP: Improving resolution of metagenomic analysis using WEPP"
+tags: [metawepp, alignment, metagenomics, haplotype]
 author: oxo-call-community
 source_url: "https://github.com/TurakhiaLab/metaWEPP"
 ---
-
 ## Concepts
 
-- **Tool Overview**: metawepp v0.1.0 - metaWEPP extends the current species-level resolution of existing metagenomic tools by providing near-haplotype detection and abundance estimation for multi-species samples. It utilizes a standard classifier to first segregate reads by species before applying the Wastewater-Based Epidemiology using Phylogenetic Placements (WEPP) pipeline to each segregated dataset. By performing parsimonious read placement on species-specific mutation-annotated trees (MATs), metaWEPP identifies the haplotypes that best explain the data and flags Unaccounted Alleles—mutations observed in the sample but unexplained by selected haplotypes—potentially indicating the presence of novel variants. The pipeline enables high-resolution surveillance across diverse pathogens and includes an interactive dashboard for visualizing identified haplotypes within their global phylogenies. This allows for detailed, read-level analysis of emerging lineages within complex metagenomic datasets..
-- **Core Function**: metaWEPP: Improving resolution of metagenomic analysis using WEPP
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metawepp`
+- **Tool Overview**: metaWEPP v0.1.0 extends species-level resolution of metagenomic tools by providing near-haplotype detection and abundance estimation for multi-species samples.
+- **Core Function**: Improves metagenomic analysis resolution using the WEPP (Wastewater-Based Epidemiology using Phylogenetic Placements) pipeline.
+- **Haplotype Detection**: Identifies near-haplotype level variants within metagenomic samples.
+- **Phylogenetic Placement**: Performs parsimonious read placement on species-specific mutation-annotated trees (MATs).
+- **Unaccounted Alleles**: Flags mutations observed in samples but unexplained by known haplotypes, potentially indicating novel variants.
+- **Interactive Dashboard**: Includes visualization tools for exploring identified haplotypes within global phylogenies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Processing large datasets may require significant computational resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Runtime**: Analysis of complex metagenomes can be time-consuming.
+- **Reference Database**: Analysis quality depends on reference database completeness.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Analysis accuracy depends on input read quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run haplotype detection
+**Args:** `metawepp -i reads.fastq -o results/`
+**Explanation:** Detects haplotypes and estimates abundance in metagenomic reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With reference database
+**Args:** `metawepp -i reads.fastq -d reference/ -o results/`
+**Explanation:** Uses custom reference database for analysis.
+
+### Generate visualization
+**Args:** `metawepp -i reads.fastq -o results/ --visualize`
+**Explanation:** Generates interactive visualization dashboard.
+
+### Flag unaccounted alleles
+**Args:** `metawepp -i reads.fastq -o results/ --flag-alleles`
+**Explanation:** Identifies unaccounted alleles potentially indicating novel variants.
+
+### Batch processing
+**Args:** `metawepp -i fastq/ -o results/`
+**Explanation:** Processes multiple samples in batch mode.

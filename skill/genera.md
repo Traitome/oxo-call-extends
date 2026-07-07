@@ -1,30 +1,43 @@
 ---
 name: genera
-category: utility
-description: Uncovering gene-family founder events during major evolutionary transitions in animals, plants and fungi using GenEra
-tags: [genera, utility]
+category: comparative-genomics
+description: GenEra - Uncovering gene-family founder events during major evolutionary transitions in animals, plants and fungi.
+tags: [genera, gene-family, evolutionary-biology, comparative-genomics]
 author: oxo-call-community
 source_url: "https://github.com/josuebarrera/GenEra"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genera (v1.4.2) - Uncovering gene-family founder events during major evolutionary transitions in animals, plants and fungi using GenEra
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genera`
+- **Gene Family Analysis**: Analyzes gene family evolution.
+- **Founder Events**: Identifies gene-family founder events.
+- **Evolutionary Transitions**: Studies major evolutionary transitions.
+- **Phylogenomics**: Integrates phylogenetics and genomics.
+- **Orthology Detection**: Detects orthologous gene relationships.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Genome Quality**: Depends on high-quality genome assemblies.
+- **Annotation Quality**: Requires accurate gene annotations.
+- **Phylogenetic Tree**: Requires well-resolved species tree.
+- **Computational Resources**: Large datasets require significant resources.
+- **False Positives**: May identify false founder events.
 
 ## Examples
+### Analyze gene families
+**Args:** `genera -i gene_families.txt -t species_tree.nwk -o results/`
+**Explanation:** Analyzes gene families for founder events.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With custom parameters
+**Args:** `genera -i gene_families.txt -t species_tree.nwk -c 0.95 -o results/`
+**Explanation:** Uses custom confidence threshold.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Detect orthologs
+**Args:** `genera -i gene_families.txt -t species_tree.nwk -ortho -o orthologs.txt`
+**Explanation:** Detects orthologous relationships.
+
+### Generate visualization
+**Args:** `genera -i gene_families.txt -t species_tree.nwk -p plot.png -o results/`
+**Explanation:** Generates visualization of gene family evolution.
+
+### Batch analysis
+**Args:** `genera -i ./gene_families/ -t species_tree.nwk -o ./results/`
+**Explanation:** Processes multiple gene family files.

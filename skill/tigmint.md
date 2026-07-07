@@ -1,30 +1,32 @@
 ---
 name: tigmint
 category: assembly
-description: Correct misassemblies using linked or long reads
-tags: [tigmint, assembly]
+description: Tigmint - Tool for correcting misassemblies using linked-read sequencing data.
+tags: [tigmint, assembly-correction, linked-reads, scaffolding, genomics]
 author: oxo-call-community
-source_url: "https://github.com/bcgsc/tigmint#readme"
+source_url: "https://github.com/bcgsc/tigmint"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tigmint (v1.2.10) - Correct misassemblies using linked or long reads
-- **Core Function**: Correct misassemblies using linked or long reads
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: Tigmint - A tool for identifying and correcting misassemblies using linked-read sequencing data from technologies like 10x Genomics.
+- **Core Function**: Uses linked-read barcode information to detect and fix misassemblies in draft genomes.
+- **Input**: Draft assembly (FASTA), linked-read alignments (BAM), barcode information.
+- **Output**: Corrected assembly with improved contiguity and accuracy.
 - **Installation**: `conda install -c bioconda tigmint`
+- **Use Case**: Improving draft genome assemblies, scaffolding, assembly validation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Linked-reads Required**: Requires linked-read sequencing data.
+- **Barcode Quality**: Analysis depends on barcode completeness and accuracy.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Correct assembly
+**Args:** `tigmint-make draft=assembly.fasta reads=linked_reads.bam`
+**Explanation:** Correct misassemblies in draft assembly using linked-read data.
 
-### Basic usage
-**Args:** `tigmint -i <reads.fastq> -o <output_dir>`
-**Explanation:** Run tigmint with typical input and output options.
+### With custom parameters
+**Args:** `tigmint -a contigs.fasta -b alignments.bam -o corrected/ -k 21`
+**Explanation:** Correct assembly with specified k-mer size.

@@ -1,31 +1,56 @@
 ---
 name: radte
 category: utility
-description: Reconciliation-Assisted Divergence Time Estimation for gene families.
-tags: ["radte", "utility"]
+description: RADTE (Reconciliation-Assisted Divergence Time Estimation) estimates divergence times for gene families using phylogenetic reconciliation.
+tags: [radte, utility, divergence-time, phylogenetics]
 author: oxo-call-community
 source_url: "https://github.com/kfuku52/radte"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Reconciliation-Assisted Divergence Time Estimation for gene families. (version 0.2.3)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda radte`
+- **Tool Overview**: radte estimates divergence times.
+- **Core Function**: Divergence time estimation.
+- **Algorithm**: Uses reconciliation methods.
+- **Input Format**: Accepts gene trees.
+- **Output**: Produces time estimates.
+- **Use Case**: Evolutionary analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large trees require memory.
+- **Tree Quality**: Affects estimation.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `radte --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Estimate times
+**Args:** `radte estimate -i gene_tree.newick -o times.txt`
+**Explanation:** Estimates divergence times.
 
+### With parameters
+**Args:** `radte estimate -i gene_tree.newick -p params.yaml -o times.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `radte -v estimate -i gene_tree.newick -o times.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `radte -t 4 estimate -i gene_tree.newick -o times.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With species tree
+**Args:** `radte estimate -i gene_tree.newick -s species_tree.newick -o times.txt`
+**Explanation:** Uses species tree for reconciliation.
+
+### Generate report
+**Args:** `radte estimate -i gene_tree.newick -o times.txt --report report.html`
+**Explanation:** Generates HTML report.

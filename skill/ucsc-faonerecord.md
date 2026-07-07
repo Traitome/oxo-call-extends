@@ -1,30 +1,32 @@
 ---
 name: ucsc-faonerecord
 category: utility
-description: Extract a single record from a .FA file.
-tags: [ucsc-faonerecord, utility]
+description: UCSC faOneRecord - Tool for extracting single FASTA record.
+tags: [ucsc-faonerecord, ucsc, fasta, sequence-extraction, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-faonerecord (v482) - Extract a single record from a .FA file.
-- **Core Function**: Extract a single record from a .FA file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-faonerecord`
+- **Tool Overview**: UCSC faOneRecord - A tool for extracting a single record from FASTA.
+- **Core Function**: Extracts one sequence by name from multi-record FASTA.
+- **Input**: FASTA file, sequence name.
+- **Output**: Single FASTA record.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence extraction, single record analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sequence Name**: Requires exact sequence name match.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract record
+**Args:** `faOneRecord genome.fa chr1 > chr1.fa`
+**Explanation:** Extract single chromosome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### From stdin
+**Args:** `cat genome.fa | faOneRecord stdin chr1 > chr1.fa`
+**Explanation:** Extract from piped input.

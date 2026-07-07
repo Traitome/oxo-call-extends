@@ -1,30 +1,43 @@
 ---
 name: gffcompare
-category: formatting
-description: GffCompare by Geo Pertea.
-tags: [gffcompare, formatting, GFF]
+category: annotation
+description: gffcompare - Compare and evaluate the accuracy of gene annotations.
+tags: [gffcompare, annotation, GFF, comparison, evaluation]
 author: oxo-call-community
 source_url: "https://github.com/gpertea/gffcompare/blob/v0.12.10/README.md"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gffcompare (v0.12.10) - GffCompare by Geo Pertea.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gffcompare`
+- **Annotation Comparison**: Compares gene annotations.
+- **Accuracy Evaluation**: Evaluates annotation accuracy.
+- **Reference Mapping**: Maps annotations to reference.
+- **Transcript Analysis**: Analyzes transcript predictions.
+- **Quality Assessment**: Assesses annotation quality.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Reference Quality**: Requires high-quality reference.
+- **Format Compatibility**: Requires correct GFF format.
+- **Parameter Sensitivity**: Results sensitive to parameters.
+- **Memory Usage**: Large datasets require memory.
+- **Result Interpretation**: Requires careful interpretation.
 
 ## Examples
+### Compare annotations
+**Args:** `gffcompare -r reference.gff3 -o comparison query.gtf`
+**Explanation:** Compares query annotation to reference.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gffcompare -r reference.gff3 -i -o comparison query.gtf`
+**Explanation:** Ignores lower-case mismatches.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gffcompare -r reference.gff3 -l queries.txt -o ./results/`
+**Explanation:** Processes multiple query files.
+
+### Generate stats
+**Args:** `gffcompare -r reference.gff3 -o stats query.gtf`
+**Explanation:** Generates comparison statistics.
+
+### Generate report
+**Args:** `gffcompare -r reference.gff3 -o comparison query.gtf -r -e errors.gtf`
+**Explanation:** Generates detailed report.

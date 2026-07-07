@@ -1,30 +1,56 @@
 ---
 name: shorttracks
 category: alignment
-description: ShortTracks : Useful length- and strand-based coverage files (bigwig) from small RNA-seq alignments (BAM)
-tags: [shorttracks, alignment, bam]
+description: ShortTracks - Generate length- and strand-based coverage files from small RNA-seq alignments
+tags: ["shorttracks", "alignment", "bam", "bigwig"]
 author: oxo-call-community
 source_url: "https://github.com/MikeAxtell/ShortTracks"
 ---
 
 ## Concepts
 
-- **Tool Overview**: shorttracks (v1.3) - ShortTracks : Useful length- and strand-based coverage files (bigwig) from small RNA-seq alignments (BAM)
-- **Core Function**: ShortTracks : Useful length- and strand-based coverage files (bigwig) from small RNA-seq alignments (BAM)
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda shorttracks`
+- **Tool Overview**: ShortTracks (v1.3) generates coverage tracks from small RNA-seq alignments.
+- **Core Function**: Creates strand-specific bigwig files for visualization.
+- **Algorithm**: Uses BAM alignments to calculate coverage by read length and strand.
+- **Input/Output**: Accepts BAM files and produces bigwig coverage tracks.
+- **Coverage Analysis**: Focuses on length-specific and strand-specific coverage.
+- **Applications**: Small RNA-seq visualization, genome browser tracks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **BAM Requirements**: Requires sorted and indexed BAM files.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Chromosome Names**: Requires consistent chromosome naming.
+- **Input Quality**: Results depend on alignment quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate coverage tracks
+**Args:** `shorttracks -i alignments.bam -o coverage/`
+**Explanation:** `-i` input BAM; `-o` output directory.
 
-### Basic usage
-**Args:** `shorttracks -i <input.fasta> -r <reference.fasta> -o <output.sam>`
-**Explanation:** Run shorttracks with typical input and output options.
+### With genome size
+**Args:** `shorttracks -i alignments.bam -g genome.fasta -o coverage/`
+**Explanation:** `-g` genome FASTA for chromosome sizes.
+
+### Strand-specific
+**Args:** `shorttracks -i alignments.bam -s -o coverage/`
+**Explanation:** `-s` strand-specific output.
+
+### Help command
+**Args:** `shorttracks --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `shorttracks --version`
+**Explanation:** Shows current version.
+
+### Length filtering
+**Args:** `shorttracks -i alignments.bam -m 18 -M 30 -o coverage/`
+**Explanation:** `-m/-M` minimum/maximum read length.
+
+### Verbose mode
+**Args:** `shorttracks -v -i alignments.bam -o coverage/`
+**Explanation:** `-v` verbose output.

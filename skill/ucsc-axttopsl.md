@@ -1,30 +1,32 @@
 ---
 name: ucsc-axttopsl
-category: formatting
-description: Convert axt to psl format.
-tags: [ucsc-axttopsl, formatting]
+category: utility
+description: UCSC axtToPsl - Tool for converting axt alignments to PSL format.
+tags: [ucsc-axttopsl, ucsc, format-conversion, axt, psl, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-axttopsl (v482) - Convert axt to psl format.
-- **Core Function**: Convert axt to psl format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-axttopsl`
+- **Tool Overview**: UCSC axtToPsl - A tool for converting axt format alignments to PSL format.
+- **Core Function**: Converts axt alignments to PSL (Percent Sequence Identity) format.
+- **Input**: Axt format alignment file.
+- **Output**: PSL format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment visualization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper axt format.
+- **Sequence Names**: Requires matching sequence names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to PSL
+**Args:** `axtToPsl input.axt output.psl`
+**Explanation:** Convert axt alignment to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality
+**Args:** `axtToPsl -q input.axt output.psl`
+**Explanation:** Convert with quality scores.

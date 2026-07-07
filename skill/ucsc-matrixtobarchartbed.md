@@ -1,30 +1,32 @@
 ---
 name: ucsc-matrixtobarchartbed
-category: expression
-description: Attach a labeled expression matrix to a bed file joining.
-tags: [ucsc-matrixtobarchartbed, expression]
+category: utility
+description: UCSC matrixToBarChartBed - Tool for converting matrix to bar chart BED.
+tags: [ucsc-matrixtobarchartbed, ucsc, matrix, bed, visualization]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-matrixtobarchartbed (v482) - Attach a labeled expression matrix to a bed file joining.
-- **Core Function**: Attach a labeled expression matrix to a bed file joining.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-matrixtobarchartbed`
+- **Tool Overview**: UCSC matrixToBarChartBed - A tool for converting matrix to bar chart BED.
+- **Core Function**: Converts matrix data to bar chart BED format.
+- **Input**: Matrix file.
+- **Output**: Bar chart BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Visualization, genome browser tracks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large matrices.
+- **Format Requirements**: Requires proper matrix format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert matrix to bar chart BED
+**Args:** `matrixToBarChartBed input.txt > output.bed`
+**Explanation:** Convert matrix to bar chart BED.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `matrixToBarChartBed -name=signal input.txt > output.bed`
+**Explanation:** Add track name.

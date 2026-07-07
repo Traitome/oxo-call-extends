@@ -1,30 +1,32 @@
 ---
 name: vcf-pg-loader
-category: variant-calling
-description: High-performance VCF to PostgreSQL loader with clinical-grade compliance
-tags: [vcf-pg-loader, variant-calling, vcf]
+category: bioinformatics
+description: vcf-pg-loader - VCF to PostgreSQL loader.
+tags: [vcf-pg-loader, vcf-processing, database, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/Zacharyr41/vcf-pg-loader/tree/main/docs"
+source_url: "https://github.com/vcf-pg-loader/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf-pg-loader (v0.5.4) - vcf-pg-loader is a command-line tool for efficiently loading VCF variant data into PostgreSQL databases. It features streaming VCF parsing with cyvcf2, variant normalization using the vt algorithm, proper Number=A/R/G field handling during multi-allelic decomposition, and binary COPY protocol via asyncpg for maximum insert performance.
-- **Core Function**: High-performance VCF to PostgreSQL loader with clinical-grade compliance
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf-pg-loader`
+- **Tool Overview**: vcf-pg-loader - Loads VCF data into PostgreSQL database.
+- **Core Function**: Bulk loads VCF variants into PostgreSQL tables.
+- **Input**: VCF file.
+- **Output**: Database records.
+- **Installation**: Install via pip
+- **Use Case**: Variant storage, database management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Setup**: Requires PostgreSQL setup.
+- **Memory**: May require significant memory for large VCF files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load VCF to PostgreSQL
+**Args:** `vcf-pg-loader -i input.vcf -d postgresql://user:pass@host/db`
+**Explanation:** Load VCF to PostgreSQL.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf-pg-loader -i input.vcf -d postgresql://user:pass@host/db -t variants`
+**Explanation:** Specify target table.

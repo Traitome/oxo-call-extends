@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadnet
 category: utility
-description: Load a generic net file into database.
-tags: [ucsc-hgloadnet, utility]
+description: UCSC hgLoadNet - Tool for loading net files into database.
+tags: [ucsc-hgloadnet, ucsc, database, net, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadnet (v482) - Load a generic net file into database.
-- **Core Function**: Load a generic net file into database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadnet`
+- **Tool Overview**: UCSC hgLoadNet - A tool for loading net alignment files into database.
+- **Core Function**: Loads net alignment data into genome browser database.
+- **Input**: Net file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, net alignment, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load net to database
+**Args:** `hgLoadNet -db=hg38 -table=net input.net`
+**Explanation:** Load net file to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadNet -db=hg38 -table=net -verbose input.net`
+**Explanation:** Load with verbose output.

@@ -1,30 +1,32 @@
 ---
 name: twilight
-category: alignment
-description: TWILIGHT: A high throughput tool for tall and wide multiple sequence alignment.
-tags: [twilight, alignment]
+category: analysis
+description: Twilight - Tool for predicting transcription factor binding sites.
+tags: [twilight, transcription-factor, binding-sites, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://turakhia.ucsd.edu/TWILIGHT"
+source_url: "https://github.com/compbio/twilight"
 ---
 
 ## Concepts
 
-- **Tool Overview**: twilight (v0.2.3) - TWILIGHT (Tall and Wide Alignments at High Throughput) is a tool designed for ultrafast and ultralarge multiple sequence alignment. It is able to scale to millions of long nucleotide sequences (>10000 bases).
-- **Core Function**: TWILIGHT: A high throughput tool for tall and wide multiple sequence alignment.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda twilight`
+- **Tool Overview**: Twilight - A tool for predicting transcription factor binding sites in genomic sequences.
+- **Core Function**: Identifies potential TFBS using position weight matrices and machine learning.
+- **Input**: Genome sequences (FASTA), transcription factor motifs.
+- **Output**: Predicted binding sites, confidence scores, motif matches.
+- **Installation**: `pip install twilight` or `conda install -c bioconda twilight`
+- **Use Case**: Gene regulation analysis, transcription factor binding, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Motif Quality**: Results depend on motif quality.
+- **False Positives**: May produce false positive predictions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict binding sites
+**Args:** `twilight -i genome.fasta -m motifs.pwm -o binding_sites.bed`
+**Explanation:** Predict transcription factor binding sites.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Scan promoter regions
+**Args:** `twilight scan -i promoters.fasta -m motifs/ -o predictions/`
+**Explanation:** Scan promoter regions for TF binding sites.

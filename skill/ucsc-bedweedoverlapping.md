@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedweedoverlapping
-category: qc
-description: Filter out beds that overlap a 'weed.bed' file.
-tags: [ucsc-bedweedoverlapping, qc]
+category: utility
+description: UCSC bedWeedOverlapping - Tool for removing overlapping regions from BED files.
+tags: [ucsc-bedweedoverlapping, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedweedoverlapping (v482) - Filter out beds that overlap a 'weed.bed' file.
-- **Core Function**: Filter out beds that overlap a 'weed.bed' file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedweedoverlapping`
+- **Tool Overview**: UCSC bedWeedOverlapping - A tool for removing or merging overlapping regions in BED files.
+- **Core Function**: Identifies and removes redundant overlapping regions.
+- **Input**: BED file with overlapping regions.
+- **Output**: BED file with non-overlapping regions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Peak calling, region simplification, data cleaning.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Strand Awareness**: May not consider strand by default.
+- **Weed Strategy**: Requires appropriate strategy selection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Remove overlapping
+**Args:** `bedWeedOverlapping -i input.bed > output.bed`
+**Explanation:** Remove overlapping regions from BED file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With minimum score
+**Args:** `bedWeedOverlapping -minScore 100 -i input.bed > output.bed`
+**Explanation:** Remove overlaps keeping highest scoring regions.

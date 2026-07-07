@@ -1,30 +1,32 @@
 ---
 name: ucsc-farandomize
 category: utility
-description: Program to create random fasta records.
-tags: [ucsc-farandomize, utility]
+description: UCSC faRandomize - Tool for randomizing FASTA sequences.
+tags: [ucsc-farandomize, ucsc, fasta, sequence-manipulation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-farandomize (v482) - Program to create random fasta records.
-- **Core Function**: Program to create random fasta records.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-farandomize`
+- **Tool Overview**: UCSC faRandomize - A tool for randomizing FASTA sequences.
+- **Core Function**: Shuffles nucleotides while maintaining composition.
+- **Input**: FASTA file.
+- **Output**: Randomized FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Negative control, sequence shuffling, simulation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Seed Setting**: May not produce reproducible results without seed.
+- **Composition**: Maintains original nucleotide composition.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Randomize sequence
+**Args:** `faRandomize input.fa > randomized.fa`
+**Explanation:** Shuffle sequence nucleotides.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With seed
+**Args:** `faRandomize -seed=456 input.fa > randomized.fa`
+**Explanation:** Randomize with fixed seed.

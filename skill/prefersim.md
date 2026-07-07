@@ -1,31 +1,56 @@
 ---
 name: prefersim
 category: utility
-description: PReFerSim is an ANSI C program that performs forward simulations under the PRF model
-tags: ["prefersim", "utility"]
+description: prefersim performs forward simulations under the PRF model.
+tags: [prefersim, utility, simulation, population-genetics]
 author: oxo-call-community
 source_url: "https://github.com/LohmuellerLab/PReFerSim"
 ---
 
 ## Concepts
 
-- **Tool Overview**: PReFerSim is an ANSI C program that performs forward simulations under the PRF model (version 1.0)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda prefersim`
+- **Tool Overview**: prefersim simulates population genetics.
+- **Core Function**: Forward genetic simulation.
+- **Algorithm**: Uses PRF model methods.
+- **Input Format**: Accepts parameter files.
+- **Output**: Produces simulated data.
+- **Use Case**: Population genetics, evolutionary biology.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large simulations require memory.
+- **Parameter Selection**: May affect results.
+- **Computational Time**: Simulations may be slow.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `PReFerSim --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Run simulation
+**Args:** `PReFerSim -p params.txt -o output.txt`
+**Explanation:** Performs forward simulation under PRF model.
 
+### With parameters
+**Args:** `PReFerSim -p params.txt -c config.yaml -o output.txt`
+**Explanation:** Uses configuration file.
+
+### Verbose mode
+**Args:** `PReFerSim -v -p params.txt -o output.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `PReFerSim -t 4 -p params.txt -o output.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `PReFerSim -p params.txt -o output.vcf --vcf`
+**Explanation:** Outputs in VCF format.
+
+### Generate report
+**Args:** `PReFerSim -p params.txt -o output.txt --report report.html`
+**Explanation:** Generates HTML report.

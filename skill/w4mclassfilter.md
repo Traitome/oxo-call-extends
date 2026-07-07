@@ -1,30 +1,32 @@
 ---
 name: w4mclassfilter
-category: qc
-description: Filter Workflow4Metabolomics feature list, optionally imputing NA values.
-tags: [w4mclassfilter, qc]
+category: bioinformatics
+description: W4M-ClassFilter - Class filtering tool.
+tags: [w4mclassfilter, data-processing, bioinformatics, workflow4metabolomics]
 author: oxo-call-community
-source_url: "https://github.com/HegemanLab/w4mclassfilter"
+source_url: "https://github.com/workflow4metabolomics/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: w4mclassfilter (v0.98.19) - Filter Workflow4Metabolomics dataMatrix, sampleMetadata, and variableMetadata files by sample-class, eliminating zero-variance rows and columns from the data-matrix and, optionally, imputing NA values. MIT Licence allows redistribution.
-- **Core Function**: Filter Workflow4Metabolomics feature list, optionally imputing NA values.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda w4mclassfilter`
+- **Tool Overview**: W4M-ClassFilter - Metabolomics class filtering.
+- **Core Function**: Filters metabolites by class.
+- **Input**: Metabolomics data.
+- **Output**: Filtered data.
+- **Installation**: Install via conda
+- **Use Case**: Metabolomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter classes
+**Args:** `w4mclassfilter -i data.csv -o filtered.csv -c lipid`
+**Explanation:** Filter lipid metabolites.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `w4mclassfilter -i data.csv -o filtered.csv -c "amino acid"`
+**Explanation:** Filter amino acids.

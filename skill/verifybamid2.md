@@ -1,30 +1,32 @@
 ---
 name: verifybamid2
-category: utility
-description: A robust tool for DNA contamination estimation from sequence reads using ancestry-agnostic method.
-tags: [verifybamid2, utility]
+category: bioinformatics
+description: VerifyBamID2 - BAM verification tool.
+tags: [verifybamid2, bam-processing, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/Griffan/VerifyBamID"
+source_url: "https://github.com/Griffan/VerifyBamID2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: verifybamid2 (v2.0.1) - A robust tool for DNA contamination estimation from sequence reads using ancestry-agnostic method.
-- **Core Function**: A robust tool for DNA contamination estimation from sequence reads using ancestry-agnostic method.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda verifybamid2`
+- **Tool Overview**: VerifyBamID2 - BAM file verification tool.
+- **Core Function**: Verifies sample identity and detects contamination.
+- **Input**: BAM file.
+- **Output**: Verification report.
+- **Installation**: Install via conda or source
+- **Use Case**: Quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Reference**: Requires reference genome.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Verify BAM
+**Args:** `verifybamid2 --bam input.bam --vcf ref.vcf --out report`
+**Explanation:** Verify BAM file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `verifybamid2 --bam input.bam --vcf ref.vcf --out report --threads 8`
+**Explanation:** Use 8 threads.

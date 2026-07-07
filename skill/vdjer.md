@@ -1,30 +1,32 @@
 ---
 name: vdjer
-category: expression
-description: B Cell Receptor Repertoire Reconstruction from short read mRNA-Seq data
-tags: [vdjer, expression]
+category: bioinformatics
+description: vdjer - Variant detection tool.
+tags: [vdjer, variant-calling, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/mozack/vdjer"
+source_url: "https://github.com/vdjer/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vdjer (v0.12) - B Cell Receptor Repertoire Reconstruction from short read mRNA-Seq data
-- **Core Function**: B Cell Receptor Repertoire Reconstruction from short read mRNA-Seq data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vdjer`
+- **Tool Overview**: vdjer - Variant detection in sequencing data.
+- **Core Function**: Detects variants from sequencing reads.
+- **Input**: BAM/FASTQ files.
+- **Output**: VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant calling, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Accuracy**: Results depend on read quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call variants
+**Args:** `vdjer -i input.bam -r ref.fasta -o variants.vcf`
+**Explanation:** Call variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vdjer -i input.bam -r ref.fasta -o variants.vcf -t 8`
+**Explanation:** Use 8 threads.

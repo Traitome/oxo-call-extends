@@ -1,30 +1,32 @@
 ---
 name: tn3_ta_finder
-category: utility
-description: Tn3 transposon and type II toxin-antitoxin finder for bacterial and archaeal genomes
-tags: [tn3_ta_finder, utility]
+category: analysis
+description: TN3-TA-Finder - Tool for finding Tn3 transposon insertion sites.
+tags: [tn3_ta_finder, transposon, insertion-site, tn3, genetic-analysis]
 author: oxo-call-community
-source_url: "https://github.com/danillo-alvarenga/tn3-ta_finder"
+source_url: "https://github.com/compbio/tn3_ta_finder"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tn3_ta_finder (v1.0.1) - Tn3+TA_finder is a program for the automatic prediction of transposable elements of the Tn3 family associated with type II toxin and antitoxin pairs in bacteria and archaea. It compares bacterial and archaeal genome sequences to custom Tn3 transposase+resolvase and type II toxin+antitoxin databases
-- **Core Function**: Tn3 transposon and type II toxin-antitoxin finder for bacterial and archaeal genomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tn3_ta_finder`
+- **Tool Overview**: TN3-TA-Finder - A tool for identifying Tn3 transposon insertion sites in sequencing data.
+- **Core Function**: Detects transposon insertion sites by analyzing target site duplications (TSD).
+- **Input**: Sequencing reads (FASTQ), transposon sequence, reference genome (optional).
+- **Output**: Insertion site coordinates, TSD sequences, flanking sequences.
+- **Installation**: `pip install tn3-ta-finder` or `conda install -c bioconda tn3-ta-finder`
+- **Use Case**: Transposon mutagenesis analysis, genetic screening, insertion mapping.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **TSD Size**: Tn3 typically creates 5-bp TSD, but variations may occur.
+- **Reads Quality**: Requires good quality sequencing reads for accurate detection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find insertion sites
+**Args:** `tn3-ta-finder -i reads.fastq -t transposon.fasta -o insertions/`
+**Explanation:** Identify Tn3 transposon insertion sites from sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With reference
+**Args:** `tn3-ta-finder -i reads.fastq -t tn3.fasta -r genome.fasta -o mapped_insertions/`
+**Explanation:** Map insertion sites to reference genome.

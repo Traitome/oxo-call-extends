@@ -1,30 +1,32 @@
 ---
 name: ucsc-chopfalines
 category: utility
-description: Read in FA file with long lines and rewrite it with shorter lines.
-tags: [ucsc-chopfalines, utility]
+description: UCSC chopFaLines - Tool for chopping FASTA lines.
+tags: [ucsc-chopfalines, ucsc, fasta, sequence-manipulation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chopfalines (v482) - Read in FA file with long lines and rewrite it with shorter lines.
-- **Core Function**: Read in FA file with long lines and rewrite it with shorter lines.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chopfalines`
+- **Tool Overview**: UCSC chopFaLines - A tool for reformatting FASTA file line lengths.
+- **Core Function**: Adjusts line lengths in FASTA sequences.
+- **Input**: FASTA file.
+- **Output**: Reformatted FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence formatting, file preparation, data standardization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Line Length**: Requires appropriate line length specification.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Chop FASTA lines
+**Args:** `chopFaLines -maxLineSize=60 input.fa > output.fa`
+**Explanation:** Reformat FASTA lines to specified length.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With padding
+**Args:** `chopFaLines -maxLineSize=80 -pad input.fa > output.fa`
+**Explanation:** Chop with padding.

@@ -1,30 +1,48 @@
 ---
 name: mcscanx
 category: utility
-description: Multiple Collinearity Scan toolkit X version
-tags: [mcscanx, utility]
+description: Multiple Collinearity Scan toolkit for analyzing synteny and collinearity across genomes.
+tags: [mcscanx, synteny, comparative-genomics]
 author: oxo-call-community
 source_url: "https://github.com/wyp1125/MCScanX"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mcscanx v1.0.0 - Multiple Collinearity Scan toolkit X version.
-- **Core Function**: Multiple Collinearity Scan toolkit X version
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MCScanX analyzes collinearity and synteny between genomes.
+- **Core Function**: Identifies syntenic blocks and collinear regions.
+- **Synteny Detection**: Finds conserved gene order across species.
+- **Collinearity Analysis**: Analyzes linear gene arrangements.
+- **Duplication Detection**: Identifies segmental and tandem duplications.
 - **Installation**: `conda install -c bioconda mcscanx`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Genome Quality**: Requires well-annotated genomes.
+- **Gene Annotation**: Depends on accurate gene annotations.
+- **Memory Requirements**: High memory for large genomes.
+- **Computation Time**: Slow for multiple large genomes.
+- **Parameter Tuning**: Requires careful threshold adjustment.
+- **Output Interpretation**: Results require biological interpretation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run MCScanX
+**Args:** `MCScanX input`
+**Explanation:** Runs collinearity analysis on input files.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With multiple species
+**Args:** `MCScanX multi_species_input`
+**Explanation:** Analyzes collinearity across multiple species.
+
+### Visualize results
+**Args:** `draw_linear_plot -i input.collinearity -o plot.png`
+**Explanation:** Generates linear visualization.
+
+### Duplication analysis
+**Args:** `MCScanX -d input`
+**Explanation:** Focuses on duplication detection.
+
+### Help documentation
+**Args:** `MCScanX -h`
+**Explanation:** Displays available options.

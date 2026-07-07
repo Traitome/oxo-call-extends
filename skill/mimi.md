@@ -2,29 +2,47 @@
 name: mimi
 category: utility
 description: Molecular Isotope Mass Identifier.
-tags: [mimi, utility]
+tags: [mimi, utility, mass-spectrometry]
 author: oxo-call-community
 source_url: "https://github.com/NYUAD-Core-Bioinformatics/MIMI"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mimi v1.0.4 - MIMI (Molecular Isotope Mass Identifier) is a tool for analyzing mass spectrometry data to identify molecular compounds based on their isotopic patterns..
-- **Core Function**: Molecular Isotope Mass Identifier.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mimi`
+- **Tool Overview**: MIMI v1.0.4 identifies molecular compounds from mass spectrometry data.
+- **Core Function**: Identifies compounds based on isotopic patterns.
+- **Isotope Pattern Analysis**: Analyzes isotopic patterns in mass spec data.
+- **Compound Identification**: Matches mass spectra to known compounds.
+- **Input/Output**: Accepts mass spectrometry data; outputs compound identifications.
+- **Metabolomics**: Supports metabolomic analysis workflows.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Mass Spectrometry Specific**: Designed for mass spec data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal identification.
+- **Data Quality**: Identification accuracy depends on input data quality.
+- **Reference Database**: Requires compound reference database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Identify compounds
+**Args:** `mimi -i spectrum.mzML -o compounds.txt`
+**Explanation:** Identifies compounds from mass spectrometry data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom database
+**Args:** `mimi -i spectrum.mzML -d database/ -o compounds.txt`
+**Explanation:** Uses custom compound database.
+
+### Detailed output
+**Args:** `mimi -i spectrum.mzML -o compounds.txt -v`
+**Explanation:** Generates detailed identification report.
+
+### Batch processing
+**Args:** `mimi -i mzML/ -o results/`
+**Explanation:** Processes multiple mass spec files in batch mode.
+
+### Generate visualization
+**Args:** `mimi -i spectrum.mzML -o compounds.txt -p plot.png`
+**Explanation:** Generates visualization of isotope patterns.

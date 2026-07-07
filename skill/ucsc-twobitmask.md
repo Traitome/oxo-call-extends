@@ -1,30 +1,32 @@
 ---
 name: ucsc-twobitmask
 category: utility
-description: Apply masking to a .2bit file, creating a new .2bit file.
-tags: [ucsc-twobitmask, utility]
+description: UCSC twoBitMask - Tool for masking twoBit files.
+tags: [ucsc-twobitmask, ucsc, twobit, mask, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-twobitmask (v482) - Apply masking to a .2bit file, creating a new .2bit file.
-- **Core Function**: Apply masking to a .2bit file, creating a new .2bit file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-twobitmask`
+- **Tool Overview**: UCSC twoBitMask - A tool for masking sequences in twoBit files.
+- **Core Function**: Masks specified regions in twoBit files.
+- **Input**: TwoBit file, mask BED file.
+- **Output**: Masked twoBit file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence masking, genome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper twoBit/BED format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Mask twoBit file
+**Args:** `twoBitMask input.2bit mask.bed > output.2bit`
+**Explanation:** Mask specified regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `twoBitMask -verbose input.2bit mask.bed > output.2bit`
+**Explanation:** Mask with verbose output.

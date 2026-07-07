@@ -1,31 +1,56 @@
 ---
 name: quickmirseq
 category: expression
-description: A pipeline for fast and accurate quantification of both known miRNAs and isomiRs by joint processing multiple samples
-tags: ["quickmirseq", "expression", "sam"]
+description: QuickmiRseq is a pipeline for fast and accurate quantification of known miRNAs and isomiRs by joint processing multiple samples.
+tags: [quickmirseq, expression, mirna, isomir]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/quickmirseq/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A pipeline for fast and accurate quantification of both known miRNAs and isomiRs by joint processing multiple samples (version 1.0.0)
-- **Core Function**: Processes bioinformatics data related to expression
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda quickmirseq`
+- **Tool Overview**: quickmirseq quantifies miRNAs.
+- **Core Function**: miRNA expression analysis.
+- **Algorithm**: Uses mapping methods.
+- **Input Format**: Accepts FASTQ files.
+- **Output**: Produces expression counts.
+- **Use Case**: miRNA profiling.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Reference Database**: Must be correct.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `quickmirseq --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Run quantification
+**Args:** `quickmirseq quantify -i reads.fastq -o counts.txt`
+**Explanation:** Quantifies miRNA expression.
 
+### With parameters
+**Args:** `quickmirseq quantify -i reads.fastq -p params.yaml -o counts.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `quickmirseq -v quantify -i reads.fastq -o counts.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `quickmirseq -t 4 quantify -i reads.fastq -o counts.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Multiple samples
+**Args:** `quickmirseq quantify -i sample1.fastq,sample2.fastq -o counts.txt`
+**Explanation:** Processes multiple samples.
+
+### Generate report
+**Args:** `quickmirseq quantify -i reads.fastq -o counts.txt --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: wgs-assembler
-category: assembly
-description: Celera Assembler (wgs-assembler) is a de novo whole-genome shotgun (WGS) DNA sequence assembler
-tags: [wgs-assembler, assembly]
+category: bioinformatics
+description: WGS-Assembler - Whole-genome shotgun assembler.
+tags: [wgs-assembler, genome-assembly, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://wgs-assembler.sourceforge.net/wiki/index.php?title=Main_Page"
+source_url: "https://github.com/wgs-assembler/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgs-assembler (v8.3) - Celera Assembler (wgs-assembler) is a de novo whole-genome shotgun (WGS) DNA sequence assembler
-- **Core Function**: Celera Assembler (wgs-assembler) is a de novo whole-genome shotgun (WGS) DNA sequence assembler
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgs-assembler`
+- **Tool Overview**: WGS-Assembler - Genome assembly tool.
+- **Core Function**: Assembles genomes from shotgun reads.
+- **Input**: FASTQ reads.
+- **Output**: Assembled contigs.
+- **Installation**: Install via conda or source
+- **Use Case**: Genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `wgs-assembler -i reads.fastq -o assembly/`
+**Explanation:** Assemble genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgs-assembler -i reads.fastq -o assembly/ -t 8`
+**Explanation:** Use 8 threads.

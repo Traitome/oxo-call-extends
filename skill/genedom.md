@@ -1,30 +1,43 @@
 ---
 name: genedom
-category: utility
-description: Genetic part standardization.
-tags: [genedom, utility]
+category: synthetic-biology
+description: GeneDom - Genetic part standardization and manipulation for synthetic biology applications.
+tags: [genedom, synthetic-biology, dna-parts, genetic-engineering]
 author: oxo-call-community
 source_url: "https://github.com/Edinburgh-Genome-Foundry/genedom"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genedom (v0.2.2) - Genetic part standardization.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genedom`
+- **Genetic Parts**: Standardizes biological genetic parts.
+- **DNA Assembly**: Facilitates DNA assembly design.
+- **Part Standardization**: Standardizes genetic part formats.
+- **Sequence Manipulation**: Manipulates DNA sequences.
+- **Synthetic Biology**: Supports synthetic biology workflows.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Standard Compliance**: Requires adherence to genetic part standards.
+- **Sequence Compatibility**: Parts must be compatible with assembly methods.
+- **BioBrick Standards**: May require BioBrick or similar standards compliance.
+- **Restriction Sites**: Avoiding forbidden restriction sites is critical.
+- **Part Quality**: Depends on high-quality part annotations.
 
 ## Examples
+### Standardize genetic part
+**Args:** `genedom standardize -i part.gb -o standardized_part.gb`
+**Explanation:** Standardizes a genetic part to BioBrick format.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Design DNA assembly
+**Args:** `genedom design -p part1.gb part2.gb part3.gb -o assembly.gb`
+**Explanation:** Designs a multi-part DNA assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Check restriction sites
+**Args:** `genedom check -i part.gb -r EcoRI,BamHI`
+**Explanation:** Checks for forbidden restriction sites.
+
+### Extract features
+**Args:** `genedom extract -i part.gb -f promoter -o promoter.gb`
+**Explanation:** Extracts specific features from genetic part.
+
+### Generate documentation
+**Args:** `genedom doc -i part.gb -o part_documentation.md`
+**Explanation:** Generates documentation for genetic part.

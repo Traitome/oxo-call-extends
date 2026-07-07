@@ -1,30 +1,32 @@
 ---
 name: vvv2_display
-category: variant-calling
-description: Creates png image file with all [vardict] variants proportions alongside genome/assembly with annotations from [vadr].
-tags: [vvv2_display, variant-calling]
+category: bioinformatics
+description: VVV2-Display - Visualization tool.
+tags: [vvv2_display, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ANSES-Ploufragan/vvv2_display/"
+source_url: "https://github.com/vvv2-display/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vvv2_display (v0.2.5.0) - Creates png image file with all [vardict] variants proportions alongside genome/assembly with annotations from [vadr].
-- **Core Function**: Creates png image file with all [vardict] variants proportions alongside genome/assembly with annotations from [vadr].
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vvv2_display`
+- **Tool Overview**: VVV2-Display - Visualization tool.
+- **Core Function**: Displays genomic data.
+- **Input**: Genomic data files.
+- **Output**: Visualization.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires visualization libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Display data
+**Args:** `vvv2_display -i data.bam -o view.html`
+**Explanation:** Display genomic data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vvv2_display -i data.bam -o view.html -r chr1:1000-2000`
+**Explanation:** View specific region.

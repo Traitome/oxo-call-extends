@@ -1,31 +1,56 @@
 ---
 name: prokbert
 category: metagenomics
-description: ProkBERT is a genomic language model specifically designed for microbiome applications. It leverages the power of machine learning to decipher complex microbial interactions, predict functionalities, and uncover novel patterns in extensive datasets. The ProkBERT model family, built on transfer learning and self-supervised methodologies, capitalizes on the abundant genomic data available.
-tags: ["prokbert", "metagenomics"]
+description: prokbert is a genomic language model for microbiome analysis using transfer learning.
+tags: [prokbert, metagenomics, language-model, machine-learning]
 author: oxo-call-community
 source_url: "https://prokbert.readthedocs.io/en/latest"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ProkBERT is a genomic language model specifically designed for microbiome applications. It leverages the power of machine learning to decipher complex microbial interactions, predict functionalities, and uncover novel patterns in extensive datasets. The ProkBERT model family, built on transfer learning and self-supervised methodologies, capitalizes on the abundant genomic data available. (version 0.0.48)
-- **Core Function**: Processes bioinformatics data related to metagenomics
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda prokbert`
+- **Tool Overview**: prokbert analyzes microbiome data.
+- **Core Function**: Genomic language modeling.
+- **Algorithm**: Uses self-supervised learning.
+- **Input Format**: Accepts genomic sequences.
+- **Output**: Produces predictions/embeddings.
+- **Use Case**: Microbiome analysis, functional prediction.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large models require memory.
+- **Data Quality**: Results depend on input quality.
+- **Model Size**: May require GPU acceleration.
+- **Runtime**: Inference may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `prokbert --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Analyze sequences
+**Args:** `prokbert -i sequences.fasta -o predictions.txt`
+**Explanation:** Processes genomic sequences with ProkBERT.
 
+### With parameters
+**Args:** `prokbert -i sequences.fasta -p params.yaml -o predictions.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `prokbert -v -i sequences.fasta -o predictions.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `prokbert -t 4 -i sequences.fasta -o predictions.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `prokbert -i sequences.fasta -o predictions.csv --csv`
+**Explanation:** Outputs in CSV format.
+
+### Generate report
+**Args:** `prokbert -i sequences.fasta -o predictions.txt --report report.html`
+**Explanation:** Generates HTML report.

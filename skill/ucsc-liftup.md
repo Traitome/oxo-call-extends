@@ -1,30 +1,32 @@
 ---
 name: ucsc-liftup
-category: alignment
-description: Change coordinates of .psl, .agp, .gap, .gl, .out, .align, .gff, .gtf.
-tags: [ucsc-liftup, alignment]
+category: utility
+description: UCSC liftUp - Tool for lifting coordinates.
+tags: [ucsc-liftup, ucsc, coordinate-conversion, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-liftup (v482) - Change coordinates of .psl, .agp, .gap, .gl, .out, .align, .gff, .gtf.
-- **Core Function**: Change coordinates of .psl, .agp, .gap, .gl, .out, .align, .gff, .gtf.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-liftup`
+- **Tool Overview**: UCSC liftUp - A tool for lifting coordinates using chain files.
+- **Core Function**: Lifts coordinates from one assembly to another.
+- **Input**: Coordinate file, chain file.
+- **Output**: Lifted coordinates.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome assembly conversion, coordinate mapping.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chain File**: Requires appropriate chain file.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Lift up coordinates
+**Args:** `liftUp input.bed hg19ToHg38.over.chain output.bed`
+**Explanation:** Lift coordinates to target assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `liftUp -verbose input.bed chain.chain output.bed`
+**Explanation:** Lift with verbose output.

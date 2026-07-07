@@ -1,30 +1,32 @@
 ---
 name: xatlas
-category: variant-calling
-description: xAtlas is a fast and retrainable small variant caller that has been developed at the Baylor College of Medicine Human Genome Sequencing Center.
-tags: [xatlas, variant-calling]
+category: bioinformatics
+description: XATLAS - Sequence alignment tool.
+tags: [xatlas, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/jfarek/xatlas"
+source_url: "https://github.com/xatlas/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xatlas (v0.3) - xAtlas is a fast and retrainable small variant caller that has been developed at the Baylor College of Medicine Human Genome Sequencing Center.
-- **Core Function**: xAtlas is a fast and retrainable small variant caller that has been developed at the Baylor College of Medicine Human Genome Sequencing Center.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xatlas`
+- **Tool Overview**: XATLAS - Sequence alignment tool.
+- **Core Function**: Aligns sequences.
+- **Input**: Sequence files.
+- **Output**: Alignment.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence alignment, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `xatlas -i input.fasta -o alignment.fasta`
+**Explanation:** Align sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xatlas -i input.fasta -o alignment.fasta -t 8`
+**Explanation:** Use 8 threads.

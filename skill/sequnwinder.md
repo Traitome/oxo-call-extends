@@ -1,30 +1,52 @@
 ---
 name: sequnwinder
 category: annotation
-description: SeqUnwinder is a framework for characterizing class-discriminative motifs in a collection of genomic loci that have several (overlapping) annotation labels.
-tags: [sequnwinder, annotation]
+description: sequnwinder - Characterize class-discriminative motifs in genomic loci
+tags: ["sequnwinder", "annotation", "motif", "genomics"]
 author: oxo-call-community
 source_url: "http://mahonylab.org/software/sequnwinder/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sequnwinder (v0.1.4) - SeqUnwinder is a framework for characterizing class-discriminative motifs in a collection of genomic loci that have several (overlapping) annotation labels.
-- **Core Function**: SeqUnwinder is a framework for characterizing class-discriminative motifs in a collection of genomic loci that have several (overlapping) annotation labels.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sequnwinder`
+- **Tool Overview**: sequnwinder (v0.1.4) characterizes class-discriminative motifs in genomic loci.
+- **Core Function**: Identifies motifs associated with specific annotation labels.
+- **Algorithm**: Uses statistical methods for motif discovery and classification.
+- **Input/Output**: Accepts genomic loci and produces motif annotations.
+- **Motif Discovery**: Focuses on discriminative motif analysis.
+- **Applications**: Regulatory genomics, transcription factor binding, and epigenomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Input Quality**: Results depend on input data quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run analysis
+**Args:** `sequnwinder -i peaks.bed -a annotations.txt -o results/`
+**Explanation:** `-i` input peaks; `-a` annotations; `-o` output.
 
-### Basic usage
-**Args:** `sequnwinder -i <input.fasta> -o <output.gff>`
-**Explanation:** Run sequnwinder with typical input and output options.
+### With motifs
+**Args:** `sequnwinder -i peaks.bed -a annotations.txt -m motifs.txt -o results/`
+**Explanation:** `-m` known motifs file.
+
+### Verbose logging
+**Args:** `sequnwinder -v -i peaks.bed -a annotations.txt -o results/`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `sequnwinder --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sequnwinder --version`
+**Explanation:** Shows current version.
+
+### From FASTA
+**Args:** `sequnwinder -f sequences.fasta -a annotations.txt -o results/`
+**Explanation:** `-f` input FASTA file.

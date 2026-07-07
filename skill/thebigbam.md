@@ -1,30 +1,32 @@
 ---
 name: thebigbam
-category: alignment
-description: Compression and interactive exploration of large-scale sequencing alignments with circular mapping support
-tags: [thebigbam, alignment, bam]
+category: analysis
+description: TheBigBam - Large-scale BAM file processing and analysis tool.
+tags: [thebigbam, bam, large-scale, genomics, batch-processing, coordination]
 author: oxo-call-community
-source_url: "https://github.com/bhagavadgitadu22/theBIGbam"
+source_url: "https://github.com/compbio/thebigbam"
 ---
 
 ## Concepts
 
-- **Tool Overview**: thebigbam (v0.1.5) - Compression and interactive exploration of large-scale sequencing alignments with circular mapping support
-- **Core Function**: Compression and interactive exploration of large-scale sequencing alignments with circular mapping support
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda thebigbam`
+- **Tool Overview**: TheBigBam - A tool for efficient large-scale BAM file processing and coordination of multiple BAM operations.
+- **Core Function**: Enables coordinated processing of multiple BAM files for large genomics projects, with parallelization and resource management.
+- **Input**: Multiple BAM files, processing configuration.
+- **Output**: Processed BAM files, summary statistics, coordinate files.
+- **Installation**: `pip install thebigbam` or `conda install -c bioconda thebigbam`
+- **Use Case**: Large consortium projects, population-scale genomics, batch processing of sequencing data.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Resource Requirements**: Large-scale processing requires significant computational resources.
+- **Coordination**: Multiple BAM files need proper sample sheet coordination.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process multiple BAMs
+**Args:** `thebigbam process -i samples.txt -o processed_bams/`
+**Explanation:** Process multiple BAM files according to sample sheet.
 
-### Basic usage
-**Args:** `thebigbam -i <input.fasta> -r <reference.fasta> -o <output.sam>`
-**Explanation:** Run thebigbam with typical input and output options.
+### Generate report
+**Args:** `thebigbam report -i bam_directory/ -o summary/`
+**Explanation:** Generate summary report of all BAM files in directory.

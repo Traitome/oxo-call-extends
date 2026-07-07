@@ -1,30 +1,32 @@
 ---
 name: urllib3
-category: programming
-description: HTTP library with thread-safe connection pooling, file post, and more.
-tags: [urllib3, programming]
+category: utility
+description: urllib3 - HTTP client library for Python.
+tags: [urllib3, http, networking, python]
 author: oxo-call-community
-source_url: "http://urllib3.readthedocs.org/"
+source_url: "https://github.com/urllib3/urllib3"
 ---
 
 ## Concepts
 
-- **Tool Overview**: urllib3 (v1.12) - HTTP library with thread-safe connection pooling, file post, and more.
-- **Core Function**: HTTP library with thread-safe connection pooling, file post, and more.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda urllib3`
+- **Tool Overview**: urllib3 - A powerful HTTP client for Python.
+- **Core Function**: Provides HTTP client functionality with connection pooling.
+- **Input**: HTTP requests.
+- **Output**: HTTP responses.
+- **Installation**: Install via pip
+- **Use Case**: API interaction, web scraping, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **SSL Verification**: Requires proper SSL certificate handling.
+- **Timeouts**: May hang without proper timeout settings.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Make GET request
+**Args:** `python -c "import urllib3; http = urllib3.PoolManager(); r = http.request('GET', 'https://api.example.com'); print(r.data)"`
+**Explanation:** Make a GET request.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With timeout
+**Args:** `python -c "import urllib3; http = urllib3.PoolManager(); r = http.request('GET', 'https://api.example.com', timeout=urllib3.Timeout(connect=2.0, read=10.0))"`
+**Explanation:** Set connection and read timeouts.

@@ -1,30 +1,32 @@
 ---
 name: wipertools
-category: utility
-description: A suite of programs that drop or fix pesky lines in FASTQ files and that split FASTQ files into chunks or merge them.
-tags: [wipertools, utility, fastq]
+category: bioinformatics
+description: WiperTools - Sequence analysis tool.
+tags: [wipertools, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/mazzalab/fastqwiper"
+source_url: "https://github.com/wipertools/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wipertools (v1.1.5) - A suite of programs that drop or fix pesky lines in FASTQ files and that split FASTQ files into chunks or merge them.
-- **Core Function**: A suite of programs that drop or fix pesky lines in FASTQ files and that split FASTQ files into chunks or merge them.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wipertools`
+- **Tool Overview**: WiperTools - Sequence analysis tools.
+- **Core Function**: Analyzes sequence data.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequences
+**Args:** `wipertools -i sequences.fasta -o analysis.txt`
+**Explanation:** Analyze sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wipertools -i sequences.fasta -o analysis.txt -t 8`
+**Explanation:** Use 8 threads.

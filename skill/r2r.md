@@ -1,31 +1,56 @@
 ---
 name: r2r
 category: population-genomics
-description: software to speed depiction of aesthetic consensus RNA secondary structures
-tags: ["r2r", "population-genomics"]
+description: R2R generates aesthetic consensus RNA secondary structure depictions for visualization.
+tags: [r2r, population-genomics, rna, visualization]
 author: oxo-call-community
 source_url: "http://breaker.research.yale.edu/R2R/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: software to speed depiction of aesthetic consensus RNA secondary structures (version 1.0.6)
-- **Core Function**: Processes bioinformatics data related to population-genomics
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda r2r`
+- **Tool Overview**: r2r visualizes RNA structures.
+- **Core Function**: RNA structure depiction.
+- **Algorithm**: Uses consensus methods.
+- **Input Format**: Accepts structure files.
+- **Output**: Produces diagrams.
+- **Use Case**: RNA analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Structure Quality**: Must be good.
+- **Parameters**: Must be configured.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `r2r --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Draw structure
+**Args:** `r2r draw -i structure.sto -o structure.png`
+**Explanation:** Draws RNA secondary structure.
 
+### With parameters
+**Args:** `r2r draw -i structure.sto -p params.cfg -o structure.png`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `r2r -v draw -i structure.sto -o structure.png`
+**Explanation:** Runs with verbose output.
+
+### Multiple structures
+**Args:** `r2r draw -i struct1.sto,struct2.sto -o structures.png`
+**Explanation:** Draws multiple structures.
+
+### Consensus mode
+**Args:** `r2r consensus -i align.sto -o consensus.png`
+**Explanation:** Generates consensus structure.
+
+### Generate report
+**Args:** `r2r draw -i structure.sto -o structure.png --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedsort
 category: utility
-description: Sort a .bed file by chrom,chromStart.
-tags: [ucsc-bedsort, utility]
+description: UCSC bedSort - Tool for sorting BED files.
+tags: [ucsc-bedsort, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedsort (v482) - Sort a .bed file by chrom,chromStart.
-- **Core Function**: Sort a .bed file by chrom,chromStart.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedsort`
+- **Tool Overview**: UCSC bedSort - A tool for sorting BED files by chromosome and position.
+- **Core Function**: Sorts BED file entries by genomic coordinates.
+- **Input**: Unsorted BED file.
+- **Output**: Sorted BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data organization, preparation for genome browser, file indexing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: Large files may require significant memory.
+- **Sort Order**: Requires correct sort order specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sort BED file
+**Args:** `bedSort input.bed output.bed`
+**Explanation:** Sort BED file by chromosome and position.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Sort by name
+**Args:** `bedSort -name input.bed output.bed`
+**Explanation:** Sort BED file by name field.

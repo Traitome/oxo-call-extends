@@ -1,30 +1,52 @@
 ---
 name: ligand-validation
 category: qc
-description: Extract ligand and binding site information from PDB X-ray validation reports
-tags: [ligand-validation, qc]
+description: ligand-validation - Extract ligand and binding site information from PDB X-ray validation reports
+tags: [ligand-validation, qc, PDB, protein-structure, ligand, binding-site]
 author: oxo-call-community
 source_url: "https://git.scicore.unibas.ch/schwede/ligand-validation"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ligand-validation v0.0.1 - This project contains script for the validation of the quality of a PDB entry, ligand and binding site based on the PDB Validation pipeline..
-- **Core Function**: Extract ligand and binding site information from PDB X-ray validation reports
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda ligand-validation`
+- **PDB Validation**: Validation of PDB entry quality
+- **Ligand Extraction**: Extract ligand information from validation reports
+- **Binding Site Analysis**: Analyze protein-ligand binding sites
+- **X-ray Data**: Process X-ray crystallography validation data
+- **Quality Assessment**: Assess ligand and binding site quality
+- **Structural Biology**: Protein structure analysis tools
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **PDB Format**: Strict PDB format requirements
+- **Validation Reports**: Requires complete validation reports
+- **Missing Data**: Incomplete data may cause errors
+- **Version Compatibility**: Report format may change between versions
+- **Memory Usage**: Memory-intensive for large PDB files
+- **Complex Structures**: Highly complex structures may cause issues
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Extract ligand information
+**Args:** `ligand-validation extract -i validation.xml -o ligand_info.txt`
+**Explanation:** Extracts ligand information from PDB validation report.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Analyze binding site
+**Args:** `ligand-validation binding -i validation.xml -o binding_site.txt`
+**Explanation:** Analyzes protein-ligand binding site.
+
+### Generate report
+**Args:** `ligand-validation report -i validation.xml -o quality_report.html`
+**Explanation:** Generates HTML quality report for ligands.
+
+### Validate ligand
+**Args:** `ligand-validation validate -i structure.pdb -o validation.txt`
+**Explanation:** Validates ligand quality in PDB structure.
+
+### Compare ligands
+**Args:** `ligand-validation compare -i ligands.txt -o comparison.txt`
+**Explanation:** Compares multiple ligands across structures.
+
+### Statistics
+**Args:** `ligand-validation stats -i validation.xml -o statistics.txt`
+**Explanation:** Generates statistical summary of validation results.

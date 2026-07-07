@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafgene
-category: alignment
-description: Output protein alignments using maf and genePred.
-tags: [ucsc-mafgene, alignment]
+category: utility
+description: UCSC mafGene - Tool for gene analysis with MAF.
+tags: [ucsc-mafgene, ucsc, maf, gene-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v490_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafgene (v490) - Output protein alignments using maf and genePred.
-- **Core Function**: Output protein alignments using maf and genePred.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafgene`
+- **Tool Overview**: UCSC mafGene - A tool for gene analysis using MAF alignments.
+- **Core Function**: Analyzes gene structures across multiple species.
+- **Input**: MAF file, gene predictions.
+- **Output**: Gene analysis results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene analysis, comparative genomics, evolution.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze genes with MAF
+**Args:** `mafGene genes.txt input.maf > results.txt`
+**Explanation:** Analyze genes using MAF alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafGene -verbose genes.txt input.maf > results.txt`
+**Explanation:** Analyze with verbose output.

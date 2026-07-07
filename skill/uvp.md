@@ -1,30 +1,32 @@
 ---
 name: uvp
-category: variant-calling
-description: A Unified Variant Pipeline to identify variants and assign lineage from MTBC sequence data.
-tags: [uvp, variant-calling]
+category: bioinformatics
+description: UVP - Utility for variant prioritization.
+tags: [uvp, variant-prioritization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/CPTR-ReSeqTB/UVP"
+source_url: "https://github.com/uvp/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: uvp (v2.7.0) - A Unified Variant Pipeline to identify variants and assign lineage from MTBC sequence data.
-- **Core Function**: A Unified Variant Pipeline to identify variants and assign lineage from MTBC sequence data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda uvp`
+- **Tool Overview**: UVP - A tool for prioritizing genomic variants.
+- **Core Function**: Ranks variants based on pathogenicity scores.
+- **Input**: Variant file (VCF).
+- **Output**: Prioritized variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant prioritization, clinical genetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Model Requirements**: Requires trained models.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Prioritize variants
+**Args:** `uvp -i variants.vcf -o prioritized.txt`
+**Explanation:** Prioritize genomic variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `uvp -i variants.vcf -o prioritized.txt -m ensemble`
+**Explanation:** Use ensemble model.

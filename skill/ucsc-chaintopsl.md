@@ -1,30 +1,32 @@
 ---
 name: ucsc-chaintopsl
-category: formatting
-description: Convert chain file to psl format.
-tags: [ucsc-chaintopsl, formatting]
+category: utility
+description: UCSC chainToPsl - Tool for converting chains to PSL format.
+tags: [ucsc-chaintopsl, ucsc, format-conversion, chain, psl]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chaintopsl (v482) - Convert chain file to psl format.
-- **Core Function**: Convert chain file to psl format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chaintopsl`
+- **Tool Overview**: UCSC chainToPsl - A tool for converting chain alignments to PSL format.
+- **Core Function**: Converts chain format alignments to full PSL format.
+- **Input**: Chain alignment file, FASTA sequences.
+- **Output**: PSL format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment visualization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **FASTA Requirement**: Requires FASTA sequence files.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to PSL
+**Args:** `chainToPsl input.chain target.fa query.fa > output.psl`
+**Explanation:** Convert chain to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With output file
+**Args:** `chainToPsl -output output.psl input.chain target.fa query.fa`
+**Explanation:** Convert with specified output file.

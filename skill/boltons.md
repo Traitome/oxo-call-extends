@@ -1,30 +1,36 @@
 ---
 name: boltons
-category: utility
-description: 
-tags: [boltons, utility]
+category: programming
+description: Python utility library with useful data structures and helper functions
+tags: [boltons, python, utilities, data-structures]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/mahmoud/boltons"
 ---
 
 ## Concepts
 
-- **Tool Overview**: boltons (v16.4.1) - 
-- **Core Function**: 
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda boltons`
+- **Tool Overview**: boltons is a comprehensive Python utility library that provides useful data structures, decorators, and helper functions beyond the standard library.
+- **Core Function**: Extends Python's built-in types with enhanced functionality for common programming tasks.
+- **Modules**: Includes file utilities, itertools extensions, dicts, sets, and more.
+- **Application**: General-purpose utilities for Python development, including bioinformatics scripts.
+- **Installation**: Install via bioconda: `conda install -c bioconda boltons`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Python Only**: Python library, not a command-line tool.
+- **Version Compatibility**: Ensure version compatibility with Python projects.
+- **Documentation**: Refer to official documentation for complete API reference.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Use file utilities
+**Args:** `from boltons.fileutils import mkdir_p; mkdir_p('/path/to/directory')`
+**Explanation:** Creates directory and any parent directories as needed.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Use iterutils
+**Args:** `from boltons.iterutils import chunked; for chunk in chunked(range(100), 10): print(chunk)`
+**Explanation:** Iterates over sequences in chunks of specified size.
+
+### Use ordered dict
+**Args:** `from boltons.dictutils import OrderedMultiDict; od = OrderedMultiDict([('a', 1), ('b', 2)])`
+**Explanation:** Creates ordered dictionary with support for multiple values per key.

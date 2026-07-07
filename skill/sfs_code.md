@@ -1,30 +1,52 @@
 ---
 name: sfs_code
 category: population-genomics
-description: This article introduces a new forward population genetic simulation program that can efficiently generate samples from populations with complex demographic histories under various models of natural selection. The program (SFS_CODE) is highly flexible, allowing the user to simulate realistic genomic regions with several loci evolving according to a variety of mutation models (from simple to context-dependent), and allows for insertions and deletions. Each locus can be annotated as either coding or non-coding, sex-linked or autosomal, selected or neutral, and have an arbitrary linkage structure (from completely linked to independent). © The Author 2008. Published by Oxford University Press. All rights reserved.
-tags: [sfs_code, population-genomics, sam]
+description: sfs_code - Forward population genetic simulation program
+tags: ["sfs_code", "population-genomics", "simulation", "selection"]
 author: oxo-call-community
 source_url: "http://sfscode.sourceforge.net/SFS_CODE/index/index.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sfs_code (v20150910) - This article introduces a new forward population genetic simulation program that can efficiently generate samples from populations with complex demographic histories under various models of natural selection. The program (SFS_CODE) is highly flexible, allowing the user to simulate realistic genomic regions with several loci evolving according to a variety of mutation models (from simple to context-dependent), and allows for insertions and deletions. Each locus can be annotated as either coding or non-coding, sex-linked or autosomal, selected or neutral, and have an arbitrary linkage structure (from completely linked to independent). © The Author 2008. Published by Oxford University Press. All rights reserved.
-- **Core Function**: This article introduces a new forward population genetic simulation program that can efficiently generate samples from populations with complex demographic histories under various models of natural selection. The program (SFS_CODE) is highly flexible, allowing the user to simulate realistic genomic regions with several loci evolving according to a variety of mutation models (from simple to context-dependent), and allows for insertions and deletions. Each locus can be annotated as either coding or non-coding, sex-linked or autosomal, selected or neutral, and have an arbitrary linkage structure (from completely linked to independent). © The Author 2008. Published by Oxford University Press. All rights reserved.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sfs_code`
+- **Tool Overview**: sfs_code (v20150910) is a forward population genetic simulation program.
+- **Core Function**: Simulates population genetic data under various selection models.
+- **Algorithm**: Uses forward-time simulation for population genetics.
+- **Input/Output**: Accepts configuration files and produces simulated data.
+- **Population Simulation**: Focuses on demographic and selection simulations.
+- **Applications**: Population genetics research, evolutionary biology, and genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large simulations.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Complexity**: Configuration can be complex.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run simulation
+**Args:** `sfs_code -i config.txt -o output/`
+**Explanation:** `-i` input configuration; `-o` output directory.
 
-### Basic usage
-**Args:** `sfs_code -i <input.vcf> -o <output_dir>`
-**Explanation:** Run sfs_code with typical input and output options.
+### With seed
+**Args:** `sfs_code -i config.txt -s 12345 -o output/`
+**Explanation:** `-s 12345` random seed.
+
+### Verbose logging
+**Args:** `sfs_code -v -i config.txt -o output/`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `sfs_code --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sfs_code --version`
+**Explanation:** Shows current version.
+
+### Generate config
+**Args:** `sfs_code --generate-config > config.txt`
+**Explanation:** Generates example configuration file.

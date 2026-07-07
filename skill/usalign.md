@@ -1,30 +1,32 @@
 ---
 name: usalign
 category: alignment
-description: Universal structure alignment of monomeric, complex proteins and nucleic acids
-tags: [usalign, alignment]
+description: USAlign - Universal Structure Alignment tool.
+tags: [usalign, structure-alignment, bioinformatics, proteomics]
 author: oxo-call-community
-source_url: "https://zhanggroup.org/US-align/help"
+source_url: "https://github.com/pylelab/USAlign"
 ---
 
 ## Concepts
 
-- **Tool Overview**: usalign (v20241201) - US-align (Universal Structural alignment) is a unified protocol to compare 3D structures of different macromolecules (proteins, RNAs and DNAs) in different forms (monomers, oligomers and heterocomplexes) for both pairwise and multiple structure alignments. The core alogrithm of US-align is extended from TM-align and generates optimal structural alignments by maximizing TM-score of compared strucures through heuristic dynamic programming iterations. Large-scale benchmark tests showed that US-align can generate more accurate structural alignments with significantly reduced CPU time, compared to the state-of-the-art methods developed for specific structural alignment tasks. TM-score has values in (0,1] with 1 indicating an identical structure match, where a TM-score ≥0.5 (or 0.45) means the structures share the same global topology for proteins (or RNAs).
-- **Core Function**: Universal structure alignment of monomeric, complex proteins and nucleic acids
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda usalign`
+- **Tool Overview**: USAlign - A tool for universal protein structure alignment.
+- **Core Function**: Aligns protein 3D structures.
+- **Input**: Protein structure files (PDB).
+- **Output**: Alignment results.
+- **Installation**: Install via conda or source
+- **Use Case**: Protein structure analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large structures.
+- **Structure Quality**: Results depend on input structure quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align structures
+**Args:** `usalign -i1 structure1.pdb -i2 structure2.pdb -o alignment.txt`
+**Explanation:** Align two protein structures.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `usalign -i1 structure1.pdb -i2 structure2.pdb -o alignment.txt -m tmscore`
+**Explanation:** Use TM-score metric.

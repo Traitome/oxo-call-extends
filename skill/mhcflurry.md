@@ -2,29 +2,47 @@
 name: mhcflurry
 category: utility
 description: MHC Binding Predictor
-tags: [mhcflurry, utility]
+tags: [mhcflurry, utility, immunology]
 author: oxo-call-community
 source_url: "https://github.com/openvax/mhcflurry"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mhcflurry v2.2.0 - MHC Binding Predictor.
-- **Core Function**: MHC Binding Predictor
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mhcflurry`
+- **Tool Overview**: MHCflurry v2.2.0 is an MHC binding predictor for peptide-MHC interactions.
+- **Core Function**: Predicts peptide-MHC binding affinity.
+- **MHC Class I/II**: Supports both MHC class I and class II predictions.
+- **Machine Learning**: Uses machine learning models for prediction.
+- **Input/Output**: Accepts peptide sequences; outputs binding predictions.
+- **Immunoinformatics**: Used in vaccine design and immunogenomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Model Dependencies**: Requires trained machine learning models.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal predictions.
+- **Data Quality**: Prediction accuracy depends on input data quality.
+- **MHC Specificity**: Models are MHC allele-specific.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Predict MHC binding
+**Args:** `mhcflurry predict -i peptides.txt -o predictions.txt`
+**Explanation:** Predicts peptide-MHC binding affinity.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With specific MHC allele
+**Args:** `mhcflurry predict -i peptides.txt -o predictions.txt -a HLA-A*02:01`
+**Explanation:** Predicts binding to specific MHC allele.
+
+### MHC class II prediction
+**Args:** `mhcflurry predict -i peptides.txt -o predictions.txt -c II`
+**Explanation:** Predicts MHC class II binding.
+
+### Batch processing
+**Args:** `mhcflurry predict -i peptides/ -o predictions/`
+**Explanation:** Processes multiple peptide files in batch mode.
+
+### Generate binding scores
+**Args:** `mhcflurry score -i peptides.txt -o scores.txt`
+**Explanation:** Generates binding affinity scores.

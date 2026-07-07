@@ -2,21 +2,42 @@
 name: fragbuilder
 category: utility
 description: FragBuilder is a tool to create, setup and analyze QM calculations on peptides.
-tags: [fragbuilder, utility]
+tags: [fragbuilder, QM calculations, peptides, computational chemistry]
 author: oxo-call-community
 source_url: "https://github.com/jensengroup/fragbuilder"
 ---
 
 ## Concepts
-- **Tool Overview**: FragBuilder is a tool to create, setup and analyze QM calculations on peptides.
-- **Core Function**: FragBuilder is a tool to create, setup and analyze QM calculations on peptides.
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda fragbuilder`
+- **Peptide QM Calculations**: Sets up quantum mechanical calculations for peptides.
+- **Fragment Generation**: Generates peptide fragments for analysis.
+- **Conformational Analysis**: Analyzes peptide conformations.
+- **Energy Calculations**: Computes quantum mechanical energies.
+- **Visualization**: Visualizes peptide structures and results.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Computational Requirements**: QM calculations are computationally intensive.
+- **Software Dependencies**: Requires external QM software (Gaussian, ORCA).
+- **System Size**: Limited by computational resources for large peptides.
+- **Parameter Tuning**: Requires expertise in QM method selection.
+- **Memory Usage**: Large systems require significant memory.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Generate peptide fragment
+**Args:** `fragbuilder generate --sequence "ACDEFG" -o fragment.pdb`
+**Explanation:** Generates a peptide fragment from the sequence.
+
+### Setup QM calculation
+**Args:** `fragbuilder setup -i fragment.pdb -m b3lyp -b 6-31g -o qm_input/`
+**Explanation:** Sets up QM calculation with B3LYP functional and 6-31G basis.
+
+### Run QM calculation
+**Args:** `fragbuilder run -i qm_input/ -o results/`
+**Explanation:** Runs the QM calculation and saves results.
+
+### Analyze results
+**Args:** `fragbuilder analyze -i results/ -o analysis.txt`
+**Explanation:** Analyzes QM calculation results.
+
+### Visualize peptide
+**Args:** `fragbuilder visualize -i fragment.pdb -o structure.png`
+**Explanation:** Generates visualization of the peptide structure.

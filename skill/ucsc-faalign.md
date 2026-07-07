@@ -1,30 +1,32 @@
 ---
 name: ucsc-faalign
-category: alignment
-description: Align two fasta files.
-tags: [ucsc-faalign, alignment]
+category: utility
+description: UCSC faAlign - Tool for aligning FASTA sequences.
+tags: [ucsc-faalign, ucsc, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-faalign (v482) - Align two fasta files.
-- **Core Function**: Align two fasta files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-faalign`
+- **Tool Overview**: UCSC faAlign - A tool for pairwise alignment of FASTA sequences.
+- **Core Function**: Aligns two sequences using dynamic programming.
+- **Input**: Two FASTA sequences.
+- **Output**: Alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence alignment, comparative genomics, sequence analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for long sequences.
+- **Computation Time**: May be slow for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `faAlign target.fa query.fa > alignment.psl`
+**Explanation:** Align two sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With parameters
+**Args:** `faAlign -minScore=1000 target.fa query.fa > alignment.psl`
+**Explanation:** Align with minimum score threshold.

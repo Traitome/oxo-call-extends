@@ -1,31 +1,52 @@
 ---
 name: kofamscan
 category: annotation
-description: KofamKOALA assigns K numbers to the user's sequence data by HMMER/HMMSEARCH against KOfam
-tags: [kofamscan, annotation]
+description: KofamKOALA - K number assignment using HMMER against KOfam
+tags: [kofamscan, annotation, KEGG, KOfam, HMM, functional-annotation]
 author: oxo-call-community
 source_url: "https://www.genome.jp/tools/kofamkoala/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kofamscan v1.3.0 - KofamKOALA assigns K numbers to the user's sequence data by HMMER/HMMSEARCH against KOfam (a customized HMM database of KEGG Orthologs (KOs)). K number assignments with scores above the predefined thresholds for individual KOs are more reliable than other proposed assignments. Such high score assignments are highlighted with asterisks '*' in the output. The K number assignments facilitate the interpretation of the annotation results by linking the user's sequence data to the KEGG pathways and EC numbers..
-- **Core Function**: KofamKOALA assigns K numbers to the user's sequence data by HMMER/HMMSEARCH against KOfam
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kofamscan`
+- **K Number Assignment**: Assigns KEGG Orthology (KO) numbers to sequences
+- **HMM-based Detection**: Uses HMMER/HMMSEARCH against KOfam database
+- **Functional Annotation**: Provides functional annotation of protein sequences
+- **Pathway Mapping**: Links annotations to KEGG pathways
+- **EC Number Prediction**: Predicts Enzyme Commission numbers
+- **Threshold-based Scoring**: Uses score thresholds for reliable assignments
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Database Size**: Large KOfam database requires significant resources
+- **Score Thresholds**: Improper thresholds lead to false positives/negatives
+- **Novel Functions**: Novel proteins may not find significant matches
+- **Sequence Quality**: Poor quality sequences affect annotation accuracy
+- **E-value Selection**: E-value cutoff affects detection sensitivity
+- **Annotation Transfer**: Annotations are transferred from database entries
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Annotate protein sequences
+**Args:** `exec_annotation -f mapper -p profiles -k ko_list -i proteins.faa -o annotation.tsv`
+**Explanation:** Annotates proteins with K numbers using HMM profiles.
 
-### Annotate proteins
-**Args:** `-f mapper -p profiles -k ko_list -i proteins.faa -o annotation.tsv`
-**Explanation:** Annotates protein sequences with KEGG Orthology using HMM profiles.
+### Koala mode
+**Args:** `koala -i proteins.faa -o annotation.txt`
+**Explanation:** Uses Koala web server mode for annotation.
 
+### Batch annotation
+**Args:** `exec_annotation -i proteins_dir/ -p profiles -k ko_list -o annotations/`
+**Explanation:** Batch annotates multiple protein files.
+
+### Detailed output
+**Args:** `exec_annotation -i proteins.faa -o detailed.tsv --details`
+**Explanation:** Provides detailed output with all matches.
+
+### Filter by score
+**Args:** `exec_annotation -i proteins.faa -o filtered.tsv --score 50`
+**Explanation:** Only reports annotations above score threshold.
+
+### Export pathway results
+**Args:** `exec_annotation -i proteins.faa -o results.tsv --pathway`
+**Explanation:** Exports KEGG pathway mapping results.

@@ -1,30 +1,43 @@
 ---
 name: cellprofiler-core
-category: utility
-description: Dependency for CellProfiler v4.
-tags: [cellprofiler-core, utility]
+category: imaging
+description: Core library dependency for CellProfiler cell image analysis software
+tags: [cellprofiler-core, cellprofiler, imaging, cell-analysis, microscopy]
 author: oxo-call-community
-source_url: "https://github.com/CellProfiler/CellProfiler/wiki"
+source_url: "https://github.com/CellProfiler/CellProfiler"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cellprofiler-core (v4.2.8.1) - Dependency for CellProfiler v4.
-- **Core Function**: Dependency for CellProfiler v4.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cellprofiler-core`
+- **Tool Overview**: cellprofiler-core is the core library component of CellProfiler for image processing.
+- **Core Function**: Provides image analysis algorithms and utilities for CellProfiler.
+- **Features**: Image segmentation, object detection, measurement, and feature extraction.
+- **Input**: Microscopy images in various formats (TIFF, PNG, JPEG).
+- **Output**: Analyzed cell measurements and statistics.
+- **Application**: High-throughput cell imaging analysis and screening.
+- **Installation**: Install via bioconda: `conda install -c bioconda cellprofiler-core`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Version Compatibility**: Must match CellProfiler version requirements.
+- **Image Format**: Supports specific image formats, may need conversion.
+- **Memory Usage**: Large image datasets may require significant memory.
+- **GPU Acceleration**: Some operations may benefit from GPU.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Import and use in Python
+**Args:** `python -c "import cellprofiler_core; print(cellprofiler_core.__version__)"`
+**Explanation:** Checks cellprofiler-core version.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Run headless analysis
+**Args:** `cellprofiler --headless --pipeline pipeline.cppipe --input images/ --output results/`
+**Explanation:** Runs CellProfiler analysis without GUI.
+
+### Display help
+**Args:** `python -c "from cellprofiler_core import help"`
+**Explanation:** Shows available modules and documentation.
+
+### Install with CellProfiler
+**Args:** `conda install -c bioconda cellprofiler`
+**Explanation:** Installs CellProfiler with cellprofiler-core as dependency.

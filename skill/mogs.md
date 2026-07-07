@@ -2,29 +2,47 @@
 name: mogs
 category: metagenomics
 description: MOGS (Metagenome Ocurrence-based Genetic Screening)
-tags: [mogs, metagenomics]
+tags: [mogs, metagenomics, gwas]
 author: oxo-call-community
 source_url: "https://gitlab.pasteur.fr/statistical-genetics/MOGS"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mogs v0.2.0 - This tool is designed to run a linear regression on bacterial data, similar to a GWAS in human genetics..
-- **Core Function**: MOGS (Metagenome Ocurrence-based Genetic Screening)
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mogs`
+- **Tool Overview**: MOGS v0.2.0 performs metagenome-wide association studies.
+- **Core Function**: Runs linear regression on bacterial occurrence data.
+- **GWAS-like Analysis**: Applies GWAS methodology to metagenomic data.
+- **Occurrence-based**: Uses presence/absence or abundance data.
+- **Input/Output**: Accepts genotype/phenotype data; outputs association results.
+- **Statistical Genetics**: Supports metagenomic association studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Metagenomics Specific**: Designed for metagenomic data.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal analysis.
+- **Data Quality**: Results depend on sequencing depth.
+- **Multiple Testing**: Requires careful correction for multiple comparisons.
+- **Computational Resources**: Large datasets may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run association analysis
+**Args:** `mogs --genotypes genotypes.txt --phenotypes phenotypes.txt --output results.txt`
+**Explanation:** Runs metagenome-wide association analysis.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With covariates
+**Args:** `mogs --genotypes genotypes.txt --phenotypes phenotypes.txt --covariates covariates.txt --output results.txt`
+**Explanation:** Controls for confounding variables.
+
+### Verbose output
+**Args:** `mogs --genotypes genotypes.txt --phenotypes phenotypes.txt -v --output results.txt`
+**Explanation:** Shows detailed analysis results.
+
+### Multiple testing correction
+**Args:** `mogs --genotypes genotypes.txt --phenotypes phenotypes.txt --fdr --output results.txt`
+**Explanation:** Applies FDR correction.
+
+### Batch processing
+**Args:** `mogs --input data/ --output results/`
+**Explanation:** Processes multiple datasets.

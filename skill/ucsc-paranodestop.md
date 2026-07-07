@@ -1,30 +1,32 @@
 ---
 name: ucsc-paranodestop
 category: utility
-description: Shut down parasol node daemons on a list of machines.
-tags: [ucsc-paranodestop, utility]
+description: UCSC paraNodeStop - Tool for stopping parallel nodes.
+tags: [ucsc-paranodestop, ucsc, parallel, node, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-paranodestop (v482) - Shut down parasol node daemons on a list of machines.
-- **Core Function**: Shut down parasol node daemons on a list of machines.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-paranodestop`
+- **Tool Overview**: UCSC paraNodeStop - A tool for stopping parallel processing nodes.
+- **Core Function**: Stops running parallel processing nodes.
+- **Input**: Node identifier.
+- **Output**: Stop confirmation.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Cluster management, parallel computing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Permissions**: Requires proper permissions.
+- **Active Jobs**: May interrupt active jobs.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Stop parallel node
+**Args:** `paraNodeStop node_id`
+**Explanation:** Stop parallel processing node.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraNodeStop -force node_id`
+**Explanation:** Force stop node.

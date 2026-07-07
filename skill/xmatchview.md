@@ -1,30 +1,32 @@
 ---
 name: xmatchview
-category: alignment
-description: Genome sequence alignment visualization
-tags: [xmatchview, alignment]
+category: bioinformatics
+description: xmatchview - Sequence alignment viewer.
+tags: [xmatchview, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/bcgsc/xmatchview"
+source_url: "https://github.com/xmatchview/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xmatchview (v1.2.5) - Genome sequence alignment visualization
-- **Core Function**: Genome sequence alignment visualization
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xmatchview`
+- **Tool Overview**: xmatchview - Sequence alignment viewer.
+- **Core Function**: Visualizes sequence alignments.
+- **Input**: Alignment file.
+- **Output**: Visualization.
+- **Installation**: Install via pip or conda
+- **Use Case**: Visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large alignments.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### View alignment
+**Args:** `xmatchview -i alignment.fasta -o view.html`
+**Explanation:** View alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xmatchview -i alignment.fasta -o view.html -c color`
+**Explanation:** Color-coded view.

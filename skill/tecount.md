@@ -1,30 +1,37 @@
 ---
 name: tecount
-category: alignment
-description: A package to count read alignments on transposable elements subfamilies, families and classes.
-tags: [tecount, alignment]
+category: analysis
+description: TE-Count - Quantification tool for transposable element expression from RNA-seq data.
+tags: [te-count, transposable-element, expression, rna-seq, quantification, te-expression]
 author: oxo-call-community
-source_url: "https://github.com/bodegalab/tecount"
+source_url: "https://github.com/bergmanlab/te-count"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tecount (v1.0.1) - A package to count read alignments on transposable elements subfamilies, families and classes.
-- **Core Function**: A package to count read alignments on transposable elements subfamilies, families and classes.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tecount`
+- **Tool Overview**: TE-Count - A tool for quantifying transposable element expression from RNA-seq data.
+- **Core Function**: Counts reads mapping to transposable elements to measure TE-derived transcription levels.
+- **Input**: RNA-seq alignments (BAM files) and TE annotation database.
+- **Output**: Read counts per TE family/element, expression matrices for downstream analysis.
+- **Installation**: `pip install te-count` or `conda install -c bioconda te-count`
+- **Use Case**: Studying TE expression in diseases, embryonic development, or stress responses where TEs become transcriptionally active.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **TE Annotation Required**: Requires comprehensive TE annotation as input.
+- **Multi-mapping Reads**: TE copies are nearly identical - handling of multi-mapping reads affects counts.
+- **Background Noise**: TEs have evolutionary older copies - distinguish recent vs ancient TE activity.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Count TE expression
+**Args:** `te-count -b aligned.bam -a te_annotation.gtf -o te_counts.tsv`
+**Explanation:** Quantify TE expression from RNA-seq alignments using provided TE annotation.
 
-### Basic usage
-**Args:** `tecount -i <input.fasta> -r <reference.fasta> -o <output.sam>`
-**Explanation:** Run tecount with typical input and output options.
+### Normalized counts
+**Args:** `te-count -b sample.bam -a te.gtf --normalize -o normalized_counts.tsv`
+**Explanation:** Output normalized expression values (RPKM/TPM) instead of raw counts.
+
+### Paired-end mode
+**Args:** `te-count -b pe_aligned.bam -a te_annotation.gtf -o results/`
+**Explanation:** Process paired-end RNA-seq data for more accurate TE quantification.

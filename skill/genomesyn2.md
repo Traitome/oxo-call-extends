@@ -1,30 +1,43 @@
 ---
 name: genomesyn2
-category: alignment
-description: A Comparative Genomics Framework Integrating Synteny Visualization
-tags: [genomesyn2, alignment]
+category: comparative-genomics
+description: GenomeSyn2 - A Comparative Genomics Framework Integrating Synteny Visualization.
+tags: [genomesyn2, comparative-genomics, synteny, visualization]
 author: oxo-call-community
 source_url: "https://github.com/banzhou59/GenomeSyn2"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genomesyn2 (v1.1.0) - A Comparative Genomics Framework Integrating Synteny Visualization
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genomesyn2`
+- **Comparative Genomics**: Compares genomes for evolutionary analysis.
+- **Synteny Analysis**: Analyzes syntenic relationships between genomes.
+- **Genome Alignment**: Aligns multiple genomes.
+- **Visualization**: Visualizes synteny and genome comparisons.
+- **Evolutionary Analysis**: Analyzes evolutionary relationships.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Genome Quality**: Requires high-quality genome assemblies.
+- **Computational Resources**: Large genomes require significant resources.
+- **Alignment Quality**: Depends on accurate alignment.
+- **Visualization Complexity**: Complex visualizations may be hard to interpret.
+- **Parameter Sensitivity**: Results sensitive to parameters.
 
 ## Examples
+### Compare genomes
+**Args:** `genomesyn2 -i genome1.fasta genome2.fasta -o comparison.txt`
+**Explanation:** Compares two genomes for synteny.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize synteny
+**Args:** `genomesyn2 -i genome1.fasta genome2.fasta -v -o synteny.png`
+**Explanation:** Generates synteny visualization.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Multiple genome comparison
+**Args:** `genomesyn2 -i ./genomes/ -o comparison.txt`
+**Explanation:** Compares multiple genomes.
+
+### Generate report
+**Args:** `genomesyn2 -i genome1.fasta genome2.fasta -r -o report.html`
+**Explanation:** Generates comparative genomics report.
+
+### Batch processing
+**Args:** `genomesyn2 -i ./genomes/ -o ./results/`
+**Explanation:** Processes multiple genome files in batch.

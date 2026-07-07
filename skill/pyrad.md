@@ -1,31 +1,56 @@
 ---
 name: pyrad
 category: assembly
-description: Assembly and analysis of RADseq data sets
-tags: ["pyrad", "assembly"]
+description: PyRAD assembles and analyzes RADseq (Restriction Site Associated DNA sequencing) data sets.
+tags: [pyrad, assembly, radseq, population-genomics]
 author: oxo-call-community
 source_url: "https://github.com/dereneaton/pyrad"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Assembly and analysis of RADseq data sets (version 3.0.66)
-- **Core Function**: Processes bioinformatics data related to assembly
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pyrad`
+- **Tool Overview**: pyrad assembles RADseq data.
+- **Core Function**: RADseq assembly.
+- **Algorithm**: Uses sequence clustering.
+- **Input Format**: Accepts FASTQ files.
+- **Output**: Produces loci.
+- **Use Case**: Population genetics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Parameter Tuning**: Affects assembly.
+- **Runtime**: Assembly may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pyrad --help`
+**Explanation:** Shows available options and usage instructions.
 
 ### Run assembly
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assembles reads into contigs/scaffolds.
+**Args:** `pyrad assemble -i reads.fastq -o output/`
+**Explanation:** Assembles RADseq data.
 
+### With parameters
+**Args:** `pyrad assemble -i reads.fastq -p params.yaml -o output/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pyrad -v assemble -i reads.fastq -o output/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pyrad -t 4 assemble -i reads.fastq -o output/`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Demultiplex
+**Args:** `pyrad demultiplex -i raw.fastq -b barcodes.txt -o demultiplexed/`
+**Explanation:** Separates samples by barcode.
+
+### Generate report
+**Args:** `pyrad assemble -i reads.fastq -o output/ --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: viewbs
-category: programming
-description: ViewBS is a powerful toolkit for visualization of high-throughput bisulfite sequencing data
-tags: [viewbs, programming]
+category: bioinformatics
+description: viewBS - Bisulfite sequencing viewer.
+tags: [viewbs, bisulfite-sequencing, visualization, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/xie186/ViewBS"
+source_url: "https://github.com/viewbs/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viewbs (v0.1.11) - ViewBS is a powerful toolkit for visualization of high-throughput bisulfite sequencing data
-- **Core Function**: ViewBS is a powerful toolkit for visualization of high-throughput bisulfite sequencing data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viewbs`
+- **Tool Overview**: viewBS - Visualizes bisulfite sequencing data.
+- **Core Function**: Displays methylation patterns.
+- **Input**: BAM file with bisulfite data.
+- **Output**: Visualization.
+- **Installation**: Install via pip or conda
+- **Use Case**: Epigenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Dependencies**: Requires visualization libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### View methylation
+**Args:** `viewbs -i input.bam -o methylation.png`
+**Explanation:** Visualize methylation.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viewbs -i input.bam -o methylation.png -r chr1:1000-2000`
+**Explanation:** View specific region.

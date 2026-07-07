@@ -1,30 +1,32 @@
 ---
 name: wkhtmltopdf
-category: utility
-description: 
-tags: [wkhtmltopdf, utility]
+category: bioinformatics
+description: wkhtmltopdf - HTML to PDF converter.
+tags: [wkhtmltopdf, pdf-conversion, bioinformatics, visualization]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/wkhtmltopdf/wkhtmltopdf"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wkhtmltopdf (v0.12.3) - 
-- **Core Function**: 
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wkhtmltopdf`
+- **Tool Overview**: wkhtmltopdf - HTML to PDF converter.
+- **Core Function**: Converts HTML to PDF.
+- **Input**: HTML file.
+- **Output**: PDF file.
+- **Installation**: Install via package manager
+- **Use Case**: Report generation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large documents.
+- **Dependencies**: Requires Qt libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert HTML to PDF
+**Args:** `wkhtmltopdf input.html output.pdf`
+**Explanation:** Convert HTML to PDF.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wkhtmltopdf --page-size A4 input.html output.pdf`
+**Explanation:** Use A4 page size.

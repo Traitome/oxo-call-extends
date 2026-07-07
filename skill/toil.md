@@ -1,30 +1,32 @@
 ---
 name: toil
-category: programming
-description: A scalable, efficient, cross-platform and easy-to-use workflow engine in pure Python
-tags: [toil, programming]
+category: workflow
+description: Toil - Pipeline management engine for bioinformatics workflows.
+tags: [toil, workflow, pipeline, bioinformatics, distributed-computing]
 author: oxo-call-community
-source_url: "https://toil.readthedocs.io/en/latest/"
+source_url: "https://github.com/DataBiosphere/toil"
 ---
 
 ## Concepts
 
-- **Tool Overview**: toil (v7.0.0) - A scalable, efficient, cross-platform and easy-to-use workflow engine in pure Python
-- **Core Function**: A scalable, efficient, cross-platform and easy-to-use workflow engine in pure Python
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda toil`
+- **Tool Overview**: Toil - A scalable, flexible workflow management engine for running complex bioinformatics pipelines.
+- **Core Function**: Manages workflow execution across multiple compute nodes with automatic retries and resource management.
+- **Input**: Workflow definition (CWL, WDL, or native Toil), input data files.
+- **Output**: Pipeline results, logs, and intermediate files.
+- **Installation**: `pip install toil` or `conda install -c bioconda toil`
+- **Use Case**: Large-scale bioinformatics analysis, distributed computing, pipeline orchestration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Resource Management**: Requires careful resource allocation for optimal performance.
+- **Complexity**: Learning curve for workflow definition and optimization.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run workflow
+**Args:** `toil run workflow.cwl --input sample.fastq --output results/`
+**Explanation:** Run a CWL workflow with Toil.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Cluster mode
+**Args:** `toil run wdl_workflow.wdl --batchSystem mesos --outdir output/`
+**Explanation:** Run workflow on cluster with Mesos batch system.

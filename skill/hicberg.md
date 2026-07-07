@@ -1,30 +1,56 @@
 ---
 name: hicberg
-category: utility
-description: Statistical profiling based tool for contact data (Hi-C, ChIA-PET, Capture-C, etc.) and genomics data reconstruction
-tags: [hicberg, utility]
+category: bioinformatics
+description: HiCBerg is a statistical profiling tool for Hi-C, ChIA-PET, Capture-C contact data and genomic data reconstruction.
+tags: [hicberg, Hi-C, ChIA-PET, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/sebgra/hicberg"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hicberg (v1.0.1) - Statistical profiling based tool for contact data (Hi-C, ChIA-PET, Capture-C, etc.) and genomics data reconstruction
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hicberg`
+- **Contact Data Analysis**: HiCBerg analyzes Hi-C and related contact data.
+
+- **Statistical Profiling**: Uses statistical methods for data analysis.
+
+- **Genomic Reconstruction**: Reconstructs genomic data from contact maps.
+
+- **3D Genome**: Analyzes three-dimensional genome organization.
+
+- **Chromatin Interactions**: Identifies chromatin interactions.
+
+- **Data Integration**: Integrates multiple data types.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Results depend on input data quality.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **Normalization**: Proper normalization is critical.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze Hi-C data
+**Args:** `hicberg --input contacts.txt --output results/`
+**Explanation:** Analyzes Hi-C contact data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With ChIA-PET data
+**Args:** `hicberg --input chiapet.bedpe --output results/`
+**Explanation:** Processes ChIA-PET data.
+
+### Batch processing
+**Args:** `for f in *.txt; do hicberg --input $f --output ${f%.txt}_results/; done`
+**Explanation:** Processes multiple contact files.
+
+### Generate report
+**Args:** `hicberg --input contacts.txt --output results/ --report`
+**Explanation:** Generates comprehensive analysis report.
+
+### Help command
+**Args:** `hicberg --help`
+**Explanation:** Shows available options and usage information.

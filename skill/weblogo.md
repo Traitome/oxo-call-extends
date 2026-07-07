@@ -1,30 +1,32 @@
 ---
 name: weblogo
-category: utility
-description: WebLogo3 : Sequence Logos Redrawn
-tags: [weblogo, utility]
+category: bioinformatics
+description: WebLogo - Sequence logo generator.
+tags: [weblogo, sequence-analysis, visualization, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/WebLogo/weblogo"
 ---
 
 ## Concepts
 
-- **Tool Overview**: weblogo (v3.7.9) - WebLogo3 : Sequence Logos Redrawn
-- **Core Function**: WebLogo3 : Sequence Logos Redrawn
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda weblogo`
+- **Tool Overview**: WebLogo - Generates sequence logos.
+- **Core Function**: Creates visual representations of sequence alignments.
+- **Input**: Sequence alignment.
+- **Output**: Sequence logo image.
+- **Installation**: Install via pip
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large alignments.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate logo
+**Args:** `weblogo -i alignment.fasta -o logo.png`
+**Explanation:** Generate sequence logo.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `weblogo -i alignment.fasta -o logo.png -f pdf`
+**Explanation:** Generate PDF logo.

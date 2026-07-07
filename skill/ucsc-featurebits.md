@@ -1,30 +1,32 @@
 ---
 name: ucsc-featurebits
-category: alignment
-description: Correlate tables via bitmap projections.
-tags: [ucsc-featurebits, alignment]
+category: utility
+description: UCSC featureBits - Tool for manipulating feature bitmasks.
+tags: [ucsc-featurebits, ucsc, features, bitmask, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-featurebits (v482) - Correlate tables via bitmap projections.
-- **Core Function**: Correlate tables via bitmap projections.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-featurebits`
+- **Tool Overview**: UCSC featureBits - A tool for manipulating feature bitmasks.
+- **Core Function**: Creates and manipulates bitmask representations of features.
+- **Input**: Feature file.
+- **Output**: Bitmask file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Feature analysis, genome annotation, bitwise operations.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Bitmask Size**: May require significant memory for large genomes.
+- **Feature Format**: Requires proper feature format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create feature bits
+**Args:** `featureBits -input=features.bed -output=bits.bb`
+**Explanation:** Create feature bitmask.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `featureBits -input=features.bed -mask=mask.bb -output=bits.bb`
+**Explanation:** Create with masking.

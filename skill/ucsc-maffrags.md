@@ -1,30 +1,32 @@
 ---
 name: ucsc-maffrags
 category: utility
-description: Collect MAFs from regions specified in a 6 column bed file.
-tags: [ucsc-maffrags, utility]
+description: UCSC mafFrags - Tool for extracting fragments from MAF.
+tags: [ucsc-maffrags, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maffrags (v482) - Collect MAFs from regions specified in a 6 column bed file.
-- **Core Function**: Collect MAFs from regions specified in a 6 column bed file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maffrags`
+- **Tool Overview**: UCSC mafFrags - A tool for extracting fragments from MAF alignments.
+- **Core Function**: Extracts sequence fragments from MAF alignments.
+- **Input**: MAF file.
+- **Output**: Sequence fragments.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence extraction, fragment analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract fragments
+**Args:** `mafFrags input.maf > fragments.txt`
+**Explanation:** Extract fragments from MAF alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafFrags -species=hg38 input.maf > fragments.txt`
+**Explanation:** Extract fragments for specific species.

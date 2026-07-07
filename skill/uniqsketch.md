@@ -1,30 +1,32 @@
 ---
 name: uniqsketch
-category: metagenomics
-description: UniqSketch: sensitive and resource-efficient strain-level detection in metagenomes.
-tags: [uniqsketch, metagenomics]
+category: bioinformatics
+description: UniqSketch - Sequence sketching tool.
+tags: [uniqsketch, sequence-sketching, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/amazon-science/uniqsketch/README.md"
+source_url: "https://github.com/uniqsketch/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: uniqsketch (v1.2.1) - UniqSketch: sensitive and resource-efficient strain-level detection in metagenomes.
-- **Core Function**: UniqSketch: sensitive and resource-efficient strain-level detection in metagenomes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda uniqsketch`
+- **Tool Overview**: UniqSketch - A tool for sequence sketching and comparison.
+- **Core Function**: Creates compact sketches of sequences for comparison.
+- **Input**: Sequence files (FASTA/FASTQ).
+- **Output**: Sequence sketches.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence comparison, clustering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sketch Size**: Results depend on sketch size parameter.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create sketch
+**Args:** `uniqsketch sketch -i input.fasta -o sketch.txt`
+**Explanation:** Create sequence sketch.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Compare sketches
+**Args:** `uniqsketch compare -i1 sketch1.txt -i2 sketch2.txt`
+**Explanation:** Compare two sketches.

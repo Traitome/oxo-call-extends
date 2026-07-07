@@ -1,30 +1,32 @@
 ---
 name: ymp
-category: containerization
-description: Create entire NGS pipelines with one command
-tags: [ymp, containerization]
+category: bioinformatics
+description: YMP - Bioinformatics tool.
+tags: [ymp, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://ymp.readthedocs.io"
+source_url: "https://github.com/ymp/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ymp (v0.3.2) - YMP allows composing complex NGS data analysis workflows from conceptual building blocks ("stages") using a single command line statement. Pre-tested conda environments are installed on-the fly, reference databases downloaded as needed and requested workflows executed using Snakemake.  With YMP, developing new pipelines or testing alternative approaches using differnt tools or optimizing parameters becomes easy. Results from previous results are reused where possible. The collection of stages included with YMP is can be extended with project specific YMP stage definitions or simple Snakefiles.
-- **Core Function**: Create entire NGS pipelines with one command
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ymp`
+- **Tool Overview**: YMP - Bioinformatics tool.
+- **Core Function**: Various bioinformatics tasks.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Bioinformatics analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run analysis
+**Args:** `ymp -i input.fasta -o output.txt`
+**Explanation:** Run analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `ymp -i input.fasta -o output.txt -t 8`
+**Explanation:** Use 8 threads.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigwigsummary
-category: formatting
-description: Extract summary information from a bigWig file.
-tags: [ucsc-bigwigsummary, formatting]
+category: analysis
+description: UCSC bigWigSummary - Tool for generating summaries from BigWig files.
+tags: [ucsc-bigwigsummary, ucsc, bigwig, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigwigsummary (v482) - Extract summary information from a bigWig file.
-- **Core Function**: Extract summary information from a bigWig file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigwigsummary`
+- **Tool Overview**: UCSC bigWigSummary - A tool for generating statistical summaries from BigWig files.
+- **Core Function**: Computes statistics over genomic regions in BigWig format.
+- **Input**: BigWig file, BED regions.
+- **Output**: Statistical summaries.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data summarization, quality control, statistical analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Region Format**: Requires proper BED format for regions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate summary
+**Args:** `bigWigSummary input.bw regions.bed > summary.txt`
+**Explanation:** Generate summary over specified regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With statistics
+**Args:** `bigWigSummary -stats input.bw regions.bed > summary.txt`
+**Explanation:** Generate detailed statistics.

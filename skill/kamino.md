@@ -2,29 +2,51 @@
 name: kamino
 category: utility
 description: Tool for building phylogenomic datasets quickly and reproducibly.
-tags: [kamino, utility]
+tags: [kamino, utility, phylogenomics, datasets, reproducible]
 author: oxo-call-community
 source_url: "https://github.com/rderelle/kamino/blob/1.0.0/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kamino (v1.0.0) - Tool for building phylogenomic datasets quickly and reproducibly.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kamino`
+- **Tool Overview**: kamino (v1.0.0) - Builds phylogenomic datasets from sequence data.
+- **Ortholog Identification**: Identifies orthologous genes across species.
+- **Multiple Alignment**: Performs multiple sequence alignment.
+- **Dataset Construction**: Creates concatenated alignments for phylogenomics.
+- **Reproducibility**: Ensures reproducible dataset construction.
+- **Automation**: Automates the entire phylogenomic dataset pipeline.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Input Quality**: Requires high-quality input sequences.
+- **Ortholog Detection**: May miss distant orthologs.
+- **Alignment Quality**: Poor alignments affect downstream analysis.
+- **Memory Usage**: Large datasets require significant memory.
+- **Runtime**: Processing many taxa can be time-consuming.
+- **Dependency Management**: Requires proper installation of dependencies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build dataset
+**Args:** `kamino build -i genomes/ -o dataset/`
+**Explanation:** Builds phylogenomic dataset from genome sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Specify ortholog threshold
+**Args:** `kamino build -i genomes/ -o dataset/ -t 0.8`
+**Explanation:** Sets ortholog identification threshold to 0.8.
+
+### Include specific genes
+**Args:** `kamino build -i genomes/ -o dataset/ -g gene_list.txt`
+**Explanation:** Includes only specified genes in dataset.
+
+### Parallel processing
+**Args:** `kamino build -i genomes/ -o dataset/ -p 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Output statistics
+**Args:** `kamino stats -i dataset/ -o stats.txt`
+**Explanation:** Generates dataset statistics.
+
+### Validate dataset
+**Args:** `kamino validate -i dataset/`
+**Explanation:** Validates dataset integrity.

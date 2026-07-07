@@ -1,30 +1,32 @@
 ---
 name: ucsc-autosql
 category: utility
-description: Create SQL and C code for permanently storing.
-tags: [ucsc-autosql, utility]
+description: UCSC autoSql - Tool for defining table schemas in UCSC format.
+tags: [ucsc-autosql, ucsc, schema-definition, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-autosql (v482) - Create SQL and C code for permanently storing.
-- **Core Function**: Create SQL and C code for permanently storing.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-autosql`
+- **Tool Overview**: UCSC autoSql - A tool for defining table schemas for UCSC genome browser.
+- **Core Function**: Creates and manipulates autoSql schema definitions.
+- **Input**: autoSql schema files, table definitions.
+- **Output**: Schema files, database table definitions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser data submission, schema definition, data integration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Schema Syntax**: Requires correct autoSql syntax.
+- **Compatibility**: Schema must be compatible with UCSC browser.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create schema
+**Args:** `autoSql schema.as table.txt`
+**Explanation:** Create table from autoSql schema.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Validate schema
+**Args:** `autoSql -validate schema.as`
+**Explanation:** Validate autoSql schema syntax.

@@ -2,29 +2,47 @@
 name: mgems
 category: utility
 description: mGEMS - sequencing data binning based on probabilistic classification
-tags: [mgems, utility]
+tags: [mgems, utility, binning]
 author: oxo-call-community
 source_url: "https://github.com/PROBIC/mGEMS"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mgems v1.3.3 - mGEMS - sequencing data binning based on probabilistic classification.
-- **Core Function**: mGEMS - sequencing data binning based on probabilistic classification
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mgems`
+- **Tool Overview**: mGEMS v1.3.3 is a sequencing data binning tool based on probabilistic classification.
+- **Core Function**: Bins sequencing reads into taxonomic groups.
+- **Probabilistic Binning**: Uses probabilistic models for classification.
+- **Taxonomic Classification**: Assigns reads to taxonomic groups.
+- **Input/Output**: Accepts sequencing reads; outputs taxonomic assignments.
+- **Metagenomic Analysis**: Optimized for metagenomic data analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal binning.
+- **Data Quality**: Classification accuracy depends on input data quality.
+- **Reference Database**: Requires comprehensive reference database.
+- **Runtime**: Binning large datasets can be time-consuming.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Bin sequencing reads
+**Args:** `mgems -i reads.fastq -o bins.txt`
+**Explanation:** Bins sequencing reads into taxonomic groups.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom database
+**Args:** `mgems -i reads.fastq -d database/ -o bins.txt`
+**Explanation:** Uses custom reference database.
+
+### Paired-end analysis
+**Args:** `mgems -i reads_1.fastq -r reads_2.fastq -o bins.txt`
+**Explanation:** Processes paired-end sequencing data.
+
+### Generate report
+**Args:** `mgems -i reads.fastq -o bins.txt -r report.html`
+**Explanation:** Generates detailed binning report.
+
+### Batch processing
+**Args:** `mgems -i fastq/ -o results/`
+**Explanation:** Processes multiple samples in batch mode.

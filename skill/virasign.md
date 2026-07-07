@@ -1,30 +1,32 @@
 ---
 name: virasign
-category: alignment
-description: Virasign is a viral taxonomic classification tool designed for nanopore sequencing data.
-tags: [virasign, alignment, fastq, bam]
+category: bioinformatics
+description: VirSign - Viral signature detection.
+tags: [virasign, viral-genomics, signature-detection, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/DaanJansen94/virasign/blob/main/README.md"
+source_url: "https://github.com/virasign/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virasign (v0.0.5) - Virasign (Viral Read ASSIGNment) is a viral taxonomic classification and reference selection tool for nanopore data. It maps long-read sequencing data (via minimap2) against viral databases (RVDB, RefSeq, or custom accessions) and performs taxonomic classification to identify viral species. Virasign generates comprehensive interactive HTML reports with filterable tables, charts and heatmaps. For each identified virus, Virasign also provides the closest reference sequence, mapped reads in FASTQ format, and BAM files which can be used to easily generate a consensus genome and visualize data (e.g., IGV). Virasign includes options to blind yourself from certain incidental findings (such as HIV, Hepatitis viruses, HTLV, EBV, CMV, HPV) when wanted, ensuring these findings do not appear in any output files, in line with consent guidelines and ethical research practices.
-- **Core Function**: Virasign is a viral taxonomic classification tool designed for nanopore sequencing data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virasign`
+- **Tool Overview**: VirSign - Detects viral signatures.
+- **Core Function**: Identifies viral signature sequences.
+- **Input**: Sequence data.
+- **Output**: Signature matches.
+- **Installation**: Install via pip or conda
+- **Use Case**: Virus detection, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database**: Requires signature database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect signatures
+**Args:** `virasign -i sequences.fasta -o signatures.txt`
+**Explanation:** Detect viral signatures.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virasign -i sequences.fasta -o signatures.txt -d custom_db`
+**Explanation:** Use custom signature database.

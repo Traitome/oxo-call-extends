@@ -1,22 +1,56 @@
 ---
 name: poa
 category: alignment
-description: POA is Partial Order Alignment, a fast program for multiple sequence alignment in bioinformatics. Its advantages are speed, scalability, sensitivity, and the superior ability to handle branching / indels in the alignment.
-tags: [poa, alignment]
+description: poa performs partial order multiple sequence alignment.
+tags: [poa, alignment, sequence, bioinformatics]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/poamsa"
 ---
 
 ## Concepts
-- **Tool Overview**: POA is Partial Order Alignment, a fast program for multiple sequence alignment in bioinformatics. Its advantages are speed, scalability, sensitivity, and the superior ability to handle branching / indels in the alignment.
-- **Core Function**: POA is Partial Order Alignment, a fast program for multiple sequence alignment in bioinformatics. Its advantages are speed, scalability, sensitivity, and the superior ability to handle branching / indels in the alignment.
-- **Input/Output**: FASTA/BAM/SAM
-- **Installation**: `conda install -c bioconda poa`
+
+- **Tool Overview**: poa aligns multiple sequences efficiently.
+- **Core Function**: Partial order sequence alignment.
+- **Algorithm**: Uses graph-based alignment methods.
+- **Input Format**: Accepts FASTA sequence files.
+- **Output**: Produces multiple sequence alignment.
+- **Use Case**: Sequence analysis, phylogenetics.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large alignments require memory.
+- **Data Quality**: Results depend on sequence quality.
+- **Alignment Accuracy**: May have alignment errors.
+- **Runtime**: Alignment may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `poa --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Align sequences
+**Args:** `poa sequences.fasta -o alignment.fasta`
+**Explanation:** Performs multiple sequence alignment.
+
+### With parameters
+**Args:** `poa sequences.fasta -p params.yaml -o alignment.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `poa -v sequences.fasta -o alignment.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `poa -t 4 sequences.fasta -o alignment.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `poa sequences.fasta -o alignment.clustal --clustal`
+**Explanation:** Outputs in Clustal format.
+
+### Generate report
+**Args:** `poa sequences.fasta -o alignment.fasta --report report.html`
+**Explanation:** Generates HTML report.

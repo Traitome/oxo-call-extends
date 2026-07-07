@@ -1,30 +1,36 @@
 ---
 name: cansam
-category: formatting
-description: C++ binding for SAM/BAM files
-tags: [cansam, formatting, BAM, SAM]
+category: library
+description: C++ binding for SAM/BAM file processing
+tags: [cansam, cpp, library, sam, bam, alignment]
 author: oxo-call-community
 source_url: "https://github.com/jmarshall/cansam/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cansam (v3489bc1) - C++ binding for SAM/BAM files
-- **Core Function**: C++ binding for SAM/BAM files
-- **Input/Output**: BAM/SAM alignment input/output
-- **Installation**: `conda install -c bioconda cansam`
+- **Tool Overview**: cansam is a C++ library for reading and writing SAM/BAM alignment files.
+- **Core Function**: Provides C++ API for SAM/BAM file manipulation.
+- **Features**: Supports reading, writing, and indexing SAM/BAM files.
+- **Application**: Building bioinformatics tools in C++.
+- **Installation**: Install via bioconda: `conda install -c bioconda cansam`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **C++ Library**: Not a command-line tool; requires C++ programming.
+- **API Changes**: API may change between versions.
+- **Dependencies**: Requires htslib or similar BAM library.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Use in C++ code
+**Args:** `#include <cansam/SAM.hpp>`
+**Explanation:** Include cansam header in C++ code.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Read BAM file
+**Args:** `cansam::SAMfile in("aligned.bam");`
+**Explanation:** Opens BAM file for reading in C++.
+
+### Write SAM file
+**Args:** `cansam::SAMfile out("output.sam", "w");`
+**Explanation:** Opens SAM file for writing in C++.

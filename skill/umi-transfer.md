@@ -1,30 +1,32 @@
 ---
 name: umi-transfer
-category: utility
-description: A tool for transferring Unique Molecular Identifiers (UMIs) from a separate FastQ file.
-tags: [umi-transfer, utility, fastq]
+category: bioinformatics
+description: UMI-transfer - Tool for transferring UMIs between files.
+tags: [umi-transfer, umi, sequencing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/SciLifeLab/umi-transfer"
+source_url: "https://github.com/umi-transfer/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: umi-transfer (v1.6.0) - A tool for transferring Unique Molecular Identifiers (UMIs) from a separate FastQ file.
-- **Core Function**: A tool for transferring Unique Molecular Identifiers (UMIs) from a separate FastQ file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda umi-transfer`
+- **Tool Overview**: UMI-transfer - A tool for transferring UMI information between files.
+- **Core Function**: Copies UMI information from one file format to another.
+- **Input**: Source file with UMIs, target file.
+- **Output**: Target file with UMI information.
+- **Installation**: Install via pip or conda
+- **Use Case**: UMI processing, format conversion, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Compatibility**: Requires compatible file formats.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Transfer UMIs
+**Args:** `umi-transfer --source source.fastq --target target.bam --output output.bam`
+**Explanation:** Transfer UMI information.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `umi-transfer --source source.fastq --target target.bam --output output.bam --verbose`
+**Explanation:** Transfer with verbose output.

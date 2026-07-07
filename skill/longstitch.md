@@ -1,30 +1,52 @@
 ---
 name: longstitch
 category: assembly
-description: A genome assembly correction and scaffolding pipeline using long reads.
-tags: [longstitch, assembly]
+description: LongStitch - Genome assembly correction and scaffolding using long reads
+tags: [longstitch, assembly, scaffolding, genome-assembly, long-reads, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/BirolLab/longstitch"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longstitch v1.0.5 - A genome assembly correction and scaffolding pipeline using long reads..
-- **Core Function**: A genome assembly correction and scaffolding pipeline using long reads.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longstitch`
+- **Assembly Correction**: Correcting draft genome assemblies
+- **Scaffolding**: Ordering and orienting contigs
+- **Long-read Data**: Using long reads for assembly improvement
+- **Contig Integration**: Integrating short and long read assemblies
+- **Gap Closing**: Closing gaps in assemblies
+- **Quality Improvement**: Improving assembly quality
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect assembly
+- **Contig Quality**: Poor quality contigs affect results
+- **Memory Usage**: Memory-intensive for large genomes
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Joins**: May produce incorrect scaffold joins
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run scaffolding
+**Args:** `longstitch --contigs contigs.fasta --longreads reads.fastq --out scaffolded.fasta`
+**Explanation:** Scaffolds contigs using long reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Assembly correction
+**Args:** `longstitch --contigs contigs.fasta --longreads reads.fastq --out corrected.fasta --correct`
+**Explanation:** Corrects assembly errors.
+
+### Threads
+**Args:** `longstitch --contigs contigs.fasta --longreads reads.fastq --out scaffolded.fasta --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Minimum length
+**Args:** `longstitch --contigs contigs.fasta --longreads reads.fastq --out scaffolded.fasta --min-length 1000`
+**Explanation:** Filters short contigs.
+
+### Gap closing
+**Args:** `longstitch --contigs contigs.fasta --longreads reads.fastq --out scaffolded.fasta --close-gaps`
+**Explanation:** Closes gaps in assembly.
+
+### Verbose output
+**Args:** `longstitch --contigs contigs.fasta --longreads reads.fastq --out scaffolded.fasta --verbose`
+**Explanation:** Provides detailed output.

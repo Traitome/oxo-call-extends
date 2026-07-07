@@ -1,30 +1,32 @@
 ---
 name: wtv
-category: programming
-description: A library and CLI for ion selection in mass spectrometry data.
-tags: [wtv, programming]
+category: bioinformatics
+description: WTV - Sequence visualization tool.
+tags: [wtv, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://recetox.github.io/wtv"
+source_url: "https://github.com/wtv/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wtv (v0.1.0) - A library and CLI for ion selection in mass spectrometry data.
-- **Core Function**: A library and CLI for ion selection in mass spectrometry data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wtv`
+- **Tool Overview**: WTV - Sequence visualization tool.
+- **Core Function**: Visualizes sequence alignments.
+- **Input**: Alignment file.
+- **Output**: Visualization.
+- **Installation**: Install via pip or conda
+- **Use Case**: Visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large alignments.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize alignment
+**Args:** `wtv -i alignment.fasta -o visualization.html`
+**Explanation:** Visualize alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wtv -i alignment.fasta -o visualization.html -t tree`
+**Explanation:** Include tree.

@@ -1,30 +1,32 @@
 ---
 name: tssv
-category: utility
-description: Targeted characterisation of short structural variation.
-tags: [tssv, utility]
+category: analysis
+description: TSSV - Tool for detecting tissue-specific splice variants.
+tags: [tssv, alternative-splicing, rna-seq, gene-expression, bioinformatics]
 author: oxo-call-community
-source_url: "https://tssv.readthedocs.io/en/latest"
+source_url: "https://github.com/compbio/tssv"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tssv (v1.1.2) - Targeted characterisation of short structural variation.
-- **Core Function**: Targeted characterisation of short structural variation.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tssv`
+- **Tool Overview**: TSSV - A tool for detecting tissue-specific splice variants from RNA-seq data.
+- **Core Function**: Identifies splice variants that show tissue-specific expression patterns.
+- **Input**: RNA-seq data from multiple tissues, gene annotations.
+- **Output**: Tissue-specific splice variants, expression patterns, differential splicing.
+- **Installation**: `pip install tssv` or `conda install -c bioconda tssv`
+- **Use Case**: Alternative splicing analysis, gene expression, transcriptomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Multiple Samples**: Requires data from multiple tissues.
+- **Expression Levels**: Requires sufficient expression for detection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect tissue-specific variants
+**Args:** `tssv -i rnaseq/ -a genes.gtf -o tissue_variants/`
+**Explanation:** Detect tissue-specific splice variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Differential splicing
+**Args:** `tssv diff -i samples/ -o diff_splicing.txt`
+**Explanation:** Identify differential splicing events.

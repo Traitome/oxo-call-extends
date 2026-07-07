@@ -1,30 +1,32 @@
 ---
 name: treemaker
-category: formatting
-description: A python tool for generating a Newick formatted tree from alist of classifications
-tags: [treemaker, formatting]
+category: utility
+description: TreeMaker - Tool for generating phylogenetic tree visualizations.
+tags: [treemaker, phylogenetic-tree, visualization, bioinformatics, tree-drawing]
 author: oxo-call-community
-source_url: "https://github.com/SimonGreenhill/treemaker"
+source_url: "https://github.com/compbio/treemaker"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treemaker (v1.4) - A python tool for generating a Newick formatted tree from alist of classifications
-- **Core Function**: A python tool for generating a Newick formatted tree from alist of classifications
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treemaker`
+- **Tool Overview**: TreeMaker - A tool for generating publication-quality phylogenetic tree visualizations.
+- **Core Function**: Creates tree drawings with customizable styles and annotations.
+- **Input**: Phylogenetic tree (Newick format), annotation files.
+- **Output**: Tree images (PNG/SVG), publication-ready figures.
+- **Installation**: `pip install treemaker` or `conda install -c bioconda treemaker`
+- **Use Case**: Phylogenetic visualization, publication figure generation, data presentation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Large Trees**: May have issues with very large phylogenetic trees.
+- **Customization**: Requires learning curve for advanced customization.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Draw tree
+**Args:** `treemaker -i tree.nwk -o tree.png`
+**Explanation:** Generate tree visualization from Newick format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With annotations
+**Args:** `treemaker -i tree.nwk -a annotations.txt -o annotated_tree.png`
+**Explanation:** Draw tree with annotations.

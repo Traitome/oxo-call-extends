@@ -1,30 +1,32 @@
 ---
 name: ucsc-fafrag
 category: utility
-description: Extract a piece of DNA from a .fa file.
-tags: [ucsc-fafrag, utility]
+description: UCSC faFrag - Tool for extracting fragments from FASTA.
+tags: [ucsc-fafrag, ucsc, fasta, sequence-extraction, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fafrag (v482) - Extract a piece of DNA from a .fa file.
-- **Core Function**: Extract a piece of DNA from a .fa file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fafrag`
+- **Tool Overview**: UCSC faFrag - A tool for extracting sequence fragments from FASTA.
+- **Core Function**: Extracts specific regions from sequences.
+- **Input**: FASTA file, BED file with regions.
+- **Output**: Extracted fragments.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence extraction, region analysis, primer design.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Coordinate Format**: Requires proper coordinate specification.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract fragments
+**Args:** `faFrag genome.fa regions.bed > fragments.fa`
+**Explanation:** Extract regions from genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `faFrag -mask genome.fa regions.bed > fragments.fa`
+**Explanation:** Extract with soft masking.

@@ -1,30 +1,52 @@
 ---
 name: lirtmats
-category: utility
-description: LiRTMaTS - Liverpool retention time matching software
-tags: [lirtmats, utility]
+category: proteomics
+description: LiRTMaTS - Liverpool retention time matching software for mass spectrometry
+tags: [lirtmats, proteomics, mass-spectrometry, retention-time, matching, bioinformatics]
 author: oxo-call-community
 source_url: "https://pypi.org/project/lirtmats/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lirtmats v1.0.0 - LiRTMaTS - Liverpool retention time matching software.
-- **Core Function**: LiRTMaTS - Liverpool retention time matching software
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lirtmats`
+- **Retention Time Matching**: Matches retention times across mass spectrometry runs
+- **Mass Spectrometry**: Analysis of mass spectrometry data
+- **Peptide Identification**: Identifies peptides based on retention time
+- **Chromatography Alignment**: Aligns chromatographic runs
+- **Normalization**: Normalizes retention time data
+- **Quality Control**: Quality control for mass spectrometry experiments
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Retention Time Drift**: Chromatographic drift affects matching
+- **Peptide Quality**: Poor quality peptides affect matching accuracy
+- **Instrument Variation**: Different instruments may produce different results
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Match retention times
+**Args:** `lirtmats -i runs.txt -o matches.txt`
+**Explanation:** Matches retention times across multiple runs.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Align runs
+**Args:** `lirtmats -i runs.txt -o aligned.txt -a`
+**Explanation:** Aligns chromatographic runs.
+
+### Normalize data
+**Args:** `lirtmats -i runs.txt -o normalized.txt -n`
+**Explanation:** Normalizes retention time data.
+
+### Quality control
+**Args:** `lirtmats -i runs.txt -o qc_report.txt -q`
+**Explanation:** Generates quality control report.
+
+### Threads
+**Args:** `lirtmats -i runs.txt -o matches.txt -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Output statistics
+**Args:** `lirtmats -i runs.txt -o stats.txt -s`
+**Explanation:** Outputs matching statistics.

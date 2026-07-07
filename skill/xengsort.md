@@ -1,30 +1,32 @@
 ---
 name: xengsort
-category: utility
-description: A fast xenograft read sorter based on space-efficient k-mer hashing.
-tags: [xengsort, utility]
+category: bioinformatics
+description: XengSort - Read classification tool.
+tags: [xengsort, read-classification, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://gitlab.com/genomeinformatics/xengsort"
+source_url: "https://github.com/refresh-bio/XengSort"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xengsort (v2.1.1) - A fast xenograft read sorter based on space-efficient k-mer hashing.
-- **Core Function**: A fast xenograft read sorter based on space-efficient k-mer hashing.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xengsort`
+- **Tool Overview**: XengSort - Fast read classification tool.
+- **Core Function**: Classifies sequencing reads.
+- **Input**: FASTQ reads.
+- **Output**: Classification results.
+- **Installation**: Install via conda or source
+- **Use Case**: Read classification, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify reads
+**Args:** `xengsort classify -i reads.fastq -o classified.txt`
+**Explanation:** Classify reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xengsort classify -i reads.fastq -o classified.txt -t 8`
+**Explanation:** Use 8 threads.

@@ -1,30 +1,52 @@
 ---
 name: kart
 category: alignment
-description: Kart: a divide-and-conquer algorithm for NGS read alignment
-tags: [kart, alignment]
+description: Kart - a divide-and-conquer algorithm for NGS read alignment.
+tags: [kart, alignment, NGS, read mapping, divide-and-conquer]
 author: oxo-call-community
 source_url: "https://github.com/hsinnan75/Kart"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kart (v2.5.6) - Kart: a divide-and-conquer algorithm for NGS read alignment
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kart`
+- **Tool Overview**: kart (v2.5.6) - A fast NGS read aligner using divide-and-conquer algorithm.
+- **Divide-and-Conquer**: Breaks alignment problem into smaller subproblems.
+- **Speed**: Optimized for fast read mapping on large genomes.
+- **Accuracy**: Maintains high alignment accuracy while being fast.
+- **Parallel Processing**: Supports multi-threaded alignment.
+- **Format Support**: Works with standard FASTQ and SAM/BAM formats.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Requires significant memory for large genomes.
+- **Index Size**: Genome index can be large.
+- **Read Length**: Performance varies with read length.
+- **SNP Sensitivity**: May have reduced sensitivity for SNPs.
+- **Version Compatibility**: Index format may change between versions.
+- **Complex Regions**: Difficult regions may have lower mapping rates.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build genome index
+**Args:** `kart index -i genome.fasta -o genome.idx`
+**Explanation:** Builds Kart index from genome FASTA.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Map single-end reads
+**Args:** `kart map -i genome.idx -r reads.fastq -o alignments.sam`
+**Explanation:** Maps single-end reads to reference genome.
+
+### Map paired-end reads
+**Args:** `kart map -i genome.idx -r1 reads_1.fastq -r2 reads_2.fastq -o alignments.sam`
+**Explanation:** Maps paired-end reads to reference genome.
+
+### Output BAM format
+**Args:** `kart map -i genome.idx -r reads.fastq -o alignments.bam --bam`
+**Explanation:** Outputs alignments in BAM format.
+
+### Parallel processing
+**Args:** `kart map -i genome.idx -r reads.fastq -o alignments.sam -t 8`
+**Explanation:** Uses 8 threads for parallel alignment.
+
+### Filter by mapping quality
+**Args:** `kart map -i genome.idx -r reads.fastq -o alignments.sam -q 30`
+**Explanation:** Filters alignments by mapping quality >= 30.

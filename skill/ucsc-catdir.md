@@ -1,30 +1,32 @@
 ---
 name: ucsc-catdir
 category: utility
-description: Concatenate files in directory to stdout.
-tags: [ucsc-catdir, utility]
+description: UCSC catDir - Tool for concatenating files in a directory.
+tags: [ucsc-catdir, ucsc, file-manipulation, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-catdir (v482) - Concatenate files in directory to stdout.
-- **Core Function**: Concatenate files in directory to stdout.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-catdir`
+- **Tool Overview**: UCSC catDir - A tool for concatenating files in a directory.
+- **Core Function**: Concatenates multiple files in a directory.
+- **Input**: Directory path, optional file pattern.
+- **Output**: Concatenated content.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: File merging, data aggregation, batch processing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Order**: May concatenate in non-deterministic order.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Concatenate files
+**Args:** `catDir /path/to/directory > output.txt`
+**Explanation:** Concatenate all files in directory.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With pattern
+**Args:** `catDir -pattern="*.txt" /path/to/directory > output.txt`
+**Explanation:** Concatenate files matching pattern.

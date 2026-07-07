@@ -1,30 +1,44 @@
 ---
 name: consan
 category: alignment
-description: Pairwise RNA structural alignment, both unconstrained and constrained on alignment pins.
-tags: [consan, alignment]
+description: Pairwise RNA structural alignment with constraint support
+tags: [consan, rna, structural-alignment, bioinformatics, alignment]
 author: oxo-call-community
 source_url: "http://eddylab.org/software/consan/README"
 ---
 
 ## Concepts
 
-- **Tool Overview**: consan (v1.2) - Pairwise RNA structural alignment, both unconstrained and constrained on alignment pins.
-- **Core Function**: Pairwise RNA structural alignment, both unconstrained and constrained on alignment pins.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda consan`
+- **Tool Overview**: Consan is a pairwise RNA structural alignment tool that performs both unconstrained and constrained alignments using alignment pins to guide the process.
+- **Core Function**: Aligns RNA sequences while considering secondary structure information, supporting both global and locally constrained alignments.
+- **Algorithm**: Uses dynamic programming with structural constraints and alignment pins to optimize sequence and structure similarity.
+- **Input**: Two RNA sequences in FASTA format, optional structural constraints.
+- **Output**: Structural alignment in standard formats with confidence scores.
+- **Application**: RNA structure comparison, homology detection, and functional RNA analysis.
+- **Installation**: Install via bioconda: `conda install -c bioconda consan`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Sequence Length**: Long sequences may require significant computation time.
+- **Structure Information**: Benefits from known secondary structure data.
+- **Alignment Pins**: Incorrect pins may produce poor alignments.
+- **Gap Penalties**: May require tuning for different RNA families.
+- **Structural Conservation**: May miss alignments with poor structural conservation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Align two RNA sequences
+**Args:** `consan seq1.fasta seq2.fasta -o alignment.stk`
+**Explanation:** Performs pairwise RNA structural alignment.
 
-### Basic usage
-**Args:** `-i input.fastq -r reference.fasta -o output.sam`
-**Explanation:** Align reads to a reference genome
+### With alignment constraints
+**Args:** `consan seq1.fasta seq2.fasta -c constraints.txt -o alignment.stk`
+**Explanation:** Uses alignment pins to constrain the alignment.
+
+### With custom gap penalties
+**Args:** `consan seq1.fasta seq2.fasta -g 10 -e 0.5 -o alignment.stk`
+**Explanation:** Sets gap open penalty to 10 and extension to 0.5.
+
+### Display help
+**Args:** `consan --help`
+**Explanation:** Shows all available options and usage information.

@@ -1,30 +1,32 @@
 ---
 name: virusdetect
-category: programming
-description: Python rewrite of the VirusDetect plant virus discovery pipeline
-tags: [virusdetect, programming]
+category: bioinformatics
+description: VirusDetect - Virus detection tool.
+tags: [virusdetect, viral-genomics, virus-detection, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/kentnf/VirusDetect"
+source_url: "https://github.com/VirusDetect/VirusDetect"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virusdetect (v2.0.0a0) - Python rewrite of the VirusDetect plant virus discovery pipeline
-- **Core Function**: Python rewrite of the VirusDetect plant virus discovery pipeline
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virusdetect`
+- **Tool Overview**: VirusDetect - Detects viruses in sequencing data.
+- **Core Function**: Identifies viral sequences in NGS data.
+- **Input**: FASTQ files.
+- **Output**: Virus predictions.
+- **Installation**: Install via pip or conda
+- **Use Case**: Virus discovery, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **False Positives**: May report false positives.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect viruses
+**Args:** `VirusDetect.pl -i reads.fastq -o results/`
+**Explanation:** Detect viruses in sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `VirusDetect.pl -i reads.fastq -o results/ -t 8`
+**Explanation:** Use 8 threads.

@@ -1,30 +1,32 @@
 ---
 name: umitools
-category: utility
-description: A toolset for handling sequencing data with unique molecular identifiers (UMIs)
-tags: [umitools, utility]
+category: bioinformatics
+description: UMITools - Toolkit for UMI processing and analysis.
+tags: [umitools, umi, sequencing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/weng-lab/umitools"
+source_url: "https://github.com/umitools/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: umitools (v0.3.4) - A toolset for handling sequencing data with unique molecular identifiers (UMIs)
-- **Core Function**: A toolset for handling sequencing data with unique molecular identifiers (UMIs)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda umitools`
+- **Tool Overview**: UMITools - A toolkit for Unique Molecular Identifier processing.
+- **Core Function**: UMI extraction, deduplication, and quantification.
+- **Input**: FASTQ, BAM, or SAM files.
+- **Output**: Processed data with UMI information.
+- **Installation**: Install via pip or conda
+- **Use Case**: RNA-seq, scRNA-seq, sequencing analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **UMI Design**: Results depend on UMI design quality.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process UMIs
+**Args:** `umitools process -i input.fastq -o output.fastq`
+**Explanation:** Process UMI-containing reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Deduplicate
+**Args:** `umitools dedup -i aligned.bam -o deduplicated.bam`
+**Explanation:** Deduplicate reads by UMI.

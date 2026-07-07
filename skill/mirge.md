@@ -2,29 +2,47 @@
 name: mirge
 category: utility
 description: comprehensive analysis of miRNA sequencing data
-tags: [mirge, utility]
+tags: [mirge, utility, microrna]
 author: oxo-call-community
 source_url: "https://github.com/mhalushka/miRge"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mirge v2.0.6 - comprehensive analysis of miRNA sequencing data.
-- **Core Function**: comprehensive analysis of miRNA sequencing data
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mirge`
+- **Tool Overview**: miRge v2.0.6 analyzes miRNA sequencing data comprehensively.
+- **Core Function**: Processes and quantifies miRNA expression from sequencing data.
+- **miRNA Analysis**: Identifies and quantifies microRNA expression levels.
+- **Quality Control**: Includes data quality assessment.
+- **Input/Output**: Accepts small RNA-seq data; outputs miRNA expression profiles.
+- **Expression Profiling**: Supports miRNA expression analysis workflows.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **miRNA Specific**: Designed for miRNA sequencing data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal analysis.
+- **Data Quality**: Results depend on input data quality.
+- **Reference Databases**: Requires appropriate miRNA reference databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze miRNA-seq data
+**Args:** `mirge -i reads.fastq -o results/`
+**Explanation:** Runs miRNA expression analysis.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With known miRNAs
+**Args:** `mirge -i reads.fastq -k known_miRNAs.fa -o results/`
+**Explanation:** Uses known miRNAs for annotation.
+
+### Quantify expression
+**Args:** `mirge -i reads.fastq -o results/ -q`
+**Explanation:** Quantifies miRNA expression levels.
+
+### Batch processing
+**Args:** `mirge -i fastq/ -o results/`
+**Explanation:** Processes multiple FASTQ files.
+
+### Generate report
+**Args:** `mirge -i reads.fastq -o results/ -r report.html`
+**Explanation:** Generates HTML analysis report.

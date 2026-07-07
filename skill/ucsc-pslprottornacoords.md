@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslprottornacoords
-category: alignment
-description: Convert protein alignments to RNA coordinates.
-tags: [ucsc-pslprottornacoords, alignment]
+category: utility
+description: UCSC pslProtToNacords - Tool for converting protein to NA coordinates.
+tags: [ucsc-pslprottornacoords, ucsc, psl, protein, coordinates, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslprottornacoords (v482) - Convert protein alignments to RNA coordinates.
-- **Core Function**: Convert protein alignments to RNA coordinates.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslprottornacoords`
+- **Tool Overview**: UCSC pslProtToNacords - A tool for converting protein to nucleic acid coordinates.
+- **Core Function**: Converts protein coordinates to nucleotide coordinates.
+- **Input**: PSL file.
+- **Output**: Converted coordinates.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Coordinate conversion, protein analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert protein to NA coordinates
+**Args:** `pslProtToNacords input.psl > output.psl`
+**Explanation:** Convert protein coordinates.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslProtToNacords -verbose input.psl > output.psl`
+**Explanation:** Convert with verbose output.

@@ -1,12 +1,11 @@
 ---
 name: pyabpoa
 category: alignment
-description: pyabpoa: SIMD-based partial order alignment using adaptive band
+description: "pyabpoa: SIMD-based partial order alignment using adaptive band"
 tags: ["pyabpoa", "alignment"]
 author: oxo-call-community
 source_url: "https://github.com/yangao07/abPOA"
 ---
-
 ## Concepts
 
 - **Tool Overview**: pyabpoa: SIMD-based partial order alignment using adaptive band (version 1.5.6)

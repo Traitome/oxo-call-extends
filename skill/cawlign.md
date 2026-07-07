@@ -1,30 +1,39 @@
 ---
 name: cawlign
 category: alignment
-description: A tool for aligning consensus sequences to reference genomes.
-tags: [cawlign, alignment, FASTA]
+description: Align consensus sequences to reference genomes
+tags: [cawlign, alignment, consensus, reference-genome, fasta]
 author: oxo-call-community
 source_url: "https://github.com/veg/cawlign"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cawlign (v0.1.16) - A tool for aligning consensus sequences to reference genomes.
-- **Core Function**: A standalone C++ port of bealign, a part of the BioExt package. The purpose of this program is to align/map sequences in a FASTA file to a reference sequence and output the alignment as another FASTA ...
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda cawlign`
+- **Tool Overview**: cawlign aligns consensus sequences to reference genomes, ported from bealign/BioExt.
+- **Core Function**: Maps sequences from FASTA file to reference sequence and outputs aligned FASTA.
+- **Algorithm**: Implements sequence alignment algorithm for consensus mapping.
+- **Input**: FASTA file with consensus sequences and reference sequence.
+- **Output**: Aligned sequences in FASTA format.
+- **Application**: Viral sequence analysis, consensus mapping, and sequence alignment.
+- **Installation**: Install via bioconda: `conda install -c bioconda cawlign`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **FASTA Format**: Requires properly formatted FASTA input files.
+- **Reference Match**: Reference sequence should match expected genome.
+- **Sequence Length**: Works best with consensus sequences of moderate length.
+- **Memory Usage**: Large datasets may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Align consensus sequences
+**Args:** `cawlign -i consensus.fasta -r reference.fasta -o aligned.fasta`
+**Explanation:** Aligns consensus sequences to reference genome.
 
-### Basic usage
-**Args:** `-i input.fastq -r reference.fasta -o output.sam`
-**Explanation:** Align reads to a reference genome
+### With output SAM
+**Args:** `cawlign -i consensus.fasta -r reference.fasta -s alignment.sam -o aligned.fasta`
+**Explanation:** Outputs both aligned FASTA and SAM alignment file.
+
+### Display help
+**Args:** `cawlign --help`
+**Explanation:** Shows all available options and usage information.

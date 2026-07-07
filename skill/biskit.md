@@ -1,30 +1,36 @@
 ---
 name: biskit
-category: formatting
-description: A Python platform for structural bioinformatics.
-tags: [biskit, formatting]
+category: structural-bioinformatics
+description: Python platform for structural bioinformatics research
+tags: [structural-bioinformatics, python, molecular-modeling, PDB]
 author: oxo-call-community
 source_url: "https://biskit.pasteur.fr"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biskit (v3.0.1) - A Python platform for structural bioinformatics.
-- **Core Function**: Biskit is a modular, object-oriented Python library for structural bioinformatics research.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda biskit`
+- **Tool Overview**: Biskit is a modular, object-oriented Python library for structural bioinformatics research, developed at Institut Pasteur.
+- **Structure Analysis**: Tools for analyzing protein and nucleic acid structures from PDB files.
+- **Molecular Modeling**: Support for molecular modeling, docking, and simulation analysis.
+- **Data Integration**: Integrates various structural biology data sources and formats.
+- **Applications**: Protein structure analysis, ligand binding, structural comparison, molecular dynamics analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Python 2 Legacy**: Some versions may have Python 2 dependencies; check version compatibility.
+- **External Dependencies**: Requires external programs for some advanced functions (e.g., NAMD, AMBER).
+- **Documentation**: May require consulting source code for advanced usage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Parse PDB structure
+**Args:** `from biskit import PDB; p = PDB('protein.pdb'); print(p.sequence())`
+**Explanation:** Loads and parses a PDB structure file.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Calculate RMSD
+**Args:** `from biskit.metrics import RMSD; rmsd = RMSD(struct1, struct2).run()`
+**Explanation:** Calculates RMSD between two structures.
+
+### Analyze binding sites
+**Args:** `from biskit import BindingSite; sites = BindingSite.find(pdb, ligand='ATP')`
+**Explanation:** Identifies binding sites for a specific ligand.

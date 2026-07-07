@@ -1,30 +1,52 @@
 ---
 name: libmems
-category: programming
-description: libMems is a freely available software development library to support DNA string matching and comparative genomics.
-tags: [libmems, programming]
+category: bioinformatics
+description: libMems - DNA string matching and comparative genomics library
+tags: [libmems, bioinformatics, string-matching, comparative-genomics, DNA]
 author: oxo-call-community
 source_url: "http://darlinglab.org/mauve"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libmems v1.6.0 - libMems is a freely available software development library to support DNA string matching and comparative genomics..
-- **Core Function**: libMems is a freely available software development library to support DNA string matching and comparative genomics.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libmems`
+- **String Matching**: Efficient DNA string matching algorithms
+- **Comparative Genomics**: Tools for comparing multiple genomes
+- **Sequence Alignment**: Sequence alignment algorithms
+- **Genome Comparison**: Comparative analysis of genomes
+- **Suffix Trees**: Suffix tree data structures for fast search
+- **Repeat Detection**: Detection of repeated sequences
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Usage**: Memory-intensive for large genomes
+- **Computational Time**: Algorithms may be computationally expensive
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Error Handling**: Requires careful error checking
+- **Version Compatibility**: API may change between versions
+- **Platform Dependencies**: OS-specific compilation requirements
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Build suffix tree
+**Args:** `mems build -i genome.fasta -o suffix_tree.bin`
+**Explanation:** Builds suffix tree from genome sequence.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Search pattern
+**Args:** `mems search -i suffix_tree.bin -p pattern -o positions.txt`
+**Explanation:** Searches for pattern using suffix tree.
+
+### Compare genomes
+**Args:** `mems compare -i1 genome1.fasta -i2 genome2.fasta -o comparison.txt`
+**Explanation:** Compares two genomes.
+
+### Find repeats
+**Args:** `mems repeats -i genome.fasta -o repeats.txt`
+**Explanation:** Detects repeated sequences in genome.
+
+### Align sequences
+**Args:** `mems align -i sequences.fasta -o aligned.fasta`
+**Explanation:** Aligns multiple sequences.
+
+### Statistics
+**Args:** `mems stats -i genome.fasta`
+**Explanation:** Shows sequence statistics.

@@ -1,30 +1,33 @@
 ---
 name: bte
 category: programming
-description: Cython wrapper enabling use of the MAT library in Python.
-tags: [bte, programming]
+description: BioTreeEnv - Cython wrapper for the MAT library for phylogenetic tree operations
+tags: [bte, biotreeenv, phylogenetics, python, tree]
 author: oxo-call-community
 source_url: "https://jmcbroome.github.io/BTE/build/html/index.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: bte (v0.9.3) - Cython wrapper enabling use of the MAT library in Python.
-- **Core Function**: Cython wrapper enabling use of the MAT library in Python.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda bte`
+- **Tool Overview**: BTE (BioTreeEnv) is a Cython wrapper enabling use of the MAT (Maximum Agreement Subtree) library in Python for phylogenetic tree operations.
+- **Core Function**: Provides efficient tree comparison and manipulation operations for phylogenetics.
+- **Features**: Maximum agreement subtree computation, tree distance metrics, and tree manipulation.
+- **Input**: Newick format phylogenetic trees.
+- **Application**: Phylogenetic tree analysis and comparison in bioinformatics workflows.
+- **Installation**: Install via bioconda: `conda install -c bioconda bte`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Python Library**: This is a Python library, not a command-line tool.
+- **Tree Format**: Input trees must be in Newick format.
+- **Version Compatibility**: Ensure compatibility with Python and Cython versions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Import and use
+**Args:** `from bte import Tree; t = Tree('((A,B),C)')`
+**Explanation:** Creates a Tree object from Newick string.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Compute agreement subtree
+**Args:** `from bte import agreement_subtree; result = agreement_subtree(tree1, tree2)`
+**Explanation:** Computes maximum agreement subtree between two trees.

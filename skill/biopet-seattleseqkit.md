@@ -1,30 +1,34 @@
 ---
 name: biopet-seattleseqkit
 category: variant-calling
-description: #### Tool - Filter  This tool can filter a seattle seq file.
-tags: [biopet-seattleseqkit, variant-calling, BED]
+description: Tools for processing SeattleSeq annotation files
+tags: [seattleseq, variant-annotation, filtering, BED]
 author: oxo-call-community
 source_url: "https://github.com/biopet/seattleseqkit"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biopet-seattleseqkit (v0.2) - #### Tool - Filter  This tool can filter a seattle seq file.
-- **Core Function**: #### Tool - Filter  This tool can filter a seattle seq file. A given bed file will only select variants inside this regions. Filtering on specific fields is also possible.                #### Tool - M...
-- **Input/Output**: BED interval input/output
-- **Installation**: `conda install -c bioconda biopet-seattleseqkit`
+- **Tool Overview**: BioPet SeattleSeqKit provides tools for processing and filtering SeattleSeq annotation files, which contain variant annotation information.
+- **Filtering**: Filters variants based on genomic regions (BED intervals) or specific annotation fields.
+- **Annotation Processing**: Handles SeattleSeq-formatted variant annotation outputs.
+- **Applications**: Variant filtering, annotation subsetting, region-based variant selection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **SeattleSeq Format**: Input must be in SeattleSeq annotation format.
+- **BED Requirements**: BED files for region filtering must be properly formatted.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Filter by region
+**Args:** `java -jar SeattleSeqKit.jar filter -i seattleseq.tsv -b regions.bed -o filtered.tsv`
+**Explanation:** Filters SeattleSeq file to include only variants within specified BED regions.
 
-### Basic usage
-**Args:** `-i aligned.bam -r reference.fasta -o variants.vcf`
-**Explanation:** Call variants from aligned reads
+### Filter by field
+**Args:** `java -jar SeattleSeqKit.jar filter -i seattleseq.tsv -f "SIFT<0.05" -o filtered.tsv`
+**Explanation:** Filters variants based on specific annotation field criteria.
+
+### Merge annotations
+**Args:** `java -jar SeattleSeqKit.jar merge -i file1.tsv -i file2.tsv -o merged.tsv`
+**Explanation:** Merges multiple SeattleSeq annotation files.

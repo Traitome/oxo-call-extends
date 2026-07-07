@@ -1,30 +1,43 @@
 ---
 name: gmove
-category: annotation
-description: Gmove is a gene prediction tool.
-tags: [gmove, annotation]
+category: gene-prediction
+description: gmove - Gene prediction tool for eukaryotic genomes.
+tags: [gmove, gene-prediction, eukaryotic, annotation]
 author: oxo-call-community
 source_url: "https://github.com/institut-de-genomique/Gmove/blob/v1.3/README.md"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gmove (v1.3) - Gmove is a gene prediction tool.
-- **Core Function**: Provides functionality for annotation tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gmove`
+- **Gene Prediction**: Predicts protein-coding genes.
+- **Eukaryotic Genomes**: Specialized for eukaryotic genomes.
+- **Evidence Integration**: Integrates multiple evidence types.
+- **Annotation**: Produces genome annotations.
+- **Splice Prediction**: Predicts splice sites.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Species Specificity**: Best for trained species.
+- **Evidence Quality**: Depends on evidence quality.
+- **Complex Genes**: May miss complex gene structures.
+- **Memory Usage**: Large genomes require memory.
+- **Result Validation**: Results should be validated.
 
 ## Examples
+### Predict genes
+**Args:** `gmove -i genome.fasta -o predictions.gff3`
+**Explanation:** Predicts genes in genome.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With evidence
+**Args:** `gmove -i genome.fasta -e evidence.bam -o predictions.gff3`
+**Explanation:** Uses evidence for prediction.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Train model
+**Args:** `gmove -i genome.fasta -t training.txt -o predictions.gff3`
+**Explanation:** Uses trained model.
+
+### Generate report
+**Args:** `gmove -i genome.fasta -o predictions.gff3 -r`
+**Explanation:** Generates prediction report.
+
+### Batch processing
+**Args:** `gmove -l genomes.txt -o ./predictions/`
+**Explanation:** Processes multiple genomes.

@@ -1,30 +1,64 @@
 ---
 name: group_humann2_uniref_abundances_to_go
-category: utility
-description: Group abundances of UniRef50 gene families obtained with HUMAnN2 to Gene Ontology (GO) slim terms with relative abundances
-tags: [group_humann2_uniref_abundances_to_go, utility]
+category: bioinformatics
+description: Converts HUMAnN2 UniRef50 gene family abundances to Gene Ontology (GO) slim terms with relative abundances.
+tags: [group_humann2_uniref_abundances_to_go, GO, humann2, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/ASaiM/group_humann2_uniref_abundances_to_GO"
 ---
 
 ## Concepts
 
-- **Tool Overview**: group_humann2_uniref_abundances_to_go (v1.3.0) - Group abundances of UniRef50 gene families obtained with HUMAnN2 to Gene Ontology (GO) slim terms with relative abundances
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda group_humann2_uniref_abundances_to_go`
+- **GO Term Mapping**: Maps UniRef50 gene families to Gene Ontology terms.
+
+- **Slim Terms**: Uses GO slim terms for simplified functional categorization.
+
+- **Abundance Aggregation**: Aggregates gene family abundances by GO term.
+
+- **Relative Abundance**: Calculates relative abundances for each GO term.
+
+- **Functional Profiling**: Generates functional profiles of metagenomic communities.
+
+- **Integration**: Works seamlessly with HUMAnN2 output files.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **HUMAnN2 Compatibility**: Ensure compatibility with HUMAnN2 version.
+
+- **GO Database**: Use up-to-date GO database for accurate mapping.
+
+- **Annotation Coverage**: Some UniRef50 families may not have GO annotations.
+
+- **Normalization**: Be aware of normalization methods for abundance calculations.
+
+- **Output Interpretation**: Interpret GO term abundances carefully.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Basic conversion
+**Args:** `group_humann2_uniref_abundances_to_go -i humann2_output.tsv -o go_abundances.tsv`
+**Explanation:** Converts HUMAnN2 output to GO term abundances.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Specify GO slim
+**Args:** `group_humann2_uniref_abundances_to_go -i humann2_output.tsv -s go_slim.obo -o go_abundances.tsv`
+**Explanation:** Uses custom GO slim file for mapping.
+
+### Include annotations
+**Args:** `group_humann2_uniref_abundances_to_go -i humann2_output.tsv -a -o go_abundances.tsv`
+**Explanation:** Includes GO term annotations in output.
+
+### Batch processing
+**Args:** `for f in *.tsv; do group_humann2_uniref_abundances_to_go -i $f -o ${f%.tsv}_go.tsv; done`
+**Explanation:** Processes multiple HUMAnN2 output files.
+
+### Filter low abundance
+**Args:** `group_humann2_uniref_abundances_to_go -i humann2_output.tsv -t 0.01 -o filtered.tsv`
+**Explanation:** Filters out GO terms with abundance below threshold.
+
+### Generate statistics
+**Args:** `group_humann2_uniref_abundances_to_go -i humann2_output.tsv -s -o stats.txt`
+**Explanation:** Generates statistics about GO term distribution.
+
+### Custom mapping
+**Args:** `group_humann2_uniref_abundances_to_go -i humann2_output.tsv -m custom_mapping.txt -o go_abundances.tsv`
+**Explanation:** Uses custom UniRef50 to GO mapping file.

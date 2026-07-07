@@ -1,30 +1,64 @@
 ---
 name: talloc
-category: expression
-description: talloc is a hierarchical, reference counted memory pool system with destructors.
-tags: [talloc, expression]
+category: programming
+description: Hierarchical reference-counted memory pool system with destructors.
+tags: [talloc, memory-management, c-library, programming]
 author: oxo-call-community
-source_url: "https://talloc.samba.org/talloc/doc/html/index.html`"
+source_url: "https://talloc.samba.org/talloc/doc/html/index.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: talloc (v2.1.9) - talloc is a hierarchical, reference counted memory pool system with destructors.
-- **Core Function**: talloc is a hierarchical, reference counted memory pool system with destructors.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda talloc`
+- **Tool Overview**: talloc (v2.1.9) is a hierarchical memory pool system.
+- **Core Function**: Memory allocation with hierarchical reference counting.
+- **Algorithm**: Reference counting with parent-child relationships.
+- **Input/Output**: Input: Memory allocation requests; Output: Memory pointers.
+- **Applications**: C/C++ programming, memory management.
+- **Installation**: `conda install -c bioconda talloc` or system package manager.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Leaks**: Improper reference handling causes leaks.
+- **Double Free**: Incorrect deallocation causes crashes.
+- **Thread Safety**: Not thread-safe by default.
+- **API Complexity**: Requires understanding of hierarchical model.
+- **Debugging**: Memory issues can be hard to debug.
+- **Performance**: Overhead compared to raw malloc.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `man talloc`
+**Explanation:** Shows documentation for talloc library.
 
-### Basic usage
-**Args:** `talloc -i <input.bam> -g <annotation.gtf> -o <output.tsv>`
-**Explanation:** Run talloc with typical input and output options.
+### Basic memory allocation
+**Args:** `talloc(parent, size)`
+**Explanation:** Allocate memory with parent context.
+
+### Create child context
+**Args:** `talloc_new(parent)`
+**Explanation:** Create new talloc context.
+
+### Reference counting
+**Args:** `talloc_reference(ctx)`
+**Explanation:** Increase reference count.
+
+### Free memory
+**Args:** `talloc_free(ctx)`
+**Explanation:** Free memory and all children.
+
+### Check memory usage
+**Args:** `talloc_total_size(ctx)`
+**Explanation:** Get total memory used by context.
+
+### Enable debugging
+**Args:** `talloc_enable_leak_report()`
+**Explanation:** Enable memory leak reporting.
+
+### Create string
+**Args:** `talloc_strdup(ctx, "string")`
+**Explanation:** Duplicate string in talloc context.
+
+### Array allocation
+**Args:** `talloc_array(ctx, type, count)`
+**Explanation:** Allocate array of objects.

@@ -2,29 +2,47 @@
 name: mofapy2
 category: utility
 description: Multi-Omics Factor Analysis
-tags: [mofapy2, utility]
+tags: [mofapy2, utility, multi-omics]
 author: oxo-call-community
 source_url: "https://github.com/bioFAM/mofapy2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mofapy2 v0.7.3 - Multi-Omics Factor Analysis.
-- **Core Function**: Multi-Omics Factor Analysis
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mofapy2`
+- **Tool Overview**: MOFA+ v0.7.3 performs Multi-Omics Factor Analysis.
+- **Core Function**: Integrates multiple omics data types into latent factors.
+- **Multi-Omics Integration**: Combines genomic, transcriptomic, and epigenomic data.
+- **Factor Analysis**: Identifies latent factors driving biological variation.
+- **Input/Output**: Accepts multi-omics matrices; outputs factor loadings.
+- **Systems Biology**: Supports integrative omics analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Multi-omics Data Required**: Needs multiple data modalities.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal factorization.
+- **Data Quality**: Results depend on input data quality.
+- **Computational Resources**: Large datasets may require significant resources.
+- **Missing Data**: Requires careful handling of missing values.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run MOFA analysis
+**Args:** `python -c "from mofapy2 import run_mofa; run_mofa('config.yaml')"`
+**Explanation:** Runs multi-omics factor analysis.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom options
+**Args:** `python -c "from mofapy2 import run_mofa; run_mofa('config.yaml', n_factors=10)"`
+**Explanation:** Specifies number of factors.
+
+### Plot factors
+**Args:** `python -c "from mofapy2 import visualize; visualize.plot_factors('model.hdf5')"`
+**Explanation:** Visualizes factor loadings.
+
+### Integrate with scanpy
+**Args:** `python -c "import scanpy as sc; sc.external.pp.mofa(adata)"`
+**Explanation:** Uses MOFA in scanpy workflow.
+
+### Batch processing
+**Args:** `python script.py data/`
+**Explanation:** Processes multiple datasets.

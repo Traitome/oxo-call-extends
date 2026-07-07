@@ -1,30 +1,32 @@
 ---
 name: ucsc-chromgraphtobin
 category: utility
-description: Make binary version of chromGraph.
-tags: [ucsc-chromgraphtobin, utility]
+description: UCSC chromGraphToBin - Tool for converting chromGraph to binary.
+tags: [ucsc-chromgraphtobin, ucsc, format-conversion, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chromgraphtobin (v482) - Make binary version of chromGraph.
-- **Core Function**: Make binary version of chromGraph.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chromgraphtobin`
+- **Tool Overview**: UCSC chromGraphToBin - A tool for converting chromGraph to binary format.
+- **Core Function**: Converts chromGraph to binary format.
+- **Input**: ChromGraph file.
+- **Output**: Binary file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data compression, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Graph Format**: Requires proper chromGraph format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to binary
+**Args:** `chromGraphToBin input.graph > output.bin`
+**Explanation:** Convert chromGraph to binary format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `chromGraphToBin -type=float input.graph > output.bin`
+**Explanation:** Convert with specified data type.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-maffrag
 category: utility
-description: Extract maf sequences for a region from database.
-tags: [ucsc-maffrag, utility]
+description: UCSC mafFrag - Tool for fragmenting MAF alignments.
+tags: [ucsc-maffrag, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maffrag (v482) - Extract maf sequences for a region from database.
-- **Core Function**: Extract maf sequences for a region from database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maffrag`
+- **Tool Overview**: UCSC mafFrag - A tool for fragmenting MAF alignments.
+- **Core Function**: Breaks MAF alignments into smaller fragments.
+- **Input**: MAF file.
+- **Output**: Fragmented MAF file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment processing, fragment analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Fragment MAF alignments
+**Args:** `mafFrag input.maf > fragmented.maf`
+**Explanation:** Fragment MAF alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafFrag -maxSize=1000 input.maf > fragmented.maf`
+**Explanation:** Maximum fragment size.

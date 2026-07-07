@@ -1,30 +1,43 @@
 ---
 name: gmm-demux
-category: utility
-description: GMM-Demux is a Gaussian-Mixture-Model-based software for processing sample barcoding data (cell hashing and MULTI-seq).
-tags: [gmm-demux, utility, SAM]
+category: demultiplexing
+description: gmm-demux - Gaussian Mixture Model-based demultiplexing for cell hashing and MULTI-seq.
+tags: [gmm-demux, demultiplexing, single-cell, cell-hashing]
 author: oxo-call-community
 source_url: "https://github.com/CHPGenetics/GMM-demux"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gmm-demux (v0.2.2.3) - GMM-Demux is a Gaussian-Mixture-Model-based software for processing sample barcoding data (cell hashing and MULTI-seq).
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gmm-demux`
+- **Demultiplexing**: Demultiplexes sample barcodes.
+- **Gaussian Mixture Models**: Uses GMM for classification.
+- **Cell Hashing**: Processes cell hashing data.
+- **MULTI-seq**: Supports MULTI-seq protocols.
+- **Single-cell Analysis**: Enables single-cell analysis.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Barcode Quality**: Requires high-quality barcodes.
+- **Sample Mixing**: Complex samples may affect accuracy.
+- **Threshold Selection**: Requires threshold selection.
+- **Data Quality**: Requires high-quality data.
+- **Result Validation**: Results require validation.
 
 ## Examples
+### Demultiplex samples
+**Args:** `GMM-demux -i counts.h5ad -o demux.h5ad`
+**Explanation:** Demultiplexes single-cell data.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With parameters
+**Args:** `GMM-demux -i counts.h5ad -o demux.h5ad -t 0.5 -n 1000`
+**Explanation:** Uses specific thresholds.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Generate report
+**Args:** `GMM-demux -i counts.h5ad -o demux.h5ad -r -report`
+**Explanation:** Generates demux report.
+
+### Validate results
+**Args:** `GMM-demux -i counts.h5ad -v -o validation.txt`
+**Explanation:** Validates demux results.
+
+### Batch processing
+**Args:** `GMM-demux -l samples.txt -o ./demux/`
+**Explanation:** Processes multiple samples.

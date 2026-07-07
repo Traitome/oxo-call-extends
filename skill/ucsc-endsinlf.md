@@ -1,30 +1,32 @@
 ---
 name: ucsc-endsinlf
 category: utility
-description: Check that last letter in files is end of line
-tags: [ucsc-endsinlf, utility]
+description: UCSC endsInLf - Tool for checking line endings.
+tags: [ucsc-endsinlf, ucsc, text-processing, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-endsinlf (v377) - Check that last letter in files is end of line
-- **Core Function**: Check that last letter in files is end of line
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-endsinlf`
+- **Tool Overview**: UCSC endsInLf - A tool for checking if files end with newline.
+- **Core Function**: Verifies that text files end with a newline character.
+- **Input**: Text file.
+- **Output**: Verification result.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: File validation, quality control, scripting.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Binary Files**: May produce unexpected results on binary files.
+- **Encoding**: May require proper character encoding.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check line endings
+**Args:** `endsInLf input.txt`
+**Explanation:** Check if file ends with newline.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Multiple files
+**Args:** `endsInLf file1.txt file2.txt file3.txt`
+**Explanation:** Check multiple files.

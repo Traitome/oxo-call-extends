@@ -1,30 +1,64 @@
 ---
 name: gvcf-regions
-category: formatting
-description: Convert a gVCF file in multiple formats into a BED file of callable regions
-tags: [gvcf-regions, formatting, VCF, BED]
+category: bioinformatics
+description: gvcf-regions converts gVCF files into BED format, identifying callable genomic regions.
+tags: [gvcf-regions, GVCF, BED, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/lijiayong/gvcf_regions"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gvcf-regions (v2016.06.23) - Convert a gVCF file in multiple formats into a BED file of callable regions
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gvcf-regions`
+- **Callable Regions**: gvcf-regions identifies regions with sufficient sequencing coverage.
+
+- **Format Conversion**: Converts gVCF to BED format for downstream analysis.
+
+- **Coverage Analysis**: Analyzes sequencing coverage across the genome.
+
+- **Interval Representation**: Represents genomic regions as intervals.
+
+- **Quality Filtering**: Filters regions based on coverage quality.
+
+- **Visualization Support**: Outputs data suitable for genome browsers.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **gVCF Format**: Requires properly formatted gVCF input.
+
+- **Coverage Threshold**: Adjust threshold based on sequencing depth.
+
+- **Memory Usage**: Large gVCF files may require significant memory.
+
+- **Coordinate System**: Be aware of 0-based vs 1-based coordinates.
+
+- **Result Interpretation**: Interpret callable regions carefully.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert gVCF to BED
+**Args:** `gvcf-regions -i input.g.vcf -o callable.bed`
+**Explanation:** Extracts callable regions from gVCF.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Custom coverage threshold
+**Args:** `gvcf-regions -i input.g.vcf -c 10 -o callable.bed`
+**Explanation:** Sets minimum coverage threshold to 10x.
+
+### Handle compressed input
+**Args:** `gvcf-regions -i input.g.vcf.gz -o callable.bed`
+**Explanation:** Processes compressed gVCF file.
+
+### Batch processing
+**Args:** `for f in *.g.vcf; do gvcf-regions -i $f -o ${f%.g.vcf}_callable.bed; done`
+**Explanation:** Processes multiple gVCF files.
+
+### Include statistics
+**Args:** `gvcf-regions -i input.g.vcf -s -o stats.txt`
+**Explanation:** Generates coverage statistics.
+
+### Merge overlapping regions
+**Args:** `gvcf-regions -i input.g.vcf -m -o merged.bed`
+**Explanation:** Merges overlapping callable regions.
+
+### Help command
+**Args:** `gvcf-regions --help`
+**Explanation:** Shows available options and usage information.

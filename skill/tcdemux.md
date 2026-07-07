@@ -1,30 +1,33 @@
 ---
 name: tcdemux
-category: programming
-description: Demultiplex files and prepare reads for the target capture analysis pipeline.
-tags: [tcdemux, programming]
+category: utility
+description: tcdemux - Demultiplexes target capture sequencing files and prepares reads for analysis pipelines.
+tags: [tcdemux, demultiplexing, target-capture, sequencing, preprocessing]
 author: oxo-call-community
 source_url: "https://github.com/TomHarrop/tcdemux"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tcdemux (v0.1.1) - Demultiplex files and prepare reads for the target capture analysis pipeline.
-- **Core Function**: Demultiplex files and prepare reads for the target capture analysis pipeline.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: tcdemux (v0.1.1) - A demultiplexing tool for target capture sequencing data, part of a target capture analysis pipeline.
+- **Core Function**: Separates multiplexed sequencing reads by sample/barcode and prepares them for downstream target capture analysis.
+- **Input**: Multiplexed FASTQ files with associated sample sheets or barcode information.
+- **Output**: Demultiplexed FASTQ files organized by sample, ready for target capture analysis.
 - **Installation**: `conda install -c bioconda tcdemux`
+- **Dependencies**: Requires bbmap, cutadapt, pandas, snakemake for pipeline execution.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Barcode Handling**: Requires accurate barcode/sample sheet information - errors lead to misassignment.
+- **Paired-end Data**: Processes paired-end sequencing - ensure both reads are present.
+- **Pipeline Dependency**: Part of a larger Snakemake workflow - may require other pipeline components.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Demultiplex paired-end reads
+**Args:** `tcdemux -i sample_sheet.csv -o demux_output/ reads_R1.fastq.gz reads_R2.fastq.gz`
+**Explanation:** Basic demultiplexing of paired-end reads using sample sheet CSV.
 
-### Basic usage
-**Args:** `tcdemux <config_file>`
-**Explanation:** Run tcdemux with typical input and output options.
+### With cutadapt trimming
+**Args:** `tcdemux -i sample_sheet.csv -o output/ --trim-adapters R1.fastq.gz R2.fastq.gz`
+**Explanation:** Demultiplex and trim adapters in one step.

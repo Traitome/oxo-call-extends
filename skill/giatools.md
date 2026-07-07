@@ -1,30 +1,43 @@
 ---
 name: giatools
-category: utility
-description: Tools required for Galaxy Image Analysis
-tags: [giatools, utility]
+category: image-analysis
+description: giatools - Tools for Galaxy Image Analysis.
+tags: [giatools, image-analysis, Galaxy, microscopy]
 author: oxo-call-community
 source_url: "https://github.com/BMCV/giatools"
 ---
 
 ## Concepts
-
-- **Tool Overview**: giatools (v0.7.3) - Tools required for Galaxy Image Analysis
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda giatools`
+- **Image Analysis**: Analyzes microscopy images.
+- **Galaxy Integration**: Integrates with Galaxy platform.
+- **Image Processing**: Processes biological images.
+- **Quantification**: Quantifies image features.
+- **Batch Processing**: Supports batch processing.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Image Format**: Requires correct image format.
+- **Quality Control**: Requires high-quality images.
+- **Parameter Selection**: Requires parameter optimization.
+- **Memory Usage**: Large images require memory.
+- **Galaxy Setup**: Requires Galaxy configuration.
 
 ## Examples
+### Analyze image
+**Args:** `giatools analyze -i image.tiff -o results.txt`
+**Explanation:** Analyzes microscopy image.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `giatools analyze -i image.tiff -s 0.5 -o results.txt`
+**Explanation:** Uses specific scale factor.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `giatools analyze -l images.txt -o ./results/`
+**Explanation:** Processes multiple images.
+
+### Generate report
+**Args:** `giatools analyze -i image.tiff -r -o report.html`
+**Explanation:** Generates analysis report.
+
+### Extract features
+**Args:** `giatools features -i image.tiff -o features.txt`
+**Explanation:** Extracts image features.

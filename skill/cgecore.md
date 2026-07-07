@@ -1,30 +1,43 @@
 ---
 name: cgecore
-category: programming
-description: Center for Genomic Epidemiology Core Module
-tags: [cgecore, programming]
+category: genomics
+description: Center for Genomic Epidemiology Core Module for bacterial genomic analysis
+tags: [cgecore, genomic-epidemiology, bacteria, typing, bioinformatics]
 author: oxo-call-community
 source_url: "https://bitbucket.org/genomicepidemiology/cge_core_module"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgecore (v2.0.1) - Center for Genomic Epidemiology Core Module
-- **Core Function**: Center for Genomic Epidemiology Core Module
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgecore`
+- **Tool Overview**: CGE Core is the central module for the Center for Genomic Epidemiology tools, providing common utilities for bacterial genomic analysis.
+- **Core Function**: Provides shared functionality for sequence typing, annotation, and analysis in genomic epidemiology.
+- **Features**: Sequence processing, database management, typing methods, and result visualization.
+- **Input**: Bacterial genome sequences in FASTA format.
+- **Output**: Typing results, annotation data, and analysis reports.
+- **Application**: Bacterial identification, antimicrobial resistance detection, and genomic epidemiology.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgecore`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Updates**: Requires regular database updates for accurate typing.
+- **Sequence Quality**: Poor quality sequences may affect typing accuracy.
+- **Reference Databases**: Must use appropriate reference databases.
+- **Computational Resources**: Large datasets may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Initialize CGE analysis
+**Args:** `cgecore init --db-path databases/`
+**Explanation:** Initializes CGE core with database path.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Run MLST typing
+**Args:** `cgecore mlst --input genome.fasta --output results/`
+**Explanation:** Performs MLST typing on bacterial genome.
+
+### Check database status
+**Args:** `cgecore db-status`
+**Explanation:** Checks status of reference databases.
+
+### Display help
+**Args:** `cgecore --help`
+**Explanation:** Shows all available options and usage information.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgfakeagp
 category: utility
-description: Create fake AGP file by looking at N's.
-tags: [ucsc-hgfakeagp, utility]
+description: UCSC hgFakeAgp - Tool for creating fake AGP files.
+tags: [ucsc-hgfakeagp, ucsc, agp, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgfakeagp (v482) - Create fake AGP file by looking at N's.
-- **Core Function**: Create fake AGP file by looking at N's.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgfakeagp`
+- **Tool Overview**: UCSC hgFakeAgp - A tool for creating fake AGP files.
+- **Core Function**: Generates AGP files from sequence data.
+- **Input**: Sequence information.
+- **Output**: AGP file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome assembly, scaffolding, data preparation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sequence Names**: Requires matching sequence names.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create fake AGP
+**Args:** `hgFakeAgp chrom.sizes > assembly.agp`
+**Explanation:** Create AGP from chromosome sizes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgFakeAgp -name=scaffold chrom.sizes > assembly.agp`
+**Explanation:** Add scaffold name prefix.

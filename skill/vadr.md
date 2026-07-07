@@ -1,30 +1,32 @@
 ---
 name: vadr
-category: annotation
-description: Viral Annotation DefineR - classification and annotation of viral sequences based on RefSeq annotation
-tags: [vadr, annotation]
+category: bioinformatics
+description: VADR - Viral Annotation and Diagnostics Resource.
+tags: [vadr, viral-annotation, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/ncbi/vadr"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vadr (v1.6.4) - Viral Annotation DefineR - classification and annotation of viral sequences based on RefSeq annotation
-- **Core Function**: Viral Annotation DefineR - classification and annotation of viral sequences based on RefSeq annotation
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vadr`
+- **Tool Overview**: VADR - A tool for viral genome annotation and diagnostics.
+- **Core Function**: Annotates and validates viral genome sequences.
+- **Input**: Viral genome sequences (FASTA).
+- **Output**: Annotation results.
+- **Installation**: Install via conda or source
+- **Use Case**: Viral genomics, diagnostics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database Requirements**: Requires viral reference database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate viral genome
+**Args:** `vadr -i viral_genome.fasta -o annotation/`
+**Explanation:** Annotate viral genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vadr -i viral_genome.fasta -o annotation/ -s strict`
+**Explanation:** Use strict validation mode.

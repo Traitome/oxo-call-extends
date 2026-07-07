@@ -1,30 +1,52 @@
 ---
 name: lassaseq
-category: utility
-description: Tool for downloading Lassa virus sequences
-tags: [lassaseq, utility]
+category: virology
+description: Lassa virus sequence analysis workflow - from download to phylogenetics
+tags: [lassaseq, virology, Lassa-virus, phylogeny, viral-analysis, workflow]
 author: oxo-call-community
 source_url: "https://github.com/DaanJansen94/LassaSeq"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lassaseq v0.1.2 - LassaSeq is a command-line tool that simplifies the process of analyzing Lassa virus sequences. It automates the complete workflow from downloading sequences to creating phylogenetic trees, with special handling for Lassa's bi-segmented genome..
-- **Core Function**: Tool for downloading Lassa virus sequences
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lassaseq`
+- **Lassa Virus**: Designed specifically for Lassa virus analysis
+- **Bi-segmented Genome**: Handles Lassa's bi-segmented genome structure
+- **Sequence Download**: Automates downloading of viral sequences
+- **Phylogenetic Analysis**: Creates phylogenetic trees
+- **Workflow Automation**: Streamlines complete analysis pipeline
+- **Epidemiology**: Supports epidemiological investigations
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Database Updates**: Sequence databases require regular updates
+- **Genome Segments**: Both genome segments must be analyzed together
+- **Sequence Quality**: Poor quality sequences affect analysis
+- **Reference Selection**: Different references may give different results
+- **Phylogenetic Resolution**: May need multiple alignment strategies
+- **Geographic Bias**: Limited geographic sampling affects conclusions
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Download sequences
+**Args:** `lassaseq download -o sequences.fasta`
+**Explanation:** Downloads Lassa virus sequences.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Create alignment
+**Args:** `lassaseq align -i sequences.fasta -o alignment.fasta`
+**Explanation:** Creates multiple sequence alignment.
+
+### Build phylogeny
+**Args:** `lassaseq tree -i alignment.fasta -o phylogeny.nwk`
+**Explanation:** Builds phylogenetic tree.
+
+### Segment-specific analysis
+**Args:** `lassaseq analyze -i sequences.fasta --segment L`
+**Explanation:** Analyzes L segment specifically.
+
+### Batch processing
+**Args:** `lassaseq batch -d sequences/ -o results/`
+**Explanation:** Processes multiple sequence datasets.
+
+### Export results
+**Args:** `lassaseq report -i results/ -o report.pdf`
+**Explanation:** Generates analysis report.

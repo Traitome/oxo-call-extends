@@ -1,30 +1,32 @@
 ---
 name: vartracker
-category: variant-calling
-description: Track the persistence (or loss) of mutations during long-term passaging
-tags: [vartracker, variant-calling]
+category: bioinformatics
+description: VarTracker - Variant tracking tool.
+tags: [vartracker, variant-tracking, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/charlesfoster/vartracker/blob/main/README.md"
+source_url: "https://github.com/vartracker/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vartracker (v2.1.1) - Track the persistence (or loss) of mutations during long-term passaging
-- **Core Function**: Track the persistence (or loss) of mutations during long-term passaging
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vartracker`
+- **Tool Overview**: VarTracker - A tool for tracking variant frequencies over time.
+- **Core Function**: Tracks variant frequencies across samples or time points.
+- **Input**: Multiple VCF files.
+- **Output**: Frequency tracking results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant monitoring, population genetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Time**: May be slow for many samples.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Track variants
+**Args:** `vartracker -i samples/ -o tracking.txt`
+**Explanation:** Track variants across samples.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vartracker -i samples/ -o tracking.txt -t 8`
+**Explanation:** Use 8 threads.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadoutjoined
 category: utility
-description: Load new style (2014) RepeatMasker .out files into database.
-tags: [ucsc-hgloadoutjoined, utility]
+description: UCSC hgLoadOutJoined - Tool for loading out joined data.
+tags: [ucsc-hgloadoutjoined, ucsc, database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadoutjoined (v482) - Load new style (2014) RepeatMasker .out files into database.
-- **Core Function**: Load new style (2014) RepeatMasker .out files into database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadoutjoined`
+- **Tool Overview**: UCSC hgLoadOutJoined - A tool for loading out joined data into database.
+- **Core Function**: Loads joined data tables into genome browser database.
+- **Input**: Joined data file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, data integration, annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load out joined data
+**Args:** `hgLoadOutJoined -db=hg38 -table=out input.txt`
+**Explanation:** Load out joined data to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadOutJoined -db=hg38 -table=out -verbose input.txt`
+**Explanation:** Load with verbose output.

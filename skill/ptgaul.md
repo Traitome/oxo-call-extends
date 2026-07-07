@@ -1,31 +1,56 @@
 ---
 name: ptgaul
 category: assembly
-description: Plastid Genome Assembly Using long-read data (ptGAUL)
-tags: ["ptgaul", "assembly"]
+description: ptGAUL assembles plastid genomes using long-read sequencing data.
+tags: [ptgaul, assembly, plastid-genome, long-read]
 author: oxo-call-community
 source_url: "https://github.com/Bean061/ptgaul"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Plastid Genome Assembly Using long-read data (ptGAUL) (version 1.0.5)
-- **Core Function**: Processes bioinformatics data related to assembly
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ptgaul`
+- **Tool Overview**: ptgaul assembles plastid genomes.
+- **Core Function**: Plastid genome assembly.
+- **Algorithm**: Uses long-read assembly.
+- **Input Format**: Accepts long-read sequencing data.
+- **Output**: Produces plastid genome assembly.
+- **Use Case**: Plastid genomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Read Length**: Affects assembly quality.
+- **Runtime**: Assembly may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `ptgaul --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Run assembly
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assembles reads into contigs/scaffolds.
+### Assemble plastid genome
+**Args:** `ptgaul -i reads.fastq -r reference.fasta -o assembly.fasta`
+**Explanation:** Assembles plastid genome from long reads.
 
+### With parameters
+**Args:** `ptgaul -i reads.fastq -r reference.fasta -p params.yaml -o assembly.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `ptgaul -v -i reads.fastq -r reference.fasta -o assembly.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `ptgaul -t 4 -i reads.fastq -r reference.fasta -o assembly.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `ptgaul -i reads.fastq -r reference.fasta -o assembly.gb --genbank`
+**Explanation:** Outputs in GenBank format.
+
+### Generate report
+**Args:** `ptgaul -i reads.fastq -r reference.fasta -o assembly.fasta --report report.html`
+**Explanation:** Generates HTML report.

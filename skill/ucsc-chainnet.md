@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainnet
-category: alignment
-description: Make alignment nets out of chains.
-tags: [ucsc-chainnet, alignment]
+category: utility
+description: UCSC chainNet - Tool for creating net alignments from chains.
+tags: [ucsc-chainnet, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainnet (v482) - Make alignment nets out of chains.
-- **Core Function**: Make alignment nets out of chains.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainnet`
+- **Tool Overview**: UCSC chainNet - A tool for creating net alignments from chain alignments.
+- **Core Function**: Creates hierarchical net alignments from chain files.
+- **Input**: Chain alignment file.
+- **Output**: Net alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome alignment, synteny analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Computation Time**: May be slow for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create net alignment
+**Args:** `chainNet target.chain query.chain > output.net`
+**Explanation:** Create net alignment from chains.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With gap limit
+**Args:** `chainNet -minGap=1000 target.chain query.chain > output.net`
+**Explanation:** Create net with minimum gap size.

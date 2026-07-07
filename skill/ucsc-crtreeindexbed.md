@@ -1,30 +1,32 @@
 ---
 name: ucsc-crtreeindexbed
 category: utility
-description: Create an index for a bed file.
-tags: [ucsc-crtreeindexbed, utility]
+description: UCSC crTreeIndexBed - Tool for indexing BED files with crTree.
+tags: [ucsc-crtreeindexbed, ucsc, indexing, bed, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-crtreeindexbed (v482) - Create an index for a bed file.
-- **Core Function**: Create an index for a bed file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-crtreeindexbed`
+- **Tool Overview**: UCSC crTreeIndexBed - A tool for creating crTree indexes for BED files.
+- **Core Function**: Builds spatial index for fast BED file queries.
+- **Input**: BED file.
+- **Output**: Indexed BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Fast querying, genome browser, data indexing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **BED Format**: Requires proper BED format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Index BED file
+**Args:** `crTreeIndexBed input.bed output.index`
+**Explanation:** Create crTree index for BED file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `crTreeIndexBed -blockSize=1000 input.bed output.index`
+**Explanation:** Index with specified block size.

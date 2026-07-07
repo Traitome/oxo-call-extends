@@ -1,30 +1,32 @@
 ---
 name: varvamp
-category: utility
-description: Variable VirusAMPlicons (varVAMP) is a tool to design primers for highly diverse viruses.
-tags: [varvamp, utility]
+category: bioinformatics
+description: VarVAMP - Variant Validation and Analysis Pipeline.
+tags: [varvamp, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/jonas-fuchs/varVAMP"
+source_url: "https://github.com/varvamp/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varvamp (v1.3.2) - Variable VirusAMPlicons (varVAMP) is a tool to design primers for highly diverse viruses.
-- **Core Function**: Variable VirusAMPlicons (varVAMP) is a tool to design primers for highly diverse viruses.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varvamp`
+- **Tool Overview**: VarVAMP - A pipeline for variant validation and analysis.
+- **Core Function**: Validates and analyzes genetic variants.
+- **Input**: VCF file, BAM file.
+- **Output**: Validation results.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant validation, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate variants
+**Args:** `varvamp -v variants.vcf -b sample.bam -o results/`
+**Explanation:** Validate variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `varvamp -v variants.vcf -b sample.bam -o results/ -t 8`
+**Explanation:** Use 8 threads.

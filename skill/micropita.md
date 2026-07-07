@@ -2,29 +2,47 @@
 name: micropita
 category: alignment
 description: microPITA is a computational tool enabling sample selection in two-stage (tiered) studies.
-tags: [micropita, alignment, alignment]
+tags: [micropita, alignment, statistics]
 author: oxo-call-community
 source_url: "http://huttenhower.sph.harvard.edu/micropita"
 ---
 
 ## Concepts
 
-- **Tool Overview**: micropita v1.1.0 - microPITA is a computational tool enabling sample selection in two-stage (tiered) studies..
-- **Core Function**: microPITA is a computational tool enabling sample selection in two-stage (tiered) studies.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda micropita`
+- **Tool Overview**: microPITA v1.1.0 enables sample selection in two-stage studies.
+- **Core Function**: Optimizes sample selection for tiered study designs.
+- **Two-stage Studies**: Supports two-stage (tiered) experimental designs.
+- **Statistical Power**: Maximizes statistical power through optimal sampling.
+- **Input/Output**: Accepts study data; outputs sample selection recommendations.
+- **Experimental Design**: Aids in designing efficient experiments.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Study Design**: Specific to two-stage study designs.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Recommendations depend on input data quality.
+- **Statistical Assumptions**: Based on specific statistical assumptions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Select samples for study
+**Args:** `micropita -i data.txt -o selection.txt`
+**Explanation:** Selects optimal samples for two-stage study.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With power analysis
+**Args:** `micropita -i data.txt -o selection.txt -p`
+**Explanation:** Includes power analysis in selection.
+
+### Custom parameters
+**Args:** `micropita -i data.txt -o selection.txt -a 0.05`
+**Explanation:** Uses custom significance level.
+
+### Batch processing
+**Args:** `micropita -i data/ -o selections/`
+**Explanation:** Processes multiple datasets in batch mode.
+
+### Generate report
+**Args:** `micropita -i data.txt -o selection.txt -r report.html`
+**Explanation:** Generates study design report.

@@ -1,30 +1,32 @@
 ---
 name: vpt-cellpose2
-category: utility
-description: Meta-package for VPT with Cellpose 2 plugin
-tags: [vpt-cellpose2, utility]
+category: bioinformatics
+description: VPT-Cellpose2 - Cell segmentation tool.
+tags: [vpt-cellpose2, image-segmentation, cell-analysis, bioinformatics]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/vpt-cellpose2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vpt-cellpose2 (v1.0.0) - Meta-package for VPT with Cellpose 2 plugin
-- **Core Function**: Meta-package for VPT with Cellpose 2 plugin
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vpt-cellpose2`
+- **Tool Overview**: VPT-Cellpose2 - Cell segmentation tool.
+- **Core Function**: Segments cells in images.
+- **Input**: Image file.
+- **Output**: Segmentation mask.
+- **Installation**: Install via pip
+- **Use Case**: Image analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large images.
+- **Training**: Requires model training.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Segment cells
+**Args:** `vpt-cellpose2 -i image.tif -o mask.tif`
+**Explanation:** Segment cells.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vpt-cellpose2 -i image.tif -o mask.tif -m cyto`
+**Explanation:** Use cytoplasm model.

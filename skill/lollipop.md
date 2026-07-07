@@ -1,30 +1,52 @@
 ---
 name: lollipop
-category: utility
-description: A tool for Deconvolution for Wastewater Genomics
-tags: [lollipop, utility]
+category: metagenomics
+description: LolliPop - Deconvolution tool for wastewater genomics
+tags: [lollipop, metagenomics, wastewater, deconvolution, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/cbg-ethz/LolliPop"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lollipop v0.5.3 - A tool for Deconvolution for Wastewater Genomics.
-- **Core Function**: A tool for Deconvolution for Wastewater Genomics
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lollipop`
+- **Wastewater Genomics**: Analysis of genomic data from wastewater samples
+- **Deconvolution**: Estimating relative abundances of different strains
+- **Strain Identification**: Identifying microbial strains in samples
+- **SNP Analysis**: Single-nucleotide polymorphism analysis
+- **Mixture Analysis**: Analyzing mixed populations
+- **Relative Abundance**: Estimating relative proportions of strains
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Sample Quality**: Poor quality samples affect results
+- **Reference Database**: Quality of reference database is critical
+- **Computational Time**: May be slow for large datasets
+- **Memory Usage**: Memory-intensive for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Positives**: May produce false positive strain identifications
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run deconvolution
+**Args:** `lollipop --input variants.vcf --output results/`
+**Explanation:** Runs deconvolution on variant data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Reference database
+**Args:** `lollipop --input variants.vcf --ref-db reference.fasta --output results/`
+**Explanation:** Uses custom reference database.
+
+### Threads
+**Args:** `lollipop --input variants.vcf --output results/ --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Minimum coverage
+**Args:** `lollipop --input variants.vcf --output results/ --min-cov 10`
+**Explanation:** Sets minimum coverage threshold.
+
+### Output format
+**Args:** `lollipop --input variants.vcf --output results.json --format json`
+**Explanation:** Outputs results in JSON format.
+
+### Verbose output
+**Args:** `lollipop --input variants.vcf --output results/ --verbose`
+**Explanation:** Provides detailed output.

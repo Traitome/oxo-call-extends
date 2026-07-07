@@ -1,30 +1,32 @@
 ---
 name: ucsc-dbtrash
 category: utility
-description: Drop tables from a database older than specified N hours.
-tags: [ucsc-dbtrash, utility]
+description: UCSC dbTrash - Tool for managing database trash.
+tags: [ucsc-dbtrash, ucsc, database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-dbtrash (v482) - Drop tables from a database older than specified N hours.
-- **Core Function**: Drop tables from a database older than specified N hours.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-dbtrash`
+- **Tool Overview**: UCSC dbTrash - A tool for managing database trash/recycle bin.
+- **Core Function**: Manages deleted database objects in a trash bin.
+- **Input**: Database connection.
+- **Output**: Trash management operations.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Database maintenance, recovery, cleanup.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Permissions**: May require specific database permissions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Empty trash
+**Args:** `dbTrash -db=hg38 -empty`
+**Explanation:** Empty database trash.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### List trash
+**Args:** `dbTrash -db=hg38 -list`
+**Explanation:** List items in trash.

@@ -1,30 +1,32 @@
 ---
 name: vardict
 category: variant-calling
-description: A sensitive variant caller for both single and paired sample variant calling
-tags: [vardict, variant-calling]
+description: VarDict - Variant caller for targeted sequencing.
+tags: [vardict, variant-calling, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/AstraZeneca-NGS/VarDict"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vardict (v2019.06.04) - A sensitive variant caller for both single and paired sample variant calling
-- **Core Function**: A sensitive variant caller for both single and paired sample variant calling
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vardict`
+- **Tool Overview**: VarDict - A variant caller optimized for targeted sequencing.
+- **Core Function**: Calls variants with focus on sensitivity for low-frequency variants.
+- **Input**: BAM file, BED file.
+- **Output**: VCF file.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant calling, cancer genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Bed Format**: Requires proper BED format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call variants
+**Args:** `vardict -G ref.fasta -f 0.01 -N sample -b sample.bam -R regions.bed > variants.vcf`
+**Explanation:** Call variants from BAM file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vardict -G ref.fasta -f 0.01 -N sample -b sample.bam -R regions.bed -t 8 > variants.vcf`
+**Explanation:** Use 8 threads.

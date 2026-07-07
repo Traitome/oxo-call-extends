@@ -1,30 +1,35 @@
 ---
 name: biodigest
-category: hpc
+category: annotation
 description: In silico Validation of Disease and Gene sets, Clusterings or Subnetworks (DIGEST)
-tags: [biodigest, hpc]
+tags: [gene-set-analysis, validation, disease-gene, enrichment-analysis]
 author: oxo-call-community
-source_url: "http://pypi.python.org/pypi/biodigest/"
+source_url: "https://github.com/bionetslab/digest-py"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biodigest (v0.2.16) - In silico Validation of Disease and Gene sets, Clusterings or Subnetworks (DIGEST)
-- **Core Function**: In silico Validation of Disease and Gene sets, Clusterings or Subnetworks (DIGEST)
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda biodigest`
+- **Tool Overview**: biodigest (DIGEST) is a Python-based validation tool for in silico validation of disease and gene sets, clusterings, or subnetworks. It provides automated pipelines for disease/gene ID mapping, enrichment analysis, and background distribution estimation.
+- **Validation Modes**: Set validation (reference-free or against reference), clustering validation (Dunn Index, Silhouette Score, Davies-Bouldin index), and subnetwork validation.
+- **Enrichment Analysis**: Uses GO and KEGG for functional analysis of gene sets.
+- **Background Estimation**: Generates empirical P-values using random target sets based on user-selected background models.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Requirements**: Requires precalculated mappings and distance matrices; first-time setup requires downloading reference data.
+- **graph-tool Dependency**: Requires graph-tool package for subnetwork analysis.
+- **Internet Access**: Initial data download requires internet connection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Validate gene set
+**Args:** `biodigest validate --targets genes.txt --id-type entrez --mode set`
+**Explanation:** Validates a gene set using reference-free mode.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Validate clustering
+**Args:** `biodigest validate --targets clusters.txt --id-type entrez --mode clustering`
+**Explanation:** Validates clustering using quality measures (Dunn Index, Silhouette Score, Davies-Bouldin).
+
+### Download reference data
+**Args:** `biodigest download-data`
+**Explanation:** Downloads precalculated mappings and distance matrices for validation.

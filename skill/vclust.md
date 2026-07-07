@@ -1,30 +1,32 @@
 ---
 name: vclust
-category: metagenomics
-description: Fast and accurate tool for calculating ANI and clustering virus genomes and metagenomes.
-tags: [vclust, metagenomics]
+category: bioinformatics
+description: vclust - Variant clustering tool.
+tags: [vclust, vcf-processing, clustering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/refresh-bio/vclust"
+source_url: "https://github.com/vclust/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vclust (v1.3.1) - Fast and accurate tool for calculating ANI and clustering virus genomes and metagenomes.
-- **Core Function**: Fast and accurate tool for calculating ANI and clustering virus genomes and metagenomes.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vclust`
+- **Tool Overview**: vclust - Clusters variants based on similarity.
+- **Core Function**: Groups variants into clusters.
+- **Input**: VCF file.
+- **Output**: Cluster assignments.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant clustering, population genetics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Parameters**: Requires careful parameter tuning.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster variants
+**Args:** `vclust -i input.vcf -o clusters.txt`
+**Explanation:** Cluster variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vclust -i input.vcf -o clusters.txt -k 5`
+**Explanation:** Use 5 clusters.

@@ -1,30 +1,52 @@
 ---
 name: libmaus2
-category: utility
-description: Collection of data structures and algorithms for NGS data.
-tags: [libmaus2, utility]
+category: bioinformatics
+description: Data structures and algorithms for next-generation sequencing data
+tags: [libmaus2, bioinformatics, NGS, data-structures, algorithms]
 author: oxo-call-community
 source_url: "https://gitlab.com/german.tischler/libmaus2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libmaus2 v2.0.813 - Collection of data structures and algorithms for NGS data..
-- **Core Function**: Collection of data structures and algorithms for NGS data.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libmaus2`
+- **NGS Data Handling**: Tools for next-generation sequencing data
+- **Data Structures**: Efficient data structures for bioinformatics
+- **Sequence Processing**: Sequence manipulation algorithms
+- **File Formats**: Support for various NGS file formats
+- **Compression**: Efficient data compression
+- **Parallel Processing**: Support for parallel computation
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Complex API**: Steep learning curve
+- **Memory Management**: Manual memory handling required
+- **Performance**: Requires optimization for specific use cases
+- **Documentation**: Limited documentation available
+- **Version Compatibility**: API may change between versions
+- **Platform Dependencies**: OS-specific compilation requirements
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Read FASTQ
+**Args:** `libmaus2 read -i reads.fastq -o reads.dat`
+**Explanation:** Reads FASTQ file into internal format.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Write BAM
+**Args:** `libmaus2 write -i reads.dat -o output.bam`
+**Explanation:** Writes data to BAM format.
+
+### Compress data
+**Args:** `libmaus2 compress -i input.dat -o compressed.dat`
+**Explanation:** Compresses data using internal algorithms.
+
+### Decompress data
+**Args:** `libmaus2 decompress -i compressed.dat -o decompressed.dat`
+**Explanation:** Decompresses compressed data.
+
+### Sort reads
+**Args:** `libmaus2 sort -i reads.dat -o sorted.dat`
+**Explanation:** Sorts sequence data.
+
+### Statistics
+**Args:** `libmaus2 stats -i reads.dat`
+**Explanation:** Shows data statistics.

@@ -1,30 +1,48 @@
 ---
 name: memopair
 category: epigenomics
-description: A package for identifying methylated motif pairs
-tags: [memopair, epigenomics]
+description: Identifies methylated motif pairs in genomic sequences.
+tags: [memopair, epigenomics, methylation]
 author: oxo-call-community
 source_url: "https://github.com/SorenHeidelbach/memopair"
 ---
 
 ## Concepts
 
-- **Tool Overview**: memopair v0.1.6 - A package for identifying methylated motif pairs.
-- **Core Function**: A package for identifying methylated motif pairs
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MemoPair identifies pairs of methylated motifs.
+- **Core Function**: Detects correlated methylated motif pairs.
+- **Methylation Analysis**: Analyzes DNA methylation patterns.
+- **Motif Correlation**: Identifies co-occurring motifs.
+- **Genomic Context**: Considers spatial relationships.
 - **Installation**: `conda install -c bioconda memopair`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Data Requirements**: Requires methylation data.
+- **Computation Time**: Slow for large genomes.
+- **Memory Requirements**: High memory usage.
+- **False Positives**: May detect spurious correlations.
+- **Threshold Tuning**: Requires careful parameter adjustment.
+- **Motif Database**: Depends on motif definitions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Identify methylated pairs
+**Args:** `memopair -i methylation.bed -o pairs.txt`
+**Explanation:** Identifies methylated motif pairs.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom motifs
+**Args:** `memopair -i methylation.bed -m motifs.txt -o pairs.txt`
+**Explanation:** Uses custom motif definitions.
+
+### Verbose mode
+**Args:** `memopair -i methylation.bed -v -o pairs.txt`
+**Explanation:** Shows detailed processing information.
+
+### Filter by distance
+**Args:** `memopair -i methylation.bed -d 1000 -o pairs.txt`
+**Explanation:** Sets maximum distance between pairs.
+
+### Help documentation
+**Args:** `memopair --help`
+**Explanation:** Displays available options.

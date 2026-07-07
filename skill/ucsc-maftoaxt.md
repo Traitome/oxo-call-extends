@@ -1,30 +1,32 @@
 ---
 name: ucsc-maftoaxt
-category: formatting
-description: Convert from maf to axt format.
-tags: [ucsc-maftoaxt, formatting]
+category: utility
+description: UCSC mafToAxt - Tool for converting MAF to AXT format.
+tags: [ucsc-maftoaxt, ucsc, maf, axt, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maftoaxt (v482) - Convert from maf to axt format.
-- **Core Function**: Convert from maf to axt format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maftoaxt`
+- **Tool Overview**: UCSC mafToAxt - A tool for converting MAF to AXT format.
+- **Core Function**: Converts MAF alignments to AXT format.
+- **Input**: MAF file.
+- **Output**: AXT file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert MAF to AXT
+**Args:** `mafToAxt input.maf > output.axt`
+**Explanation:** Convert MAF to AXT format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafToAxt -verbose input.maf > output.axt`
+**Explanation:** Convert with verbose output.

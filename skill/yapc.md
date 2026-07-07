@@ -1,30 +1,32 @@
 ---
 name: yapc
-category: utility
-description: Yapc is a (yet another) peak caller for genomic high-throughput sequencing data
-tags: [yapc, utility]
+category: bioinformatics
+description: YAPC - Sequence analysis tool.
+tags: [yapc, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/jurgjn/yapc"
+source_url: "https://github.com/yapc/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yapc (v0.1) - Yapc is a (yet another) peak caller for genomic high-throughput sequencing data
-- **Core Function**: Yapc is a (yet another) peak caller for genomic high-throughput sequencing data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yapc`
+- **Tool Overview**: YAPC - Sequence analysis tool.
+- **Core Function**: Analyzes sequence data.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequences
+**Args:** `yapc -i sequences.fasta -o analysis.txt`
+**Explanation:** Analyze sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yapc -i sequences.fasta -o analysis.txt -t 8`
+**Explanation:** Use 8 threads.

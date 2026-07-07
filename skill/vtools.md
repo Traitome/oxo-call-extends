@@ -1,30 +1,32 @@
 ---
 name: vtools
-category: utility
-description: Various tools operating over VCF files. Uses cyvcf2 and cython under the hood for speed
-tags: [vtools, utility, vcf]
+category: bioinformatics
+description: Vtools - Variant analysis toolkit.
+tags: [vtools, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/LUMC/vtools"
+source_url: "https://github.com/vtools/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vtools (v1.1.0) - Various tools operating over VCF files. Uses cyvcf2 and cython under the hood for speed
-- **Core Function**: Various tools operating over VCF files. Uses cyvcf2 and cython under the hood for speed
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vtools`
+- **Tool Overview**: Vtools - Comprehensive variant analysis toolkit.
+- **Core Function**: Manages and analyzes variant data.
+- **Input**: VCF files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load variants
+**Args:** `vtools load -i input.vcf -o project.db`
+**Explanation:** Load variants into project.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vtools select -i project.db -c "QUAL > 30" -o filtered.vcf`
+**Explanation:** Filter variants by quality.

@@ -1,30 +1,43 @@
 ---
 name: get_orfs
-category: utility
-description: Fast extraction of ORFs in all possible translation tables
-tags: [get_orfs, utility]
+category: gene-prediction
+description: get_orfs - Fast extraction of ORFs in all possible translation tables.
+tags: [get_orfs, gene-prediction, ORF, translation]
 author: oxo-call-community
 source_url: "https://github.com/linsalrob/get_orfs"
 ---
 
 ## Concepts
-
-- **Tool Overview**: get_orfs (v1.1.0) - Fast extraction of ORFs in all possible translation tables
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda get_orfs`
+- **ORF Prediction**: Predicts open reading frames.
+- **Translation**: Translates DNA sequences to proteins.
+- **Sequence Analysis**: Analyzes nucleotide sequences.
+- **Genetic Code**: Supports multiple genetic codes.
+- **Gene Finding**: Identifies potential genes.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Frame Selection**: Requires correct reading frame.
+- **Translation Table**: Requires appropriate translation table.
+- **Sequence Quality**: Requires high-quality sequence data.
+- **Overlapping ORFs**: May detect overlapping ORFs.
+- **Result Filtering**: Requires filtering by length.
 
 ## Examples
+### Extract ORFs
+**Args:** `get_orfs -i genome.fasta -o orfs.fasta`
+**Explanation:** Extracts ORFs from genome sequence.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With specific translation table
+**Args:** `get_orfs -i genome.fasta -t 11 -o orfs.fasta`
+**Explanation:** Uses translation table 11 (bacterial).
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Filter by length
+**Args:** `get_orfs -i genome.fasta -m 100 -o orfs.fasta`
+**Explanation:** Filters ORFs by minimum length.
+
+### Batch processing
+**Args:** `get_orfs -l genomes.txt -o ./orfs/`
+**Explanation:** Processes multiple genome files.
+
+### Output proteins
+**Args:** `get_orfs -i genome.fasta -p -o proteins.fasta`
+**Explanation:** Outputs translated protein sequences.

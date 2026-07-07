@@ -1,30 +1,60 @@
 ---
 name: soapsplice
-category: utility
-description: We have developed a tool SOAPsplice for genome-wide ab initio detection of splice junction sites from RNA-Seq, a method using new generation sequencing technologies to sequence the messenger RNA.
-tags: [soapsplice, utility]
+category: transcriptomics
+description: SOAPsplice - Genome-wide splice junction detection from RNA-seq
+tags: [soapsplice, transcriptomics, splice-junctions, rna-seq, splicing]
 author: oxo-call-community
 source_url: "http://soap.genomics.org.cn/soapsplice.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: soapsplice (v1.10) - We have developed a tool SOAPsplice for genome-wide ab initio detection of splice junction sites from RNA-Seq, a method using new generation sequencing technologies to sequence the messenger RNA.
-- **Core Function**: We have developed a tool SOAPsplice for genome-wide ab initio detection of splice junction sites from RNA-Seq, a method using new generation sequencing technologies to sequence the messenger RNA.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: soapsplice (v1.10) - A splice junction detection tool
+- **Core Function**: Detects splice junction sites from RNA-seq data
+- **Input/Output**: Accepts RNA-seq reads; outputs splice junction predictions
+- **Algorithm**: Ab initio detection of splice sites from RNA-seq alignments
 - **Installation**: `conda install -c bioconda soapsplice`
+- **Key Features**: Splice junction detection, RNA-seq analysis, ab initio method
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly formatted RNA-seq reads
+- **Reference Genome**: Requires reference genome for junction detection
+- **Read Length**: Short reads may reduce detection accuracy
+- **Coverage**: Requires sufficient read coverage at junctions
+- **Memory Usage**: Large genomes require significant memory
+- **False Positives**: May produce false positives in repetitive regions
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `SOAPsplice --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `soapsplice -i <input_file> -o <output_file>`
-**Explanation:** Run soapsplice with typical input and output options.
+### Basic junction detection
+**Args:** `SOAPsplice -d reference.fasta -i reads.fastq -o junctions.txt`
+**Explanation:** Detect splice junctions from RNA-seq.
+
+### Paired-end detection
+**Args:** `SOAPsplice -d reference.fasta -i reads_1.fastq -2 reads_2.fastq -o junctions.txt`
+**Explanation:** Detect junctions from paired-end reads.
+
+### With minimum support
+**Args:** `SOAPsplice -d reference.fasta -i reads.fastq -o junctions.txt --min-support 5`
+**Explanation:** Set minimum read support for junctions.
+
+### Output GFF format
+**Args:** `SOAPsplice -d reference.fasta -i reads.fastq -o junctions.gff --gff`
+**Explanation:** Output junctions in GFF format.
+
+### With threads
+**Args:** `SOAPsplice -d reference.fasta -i reads.fastq -o junctions.txt -p 8`
+**Explanation:** Use multiple threads for detection.
+
+### Output statistics
+**Args:** `SOAPsplice -d reference.fasta -i reads.fastq -o junctions.txt --stats`
+**Explanation:** Output detection statistics.
+
+### Generate report
+**Args:** `SOAPsplice -d reference.fasta -i reads.fastq -o junctions.txt --report`
+**Explanation:** Generate detection report.

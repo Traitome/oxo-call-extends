@@ -1,30 +1,32 @@
 ---
 name: treemix
-category: population-genomics
-description: TreeMix is a method for inferring the patterns of population splits and mixtures in the history of a set of populations.
-tags: [treemix, population-genomics]
+category: analysis
+description: TreeMix - Tool for inferring population splits and admixture.
+tags: [treemix, population-genetics, admixture, phylogenetics, evolution]
 author: oxo-call-community
-source_url: "http://pritchardlab.stanford.edu/software.html"
+source_url: "https://github.com/joepickrell/treemix"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treemix (v1.13) - TreeMix is a method for inferring the patterns of population splits and mixtures in the history of a set of populations.
-- **Core Function**: TreeMix is a method for inferring the patterns of population splits and mixtures in the history of a set of populations.
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TreeMix - A tool for inferring population splits and admixture events from genetic data.
+- **Core Function**: Constructs phylogenetic trees with migration edges to model gene flow between populations.
+- **Input**: Allele frequency data, population genotypes.
+- **Output**: Population tree with migration edges, admixture proportions, likelihood scores.
 - **Installation**: `conda install -c bioconda treemix`
+- **Use Case**: Population genetics, evolutionary biology, admixture analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sample Size**: Requires sufficient sample size for reliable inference.
+- **Migration Events**: Number of migration events may need careful selection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run TreeMix
+**Args:** `treemix -i genotypes.txt -o treemix_output -m 3`
+**Explanation:** Run TreeMix with 3 migration events.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With bootstrap
+**Args:** `treemix -i data.txt -o output -m 2 -bootstrap`
+**Explanation:** Run TreeMix with bootstrap support.

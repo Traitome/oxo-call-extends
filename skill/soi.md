@@ -1,30 +1,60 @@
 ---
 name: soi
-category: formatting
-description: Orthology Index (OrthoIndex or OI) determines the orthology of a syntenic block.
-tags: [soi, formatting]
+category: comparative-genomics
+description: SOI - Orthology Index for determining orthology of syntenic blocks
+tags: [soi, comparative-genomics, orthology, synteny, evolution]
 author: oxo-call-community
 source_url: "https://github.com/zhangrengang/SOI/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: soi (v1.3.0) - Orthology Index (OrthoIndex or OI) determines the orthology of a syntenic block.
-- **Core Function**: Orthology Index (OrthoIndex or OI) determines the orthology of a syntenic block.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: soi (v1.3.0) - An orthology index calculation tool
+- **Core Function**: Determines orthology of syntenic blocks between genomes
+- **Input/Output**: Accepts syntenic blocks; outputs orthology index scores
+- **Algorithm**: Calculates OrthoIndex (OI) for syntenic block evaluation
 - **Installation**: `conda install -c bioconda soi`
+- **Key Features**: Orthology determination, synteny analysis, index calculation
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly formatted syntenic block data
+- **Reference Genomes**: Requires reference genomes for comparison
+- **Block Quality**: Quality of syntenic blocks affects index calculation
+- **Interpretation**: Results require biological interpretation
+- **Memory Usage**: Large genomes require significant memory
+- **Threshold Setting**: Requires proper threshold for orthology
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `soi --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `soi -i <input_file> -o <output_file>`
-**Explanation:** Run soi with typical input and output options.
+### Basic orthology index
+**Args:** `soi -i synteny_blocks.txt -o orthology_index.txt`
+**Explanation:** Calculate orthology index for blocks.
+
+### With reference genomes
+**Args:** `soi -i synteny_blocks.txt -r genome1.fasta genome2.fasta -o orthology_index.txt`
+**Explanation:** Use reference genomes for calculation.
+
+### With threshold
+**Args:** `soi -i synteny_blocks.txt -o orthology_index.txt --threshold 0.8`
+**Explanation:** Set orthology threshold.
+
+### Output detailed report
+**Args:** `soi -i synteny_blocks.txt -o orthology_index.txt --detailed`
+**Explanation:** Output detailed orthology report.
+
+### Filter by score
+**Args:** `soi -i synteny_blocks.txt -o orthology_index.txt --min-score 0.5`
+**Explanation:** Filter blocks by minimum score.
+
+### With threads
+**Args:** `soi -i synteny_blocks.txt -o orthology_index.txt -p 8`
+**Explanation:** Use multiple threads for calculation.
+
+### Generate statistics
+**Args:** `soi -i synteny_blocks.txt -o orthology_index.txt --stats`
+**Explanation:** Output orthology statistics.

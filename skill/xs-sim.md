@@ -1,30 +1,32 @@
 ---
 name: xs-sim
-category: utility
-description: Simulates NGS reads
-tags: [xs-sim, utility, fastq]
+category: bioinformatics
+description: XS-SIM - Sequence simulation tool.
+tags: [xs-sim, sequence-simulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/pratas/xs"
+source_url: "https://github.com/xs-sim/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xs-sim (v2) - XS is a skilled FASTQ read simulation tool, flexible, portable (does not need a reference sequence) and tunable in terms of sequence complexity
-- **Core Function**: Simulates NGS reads
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xs-sim`
+- **Tool Overview**: XS-SIM - Sequence simulation tool.
+- **Core Function**: Simulates sequence data.
+- **Input**: Simulation parameters.
+- **Output**: Simulated sequences.
+- **Installation**: Install via pip or conda
+- **Use Case**: Simulation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large simulations.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simulate sequences
+**Args:** `xs-sim -o output.fasta -n 100`
+**Explanation:** Simulate 100 sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xs-sim -o output.fasta -n 100 -l 1000`
+**Explanation:** Simulate 100 sequences of length 1000.

@@ -1,31 +1,56 @@
 ---
 name: pycomo
 category: containerization
-description: PyCoMo is a software package for generating and analysing compartmentalized community metabolic models.
-tags: ["pycomo", "containerization"]
+description: PyCoMo generates and analyzes compartmentalized community metabolic models for microbial communities.
+tags: [pycomo, containerization, metabolic-models, microbial-ecology]
 author: oxo-call-community
 source_url: "https://github.com/univieCUBE/PyCoMo"
 ---
 
 ## Concepts
 
-- **Tool Overview**: PyCoMo is a software package for generating and analysing compartmentalized community metabolic models. (version 0.3.0)
-- **Core Function**: Processes bioinformatics data related to containerization
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pycomo`
+- **Tool Overview**: pycomo builds metabolic models.
+- **Core Function**: Community metabolic modeling.
+- **Algorithm**: Uses constraint-based modeling.
+- **Input Format**: Accepts genome annotations.
+- **Output**: Produces metabolic models.
+- **Use Case**: Microbiome analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Complex models require memory.
+- **Data Quality**: Results depend on input quality.
+- **Model Complexity**: May affect performance.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pycomo --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Build model
+**Args:** `pycomo build -i genomes/ -o model.xml`
+**Explanation:** Builds community metabolic model.
 
+### With parameters
+**Args:** `pycomo build -i genomes/ -p params.yaml -o model.xml`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pycomo -v build -i genomes/ -o model.xml`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pycomo -t 4 build -i genomes/ -o model.xml`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Analyze model
+**Args:** `pycomo analyze -i model.xml -o analysis.txt`
+**Explanation:** Analyzes metabolic model.
+
+### Generate report
+**Args:** `pycomo build -i genomes/ -o model.xml --report report.html`
+**Explanation:** Generates HTML report.

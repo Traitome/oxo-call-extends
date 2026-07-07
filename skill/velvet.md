@@ -1,30 +1,32 @@
 ---
 name: velvet
-category: assembly
-description: Sequence Assembler for short reads.
-tags: [velvet, assembly]
+category: bioinformatics
+description: Velvet - Sequence assembler.
+tags: [velvet, sequence-assembly, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/dzerbino/velvet/blob/master/Manual.pdf"
+source_url: "https://github.com/dzerbino/velvet"
 ---
 
 ## Concepts
 
-- **Tool Overview**: velvet (v1.2.10) - Sequence Assembler for short reads.
-- **Core Function**: Sequence Assembler for short reads.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda velvet`
+- **Tool Overview**: Velvet - De novo sequence assembler.
+- **Core Function**: Assembles short reads into contigs.
+- **Input**: FASTQ files.
+- **Output**: Assembled contigs.
+- **Installation**: Install via conda or source
+- **Use Case**: Genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Parameters**: Requires careful parameter tuning.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble reads
+**Args:** `velveth output_dir 31 -shortPaired reads_1.fastq reads_2.fastq`
+**Explanation:** Prepare assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `velvetg output_dir -exp_cov auto -cov_cutoff 2`
+**Explanation:** Generate contigs.

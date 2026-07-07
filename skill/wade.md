@@ -1,30 +1,32 @@
 ---
 name: wade
-category: utility
-description: WADE provides a flexible and customizable method to extract specific genes from a large number of genomes at once.
-tags: [wade, utility]
+category: bioinformatics
+description: WADE - Variant analysis tool.
+tags: [wade, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/phac-nml/wade/blob/v1.2.0/README.md"
+source_url: "https://github.com/wade/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wade (v1.2.0) - WADE provides a flexible and customizable method to extract specific genes from a large number of genomes at once.
-- **Core Function**: WADE provides a flexible and customizable method to extract specific genes from a large number of genomes at once.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wade`
+- **Tool Overview**: WADE - Variant analysis tool.
+- **Core Function**: Analyzes variants.
+- **Input**: VCF file.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze variants
+**Args:** `wade -i input.vcf -o analysis.txt`
+**Explanation:** Analyze variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wade -i input.vcf -o analysis.txt -m comprehensive`
+**Explanation:** Comprehensive analysis.

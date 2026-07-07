@@ -1,31 +1,56 @@
 ---
 name: reviewer
 category: alignment
-description: A tool for visualizing alignments of reads in regions containing tandem repeats
-tags: ["reviewer", "alignment"]
+description: REViewer visualizes alignments of reads in tandem repeat regions.
+tags: [reviewer, alignment, visualization, tandem-repeats]
 author: oxo-call-community
 source_url: "https://github.com/Illumina/REViewer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A tool for visualizing alignments of reads in regions containing tandem repeats (version 0.2.7)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda reviewer`
+- **Tool Overview**: reviewer visualizes alignments.
+- **Core Function**: Alignment visualization.
+- **Algorithm**: Uses graphical methods.
+- **Input Format**: Accepts BAM files.
+- **Output**: Produces visualizations.
+- **Use Case**: Repeat analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large files require memory.
+- **Repeat Complexity**: Affects visualization.
+- **Parameters**: Must be configured.
+- **Runtime**: Visualization may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `reviewer --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Visualize alignment
+**Args:** `reviewer view -i alignments.bam -r region.bed -o visualization.png`
+**Explanation:** Visualizes reads in tandem repeat regions.
 
+### With parameters
+**Args:** `reviewer view -i alignments.bam -p params.yaml -o visualization.png`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `reviewer -v view -i alignments.bam -o visualization.png`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `reviewer -t 4 view -i alignments.bam -o visualization.png`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With reference
+**Args:** `reviewer view -i alignments.bam -r reference.fasta -o visualization.png`
+**Explanation:** Uses reference genome.
+
+### Generate report
+**Args:** `reviewer view -i alignments.bam -o visualization.png --report report.html`
+**Explanation:** Generates HTML report.

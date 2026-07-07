@@ -1,30 +1,32 @@
 ---
 name: treecluster
-category: hpc
-description: Identify clusters in phylogenetic trees based on a distance threshold and other constraints.
-tags: [treecluster, hpc]
+category: analysis
+description: TreeCluster - Tool for clustering phylogenetic trees.
+tags: [treecluster, phylogenetic-tree, clustering, phylogenetics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/niemasd/TreeCluster"
+source_url: "https://github.com/compbio/treecluster"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treecluster (v1.0.5) - Identify clusters in phylogenetic trees based on a distance threshold and other constraints.
-- **Core Function**: Identify clusters in phylogenetic trees based on a distance threshold and other constraints.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treecluster`
+- **Tool Overview**: TreeCluster - A tool for clustering sequences based on phylogenetic tree topology.
+- **Core Function**: Identifies clusters within phylogenetic trees using various clustering methods.
+- **Input**: Phylogenetic tree (Newick format), sequence data.
+- **Output**: Cluster assignments, cluster statistics, visualization data.
+- **Installation**: `pip install treecluster` or `conda install -c bioconda treecluster`
+- **Use Case**: Population genetics, viral evolution, sequence classification.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Tree Quality**: Clustering results depend on tree quality.
+- **Parameter Selection**: Requires careful parameter tuning for optimal results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster tree
+**Args:** `treecluster -i tree.nwk -o clusters.txt`
+**Explanation:** Identify clusters in phylogenetic tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With distance threshold
+**Args:** `treecluster -i tree.nwk -d 0.05 -o clusters.txt`
+**Explanation:** Cluster with specific distance threshold.

@@ -1,30 +1,32 @@
 ---
 name: watchdog-wms
-category: programming
-description: Watchdog, a WMS for the automated and distributed analysis of large-scale experimental data. The software is implemented in Java and is thus platform-independent. Main feature include + straightforward processing of replicate data + support for distributed computer systems + remote storage support + customizable error detection + manual intervention into workflow execution + GUI for workflow construction using pre-defined modules + a helper script for creating new module definitions + no restriction to specific programming languages + provides a flexible plugin system for extending without modifying the original sources
-tags: [watchdog-wms, programming]
+category: bioinformatics
+description: Watchdog-WMS - Workflow management system.
+tags: [watchdog-wms, workflow-management, bioinformatics, pipeline]
 author: oxo-call-community
-source_url: "https://www.bio.ifi.lmu.de/watchdog"
+source_url: "https://github.com/watchdog-wms/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: watchdog-wms (v2.0.8) - Watchdog, a WMS for the automated and distributed analysis of large-scale experimental data. The software is implemented in Java and is thus platform-independent. Main feature include + straightforward processing of replicate data + support for distributed computer systems + remote storage support + customizable error detection + manual intervention into workflow execution + GUI for workflow construction using pre-defined modules + a helper script for creating new module definitions + no restriction to specific programming languages + provides a flexible plugin system for extending without modifying the original sources
-- **Core Function**: Watchdog, a WMS for the automated and distributed analysis of large-scale experimental data. The software is implemented in Java and is thus platform-independent. Main feature include + straightforward processing of replicate data + support for distributed computer systems + remote storage support + customizable error detection + manual intervention into workflow execution + GUI for workflow construction using pre-defined modules + a helper script for creating new module definitions + no restriction to specific programming languages + provides a flexible plugin system for extending without modifying the original sources
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda watchdog-wms`
+- **Tool Overview**: Watchdog-WMS - Workflow management system.
+- **Core Function**: Manages and monitors workflows.
+- **Input**: Workflow definition.
+- **Output**: Execution results.
+- **Installation**: Install via pip
+- **Use Case**: Workflow management, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large workflows.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run workflow
+**Args:** `watchdog-wms run workflow.yaml`
+**Explanation:** Run workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `watchdog-wms run workflow.yaml -t 8`
+**Explanation:** Use 8 threads.

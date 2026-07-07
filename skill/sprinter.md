@@ -1,30 +1,68 @@
 ---
 name: sprinter
-category: utility
-description: Single-cell Proliferation Rate Inference in Non-homogeneous Tumours through Evolutionary Routes (SPRINTER)
-tags: [sprinter, utility]
+category: single-cell
+description: SPRINTER - Single-cell Proliferation Rate Inference in Non-homogeneous Tumours
+tags: [sprinter, single-cell, proliferation, tumor, evolution]
 author: oxo-call-community
 source_url: "https://github.com/zaccaria-lab/SPRINTER/blob/v1.0.0/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sprinter (v1.0.0) - Single-cell Proliferation Rate Inference in Non-homogeneous Tumours through Evolutionary Routes (SPRINTER)
-- **Core Function**: Single-cell Proliferation Rate Inference in Non-homogeneous Tumours through Evolutionary Routes (SPRINTER)
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: sprinter (v1.0.0) - A single-cell proliferation rate inference tool
+- **Core Function**: Infers proliferation rates in non-homogeneous tumors through evolutionary routes
+- **Input/Output**: Accepts single-cell data; outputs proliferation rate estimates
+- **Algorithm**: Evolutionary route-based proliferation inference
 - **Installation**: `conda install -c bioconda sprinter`
+- **Key Features**: Proliferation inference, tumor heterogeneity, evolutionary analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly formatted single-cell data
+- **Data Quality**: Data quality affects proliferation inference accuracy
+- **Tumor Heterogeneity**: Heterogeneity affects inference reliability
+- **Memory Usage**: Large datasets require significant memory
+- **Output Format**: Output format depends on configuration
+- **Inference Accuracy**: Accuracy depends on data quality and evolutionary model
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `sprinter --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `sprinter -i <input_file> -o <output_file>`
-**Explanation:** Run sprinter with typical input and output options.
+### Basic proliferation inference
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt`
+**Explanation:** Infer proliferation rates from single-cell data.
+
+### With evolutionary model
+**Args:** `sprinter -i single_cell_data.txt -e evolutionary_model.txt -o proliferation_rates.txt`
+**Explanation:** Use specific evolutionary model.
+
+### With clustering
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt --cluster`
+**Explanation:** Enable clustering for heterogeneous tumors.
+
+### Multiple datasets
+**Args:** `sprinter -i data1.txt data2.txt -o proliferation_rates.txt`
+**Explanation:** Infer proliferation from multiple datasets.
+
+### Output detailed results
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt --detailed`
+**Explanation:** Output detailed proliferation information.
+
+### Output evolutionary routes
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt --routes`
+**Explanation:** Output evolutionary routes.
+
+### Output statistics
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt --stats`
+**Explanation:** Output inference statistics.
+
+### Generate report
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt --report`
+**Explanation:** Generate proliferation inference report.
+
+### With threads
+**Args:** `sprinter -i single_cell_data.txt -o proliferation_rates.txt -p 8`
+**Explanation:** Use multiple threads for inference.

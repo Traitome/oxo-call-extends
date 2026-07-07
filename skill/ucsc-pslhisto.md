@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslhisto
-category: alignment
-description: Collect counts on PSL alignments for making histograms. These then be analyzed with R, textHistogram, etc.
-tags: [ucsc-pslhisto, alignment]
+category: utility
+description: UCSC pslHisto - Tool for generating PSL alignment histograms.
+tags: [ucsc-pslhisto, ucsc, psl, histogram, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslhisto (v482) - Collect counts on PSL alignments for making histograms. These then be analyzed with R, textHistogram, etc.
-- **Core Function**: Collect counts on PSL alignments for making histograms. These then be analyzed with R, textHistogram, etc.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslhisto`
+- **Tool Overview**: UCSC pslHisto - A tool for generating histograms from PSL alignments.
+- **Core Function**: Creates histograms from alignment data.
+- **Input**: PSL file.
+- **Output**: Histogram data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data visualization, statistical analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate histogram
+**Args:** `pslHisto input.psl > histogram.txt`
+**Explanation:** Generate alignment histogram.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslHisto -bins=100 input.psl > histogram.txt`
+**Explanation:** Number of histogram bins.

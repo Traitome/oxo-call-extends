@@ -1,30 +1,32 @@
 ---
 name: ultra_bioinformatics
-category: alignment
-description: Splice aligner of long transcriptomic reads to genome.
-tags: [ultra_bioinformatics, alignment]
+category: bioinformatics
+description: ULTRA Bioinformatics - Toolkit for sequence analysis.
+tags: [ultra_bioinformatics, ultra, sequence-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ksahlin/uLTRA"
+source_url: "https://github.com/ultra-bioinformatics/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ultra_bioinformatics (v0.1) - Splice aligner of long transcriptomic reads to genome.
-- **Core Function**: Splice aligner of long transcriptomic reads to genome.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ultra_bioinformatics`
+- **Tool Overview**: ULTRA Bioinformatics - A comprehensive toolkit for sequence analysis.
+- **Core Function**: Provides tools for sequence alignment and analysis.
+- **Input**: Sequence files.
+- **Output**: Analysis results.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence analysis, bioinformatics research.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Installation**: Dependencies may be complex.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequences
+**Args:** `ultra analyze input.fasta`
+**Explanation:** Analyze sequence data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Align sequences
+**Args:** `ultra align -ref ref.fasta -reads reads.fastq`
+**Explanation:** Align reads to reference.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredcheck
 category: utility
-description: Validate genePred files or tables.
-tags: [ucsc-genepredcheck, utility]
+description: UCSC genePredCheck - Tool for validating gene predictions.
+tags: [ucsc-genepredcheck, ucsc, gene-prediction, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredcheck (v482) - Validate genePred files or tables.
-- **Core Function**: Validate genePred files or tables.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredcheck`
+- **Tool Overview**: UCSC genePredCheck - A tool for validating gene prediction formats.
+- **Core Function**: Checks gene prediction files for errors.
+- **Input**: Gene prediction file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quality control, gene annotation, data validation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper genePred format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check gene predictions
+**Args:** `genePredCheck genes.txt`
+**Explanation:** Validate gene prediction file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With verbose output
+**Args:** `genePredCheck -verbose genes.txt`
+**Explanation:** Detailed validation report.

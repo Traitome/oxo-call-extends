@@ -1,30 +1,32 @@
 ---
 name: ucsc-websync
 category: utility
-description: download from https server, using files.txt on their end to get the list of files
-tags: [ucsc-websync, utility]
+description: UCSC webSync - Tool for syncing web resources.
+tags: [ucsc-websync, ucsc, sync, web, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/master/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-websync (v469) - download from https server, using files.txt on their end to get the list of files
-- **Core Function**: download from https server, using files.txt on their end to get the list of files
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-websync`
+- **Tool Overview**: UCSC webSync - A tool for syncing web resources.
+- **Core Function**: Synchronizes files from web sources.
+- **Input**: URL or source specification.
+- **Output**: Downloaded files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data download, resource synchronization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Authentication**: May require credentials for protected resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sync web resources
+**Args:** `webSync http://example.com/data/ local_dir/`
+**Explanation:** Sync web resources to local directory.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `webSync -verbose http://example.com/data/ local_dir/`
+**Explanation:** Sync with verbose output.

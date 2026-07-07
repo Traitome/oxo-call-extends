@@ -1,30 +1,52 @@
 ---
 name: lightassembler
-category: alignment
-description: Lightweight assembly algorithm designed to be executed on a desktop machine. It uses a pair of cache oblivious Bloom filters, one holding a uniform sample of g-spaced sequenced k-mers and the other holding k-mers classified as likely correct, using a simple statistical test.
-tags: [lightassembler, alignment, alignment]
+category: assembly
+description: LightAssembler - Lightweight de novo assembly algorithm for desktop machines
+tags: [lightassembler, assembly, de-novo, bloom-filter, k-mer, lightweight]
 author: oxo-call-community
 source_url: "https://github.com/SaraEl-Metwally/LightAssembler"
 ---
 
 ## Concepts
 
-- **Tool Overview**: lightassembler v1.0 - Lightweight assembly algorithm designed to be executed on a desktop machine. It uses a pair of cache oblivious Bloom filters, one holding a uniform sample of g-spaced sequenced k-mers and the other holding k-mers classified as likely correct, using a simple statistical test..
-- **Core Function**: Lightweight assembly algorithm designed to be executed on a desktop machine. It uses a pair of cache oblivious Bloom filters, one holding a uniform sample of g-spaced sequenced k-mers and the other holding k-mers classified as likely correct, using a simple statistical test.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda lightassembler`
+- **De Novo Assembly**: De novo genome assembly from sequencing reads
+- **Bloom Filter**: Cache-oblivious Bloom filters for efficient k-mer storage
+- **K-mer Sampling**: Uniform sampling of g-spaced sequenced k-mers
+- **Error Correction**: Statistical testing for k-mer correctness
+- **Desktop-friendly**: Designed for execution on desktop machines
+- **Memory Efficiency**: Memory-efficient assembly algorithm
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **K-mer Selection**: K-mer size selection affects assembly quality
+- **Read Quality**: Poor quality reads affect assembly accuracy
+- **Computational Time**: May be slow for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Complex Regions**: Repeat regions may cause assembly issues
+- **Memory Usage**: Still memory-intensive for very large genomes
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Assemble genome
+**Args:** `lightassembler -i reads.fastq -o assembly.fasta -k 31`
+**Explanation:** Assembles genome from reads using k-mer size 31.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Paired-end assembly
+**Args:** `lightassembler -i reads_1.fastq -j reads_2.fastq -o assembly.fasta`
+**Explanation:** Assembles using paired-end reads.
+
+### Specify k-mer size
+**Args:** `lightassembler -i reads.fastq -o assembly.fasta -k 55`
+**Explanation:** Uses k-mer size 55 for assembly.
+
+### Output contigs
+**Args:** `lightassembler -i reads.fastq -o contigs.fasta -c`
+**Explanation:** Outputs only contigs without scaffolding.
+
+### Threads
+**Args:** `lightassembler -i reads.fastq -o assembly.fasta -p 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Memory limit
+**Args:** `lightassembler -i reads.fastq -o assembly.fasta -m 16G`
+**Explanation:** Limits memory usage to 16GB.

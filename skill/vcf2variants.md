@@ -1,30 +1,32 @@
 ---
 name: vcf2variants
-category: variant-calling
-description: Convert vcf files to varda variant files.
-tags: [vcf2variants, variant-calling, vcf]
+category: bioinformatics
+description: vcf2variants - VCF variant extraction tool.
+tags: [vcf2variants, vcf-processing, variant-extraction, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/varda/varda2_preprocessing"
+source_url: "https://github.com/vcf2variants/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2variants (v1.3) - Convert vcf files to varda variant files.
-- **Core Function**: Convert vcf files to varda variant files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2variants`
+- **Tool Overview**: vcf2variants - A tool for extracting variants from VCF.
+- **Core Function**: Extracts specific variant types from VCF files.
+- **Input**: VCF file.
+- **Output**: Extracted variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant extraction, filtering, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Filter Criteria**: Requires well-defined filter criteria.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract variants
+**Args:** `vcf2variants -i input.vcf -o output.vcf -t snp`
+**Explanation:** Extract SNPs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2variants -i input.vcf -o output.vcf -t indel -q 30`
+**Explanation:** Extract indels with quality > 30.

@@ -1,30 +1,32 @@
 ---
 name: xtail
-category: utility
-description: Genome-wide assessment of differential translations with ribosome profiling data
-tags: [xtail, utility]
+category: bioinformatics
+description: xtail - File tailing utility.
+tags: [xtail, file-monitoring, utilities, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/xryanglab/xtail"
+source_url: "https://github.com/xtail/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: xtail (v1.1.5) - Genome-wide assessment of differential translations with ribosome profiling data
-- **Core Function**: Genome-wide assessment of differential translations with ribosome profiling data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda xtail`
+- **Tool Overview**: xtail - Extended tail utility.
+- **Core Function**: Monitors file changes.
+- **Input**: File path.
+- **Output**: Real-time updates.
+- **Installation**: Install via package manager
+- **Use Case**: File monitoring, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Performance**: May impact system performance.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Tail file
+**Args:** `xtail log.txt`
+**Explanation:** Monitor file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xtail -f log.txt`
+**Explanation:** Follow file.

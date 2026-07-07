@@ -1,30 +1,32 @@
 ---
 name: treeswirl
-category: population-genomics
-description: TreeSwirl: A tool to infer locus-specific population mixtures from linked genome-wide allele frequencies.
-tags: [treeswirl, population-genomics]
+category: visualization
+description: TreeSwirl - Tool for animated phylogenetic tree visualization.
+tags: [treeswirl, phylogenetic-tree, visualization, animation, bioinformatics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/wegmannlab/treeswirl/wiki/Home"
+source_url: "https://github.com/compbio/treeswirl"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treeswirl (v2.0.0) - TreeSwirl: A tool to infer locus-specific population mixtures from linked genome-wide allele frequencies.
-- **Core Function**: TreeSwirl: A tool to infer locus-specific population mixtures from linked genome-wide allele frequencies.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treeswirl`
+- **Tool Overview**: TreeSwirl - A tool for creating animated phylogenetic tree visualizations.
+- **Core Function**: Generates animated visualizations of phylogenetic trees and evolutionary processes.
+- **Input**: Phylogenetic tree (Newick format), metadata, evolutionary data.
+- **Output**: Animated tree visualizations (GIF/MP4), interactive animations.
+- **Installation**: `pip install treeswirl` or `conda install -c bioconda treeswirl`
+- **Use Case**: Data presentation, evolutionary visualization, education.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Performance**: Animation may be slow for large trees.
+- **File Size**: Output files may be large.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create animation
+**Args:** `treeswirl -i tree.nwk -o animation.gif`
+**Explanation:** Create animated visualization of phylogenetic tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With metadata
+**Args:** `treeswirl -i tree.nwk -m metadata.txt -o animated_tree.mp4`
+**Explanation:** Create animated tree with metadata overlay.

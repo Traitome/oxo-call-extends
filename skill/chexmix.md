@@ -1,30 +1,44 @@
 ---
 name: chexmix
-category: formatting
-description: ChExMix aims to characterize protein-DNA binding subtypes in ChIP-exo experiments. ChExMix assumes that different regulatory complexes will result in different protein-DNA crosslinking signatures in ChIP-exo data, and thus analysis of ChIP-exo sequencing tag patterns should enable detection of multiple protein-DNA binding modes for a given regulatory protein. ChExMix uses a mixture modeling framework to probabilistically model the genomic locations and subtype membership of protein-DNA binding events, leveraging both ChIP-exo tag enrichment patterns and DNA sequence information. In doing so, ChExMix offers a more principled and robust approach to characterizing binding subtypes than simply clustering binding events using motif information.
-tags: [chexmix, formatting]
+category: chip-seq
+description: Characterize protein-DNA binding subtypes in ChIP-exo experiments
+tags: [chexmix, chip-exo, binding-subtypes, mixture-modeling, transcription-factors, bioinformatics]
 author: oxo-call-community
 source_url: "http://mahonylab.org/software/chexmix/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: chexmix (v0.52) - ChExMix aims to characterize protein-DNA binding subtypes in ChIP-exo experiments. ChExMix assumes that different regulatory complexes will result in different protein-DNA crosslinking signatures in ChIP-exo data, and thus analysis of ChIP-exo sequencing tag patterns should enable detection of multiple protein-DNA binding modes for a given regulatory protein. ChExMix uses a mixture modeling framework to probabilistically model the genomic locations and subtype membership of protein-DNA binding events, leveraging both ChIP-exo tag enrichment patterns and DNA sequence information. In doing so, ChExMix offers a more principled and robust approach to characterizing binding subtypes than simply clustering binding events using motif information.
-- **Core Function**: ChExMix aims to characterize protein-DNA binding subtypes in ChIP-exo experiments. ChExMix assumes that different regulatory complexes will result in different protein-DNA crosslinking signatures in ChIP-exo data, and thus analysis of ChIP-exo sequencing tag patterns should enable detection of multiple protein-DNA binding modes for a given regulatory protein. ChExMix uses a mixture modeling framework to probabilistically model the genomic locations and subtype membership of protein-DNA binding events, leveraging both ChIP-exo tag enrichment patterns and DNA sequence information. In doing so, ChExMix offers a more principled and robust approach to characterizing binding subtypes than simply clustering binding events using motif information.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda chexmix`
+- **Tool Overview**: ChExMix characterizes protein-DNA binding subtypes in ChIP-exo experiments using mixture modeling.
+- **Core Function**: Identifies multiple protein-DNA binding modes by analyzing crosslinking signatures and DNA sequence information.
+- **Algorithm**: Uses a probabilistic mixture modeling framework to detect binding subtypes and their genomic locations.
+- **Input**: ChIP-exo sequencing data and optional DNA sequence information.
+- **Output**: Binding subtype classifications, binding site annotations, and statistical summaries.
+- **Application**: Transcription factor binding analysis, regulatory complex characterization.
+- **Installation**: Install via bioconda: `conda install -c bioconda chexmix`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Requires high-quality ChIP-exo data with clear crosslinking patterns.
+- **Mixture Components**: Number of binding subtypes must be specified or estimated.
+- **Computational Time**: May be computationally intensive for large datasets.
+- **Sequence Information**: Optional but improves subtype detection accuracy.
+- **Parameter Tuning**: Requires careful parameter adjustment for optimal results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run ChExMix analysis
+**Args:** `chexmix -i chip_exo.bed -g genome.fasta -o subtypes.txt`
+**Explanation:** Identifies binding subtypes from ChIP-exo data.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Specify number of subtypes
+**Args:** `chexmix -i chip_exo.bed -k 3 -o subtypes.txt`
+**Explanation:** Forces detection of exactly 3 binding subtypes.
+
+### With control data
+**Args:** `chexmix -i chip_exo.bed -c control.bed -o subtypes.txt`
+**Explanation:** Uses control data for background normalization.
+
+### Display help
+**Args:** `chexmix --help`
+**Explanation:** Shows all available options and usage information.

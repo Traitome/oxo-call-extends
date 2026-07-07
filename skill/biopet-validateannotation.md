@@ -1,30 +1,34 @@
 ---
 name: biopet-validateannotation
-category: assembly
-description: ValidateAnnotationvalidates whether an annotation file is correct.
-tags: [biopet-validateannotation, assembly, GTF]
+category: qc
+description: Validate annotation files (GTF/GFF/RefFlat) against reference genome
+tags: [annotation, validation, GTF, GFF, RefFlat]
 author: oxo-call-community
 source_url: "https://github.com/biopet/validateannotation"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biopet-validateannotation (v0.1) - ValidateAnnotationvalidates whether an annotation file is correct.
-- **Core Function**: ValidateAnnotationvalidates whether an annotation file is correct. It checks whether all the annotated contigs are present on the reference. It can check gtf or refflat files. It can also check both, ...
-- **Input/Output**: GFF/GTF annotation input/output
-- **Installation**: `conda install -c bioconda biopet-validateannotation`
+- **Tool Overview**: ValidateAnnotation validates whether annotation files (GTF, GFF, or RefFlat format) are correct and consistent with a reference genome.
+- **Validation Checks**: Verifies that all annotated contigs/chromosomes exist in the reference, checks feature coordinates are valid, and validates gene structure consistency.
+- **Format Support**: Supports GTF, GFF, and RefFlat annotation formats.
+- **Applications**: Annotation quality control, pipeline validation, reference genome compatibility checking.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Reference Match**: Annotation and reference genome must be from the same build/assembly.
+- **Format Requirements**: Annotation files must follow standard format specifications.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Validate GTF annotation
+**Args:** `java -jar ValidateAnnotation.jar -i annotation.gtf -R reference.fa -o report.txt`
+**Explanation:** Validates GTF annotation against reference genome.
 
-### Basic usage
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assemble reads into contigs
+### Validate RefFlat format
+**Args:** `java -jar ValidateAnnotation.jar -i genes.refflat -R reference.fa --format refflat`
+**Explanation:** Validates RefFlat annotation file against reference.
+
+### Check specific contigs
+**Args:** `java -jar ValidateAnnotation.jar -i annotation.gtf -R reference.fa -c chr1,chr2,chr3`
+**Explanation:** Validates annotation only for specified contigs.

@@ -1,30 +1,32 @@
 ---
 name: unfazed
-category: variant-calling
-description: Extended read-backed and allele-balance phasing for de novo variation (SNVs, INDELS, SVs, and CNVs)
-tags: [unfazed, variant-calling]
+category: bioinformatics
+description: Unfazed - Tool for variant calling and phasing.
+tags: [unfazed, variant-calling, phasing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/jbelyeu/unfazed"
+source_url: "https://github.com/unfazed/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unfazed (v1.0.2) - Extended read-backed and allele-balance phasing for de novo variation (SNVs, INDELS, SVs, and CNVs)
-- **Core Function**: Extended read-backed and allele-balance phasing for de novo variation (SNVs, INDELS, SVs, and CNVs)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unfazed`
+- **Tool Overview**: Unfazed - A tool for variant calling and haplotype phasing.
+- **Core Function**: Calls variants and phases haplotypes from sequencing data.
+- **Input**: BAM/SAM file, reference genome.
+- **Output**: VCF file with phased variants.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant analysis, haplotype phasing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Reference Genome**: Requires indexed reference genome.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call variants
+**Args:** `unfazed call -i input.bam -r ref.fasta -o variants.vcf`
+**Explanation:** Call variants from BAM file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Phase haplotypes
+**Args:** `unfazed phase -i variants.vcf -o phased.vcf`
+**Explanation:** Phase haplotypes.

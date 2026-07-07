@@ -1,22 +1,47 @@
 ---
 name: easypqp
-category: utility
+category: proteomics
 description: "EasyPQP: Simple library generation for OpenSWATH"
-tags: [easypqp, utility]
+tags: [easypqp, proteomics, OpenSWATH, mass-spectrometry, peptide-library]
 author: oxo-call-community
-source_url: "https://pypi.org/project/easypqp/"
+source_url: "https://github.com/grosenberger/easypqp"
 ---
 
 ## Concepts
-- **Tool Overview**: EasyPQP: Simple library generation for OpenSWATH ================================================  EasyPQP is a Python package that provides simplified and fast peptide query parameter generation for OpenSWATH. It can process input from MSFragger or other database search engines in pepXML format. Statistical validation can be conducted either using PyProphet or PeptideProphet/iProphet. Retention times are calibrated using an internal or external standard. In addition to a cumulative library, run-specific libraries are generated for non-linear RT alignment in OpenSWATH.  Installation ============  We strongly advice to install EasyPQP in a Python [*virtualenv*](https://virtualenv.pypa.io/en/stable/). EasyPQP is compatible with Python 3.  Install the development version of *easypqp* from GitHub:  ````     $ pip install git+https://github.com/grosenberger/easypqp.git@master ````  Running EasyPQP ===============  *EasyPQP* is not only a Python package, but also a command line tool:  ````    $ easypqp --help ````  or:  ````    $ easypqp convert --help    $ easypqp library --help ````  Docker ======  EasyPQP is also available from Docker (automated builds):  Pull the development version of *easypqp* from DockerHub (synced with GitHub):  ````     $ docker pull grosenberger/easypqp:latest ````
-- **Core Function**: EasyPQP: Simple library generation for OpenSWATH
-- **Input/Output**: Standard bioinformatics formats (FASTA/FASTQ/BAM/VCF/GFF)
-- **Installation**: `conda install -c bioconda easypqp`
+
+- **Tool Overview**: EasyPQP is a Python package for simplified peptide query parameter library generation for OpenSWATH mass spectrometry analysis.
+- **Core Function**: Generates spectral libraries from database search results for targeted proteomics analysis.
+- **Input/Output**: Input: pepXML files from MSFragger or other search engines. Output: Library files for OpenSWATH.
+- **Algorithm**: Processes peptide identification results, validates statistics, and calibrates retention times.
+- **Key Features**: Fast library generation, supports PyProphet/PeptideProphet validation, non-linear RT alignment, run-specific libraries.
+- **Installation**: `pip install easypqp` or `conda install -c bioconda easypqp`
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Python Version**: Requires Python 3.6+.
+- **Dependency Management**: Best installed in a virtual environment.
+- **Input Format**: Requires pepXML format from supported search engines.
+- **Retention Time Calibration**: Needs internal or external standards for RT calibration.
+- **Memory Usage**: Large datasets require significant RAM.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Basic library generation
+**Args:** `easypqp library --input search.pep.xml --output library.pqp`
+**Explanation:** Generates a PQP library from pepXML search results.
+
+### Convert format
+**Args:** `easypqp convert --input search.pep.xml --output library.tsv`
+**Explanation:** Converts pepXML to tabular format.
+
+### With retention time calibration
+**Args:** `easypqp library --input search.pep.xml --output library.pqp --rt-calibration std.pep.xml`
+**Explanation:** Uses external standard for retention time calibration.
+
+### With PyProphet validation
+**Args:** `easypqp library --input search.pep.xml --output library.pqp --validation pyprophet`
+**Explanation:** Uses PyProphet for statistical validation.
+
+### Generate run-specific libraries
+**Args:** `easypqp library --input search.pep.xml --output library.pqp --run-specific`
+**Explanation:** Generates run-specific libraries for non-linear RT alignment.

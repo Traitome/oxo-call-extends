@@ -1,30 +1,43 @@
 ---
 name: gfaffix
-category: utility
-description: GFAffix identifies and collapses walk-preserving shared affixes in variation graphs
-tags: [gfaffix, utility]
+category: graph-analysis
+description: GFAffix - Identifies and collapses walk-preserving shared affixes in variation graphs.
+tags: [gfaffix, graph-analysis, variation-graphs, GFA]
 author: oxo-call-community
 source_url: "https://github.com/marschall-lab/GFAffix"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfaffix (v0.2.1) - GFAffix identifies and collapses walk-preserving shared affixes in variation graphs
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfaffix`
+- **Variation Graphs**: Analyzes genomic variation graphs.
+- **Graph Simplification**: Simplifies graph structures.
+- **Affix Collapsing**: Collapses shared affixes in graphs.
+- **Walk Preservation**: Preserves graph walks during simplification.
+- **Graph Optimization**: Optimizes graph representation.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Graph Complexity**: Complex graphs may affect performance.
+- **Memory Usage**: Large graphs require significant memory.
+- **Algorithm Complexity**: May be computationally intensive.
+- **Result Validation**: Results should be validated.
+- **Format Compatibility**: Requires correct GFA format.
 
 ## Examples
+### Collapse affixes
+**Args:** `gfaffix -i graph.gfa -o collapsed.gfa`
+**Explanation:** Collapses shared affixes in variation graph.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `gfaffix -i graph.gfa -m 10 -o collapsed.gfa`
+**Explanation:** Minimum affix length of 10.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `gfaffix -l graphs.txt -o ./collapsed/`
+**Explanation:** Processes multiple graph files.
+
+### Generate report
+**Args:** `gfaffix -i graph.gfa -r -o report.txt`
+**Explanation:** Generates simplification report.
+
+### Validate output
+**Args:** `gfaffix -i graph.gfa -v -o collapsed.gfa`
+**Explanation:** Validates output graph.

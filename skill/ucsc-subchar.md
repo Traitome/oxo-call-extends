@@ -1,30 +1,32 @@
 ---
 name: ucsc-subchar
 category: utility
-description: Substitute one character for another throughout a file.
-tags: [ucsc-subchar, utility]
+description: UCSC subChar - Tool for character substitution.
+tags: [ucsc-subchar, ucsc, substitution, character, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-subchar (v482) - Substitute one character for another throughout a file.
-- **Core Function**: Substitute one character for another throughout a file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-subchar`
+- **Tool Overview**: UCSC subChar - A tool for character substitution in files.
+- **Core Function**: Substitutes characters in text files.
+- **Input**: Input file, source and target characters.
+- **Output**: Modified file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, character replacement, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Encoding**: Requires proper encoding handling.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Substitute characters
+**Args:** `subChar -from=A -to=T input.txt > output.txt`
+**Explanation:** Replace A with T.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `subChar -from=AT -to=TA input.txt > output.txt`
+**Explanation:** Replace multiple characters.

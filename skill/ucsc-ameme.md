@@ -1,30 +1,32 @@
 ---
 name: ucsc-ameme
-category: utility
-description: Find common patterns in DNA.
-tags: [ucsc-ameme, utility]
+category: analysis
+description: UCSC aMeme - Tool for discovering motifs in DNA sequences.
+tags: [ucsc-ameme, motif-discovery, dna-motifs, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-ameme (v482) - Find common patterns in DNA.
-- **Core Function**: Find common patterns in DNA.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-ameme`
+- **Tool Overview**: UCSC aMeme - A tool for discovering sequence motifs in DNA sequences.
+- **Core Function**: Identifies statistically significant motifs in sequence datasets.
+- **Input**: Sequence files (FASTA), optional background sequences.
+- **Output**: Motif predictions, position weight matrices, motif logos.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Motif discovery, transcription factor binding sites, sequence analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Motif Size**: Requires appropriate motif size selection.
+- **Background Model**: Results depend on background sequence selection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Discover motifs
+**Args:** `aMeme -sequence input.fasta -output motifs.txt`
+**Explanation:** Discover motifs in sequence file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With background
+**Args:** `aMeme -sequence targets.fasta -bg background.fasta -o results/`
+**Explanation:** Discover motifs with background sequences.

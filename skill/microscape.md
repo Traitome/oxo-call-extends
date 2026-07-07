@@ -2,29 +2,47 @@
 name: microscape
 category: qc
 description: Downstream analysis tools for amplicon sequencing — filtering, ordination, phylogeny, networks
-tags: [microscape, qc]
+tags: [microscape, qc, amplicon]
 author: oxo-call-community
 source_url: "https://github.com/rec3141/microscape"
 ---
 
 ## Concepts
 
-- **Tool Overview**: microscape v0.1.0 - microscape provides downstream analysis tools for amplicon sequencing data, designed to work with papa2's output. Includes sequence table QC filtering, MIMARKS metadata loading, taxonomic renormalization, phylogenetic tree construction (MAFFT + NJ), Bray-Curtis ordination (t-SNE/PCA), SparCC-style correlation networks, and JSON export for visualization..
-- **Core Function**: Downstream analysis tools for amplicon sequencing — filtering, ordination, phylogeny, networks
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda microscape`
+- **Tool Overview**: microscape v0.1.0 provides downstream analysis tools for amplicon sequencing data.
+- **Core Function**: Analyzes amplicon sequencing data with filtering, ordination, phylogeny, and networks.
+- **Sequence Filtering**: Filters and quality controls sequence data.
+- **Ordination Analysis**: Performs t-SNE/PCA ordination for community analysis.
+- **Phylogenetic Tree**: Constructs phylogenetic trees using MAFFT + NJ.
+- **Network Analysis**: Generates SparCC-style correlation networks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Amplicon Specific**: Designed for amplicon sequencing data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Analysis accuracy depends on input data quality.
+- **Reference Database**: Requires appropriate reference sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze amplicon data
+**Args:** `microscape -i sequences.fasta -o analysis/`
+**Explanation:** Performs downstream analysis on amplicon sequencing data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Filter sequences
+**Args:** `microscape filter -i sequences.fasta -o filtered.fasta`
+**Explanation:** Filters sequence data based on quality criteria.
+
+### Generate ordination
+**Args:** `microscape ordinate -i sequences.fasta -o ordination.txt`
+**Explanation:** Performs t-SNE/PCA ordination analysis.
+
+### Build phylogenetic tree
+**Args:** `microscape phylogeny -i sequences.fasta -o tree.nwk`
+**Explanation:** Constructs phylogenetic tree.
+
+### Generate network
+**Args:** `microscape network -i sequences.fasta -o network.json`
+**Explanation:** Generates correlation network for visualization.

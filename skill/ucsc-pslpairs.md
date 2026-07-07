@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslpairs
-category: alignment
-description: Join paired ends in psl alignments.
-tags: [ucsc-pslpairs, alignment]
+category: utility
+description: UCSC pslPairs - Tool for generating paired alignments.
+tags: [ucsc-pslpairs, ucsc, psl, pairs, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslpairs (v482) - Join paired ends in psl alignments.
-- **Core Function**: Join paired ends in psl alignments.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslpairs`
+- **Tool Overview**: UCSC pslPairs - A tool for generating paired alignments.
+- **Core Function**: Creates paired alignment data from PSL files.
+- **Input**: PSL file.
+- **Output**: Paired alignments.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Paired-end analysis, alignment processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate paired alignments
+**Args:** `pslPairs input.psl > pairs.txt`
+**Explanation:** Generate paired alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslPairs -verbose input.psl > pairs.txt`
+**Explanation:** Generate with verbose output.

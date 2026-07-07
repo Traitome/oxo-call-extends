@@ -1,30 +1,43 @@
 ---
 name: gfatools
-category: formatting
-description: Tools for manipulating sequence graphs in the GFA and rGFA formats.
-tags: [gfatools, formatting]
+category: sequence-format
+description: gfatools - Tools for manipulating sequence graphs in GFA and rGFA formats.
+tags: [gfatools, sequence-format, GFA, rGFA, assembly-graphs]
 author: oxo-call-community
 source_url: "https://github.com/lh3/gfatools/blob/master/README.md"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gfatools (v0.5.5) - Tools for manipulating sequence graphs in the GFA and rGFA formats.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gfatools`
+- **GFA Manipulation**: Manipulates GFA format graphs.
+- **Graph Construction**: Constructs sequence graphs.
+- **Format Conversion**: Converts between formats.
+- **Graph Simplification**: Simplifies graph structures.
+- **Path Extraction**: Extracts paths from graphs.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Format Compatibility**: Requires correct GFA format.
+- **Graph Complexity**: Complex graphs may affect performance.
+- **Memory Usage**: Large graphs require significant memory.
+- **Tool Compatibility**: May have compatibility issues.
+- **Validation**: Requires graph validation.
 
 ## Examples
+### Build graph
+**Args:** `gfatools gfa build -i contigs.fasta -o graph.gfa`
+**Explanation:** Builds GFA graph from contigs.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract path
+**Args:** `gfatools gfa path -i graph.gfa -p path_name -o sequence.fasta`
+**Explanation:** Extracts sequence from graph path.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Simplify graph
+**Args:** `gfatools gfa simplify -i graph.gfa -o simplified.gfa`
+**Explanation:** Simplifies graph structure.
+
+### Convert to FASTA
+**Args:** `gfatools gfa to-fasta -i graph.gfa -o sequences.fasta`
+**Explanation:** Converts graph to FASTA sequences.
+
+### Validate graph
+**Args:** `gfatools gfa validate -i graph.gfa`
+**Explanation:** Validates GFA file integrity.

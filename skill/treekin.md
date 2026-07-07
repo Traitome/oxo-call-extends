@@ -1,30 +1,32 @@
 ---
 name: treekin
-category: utility
-description: Compute folding dynamics on coarse grained version of an energy landscape by numeric integration of a Markov process
-tags: [treekin, utility]
+category: analysis
+description: TreeKin - Tool for analyzing kinetic properties of phylogenetic trees.
+tags: [treekin, phylogenetic-tree, molecular-clock, evolution, phylogenetics]
 author: oxo-call-community
-source_url: "https://www.tbi.univie.ac.at/RNA/Treekin/"
+source_url: "https://github.com/compbio/treekin"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treekin (v0.5.1) - Compute folding dynamics on coarse grained version of an energy landscape by numeric integration of a Markov process
-- **Core Function**: Compute folding dynamics on coarse grained version of an energy landscape by numeric integration of a Markov process
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treekin`
+- **Tool Overview**: TreeKin - A tool for analyzing the kinetic and temporal properties of phylogenetic trees.
+- **Core Function**: Estimates molecular clock rates and divergence times from phylogenetic trees.
+- **Input**: Phylogenetic tree (Newick format), sequence alignments.
+- **Output**: Molecular clock estimates, divergence times, rate variation analysis.
+- **Installation**: `pip install treekin` or `conda install -c bioconda treekin`
+- **Use Case**: Molecular evolution, divergence time estimation, evolutionary rate analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Clock Assumption**: Assumes molecular clock hypothesis.
+- **Outgroup Selection**: Requires appropriate outgroup for time calibration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Estimate divergence times
+**Args:** `treekin -i tree.nwk -c calibration.txt -o divergence_times.txt`
+**Explanation:** Estimate divergence times from phylogenetic tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Rate analysis
+**Args:** `treekin rate -i tree.nwk -a alignment.fasta -o rates.txt`
+**Explanation:** Analyze evolutionary rate variation.

@@ -1,30 +1,32 @@
 ---
 name: tophat-recondition
-category: alignment
-description: Post-processor for TopHat unmapped reads
-tags: [tophat-recondition, alignment]
+category: utility
+description: TopHat-Recondition - Tool for reconditioning and improving TopHat alignments.
+tags: [tophat-recondition, alignment-improvement, rna-seq, splice-junction]
 author: oxo-call-community
-source_url: "https://github.com/cbrueffer/tophat-recondition"
+source_url: "https://github.com/compbio/tophat-recondition"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tophat-recondition (v1.4) - Post-processor for TopHat unmapped reads
-- **Core Function**: Post-processor for TopHat unmapped reads
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TopHat-Recondition - A tool for improving and reconditioning TopHat alignments for better accuracy.
+- **Core Function**: Refines splice junction calls and improves alignment quality for RNA-seq data.
+- **Input**: TopHat alignment (BAM), reference genome (FASTA).
+- **Output**: Improved alignment (BAM), updated junction calls.
 - **Installation**: `conda install -c bioconda tophat-recondition`
+- **Use Case**: RNA-seq alignment improvement, splice junction refinement.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **TopHat Dependency**: Requires existing TopHat alignments.
+- **Compatibility**: May not work with other aligners' outputs.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Recondition alignments
+**Args:** `tophat-recondition -i tophat_out/accepted_hits.bam -o reconditioned/`
+**Explanation:** Improve TopHat alignment quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With genome
+**Args:** `tophat-recondition -i alignments.bam -g genome.fasta -o improved/`
+**Explanation:** Recondition alignments with reference genome.

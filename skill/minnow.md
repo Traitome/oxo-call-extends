@@ -2,29 +2,47 @@
 name: minnow
 category: expression
 description: A principled framework for rapid simulation of dscRNA-seq data at the read level
-tags: [minnow, expression]
+tags: [minnow, expression, simulation]
 author: oxo-call-community
 source_url: "https://github.com/COMBINE-lab/minnow"
 ---
 
 ## Concepts
 
-- **Tool Overview**: minnow v1.2 - A principled framework for rapid simulation of dscRNA-seq data at the read level.
-- **Core Function**: A principled framework for rapid simulation of dscRNA-seq data at the read level
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda minnow`
+- **Tool Overview**: Minnow v1.2 simulates single-cell RNA-seq data at read level.
+- **Core Function**: Generates synthetic scRNA-seq sequencing data.
+- **Read-level Simulation**: Simulates sequencing reads at individual read level.
+- **RNA-seq Simulation**: Generates realistic scRNA-seq datasets.
+- **Input/Output**: Accepts parameters; outputs simulated reads.
+- **Benchmarking**: Supports method benchmarking workflows.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Simulation may require significant resources.
+- **Memory Requirements**: Memory usage depends on simulation scale.
+- **Parameter Tuning**: May require parameter adjustment for realistic results.
+- **Data Quality**: Simulation accuracy depends on parameter settings.
+- **Runtime**: Complex simulations can be time-consuming.
+- **Model Assumptions**: Based on specific biological assumptions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Simulate scRNA-seq data
+**Args:** `minnow -c config.json -o simulated_reads.fastq`
+**Explanation:** Generates simulated scRNA-seq reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom parameters
+**Args:** `minnow -c config.json -o simulated_reads.fastq -p params.yaml`
+**Explanation:** Uses custom simulation parameters.
+
+### Multiple cells
+**Args:** `minnow -c config.json -o output/ -n 100`
+**Explanation:** Simulates 100 cells.
+
+### Batch processing
+**Args:** `minnow -c configs/ -o outputs/`
+**Explanation:** Processes multiple configuration files.
+
+### Generate statistics
+**Args:** `minnow -c config.json -o simulated_reads.fastq -s stats.txt`
+**Explanation:** Generates simulation statistics.

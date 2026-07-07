@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedcoverage
-category: utility
-description: Analyse coverage by bed files - chromosome by chromosome and genome-wide.
-tags: [ucsc-bedcoverage, utility]
+category: analysis
+description: UCSC bedCoverage - Tool for calculating coverage over BED regions.
+tags: [ucsc-bedcoverage, ucsc, coverage-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedcoverage (v482) - Analyse coverage by bed files - chromosome by chromosome and genome-wide.
-- **Core Function**: Analyse coverage by bed files - chromosome by chromosome and genome-wide.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedcoverage`
+- **Tool Overview**: UCSC bedCoverage - A tool for calculating sequencing coverage over BED-defined regions.
+- **Core Function**: Computes coverage statistics for specified genomic regions.
+- **Input**: BED file, BAM file or wiggle file.
+- **Output**: Coverage statistics per region.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Coverage analysis, sequencing depth, genomic profiling.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **BAM Index**: Requires indexed BAM file.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate coverage
+**Args:** `bedCoverage -i regions.bed -b alignments.bam > coverage.txt`
+**Explanation:** Calculate coverage over BED regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With window
+**Args:** `bedCoverage -i regions.bed -w 100 -b alignments.bam > coverage.txt`
+**Explanation:** Calculate coverage with sliding window.

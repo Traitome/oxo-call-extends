@@ -2,29 +2,47 @@
 name: mimick
 category: variant-calling
 description: Simulate linked-read data
-tags: [mimick, variant-calling]
+tags: [mimick, variant-calling, simulation]
 author: oxo-call-community
 source_url: "https://github.com/pdimens/mimick"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mimick v3.0.1 - Mimick, formerly known as XENIA from the VISOR project, can simulate all manner of available linked-read chemistries (10x, haplotagging, stlfr, tellseq). It allows you to simulate an arbitrary number of haplotypes, set overall coverage, molecule coverage, molecules per barcode, whether DNA is circular, etc..
-- **Core Function**: Simulate linked-read data
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mimick`
+- **Tool Overview**: Mimick v3.0.1 simulates linked-read sequencing data.
+- **Core Function**: Simulates various linked-read chemistries.
+- **Linked-read Simulation**: Supports 10x, haplotagging, stlfr, tellseq.
+- **Haplotype Simulation**: Simulates multiple haplotypes.
+- **Input/Output**: Accepts reference sequences; outputs simulated reads.
+- **Sequencing Simulation**: Generates realistic sequencing data.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Simulation requires significant resources.
+- **Memory Requirements**: Memory usage can be high for complex simulations.
+- **Parameter Tuning**: May require parameter adjustment for realistic output.
+- **Reference Genome**: Requires reference sequence as input.
+- **Runtime**: Complex simulations can be time-consuming.
+- **Realism**: Simulation may not perfectly match real sequencing data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Simulate linked-reads
+**Args:** `mimick -r reference.fasta -o reads.fastq`
+**Explanation:** Simulates linked-read sequencing data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom coverage
+**Args:** `mimick -r reference.fasta -o reads.fastq -c 30`
+**Explanation:** Simulates 30x coverage.
+
+### 10x chemistry
+**Args:** `mimick -r reference.fasta -o reads.fastq -t 10x`
+**Explanation:** Uses 10x Genomics chemistry.
+
+### Multiple haplotypes
+**Args:** `mimick -r reference.fasta -o reads.fastq -n 4`
+**Explanation:** Simulates 4 haplotypes.
+
+### Batch simulation
+**Args:** `mimick -r reference.fasta -o output/ -b samples.txt`
+**Explanation:** Simulates multiple samples.

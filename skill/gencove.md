@@ -1,30 +1,43 @@
 ---
 name: gencove
-category: programming
-description: Gencove is a high-throughput, cost-effective platform for genome sequencing and analysis. This command-line interface can be used to easily access the Gencove API.
-tags: [gencove, programming]
+category: data-management
+description: Gencove CLI - Command-line interface for accessing the Gencove API for genome sequencing and analysis.
+tags: [gencove, api-client, genome-sequencing, data-management]
 author: oxo-call-community
 source_url: "https://docs.gencove.com"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gencove (v4.2.1) - Gencove is a high-throughput, cost-effective platform for genome sequencing and analysis. This command-line interface can be used to easily access the Gencove API.
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gencove`
+- **API Access**: Accesses Gencove sequencing platform via API.
+- **Data Management**: Manages sequencing data on Gencove platform.
+- **Sample Tracking**: Tracks sequencing samples and workflows.
+- **Result Retrieval**: Retrieves analysis results from the cloud.
+- **Project Management**: Manages sequencing projects and batches.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **API Authentication**: Requires valid API credentials.
+- **Network Dependency**: Requires internet connection.
+- **Rate Limiting**: Subject to API rate limits.
+- **Data Transfer Costs**: Large data transfers may incur costs.
+- **Service Availability**: Dependent on Gencove service availability.
 
 ## Examples
+### Authenticate with API
+**Args:** `gencove login --api-key your_api_key`
+**Explanation:** Authenticates with Gencove API using API key.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Upload sequencing data
+**Args:** `gencove upload --project-id project_id --fastq-file sample.fastq`
+**Explanation:** Uploads sequencing data to a specific project.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### List projects
+**Args:** `gencove projects list`
+**Explanation:** Lists all accessible projects.
+
+### Get sample status
+**Args:** `gencove samples get --sample-id sample_id`
+**Explanation:** Retrieves status and metadata for a specific sample.
+
+### Download results
+**Args:** `gencove results download --result-id result_id -o output_dir/`
+**Explanation:** Downloads analysis results to local directory.

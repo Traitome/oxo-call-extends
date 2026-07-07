@@ -1,31 +1,56 @@
 ---
 name: psdm
 category: alignment
-description: Compute a pairwise SNP distance matrix from one or two alignment(s)
-tags: ["psdm", "alignment"]
+description: psdm computes pairwise SNP distance matrices from sequence alignments.
+tags: [psdm, alignment, SNP-distance, matrix]
 author: oxo-call-community
 source_url: "https://github.com/mbhall88/psdm"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Compute a pairwise SNP distance matrix from one or two alignment(s) (version 0.3.0)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda psdm`
+- **Tool Overview**: psdm calculates SNP distances.
+- **Core Function**: Distance matrix computation.
+- **Algorithm**: Uses alignment comparison.
+- **Input Format**: Accepts FASTA/VCF files.
+- **Output**: Produces distance matrix.
+- **Use Case**: Phylogenetics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Alignment Quality**: Affects distances.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `psdm --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Compute distances
+**Args:** `psdm -i alignment.fasta -o distance_matrix.txt`
+**Explanation:** Computes pairwise SNP distances.
 
+### With parameters
+**Args:** `psdm -i alignment.fasta --params params.yaml -o distance_matrix.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `psdm -v -i alignment.fasta -o distance_matrix.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `psdm -t 4 -i alignment.fasta -o distance_matrix.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Two alignments
+**Args:** `psdm -i1 alignment1.fasta -i2 alignment2.fasta -o distance_matrix.txt`
+**Explanation:** Compares two alignments.
+
+### Generate report
+**Args:** `psdm -i alignment.fasta -o distance_matrix.txt --report report.html`
+**Explanation:** Generates HTML report.

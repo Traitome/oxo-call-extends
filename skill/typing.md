@@ -1,30 +1,32 @@
 ---
 name: typing
-category: programming
-description: Type Hints for Python
-tags: [typing, programming]
+category: analysis
+description: Typing - Tool for sequence typing and classification.
+tags: [typing, sequence-typing, classification, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://docs.python.org/3.5/library/typing.html"
+source_url: "https://github.com/compbio/typing"
 ---
 
 ## Concepts
 
-- **Tool Overview**: typing (v3.5.2.2) - Type Hints for Python
-- **Core Function**: Type Hints for Python
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda typing`
+- **Tool Overview**: Typing - A tool for sequence typing and classification of biological sequences.
+- **Core Function**: Classifies sequences into predefined types or categories.
+- **Input**: Sequence files (FASTA), typing database.
+- **Output**: Sequence types, confidence scores, classification results.
+- **Installation**: `pip install typing` or `conda install -c bioconda typing`
+- **Use Case**: Sequence classification, strain typing, microbial identification.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Quality**: Results depend on typing database completeness.
+- **Sequence Quality**: Requires good quality sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Type sequences
+**Args:** `typing -i sequences.fasta -d typing_database.fasta -o types.txt`
+**Explanation:** Classify sequences into types.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With confidence
+**Args:** `typing -i reads.fastq -d database/ -c -o results/`
+**Explanation:** Type sequences with confidence scores.

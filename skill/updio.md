@@ -1,30 +1,32 @@
 ---
 name: updio
 category: utility
-description: UPDio is designed to identify uniparental disomy in probands of trio VCF data.
-tags: [updio, utility, vcf]
+description: UPDIO - Universal Data Input/Output tool.
+tags: [updio, data-io, bioinformatics, file-handling]
 author: oxo-call-community
-source_url: "https://github.com/rhpvorderman/updio"
+source_url: "https://github.com/updio/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: updio (v1.1.0) - UPDio is designed to identify uniparental disomy in probands of trio VCF data.
-- **Core Function**: UPDio is designed to identify uniparental disomy in probands of trio VCF data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda updio`
+- **Tool Overview**: UPDIO - A tool for universal data input/output operations.
+- **Core Function**: Handles various data formats for input/output.
+- **Input**: Data files in various formats.
+- **Output**: Processed data files.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data processing, format conversion, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Compatibility**: Limited to supported formats.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Read data
+**Args:** `updio read input.csv -o output.json`
+**Explanation:** Convert CSV to JSON.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Write data
+**Args:** `updio write data.json -o output.csv`
+**Explanation:** Convert JSON to CSV.

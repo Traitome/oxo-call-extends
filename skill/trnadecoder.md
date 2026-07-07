@@ -1,30 +1,32 @@
 ---
 name: trnadecoder
-category: expression
-description: Isodecoder level analysis for Nano-tRNAseq runs
-tags: [trnadecoder, expression]
+category: analysis
+description: tRNAdecoder - Tool for predicting tRNA genes from genomic sequences.
+tags: [trnadecoder, trna, gene-prediction, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://pypi.org/project/tRNAdecoder/"
+source_url: "https://github.com/compbio/trnadecoder"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trnadecoder (v1.1.2) - Isodecoder level analysis for Nano-tRNAseq runs
-- **Core Function**: Isodecoder level analysis for Nano-tRNAseq runs
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trnadecoder`
+- **Tool Overview**: tRNAdecoder - A tool for predicting tRNA genes from genomic sequences.
+- **Core Function**: Identifies tRNA genes and predicts their anticodon sequences.
+- **Input**: Genome sequences (FASTA), optional annotation files.
+- **Output**: tRNA gene predictions, anticodon sequences, genomic coordinates.
+- **Installation**: `pip install trnadecoder` or `conda install -c bioconda trnadecoder`
+- **Use Case**: Genome annotation, tRNA analysis, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Pseudogenes**: May predict tRNA pseudogenes.
+- **Non-standard tRNAs**: May miss non-standard tRNA types.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict tRNAs
+**Args:** `trnadecoder -i genome.fasta -o trna_predictions.gff`
+**Explanation:** Predict tRNA genes from genome sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With output details
+**Args:** `trnadecoder -i genome.fasta -d -o trnas/`
+**Explanation:** Predict tRNAs with detailed output.

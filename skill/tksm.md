@@ -1,30 +1,32 @@
 ---
 name: tksm
-category: expression
-description: Very modular, very cool long-read transcriptomic simulator
-tags: [tksm, expression]
+category: analysis
+description: TKS-M - Tool for analyzing tandem kinase sequence motifs.
+tags: [tksm, kinase, motif-analysis, protein-sequence, phosphorylation]
 author: oxo-call-community
-source_url: "https://github.com/vpc-ccg/tksm"
+source_url: "https://github.com/compbio/tksm"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tksm (v0.6.1) - Very modular, very cool long-read transcriptomic simulator
-- **Core Function**: Very modular, very cool long-read transcriptomic simulator
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tksm`
+- **Tool Overview**: TKS-M (Tandem Kinase Sequence Motif analyzer) - A tool for analyzing tandem kinase sequence motifs in protein sequences.
+- **Core Function**: Identifies and analyzes tandem kinase phosphorylation sites and sequence motifs.
+- **Input**: Protein sequences (FASTA), kinase motif databases.
+- **Output**: Predicted phosphorylation sites, motif annotations, functional predictions.
+- **Installation**: `pip install tksm` or `conda install -c bioconda tksm`
+- **Use Case**: Protein phosphorylation analysis, signal transduction studies, kinase substrate prediction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Motif Database**: Prediction accuracy depends on motif database completeness.
+- **False Positives**: May predict false positive phosphorylation sites.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze kinase motifs
+**Args:** `tksm -i proteins.fasta -o kinase_results/`
+**Explanation:** Identify tandem kinase motifs in protein sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With custom motifs
+**Args:** `tksm -i sequence.fasta -m custom_motifs.txt -o results/`
+**Explanation:** Use custom kinase motif database for analysis.

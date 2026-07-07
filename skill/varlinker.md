@@ -1,30 +1,32 @@
 ---
 name: varlinker
-category: variant-calling
-description: Parallel threaded variant linker.
-tags: [varlinker, variant-calling]
+category: bioinformatics
+description: VarLinker - Variant linking tool.
+tags: [varlinker, variant-linking, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/IBCHgenomic/varlinker"
+source_url: "https://github.com/varlinker/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varlinker (v0.1.0) - Parallel threaded variant linker.
-- **Core Function**: Parallel threaded variant linker.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varlinker`
+- **Tool Overview**: VarLinker - A tool for linking variants to phenotypes.
+- **Core Function**: Links genetic variants to phenotypic traits.
+- **Input**: VCF file, phenotype data.
+- **Output**: Variant-phenotype links.
+- **Installation**: Install via pip or conda
+- **Use Case**: GWAS analysis, phenotype association, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Data Quality**: Results depend on phenotype data quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Link variants
+**Args:** `varlinker -v variants.vcf -p phenotypes.txt -o links.txt`
+**Explanation:** Link variants to phenotypes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `varlinker -v variants.vcf -p phenotypes.txt -o links.txt -m 1e-5`
+**Explanation:** Set significance threshold.

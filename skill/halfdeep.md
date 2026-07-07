@@ -1,30 +1,64 @@
 ---
 name: halfdeep
-category: utility
-description: Automated detection of intervals covered at half depth by sequenced reads.
-tags: [halfdeep, utility]
+category: bioinformatics
+description: HalfDeep detects genomic intervals covered at half the expected sequencing depth, indicating potential copy number variations.
+tags: [halfdeep, sequencing-depth, copy-number-variation, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/richard-burhans/HalfDeep"
 ---
 
 ## Concepts
 
-- **Tool Overview**: halfdeep (v0.1.0) - Automated detection of intervals covered at half depth by sequenced reads.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda halfdeep`
+- **Depth Analysis**: HalfDeep analyzes sequencing coverage depth.
+
+- **Half-Depth Intervals**: Identifies regions with half the expected coverage.
+
+- **Copy Number Variation**: Detects potential copy number variations.
+
+- **Coverage Statistics**: Computes coverage statistics across genome.
+
+- **Interval Detection**: Identifies contiguous regions of reduced coverage.
+
+- **Diploid Analysis**: Analyzes coverage in diploid genomes.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Coverage Variability**: Normal coverage may vary across genome.
+
+- **Sequencing Bias**: GC content may affect coverage.
+
+- **Mapping Quality**: Poor mapping may affect depth calculations.
+
+- **Threshold Selection**: Requires appropriate depth threshold.
+
+- **Result Interpretation**: Interpret results carefully.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect half-depth intervals
+**Args:** `halfdeep -i input.bam -o intervals.bed`
+**Explanation:** Identifies intervals with half-depth coverage.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With expected depth
+**Args:** `halfdeep -i input.bam -d 30 -o intervals.bed`
+**Explanation:** Sets expected coverage depth to 30x.
+
+### Quality filtering
+**Args:** `halfdeep -i input.bam -q 20 -o intervals.bed`
+**Explanation:** Filters reads by mapping quality.
+
+### Batch processing
+**Args:** `for f in *.bam; do halfdeep -i $f -o ${f%.bam}_intervals.bed; done`
+**Explanation:** Processes multiple BAM files.
+
+### Generate statistics
+**Args:** `halfdeep -i input.bam -stats -o stats.txt`
+**Explanation:** Generates coverage statistics.
+
+### Visualization
+**Args:** `halfdeep -i input.bam -plot -o coverage.pdf`
+**Explanation:** Generates coverage plot.
+
+### Help command
+**Args:** `halfdeep --help`
+**Explanation:** Shows available options and usage information.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedextendranges
 category: utility
-description: Extend length of entries in bed 6+ data to be at least the given length, taking strand directionality into account.
-tags: [ucsc-bedextendranges, utility]
+description: UCSC bedExtendRanges - Tool for extending BED region coordinates.
+tags: [ucsc-bedextendranges, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedextendranges (v482) - Extend length of entries in bed 6+ data to be at least the given length, taking strand directionality into account.
-- **Core Function**: Extend length of entries in bed 6+ data to be at least the given length, taking strand directionality into account.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedextendranges`
+- **Tool Overview**: UCSC bedExtendRanges - A tool for extending BED region coordinates upstream and downstream.
+- **Core Function**: Extends genomic regions by specified amounts.
+- **Input**: BED file, extension parameters.
+- **Output**: Extended BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Region expansion, promoter analysis, flanking regions.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chromosome Boundaries**: May extend beyond chromosome boundaries.
+- **Strand Consideration**: Requires strand awareness for directional extension.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extend regions
+**Args:** `bedExtendRanges -up=1000 -down=500 input.bed > extended.bed`
+**Explanation:** Extend regions by 1000bp upstream and 500bp downstream.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Symmetric extension
+**Args:** `bedExtendRanges -extend=2000 input.bed > extended.bed`
+**Explanation:** Extend regions symmetrically by 2000bp on each side.

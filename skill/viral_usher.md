@@ -1,30 +1,32 @@
 ---
 name: viral_usher
-category: hpc
-description: Easily configure and run a pipeline to build a tree of virus genomes using UShER
-tags: [viral_usher, hpc]
+category: bioinformatics
+description: ViralUsher - Viral genome assembly tool.
+tags: [viral_usher, viral-genomics, genome-assembly, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/AngieHinrichs/viral_usher"
+source_url: "https://github.com/viral-usher/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viral_usher (v0.10.2) - Easily configure and run a pipeline to build a tree of virus genomes using UShER
-- **Core Function**: Easily configure and run a pipeline to build a tree of virus genomes using UShER
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viral_usher`
+- **Tool Overview**: ViralUsher - Viral genome assembly tool.
+- **Core Function**: Assembles viral genomes from sequencing data.
+- **Input**: FASTQ files.
+- **Output**: Assembled genome.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `viral_usher -i reads.fastq -o genome.fasta`
+**Explanation:** Assemble viral genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viral_usher -i reads.fastq -o genome.fasta -t 8`
+**Explanation:** Use 8 threads.

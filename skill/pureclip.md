@@ -1,31 +1,56 @@
 ---
 name: pureclip
 category: utility
-description: PureCLIP is a tool to detect protein-RNA interaction footprints.
-tags: ["pureclip", "utility"]
+description: PureCLIP detects protein-RNA interaction footprints from CLIP-seq data.
+tags: [pureclip, utility, CLIP-seq, RNA-binding]
 author: oxo-call-community
 source_url: "https://github.com/skrakau/PureCLIP"
 ---
 
 ## Concepts
 
-- **Tool Overview**: PureCLIP is a tool to detect protein-RNA interaction footprints. (version 1.3.1)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pureclip`
+- **Tool Overview**: pureclip analyzes CLIP-seq data.
+- **Core Function**: Footprint detection.
+- **Algorithm**: Uses statistical modeling.
+- **Input Format**: Accepts BAM/BED files.
+- **Output**: Produces binding sites.
+- **Use Case**: RNA-protein interactions.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Read Depth**: Affects detection sensitivity.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pureclip --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Detect footprints
+**Args:** `pureclip -i reads.bam -g genome.fasta -o footprints.bed`
+**Explanation:** Detects protein-RNA binding footprints.
 
+### With parameters
+**Args:** `pureclip -i reads.bam -g genome.fasta -p params.yaml -o footprints.bed`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pureclip -v -i reads.bam -g genome.fasta -o footprints.bed`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pureclip -t 4 -i reads.bam -g genome.fasta -o footprints.bed`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `pureclip -i reads.bam -g genome.fasta -o footprints.gff --gff`
+**Explanation:** Outputs in GFF format.
+
+### Generate report
+**Args:** `pureclip -i reads.bam -g genome.fasta -o footprints.bed --report report.html`
+**Explanation:** Generates HTML report.

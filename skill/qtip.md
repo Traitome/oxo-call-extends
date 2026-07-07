@@ -1,31 +1,56 @@
 ---
 name: qtip
 category: alignment
-description: A tandem simulation approach for accurately predicting read alignment mapping qualities.
-tags: ["qtip", "alignment"]
+description: QTip predicts read alignment mapping qualities using a tandem simulation approach.
+tags: [qtip, alignment, mapping-quality, simulation]
 author: oxo-call-community
 source_url: "https://github.com/BenLangmead/qtip"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A tandem simulation approach for accurately predicting read alignment mapping qualities. (version 1.6.2)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda qtip`
+- **Tool Overview**: qtip predicts mapping quality.
+- **Core Function**: Quality prediction.
+- **Algorithm**: Uses simulation.
+- **Input Format**: Accepts SAM/BAM files.
+- **Output**: Produces quality scores.
+- **Use Case**: Alignment QC.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large alignments require memory.
+- **Simulation Parameters**: Must be configured.
+- **Reference Genome**: Must be correct.
+- **Runtime**: Simulation may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `qtip --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Run prediction
+**Args:** `qtip predict -i aligned.bam -o qualities.txt`
+**Explanation:** Predicts mapping qualities.
 
+### With parameters
+**Args:** `qtip predict -i aligned.bam -p params.yaml -o qualities.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `qtip -v predict -i aligned.bam -o qualities.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `qtip -t 4 predict -i aligned.bam -o qualities.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With reference
+**Args:** `qtip predict -i aligned.bam -r reference.fasta -o qualities.txt`
+**Explanation:** Uses reference genome.
+
+### Generate report
+**Args:** `qtip predict -i aligned.bam -o qualities.txt --report report.html`
+**Explanation:** Generates HTML report.

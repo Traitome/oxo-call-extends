@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslsomerecords
 category: utility
-description: Extract multiple psl records.
-tags: [ucsc-pslsomerecords, utility]
+description: UCSC pslSomeRecords - Tool for extracting some PSL records.
+tags: [ucsc-pslsomerecords, ucsc, psl, extraction, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslsomerecords (v482) - Extract multiple psl records.
-- **Core Function**: Extract multiple psl records.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslsomerecords`
+- **Tool Overview**: UCSC pslSomeRecords - A tool for extracting specific PSL records.
+- **Core Function**: Extracts subsets of PSL records.
+- **Input**: PSL file, ID list.
+- **Output**: Extracted PSL records.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data extraction, subset selection, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract some records
+**Args:** `pslSomeRecords ids.txt input.psl > subset.psl`
+**Explanation:** Extract specific records.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslSomeRecords -verbose ids.txt input.psl > subset.psl`
+**Explanation:** Extract with verbose output.

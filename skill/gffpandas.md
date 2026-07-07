@@ -1,30 +1,43 @@
 ---
 name: gffpandas
-category: formatting
-description: Parse GFF3 into Pandas dataframes
-tags: [gffpandas, formatting, GFF]
+category: data-analysis
+description: gffpandas - Parse GFF3 into Pandas dataframes for analysis.
+tags: [gffpandas, data-analysis, GFF3, pandas, bioinformatics]
 author: oxo-call-community
 source_url: "https://gffpandas.readthedocs.io/en/latest/"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gffpandas (v1.2.2) - Parse GFF3 into Pandas dataframes
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gffpandas`
+- **GFF3 Parsing**: Parses GFF3 into Pandas DataFrames.
+- **Data Analysis**: Enables data analysis with Pandas.
+- **Annotation Data**: Handles annotation data.
+- **Data Manipulation**: Manipulates annotation data.
+- **Integration**: Integrates with Python data ecosystem.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **GFF3 Complexity**: Complex GFF3 may be hard to parse.
+- **Memory Usage**: Large files require significant memory.
+- **Format Variations**: GFF3 format variations.
+- **Data Types**: Requires correct data type handling.
+- **Dependencies**: Requires Pandas and related libraries.
 
 ## Examples
+### Parse GFF3
+**Args:** `python -c "import gffpandas; df = gffpandas.read_gff3('annotations.gff3')"`
+**Explanation:** Parses GFF3 into DataFrame.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter features
+**Args:** `python -c "df = gffpandas.read_gff3('annotations.gff3'); genes = df[df['type'] == 'gene']"`
+**Explanation:** Filters for gene features.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Get attributes
+**Args:** `python -c "df = gffpandas.read_gff3('annotations.gff3'); attrs = df.attributes()"`
+**Explanation:** Extracts attributes column.
+
+### Write GFF3
+**Args:** `python -c "gffpandas.to_gff3(df, 'output.gff3')"`
+**Explanation:** Writes DataFrame back to GFF3.
+
+### Analysis example
+**Args:** `python -c "df = gffpandas.read_gff3('annotations.gff3'); print(df.groupby('type').size())"`
+**Explanation:** Analyzes feature types.

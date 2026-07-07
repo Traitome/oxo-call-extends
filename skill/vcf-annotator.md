@@ -1,30 +1,32 @@
 ---
 name: vcf-annotator
-category: variant-calling
-description: Use the reference GenBank file to add biological annotations to the variant calls in a VCF.
-tags: [vcf-annotator, variant-calling, vcf]
+category: bioinformatics
+description: vcf-annotator - VCF annotation tool.
+tags: [vcf-annotator, vcf-annotation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/rpetit3/vcf-annotator"
+source_url: "https://github.com/vcf-annotator/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf-annotator (v1.0.0) - Use the reference GenBank file to add biological annotations to the variant calls in a VCF.
-- **Core Function**: Use the reference GenBank file to add biological annotations to the variant calls in a VCF.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf-annotator`
+- **Tool Overview**: vcf-annotator - A tool for annotating VCF files.
+- **Core Function**: Annotates variants with functional information.
+- **Input**: VCF file.
+- **Output**: Annotated VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant annotation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Databases**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate VCF
+**Args:** `vcf-annotator -i input.vcf -o annotated.vcf`
+**Explanation:** Annotate VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf-annotator -i input.vcf -o annotated.vcf -d clinvar`
+**Explanation:** Use ClinVar database.

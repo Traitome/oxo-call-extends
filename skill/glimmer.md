@@ -1,30 +1,43 @@
 ---
 name: glimmer
-category: utility
-description: Glimmer is a system for finding genes in microbial DNA
-tags: [glimmer, utility]
+category: gene-prediction
+description: glimmer - Gene finding system for microbial DNA.
+tags: [glimmer, gene-prediction, microbial, gene-finder]
 author: oxo-call-community
 source_url: "https://ccb.jhu.edu/software/glimmer/index.shtml"
 ---
 
 ## Concepts
-
-- **Tool Overview**: glimmer (v3.02) - Glimmer is a system for finding genes in microbial DNA
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda glimmer`
+- **Gene Finding**: Identifies genes in microbial DNA.
+- **Interpolated Markov Models**: Uses IMMs for gene prediction.
+- **Microbial Genomes**: Specialized for microbial genomes.
+- **Sequence Analysis**: Analyzes DNA sequences.
+- **ORF Detection**: Detects open reading frames.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Microbial Specificity**: Designed for microbial genomes.
+- **Training Data**: May require training for new species.
+- **Overlapping Genes**: May miss overlapping genes.
+- **Memory Usage**: Large genomes require memory.
+- **Result Validation**: Results should be validated.
 
 ## Examples
+### Predict genes
+**Args:** `glimmer3 genome.fasta -o predictions.gff3`
+**Explanation:** Predicts genes in genome.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With options
+**Args:** `glimmer3 genome.fasta -l 100 -o predictions.gff3`
+**Explanation:** Uses minimum gene length.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Train model
+**Args:** `glimmer3 -t training.fasta genome.fasta -o predictions.gff3`
+**Explanation:** Uses trained model.
+
+### Generate report
+**Args:** `glimmer3 genome.fasta -r -o report.html`
+**Explanation:** Generates prediction report.
+
+### Batch processing
+**Args:** `glimmer3 -l genomes.txt -o ./predictions/`
+**Explanation:** Processes multiple genomes.

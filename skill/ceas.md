@@ -1,30 +1,42 @@
 ---
 name: ceas
-category: annotation
-description: CEAS: Cis-regulatory Element Annotation System
-tags: [ceas, annotation]
+category: epigenomics
+description: "CEAS: Cis-regulatory Element Annotation System"
+tags: [ceas, cis-regulatory, annotation, chip-seq, epigenomics]
 author: oxo-call-community
 source_url: "http://liulab.dfci.harvard.edu/CEAS"
 ---
-
 ## Concepts
 
-- **Tool Overview**: ceas (v1.0.2) - CEAS: Cis-regulatory Element Annotation System
-- **Core Function**: CEAS: Cis-regulatory Element Annotation System
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ceas`
+- **Tool Overview**: CEAS annotates cis-regulatory elements from ChIP-seq and other epigenomic data.
+- **Core Function**: Identifies and annotates transcription factor binding sites and regulatory regions.
+- **Algorithm**: Integrates peak calls with gene annotations for functional analysis.
+- **Input**: ChIP-seq peak files (BED, narrowPeak, broadPeak) and genome annotation.
+- **Output**: Annotated regulatory elements with gene associations.
+- **Application**: ChIP-seq data analysis and regulatory element discovery.
+- **Installation**: Install via bioconda: `conda install -c bioconda ceas`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Genome Build**: Must use matching genome assembly for annotations.
+- **Peak Quality**: Depends on quality of input peak calls.
+- **Annotation Sources**: Requires gene annotation files (RefSeq, Ensembl).
+- **Memory Usage**: Large datasets may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Annotate ChIP-seq peaks
+**Args:** `ceas -b peaks.bed -g hg38 -o annotation_results/`
+**Explanation:** Annotates ChIP-seq peaks using hg38 genome assembly.
 
-### Basic usage
-**Args:** `-i assembly.fasta -o annotation.gff`
-**Explanation:** Annotate genomic features
+### With custom annotation
+**Args:** `ceas -b peaks.bed -a genes.gtf -o results/`
+**Explanation:** Uses custom gene annotation for peak annotation.
+
+### Generate summary statistics
+**Args:** `ceas -b peaks.bed -g mm10 --summary -o summary.txt`
+**Explanation:** Generates summary statistics for ChIP-seq peaks.
+
+### Display help
+**Args:** `ceas --help`
+**Explanation:** Shows all available options and usage information.

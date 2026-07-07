@@ -1,30 +1,48 @@
 ---
 name: merge-gbk-records
 category: utility
-description: Turn multiple GenBank records (either in multiple files or a single multi-record file) into a single record
-tags: [merge-gbk-records, utility]
+description: Merge multiple GenBank records into a single record with customizable spacer sequences.
+tags: [merge-gbk-records, genbank, sequence-manipulation]
 author: oxo-call-community
 source_url: "http://github.com/kblin/merge-gbk-records"
 ---
 
 ## Concepts
 
-- **Tool Overview**: merge-gbk-records v0.2.0 - A small script to turn multiple GenBank records (either in multiple files or a single multi-record file) into a single record. Sequences are merged by concatenating them in order, and putting a spacer sequence between them. Spacer sequence length can be given in kbp. It is possible to pick an all-N spacer, or using a spacer consisting of all-frame stop codons..
-- **Core Function**: Turn multiple GenBank records (either in multiple files or a single multi-record file) into a single record
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: merge-gbk-records combines multiple GenBank records.
+- **Core Function**: Merges GenBank records into single record.
+- **Spacer Sequence**: Adds customizable spacer between sequences.
+- **Multi-file Support**: Handles multiple files or multi-record files.
+- **Sequence Concatenation**: Concatenates sequences in order.
 - **Installation**: `conda install -c bioconda merge-gbk-records`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Input Format**: Requires valid GenBank format.
+- **Sequence Order**: Order depends on input file order.
+- **Spacer Selection**: Spacer type affects downstream analysis.
+- **File Size**: May produce large output files.
+- **Annotation Preservation**: Annotations may be lost.
+- **Memory Requirements**: High memory for large records.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Merge GenBank records
+**Args:** `merge-gbk-records -i record1.gbk record2.gbk -o merged.gbk`
+**Explanation:** Merges multiple GenBank records.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With spacer
+**Args:** `merge-gbk-records -i records.gbk -s 100 -o merged.gbk`
+**Explanation:** Adds 100bp spacer between records.
+
+### All-N spacer
+**Args:** `merge-gbk-records -i records.gbk -n -o merged.gbk`
+**Explanation:** Uses all-N spacer sequence.
+
+### Stop codon spacer
+**Args:** `merge-gbk-records -i records.gbk -p -o merged.gbk`
+**Explanation:** Uses stop codon spacer.
+
+### Help documentation
+**Args:** `merge-gbk-records --help`
+**Explanation:** Displays available options.

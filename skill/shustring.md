@@ -1,30 +1,56 @@
 ---
 name: shustring
 category: utility
-description: Program for Computing SHortest Unique SubSTRINGs
-tags: [shustring, utility]
+description: shustring - Compute Shortest Unique Substrings
+tags: ["shustring", "utility", "sequence", "substring"]
 author: oxo-call-community
 source_url: "http://guanine.evolbio.mpg.de/cgi-bin/shustring/shustring.cgi.pl"
 ---
 
 ## Concepts
 
-- **Tool Overview**: shustring (v2.6) - Program for Computing SHortest Unique SubSTRINGs
-- **Core Function**: Program for Computing SHortest Unique SubSTRINGs
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda shustring`
+- **Tool Overview**: shustring (v2.6) computes shortest unique substrings in sequences.
+- **Core Function**: Finds minimal unique substrings for sequence identification.
+- **Algorithm**: Uses suffix tree or suffix array for efficient substring search.
+- **Input/Output**: Accepts FASTA sequences and produces unique substrings.
+- **Sequence Analysis**: Focuses on identifying unique sequence markers.
+- **Applications**: Sequence barcoding, primer design, and sequence identification.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large sequences.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Input Size**: Performance degrades with very long sequences.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Limited documentation available.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find unique substrings
+**Args:** `shustring -i sequence.fasta -o results.txt`
+**Explanation:** `-i` input FASTA; `-o` output results.
 
-### Basic usage
-**Args:** `shustring -i <input_file> -o <output_file>`
-**Explanation:** Run shustring with typical input and output options.
+### With minimum length
+**Args:** `shustring -i sequence.fasta -m 10 -o results.txt`
+**Explanation:** `-m 10` minimum substring length.
+
+### With maximum length
+**Args:** `shustring -i sequence.fasta -M 50 -o results.txt`
+**Explanation:** `-M 50` maximum substring length.
+
+### Help command
+**Args:** `shustring --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `shustring --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `shustring -v -i sequence.fasta -o results.txt`
+**Explanation:** `-v` verbose output.
+
+### Multiple sequences
+**Args:** `shustring -i sequences.fasta -o results.txt`
+**Explanation:** Processes multiple sequences in FASTA file.

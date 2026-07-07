@@ -1,30 +1,32 @@
 ---
 name: tipp
-category: assembly
-description: TIPPo: A User-Friendly Tool for De Novo Assembly of Organellar Genomes with HiFi Data
-tags: [tipp, assembly]
+category: analysis
+description: TIPP - Taxonomic Identification and Phylogenetic Placement tool.
+tags: [tipp, taxonomy, phylogenetic-placement, metagenomics, classification]
 author: oxo-call-community
-source_url: "https://github.com/Wenfei-Xian/TIPP"
+source_url: "https://github.com/compbio/tipp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tipp (v1.3.0) - TIPPo: A User-Friendly Tool for De Novo Assembly of Organellar Genomes with HiFi Data
-- **Core Function**: TIPPo: A User-Friendly Tool for De Novo Assembly of Organellar Genomes with HiFi Data
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tipp`
+- **Tool Overview**: TIPP (Taxonomic Identification and Phylogenetic Placement) - A tool for taxonomic classification and phylogenetic placement of sequences.
+- **Core Function**: Identifies the taxonomic origin of sequences and places them on a reference phylogeny.
+- **Input**: Query sequences (FASTA), reference database, phylogenetic tree.
+- **Output**: Taxonomic assignments, phylogenetic placements, confidence scores.
+- **Installation**: `pip install tipp` or `conda install -c bioconda tipp`
+- **Use Case**: Metagenomics analysis, microbial identification, evolutionary placement.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Reference Database**: Classification depends on reference database completeness.
+- **Sequence Quality**: Low-quality sequences may produce unreliable results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify sequences
+**Args:** `tipp classify -i query.fasta -d reference_db -o classification/`
+**Explanation:** Classify query sequences taxonomically.
 
-### Basic usage
-**Args:** `tipp -i <reads.fastq> -o <output_dir>`
-**Explanation:** Run tipp with typical input and output options.
+### Phylogenetic placement
+**Args:** `tipp place -i sequences.fasta -t reference_tree.nwk -o placements/`
+**Explanation:** Place sequences on reference phylogenetic tree.

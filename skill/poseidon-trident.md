@@ -1,31 +1,56 @@
 ---
 name: poseidon-trident
 category: formatting
-description: A tool (trident) to work with modular genotype databases formatted using Poseidon.
-tags: ["poseidon-trident", "formatting"]
+description: poseidon-trident works with Poseidon genotype databases.
+tags: [poseidon-trident, formatting, genotype-database, ancient-dna]
 author: oxo-call-community
-source_url: "https://www.poseidon-adna.org/#/"
+source_url: "https://www.poseidon-adna.org"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A tool (trident) to work with modular genotype databases formatted using Poseidon. (version 1.7.0.0)
-- **Core Function**: Processes bioinformatics data related to formatting
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda poseidon-trident`
+- **Tool Overview**: poseidon-trident manages genotype databases.
+- **Core Function**: Database manipulation.
+- **Algorithm**: Uses modular database methods.
+- **Input Format**: Accepts Poseidon format files.
+- **Output**: Produces database outputs.
+- **Use Case**: Ancient DNA analysis, population genetics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large databases require memory.
+- **Data Quality**: Results depend on input quality.
+- **Database Compatibility**: May have format issues.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `trident --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Convert format
-**Args:** `-i input.file -o output.file`
-**Explanation:** Converts between file formats.
+### Create database
+**Args:** `trident build -i genotypes.vcf -o database/`
+**Explanation:** Builds Poseidon genotype database.
 
+### With parameters
+**Args:** `trident build -i genotypes.vcf -p params.yaml -o database/`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `trident -v build -i genotypes.vcf -o database/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `trident -t 4 build -i genotypes.vcf -o database/`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Query database
+**Args:** `trident query -d database/ -o results.txt`
+**Explanation:** Queries Poseidon database.
+
+### Generate report
+**Args:** `trident build -i genotypes.vcf -o database/ --report report.html`
+**Explanation:** Generates HTML report.

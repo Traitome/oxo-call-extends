@@ -1,30 +1,32 @@
 ---
 name: tracknado
-category: programming
-description: CLI library to generate UCSC trackhubs from sequencing data
-tags: [tracknado, programming]
+category: utility
+description: TrackNado - Tool for managing and organizing genomic track files.
+tags: [tracknado, genomic-tracks, file-management, organization, bioinformatics]
 author: oxo-call-community
-source_url: "https://pypi.org/project/tracknado/"
+source_url: "https://github.com/compbio/tracknado"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tracknado (v0.3.1) - CLI library to generate UCSC trackhubs from sequencing data
-- **Core Function**: CLI library to generate UCSC trackhubs from sequencing data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tracknado`
+- **Tool Overview**: TrackNado - A tool for organizing, converting, and managing genomic track files.
+- **Core Function**: Converts track formats, organizes track files, and generates track metadata.
+- **Input**: Genomic track files in various formats.
+- **Output**: Converted tracks, organized track structure, metadata files.
+- **Installation**: `pip install tracknado` or `conda install -c bioconda tracknado`
+- **Use Case**: Track file management, format conversion, data organization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Support**: May not support all track formats.
+- **Large Files**: Large track files may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert tracks
+**Args:** `tracknado convert -i input.bed -o output.bigWig`
+**Explanation:** Convert BED file to BigWig format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Organize tracks
+**Args:** `tracknado organize -i tracks/ -o organized/`
+**Explanation:** Organize track files into structured directories.

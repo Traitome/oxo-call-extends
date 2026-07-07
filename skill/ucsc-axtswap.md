@@ -1,30 +1,32 @@
 ---
 name: ucsc-axtswap
 category: utility
-description: Swap source and query in an axt file.
-tags: [ucsc-axtswap, utility]
+description: UCSC axtSwap - Tool for swapping target and query in axt alignments.
+tags: [ucsc-axtswap, ucsc, alignment-processing, axt-format, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-axtswap (v482) - Swap source and query in an axt file.
-- **Core Function**: Swap source and query in an axt file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-axtswap`
+- **Tool Overview**: UCSC axtSwap - A tool for swapping target and query sequences in axt alignments.
+- **Core Function**: Transposes the alignment, making query the target and vice versa.
+- **Input**: Axt format alignment file.
+- **Output**: Axt format alignment with swapped sequences.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment processing, comparative genomics, data manipulation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper axt format.
+- **Strand Handling**: May require strand adjustment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Swap alignment
+**Args:** `axtSwap input.axt output.axt`
+**Explanation:** Swap target and query in axt alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With strand
+**Args:** `axtSwap -strand + input.axt output.axt`
+**Explanation:** Swap alignment with strand consideration.

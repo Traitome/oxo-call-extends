@@ -1,30 +1,32 @@
 ---
 name: ucsc-catuncomment
 category: utility
-description: Concatenate input removing lines that start with '#'.
-tags: [ucsc-catuncomment, utility]
+description: UCSC catUncomment - Tool for removing comments from files.
+tags: [ucsc-catuncomment, ucsc, file-manipulation, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-catuncomment (v482) - Concatenate input removing lines that start with '#'.
-- **Core Function**: Concatenate input removing lines that start with '#'.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-catuncomment`
+- **Tool Overview**: UCSC catUncomment - A tool for removing comments from text files.
+- **Core Function**: Strips comment lines from input files.
+- **Input**: Text file with comments.
+- **Output**: Text file without comments.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: File cleaning, configuration parsing, data processing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Comment Syntax**: Requires correct comment character specification.
+- **Embedded Comments**: May not handle embedded comments properly.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Remove comments
+**Args:** `catUncomment input.txt > output.txt`
+**Explanation:** Remove comments from file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With custom comment character
+**Args:** `catUncomment -commentChar="#" input.txt > output.txt`
+**Explanation:** Remove lines starting with custom comment character.

@@ -1,30 +1,52 @@
 ---
 name: longshot
 category: variant-calling
-description: Diploid SNV caller for error-prone reads.
-tags: [longshot, variant-calling]
+description: Longshot - Diploid SNV caller for error-prone reads
+tags: [longshot, variant-calling, SNVs, error-prone, long-reads, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/pjedge/longshot"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longshot v1.0.0 - Diploid SNV caller for error-prone reads..
-- **Core Function**: Diploid SNV caller for error-prone reads.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longshot`
+- **SNV Calling**: Single-nucleotide variant detection
+- **Diploid Calling**: Diploid genotype calling
+- **Error-Prone Reads**: Handling high-error-rate sequencing data
+- **Long-read Data**: Analysis of long-read sequencing data
+- **Bayesian Calling**: Bayesian variant calling approach
+- **Haplotype Phasing**: Integrated haplotype phasing
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read Quality**: Poor quality reads affect variant calling
+- **Mapping Quality**: Requires accurate read mapping
+- **Error Rate**: High error rates may affect accuracy
+- **Memory Usage**: Memory-intensive for large datasets
+- **Computational Time**: May be slow for large datasets
+- **False Positives**: May produce false positive calls
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Call variants
+**Args:** `longshot --bam input.bam --ref reference.fasta --out variants.vcf`
+**Explanation:** Calls SNVs from long-read data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Phasing
+**Args:** `longshot --bam input.bam --ref reference.fasta --out variants.vcf --phase`
+**Explanation:** Performs haplotype phasing.
+
+### Threads
+**Args:** `longshot --bam input.bam --ref reference.fasta --out variants.vcf --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Quality filtering
+**Args:** `longshot --bam input.bam --ref reference.fasta --out variants.vcf --min-qual 30`
+**Explanation:** Filters by minimum quality score.
+
+### Error rate
+**Args:** `longshot --bam input.bam --ref reference.fasta --out variants.vcf --error-rate 0.1`
+**Explanation:** Sets expected error rate to 10%.
+
+### Verbose output
+**Args:** `longshot --bam input.bam --ref reference.fasta --out variants.vcf --verbose`
+**Explanation:** Provides detailed output.

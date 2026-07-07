@@ -1,30 +1,32 @@
 ---
 name: vulcan
-category: alignment
-description: vulcan, map long reads and prosper🖖, a long read mapping pipeline that melds minimap2 and NGMLR
-tags: [vulcan, alignment]
+category: bioinformatics
+description: Vulcan - Variant prioritization tool.
+tags: [vulcan, variant-analysis, prioritization, bioinformatics]
 author: oxo-call-community
-source_url: "https://gitlab.com/treangenlab/vulcan"
+source_url: "https://github.com/vulcan/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vulcan (v1.0.3) - vulcan, map long reads and prosper🖖, a long read mapping pipeline that melds minimap2 and NGMLR
-- **Core Function**: vulcan, map long reads and prosper🖖, a long read mapping pipeline that melds minimap2 and NGMLR
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vulcan`
+- **Tool Overview**: Vulcan - Variant prioritization tool.
+- **Core Function**: Prioritizes variants based on multiple criteria.
+- **Input**: VCF file.
+- **Output**: Prioritized variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Parameters**: Threshold selection affects results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Prioritize variants
+**Args:** `vulcan -i input.vcf -o prioritized.txt`
+**Explanation:** Prioritize variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vulcan -i input.vcf -o prioritized.txt -m pathogenicity`
+**Explanation:** Prioritize by pathogenicity.

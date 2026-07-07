@@ -1,30 +1,32 @@
 ---
 name: tyto
-category: programming
-description: Tyto (Take Your Terms from Ontologies) provides a handy interface for ontologies for use in your Python application.
-tags: [tyto, programming]
+category: utility
+description: Tyto - Tool for managing and querying biological ontologies.
+tags: [tyto, ontology, bio-ontology, semantic-web, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/SynBioDex/tyto"
+source_url: "https://github.com/compbio/tyto"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tyto (v1.4) - Tyto (Take Your Terms from Ontologies) provides a handy interface for ontologies for use in your Python application.
-- **Core Function**: Tyto (Take Your Terms from Ontologies) provides a handy interface for ontologies for use in your Python application.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tyto`
+- **Tool Overview**: Tyto - A tool for managing and querying biological ontologies.
+- **Core Function**: Provides access to biological ontologies and semantic queries.
+- **Input**: Ontology terms, identifiers, queries.
+- **Output**: Ontology annotations, term relationships, semantic mappings.
+- **Installation**: `pip install tyto`
+- **Use Case**: Bioinformatics annotation, semantic analysis, data integration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Ontology Versioning**: Requires consistent ontology versions.
+- **Term Ambiguity**: May have ambiguous terms.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Query ontology
+**Args:** `tyto query -t "gene" -o results.txt`
+**Explanation:** Query ontology for term information.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### List terms
+**Args:** `tyto list -o go -t biological_process`
+**Explanation:** List GO biological process terms.

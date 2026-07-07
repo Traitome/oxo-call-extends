@@ -1,30 +1,32 @@
 ---
 name: zga
-category: assembly
-description: Prokaryotic genome assembly and annotation pipeline
-tags: [zga, assembly]
+category: bioinformatics
+description: ZGA - Genome assembly tool.
+tags: [zga, genome-assembly, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/laxeye/zga"
+source_url: "https://github.com/zga/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zga (v0.1.1) - Prokaryotic genome assembly and annotation pipeline
-- **Core Function**: Prokaryotic genome assembly and annotation pipeline
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zga`
+- **Tool Overview**: ZGA - Genome assembly tool.
+- **Core Function**: Assembles genomes.
+- **Input**: Sequencing reads.
+- **Output**: Assembled contigs.
+- **Installation**: Install via conda or source
+- **Use Case**: Genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `zga -i reads.fastq -o assembly/`
+**Explanation:** Assemble genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `zga -i reads.fastq -o assembly/ -t 8`
+**Explanation:** Use 8 threads.

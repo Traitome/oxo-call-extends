@@ -1,30 +1,32 @@
 ---
 name: ucsc-maftopsl
-category: formatting
-description: Convert maf to psl format.
-tags: [ucsc-maftopsl, formatting]
+category: utility
+description: UCSC mafToPsl - Tool for converting MAF to PSL format.
+tags: [ucsc-maftopsl, ucsc, maf, psl, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-maftopsl (v482) - Convert maf to psl format.
-- **Core Function**: Convert maf to psl format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-maftopsl`
+- **Tool Overview**: UCSC mafToPsl - A tool for converting MAF to PSL format.
+- **Core Function**: Converts MAF alignments to PSL format.
+- **Input**: MAF file.
+- **Output**: PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment visualization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert MAF to PSL
+**Args:** `mafToPsl input.maf > output.psl`
+**Explanation:** Convert MAF to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafToPsl -verbose input.maf > output.psl`
+**Explanation:** Convert with verbose output.

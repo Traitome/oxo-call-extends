@@ -1,30 +1,32 @@
 ---
 name: uscdc-datasets-sars-cov-2
-category: utility
-description: Benchmark datasets for WGS analysis of SARS-CoV-2
-tags: [uscdc-datasets-sars-cov-2, utility]
+category: database
+description: USCDC SARS-CoV-2 Dataset - Public COVID-19 genomic data.
+tags: [uscdc-datasets-sars-cov-2, sars-cov-2, covid-19, genomics]
 author: oxo-call-community
-source_url: "https://github.com/CDCgov/datasets-sars-cov-2"
+source_url: "https://www.cdc.gov/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: uscdc-datasets-sars-cov-2 (v0.7.2) - Benchmark datasets for WGS analysis of SARS-CoV-2
-- **Core Function**: Benchmark datasets for WGS analysis of SARS-CoV-2
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda uscdc-datasets-sars-cov-2`
+- **Tool Overview**: USCDC SARS-CoV-2 datasets - Access to public COVID-19 genomic data.
+- **Core Function**: Provides access to SARS-CoV-2 sequencing data.
+- **Input**: Query parameters.
+- **Output**: Genomic sequences and metadata.
+- **Installation**: Web-based or API access
+- **Use Case**: Viral genomics, pandemic research, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Data Volume**: Large datasets may require significant storage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Download data
+**Args:** `uscdc-datasets-sars-cov-2 download -o sars_cov_2_data/`
+**Explanation:** Download SARS-CoV-2 datasets.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Query data
+**Args:** `uscdc-datasets-sars-cov-2 query --region=US --output=results.csv`
+**Explanation:** Query datasets by region.

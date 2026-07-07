@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedtogenepred
-category: formatting
-description: Convert bed format files to genePred format.
-tags: [ucsc-bedtogenepred, formatting]
+category: utility
+description: UCSC bedToGenePred - Tool for converting BED to GenePred format.
+tags: [ucsc-bedtogenepred, ucsc, format-conversion, bed, genepred]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedtogenepred (v482) - Convert bed format files to genePred format.
-- **Core Function**: Convert bed format files to genePred format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedtogenepred`
+- **Tool Overview**: UCSC bedToGenePred - A tool for converting BED format to GenePred format.
+- **Core Function**: Converts BED12 gene annotations to GenePred format.
+- **Input**: BED12 format file.
+- **Output**: GenePred format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Gene annotation conversion, genome browser compatibility.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires BED12 format.
+- **Gene Structure**: Requires proper gene structure in input.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to GenePred
+**Args:** `bedToGenePred input.bed output.genepred`
+**Explanation:** Convert BED12 to GenePred format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With name
+**Args:** `bedToGenePred -geneNameAsName2 input.bed output.genepred`
+**Explanation:** Convert using gene name as name2 field.

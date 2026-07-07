@@ -2,29 +2,51 @@
 name: magicblast
 category: alignment
 description: NCBI BLAST next generation read mapper
-tags: [magicblast, alignment]
+tags: [magicblast, alignment, BLAST, RNA-seq]
 author: oxo-call-community
 source_url: "https://ncbi.github.io/magicblast/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: magicblast v1.7.0 - Magic-BLAST is a tool for mapping large next-generation RNA or DNA sequencing runs against a whole genome or transcriptome. Each alignment optimizes a composite score, taking into account simultaneously the two reads of a pair, and in case of RNA-seq, locating the candidate introns and adding up the score of all exons. This is very different from other versions of BLAST, where each exon is scored as a separate hit and read-pairing is ignored.  Magic-BLAST incorporates within the NCBI BLAST code framework ideas developed in the NCBI Magic pipeline, in particular hit extensions by local walk and jump (http://www.ncbi.nlm.nih.gov/pubmed/26109056), and recursive clipping of mismatches near the edges of the reads, which avoids accumulating artefactual mismatches near splice sites and is needed to distinguish short indels from substitutions near the edges.  More details about the algorithm and comparison with other similar tools are presented here: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2996-x..
-- **Core Function**: NCBI BLAST next generation read mapper
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: magicblast v1.7.0 - Magic-BLAST is a tool for mapping large next-generation RNA or DNA sequencing runs against a whole genome or transcriptome with special handling of RNA-seq data.
+- **Core Function**: Maps sequencing reads to reference genomes/transcriptomes with support for splice-aware alignment and paired-end data.
+- **Input/Output**: Input: FASTQ files; Output: SAM/BAM alignment files.
 - **Installation**: `conda install -c bioconda magicblast`
+- **Splice-aware Alignment**: Specifically optimized for RNA-seq data with built-in intron detection.
+- **Composite Scoring**: Optimizes alignment scores by considering both reads of a pair simultaneously.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Usage**: Mapping large datasets requires significant memory.
+- **Index Building**: Reference index must be built before mapping.
+- **Strand Specificity**: RNA-seq strand-specific libraries require special handling.
+- **Read Length**: Optimal performance with reads of at least 50bp.
+- **Transcriptome Mapping**: Requires proper transcriptome index for splice-aware mapping.
+- **Output Format**: Incorrect format specification may cause downstream issues.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Map reads to genome
+**Args:** `magicblast -query reads.fastq -db genome -out alignments.sam`
+**Explanation:** Maps reads to genomic reference.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### RNA-seq mapping
+**Args:** `magicblast -query reads.fastq -db transcriptome -out alignments.sam -splice`
+**Explanation:** Performs splice-aware mapping for RNA-seq data.
+
+### Paired-end mapping
+**Args:** `magicblast -query read1.fastq -query_mate read2.fastq -db genome -out alignments.sam`
+**Explanation:** Maps paired-end reads to reference.
+
+### BAM output
+**Args:** `magicblast -query reads.fastq -db genome -out alignments.bam -outfmt bam`
+**Explanation:** Outputs alignments in BAM format.
+
+### Strand-specific RNA-seq
+**Args:** `magicblast -query reads.fastq -db transcriptome -out alignments.sam -splice -strand plus`
+**Explanation:** Handles strand-specific RNA-seq data.
+
+### Build database index
+**Args:** `makeblastdb -in genome.fasta -dbtype nucl -out genome`
+**Explanation:** Creates BLAST database index.

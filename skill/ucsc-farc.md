@@ -1,30 +1,32 @@
 ---
 name: ucsc-farc
 category: utility
-description: Reverse complement a FA file.
-tags: [ucsc-farc, utility]
+description: UCSC faRc - Tool for reverse complementing FASTA sequences.
+tags: [ucsc-farc, ucsc, fasta, sequence-manipulation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-farc (v482) - Reverse complement a FA file.
-- **Core Function**: Reverse complement a FA file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-farc`
+- **Tool Overview**: UCSC faRc - A tool for reverse complementing FASTA sequences.
+- **Core Function**: Produces reverse complement of sequences.
+- **Input**: FASTA file.
+- **Output**: Reverse complemented FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence analysis, strand conversion, primer design.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Ambiguity Codes**: May not handle all ambiguity codes correctly.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Reverse complement
+**Args:** `faRc input.fa > rc.fa`
+**Explanation:** Reverse complement sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### From stdin
+**Args:** `cat input.fa | faRc > rc.fa`
+**Explanation:** Reverse complement from piped input.

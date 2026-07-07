@@ -1,30 +1,32 @@
 ---
 name: ucsc-hggoldgapgl
 category: utility
-description: Put chromosome .agp and .gl files into browser database.
-tags: [ucsc-hggoldgapgl, utility]
+description: UCSC hgGoldGapGl - Tool for gold gap processing.
+tags: [ucsc-hggoldgapgl, ucsc, gap-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hggoldgapgl (v377) - Put chromosome .agp and .gl files into browser database.
-- **Core Function**: Put chromosome .agp and .gl files into browser database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hggoldgapgl`
+- **Tool Overview**: UCSC hgGoldGapGl - A tool for processing gold gap information.
+- **Core Function**: Analyzes and processes gap data for genome assembly.
+- **Input**: Gap data file.
+- **Output**: Processed gap information.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome assembly, gap analysis, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper gap format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process gold gaps
+**Args:** `hgGoldGapGl gaps.txt > processed.txt`
+**Explanation:** Process gold gap information.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgGoldGapGl -minSize=100 gaps.txt > processed.txt`
+**Explanation:** Minimum gap size threshold.

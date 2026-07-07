@@ -1,30 +1,32 @@
 ---
 name: vcf2maf
-category: variant-calling
-description: Convert a VCF into a MAF where each variant is annotated to only one of all possible gene isoforms.
-tags: [vcf2maf, variant-calling, vcf]
+category: bioinformatics
+description: vcf2maf - VCF to MAF format converter.
+tags: [vcf2maf, vcf-processing, maf, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/mskcc/vcf2maf"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2maf (v1.6.22) - Convert a VCF into a MAF where each variant is annotated to only one of all possible gene isoforms.
-- **Core Function**: Convert a VCF into a MAF where each variant is annotated to only one of all possible gene isoforms.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2maf`
+- **Tool Overview**: vcf2maf - A tool for converting VCF to MAF format.
+- **Core Function**: Converts VCF files to Mutation Annotation Format.
+- **Input**: VCF file.
+- **Output**: MAF file.
+- **Installation**: Install via conda or source
+- **Use Case**: Format conversion, TCGA analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Annotation**: Requires VEP for annotation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to MAF
+**Args:** `vcf2maf.pl --input-vcf input.vcf --output-maf output.maf --ref-fasta ref.fasta`
+**Explanation:** Convert VCF to MAF.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2maf.pl --input-vcf input.vcf --output-maf output.maf --ref-fasta ref.fasta --vep-path vep`
+**Explanation:** Specify VEP path.

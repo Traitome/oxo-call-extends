@@ -1,30 +1,32 @@
 ---
 name: wisecondorx
-category: utility
-description: WIthin-SamplE COpy Number aberration DetectOR, including sex chromosomes
-tags: [wisecondorx, utility]
+category: bioinformatics
+description: WisecondorX - CNV detection tool.
+tags: [wisecondorx, cnv-detection, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/CenterForMedicalGeneticsGhent/wisecondorX"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wisecondorx (v1.3.1) - WIthin-SamplE COpy Number aberration DetectOR, including sex chromosomes
-- **Core Function**: WIthin-SamplE COpy Number aberration DetectOR, including sex chromosomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wisecondorx`
+- **Tool Overview**: WisecondorX - Copy number variation detection.
+- **Core Function**: Detects CNVs from sequencing data.
+- **Input**: BAM file.
+- **Output**: CNV calls.
+- **Installation**: Install via pip
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect CNVs
+**Args:** `wisecondorx detect -i input.bam -o cnv.txt`
+**Explanation:** Detect CNVs.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wisecondorx detect -i input.bam -o cnv.txt -t 8`
+**Explanation:** Use 8 threads.

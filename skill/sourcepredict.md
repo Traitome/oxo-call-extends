@@ -1,30 +1,60 @@
 ---
 name: sourcepredict
 category: metagenomics
-description: Classification and prediction of the origin of metagenomic samples.
-tags: [sourcepredict, metagenomics, sam]
+description: SourcePredict - Classification and prediction of metagenomic sample origin
+tags: [sourcepredict, metagenomics, classification, prediction, source-tracking]
 author: oxo-call-community
 source_url: "https://github.com/maxibor/sourcepredict"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sourcepredict (v0.5.1) - Classification and prediction of the origin of metagenomic samples.
-- **Core Function**: Classification and prediction of the origin of metagenomic samples.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: sourcepredict (v0.5.1) - A metagenomic source prediction tool
+- **Core Function**: Predicts the origin of metagenomic samples
+- **Input/Output**: Accepts metagenomic data; outputs source predictions
+- **Algorithm**: Uses machine learning for source classification
 - **Installation**: `conda install -c bioconda sourcepredict`
+- **Key Features**: Source prediction, classification, metagenomics analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly formatted metagenomic data
+- **Training Data**: Requires proper training data for prediction
+- **Database**: Requires source database for comparison
+- **Memory Usage**: Large metagenomic datasets require significant memory
+- **Output Format**: Output format depends on configuration
+- **Interpretation**: Results require biological interpretation
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `sourcepredict --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `sourcepredict -i <input.fastq> -d <database> -o <output_dir>`
-**Explanation:** Run sourcepredict with typical input and output options.
+### Basic source prediction
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv`
+**Explanation:** Predict source of metagenomic sample.
+
+### With multiple sources
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv --sources source1 source2`
+**Explanation:** Predict from multiple potential sources.
+
+### With confidence threshold
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv --threshold 0.8`
+**Explanation:** Set confidence threshold for prediction.
+
+### Output detailed results
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv --detailed`
+**Explanation:** Output detailed prediction results.
+
+### Output statistics
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv --stats`
+**Explanation:** Output prediction statistics.
+
+### Generate report
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv --report`
+**Explanation:** Generate prediction report.
+
+### With threads
+**Args:** `sourcepredict -i metagenome.fastq -d sources.db -o predictions.tsv -p 8`
+**Explanation:** Use multiple threads for prediction.

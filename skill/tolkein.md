@@ -1,30 +1,32 @@
 ---
 name: tolkein
-category: formatting
-description: Tree of Life Kit of Evolutionary Informatics Novelties
-tags: [tolkein, formatting]
+category: visualization
+description: Tolkein - Visualization tool for genomic variation data.
+tags: [tolkein, visualization, genomics, variation, data-visualization]
 author: oxo-call-community
-source_url: "https://tolkein.readthedocs.io/"
+source_url: "https://github.com/compbio/tolkein"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tolkein (v0.5.0) - Tree of Life Kit of Evolutionary Informatics Novelties
-- **Core Function**: Tree of Life Kit of Evolutionary Informatics Novelties
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tolkein`
+- **Tool Overview**: Tolkein - A visualization tool for exploring and displaying genomic variation data.
+- **Core Function**: Provides interactive visualization of variant calls, annotations, and genomic features.
+- **Input**: VCF files, genome annotations, sample metadata.
+- **Output**: Interactive visualizations, publication-quality figures.
+- **Installation**: `pip install tolkein` or `conda install -c bioconda tolkein`
+- **Use Case**: Variant analysis, data exploration, result visualization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Size**: Large VCF files may require subsampling for visualization.
+- **Memory**: Interactive visualization requires sufficient memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize variants
+**Args:** `tolkein -v variants.vcf -o variant_viewer/`
+**Explanation:** Launch interactive variant visualization.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Generate figure
+**Args:** `tolkein plot -v vcf_file.vcf -o variant_plot.png`
+**Explanation:** Generate publication-quality variant plot.

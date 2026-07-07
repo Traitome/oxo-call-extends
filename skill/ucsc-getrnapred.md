@@ -1,30 +1,32 @@
 ---
 name: ucsc-getrnapred
-category: annotation
-description: Get virtual RNA for gene predictions.
-tags: [ucsc-getrnapred, annotation]
+category: utility
+description: UCSC getRnaPred - Tool for extracting RNA predictions.
+tags: [ucsc-getrnapred, ucsc, rna-seq, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-getrnapred (v482) - Get virtual RNA for gene predictions.
-- **Core Function**: Get virtual RNA for gene predictions.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-getrnapred`
+- **Tool Overview**: UCSC getRnaPred - A tool for extracting RNA predictions.
+- **Core Function**: Extracts RNA sequences from prediction files.
+- **Input**: RNA prediction file, genome FASTA.
+- **Output**: RNA sequences.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: RNA analysis, transcriptomics, gene prediction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **FASTA Requirement**: Requires genome FASTA file.
+- **Memory**: May require significant memory for large genomes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract RNA predictions
+**Args:** `getRnaPred rna.txt genome.fa > rna.fa`
+**Explanation:** Extract RNA sequences from predictions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `getRnaPred -strand=+ rna.txt genome.fa > rna.fa`
+**Explanation:** Extract only positive strand.

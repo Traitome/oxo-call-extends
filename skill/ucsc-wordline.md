@@ -1,30 +1,32 @@
 ---
 name: ucsc-wordline
 category: utility
-description: Chop up words by white space and output them with one.
-tags: [ucsc-wordline, utility]
+description: UCSC wordLine - Tool for word-based line processing.
+tags: [ucsc-wordline, ucsc, word, line, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-wordline (v482) - Chop up words by white space and output them with one.
-- **Core Function**: Chop up words by white space and output them with one.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-wordline`
+- **Tool Overview**: UCSC wordLine - A tool for word-based line processing.
+- **Core Function**: Processes text files word by word.
+- **Input**: Text file.
+- **Output**: Processed text.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, word analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Encoding**: Requires proper encoding handling.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process word lines
+**Args:** `wordLine input.txt > output.txt`
+**Explanation:** Process text word by word.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wordLine -verbose input.txt > output.txt`
+**Explanation:** Process with verbose output.

@@ -1,30 +1,32 @@
 ---
 name: wbuild
-category: utility
-description: Automatic build tool for R Reports
-tags: [wbuild, utility]
+category: bioinformatics
+description: WBuild - Workflow builder.
+tags: [wbuild, workflow-builder, bioinformatics, pipeline]
 author: oxo-call-community
-source_url: "https://github.com/gagneurlab/wBuild"
+source_url: "https://github.com/wbuild/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wbuild (v1.8.2) - Automatic build tool for R Reports
-- **Core Function**: Automatic build tool for R Reports
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wbuild`
+- **Tool Overview**: WBuild - Workflow builder tool.
+- **Core Function**: Builds and manages workflows.
+- **Input**: Workflow configuration.
+- **Output**: Workflow scripts.
+- **Installation**: Install via R package
+- **Use Case**: Workflow development, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for complex workflows.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build workflow
+**Args:** `wbuild init my_workflow`
+**Explanation:** Initialize workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wbuild render my_workflow`
+**Explanation:** Render workflow.

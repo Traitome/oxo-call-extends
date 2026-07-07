@@ -1,30 +1,32 @@
 ---
 name: yleaf-pipelines
-category: hpc
-description: Yleaf-pipelines - A pipeline-optimized version of Yleaf, a tool for Y-chromosome haplogroup prediction.
-tags: [yleaf-pipelines, hpc]
+category: bioinformatics
+description: YLEAF-Pipelines - Bioinformatics pipelines.
+tags: [yleaf-pipelines, pipelines, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/trianglegrrl/Yleaf-pipelines"
+source_url: "https://github.com/yleaf-pipelines/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yleaf-pipelines (v3.3.0) - Yleaf-pipelines is a pipeline-optimized version of Yleaf, a tool for Y-chromosome haplogroup prediction from next-generation sequencing data. It provides a comprehensive solution for analyzing Y-chromosome genetic data and determining haplogroup assignments.
-- **Core Function**: Yleaf-pipelines - A pipeline-optimized version of Yleaf, a tool for Y-chromosome haplogroup prediction.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yleaf-pipelines`
+- **Tool Overview**: YLEAF-Pipelines - Bioinformatics analysis pipelines.
+- **Core Function**: Runs bioinformatics workflows.
+- **Input**: Sequencing data.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Pipeline execution, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run pipeline
+**Args:** `yleaf-pipelines run -i reads.fastq -o results/`
+**Explanation:** Run pipeline.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yleaf-pipelines run -i reads.fastq -o results/ -t 8`
+**Explanation:** Use 8 threads.

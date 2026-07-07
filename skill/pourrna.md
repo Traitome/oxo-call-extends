@@ -1,31 +1,56 @@
 ---
 name: pourrna
 category: utility
-description: Compute local minima and respective transition rates of an RNA energy landscape.
-tags: ["pourrna", "utility"]
+description: pourrna computes local minima and transition rates of RNA energy landscapes.
+tags: [pourrna, utility, rna, energy-landscape]
 author: oxo-call-community
-source_url: "https://github.com/ViennaRNA/pourRNA/"
+source_url: "https://github.com/ViennaRNA/pourRNA"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Compute local minima and respective transition rates of an RNA energy landscape. (version 1.2.0)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pourrna`
+- **Tool Overview**: pourrna analyzes RNA folding.
+- **Core Function**: Energy landscape computation.
+- **Algorithm**: Uses dynamic programming methods.
+- **Input Format**: Accepts RNA sequence files.
+- **Output**: Produces energy landscape data.
+- **Use Case**: RNA structure prediction, folding analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Complex RNAs require memory.
+- **Data Quality**: Results depend on sequence quality.
+- **Computational Complexity**: May be computationally expensive.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pourRNA --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Compute energy landscape
+**Args:** `pourRNA -i rna.fasta -o energy.txt`
+**Explanation:** Computes RNA energy landscape.
 
+### With parameters
+**Args:** `pourRNA -i rna.fasta -p params.yaml -o energy.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pourRNA -v -i rna.fasta -o energy.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pourRNA -t 4 -i rna.fasta -o energy.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `pourRNA -i rna.fasta -o energy.csv --csv`
+**Explanation:** Outputs in CSV format.
+
+### Generate report
+**Args:** `pourRNA -i rna.fasta -o energy.txt --report report.html`
+**Explanation:** Generates HTML report.

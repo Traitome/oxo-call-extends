@@ -1,30 +1,43 @@
 ---
 name: cgat-report
-category: programming
-description: A report generator in python based on sphinx
-tags: [cgat-report, programming]
+category: reporting
+description: Python-based report generator built on Sphinx for bioinformatics analyses
+tags: [cgat-report, reporting, sphinx, bioinformatics, documentation]
 author: oxo-call-community
 source_url: "https://github.com/AndreasHeger/CGATReport"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cgat-report (v0.9.1) - A report generator in python based on sphinx
-- **Core Function**: A report generator in python based on sphinx
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cgat-report`
+- **Tool Overview**: CGAT-Report is a Python-based report generator built on Sphinx for creating bioinformatics analysis reports.
+- **Core Function**: Generates comprehensive reports from analysis results with integrated visualization.
+- **Features**: Automated report generation, embedded plots, table generation, and PDF export.
+- **Input**: Analysis results, configuration files, and documentation sources.
+- **Output**: HTML reports, PDF documents, and interactive visualizations.
+- **Application**: Documenting bioinformatics pipeline results and analysis workflows.
+- **Installation**: Install via bioconda: `conda install -c bioconda cgat-report`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Sphinx Dependencies**: Requires Sphinx and related packages.
+- **Template Customization**: May require template modification for specific needs.
+- **Large Reports**: Complex reports may require significant build time.
+- **LaTeX Requirements**: PDF generation requires LaTeX installation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Generate report from configuration
+**Args:** `cgat-report build report.conf`
+**Explanation:** Builds report from configuration file.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Generate PDF report
+**Args:** `cgat-report build --pdf report.conf`
+**Explanation:** Generates PDF version of the report.
+
+### Initialize report project
+**Args:** `cgat-report init my_report`
+**Explanation:** Creates template files for new report project.
+
+### Display help
+**Args:** `cgat-report --help`
+**Explanation:** Shows all available options and usage information.

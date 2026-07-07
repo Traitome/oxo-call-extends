@@ -1,30 +1,32 @@
 ---
 name: tgt
-category: utility
-description: TextGridTools -- Read, write, and manipulate Praat TextGrid files
-tags: [tgt, utility]
+category: analysis
+description: TGT - Targeted Genotyping Tool for high-confidence variant calling.
+tags: [tgt, genotyping, variant-calling, targeted-sequencing, snp, indels]
 author: oxo-call-community
-source_url: "https://github.com/hbuschme/TextGridTools/"
+source_url: "https://github.com/compbio/tgt"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tgt (v1.4.3) - TextGridTools -- Read, write, and manipulate Praat TextGrid files
-- **Core Function**: TextGridTools -- Read, write, and manipulate Praat TextGrid files
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tgt`
+- **Tool Overview**: TGT (Targeted Genotyping Tool) - A tool for high-accuracy genotyping and variant calling from targeted sequencing data.
+- **Core Function**: Performs targeted variant calling with high accuracy by leveraging known variant sites and quality filters.
+- **Input**: Targeted sequencing reads (FASTQ/BAM), target region BED, known variants (optional).
+- **Output**: VCF file with called variants, genotype calls, quality scores.
+- **Installation**: `pip install tgt` or `conda install -c bioconda tgt`
+- **Use Case**: Clinical targeted sequencing, validation of known variants, population genetics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Target Region**: Accurate target region definition is critical.
+- **Allele Balance**: Heterozygous variants may be imbalanced in targeted sequencing.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Genotype targets
+**Args:** `tgt -i reads.bam -b targets.bed -o genotypes.vcf`
+**Explanation:** Call genotypes at targeted regions from sequencing data.
 
-### Basic usage
-**Args:** `tgt -i <input_file> -o <output_file>`
-**Explanation:** Run tgt with typical input and output options.
+### With known variants
+**Args:** `tgt -i sample.bam -b targets.bed -v known_variants.vcf -o results.vcf`
+**Explanation:** Use known variants as reference for more accurate genotyping.

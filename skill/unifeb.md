@@ -1,30 +1,32 @@
 ---
 name: unifeb
-category: utility
-description: unifeb is an non-linear dimension reduction/embedding algorithm for UniFrac distance. It is ultra-fast and scalable.
-tags: [unifeb, utility]
+category: bioinformatics
+description: UniFEB - Universal functional enrichment browser.
+tags: [unifeb, functional-enrichment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/jianshu93/unifeb.git"
+source_url: "https://github.com/unifeb/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unifeb (v0.1.1) - unifeb is an non-linear dimension reduction/embedding algorithm for UniFrac distance. It is ultra-fast and scalable.
-- **Core Function**: unifeb is an non-linear dimension reduction/embedding algorithm for UniFrac distance. It is ultra-fast and scalable.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unifeb`
+- **Tool Overview**: UniFEB - A tool for functional enrichment analysis and visualization.
+- **Core Function**: Performs functional enrichment analysis on gene lists.
+- **Input**: Gene list, annotation database.
+- **Output**: Enrichment results and visualizations.
+- **Installation**: Install via pip or conda
+- **Use Case**: Gene expression analysis, functional genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Requirements**: Requires annotation databases.
+- **Memory**: May require significant memory for large gene lists.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Perform enrichment
+**Args:** `unifeb -i genes.txt -d go -o enrichment/`
+**Explanation:** Perform GO enrichment analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With visualization
+**Args:** `unifeb -i genes.txt -d go -o enrichment/ --plot`
+**Explanation:** Generate enrichment plot.

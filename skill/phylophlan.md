@@ -1,22 +1,56 @@
 ---
 name: phylophlan
 category: population-genomics
-description: Precise phylogenetic analysis of microbial isolates and genomes from metagenomes
-tags: [phylophlan, population-genomics]
+description: phylophlan performs phylogenetic profiling of microbial genomes.
+tags: [phylophlan, population-genomics, microbial, phylogeny]
 author: oxo-call-community
 source_url: "https://github.com/biobakery/phylophlan"
 ---
 
 ## Concepts
-- **Tool Overview**: PhyloPhlAn 3.0 is an integrated pipeline for large-scale phylogenetic profiling of genomes and metagenomes. PhyloPhlAn 3.0 is an accurate, rapid, and easy-to-use method for large-scale microbial genome characterization and phylogenetic analysis at multiple levels of resolution. PhyloPhlAn 3.0 can assign both genomes and metagenome-assembled genomes (MAGs) to species-level genome bins (SGBs). PhyloPhlAn 3.0 can reconstruct strain-level phylogenies using clade-specific maximally informative phylogenetic markers, and can also scale to very-large phylogenies comprising >17,000 microbial species.
-- **Core Function**: Precise phylogenetic analysis of microbial isolates and genomes from metagenomes
-- **Input/Output**: GFF/GTF
-- **Installation**: `conda install -c bioconda phylophlan`
+
+- **Tool Overview**: phylophlan profiles microbial genomes.
+- **Core Function**: Phylogenetic profiling pipeline.
+- **Algorithm**: Uses phylogenetic marker analysis.
+- **Input Format**: Accepts microbial genome files.
+- **Output**: Produces phylogenetic profiling results.
+- **Use Case**: Microbial analysis, phylogenetic profiling.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large datasets require memory.
+- **Genome Quality**: Results depend on genome quality.
+- **Marker Selection**: Requires proper marker selection.
+- **Runtime**: Profiling may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `phylophlan --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Profile genomes
+**Args:** `phylophlan -i microbial_genomes.fasta -o phylogenetic_profile.txt`
+**Explanation:** Profiles microbial genomes.
+
+### With config
+**Args:** `phylophlan -i microbial_genomes.fasta -c config.yaml -o phylogenetic_profile.txt`
+**Explanation:** Uses configuration file.
+
+### Verbose mode
+**Args:** `phylophlan -v -i microbial_genomes.fasta -o phylogenetic_profile.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `phylophlan -t 4 -i microbial_genomes.fasta -o phylogenetic_profile.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `phylophlan -i microbial_genomes.fasta -o phylogenetic_profile.newick --newick`
+**Explanation:** Outputs in Newick format.
+
+### Generate report
+**Args:** `phylophlan -i microbial_genomes.fasta -o phylogenetic_profile.txt --report report.html`
+**Explanation:** Generates HTML report.

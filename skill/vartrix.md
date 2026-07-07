@@ -1,30 +1,32 @@
 ---
 name: vartrix
-category: variant-calling
-description: VarTrix is a software tool for extracting single cell variant information from 10x Genomics single cell data.
-tags: [vartrix, variant-calling]
+category: bioinformatics
+description: Vartrix - Variant matrix generation tool.
+tags: [vartrix, variant-matrix, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/10XGenomics/vartrix"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vartrix (v1.1.22) - VarTrix is a software tool for extracting single cell variant information from 10x Genomics single cell data.
-- **Core Function**: VarTrix is a software tool for extracting single cell variant information from 10x Genomics single cell data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vartrix`
+- **Tool Overview**: Vartrix - A tool for generating variant matrices from single-cell data.
+- **Core Function**: Creates variant matrices for scRNA-seq data.
+- **Input**: BAM file, VCF file, barcode file.
+- **Output**: Variant matrix.
+- **Installation**: Install via conda or source
+- **Use Case**: Single-cell variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Barcode Requirements**: Requires proper barcode file.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate matrix
+**Args:** `vartrix --bam sample.bam --vcf variants.vcf --barcodes barcodes.txt --out matrix.mtx`
+**Explanation:** Generate variant matrix.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vartrix --bam sample.bam --vcf variants.vcf --barcodes barcodes.txt --out matrix.mtx --threads 8`
+**Explanation:** Use 8 threads.

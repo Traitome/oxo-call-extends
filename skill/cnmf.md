@@ -1,30 +1,44 @@
 ---
 name: cnmf
 category: expression
-description: Consensus NMF for scRNA-Seq data.
-tags: [cnmf, expression]
+description: Consensus NMF for scRNA-Seq data analysis
+tags: [cnmf, nmf, single-cell, rna-seq, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/dylkot/cNMF"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cnmf (v1.7.1) - Consensus NMF for scRNA-Seq data.
-- **Core Function**: Consensus NMF for scRNA-Seq data.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cnmf`
+- **Tool Overview**: cNMF (Consensus Non-negative Matrix Factorization) is a tool for analyzing single-cell RNA sequencing (scRNA-Seq) data using consensus non-negative matrix factorization.
+- **Core Function**: Identifies gene expression signatures and cell subpopulations from scRNA-Seq data through consensus matrix factorization.
+- **Algorithm**: Uses multiple runs of NMF to generate consensus signatures and robust clustering of cells.
+- **Input**: scRNA-Seq expression matrix (genes x cells).
+- **Output**: Gene signatures, cell loadings, and consensus clustering results.
+- **Application**: Single-cell transcriptomics analysis, cell type identification, and gene expression pattern discovery.
+- **Installation**: Install via bioconda: `conda install -c bioconda cnmf`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Normalization**: Requires proper normalization of scRNA-Seq data.
+- **Parameter Tuning**: Number of factors (k) needs careful selection.
+- **Computational Resources**: May require significant resources for large datasets.
+- **Convergence**: Multiple runs needed for consensus, increasing computation time.
+- **Interpretation**: Signature interpretation requires biological knowledge.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run consensus NMF
+**Args:** `cnmf -i expression_matrix.txt -o results/`
+**Explanation:** Runs consensus NMF on scRNA-Seq expression data.
 
-### Basic usage
-**Args:** `-i reads.fastq -r transcriptome.fasta -o quantification`
-**Explanation:** Quantify gene expression
+### With specified k
+**Args:** `cnmf -i expression_matrix.txt -k 5 -o results/`
+**Explanation:** Runs NMF with 5 factors.
+
+### Multiple iterations
+**Args:** `cnmf -i expression_matrix.txt -n 100 -o results/`
+**Explanation:** Runs 100 iterations for consensus.
+
+### Display help
+**Args:** `cnmf --help`
+**Explanation:** Shows all available options and usage information.

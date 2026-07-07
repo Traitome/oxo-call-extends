@@ -1,30 +1,32 @@
 ---
 name: yaha
-category: alignment
-description: yaha is an open source, flexible, sensitive and accurate DNA aligner designed for single-end reads
-tags: [yaha, alignment]
+category: bioinformatics
+description: YAHA - Sequence aligner.
+tags: [yaha, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/GregoryFaust/yaha"
+source_url: "https://github.com/yaha/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: yaha (v0.1.83) - yaha is an open source, flexible, sensitive and accurate DNA aligner designed for single-end reads
-- **Core Function**: yaha is an open source, flexible, sensitive and accurate DNA aligner designed for single-end reads
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda yaha`
+- **Tool Overview**: YAHA - Fast sequence aligner.
+- **Core Function**: Aligns sequences to reference.
+- **Input**: FASTQ reads.
+- **Output**: SAM/BAM file.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence alignment, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align reads
+**Args:** `yaha -i reads.fastq -r ref.fasta -o alignment.sam`
+**Explanation:** Align reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `yaha -i reads.fastq -r ref.fasta -o alignment.sam -t 8`
+**Explanation:** Use 8 threads.

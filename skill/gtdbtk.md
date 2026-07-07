@@ -1,30 +1,64 @@
 ---
 name: gtdbtk
-category: programming
-description: A toolkit for assigning objective taxonomic classifications to bacterial and archaeal genomes.
-tags: [gtdbtk, programming]
+category: bioinformatics
+description: GTDB-Tk provides objective taxonomic classification for bacterial and archaeal genomes using the Genome Taxonomy Database.
+tags: [gtdbtk, taxonomy, bacterial-classification, bioinformatics]
 author: oxo-call-community
 source_url: "https://ecogenomics.github.io/GTDBTk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gtdbtk (v2.7.1) - A toolkit for assigning objective taxonomic classifications to bacterial and archaeal genomes.
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gtdbtk`
+- **Taxonomic Classification**: GTDB-Tk assigns taxonomic classifications to genomes.
+
+- **Genome Taxonomy Database**: Uses the GTDB reference database for classification.
+
+- **Phylogenetic Placement**: Places genomes in a phylogenetic context.
+
+- **Marker Genes**: Uses conserved marker genes for classification.
+
+- **Automatic Assignment**: Automatically assigns taxonomy from domain to species.
+
+- **Quality Control**: Provides quality metrics for genome assemblies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Database Download**: Requires downloading large reference databases.
+
+- **Memory Usage**: Processing many genomes may require significant memory.
+
+- **Genome Quality**: Low-quality genomes may produce unreliable classifications.
+
+- **Taxonomic Changes**: GTDB taxonomy is regularly updated.
+
+- **Computational Time**: Classification can be computationally intensive.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify genomes
+**Args:** `gtdbtk classify_wf --genome_dir genomes/ --out_dir results/`
+**Explanation:** Runs the complete classification workflow.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Identify marker genes
+**Args:** `gtdbtk identify --genome_dir genomes/ --out_dir markers/`
+**Explanation:** Identifies marker genes in input genomes.
+
+### Align marker genes
+**Args:** `gtdbtk align --identify_dir markers/ --out_dir alignments/`
+**Explanation:** Aligns identified marker genes.
+
+### Infer phylogeny
+**Args:** `gtdbtk infer --align_dir alignments/ --out_dir tree/`
+**Explanation:** Infers phylogenetic tree from alignments.
+
+### Classify single genome
+**Args:** `gtdbtk classify --genome input.fasta --out_dir result/`
+**Explanation:** Classifies a single genome.
+
+### Check database version
+**Args:** `gtdbtk check_install`
+**Explanation:** Verifies installation and database status.
+
+### Help command
+**Args:** `gtdbtk --help`
+**Explanation:** Shows available options and usage information.

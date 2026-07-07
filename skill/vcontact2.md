@@ -1,30 +1,32 @@
 ---
 name: vcontact2
-category: assembly
-description: Viral Contig Automatic Clustering and Taxonomy
-tags: [vcontact2, assembly]
+category: bioinformatics
+description: vContact2 - Viral genome clustering tool.
+tags: [vcontact2, viral-genomics, clustering, bioinformatics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/MAVERICLab/vcontact2/src/master/README.md"
+source_url: "https://github.com/RIVM-bioinformatics/vcontact2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcontact2 (v0.11.3) - Viral Contig Automatic Clustering and Taxonomy
-- **Core Function**: Viral Contig Automatic Clustering and Taxonomy
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcontact2`
+- **Tool Overview**: vContact2 - Identifies viral genome clusters.
+- **Core Function**: Clusters viral genomes based on protein similarity.
+- **Input**: Protein sequences or genome annotations.
+- **Output**: Cluster network.
+- **Installation**: Install via conda
+- **Use Case**: Viral genomics, metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Computation**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster viral genomes
+**Args:** `vcontact2 --raw-proteins proteins.faa --output-dir results/`
+**Explanation:** Cluster viral genomes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcontact2 --raw-proteins proteins.faa --output-dir results/ --cpu 8`
+**Explanation:** Use 8 CPUs.

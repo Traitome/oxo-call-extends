@@ -1,30 +1,32 @@
 ---
 name: vcf-validator
-category: formatting
-description: EBI EVA - Validation tool for VCF file format compliance
-tags: [vcf-validator, formatting, vcf]
+category: bioinformatics
+description: vcf-validator - VCF validation tool.
+tags: [vcf-validator, vcf-processing, validation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/EBIVariation/vcf-validator"
+source_url: "https://github.com/EBIvariation/vcf-validator"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf-validator (v0.10.2) - EBI EVA - Validation tool for VCF file format compliance
-- **Core Function**: EBI EVA - Validation tool for VCF file format compliance
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf-validator`
+- **Tool Overview**: vcf-validator - Validates VCF files against specification.
+- **Core Function**: Checks VCF files for format compliance.
+- **Input**: VCF file.
+- **Output**: Validation report.
+- **Installation**: Install via conda or download
+- **Use Case**: Quality control, VCF validation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Strictness**: May reject valid non-standard VCFs.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate VCF
+**Args:** `vcf-validator -i input.vcf`
+**Explanation:** Validate VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf-validator -i input.vcf -o errors.txt`
+**Explanation:** Output errors to file.

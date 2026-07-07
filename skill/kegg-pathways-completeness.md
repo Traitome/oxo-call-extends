@@ -1,30 +1,52 @@
 ---
 name: kegg-pathways-completeness
 category: utility
-description: The tool counts completeness of each KEGG pathway for protein sequences.
-tags: [kegg-pathways-completeness, utility]
+description: Counts completeness of each KEGG pathway for protein sequences.
+tags: [kegg-pathways-completeness, utility, KEGG, pathways, completeness]
 author: oxo-call-community
 source_url: "https://github.com/EBI-Metagenomics/kegg-pathways-completeness-tool/blob/1.4.3/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kegg-pathways-completeness (v1.4.3) - The tool counts completeness of each KEGG pathway for protein sequences.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kegg-pathways-completeness`
+- **Tool Overview**: kegg-pathways-completeness (v1.4.3) - Evaluates KEGG pathway completeness from protein sequences.
+- **Pathway Analysis**: Analyzes the completeness of KEGG pathways.
+- **KEGG Integration**: Uses KEGG database for pathway definitions.
+- **Protein Sequences**: Works with protein sequence inputs.
+- **Completeness Score**: Calculates percentage of pathway present.
+- **Functional Annotation**: Provides functional annotation insights.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **KEGG Database**: Requires up-to-date KEGG database.
+- **Protein Quality**: Poor quality proteins affect results.
+- **Annotation Quality**: Depends on sequence annotation quality.
+- **Database Access**: May require internet access.
+- **Memory Usage**: Large datasets require memory.
+- **Pathway Coverage**: Not all pathways may be available.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate pathway completeness
+**Args:** `kegg-pathways-completeness -i proteins.fasta -o results.txt`
+**Explanation:** Calculates KEGG pathway completeness.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Specify organism
+**Args:** `kegg-pathways-completeness -i proteins.fasta -o results.txt -o hsa`
+**Explanation:** Uses human KEGG pathways for analysis.
+
+### Generate HTML report
+**Args:** `kegg-pathways-completeness -i proteins.fasta -o report.html -f html`
+**Explanation:** Generates HTML report with completeness scores.
+
+### Filter by completeness
+**Args:** `kegg-pathways-completeness -i proteins.fasta -o results.txt -c 50`
+**Explanation:** Only shows pathways with >=50% completeness.
+
+### Batch processing
+**Args:** `kegg-pathways-completeness batch -i samples.txt -o output/`
+**Explanation:** Processes multiple samples in batch.
+
+### Update KEGG database
+**Args:** `kegg-pathways-completeness update`
+**Explanation:** Updates local KEGG database.

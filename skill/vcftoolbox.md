@@ -1,30 +1,32 @@
 ---
 name: vcftoolbox
-category: utility
-description: Tools for manipulating and parsing vcf files
-tags: [vcftoolbox, utility, vcf]
+category: bioinformatics
+description: vcftoolbox - VCF analysis toolkit.
+tags: [vcftoolbox, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "http://github.com/moonso/vcftoolbox"
+source_url: "https://github.com/vcftoolbox/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcftoolbox (v1.5.1) - Tools for manipulating and parsing vcf files
-- **Core Function**: Tools for manipulating and parsing vcf files
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcftoolbox`
+- **Tool Overview**: vcftoolbox - Collection of VCF tools.
+- **Core Function**: Various utilities for VCF manipulation.
+- **Input**: VCF file.
+- **Output**: Modified VCF or derived data.
+- **Installation**: Install via pip or conda
+- **Use Case**: VCF analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Documentation**: May lack comprehensive documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter VCF
+**Args:** `vcftoolbox filter -i input.vcf -o output.vcf -q 30`
+**Explanation:** Filter by quality.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Stats
+**Args:** `vcftoolbox stats -i input.vcf -o stats.txt`
+**Explanation:** Generate statistics.

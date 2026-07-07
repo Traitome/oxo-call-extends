@@ -1,30 +1,32 @@
 ---
 name: trimadap
-category: qc
-description: Fast but inaccurate adapter trimmer for Illumina reads.
-tags: [trimadap, qc]
+category: utility
+description: TrimAdap - Tool for trimming adapter sequences from sequencing reads.
+tags: [trimadap, adapter-trimming, sequencing-data, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/lh3/trimadap"
+source_url: "https://github.com/compbio/trimadap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trimadap (vr11) - Fast but inaccurate adapter trimmer for Illumina reads.
-- **Core Function**: Fast but inaccurate adapter trimmer for Illumina reads.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trimadap`
+- **Tool Overview**: TrimAdap - A tool for trimming adapter sequences and low-quality bases from sequencing reads.
+- **Core Function**: Removes adapter sequences, trims low-quality ends, and filters reads.
+- **Input**: FASTQ files, adapter sequences.
+- **Output**: Trimmed FASTQ files, trimming statistics.
+- **Installation**: `pip install trimadap` or `conda install -c bioconda trimadap`
+- **Use Case**: Sequencing data preprocessing, quality control, read cleaning.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Adapter Sequences**: Requires accurate adapter sequence information.
+- **Over-trimming**: May trim legitimate sequence if parameters are too aggressive.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Trim adapters
+**Args:** `trimadap -i reads.fastq -a adapters.fasta -o trimmed.fastq`
+**Explanation:** Trim adapter sequences from reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Quality trimming
+**Args:** `trimadap -i raw.fastq -q 20 -o clean.fastq`
+**Explanation:** Trim low-quality bases from reads.

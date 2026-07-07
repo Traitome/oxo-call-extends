@@ -1,30 +1,56 @@
 ---
 name: hicbrowser
-category: formatting
-description: A simple web browser to visualize Hi-C and other genomic tracks (bigwig, bed, interactions).
-tags: [hicbrowser, formatting, BED]
+category: bioinformatics
+description: HiCBrowser is a web browser for visualizing Hi-C and other genomic tracks (bigwig, BED, interactions).
+tags: [hicbrowser, Hi-C, visualization, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/maxplanck-ie/HiCBrowser"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hicbrowser (v1.0) - A simple web browser to visualize Hi-C and other genomic tracks (bigwig, bed, interactions).
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hicbrowser`
+- **Hi-C Visualization**: HiCBrowser visualizes Hi-C contact maps.
+
+- **Genomic Tracks**: Displays various genomic track types.
+
+- **Interactive Browser**: Provides interactive visualization.
+
+- **BigWig Support**: Supports BigWig format tracks.
+
+- **BED Support**: Supports BED format annotations.
+
+- **Contact Maps**: Visualizes chromatin interactions.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Loading**: Large files may take time to load.
+
+- **Browser Compatibility**: Requires modern web browser.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **Network Access**: Web interface requires network access.
+
+- **Rendering Performance**: May have performance issues with large data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Start browser
+**Args:** `hicbrowser --port 8080 --data data/`
+**Explanation:** Starts HiCBrowser on port 8080.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With custom configuration
+**Args:** `hicbrowser --config config.yaml --port 8080`
+**Explanation:** Uses custom configuration file.
+
+### Load specific track
+**Args:** `hicbrowser --tracks tracks.txt --port 8080`
+**Explanation:** Loads specific tracks.
+
+### Batch processing
+**Args:** `for f in *.cool; do hicbrowser --add-track $f; done`
+**Explanation:** Adds multiple tracks.
+
+### Help command
+**Args:** `hicbrowser --help`
+**Explanation:** Shows available options and usage information.

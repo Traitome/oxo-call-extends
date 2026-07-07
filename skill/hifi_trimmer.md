@@ -1,30 +1,56 @@
 ---
 name: hifi_trimmer
-category: qc
-description: hifi-trimmer is a tool for filtering and trimming extraneous adapter hits from a HiFi read set using a BLAST search.
-tags: [hifi_trimmer, qc]
+category: bioinformatics
+description: hifi-trimmer filters and trims extraneous adapter sequences from HiFi reads using BLAST search.
+tags: [hifi_trimmer, adapter-trimming, PacBio, HiFi, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/sanger-tol/hifi-trimmer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hifi_trimmer (v3.1.0) - hifi-trimmer is a tool for filtering and trimming extraneous adapter hits from a HiFi read set using a BLAST search.
-- **Core Function**: Provides functionality for qc tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hifi_trimmer`
+- **Adapter Trimming**: hifi-trimmer removes adapter sequences.
+
+- **BLAST Search**: Uses BLAST for adapter detection.
+
+- **PacBio HiFi**: Optimized for PacBio HiFi sequencing data.
+
+- **Quality Control**: Improves data quality.
+
+- **Read Filtering**: Filters reads with adapter remnants.
+
+- **Long Reads**: Handles long read sequencing data.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Results depend on input data quality.
+
+- **BLAST Configuration**: Requires proper BLAST configuration.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **False Positives**: May incorrectly trim valid sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Trim adapters
+**Args:** `hifi-trimmer -i reads.fastq -o trimmed.fastq`
+**Explanation:** Trims adapter sequences from HiFi reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With custom adapters
+**Args:** `hifi-trimmer -i reads.fastq -o trimmed.fastq -a adapters.fasta`
+**Explanation:** Uses custom adapter sequences.
+
+### Batch processing
+**Args:** `for f in *.fastq; do hifi-trimmer -i $f -o ${f%.fastq}_trimmed.fastq; done`
+**Explanation:** Processes multiple FASTQ files.
+
+### Quality filtering
+**Args:** `hifi-trimmer -i reads.fastq -o trimmed.fastq -q 20`
+**Explanation:** Filters by quality score.
+
+### Help command
+**Args:** `hifi-trimmer --help`
+**Explanation:** Shows available options and usage information.

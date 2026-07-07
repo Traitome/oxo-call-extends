@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafspeciessubset
 category: utility
-description: Extract a maf that just has a subset of species.
-tags: [ucsc-mafspeciessubset, utility]
+description: UCSC mafSpeciesSubset - Tool for subsetting species in MAF.
+tags: [ucsc-mafspeciessubset, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafspeciessubset (v482) - Extract a maf that just has a subset of species.
-- **Core Function**: Extract a maf that just has a subset of species.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafspeciessubset`
+- **Tool Overview**: UCSC mafSpeciesSubset - A tool for subsetting species in MAF.
+- **Core Function**: Creates subset of MAF with specified species.
+- **Input**: MAF file, species list.
+- **Output**: Subsetted MAF file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Species filtering, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper MAF format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Subset species in MAF
+**Args:** `mafSpeciesSubset -species=hg38,panTro4 input.maf > subset.maf`
+**Explanation:** Create MAF subset with specified species.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafSpeciesSubset -species=hg38,panTro4 -verbose input.maf > subset.maf`
+**Explanation:** Subset with verbose output.

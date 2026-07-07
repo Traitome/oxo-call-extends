@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigwigcorrelate
-category: utility
-description: Correlate bigWig files, optionally only on target regions.
-tags: [ucsc-bigwigcorrelate, utility]
+category: analysis
+description: UCSC bigWigCorrelate - Tool for correlating BigWig signals.
+tags: [ucsc-bigwigcorrelate, ucsc, bigwig, correlation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigwigcorrelate (v482) - Correlate bigWig files, optionally only on target regions.
-- **Core Function**: Correlate bigWig files, optionally only on target regions.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigwigcorrelate`
+- **Tool Overview**: UCSC bigWigCorrelate - A tool for calculating correlations between BigWig signals.
+- **Core Function**: Computes correlation coefficients between multiple BigWig files.
+- **Input**: Multiple BigWig files.
+- **Output**: Correlation matrix.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Comparative analysis, signal correlation, multi-sample analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Chromosome Consistency**: Requires matching chromosome names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate correlations
+**Args:** `bigWigCorrelate file1.bw file2.bw file3.bw > correlations.txt`
+**Explanation:** Calculate correlations between BigWig files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With regions
+**Args:** `bigWigCorrelate -regions=regions.bed file*.bw > correlations.txt`
+**Explanation:** Calculate correlations over specified regions.

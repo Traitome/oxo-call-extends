@@ -1,30 +1,60 @@
 ---
 name: hecatomb
-category: assembly
-description: Hecatomb: and end-to-end platform for viral metagenomics
-tags: [hecatomb, assembly]
+category: bioinformatics
+description: Hecatomb is an end-to-end platform for viral metagenomics analysis.
+tags: [hecatomb, viral-metagenomics, bioinformatics]
 author: oxo-call-community
 source_url: "https://hecatomb.readthedocs.io/en/latest/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hecatomb (v1.3.4) - Hecatomb: and end-to-end platform for viral metagenomics
-- **Core Function**: Provides functionality for assembly tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hecatomb`
+- **Viral Metagenomics**: Hecatomb analyzes viral metagenomic data.
+
+- **End-to-End Pipeline**: Provides complete analysis workflow.
+
+- **Virus Detection**: Identifies viral sequences in metagenomes.
+
+- **Taxonomic Classification**: Classifies viral sequences.
+
+- **Assembly**: Assembles viral genomes from reads.
+
+- **Abundance Estimation**: Estimates viral abundance.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Results depend on input data quality.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Reference Databases**: Requires up-to-date reference databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run viral metagenomics analysis
+**Args:** `hecatomb run --input reads.fastq --output results/`
+**Explanation:** Runs end-to-end viral metagenomics analysis.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With multiple samples
+**Args:** `hecatomb run --input samples/ --output results/`
+**Explanation:** Processes multiple samples.
+
+### Batch processing
+**Args:** `for f in *.fastq; do hecatomb run --input $f --output ${f%.fastq}_results/; done`
+**Explanation:** Processes multiple read files.
+
+### Generate report
+**Args:** `hecatomb report --input results/ --output report.html`
+**Explanation:** Generates comprehensive analysis report.
+
+### Visualization
+**Args:** `hecatomb plot --input results/ --output plots/`
+**Explanation:** Generates visualizations of results.
+
+### Help command
+**Args:** `hecatomb --help`
+**Explanation:** Shows available options and usage information.

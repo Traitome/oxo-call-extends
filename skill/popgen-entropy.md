@@ -1,22 +1,56 @@
 ---
 name: popgen-entropy
 category: population-genomics
-description: This program is for inferring population structure from autopolyploid and mixed-ploidy individuals.
-tags: [popgen-entropy, population-genomics]
+description: popgen-entropy infers population structure from polyploid individuals.
+tags: [popgen-entropy, population-genomics, polyploid, ancestry]
 author: oxo-call-community
 source_url: "https://bitbucket.org/buerklelab/mixedploidy-entropy/src/master/"
 ---
 
 ## Concepts
-- **Tool Overview**: entropy performs model-based genotype and ancestry estimation software for detecting hybridization in mixed-ploidy species using genotype-likelihood data as input. Information about the  model and testing can be found in the pre-print at [bioRxiv](https://biorxiv.org/content/10.1101/2020.07.31.231514v1). The vignette_entropy.pdf file in the Bitbucket repo contains instructions on how to process and analyze genomic data.
-- **Core Function**: This program is for inferring population structure from autopolyploid and mixed-ploidy individuals.
-- **Input/Output**: Various formats
-- **Installation**: `conda install -c bioconda popgen-entropy`
+
+- **Tool Overview**: popgen-entropy analyzes population structure.
+- **Core Function**: Mixed-ploidy ancestry estimation.
+- **Algorithm**: Uses likelihood-based methods.
+- **Input Format**: Accepts genotype likelihood data.
+- **Output**: Produces ancestry estimates.
+- **Use Case**: Population genetics, hybridization detection.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on genotype quality.
+- **Inference Accuracy**: May have estimation errors.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `entropy --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Infer ancestry
+**Args:** `entropy -i genotypes.vcf -o ancestry.txt`
+**Explanation:** Infers population structure from polyploid data.
+
+### With parameters
+**Args:** `entropy -i genotypes.vcf -p params.yaml -o ancestry.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `entropy -v -i genotypes.vcf -o ancestry.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `entropy -t 4 -i genotypes.vcf -o ancestry.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `entropy -i genotypes.vcf -o ancestry.csv --csv`
+**Explanation:** Outputs in CSV format.
+
+### Generate report
+**Args:** `entropy -i genotypes.vcf -o ancestry.txt --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigwigmerge
 category: utility
-description: Merge together multiple bigWigs into a single output bedGraph.
-tags: [ucsc-bigwigmerge, utility]
+description: UCSC bigWigMerge - Tool for merging BigWig files.
+tags: [ucsc-bigwigmerge, ucsc, bigwig, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigwigmerge (v482) - Merge together multiple bigWigs into a single output bedGraph.
-- **Core Function**: Merge together multiple bigWigs into a single output bedGraph.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigwigmerge`
+- **Tool Overview**: UCSC bigWigMerge - A tool for merging multiple BigWig files.
+- **Core Function**: Combines multiple BigWig signals into a single track.
+- **Input**: Multiple BigWig files.
+- **Output**: Merged BigWig or bedGraph file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data merging, track visualization, multi-sample analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Signal Overlap**: Requires handling for overlapping signals.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Merge BigWig files
+**Args:** `bigWigMerge file1.bw file2.bw file3.bw output.bw`
+**Explanation:** Merge multiple BigWig files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Output bedGraph
+**Args:** `bigWigMerge -bedGraph file*.bw output.bedgraph`
+**Explanation:** Merge and output as bedGraph.

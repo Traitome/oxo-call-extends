@@ -1,22 +1,56 @@
 ---
 name: pegas-lite
 category: hpc
-description: PeGAS is a Snakemake pipeline for genome analysis (with a lightweight CLI option)
-tags: [pegas-lite, hpc]
+description: PeGAS-lite provides lightweight genome analysis pipeline.
+tags: [pegas-lite, hpc, pipeline, genome-analysis]
 author: oxo-call-community
 source_url: "https://github.com/liviurotiul/PeGAS"
 ---
 
 ## Concepts
-- **Tool Overview**: PeGAS is a Snakemake pipeline for genome analysis. It is designed to be lightweight, easy to install, and easy to use. A separate lite entrypoint is provided for running the pipeline without Snakemake.
-- **Core Function**: PeGAS is a Snakemake pipeline for genome analysis (with a lightweight CLI option)
-- **Input/Output**: Various formats
-- **Installation**: `conda install -c bioconda pegas-lite`
+
+- **Tool Overview**: PeGAS-lite runs genome analysis.
+- **Core Function**: Provides lightweight pipeline execution.
+- **Algorithm**: Uses Snakemake workflow engine.
+- **Input Format**: Accepts genome data files.
+- **Output**: Produces analysis results.
+- **Use Case**: Genome analysis, pipeline execution.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large genomes require memory.
+- **Pipeline Configuration**: Requires proper config setup.
+- **Dependency Management**: Requires proper dependencies.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `pegas-lite --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Run pipeline
+**Args:** `pegas-lite run -i genome.fasta -o results/`
+**Explanation:** Runs genome analysis pipeline.
+
+### With config
+**Args:** `pegas-lite run -i genome.fasta -c config.yaml -o results/`
+**Explanation:** Uses configuration file.
+
+### Verbose mode
+**Args:** `pegas-lite -v run -i genome.fasta -o results/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pegas-lite run -t 8 -i genome.fasta -o results/`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Output format
+**Args:** `pegas-lite run -i genome.fasta -o results/ --format json`
+**Explanation:** Outputs in JSON format.
+
+### Generate report
+**Args:** `pegas-lite run -i genome.fasta -o results/ --report report.html`
+**Explanation:** Generates HTML report.

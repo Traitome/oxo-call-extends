@@ -1,22 +1,56 @@
 ---
 name: np-likeness-scorer
-category: utility
-description: Calculates Natural Product(NP)-likeness of a molecule, i.e. the similarity of the molecule to the structure space covered by known natural products. NP-likeness is a useful criterion to screen compound libraries and to design new lead compounds
-tags: [np-likeness-scorer, utility]
+category: chemistry
+description: NP-likeness Scorer calculates the natural product likeness of molecules for drug discovery.
+tags: [np-likeness-scorer, chemistry, drug-discovery, natural-products]
 author: oxo-call-community
 source_url: "https://sourceforge.net/projects/np-likeness/"
 ---
 
 ## Concepts
-- **Tool Overview**: Calculates Natural Product(NP)-likeness of a molecule, i.e. the similarity of the molecule to the structure space covered by known natural products. NP-likeness is a useful criterion to screen compound libraries and to design new lead compounds
-- **Core Function**: Processes bioinformatics data for utility tasks.
-- **Input/Output**: Standard bioinformatics formats (FASTA/FASTQ, BAM, VCF, etc.).
-- **Installation**: `conda install -c bioconda np-likeness-scorer`
+
+- **Tool Overview**: NP-likeness Scorer evaluates how similar a molecule is to known natural products.
+- **Core Function**: Calculates NP-likeness score for compound screening.
+- **Algorithm**: Uses machine learning or rule-based scoring for NP-likeness.
+- **Input Format**: Accepts SMILES strings or molecular structure files.
+- **Output**: Produces NP-likeness scores and rankings.
+- **Use Case**: Compound library screening, lead compound design, and drug discovery.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Training Data**: Scores depend on training dataset.
+- **Molecular Representation**: Requires proper molecular input format.
+- **Threshold Selection**: Requires appropriate score threshold.
+- **False Positives**: May misclassify synthetic compounds.
+- **Validation**: Results should be experimentally validated.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `np-likeness-scorer --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Calculate NP-likeness
+**Args:** `np-likeness-scorer -i molecules.smi -o scores.txt`
+**Explanation:** Calculates NP-likeness for molecules.
+
+### Single molecule
+**Args:** `np-likeness-scorer -s "CCO" -o score.txt`
+**Explanation:** Scores single SMILES string.
+
+### Output detailed
+**Args:** `np-likeness-scorer -i molecules.smi -o scores.txt --detailed`
+**Explanation:** Outputs detailed scoring information.
+
+### Threshold filtering
+**Args:** `np-likeness-scorer -i molecules.smi -o scores.txt -t 0.5`
+**Explanation:** Filters by NP-likeness threshold.
+
+### Batch processing
+**Args:** `np-likeness-scorer -d molecules/ -o scores.txt`
+**Explanation:** Processes multiple files in directory.
+
+### Verbose mode
+**Args:** `np-likeness-scorer -i molecules.smi -v -o scores.txt`
+**Explanation:** Runs with verbose output.

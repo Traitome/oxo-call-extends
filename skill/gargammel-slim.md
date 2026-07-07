@@ -1,22 +1,43 @@
 ---
 name: gargammel-slim
 category: programming
-description: Tool for simulating ancient DNA datasets
-tags: [gargammel-slim, programming]
+description: Tool for simulating ancient DNA datasets (slim version).
+tags: [gargammel-slim, ancient DNA, simulation, aDNA]
 author: oxo-call-community
 source_url: "https://github.com/grenaud/gargammel"
 ---
 
 ## Concepts
-- **Tool Overview**: This a stripped version of Gargammel that only builds the programs fragSim, deamSim and adptSim. For a full Gargammel installation look at the gargammel package
-- **Core Function**: Tool for simulating ancient DNA datasets
-- **Input/Output**: Depends on tool configuration and data formats.
-- **Installation**: `conda install -c bioconda gargammel-slim`
+- **Fragment Simulation**: Simulates aDNA fragment generation.
+- **Deamination Simulation**: Simulates C-to-T deamination damage.
+- **Adapter Simulation**: Simulates adapter contamination.
+- **Lightweight Tool**: Simplified version of gargammel.
+- **Fast Processing**: Fast simulation of DNA fragments.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+- **Limited Features**: Fewer features than full gargammel.
+- **Damage Model**: Simplified damage model.
+- **No Contamination**: Does not simulate contamination.
+- **Parameter Limitations**: Limited parameter options.
+- **Output Format**: Specific output format requirements.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Simulate fragments
+**Args:** `fragSim -ref reference.fasta -o fragments.fasta`
+**Explanation:** Simulates DNA fragments.
+
+### Deamination damage
+**Args:** `deamSim -ref reference.fasta -o damaged.fasta`
+**Explanation:** Simulates deamination damage.
+
+### Adapter simulation
+**Args:** `adptSim -ref reference.fasta -o adapters.fasta`
+**Explanation:** Simulates adapter sequences.
+
+### Set fragment size
+**Args:** `fragSim -ref reference.fasta -s 50 -o fragments.fasta`
+**Explanation:** Sets fragment size to 50bp.
+
+### With damage rate
+**Args:** `deamSim -ref reference.fasta -r 0.1 -o damaged.fasta`
+**Explanation:** Sets damage rate to 0.1.

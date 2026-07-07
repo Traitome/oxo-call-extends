@@ -1,30 +1,32 @@
 ---
 name: ucsc-parasol
-category: hpc
-description: Parallel job management system for a compute cluster.
-tags: [ucsc-parasol, hpc]
+category: utility
+description: UCSC parasol - Tool for parallel job management.
+tags: [ucsc-parasol, ucsc, parallel, job, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-parasol (v482) - Parallel job management system for a compute cluster.
-- **Core Function**: Parallel job management system for a compute cluster.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-parasol`
+- **Tool Overview**: UCSC parasol - A tool for managing parallel jobs.
+- **Core Function**: Manages and schedules parallel jobs.
+- **Input**: Job commands or job files.
+- **Output**: Job results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Parallel computing, job scheduling, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Configuration**: Requires proper cluster configuration.
+- **Dependencies**: Requires parasol cluster environment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Submit parallel job
+**Args:** `parasol submit job.sh`
+**Explanation:** Submit job to parasol cluster.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `parasol -verbose submit job.sh`
+**Explanation:** Submit with verbose output.

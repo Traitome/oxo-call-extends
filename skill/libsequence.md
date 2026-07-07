@@ -1,30 +1,52 @@
 ---
 name: libsequence
-category: programming
-description: A C++ class library for evolutionary genetics.
-tags: [libsequence, programming]
+category: evolutionary-genetics
+description: libsequence - C++ library for evolutionary genetics analysis
+tags: [libsequence, evolutionary-genetics, C++, population-genetics, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/molpopgen/libsequence"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libsequence v1.9.8 - A C++ class library for evolutionary genetics..
-- **Core Function**: A C++ class library for evolutionary genetics.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libsequence`
+- **Population Genetics**: Analysis of genetic variation in populations
+- **Sequence Data**: Handling and processing sequence data
+- **Genetic Statistics**: Calculation of population genetic statistics
+- **Data Structures**: Specialized data structures for genetic data
+- **Phylogenetics**: Phylogenetic analysis tools
+- **Evolutionary Analysis**: Tools for evolutionary biology research
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Management**: Manual memory handling required in C++
+- **Data Format**: Strict format requirements for input files
+- **Performance**: May require optimization for large datasets
+- **Error Handling**: Requires careful error checking
+- **Version Compatibility**: API may change between versions
+- **Platform Dependencies**: OS-specific compilation requirements
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Read sequence data
+**Args:** `sequence read -i data.vcf -o data.dat`
+**Explanation:** Reads sequence variation data.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Calculate statistics
+**Args:** `sequence stats -i data.dat -o stats.txt`
+**Explanation:** Computes population genetic statistics.
+
+### Filter variants
+**Args:** `sequence filter -i data.vcf -q 30 -o filtered.vcf`
+**Explanation:** Filters variants by quality.
+
+### Compute diversity
+**Args:** `sequence diversity -i data.dat -o diversity.txt`
+**Explanation:** Calculates nucleotide diversity.
+
+### Haplotype analysis
+**Args:** `sequence haplotype -i data.dat -o haplotypes.txt`
+**Explanation:** Analyzes haplotype frequencies.
+
+### FST calculation
+**Args:** `sequence fst -i populations.txt -o fst.txt`
+**Explanation:** Computes FST statistics between populations.

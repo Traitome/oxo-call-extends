@@ -1,30 +1,56 @@
 ---
 name: singularity
 category: containerization
-description: Singularity - Enabling users to have full control of their environment
-tags: [singularity, containerization]
+description: Singularity - Container platform for HPC
+tags: ["singularity", "containerization", "hpc", "docker"]
 author: oxo-call-community
 source_url: "http://singularity.lbl.gov"
 ---
 
 ## Concepts
 
-- **Tool Overview**: singularity (v2.4.2) - Singularity - Enabling users to have full control of their environment
-- **Core Function**: Singularity - Enabling users to have full control of their environment
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda singularity`
+- **Tool Overview**: Singularity (v2.4.2) is a container platform for HPC environments.
+- **Core Function**: Creates and runs containers in secure environments.
+- **Algorithm**: Uses containerization for reproducible software deployment.
+- **Input/Output**: Accepts container images and runs commands inside.
+- **HPC Containerization**: Specialized for high-performance computing environments.
+- **Applications**: Reproducible research, software deployment, workflow management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Root Requirements**: Some operations require root access.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Image Size**: Container images can be large.
+- **Network Access**: Requires network for pulling images.
+- **Security**: Container security must be carefully managed.
+- **Documentation**: Some advanced features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run container
+**Args:** `singularity run docker://ubuntu:latest`
+**Explanation:** Runs Ubuntu container from Docker Hub.
 
-### Basic usage
-**Args:** `singularity -i <input_file> -o <output_file>`
-**Explanation:** Run singularity with typical input and output options.
+### Build container
+**Args:** `singularity build my_container.sif Singularity`
+**Explanation:** Builds container from Singularity definition file.
+
+### Shell into container
+**Args:** `singularity shell my_container.sif`
+**Explanation:** Starts interactive shell in container.
+
+### Help command
+**Args:** `singularity --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `singularity --version`
+**Explanation:** Shows current version.
+
+### Pull image
+**Args:** `singularity pull docker://biocontainers/samtools:latest`
+**Explanation:** Pulls image from Docker Hub.
+
+### Execute command
+**Args:** `singularity exec my_container.sif samtools --help`
+**Explanation:** Executes command inside container.

@@ -1,30 +1,32 @@
 ---
 name: whokaryote
-category: assembly
-description: Classify metagenomic contigs as eukaryotic or prokaryotic
-tags: [whokaryote, assembly]
+category: bioinformatics
+description: WhoKaryote - Genome assembly tool.
+tags: [whokaryote, genome-assembly, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/LottePronk/whokaryote"
+source_url: "https://github.com/whokaryote/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: whokaryote (v1.1.2) - Whokaryote uses a random forest classifier that uses gene-structure based features and optionally Tiara predictions to predict whether a contig is from a eukaryote or from a prokaryote. You can use Whokaryote to determine which contigs need eukaryotic gene prediction and which need prokaryotic gene prediction.
-- **Core Function**: Classify metagenomic contigs as eukaryotic or prokaryotic
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda whokaryote`
+- **Tool Overview**: WhoKaryote - Genome assembly tool.
+- **Core Function**: Assembles genomes.
+- **Input**: Sequencing reads.
+- **Output**: Assembled contigs.
+- **Installation**: Install via conda or source
+- **Use Case**: Genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble genome
+**Args:** `whokaryote -i reads.fastq -o assembly/`
+**Explanation:** Assemble genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `whokaryote -i reads.fastq -o assembly/ -t 8`
+**Explanation:** Use 8 threads.

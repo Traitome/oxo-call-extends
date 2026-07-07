@@ -1,30 +1,32 @@
 ---
 name: ucsc-texthistogram
 category: utility
-description: Make a histogram in ascii.
-tags: [ucsc-texthistogram, utility]
+description: UCSC textHistogram - Tool for generating text histograms.
+tags: [ucsc-texthistogram, ucsc, histogram, statistics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-texthistogram (v482) - Make a histogram in ascii.
-- **Core Function**: Make a histogram in ascii.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-texthistogram`
+- **Tool Overview**: UCSC textHistogram - A tool for generating text histograms.
+- **Core Function**: Generates histogram from numerical data.
+- **Input**: Numerical data file.
+- **Output**: Histogram text output.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data visualization, statistics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Data Format**: Requires proper numerical format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate histogram
+**Args:** `textHistogram input.txt > histogram.txt`
+**Explanation:** Generate histogram from data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `textHistogram -bins=20 input.txt > histogram.txt`
+**Explanation:** Generate with 20 bins.

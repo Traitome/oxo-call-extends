@@ -1,30 +1,32 @@
 ---
 name: ucsc-tolower
-category: formatting
-description: Convert upper case to lower case in file. Leave other chars alone.
-tags: [ucsc-tolower, formatting]
+category: utility
+description: UCSC toLower - Tool for converting to lowercase.
+tags: [ucsc-tolower, ucsc, lowercase, text-processing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-tolower (v482) - Convert upper case to lower case in file. Leave other chars alone.
-- **Core Function**: Convert upper case to lower case in file. Leave other chars alone.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-tolower`
+- **Tool Overview**: UCSC toLower - A tool for converting text to lowercase.
+- **Core Function**: Converts uppercase letters to lowercase.
+- **Input**: Text file.
+- **Output**: Lowercase text.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, data normalization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Encoding**: Requires proper encoding handling.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to lowercase
+**Args:** `toLower input.txt > output.txt`
+**Explanation:** Convert text to lowercase.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `toLower -verbose input.txt > output.txt`
+**Explanation:** Convert with verbose output.

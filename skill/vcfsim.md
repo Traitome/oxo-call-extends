@@ -1,30 +1,32 @@
 ---
 name: vcfsim
-category: variant-calling
-description: Script for generating simulated VCF's leveraging a coalescent simulating backend.
-tags: [vcfsim, variant-calling, vcf]
+category: bioinformatics
+description: vcfsim - VCF simulation tool.
+tags: [vcfsim, vcf-processing, simulation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/samuk-lab/vcfsim"
+source_url: "https://github.com/vcfsim/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfsim (v1.0.28.alpha) - "VCFSim is a new command-line tool for generating simulated VCF's(variant call format files for encoding genetic data). Leveraging a coalescent simulating backend and providing an interface from Msprime coalescent simulating package to pandas. VCF's can now be easily simulated with just a few command line arguments!"
-- **Core Function**: Script for generating simulated VCF's leveraging a coalescent simulating backend.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfsim`
+- **Tool Overview**: vcfsim - Simulates VCF files.
+- **Core Function**: Generates simulated variant data.
+- **Input**: Configuration or reference genome.
+- **Output**: Simulated VCF file.
+- **Installation**: Install via pip or conda
+- **Use Case**: Testing, benchmarking, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Realism**: Simulation may not reflect real data.
+- **Complexity**: May require detailed configuration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simulate VCF
+**Args:** `vcfsim -r ref.fasta -o simulated.vcf`
+**Explanation:** Simulate VCF file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcfsim -r ref.fasta -o simulated.vcf -n 10000`
+**Explanation:** Simulate 10000 variants.

@@ -1,31 +1,56 @@
 ---
 name: ptrimmer
 category: utility
-description: Used to trim off the primer sequence from mutiplex amplicon sequencing
-tags: ["ptrimmer", "utility"]
+description: ptrimmer trims primer sequences from multiplex amplicon sequencing data.
+tags: [ptrimmer, utility, primer-trimming, amplicon-sequencing]
 author: oxo-call-community
 source_url: "https://github.com/DMU-lilab/pTrimmer"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Used to trim off the primer sequence from mutiplex amplicon sequencing (version 1.4.1)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ptrimmer`
+- **Tool Overview**: ptrimmer removes primer sequences.
+- **Core Function**: Primer trimming.
+- **Algorithm**: Uses sequence matching.
+- **Input Format**: Accepts FASTQ files.
+- **Output**: Produces trimmed reads.
+- **Use Case**: Amplicon sequencing.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large files require memory.
+- **Data Quality**: Results depend on input quality.
+- **Primer Design**: Affects trimming accuracy.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `ptrimmer --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Trim primers
+**Args:** `ptrimmer -i input.fastq -p primers.fasta -o trimmed.fastq`
+**Explanation:** Trims primer sequences from reads.
 
+### With parameters
+**Args:** `ptrimmer -i input.fastq -p primers.fasta -params params.yaml -o trimmed.fastq`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `ptrimmer -v -i input.fastq -p primers.fasta -o trimmed.fastq`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `ptrimmer -t 4 -i input.fastq -p primers.fasta -o trimmed.fastq`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Quality trimming
+**Args:** `ptrimmer -i input.fastq -p primers.fasta -q 30 -o trimmed.fastq`
+**Explanation:** Trims low-quality bases as well.
+
+### Generate report
+**Args:** `ptrimmer -i input.fastq -p primers.fasta -o trimmed.fastq --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigbedsummary
-category: formatting
-description: Extract summary information from a bigBed file.
-tags: [ucsc-bigbedsummary, formatting]
+category: analysis
+description: UCSC bigBedSummary - Tool for generating summaries from BigBed files.
+tags: [ucsc-bigbedsummary, ucsc, bigbed, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigbedsummary (v482) - Extract summary information from a bigBed file.
-- **Core Function**: Extract summary information from a bigBed file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigbedsummary`
+- **Tool Overview**: UCSC bigBedSummary - A tool for generating statistical summaries from BigBed files.
+- **Core Function**: Computes statistics over genomic regions in BigBed format.
+- **Input**: BigBed file, BED regions.
+- **Output**: Statistical summaries.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data summarization, quality control, statistical analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Region Format**: Requires proper BED format for regions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate summary
+**Args:** `bigBedSummary input.bb regions.bed > summary.txt`
+**Explanation:** Generate summary over specified regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With statistics
+**Args:** `bigBedSummary -stats input.bb regions.bed > summary.txt`
+**Explanation:** Generate detailed statistics.

@@ -1,30 +1,39 @@
 ---
 name: cvlr
 category: hpc
-description: Clustering and Visualization of Long Reads.
-tags: [cvlr, hpc]
+description: Clustering and Visualization of Long Reads
+tags: [cvlr, hpc, long-reads, clustering, visualization, nanopore]
 author: oxo-call-community
 source_url: "https://github.com/EmanueleRaineri/cvlr"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cvlr (v1.0) - Clustering and Visualization of Long Reads.
-- **Core Function**: Clustering and Visualization of Long Reads.
-- **Input/Output**: Standard bioinformatics formats
+- **Tool Overview**: cvlr (v1.0+) is a tool for clustering and visualization of long sequencing reads from platforms like Oxford Nanopore.
+- **Core Function**: Clusters long reads based on sequence similarity and provides visualization of clustering results.
+- **Input/Output**: Input: FASTA/FASTQ long reads, optionally alignment files. Output: Clustered reads, visualization plots, cluster statistics.
+- **Algorithm**: Uses MinHash or alignment-based methods for efficient clustering of long reads.
+- **Key Features**: Efficient clustering of long reads, interactive visualization, cluster quality metrics.
 - **Installation**: `conda install -c bioconda cvlr`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Read Length**: Designed for long reads; short reads may produce poor clustering.
+- **Memory Usage**: Large datasets may require significant memory for clustering.
+- **Parameter Tuning**: Clustering parameters require careful adjustment for specific data.
+- **Quality Filtering**: Low-quality reads should be filtered before clustering.
+- **Visualization**: Very large clusters may produce cluttered visualizations.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Cluster long reads
+**Args:** `cvlr cluster -i long_reads.fastq -o clusters/ --kmer-size 15`
+**Explanation:** Cluster long reads using k-mer based similarity.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Generate visualization
+**Args:** `cvlr visualize -i clusters.txt -o plot.png --method umap`
+**Explanation:** Generate UMAP visualization of read clusters.
+
+### Evaluate cluster quality
+**Args:** `cvlr evaluate -i clusters.txt -o quality_report.txt`
+**Explanation:** Generate quality metrics for clustering results.

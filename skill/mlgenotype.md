@@ -2,29 +2,47 @@
 name: mlgenotype
 category: variant-calling
 description: A package with utilities for training random forest classifiers to recognize SVs in short read datasets
-tags: [mlgenotype, variant-calling]
+tags: [mlgenotype, variant-calling, machine-learning]
 author: oxo-call-community
 source_url: "https://github.com/nhansen/mlgenotype"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mlgenotype v0.1.12 - A package with utilities for training random forest classifiers to recognize SVs in short read datasets.
-- **Core Function**: A package with utilities for training random forest classifiers to recognize SVs in short read datasets
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mlgenotype`
+- **Tool Overview**: mlgenotype v0.1.12 trains random forest classifiers for SV detection.
+- **Core Function**: Uses machine learning to recognize structural variants.
+- **Random Forest**: Implements ensemble learning for SV classification.
+- **Short Read Data**: Optimized for short-read sequencing data.
+- **Input/Output**: Accepts aligned reads; outputs SV predictions.
+- **Variant Classification**: Supports supervised learning for SV detection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Training Data**: Requires labeled training data.
+- **Computational Resources**: Training classifiers may require significant resources.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal performance.
+- **Data Quality**: Results depend on input alignment quality.
+- **Model Overfitting**: May overfit to training data.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Train classifier
+**Args:** `mlgenotype train -t training_data.bam -l labels.txt -o model.pkl`
+**Explanation:** Trains random forest classifier.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Predict SVs
+**Args:** `mlgenotype predict -i test_data.bam -m model.pkl -o sv_predictions.vcf`
+**Explanation:** Predicts structural variants.
+
+### Feature extraction
+**Args:** `mlgenotype extract -i data.bam -o features.csv`
+**Explanation:** Extracts features for training.
+
+### Model evaluation
+**Args:** `mlgenotype evaluate -m model.pkl -t test_data.bam -l test_labels.txt`
+**Explanation:** Evaluates model performance.
+
+### Batch processing
+**Args:** `mlgenotype predict -i bam/ -m model.pkl -o predictions/`
+**Explanation:** Processes multiple BAM files.

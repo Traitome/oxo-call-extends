@@ -1,31 +1,56 @@
 ---
 name: revtrans
 category: alignment
-description: revtrans - performs a reverse translation of a peptide alignment.
-tags: ["revtrans", "alignment"]
+description: RevTrans performs reverse translation of peptide alignments to nucleotide sequences.
+tags: [revtrans, alignment, reverse-translation, bioinformatics]
 author: oxo-call-community
 source_url: "http://www.cbs.dtu.dk/services/RevTrans-2.0/web/download.php"
 ---
 
 ## Concepts
 
-- **Tool Overview**: revtrans - performs a reverse translation of a peptide alignment. (version 1.4)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda revtrans`
+- **Tool Overview**: revtrans reverse translates.
+- **Core Function**: Peptide to nucleotide translation.
+- **Algorithm**: Uses codon table methods.
+- **Input Format**: Accepts peptide alignments.
+- **Output**: Produces nucleotide alignments.
+- **Use Case**: Sequence analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large alignments require memory.
+- **Codon Usage**: Affects translation.
+- **Parameters**: Must be configured.
+- **Runtime**: Translation may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `revtrans -h`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Reverse translate
+**Args:** `revtrans -i peptide.fasta -o nucleotide.fasta`
+**Explanation:** Reverse translates peptide alignment.
 
+### With parameters
+**Args:** `revtrans -i peptide.fasta -p params.txt -o nucleotide.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `revtrans -v -i peptide.fasta -o nucleotide.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `revtrans -t 4 -i peptide.fasta -o nucleotide.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With codon table
+**Args:** `revtrans -i peptide.fasta -c table.txt -o nucleotide.fasta`
+**Explanation:** Uses custom codon table.
+
+### Generate report
+**Args:** `revtrans -i peptide.fasta -o nucleotide.fasta --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,43 @@
 ---
 name: genie
-category: programming
-description: A toolkit for working with next-generation sequencing data
-tags: [genie, programming]
+category: sequencing
+description: Genie - A toolkit for working with next-generation sequencing data.
+tags: [genie, sequencing, ngs, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/sakkayaphab/genie"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genie (v0.7.0) - A toolkit for working with next-generation sequencing data
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genie`
+- **NGS Data Processing**: Processes next-generation sequencing data.
+- **Quality Control**: Performs quality control on sequencing data.
+- **Alignment Processing**: Handles sequence alignment data.
+- **Variant Calling**: Supports variant calling workflows.
+- **Data Analysis**: Analyzes sequencing data for biological insights.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Volume**: Requires handling large volumes of sequencing data.
+- **Memory Usage**: Large datasets require significant memory.
+- **Computational Time**: Processing time increases with dataset size.
+- **Format Compatibility**: Requires specific input formats.
+- **Quality Thresholds**: Requires careful quality threshold setting.
 
 ## Examples
+### Process sequencing data
+**Args:** `genie process -i reads.fastq -o processed/`
+**Explanation:** Processes raw sequencing data.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Quality control
+**Args:** `genie qc -i reads.fastq -o qc_report.html`
+**Explanation:** Performs quality control and generates report.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Align reads
+**Args:** `genie align -i reads.fastq -r genome.fasta -o aligned.bam`
+**Explanation:** Aligns reads to reference genome.
+
+### Call variants
+**Args:** `genie call -i aligned.bam -r genome.fasta -o variants.vcf`
+**Explanation:** Calls variants from aligned reads.
+
+### Batch processing
+**Args:** `genie batch -i ./fastq_files/ -o ./results/`
+**Explanation:** Processes multiple sequencing files in batch.

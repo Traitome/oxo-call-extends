@@ -1,22 +1,56 @@
 ---
 name: pblat
 category: utility
-description: blat with multi-threads support
-tags: [pblat, utility]
+description: pblat provides BLAT alignment with multi-threading support.
+tags: [pblat, utility, alignment, blat]
 author: oxo-call-community
 source_url: "https://icebert.github.io/pblat"
 ---
 
 ## Concepts
-- **Tool Overview**: blat with multi-threads support
-- **Core Function**: blat with multi-threads support
-- **Input/Output**: FASTQ
-- **Installation**: `conda install -c bioconda pblat`
+
+- **Tool Overview**: pblat aligns sequences using BLAT.
+- **Core Function**: Performs fast sequence alignment.
+- **Algorithm**: Uses BLAT algorithm with parallel processing.
+- **Input Format**: Accepts FASTA/FASTQ sequences.
+- **Output**: Produces alignment files (PSL format).
+- **Use Case**: Sequence alignment, genome mapping.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large genomes require memory.
+- **Alignment Sensitivity**: May miss some alignments.
+- **Computational Cost**: Parallel processing improves speed.
+- **Runtime**: Depends on genome size and thread count.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `pblat --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Align sequences
+**Args:** `pblat database.fasta query.fasta output.psl`
+**Explanation:** Aligns query to database.
+
+### With threads
+**Args:** `pblat -threads=8 database.fasta query.fasta output.psl`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Verbose mode
+**Args:** `pblat -verbose database.fasta query.fasta output.psl`
+**Explanation:** Runs with verbose output.
+
+### Output format
+**Args:** `pblat -out=blast8 database.fasta query.fasta output.blast8`
+**Explanation:** Outputs in BLAST-8 format.
+
+### Fine alignment
+**Args:** `pblat -fine database.fasta query.fasta output.psl`
+**Explanation:** Uses fine alignment mode.
+
+### Min identity
+**Args:** `pblat -minIdentity=90 database.fasta query.fasta output.psl`
+**Explanation:** Sets minimum identity threshold.

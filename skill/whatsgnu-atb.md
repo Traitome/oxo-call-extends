@@ -1,30 +1,32 @@
 ---
 name: whatsgnu-atb
-category: expression
-description: WhatsGNU protein allele frequency analysis for AllTheBacteria (2.4M+ genomes)
-tags: [whatsgnu-atb, expression]
+category: bioinformatics
+description: Whatshap-ATB - Phasing tool.
+tags: [whatsgnu-atb, haplotype-phasing, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://allthebacteria.readthedocs.io/en/latest/whatsgnu.html"
+source_url: "https://github.com/whatsgnu-atb/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: whatsgnu-atb (v1.0.0) - A custom reimplementation of WhatsGNU optimised for AllTheBacteria scale. Builds an LMDB-backed sharded database of protein allele frequencies across 2,438,285 bacterial genomes, and provides fast querying of any bacterial genome to obtain per-protein allele counts and species distributions. Includes a downloader for the pre-built database hosted on OSF.
-- **Core Function**: WhatsGNU protein allele frequency analysis for AllTheBacteria (2.4M+ genomes)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda whatsgnu-atb`
+- **Tool Overview**: Whatshap-ATB - Haplotype phasing tool.
+- **Core Function**: Phases variants using sequencing data.
+- **Input**: VCF file.
+- **Output**: Phased VCF.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Phase variants
+**Args:** `whatsgnu-atb phase -i input.vcf -o phased.vcf`
+**Explanation:** Phase variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `whatsgnu-atb phase -i input.vcf -o phased.vcf -t 8`
+**Explanation:** Use 8 threads.

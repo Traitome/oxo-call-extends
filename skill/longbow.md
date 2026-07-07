@@ -1,30 +1,52 @@
 ---
 name: longbow
-category: variant-calling
-description: A Python program for nanopore sequencing basecalling configuration prediction
-tags: [longbow, variant-calling]
+category: sequencing
+description: Longbow - Nanopore sequencing basecalling configuration prediction
+tags: [longbow, sequencing, nanopore, basecalling, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/JMencius/longbow"
 ---
 
 ## Concepts
 
-- **Tool Overview**: longbow v2.3.1 - A Python program for nanopore sequencing basecalling configuration prediction.
-- **Core Function**: A Python program for nanopore sequencing basecalling configuration prediction
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda longbow`
+- **Nanopore Sequencing**: Oxford Nanopore sequencing data analysis
+- **Basecalling**: Converting raw signal to nucleotide sequences
+- **Configuration Prediction**: Predicting optimal basecalling parameters
+- **Signal Analysis**: Analyzing raw nanopore signals
+- **Model Optimization**: Optimizing basecalling models
+- **Quality Control**: Quality control for sequencing data
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Signal Quality**: Poor signal quality affects prediction
+- **Model Compatibility**: Model must be compatible with basecaller
+- **Computational Time**: May be slow for large datasets
+- **Memory Usage**: Memory-intensive for large datasets
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Predictions**: May produce incorrect configuration predictions
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Predict configuration
+**Args:** `longbow predict --input raw_signal.fast5 --output config.json`
+**Explanation:** Predicts basecalling configuration from raw signal.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Model file
+**Args:** `longbow predict --input raw_signal.fast5 --model model.pt --output config.json`
+**Explanation:** Uses custom model for prediction.
+
+### Batch processing
+**Args:** `longbow predict --input directory/ --output configs/`
+**Explanation:** Processes multiple files in batch.
+
+### Threads
+**Args:** `longbow predict --input raw_signal.fast5 --output config.json --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Verbose output
+**Args:** `longbow predict --input raw_signal.fast5 --output config.json --verbose`
+**Explanation:** Provides detailed output.
+
+### Version check
+**Args:** `longbow --version`
+**Explanation:** Shows version information.

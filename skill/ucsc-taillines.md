@@ -1,30 +1,32 @@
 ---
 name: ucsc-taillines
 category: utility
-description: Add tail to each line of file.
-tags: [ucsc-taillines, utility]
+description: UCSC tailLines - Tool for getting tail lines.
+tags: [ucsc-taillines, ucsc, tail, lines, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-taillines (v482) - Add tail to each line of file.
-- **Core Function**: Add tail to each line of file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-taillines`
+- **Tool Overview**: UCSC tailLines - A tool for getting the last lines of a file.
+- **Core Function**: Extracts the tail end of files.
+- **Input**: Input file.
+- **Output**: Last lines of file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, data analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Line Count**: Requires appropriate line count specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Get tail lines
+**Args:** `tailLines -n=10 input.txt`
+**Explanation:** Get last 10 lines.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `tailLines -n=100 -verbose input.txt`
+**Explanation:** Get last 100 lines with verbose output.

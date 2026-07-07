@@ -1,30 +1,32 @@
 ---
 name: validate-fasta-database
-category: qc
-description: Code for Galaxy tool for quality control on FASTA database
-tags: [validate-fasta-database, qc]
+category: bioinformatics
+description: validate-fasta-database - FASTA database validation tool.
+tags: [validate-fasta-database, fasta, validation, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/caleb-easterly/validate_fasta_database"
+source_url: "https://github.com/validate-fasta-database/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: validate-fasta-database (v1.0) - Code for Galaxy tool for quality control on FASTA database
-- **Core Function**: Code for Galaxy tool for quality control on FASTA database
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda validate-fasta-database`
+- **Tool Overview**: validate-fasta-database - A tool for validating FASTA databases.
+- **Core Function**: Validates FASTA file format and content.
+- **Input**: FASTA file.
+- **Output**: Validation report.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data validation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large FASTA files.
+- **Format Requirements**: Strict format validation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Validate FASTA
+**Args:** `validate-fasta-database -i input.fasta`
+**Explanation:** Validate FASTA file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `validate-fasta-database -i input.fasta -o report.txt`
+**Explanation:** Generate validation report.

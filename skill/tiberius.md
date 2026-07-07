@@ -1,30 +1,32 @@
 ---
 name: tiberius
 category: utility
-description: Tiberius is a deep learning gene-finder.
-tags: [tiberius, utility]
+description: Tiberius - Haplotype-based genetic analysis toolkit.
+tags: [tiberius, haplotype, genetic-analysis, phasing, snp, population]
 author: oxo-call-community
-source_url: "https://github.com/Gaius-Augustus/Tiberius/blob/v1.1.8/README.md"
+source_url: "https://github.com/secureamber/tiberius"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tiberius (v1.1.8) - Tiberius is a deep learning gene-finder.
-- **Core Function**: Tiberius is a deep learning gene-finder.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tiberius`
+- **Tool Overview**: Tiberius - A toolkit for haplotype-based genetic analysis including phasing, imputation, and haplotype clustering.
+- **Core Function**: Performs haplotype phasing, haplotype-aware association testing, and genetic analysis.
+- **Input**: Genotype data (VCF, PED), phenotype information.
+- **Output**: Phased haplotypes, association results, haplotype clusters.
+- **Installation**: `pip install tiberius` or `conda install -c bioconda tiberius`
+- **Use Case**: Population genetics, haplotype analysis, genetic association studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Phase Quality**: Phasing accuracy depends on sample size and linkage disequilibrium patterns.
+- **Computation**: Haplotype analysis can be computationally intensive for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Phase haplotypes
+**Args:** `tiberius phase -i genotypes.vcf -o phased_haplotypes/`
+**Explanation:** Phase genotypes into haplotypes.
 
-### Basic usage
-**Args:** `tiberius -i <input_file> -o <output_file>`
-**Explanation:** Run tiberius with typical input and output options.
+### Association testing
+**Args:** `tiberius assoc -h haplotypes -p phenotype.txt -o results/`
+**Explanation:** Perform haplotype-based association testing.

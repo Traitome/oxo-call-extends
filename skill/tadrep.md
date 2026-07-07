@@ -1,12 +1,11 @@
 ---
 name: tadrep
 category: utility
-description: TaDRep: Targeted Detection and Reconstruction of Plasmids
+description: "TaDRep: Targeted Detection and Reconstruction of Plasmids"
 tags: [tadrep, utility]
 author: oxo-call-community
 source_url: "https://github.com/oschwengers/tadrep/blob/main/README.md"
 ---
-
 ## Concepts
 
 - **Tool Overview**: tadrep (v0.9.2) - TaDRep: Targeted Detection and Reconstruction of Plasmids

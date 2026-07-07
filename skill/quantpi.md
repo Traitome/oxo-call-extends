@@ -1,31 +1,56 @@
 ---
 name: quantpi
 category: metagenomics
-description: A general profiling system focus on robust microbiome research
-tags: ["quantpi", "metagenomics"]
+description: QuantPI is a general profiling system focused on robust microbiome research and metagenomic analysis.
+tags: [quantpi, metagenomics, microbiome, profiling]
 author: oxo-call-community
 source_url: "https://github.com/ohmeta/quantpi"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A general profiling system focus on robust microbiome research (version 1.0.0)
-- **Core Function**: Processes bioinformatics data related to metagenomics
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda quantpi`
+- **Tool Overview**: quantpi profiles microbiomes.
+- **Core Function**: Metagenomic analysis.
+- **Algorithm**: Uses various methods.
+- **Input Format**: Accepts sequencing data.
+- **Output**: Produces profiles.
+- **Use Case**: Microbiomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Reference Database**: Must be correct.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `quantpi --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Run profiling
+**Args:** `quantpi profile -i reads.fastq -o profile.txt`
+**Explanation:** Profiles microbiome composition.
 
+### With parameters
+**Args:** `quantpi profile -i reads.fastq -p params.yaml -o profile.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `quantpi -v profile -i reads.fastq -o profile.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `quantpi -t 4 profile -i reads.fastq -o profile.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With reference
+**Args:** `quantpi profile -i reads.fastq -d database/ -o profile.txt`
+**Explanation:** Uses custom database.
+
+### Generate report
+**Args:** `quantpi profile -i reads.fastq -o profile.txt --report report.html`
+**Explanation:** Generates HTML report.

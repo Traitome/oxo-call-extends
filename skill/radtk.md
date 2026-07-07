@@ -1,31 +1,56 @@
 ---
 name: radtk
 category: utility
-description: A collection of tools for working with RAD files.
-tags: ["radtk", "utility"]
+description: RADTK is a collection of tools for working with RAD (Random Amplified Polymorphic DNA) files and data.
+tags: [radtk, utility, rad-seq, genotyping]
 author: oxo-call-community
 source_url: "https://github.com/COMBINE-lab/radtk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A collection of tools for working with RAD files. (version 0.2.0)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda radtk`
+- **Tool Overview**: radtk processes RAD data.
+- **Core Function**: RAD data analysis.
+- **Algorithm**: Uses genotyping methods.
+- **Input Format**: Accepts RAD files.
+- **Output**: Produces genotypes.
+- **Use Case**: Population genetics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **File Format**: Must be correct.
+- **Parameters**: Must be configured.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `radtk --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Process RAD data
+**Args:** `radtk process -i rad_data.txt -o genotypes.txt`
+**Explanation:** Processes RAD data.
 
+### With parameters
+**Args:** `radtk process -i rad_data.txt -p params.yaml -o genotypes.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `radtk -v process -i rad_data.txt -o genotypes.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `radtk -t 4 process -i rad_data.txt -o genotypes.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Filter loci
+**Args:** `radtk filter -i rad_data.txt -m 10 -o filtered.txt`
+**Explanation:** Filters loci by minimum count.
+
+### Generate report
+**Args:** `radtk process -i rad_data.txt -o genotypes.txt --report report.html`
+**Explanation:** Generates HTML report.

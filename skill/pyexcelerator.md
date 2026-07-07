@@ -1,31 +1,56 @@
 ---
 name: pyexcelerator
 category: utility
-description: generating Excel 97+ files; importing Excel 95+ files; Excel files dumper; OLE2 files dumper; xls2txt, xls2csv, xls2html
-tags: ["pyexcelerator", "utility", "csv"]
+description: pyexcelerator is a Python library for generating and importing Excel 97+ files.
+tags: [pyexcelerator, utility, excel, spreadsheet]
 author: oxo-call-community
 source_url: "http://sourceforge.net/projects/pyexcelerator/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: generating Excel 97+ files; importing Excel 95+ files; Excel files dumper; OLE2 files dumper; xls2txt, xls2csv, xls2html (version 0.6.4a)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pyexcelerator`
+- **Tool Overview**: pyexcelerator handles Excel files.
+- **Core Function**: Excel file processing.
+- **Algorithm**: Uses OLE2 format.
+- **Input Format**: Accepts Excel files.
+- **Output**: Produces Excel/CSV files.
+- **Use Case**: Data conversion.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large files require memory.
+- **Format Limitations**: Excel 97+ only.
+- **Data Integrity**: May have compatibility issues.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pyexcelerator --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Convert XLS to CSV
+**Args:** `pyexcelerator xls2csv -i data.xls -o data.csv`
+**Explanation:** Converts Excel to CSV format.
 
+### With parameters
+**Args:** `pyexcelerator xls2csv -i data.xls -p params.yaml -o data.csv`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pyexcelerator -v xls2csv -i data.xls -o data.csv`
+**Explanation:** Runs with verbose output.
+
+### XLS to TXT
+**Args:** `pyexcelerator xls2txt -i data.xls -o data.txt`
+**Explanation:** Converts Excel to text.
+
+### XLS to HTML
+**Args:** `pyexcelerator xls2html -i data.xls -o data.html`
+**Explanation:** Converts Excel to HTML table.
+
+### Generate report
+**Args:** `pyexcelerator xls2csv -i data.xls -o data.csv --report report.html`
+**Explanation:** Generates HTML report.

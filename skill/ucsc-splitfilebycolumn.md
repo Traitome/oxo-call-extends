@@ -1,30 +1,32 @@
 ---
 name: ucsc-splitfilebycolumn
 category: utility
-description: Split text input into files named by column value.
-tags: [ucsc-splitfilebycolumn, utility]
+description: UCSC splitFileByColumn - Tool for splitting files by column.
+tags: [ucsc-splitfilebycolumn, ucsc, split, column, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-splitfilebycolumn (v482) - Split text input into files named by column value.
-- **Core Function**: Split text input into files named by column value.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-splitfilebycolumn`
+- **Tool Overview**: UCSC splitFileByColumn - A tool for splitting files by column values.
+- **Core Function**: Splits a file into multiple files based on column values.
+- **Input**: Input file, column index.
+- **Output**: Multiple output files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data partitioning, group processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Column Index**: Requires correct column specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Split file by column
+**Args:** `splitFileByColumn -col=2 input.txt`
+**Explanation:** Split file by column 2.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `splitFileByColumn -col=2 -verbose input.txt`
+**Explanation:** Split with verbose output.

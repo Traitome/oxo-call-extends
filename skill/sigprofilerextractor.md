@@ -1,30 +1,56 @@
 ---
 name: sigprofilerextractor
 category: utility
-description: Extracts mutational signatures from mutational catalogues.
-tags: [sigprofilerextractor, utility]
+description: SigProfilerExtractor - Extracts mutational signatures from catalogues
+tags: ["sigprofilerextractor", "utility", "mutational-signature", "extraction"]
 author: oxo-call-community
 source_url: "https://github.com/AlexandrovLab/SigProfilerExtractor"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sigprofilerextractor (v1.2.6) - Extracts mutational signatures from mutational catalogues.
-- **Core Function**: Extracts mutational signatures from mutational catalogues.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sigprofilerextractor`
+- **Tool Overview**: SigProfilerExtractor (v1.2.6) extracts mutational signatures from catalogs.
+- **Core Function**: Identifies novel mutational signatures from mutation data.
+- **Algorithm**: Uses non-negative matrix factorization for signature extraction.
+- **Input/Output**: Accepts VCF/MAF files and produces signature profiles.
+- **Signature Discovery**: Specialized for de novo signature identification.
+- **Applications**: Cancer genomics, mutational process characterization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Parameter Tuning**: Requires careful adjustment of signature number.
+- **Input Quality**: Results depend on mutation calling quality.
+- **Computational Resources**: May require significant compute resources.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some advanced features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract signatures
+**Args:** `sigprofilerextractor -i mutations.maf -o signatures/`
+**Explanation:** `-i` input MAF file; `-o` output directory.
 
-### Basic usage
-**Args:** `sigprofilerextractor -i <input_file> -o <output_file>`
-**Explanation:** Run sigprofilerextractor with typical input and output options.
+### With signature number
+**Args:** `sigprofilerextractor -i mutations.maf -n 5 -o signatures/`
+**Explanation:** `-n 5` extract 5 signatures.
+
+### With COSMIC signatures
+**Args:** `sigprofilerextractor -i mutations.maf -c -o signatures/`
+**Explanation:** `-c` use COSMIC reference signatures.
+
+### Help command
+**Args:** `sigprofilerextractor --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sigprofilerextractor --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `sigprofilerextractor -v -i mutations.maf -o signatures/`
+**Explanation:** `-v` verbose output.
+
+### Bootstrap mode
+**Args:** `sigprofilerextractor -i mutations.maf -b -o signatures/`
+**Explanation:** `-b` enable bootstrap analysis.

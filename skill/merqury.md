@@ -1,30 +1,48 @@
 ---
 name: merqury
 category: assembly
-description: Evaluate genome assemblies with k-mers and more.
-tags: [merqury, assembly]
+description: Evaluate genome assembly quality using k-mer spectrum analysis.
+tags: [merqury, assembly-validation, k-mer-analysis]
 author: oxo-call-community
 source_url: "https://github.com/marbl/merqury"
 ---
 
 ## Concepts
 
-- **Tool Overview**: merqury v1.3 - Often, genome assembly projects have illumina whole genome sequencing reads available for the assembled individual. The k-mer spectrum of this read set can be used for independently evaluating assembly quality without the need of a high quality reference. Merqury provides a set of tools for this purpose..
-- **Core Function**: Evaluate genome assemblies with k-mers and more.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: Merqury evaluates genome assemblies using k-mer analysis.
+- **Core Function**: Assembly quality assessment without reference.
+- **k-mer Spectrum**: Uses k-mer frequencies for evaluation.
+- **Quality Metrics**: Computes QV and completeness metrics.
+- **Reference-free**: Works without reference genome.
 - **Installation**: `conda install -c bioconda merqury`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Requirements**: High memory for large k-mer databases.
+- **Computation Time**: Slow for large datasets.
+- **k-mer Selection**: k-mer size affects results.
+- **Illumina Data**: Requires Illumina sequencing data.
+- **Parameter Tuning**: Requires careful configuration.
+- **Output Interpretation**: Complex results require expertise.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Evaluate assembly
+**Args:** `merqury.sh assembly.fasta kmer_db.meryl prefix`
+**Explanation:** Evaluates assembly quality.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Build k-mer database
+**Args:** `meryl count k=21 output kmer_db.meryl reads.fastq`
+**Explanation:** Builds k-mer database from reads.
+
+### Compute QV
+**Args:** `merqury qv assembly.fasta kmer_db.meryl -o qv.txt`
+**Explanation:** Computes quality value.
+
+### Plot k-mer spectrum
+**Args:** `merqury plot kmer_db.meryl -o spectrum.pdf`
+**Explanation:** Generates k-mer spectrum plot.
+
+### Help documentation
+**Args:** `merqury.sh --help`
+**Explanation:** Displays available options.

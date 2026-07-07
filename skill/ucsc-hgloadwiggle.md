@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadwiggle
 category: utility
-description: Load a wiggle track definition into database.
-tags: [ucsc-hgloadwiggle, utility]
+description: UCSC hgLoadWiggle - Tool for loading wiggle data into database.
+tags: [ucsc-hgloadwiggle, ucsc, database, wiggle, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadwiggle (v482) - Load a wiggle track definition into database.
-- **Core Function**: Load a wiggle track definition into database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadwiggle`
+- **Tool Overview**: UCSC hgLoadWiggle - A tool for loading wiggle data into database.
+- **Core Function**: Loads wiggle track data into genome browser database.
+- **Input**: Wiggle file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, visualization, epigenomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load wiggle data
+**Args:** `hgLoadWiggle -db=hg38 -table=wiggle input.wig`
+**Explanation:** Load wiggle data to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadWiggle -db=hg38 -table=wiggle -verbose input.wig`
+**Explanation:** Load with verbose output.

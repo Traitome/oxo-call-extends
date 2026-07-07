@@ -1,31 +1,56 @@
 ---
 name: ra-integrate
 category: utility
-description: 
-tags: ["ra-integrate", "utility"]
+description: RA-Integrate integrates multiple RNA-seq analysis results for comprehensive transcriptome analysis.
+tags: [ra-integrate, utility, rna-seq, integration]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/mariokostelac/ra-integrate"
 ---
 
 ## Concepts
 
-- **Tool Overview**:  (version 0.1)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ra-integrate`
+- **Tool Overview**: ra-integrate integrates results.
+- **Core Function**: Result integration.
+- **Algorithm**: Uses statistical methods.
+- **Input Format**: Accepts analysis files.
+- **Output**: Produces integrated results.
+- **Use Case**: RNA-seq analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **File Format**: Must be correct.
+- **Parameters**: Must be configured.
+- **Runtime**: Integration may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `ra-integrate --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Integrate results
+**Args:** `ra-integrate integrate -i results1.txt,results2.txt -o integrated.txt`
+**Explanation:** Integrates multiple results.
 
+### With parameters
+**Args:** `ra-integrate integrate -i results.txt -p params.yaml -o integrated.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `ra-integrate -v integrate -i results.txt -o integrated.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `ra-integrate -t 4 integrate -i results.txt -o integrated.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With weights
+**Args:** `ra-integrate integrate -i results.txt -w weights.txt -o integrated.txt`
+**Explanation:** Uses weighting scheme.
+
+### Generate report
+**Args:** `ra-integrate integrate -i results.txt -o integrated.txt --report report.html`
+**Explanation:** Generates HTML report.

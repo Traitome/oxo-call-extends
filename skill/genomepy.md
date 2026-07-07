@@ -1,30 +1,43 @@
 ---
 name: genomepy
-category: annotation
-description: Install and use genomes & gene annotations the easy way!
-tags: [genomepy, annotation]
+category: genome-management
+description: genomepy - Install and use genomes & gene annotations the easy way!
+tags: [genomepy, genome-management, annotations, bioinformatics]
 author: oxo-call-community
 source_url: "https://vanheeringen-lab.github.io/genomepy"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genomepy (v0.16.3) - Install and use genomes & gene annotations the easy way!
-- **Core Function**: Provides functionality for annotation tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genomepy`
+- **Genome Installation**: Simplifies genome download and installation.
+- **Annotation Management**: Manages gene annotations.
+- **Data Integration**: Integrates genome data from multiple sources.
+- **Genome Indexing**: Creates indexes for various tools.
+- **Workflow Integration**: Integrates with bioinformatics workflows.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Network Dependency**: Requires network for genome downloads.
+- **Storage Requirements**: Large genomes require significant storage.
+- **Version Compatibility**: Requires compatible tool versions.
+- **Data Integrity**: Requires data validation after download.
+- **Configuration Complexity**: May require complex configuration.
 
 ## Examples
+### Install genome
+**Args:** `genomepy install hg38 -d ./genomes/`
+**Explanation:** Installs hg38 genome to specified directory.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### List available genomes
+**Args:** `genomepy search -k human`
+**Explanation:** Searches for human genomes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Create index
+**Args:** `genomepy index -g genome.fasta -b bowtie2`
+**Explanation:** Creates Bowtie2 index for genome.
+
+### Download annotations
+**Args:** `genomepy install hg38 --annotation -d ./genomes/`
+**Explanation:** Downloads genome with annotations.
+
+### Batch installation
+**Args:** `genomepy install -l genomes.txt -d ./genomes/`
+**Explanation:** Installs multiple genomes from list.

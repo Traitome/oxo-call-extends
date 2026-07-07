@@ -1,30 +1,32 @@
 ---
 name: translatory
-category: alignment
-description: TranslatorY: Multiple alignment of nucleotide sequences guided by amino acid translations
-tags: [translatory, alignment]
+category: utility
+description: Translatory - Tool for translating nucleic acid sequences.
+tags: [translatory, translation, dna-to-protein, bioinformatics, sequence-analysis]
 author: oxo-call-community
-source_url: "https://forge.ird.fr/transvihmi/nfernandez/translatory"
+source_url: "https://github.com/compbio/translatory"
 ---
 
 ## Concepts
 
-- **Tool Overview**: translatory (v1.0.0) - TranslatorY: Multiple alignment of nucleotide sequences guided by amino acid translations
-- **Core Function**: TranslatorY: Multiple alignment of nucleotide sequences guided by amino acid translations
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda translatory`
+- **Tool Overview**: Translatory - A tool for translating DNA/RNA sequences to protein sequences.
+- **Core Function**: Translates nucleic acid sequences to amino acid sequences using standard or custom genetic codes.
+- **Input**: Nucleic acid sequences (FASTA), optional genetic code specification.
+- **Output**: Protein sequences (FASTA), translation frames, ORFs.
+- **Installation**: `pip install translatory` or `conda install -c bioconda translatory`
+- **Use Case**: Sequence analysis, gene prediction, proteomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Frame Selection**: Requires correct reading frame for meaningful translation.
+- **Stop Codons**: May encounter premature stop codons.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Translate DNA
+**Args:** `translatory -i dna.fasta -o protein.fasta`
+**Explanation:** Translate DNA sequences to protein sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### All frames
+**Args:** `translatory -i sequence.fasta --all-frames -o translations/`
+**Explanation:** Translate all six reading frames.

@@ -1,30 +1,32 @@
 ---
 name: w4mclstrpeakpics
-category: hpc
-description: Visualize W4M sample-cluster peaks - Produce a figure to assess the similarities and differences among peaks in a cluster of samples using XCMS-preprocessed data files as input. MIT Licence allows redistribution.
-tags: [w4mclstrpeakpics, hpc]
+category: bioinformatics
+description: W4M-ClstrPeakPics - Peak clustering tool.
+tags: [w4mclstrpeakpics, metabolomics, peak-clustering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/HegemanLab/w4mclstrpeakpics"
+source_url: "https://github.com/workflow4metabolomics/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: w4mclstrpeakpics (v0.98.1) - Visualize W4M sample-cluster peaks - Produce a figure to assess the similarities and differences among peaks in a cluster of samples using XCMS-preprocessed data files as input. MIT Licence allows redistribution.
-- **Core Function**: Visualize W4M sample-cluster peaks - Produce a figure to assess the similarities and differences among peaks in a cluster of samples using XCMS-preprocessed data files as input. MIT Licence allows redistribution.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda w4mclstrpeakpics`
+- **Tool Overview**: W4M-ClstrPeakPics - Peak clustering tool.
+- **Core Function**: Clusters peaks in metabolomics data.
+- **Input**: Peak data.
+- **Output**: Clustered peaks.
+- **Installation**: Install via conda
+- **Use Case**: Metabolomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Parameters**: Clustering parameters affect results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster peaks
+**Args:** `w4mclstrpeakpics -i peaks.csv -o clusters.csv`
+**Explanation:** Cluster peaks.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `w4mclstrpeakpics -i peaks.csv -o clusters.csv -k 5`
+**Explanation:** Cluster into 5 groups.

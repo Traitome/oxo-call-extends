@@ -1,30 +1,56 @@
 ---
 name: simscsntree
-category: population-genomics
-description: Simulating single cell sequencing data
-tags: [simscsntree, population-genomics]
+category: single-cell
+description: SimSCSnTree - Simulating single cell sequencing data
+tags: ["simscsntree", "single-cell", "simulation", "sequencing"]
 author: oxo-call-community
 source_url: "https://github.com/compbiofan/SimSCSnTree"
 ---
 
 ## Concepts
 
-- **Tool Overview**: simscsntree (v0.0.9) - Simulating single cell sequencing data
-- **Core Function**: Simulating single cell sequencing data
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda simscsntree`
+- **Tool Overview**: SimSCSnTree (v0.0.9) simulates single-cell sequencing data.
+- **Core Function**: Generates synthetic single-cell sequencing reads.
+- **Algorithm**: Uses tree-based simulation approach for single-cell data.
+- **Input/Output**: Accepts tree structure and produces simulated reads.
+- **Single-cell Simulation**: Specialized for single-cell sequencing simulation.
+- **Applications**: Algorithm testing, benchmarking, method development.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large simulations.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for realistic simulation.
+- **Input Quality**: Results depend on input tree quality.
+- **Version Compatibility**: Early development stage, API may change.
+- **Documentation**: Limited documentation available.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simulate reads
+**Args:** `simscsntree -t tree.nwk -o simulated_reads/`
+**Explanation:** `-t` input tree; `-o` output directory.
 
-### Basic usage
-**Args:** `simscsntree -i <input.vcf> -o <output_dir>`
-**Explanation:** Run simscsntree with typical input and output options.
+### With mutation rate
+**Args:** `simscsntree -t tree.nwk -m 0.01 -o simulated_reads/`
+**Explanation:** `-m 0.01` mutation rate.
+
+### With depth
+**Args:** `simscsntree -t tree.nwk -d 10 -o simulated_reads/`
+**Explanation:** `-d 10` sequencing depth.
+
+### Help command
+**Args:** `simscsntree --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `simscsntree --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `simscsntree -v -t tree.nwk -o simulated_reads/`
+**Explanation:** `-v` verbose output.
+
+### With configuration
+**Args:** `simscsntree -c config.yaml -o simulated_reads/`
+**Explanation:** `-c` configuration file.

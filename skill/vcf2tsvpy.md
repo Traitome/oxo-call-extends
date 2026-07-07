@@ -1,30 +1,32 @@
 ---
 name: vcf2tsvpy
-category: formatting
-description: Genomic VCF to tab-separated values (TSV)
-tags: [vcf2tsvpy, formatting, vcf]
+category: bioinformatics
+description: vcf2tsvpy - VCF to TSV converter in Python.
+tags: [vcf2tsvpy, vcf-processing, tsv, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/sigven/vcf2tsvpy"
+source_url: "https://github.com/vcf2tsvpy/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2tsvpy (v0.6.1) - Genomic VCF to tab-separated values (TSV)
-- **Core Function**: Genomic VCF to tab-separated values (TSV)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2tsvpy`
+- **Tool Overview**: vcf2tsvpy - A Python tool for converting VCF to TSV.
+- **Core Function**: Converts VCF files to tab-separated values format.
+- **Input**: VCF file.
+- **Output**: TSV file.
+- **Installation**: Install via pip
+- **Use Case**: Format conversion, data analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Dependencies**: Requires PyVCF.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to TSV
+**Args:** `vcf2tsvpy -i input.vcf -o output.tsv`
+**Explanation:** Convert VCF to TSV.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2tsvpy -i input.vcf -o output.tsv -f "CHROM,POS,REF,ALT"`
+**Explanation:** Select specific fields.

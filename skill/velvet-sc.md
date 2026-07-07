@@ -1,30 +1,32 @@
 ---
 name: velvet-sc
-category: assembly
-description: Efficient de novo assembly of single-cell bacterial genomes from short-read data sets
-tags: [velvet-sc, assembly]
+category: bioinformatics
+description: Velvet-SC - Single-cell sequence assembler.
+tags: [velvet-sc, sequence-assembly, single-cell, bioinformatics]
 author: oxo-call-community
-source_url: "http://bix.ucsd.edu/projects/singlecell/"
+source_url: "https://github.com/dzerbino/velvet"
 ---
 
 ## Concepts
 
-- **Tool Overview**: velvet-sc (v0.7.62) - Efficient de novo assembly of single-cell bacterial genomes from short-read data sets
-- **Core Function**: Efficient de novo assembly of single-cell bacterial genomes from short-read data sets
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda velvet-sc`
+- **Tool Overview**: Velvet-SC - Single-cell sequence assembler.
+- **Core Function**: Assembles single-cell sequencing reads.
+- **Input**: FASTQ files from single cells.
+- **Output**: Assembled contigs.
+- **Installation**: Install via conda or source
+- **Use Case**: Single-cell genome assembly, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Coverage**: Low coverage may affect assembly quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Assemble single-cell reads
+**Args:** `velveth sc_output 27 -shortPaired cell_reads.fastq`
+**Explanation:** Prepare single-cell assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `velvetg sc_output -exp_cov auto`
+**Explanation:** Generate contigs with auto coverage.

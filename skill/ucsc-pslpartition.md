@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslpartition
 category: utility
-description: Split PSL files into non-overlapping sets.
-tags: [ucsc-pslpartition, utility]
+description: UCSC pslPartition - Tool for partitioning PSL alignments.
+tags: [ucsc-pslpartition, ucsc, psl, partition, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslpartition (v482) - Split PSL files into non-overlapping sets.
-- **Core Function**: Split PSL files into non-overlapping sets.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslpartition`
+- **Tool Overview**: UCSC pslPartition - A tool for partitioning PSL alignments.
+- **Core Function**: Partitions alignments into subsets.
+- **Input**: PSL file.
+- **Output**: Partitioned PSL files.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data partitioning, parallel processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Partition PSL alignments
+**Args:** `pslPartition -numParts=4 input.psl`
+**Explanation:** Partition into 4 parts.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslPartition -numParts=4 -verbose input.psl`
+**Explanation:** Partition with verbose output.

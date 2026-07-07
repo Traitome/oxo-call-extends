@@ -1,30 +1,44 @@
 ---
 name: clair3-trio
 category: variant-calling
-description: Clair3-Trio is a variants caller tailored for family trios from nanopore long-reads. Clair3-Trio employs a Trio-to-Trio deep neural network model that allows it to input all trio’s sequencing information and output all trio’s predicted variants within a single model, to perform far better variant calling. We also present MCVLoss, the first loss function that can improve variants calling in trios by leveraging the explicitly encoding of the priors of the Mendelian inheritance in trios. Clair3-Trio showed comprehensive improvement in experiments. It predicted much fewer Mendelian inheritance violation variations than current state-of-the-art methods.
-tags: [clair3-trio, variant-calling]
+description: Deep learning-based variant caller for family trios from nanopore long-reads
+tags: [clair3-trio, variant-calling, long-reads, trio, deep-learning, mendelian-inheritance]
 author: oxo-call-community
 source_url: "https://github.com/HKU-BAL/Clair3-Trio"
 ---
 
 ## Concepts
 
-- **Tool Overview**: clair3-trio (v0.7) - Clair3-Trio is a variants caller tailored for family trios from nanopore long-reads. Clair3-Trio employs a Trio-to-Trio deep neural network model that allows it to input all trio’s sequencing information and output all trio’s predicted variants within a single model, to perform far better variant calling. We also present MCVLoss, the first loss function that can improve variants calling in trios by leveraging the explicitly encoding of the priors of the Mendelian inheritance in trios. Clair3-Trio showed comprehensive improvement in experiments. It predicted much fewer Mendelian inheritance violation variations than current state-of-the-art methods.
-- **Core Function**: Clair3-Trio is a variants caller tailored for family trios from nanopore long-reads. Clair3-Trio employs a Trio-to-Trio deep neural network model that allows it to input all trio’s sequencing information and output all trio’s predicted variants within a single model, to perform far better variant calling. We also present MCVLoss, the first loss function that can improve variants calling in trios by leveraging the explicitly encoding of the priors of the Mendelian inheritance in trios. Clair3-Trio showed comprehensive improvement in experiments. It predicted much fewer Mendelian inheritance violation variations than current state-of-the-art methods.
-- **Input/Output**: FASTA sequence input/output
-- **Installation**: `conda install -c bioconda clair3-trio`
+- **Tool Overview**: Clair3-Trio is a specialized variant caller for family trios using nanopore long-read sequencing data, employing a Trio-to-Trio deep neural network model.
+- **Core Function**: Calls variants from trio sequencing data (father, mother, child) while leveraging Mendelian inheritance priors for improved accuracy.
+- **Algorithm**: Uses MCVLoss (Mendelian Constraint Violation Loss) to explicitly encode inheritance priors, reducing Mendelian violations.
+- **Input**: Aligned BAM files for trio members and reference genome (FASTA).
+- **Output**: VCF file with variant calls for all trio members.
+- **Application**: Family-based variant calling, rare disease research, and population genetics.
+- **Installation**: Install via bioconda: `conda install -c bioconda clair3-trio`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Trio Data Requirement**: Requires complete trio data (father, mother, child).
+- **Model Compatibility**: Designed specifically for ONT long-read data.
+- **Reference Genome**: Must use the same reference genome for all trio members.
+- **Computational Resources**: Requires significant memory and GPU resources.
+- **Alignment Quality**: Depends on accurate alignment of all trio samples.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Call variants from trio data
+**Args:** `run_clair3_trio.sh -b father.bam,mother.bam,child.bam -r reference.fasta -o output_dir`
+**Explanation:** Calls variants from trio ONT sequencing data.
 
-### Basic usage
-**Args:** `-i aligned.bam -r reference.fasta -o variants.vcf`
-**Explanation:** Call variants from aligned reads
+### With GPU acceleration
+**Args:** `run_clair3_trio.sh -b father.bam,mother.bam,child.bam -r reference.fasta -o output_dir --gpu`
+**Explanation:** Uses GPU for faster trio variant calling.
+
+### Targeted sequencing
+**Args:** `run_clair3_trio.sh -b father.bam,mother.bam,child.bam -r reference.fasta -o output_dir --bed targets.bed`
+**Explanation:** Calls variants only in specified genomic regions.
+
+### Display help
+**Args:** `run_clair3_trio.sh --help`
+**Explanation:** Shows all available options and usage information.

@@ -1,30 +1,43 @@
 ---
 name: ghc
-category: utility
-description: 
-tags: [ghc, utility]
+category: compiler
+description: ghc - Glasgow Haskell Compiler for Haskell programming language.
+tags: [ghc, compiler, haskell, programming]
 author: oxo-call-community
-source_url: ""
+source_url: "https://www.haskell.org/ghc/"
 ---
 
 ## Concepts
-
-- **Tool Overview**: ghc (v6.8.3) - 
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda ghc`
+- **Haskell Compiler**: Compiles Haskell programs.
+- **Type System**: Strong static type system.
+- **Lazy Evaluation**: Supports lazy evaluation.
+- **Concurrency**: Supports concurrent programming.
+- **Optimization**: Provides optimizations.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Compilation Time**: May have long compilation times.
+- **Memory Usage**: Requires significant memory.
+- **Dependency Management**: Complex dependency management.
+- **Error Messages**: Type errors may be cryptic.
+- **Learning Curve**: Steep learning curve.
 
 ## Examples
+### Compile program
+**Args:** `ghc -o program Main.hs`
+**Explanation:** Compiles Haskell program.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run interpreter
+**Args:** `ghci Main.hs`
+**Explanation:** Runs GHC interpreter.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Generate documentation
+**Args:** `ghc --make Main.hs && haddock -o doc Main.hs`
+**Explanation:** Generates Haddock documentation.
+
+### With optimization
+**Args:** `ghc -O2 -o program Main.hs`
+**Explanation:** Compiles with optimizations.
+
+### Compile multiple files
+**Args:** `ghc --make Module1.hs Module2.hs -o program`
+**Explanation:** Compiles multiple modules.

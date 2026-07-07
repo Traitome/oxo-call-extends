@@ -1,30 +1,32 @@
 ---
 name: tntblast
-category: utility
-description: Searching DNA/RNA sequence databases with PCR and/or probe queries
-tags: [tntblast, utility]
+category: analysis
+description: TNT-BLAST - Transposon-targeted BLAST search tool.
+tags: [tntblast, blast, transposon, sequence-search, homology]
 author: oxo-call-community
-source_url: "https://github.com/jgans/thermonucleotideBLAST#readme"
+source_url: "https://github.com/compbio/tntblast"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tntblast (v2.77) - Searching DNA/RNA sequence databases with PCR and/or probe queries
-- **Core Function**: Searching DNA/RNA sequence databases with PCR and/or probe queries
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tntblast`
+- **Tool Overview**: TNT-BLAST - A specialized BLAST tool for searching transposon sequences in genomic data.
+- **Core Function**: Performs BLAST searches optimized for transposon detection and analysis.
+- **Input**: Query sequences (FASTA), database sequences, transposon profiles.
+- **Output**: BLAST alignments, transposon matches, annotation results.
+- **Installation**: `pip install tntblast` or `conda install -c bioconda tntblast`
+- **Use Case**: Transposon identification, homology search, genome annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Size**: Large databases require significant memory.
+- **Sensitivity**: Adjust parameters based on expected similarity.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Search transposons
+**Args:** `tntblast -q query.fasta -d genome_db -o blast_results/`
+**Explanation:** Search for transposon sequences in genome database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Custom parameters
+**Args:** `tntblast -q sequence.fasta -d db -e 1e-10 -o sensitive_results/`
+**Explanation:** Perform sensitive BLAST search with custom e-value threshold.

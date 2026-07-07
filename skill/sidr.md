@@ -1,30 +1,56 @@
 ---
 name: sidr
 category: metagenomics
-description: Sequence Idenification using Decision tRees; a tool to classify DNA reads using machine learning models.
-tags: [sidr, metagenomics]
+description: SIDR - Sequence Identification using Decision Trees
+tags: ["sidr", "metagenomics", "classification", "machine-learning"]
 author: oxo-call-community
 source_url: "https://github.com/damurdock/SIDR"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sidr (v0.0.2a2) - Sequence Idenification using Decision tRees; a tool to classify DNA reads using machine learning models.
-- **Core Function**: Sequence Idenification using Decision tRees; a tool to classify DNA reads using machine learning models.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sidr`
+- **Tool Overview**: SIDR (v0.0.2a2) classifies DNA reads using machine learning models.
+- **Core Function**: Identifies organisms from metagenomic sequencing data.
+- **Algorithm**: Uses decision tree-based classification for taxonomic assignment.
+- **Input/Output**: Accepts FASTQ reads and produces taxonomic classification.
+- **Metagenomics Analysis**: Specialized for metagenomic read classification.
+- **Applications**: Microbial community analysis, environmental sequencing, and pathogen detection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Model Training**: Requires training on reference datasets.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Database Requirements**: Requires comprehensive reference database.
+- **Version Compatibility**: Early development stage, API may change.
+- **Documentation**: Limited documentation available.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Classify reads
+**Args:** `sidr -i reads.fastq -d database/ -o results.txt`
+**Explanation:** `-i` input FASTQ; `-d` database directory; `-o` output results.
 
-### Basic usage
-**Args:** `sidr -i <input.fastq> -d <database> -o <output_dir>`
-**Explanation:** Run sidr with typical input and output options.
+### With confidence threshold
+**Args:** `sidr -i reads.fastq -d database/ -c 0.9 -o results.txt`
+**Explanation:** `-c 0.9` confidence threshold.
+
+### Batch processing
+**Args:** `sidr -b batch.txt -d database/ -o results/`
+**Explanation:** `-b` batch file with multiple FASTQ files.
+
+### Help command
+**Args:** `sidr --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sidr --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `sidr -v -i reads.fastq -d database/ -o results.txt`
+**Explanation:** `-v` verbose output.
+
+### Threaded mode
+**Args:** `sidr -t 8 -i reads.fastq -d database/ -o results.txt`
+**Explanation:** `-t 8` uses 8 threads.

@@ -1,30 +1,44 @@
 ---
 name: circos-tools
 category: utility
-description: circos-tools provides several utility add-on scripts, such as for bundling links
-tags: [circos-tools, utility]
+description: Utility add-on scripts for Circos visualization
+tags: [circos-tools, visualization, circos, bioinformatics]
 author: oxo-call-community
 source_url: "http://circos.ca"
 ---
 
 ## Concepts
 
-- **Tool Overview**: circos-tools (v0.23) - circos-tools provides several utility add-on scripts, such as for bundling links
-- **Core Function**: circos-tools provides several utility add-on scripts, such as for bundling links
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda circos-tools`
+- **Tool Overview**: circos-tools provides utility add-on scripts for enhancing Circos visualization workflows.
+- **Core Function**: Includes scripts for bundling links, data manipulation, and preprocessing for Circos plots.
+- **Features**: Link bundling, data transformation, and helper utilities for Circos configuration.
+- **Input**: Various data formats compatible with Circos.
+- **Output**: Processed data ready for Circos visualization.
+- **Application**: Enhancing Circos visualization workflows and simplifying complex plot generation.
+- **Installation**: Install via bioconda: `conda install -c bioconda circos-tools`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Circos Dependency**: Requires Circos to be installed and properly configured.
+- **Data Format**: Input data must match Circos requirements.
+- **Configuration**: Requires understanding of Circos configuration files.
+- **Memory Usage**: May require significant memory for large datasets.
+- **Version Compatibility**: Ensure compatibility with Circos version.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Bundle links
+**Args:** `bundlelinks -i links.txt -o bundled.txt`
+**Explanation:** Bundles overlapping links for cleaner visualization.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Convert data format
+**Args:** `circos-table-to-links -i data.txt -o links.txt`
+**Explanation:** Converts tabular data to Circos links format.
+
+### Preprocess data
+**Args:** `circos-preprocess -i raw_data.txt -o processed.txt`
+**Explanation:** Preprocesses data for Circos visualization.
+
+### Display help
+**Args:** `circos-tools --help`
+**Explanation:** Shows available tools and options.

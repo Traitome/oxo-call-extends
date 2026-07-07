@@ -2,29 +2,47 @@
 name: metavelvet-sl-feature-extraction
 category: utility
 description: Perl libraries that do feature extraction for metavelvet-sl
-tags: [metavelvet-sl-feature-extraction, utility]
+tags: [metavelvet-sl-feature-extraction, utility, feature-extraction]
 author: oxo-call-community
 source_url: "http://metavelvet.dna.bio.keio.ac.jp/MSL.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metavelvet-sl-feature-extraction v1.0 - Perl libraries that do feature extraction for metavelvet-sl.
-- **Core Function**: Perl libraries that do feature extraction for metavelvet-sl
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metavelvet-sl-feature-extraction`
+- **Tool Overview**: MetaVelvet-SL Feature Extraction v1.0 provides Perl libraries for extracting features used by MetaVelvet-SL assembler.
+- **Core Function**: Extracts sequence features for supervised learning-based metagenomic assembly.
+- **Feature Engineering**: Generates features from sequencing reads for machine learning models.
+- **Assembly Support**: Provides essential features for MetaVelvet-SL's supervised learning assembly approach.
+- **Input/Output**: Accepts sequencing reads; outputs feature vectors for machine learning.
+- **Perl Implementation**: Implemented in Perl for efficient feature extraction.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Version Compatibility**: Designed specifically for MetaVelvet-SL.
+- **Dependency Management**: Requires proper Perl environment and dependencies.
+- **Memory Requirements**: Processing large datasets may require significant memory.
+- **Runtime**: Feature extraction can be time-consuming for large datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal feature generation.
+- **Documentation**: May require consulting Perl documentation for advanced usage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Extract features
+**Args:** `metavelvet-sl-feature-extraction -i reads.fastq -o features.txt`
+**Explanation:** Extracts features from sequencing reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom parameters
+**Args:** `metavelvet-sl-feature-extraction -i reads.fastq -o features.txt -k 31`
+**Explanation:** Uses k-mer size of 31 for feature extraction.
+
+### Batch processing
+**Args:** `metavelvet-sl-feature-extraction -i fastq/ -o features/`
+**Explanation:** Processes multiple FASTQ files in batch mode.
+
+### Generate feature statistics
+**Args:** `metavelvet-sl-feature-extraction -i reads.fastq -o features.txt -s stats.txt`
+**Explanation:** Generates statistics about extracted features.
+
+### Output in JSON format
+**Args:** `metavelvet-sl-feature-extraction -i reads.fastq -o features.json -f json`
+**Explanation:** Outputs features in JSON format.

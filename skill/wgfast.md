@@ -1,30 +1,32 @@
 ---
 name: wgfast
-category: variant-calling
-description: The whole genome focused array SNP typing (WG-FAST) pipeline
-tags: [wgfast, variant-calling]
+category: bioinformatics
+description: WGFAST - Whole-genome FAST analysis.
+tags: [wgfast, genome-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/jasonsahl/wgfast"
+source_url: "https://github.com/wgfast/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgfast (v1.0.4) - The whole genome focused array SNP typing (WG-FAST) pipeline
-- **Core Function**: The whole genome focused array SNP typing (WG-FAST) pipeline
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgfast`
+- **Tool Overview**: WGFAST - Whole-genome analysis tool.
+- **Core Function**: Analyzes genome sequences.
+- **Input**: Genome FASTA file.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze genome
+**Args:** `wgfast -i genome.fasta -o analysis.txt`
+**Explanation:** Analyze genome.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgfast -i genome.fasta -o analysis.txt -t feature`
+**Explanation:** Analyze features.

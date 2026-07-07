@@ -1,31 +1,56 @@
 ---
 name: poretools
 category: programming
-description: poretools: a toolkit for working with nanopore sequencing data from Oxford Nanopore
-tags: ["poretools", "programming"]
+description: poretools provides utilities for nanopore sequencing data analysis.
+tags: [poretools, programming, nanopore, utilities]
 author: oxo-call-community
-source_url: "http://poretools.readthedocs.org/en/latest/"
+source_url: "http://poretools.readthedocs.org"
 ---
 
 ## Concepts
 
-- **Tool Overview**: poretools: a toolkit for working with nanopore sequencing data from Oxford Nanopore (version 0.6.1a1)
-- **Core Function**: Processes bioinformatics data related to programming
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda poretools`
+- **Tool Overview**: poretools handles nanopore data.
+- **Core Function**: Nanopore data utilities.
+- **Algorithm**: Uses Python-based methods.
+- **Input Format**: Accepts FAST5/FASTQ files.
+- **Output**: Produces processed data.
+- **Use Case**: Nanopore data analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on sequencing quality.
+- **Compatibility**: May have format issues.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `poretools --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Extract reads
+**Args:** `poretools fastq -i reads.fast5 -o reads.fastq`
+**Explanation:** Extracts reads from FAST5 files.
 
+### With parameters
+**Args:** `poretools fastq -i reads.fast5 -p params.yaml -o reads.fastq`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `poretools -v fastq -i reads.fast5 -o reads.fastq`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `poretools -t 4 fastq -i reads.fast5 -o reads.fastq`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `poretools fasta -i reads.fast5 -o reads.fasta`
+**Explanation:** Outputs in FASTA format.
+
+### Generate report
+**Args:** `poretools stats -i reads.fast5 -o stats.txt`
+**Explanation:** Generates statistics report.

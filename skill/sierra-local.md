@@ -1,30 +1,56 @@
 ---
 name: sierra-local
 category: annotation
-description: sierra-local is a Python3 implementation of the Stanford HIVdb Sierra service for generating drug resistance predictions from HIV-1 sequences.
-tags: [sierra-local, annotation]
+description: sierra-local - HIV drug resistance prediction tool
+tags: ["sierra-local", "annotation", "HIV", "drug-resistance"]
 author: oxo-call-community
 source_url: "https://github.com/PoonLab/sierra-local"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sierra-local (v0.4.4) - sierra-local is a Python3 implementation of the Stanford HIVdb Sierra service for generating drug resistance predictions from HIV-1 sequences.
-- **Core Function**: sierra-local is a Python3 implementation of the Stanford HIVdb Sierra service for generating drug resistance predictions from HIV-1 sequences.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sierra-local`
+- **Tool Overview**: sierra-local (v0.4.4) predicts HIV drug resistance from sequences.
+- **Core Function**: Generates drug resistance predictions for HIV-1 sequences.
+- **Algorithm**: Uses Stanford HIVdb rules for resistance interpretation.
+- **Input/Output**: Accepts FASTA sequences and produces resistance reports.
+- **HIV Analysis**: Specialized for HIV drug resistance testing.
+- **Applications**: Clinical HIV management, antiretroviral therapy selection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Sequence Quality**: Requires high-quality sequence data.
+- **Subtype Specificity**: Optimized for HIV-1, may not work for other subtypes.
+- **Database Updates**: Requires regular database updates for new resistance mutations.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Limited documentation available.
+- **Reference Sequence**: Requires proper reference alignment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict drug resistance
+**Args:** `sierra-local -i hiv_sequences.fasta -o resistance_results.json`
+**Explanation:** `-i` input FASTA; `-o` output JSON results.
 
-### Basic usage
-**Args:** `sierra-local -i <input.fasta> -o <output.gff>`
-**Explanation:** Run sierra-local with typical input and output options.
+### Output CSV format
+**Args:** `sierra-local -i hiv_sequences.fasta -f csv -o resistance_results.csv`
+**Explanation:** `-f csv` CSV output format.
+
+### With reference
+**Args:** `sierra-local -i hiv_sequences.fasta -r hxb2.fasta -o results.json`
+**Explanation:** `-r` reference sequence.
+
+### Help command
+**Args:** `sierra-local --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sierra-local --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `sierra-local -v -i hiv_sequences.fasta -o results.json`
+**Explanation:** `-v` verbose output.
+
+### Batch processing
+**Args:** `sierra-local -b sequences_list.txt -o results/`
+**Explanation:** `-b` batch file with multiple sequences.

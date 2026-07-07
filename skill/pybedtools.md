@@ -1,31 +1,56 @@
 ---
 name: pybedtools
 category: formatting
-description: Wraps BEDTools for use in Python and adds many additional features.
-tags: ["pybedtools", "formatting", "bed"]
+description: pybedtools wraps BEDTools for use in Python and adds many additional features for genomic interval operations.
+tags: [pybedtools, formatting, bedtools, genomic-intervals]
 author: oxo-call-community
 source_url: "https://daler.github.io/pybedtools"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Wraps BEDTools for use in Python and adds many additional features. (version 0.12.0)
-- **Core Function**: Processes bioinformatics data related to formatting
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pybedtools`
+- **Tool Overview**: pybedtools wraps BEDTools.
+- **Core Function**: Genomic interval manipulation.
+- **Algorithm**: Uses BEDTools operations.
+- **Input Format**: Accepts BED/GFF/VCF files.
+- **Output**: Produces processed intervals.
+- **Use Case**: Genomic analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **BEDTools Dependency**: Requires BEDTools installed.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pybedtools --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Convert format
-**Args:** `-i input.file -o output.file`
-**Explanation:** Converts between file formats.
+### Intersect intervals
+**Args:** `pybedtools intersect -a peaks.bed -b genes.bed -o overlap.bed`
+**Explanation:** Finds overlapping intervals.
 
+### With parameters
+**Args:** `pybedtools intersect -a peaks.bed -b genes.bed -p params.yaml -o overlap.bed`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pybedtools -v intersect -a peaks.bed -b genes.bed -o overlap.bed`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pybedtools -t 4 intersect -a peaks.bed -b genes.bed -o overlap.bed`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Merge intervals
+**Args:** `pybedtools merge -i intervals.bed -o merged.bed`
+**Explanation:** Merges overlapping intervals.
+
+### Generate report
+**Args:** `pybedtools intersect -a peaks.bed -b genes.bed -o overlap.bed --report report.html`
+**Explanation:** Generates HTML report.

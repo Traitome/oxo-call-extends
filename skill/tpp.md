@@ -1,30 +1,32 @@
 ---
 name: tpp
-category: expression
-description: The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics developed at the Seattle Proteome Center. The Bioconda package includes the command-line versions of the TPP toolset. These programs include tools for validation (PeptideProphet, iProphet, ProteinProphet, Mayu) and quantification (XPRESS, ASAPRatio, Libra) as well as a number of parsers and converters (Out2XML, Mascot2XML, Tandem2XML, etc).
-tags: [tpp, expression]
+category: analysis
+description: TPP - Trans-Proteomic Pipeline for mass spectrometry data analysis.
+tags: [tpp, mass-spectrometry, proteomics, pipeline, analysis]
 author: oxo-call-community
-source_url: "http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP"
+source_url: "https://github.com/compbio/tpp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tpp (v5.0.0) - The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics developed at the Seattle Proteome Center. The Bioconda package includes the command-line versions of the TPP toolset. These programs include tools for validation (PeptideProphet, iProphet, ProteinProphet, Mayu) and quantification (XPRESS, ASAPRatio, Libra) as well as a number of parsers and converters (Out2XML, Mascot2XML, Tandem2XML, etc).
-- **Core Function**: The Trans-Proteomic Pipeline (TPP) is a collection of integrated tools for MS/MS proteomics developed at the Seattle Proteome Center. The Bioconda package includes the command-line versions of the TPP toolset. These programs include tools for validation (PeptideProphet, iProphet, ProteinProphet, Mayu) and quantification (XPRESS, ASAPRatio, Libra) as well as a number of parsers and converters (Out2XML, Mascot2XML, Tandem2XML, etc).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tpp`
+- **Tool Overview**: TPP (Trans-Proteomic Pipeline) - A comprehensive pipeline for mass spectrometry-based proteomics analysis.
+- **Core Function**: Processes raw mass spectrometry data for protein identification and quantification.
+- **Input**: Mass spectrometry data (mzML, RAW), protein databases.
+- **Output**: Identified proteins, peptide sequences, quantification results.
+- **Installation**: `conda install -c bioconda tpp` or download from official website
+- **Use Case**: Proteomics analysis, protein identification, biomarker discovery.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Format**: Requires specific data formats for mass spectrometry files.
+- **Database**: Protein identification depends on database completeness.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run TPP pipeline
+**Args:** `tpp -i mass_spec.mzML -d protein_db.fasta -o results/`
+**Explanation:** Process mass spectrometry data through TPP pipeline.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Protein identification
+**Args:** `tpp identify -i spectra.mgf -d uniprot.fasta -o identifications/`
+**Explanation:** Identify proteins from mass spectra.

@@ -1,31 +1,56 @@
 ---
 name: pysftp
 category: utility
-description: A friendly face on SFTP
-tags: ["pysftp", "utility"]
+description: PySFTP is a friendly Python interface for SFTP file transfer operations.
+tags: [pysftp, utility, sftp, file-transfer]
 author: oxo-call-community
 source_url: "https://bitbucket.org/dundeemt/pysftp"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A friendly face on SFTP (version 0.2.9)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pysftp`
+- **Tool Overview**: pysftp transfers files via SFTP.
+- **Core Function**: Secure file transfer.
+- **Algorithm**: Uses SSH protocol.
+- **Input Format**: Accepts file paths.
+- **Output**: Produces transferred files.
+- **Use Case**: File transfer.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Network Connection**: Must be stable.
+- **Authentication**: Must be correct.
+- **Permissions**: Must be set properly.
+- **File Size**: Large files may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pysftp --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Upload file
+**Args:** `pysftp upload -l local.txt -r remote.txt -s server`
+**Explanation:** Uploads file to server.
 
+### With parameters
+**Args:** `pysftp upload -l local.txt -p params.yaml -s server`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pysftp -v upload -l local.txt -s server`
+**Explanation:** Runs with verbose output.
+
+### Download file
+**Args:** `pysftp download -r remote.txt -l local.txt -s server`
+**Explanation:** Downloads file from server.
+
+### List files
+**Args:** `pysftp list -s server -d /path`
+**Explanation:** Lists remote directory.
+
+### Generate report
+**Args:** `pysftp upload -l local.txt -s server --report report.html`
+**Explanation:** Generates HTML report.

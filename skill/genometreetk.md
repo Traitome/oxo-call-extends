@@ -1,30 +1,43 @@
 ---
 name: genometreetk
-category: programming
-description: The genome tree toolkit is a collection of methods for working with genome trees.
-tags: [genometreetk, programming]
+category: phylogenetics
+description: GenomeTreeTk - Collection of methods for working with genome trees.
+tags: [genometreetk, phylogenetics, genome-trees, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/dparks1134/GenomeTreeTk"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genometreetk (v0.1.6) - The genome tree toolkit is a collection of methods for working with genome trees.
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genometreetk`
+- **Genome Tree Analysis**: Analyzes genome trees.
+- **Phylogenetic Inference**: Infers phylogenetic relationships.
+- **Tree Manipulation**: Manipulates phylogenetic trees.
+- **Comparative Genomics**: Compares genomes using trees.
+- **Evolutionary Analysis**: Analyzes evolutionary patterns.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Tree Quality**: Depends on high-quality tree input.
+- **Computational Resources**: Large trees require resources.
+- **Parameter Sensitivity**: Results sensitive to parameters.
+- **Tree Interpretation**: Requires careful interpretation.
+- **Format Compatibility**: Requires correct tree format.
 
 ## Examples
+### Build genome tree
+**Args:** `genometreetk build -i genomes.fasta -o tree.nwk`
+**Explanation:** Builds phylogenetic tree from genomes.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compare trees
+**Args:** `genometreetk compare -t tree1.nwk tree2.nwk -o comparison.txt`
+**Explanation:** Compares two phylogenetic trees.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Prune tree
+**Args:** `genometreetk prune -t tree.nwk -l taxa.txt -o pruned.nwk`
+**Explanation:** Prunes tree to include specified taxa.
+
+### Root tree
+**Args:** `genometreetk root -t tree.nwk -o rooted.nwk`
+**Explanation:** Roots phylogenetic tree.
+
+### Batch processing
+**Args:** `genometreetk analyze -i ./trees/ -o ./results/`
+**Explanation:** Processes multiple tree files.

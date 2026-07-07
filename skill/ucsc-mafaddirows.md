@@ -1,30 +1,32 @@
 ---
 name: ucsc-mafaddirows
 category: utility
-description: Add 'i' rows to a maf.
-tags: [ucsc-mafaddirows, utility]
+description: UCSC mafAddIRows - Tool for adding I rows to MAF.
+tags: [ucsc-mafaddirows, ucsc, maf, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-mafaddirows (v482) - Add 'i' rows to a maf.
-- **Core Function**: Add 'i' rows to a maf.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-mafaddirows`
+- **Tool Overview**: UCSC mafAddIRows - A tool for adding I (insertion) rows to MAF alignments.
+- **Core Function**: Adds insertion rows to MAF alignment files.
+- **Input**: MAF file.
+- **Output**: Modified MAF file with I rows.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment processing, gap handling, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper MAF format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Add I rows to MAF
+**Args:** `mafAddIRows input.maf > output.maf`
+**Explanation:** Add insertion rows to MAF alignment.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `mafAddIRows -verbose input.maf > output.maf`
+**Explanation:** Add with verbose output.

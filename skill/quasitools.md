@@ -1,31 +1,56 @@
 ---
 name: quasitools
 category: utility
-description: Quasitools is a collection of tools for analysing Viral Quasispecies
-tags: ["quasitools", "utility"]
+description: QuasiTools is a collection of tools for analyzing viral quasispecies from sequencing data.
+tags: [quasitools, utility, viral, quasispecies]
 author: oxo-call-community
 source_url: "https://github.com/phac-nml/quasitools/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Quasitools is a collection of tools for analysing Viral Quasispecies (version 0.7.0)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda quasitools`
+- **Tool Overview**: quasitools analyzes viral quasispecies.
+- **Core Function**: Variant calling.
+- **Algorithm**: Uses consensus methods.
+- **Input Format**: Accepts BAM files.
+- **Output**: Produces variants.
+- **Use Case**: Viral sequencing.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Coverage**: Must be sufficient.
+- **Parameters**: Must be configured.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `quasitools --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Call variants
+**Args:** `quasitools call -i aligned.bam -o variants.vcf`
+**Explanation:** Calls viral variants.
 
+### With parameters
+**Args:** `quasitools call -i aligned.bam -p params.yaml -o variants.vcf`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `quasitools -v call -i aligned.bam -o variants.vcf`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `quasitools -t 4 call -i aligned.bam -o variants.vcf`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Consensus sequence
+**Args:** `quasitools consensus -i aligned.bam -o consensus.fasta`
+**Explanation:** Generates consensus.
+
+### Generate report
+**Args:** `quasitools call -i aligned.bam -o variants.vcf --report report.html`
+**Explanation:** Generates HTML report.

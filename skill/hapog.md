@@ -1,30 +1,64 @@
 ---
 name: hapog
-category: utility
-description: Haplotype-Aware Polishing of Genomes.
-tags: [hapog, utility]
+category: bioinformatics
+description: HapOG performs haplotype-aware polishing of genome assemblies.
+tags: [hapog, genome-polishing, haplotype-aware, bioinformatics]
 author: oxo-call-community
 source_url: "https://www.genoscope.cns.fr/hapog"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hapog (v1.3.8) - Haplotype-Aware Polishing of Genomes.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hapog`
+- **Haplotype-Aware Polishing**: HapOG performs haplotype-aware genome polishing.
+
+- **Genome Assembly**: Improves genome assembly quality.
+
+- **Long Read Data**: Optimized for long read sequencing data.
+
+- **Haplotype Resolution**: Resolves individual haplotypes during polishing.
+
+- **Error Correction**: Corrects sequencing errors in assemblies.
+
+- **Diploid Genomes**: Handles diploid genome polishing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Read Depth**: Requires sufficient sequencing depth.
+
+- **Haplotype Diversity**: High diversity may complicate polishing.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large genomes may require significant memory.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Polish genome
+**Args:** `hapog -i assembly.fasta -r reads.fastq -o polished.fasta`
+**Explanation:** Polishes genome assembly with long reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Haplotype-aware polishing
+**Args:** `hapog -i assembly.fasta -r reads.fastq -haplotype -o polished.fasta`
+**Explanation:** Performs haplotype-aware polishing.
+
+### With phased variants
+**Args:** `hapog -i assembly.fasta -r reads.fastq -vcf phased.vcf -o polished.fasta`
+**Explanation:** Uses phased variants for improved polishing.
+
+### Batch processing
+**Args:** `for f in *.fasta; do hapog -i $f -r reads.fastq -o ${f%.fasta}_polished.fasta; done`
+**Explanation:** Processes multiple assembly files.
+
+### Quality filtering
+**Args:** `hapog -i assembly.fasta -r reads.fastq -q 20 -o polished.fasta`
+**Explanation:** Filters reads by quality score.
+
+### Generate statistics
+**Args:** `hapog -i assembly.fasta -r reads.fastq -stats -o stats.txt`
+**Explanation:** Generates polishing statistics.
+
+### Help command
+**Args:** `hapog --help`
+**Explanation:** Shows available options and usage information.

@@ -1,22 +1,47 @@
 ---
 name: ffgc
 category: annotation
-description: Family Free Genome Comparison (FFGC) workflow
-tags: [ffgc, annotation]
+description: "Family Free Genome Comparison (FFGC) workflow"
+tags: [ffgc, annotation, genome-comparison, gene-order, bioinformatics]
 author: oxo-call-community
 source_url: "https://gitlab.ub.uni-bielefeld.de/gi/FFGC"
 ---
 
 ## Concepts
-- **Tool Overview**: Family Free Genome Comparison (FFGC) is a self-contained workflow system that provides functionality for all steps of a family-free gene order analysis starting from annotated genome sequences.  Family-free methods for gene order analyses do not require prior knowledge of evolutionary relationships between the genes across the studied genomes. This tool features a complete workflow for genome comparison, requiring nothing but annotated genome sequences as input.  Surprisingly, the continuous development of family-free methods recently lead to an integrated method for inferring gene families across several species. FFGC now includes a subworkflow for inferring gene families simultaneously based on gene similarities and family-free genome rearrangements (OrthoFFGCʜ and OrthoFFGCʜ≈ extensions).  FFGC is available for download at our git repository (https://gitlab.ub.uni-bielefeld.de/gi/FFGC) or as a Conda package at Bioconda (https://anaconda.org/bioconda/ffgc).  In general, three major steps are performed: (1) the computation of local sequence alignment scores between genes of two or more gene order sequences using BLAST+ or Diamond; (2) the establishment of gene relationships; and (3) the actual family-free gene order analysis.
-- **Core Function**: Family Free Genome Comparison (FFGC) workflow
-- **Input/Output**: Depends on tool configuration and data formats.
+
+- **Tool Overview**: FFGC is a workflow system for family-free gene order analysis, comparing genomes without requiring prior knowledge of gene family relationships.
+- **Core Function**: Performs genome comparison using gene order analysis without gene family assignments.
+- **Input/Output**: Input: Annotated genome sequences. Output: Comparison results, synteny plots.
+- **Algorithm**: Uses local alignment and gene relationship establishment for comparison.
+- **Key Features**: Family-free analysis, gene order comparison, workflow system, gene family inference, multiple genome support.
 - **Installation**: `conda install -c bioconda ffgc`
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Genome Annotation**: Requires well-annotated genome sequences.
+- **Computational Complexity**: Large genomes may require significant resources.
+- **Alignment Quality**: Results depend on sequence alignment quality.
+- **Gene Relationships**: Gene relationship establishment can be complex.
+- **Version Compatibility**: Options may vary between versions.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Basic genome comparison
+**Args:** `ffgc -i genome1.gbk genome2.gbk -o comparison_results/`
+**Explanation:** Compares two genomes.
+
+### Multiple genomes
+**Args:** `ffgc -i genomes/ -o results/`
+**Explanation:** Compares multiple genomes.
+
+### With gene family inference
+**Args:** `ffgc -i genomes/ -o results/ --infer-families`
+**Explanation:** Infers gene families during comparison.
+
+### Alignment settings
+**Args:** `ffgc -i genomes/ -o results/ --aligner diamond`
+**Explanation:** Uses Diamond aligner.
+
+### Visualization
+**Args:** `ffgc -i genomes/ -o results/ --plot`
+**Explanation:** Generates comparison plots.

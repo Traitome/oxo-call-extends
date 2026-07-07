@@ -1,30 +1,35 @@
 ---
 name: campyagainst
-category: assembly
-description: Accurate assignment of ANI genomic species to Campylobacter genomes.
-tags: [campyagainst, assembly]
+category: taxonomy
+description: Accurate assignment of ANI genomic species to Campylobacter genomes
+tags: [campyagainst, campylobacter, ani, taxonomy, species-assignment]
 author: oxo-call-community
 source_url: "https://github.com/LanLab/campyagainst"
 ---
 
 ## Concepts
 
-- **Tool Overview**: campyagainst (v0.1.0) - Accurate assignment of ANI genomic species to Campylobacter genomes.
-- **Core Function**: Accurate assignment of ANI genomic species to Campylobacter genomes.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda campyagainst`
+- **Tool Overview**: campyagainst assigns genomic species to Campylobacter genomes using ANI (Average Nucleotide Identity).
+- **Core Function**: Determines species identity of Campylobacter isolates based on genomic similarity.
+- **Algorithm**: Uses ANI calculations against reference Campylobacter genomes.
+- **Input**: Assembled Campylobacter genome in FASTA format.
+- **Output**: Species assignment with ANI scores.
+- **Application**: Campylobacter species identification and typing.
+- **Installation**: Install via bioconda: `conda install -c bioconda campyagainst`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Campylobacter Specific**: Designed only for Campylobacter genus.
+- **Assembly Required**: Requires assembled genome, not raw reads.
+- **ANI Threshold**: Species assignment depends on ANI cutoff values.
+- **Reference Database**: Uses built-in Campylobacter reference genomes.
 
 ## Examples
 
+### Assign species to genome
+**Args:** `campyagainst -i genome.fa -o species_assignment.tsv`
+**Explanation:** Assigns species to Campylobacter genome using ANI.
+
 ### Display help
 **Args:** `--help`
-**Explanation:** Shows available options.
-
-### Basic usage
-**Args:** `-i reads.fastq -o assembly_dir`
-**Explanation:** Assemble reads into contigs
+**Explanation:** Shows all available options and usage information.

@@ -1,30 +1,32 @@
 ---
 name: tepid
-category: variant-calling
-description: TEPID uses paired-end illumina sequencing reads to identify novel TE variants.
-tags: [tepid, variant-calling]
+category: analysis
+description: TEPID - Tool for Expression analysis of Plasmid Integration Devices.
+tags: [tepid, plasmid, gene-expression, barcoding, transposon]
 author: oxo-call-community
-source_url: "https://github.com/ListerLab/TEPID"
+source_url: "https://github.com/ ARCHIVED /tepid"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tepid (v0.10) - TEPID uses paired-end illumina sequencing reads to identify novel TE variants.
-- **Core Function**: TEPID uses paired-end illumina sequencing reads to identify novel TE variants.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tepid`
+- **Tool Overview**: TEPID (Tool for Expression analysis of Plasmid Integration Devices) - A tool for analyzing gene expression from transposon sequencing data, particularly for plasmid expression studies.
+- **Core Function**: Quantifies gene expression from transposon insertion sites, specifically designed for studying plasmid-encoded genes and transposon integration events.
+- **Input**: Transposon sequencing reads (FASTQ), reference genome with transposon annotation.
+- **Output**: Gene expression counts, insertion site maps, differential expression results.
+- **Installation**: `pip install tepid` or `conda install -c bioconda tepid`
+- **Use Case**: Studying plasmid gene expression, transposon mutagenesis screens.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Transposon Annotation**: Requires accurate transposon sequence annotation.
+- **Library Complexity**: Complex transposon libraries may require adjusted parameters.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze expression
+**Args:** `tepid analysis -i reads.fastq.gz -g genome.gbk -o expression_results/`
+**Explanation:** Analyze gene expression from transposon sequencing data.
 
-### Basic usage
-**Args:** `tepid -i <input.bam> -r <reference.fasta> -o <output.vcf>`
-**Explanation:** Run tepid with typical input and output options.
+### Differential expression
+**Args:** `tepid diff -c control_count.tsv -t treatment_count.tsv -o de_results/`
+**Explanation:** Compare expression between conditions.

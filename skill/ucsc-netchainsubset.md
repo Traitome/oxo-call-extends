@@ -1,30 +1,32 @@
 ---
 name: ucsc-netchainsubset
 category: utility
-description: Create chain file with subset of chains that appear in the net.
-tags: [ucsc-netchainsubset, utility]
+description: UCSC netChainSubset - Tool for subsetting net chains.
+tags: [ucsc-netchainsubset, ucsc, net, chain, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-netchainsubset (v482) - Create chain file with subset of chains that appear in the net.
-- **Core Function**: Create chain file with subset of chains that appear in the net.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-netchainsubset`
+- **Tool Overview**: UCSC netChainSubset - A tool for subsetting net chain data.
+- **Core Function**: Extracts subsets of net chain alignments.
+- **Input**: Net file, chain file, region file.
+- **Output**: Subsetted net chain data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment analysis, region extraction, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper net/chain format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Subset net chains
+**Args:** `netChainSubset regions.txt input.net input.chain > output.net`
+**Explanation:** Subset net chains by regions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `netChainSubset -verbose regions.txt input.net input.chain > output.net`
+**Explanation:** Subset with verbose output.

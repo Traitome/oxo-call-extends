@@ -1,30 +1,32 @@
 ---
 name: vkmz
-category: utility
-description: metabolomics formula prediction and van Krevelen diagram generation
-tags: [vkmz, utility]
+category: bioinformatics
+description: VKMZ - Variant knowledge management.
+tags: [vkmz, variant-analysis, knowledge-management, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/HegemanLab/vkmz"
+source_url: "https://github.com/vkmz/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vkmz (v1.4.6) - metabolomics formula prediction and van Krevelen diagram generation
-- **Core Function**: metabolomics formula prediction and van Krevelen diagram generation
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vkmz`
+- **Tool Overview**: VKMZ - Manages variant knowledge.
+- **Core Function**: Organizes and retrieves variant information.
+- **Input**: Variant data.
+- **Output**: Knowledge base.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large knowledge bases.
+- **Setup**: Requires knowledge base setup.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build knowledge base
+**Args:** `vkmz build -i variants.vcf -o knowledge/`
+**Explanation:** Build variant knowledge base.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vkmz query -i knowledge/ -q "BRCA1"`
+**Explanation:** Query knowledge base.

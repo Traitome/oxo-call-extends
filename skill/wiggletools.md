@@ -1,30 +1,32 @@
 ---
 name: wiggletools
-category: utility
-description: The WiggleTools package allows genomewide data files to be manipulated as numerical functions, equipped with all the standard functional analysis operators (sum, product, product by a scalar, comparators), and derived statistics (mean, median, variance, stddev, t-test, Wilcoxon's rank sum test, etc).
-tags: [wiggletools, utility]
+category: bioinformatics
+description: wiggletools - Genome data processing.
+tags: [wiggletools, genome-browser, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/Ensembl/WiggleTools/blob/v1.2.11/README.md"
+source_url: "https://github.com/Ensembl/WiggleTools"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wiggletools (v1.2.11) - The WiggleTools package allows genomewide data files to be manipulated as numerical functions, equipped with all the standard functional analysis operators (sum, product, product by a scalar, comparators), and derived statistics (mean, median, variance, stddev, t-test, Wilcoxon's rank sum test, etc).
-- **Core Function**: The WiggleTools package allows genomewide data files to be manipulated as numerical functions, equipped with all the standard functional analysis operators (sum, product, product by a scalar, comparators), and derived statistics (mean, median, variance, stddev, t-test, Wilcoxon's rank sum test, etc).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wiggletools`
+- **Tool Overview**: wiggletools - Wiggle/BigWig processing tool.
+- **Core Function**: Processes genome browser data.
+- **Input**: BigWig/Wiggle files.
+- **Output**: Processed data.
+- **Installation**: Install via conda or source
+- **Use Case**: Genome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process bigwig
+**Args:** `wiggletools input.bw -o output.bw`
+**Explanation:** Process BigWig file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wiggletools --sum input1.bw input2.bw -o output.bw`
+**Explanation:** Sum two BigWig files.

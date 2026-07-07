@@ -1,31 +1,56 @@
 ---
 name: primerforge
 category: utility
-description: primerForge: software to identify primers that can be used to distinguish genomes.
-tags: ["primerforge", "utility"]
+description: primerforge identifies primers that can distinguish genomes.
+tags: [primerforge, utility, primers, genome-detection]
 author: oxo-call-community
-source_url: "https://github.com/dr-joe-wirth/primerForge/blob/v1.5.3/README.md"
+source_url: "https://github.com/dr-joe-wirth/primerForge"
 ---
 
 ## Concepts
 
-- **Tool Overview**: primerForge: software to identify primers that can be used to distinguish genomes. (version 1.5.3)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda primerforge`
+- **Tool Overview**: primerforge designs diagnostic primers.
+- **Core Function**: Species-specific primer design.
+- **Algorithm**: Uses comparative genomics methods.
+- **Input Format**: Accepts FASTA files.
+- **Output**: Produces primer sequences.
+- **Use Case**: Species identification, diagnostics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on sequence quality.
+- **Primer Specificity**: May have cross-reactivity.
+- **Runtime**: Design may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `primerForge --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Design primers
+**Args:** `primerForge -i genomes.fasta -o primers.csv`
+**Explanation:** Designs species-specific primers.
 
+### With parameters
+**Args:** `primerForge -i genomes.fasta -p params.yaml -o primers.csv`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `primerForge -v -i genomes.fasta -o primers.csv`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `primerForge -t 4 -i genomes.fasta -o primers.csv`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `primerForge -i genomes.fasta -o primers.bed --bed`
+**Explanation:** Outputs in BED format.
+
+### Generate report
+**Args:** `primerForge -i genomes.fasta -o primers.csv --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,31 +1,56 @@
 ---
 name: ptools_bin
 category: utility
-description: Installation for ptools scripts.
-tags: ["ptools_bin", "utility"]
+description: ptools_bin provides installation scripts and utilities for ENCODE project tools.
+tags: [ptools_bin, utility, ENCODE, bioinformatics-tools]
 author: oxo-call-community
 source_url: "https://github.com/ENCODE-DCC/ptools_bin"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Installation for ptools scripts. (version 0.0.7)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ptools_bin`
+- **Tool Overview**: ptools_bin manages bioinformatics tools.
+- **Core Function**: Tool installation and management.
+- **Algorithm**: Uses script installation.
+- **Input Format**: Accepts configuration files.
+- **Output**: Produces installed tools.
+- **Use Case**: Tool management.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large installations require space.
+- **Data Quality**: Results depend on network.
+- **Dependency Issues**: May affect installation.
+- **Runtime**: Installation may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `ptools_bin --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Install tools
+**Args:** `ptools_bin install -t tool_name`
+**Explanation:** Installs specified tool.
 
+### With parameters
+**Args:** `ptools_bin install -t tool_name -p params.yaml`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `ptools_bin -v install -t tool_name`
+**Explanation:** Runs with verbose output.
+
+### List tools
+**Args:** `ptools_bin list`
+**Explanation:** Lists available tools.
+
+### Update tools
+**Args:** `ptools_bin update -t tool_name`
+**Explanation:** Updates specified tool.
+
+### Generate report
+**Args:** `ptools_bin install -t tool_name --report report.html`
+**Explanation:** Generates installation report.

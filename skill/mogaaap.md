@@ -1,30 +1,47 @@
 ---
 name: mogaaap
 category: assembly
-description: MoGAAAP: Modular Genome Assembly, Annotation and quality Assessment Pipeline
-tags: [mogaaap, assembly]
+description: "MoGAAAP: Modular Genome Assembly, Annotation and quality Assessment Pipeline"
+tags: [mogaaap, assembly, annotation]
 author: oxo-call-community
 source_url: "https://github.com/dirkjanvw/MoGAAAP"
 ---
-
 ## Concepts
 
-- **Tool Overview**: mogaaap v1.2.1 - MoGAAAP: Modular Genome Assembly, Annotation and quality Assessment Pipeline.
-- **Core Function**: MoGAAAP: Modular Genome Assembly, Annotation and quality Assessment Pipeline
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mogaaap`
+- **Tool Overview**: MoGAAAP v1.2.1 is a modular genome analysis pipeline.
+- **Core Function**: Assembles, annotates, and assesses genome quality.
+- **Modular Design**: Supports flexible pipeline configuration.
+- **Assembly**: Performs genome assembly from sequencing reads.
+- **Annotation**: Adds functional annotations to assembled genomes.
+- **Quality Assessment**: Evaluates assembly quality metrics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Resources**: Genome analysis requires significant resources.
+- **Memory Requirements**: Memory usage depends on genome size.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Results depend on sequencing quality.
+- **Reference Dependence**: May require reference genome.
+- **Runtime**: Large genomes may take significant time.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run complete pipeline
+**Args:** `mogaaap run --reads reads.fastq --output results/`
+**Explanation:** Runs complete genome analysis pipeline.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Assembly only
+**Args:** `mogaaap assemble --reads reads.fastq --output assembly/`
+**Explanation:** Performs assembly only.
+
+### Annotation only
+**Args:** `mogaaap annotate --genome assembly.fasta --output annotation/`
+**Explanation:** Performs annotation only.
+
+### Quality assessment
+**Args:** `mogaaap assess --genome assembly.fasta --output quality.txt`
+**Explanation:** Evaluates assembly quality.
+
+### Batch processing
+**Args:** `mogaaap run --input fastq/ --output results/`
+**Explanation:** Processes multiple samples.

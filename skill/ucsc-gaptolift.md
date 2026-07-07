@@ -1,30 +1,32 @@
 ---
 name: ucsc-gaptolift
 category: utility
-description: Create lift file from gap table(s).
-tags: [ucsc-gaptolift, utility]
+description: UCSC gapToLift - Tool for converting gaps to lift format.
+tags: [ucsc-gaptolift, ucsc, lift-format, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-gaptolift (v482) - Create lift file from gap table(s).
-- **Core Function**: Create lift file from gap table(s).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-gaptolift`
+- **Tool Overview**: UCSC gapToLift - A tool for converting gap information to lift format.
+- **Core Function**: Converts gap annotations to liftOver format.
+- **Input**: Gap file.
+- **Output**: Lift format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Liftover preparation, genome alignment, coordinate conversion.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Gap Format**: Requires proper gap format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert gaps
+**Args:** `gapToLift gaps.bed > gaps.lift`
+**Explanation:** Convert gaps to lift format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `gapToLift -minSize=1000 gaps.bed > gaps.lift`
+**Explanation:** Minimum gap size threshold.

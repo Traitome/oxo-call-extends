@@ -1,30 +1,52 @@
 ---
 name: logol
-category: utility
-description: Logol is a pattern matching grammar language and a set of tools to search a pattern in a sequence (nucleic or proteic)
-tags: [logol, utility]
+category: sequence-analysis
+description: Logol - Pattern matching grammar language for sequence analysis
+tags: [logol, sequence-analysis, pattern-matching, grammar, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/genouest/logol"
 ---
 
 ## Concepts
 
-- **Tool Overview**: logol v1.7.8 - Logol is a pattern matching grammar language and a set of tools to search a pattern in a sequence (nucleic or proteic).
-- **Core Function**: Logol is a pattern matching grammar language and a set of tools to search a pattern in a sequence (nucleic or proteic)
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda logol`
+- **Pattern Matching**: Pattern matching in nucleic or protein sequences
+- **Grammar Language**: Custom grammar language for pattern definition
+- **Sequence Analysis**: Analysis of biological sequences
+- **Flexible Patterns**: Supports complex pattern definitions
+- **Multiple Formats**: Handles various sequence formats
+- **Error Handling**: Robust pattern matching with error handling
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Pattern Complexity**: Complex patterns may be difficult to write
+- **Performance**: May be slow for large sequences
+- **Memory Usage**: Memory-intensive for large datasets
+- **Syntax Errors**: Grammar syntax errors may cause failures
+- **Parameter Tuning**: Requires careful parameter optimization
+- **False Positives**: May produce false positive matches
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Search pattern
+**Args:** `logol --pattern pattern.logol --input sequence.fasta --output matches.txt`
+**Explanation:** Searches for pattern in sequence.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Pattern file
+**Args:** `logol --pattern pattern.logol --input sequence.fasta`
+**Explanation:** Uses pattern file for matching.
+
+### Output format
+**Args:** `logol --pattern pattern.logol --input sequence.fasta --format gff`
+**Explanation:** Outputs matches in GFF format.
+
+### Threads
+**Args:** `logol --pattern pattern.logol --input sequence.fasta --threads 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Verbose output
+**Args:** `logol --pattern pattern.logol --input sequence.fasta --verbose`
+**Explanation:** Provides detailed output.
+
+### Validate pattern
+**Args:** `logol --validate pattern.logol`
+**Explanation:** Validates pattern syntax.

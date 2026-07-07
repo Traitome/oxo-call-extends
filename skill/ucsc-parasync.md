@@ -1,30 +1,32 @@
 ---
 name: ucsc-parasync
 category: utility
-description: Uses paraFetch to recursively mirror url to given path.
-tags: [ucsc-parasync, utility]
+description: UCSC paraSync - Tool for synchronizing parallel operations.
+tags: [ucsc-parasync, ucsc, parallel, sync, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-parasync (v482) - Uses paraFetch to recursively mirror url to given path.
-- **Core Function**: Uses paraFetch to recursively mirror url to given path.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-parasync`
+- **Tool Overview**: UCSC paraSync - A tool for synchronizing parallel operations.
+- **Core Function**: Synchronizes parallel processing tasks.
+- **Input**: Task identifiers.
+- **Output**: Synchronization status.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Parallel computing, task coordination, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Dependencies**: Requires parallel environment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Synchronize parallel tasks
+**Args:** `paraSync task_ids.txt`
+**Explanation:** Synchronize parallel tasks.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraSync -timeout=60 task_ids.txt`
+**Explanation:** Synchronize with timeout.

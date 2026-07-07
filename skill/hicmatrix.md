@@ -1,30 +1,56 @@
 ---
 name: hicmatrix
-category: programming
-description: Library to manage Hi-C matrices for HiCExplorer and pyGenomeTracks
-tags: [hicmatrix, programming]
+category: bioinformatics
+description: HiCMatrix is a library to manage Hi-C matrices for HiCExplorer and pyGenomeTracks.
+tags: [hicmatrix, Hi-C, matrix, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/deeptools/HiCMatrix"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hicmatrix (v17.2) - Library to manage Hi-C matrices for HiCExplorer and pyGenomeTracks
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hicmatrix`
+- **Hi-C Matrices**: HiCMatrix manages Hi-C contact matrices.
+
+- **Data Storage**: Provides efficient storage for Hi-C data.
+
+- **Matrix Operations**: Supports various matrix operations.
+
+- **Format Support**: Supports multiple Hi-C formats.
+
+- **Data Compression**: Handles compressed Hi-C data.
+
+- **Integration**: Integrates with HiCExplorer and pyGenomeTracks.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large matrices may require significant memory.
+
+- **Format Compatibility**: Ensure format compatibility.
+
+- **Data Integrity**: Verify data integrity after operations.
+
+- **Performance**: May have performance considerations.
+
+- **Version Compatibility**: Ensure compatibility with dependencies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load Hi-C matrix
+**Args:** `python -c "from hicmatrix import HiCMatrix; m = HiCMatrix('matrix.cool')"`
+**Explanation:** Loads Hi-C matrix from file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Save matrix
+**Args:** `python -c "from hicmatrix import HiCMatrix; m = HiCMatrix('matrix.cool'); m.save('output.cool')"`
+**Explanation:** Saves Hi-C matrix to file.
+
+### Matrix operations
+**Args:** `python -c "from hicmatrix import HiCMatrix; m = HiCMatrix('matrix.cool'); m.normalize('KR')"`
+**Explanation:** Normalizes Hi-C matrix using KR method.
+
+### Batch processing
+**Args:** `for f in *.cool; do python -c "from hicmatrix import HiCMatrix; m = HiCMatrix('$f'); m.save('${f%.cool}_norm.cool')"; done`
+**Explanation:** Processes multiple Hi-C matrices.
+
+### Help command
+**Args:** `python -c "from hicmatrix import HiCMatrix; help(HiCMatrix)"`
+**Explanation:** Shows available methods and usage.

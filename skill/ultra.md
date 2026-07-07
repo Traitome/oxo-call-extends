@@ -1,30 +1,32 @@
 ---
 name: ultra
-category: utility
-description: ULTRA is a tool for finding and annotating tandem repeats within genomic sequence.
-tags: [ultra, utility]
+category: bioinformatics
+description: ULTRA - High-performance sequence analysis tool.
+tags: [ultra, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/TravisWheelerLab/ULTRA/blob/v1.2.1/README.md"
+source_url: "https://github.com/ultra-toolkit/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ultra (v1.2.1) - ULTRA is a tool for finding and annotating tandem repeats within genomic sequence.
-- **Core Function**: ULTRA is a tool for finding and annotating tandem repeats within genomic sequence.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ultra`
+- **Tool Overview**: ULTRA - A high-performance sequence analysis tool.
+- **Core Function**: Accelerated sequence alignment and analysis.
+- **Input**: Sequence files (FASTA, FASTQ).
+- **Output**: Alignment results.
+- **Installation**: Install via conda or source
+- **Use Case**: High-throughput sequencing analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Performance**: Optimized for specific use cases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `ultra align -r ref.fasta -q query.fastq -o output.sam`
+**Explanation:** Align sequences using ULTRA.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Variant calling
+**Args:** `ultra call -b input.bam -r ref.fasta -o variants.vcf`
+**Explanation:** Call variants from BAM file.

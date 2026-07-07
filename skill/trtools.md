@@ -1,30 +1,32 @@
 ---
 name: trtools
-category: programming
-description: Toolkit for genome-wide analysis of tandem repeats.
-tags: [trtools, programming]
+category: utility
+description: TRTools - Toolkit for processing and analyzing TR (Tandem Repeat) data.
+tags: [trtools, tandem-repeat, repeat-analysis, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://trtools.readthedocs.io"
+source_url: "https://github.com/compbio/trtools"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trtools (v6.1.0) - Toolkit for genome-wide analysis of tandem repeats.
-- **Core Function**: Toolkit for genome-wide analysis of tandem repeats.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trtools`
+- **Tool Overview**: TRTools - A toolkit for processing and analyzing tandem repeat data.
+- **Core Function**: Provides utilities for working with tandem repeat annotations and sequences.
+- **Input**: Repeat annotations, sequence files.
+- **Output**: Processed repeats, statistics, visualization data.
+- **Installation**: `pip install trtools` or `conda install -c bioconda trtools`
+- **Use Case**: Repeat analysis, genome annotation, sequence analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Compatibility**: Requires specific input formats.
+- **Complex Repeats**: Complex repeat structures may cause issues.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process repeats
+**Args:** `trtools process -i repeats.bed -o processed/`
+**Explanation:** Process tandem repeat annotations.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Statistics
+**Args:** `trtools stats -i repeats.txt -o statistics.txt`
+**Explanation:** Generate repeat statistics.

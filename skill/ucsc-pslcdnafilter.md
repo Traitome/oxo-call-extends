@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslcdnafilter
-category: alignment
-description: Filter cDNA alignments in psl format. Filtering criteria are comparative, selecting near best in genome alignments for each given cDNA and non-comparative, based only on the quality of an individual alignment.
-tags: [ucsc-pslcdnafilter, alignment]
+category: utility
+description: UCSC pslCdnaFilter - Tool for filtering cDNA PSL alignments.
+tags: [ucsc-pslcdnafilter, ucsc, psl, cdna, filtering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslcdnafilter (v482) - Filter cDNA alignments in psl format. Filtering criteria are comparative, selecting near best in genome alignments for each given cDNA and non-comparative, based only on the quality of an individual alignment.
-- **Core Function**: Filter cDNA alignments in psl format. Filtering criteria are comparative, selecting near best in genome alignments for each given cDNA and non-comparative, based only on the quality of an individual alignment.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslcdnafilter`
+- **Tool Overview**: UCSC pslCdnaFilter - A tool for filtering cDNA PSL alignments.
+- **Core Function**: Filters and processes cDNA alignments.
+- **Input**: PSL file.
+- **Output**: Filtered PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment filtering, gene prediction, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter cDNA PSL
+**Args:** `pslCdnaFilter input.psl > filtered.psl`
+**Explanation:** Filter cDNA alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslCdnaFilter -minIdentity=95 input.psl > filtered.psl`
+**Explanation:** Minimum identity filter.

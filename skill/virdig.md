@@ -1,30 +1,32 @@
 ---
 name: virdig
-category: expression
-description: A de novo transcriptome assembler for coronavirus.
-tags: [virdig, expression]
+category: bioinformatics
+description: VirDig - Viral sequence digester.
+tags: [virdig, viral-genomics, sequence-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/Limh616/VirDiG"
+source_url: "https://github.com/virdig/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virdig (v1.0.0) - A de novo transcriptome assembler for coronavirus.
-- **Core Function**: A de novo transcriptome assembler for coronavirus.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virdig`
+- **Tool Overview**: VirDig - Analyzes viral sequence composition.
+- **Core Function**: Digs into viral sequence characteristics.
+- **Input**: Viral sequence file.
+- **Output**: Sequence analysis.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze sequence
+**Args:** `virdig -i viral.fasta -o analysis.txt`
+**Explanation:** Analyze viral sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virdig -i viral.fasta -o analysis.txt -m complete`
+**Explanation:** Complete analysis mode.

@@ -1,30 +1,64 @@
 ---
 name: hairsplitter
-category: assembly
-description: Recovers collapsed haplotypes from a draft assembly and long reads
-tags: [hairsplitter, assembly]
+category: bioinformatics
+description: HairSplitter recovers collapsed haplotypes from draft assemblies using long read sequencing data.
+tags: [hairsplitter, haplotype, assembly, long-reads, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/RolandFaure/HairSplitter"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hairsplitter (v1.9.10) - Recovers collapsed haplotypes from a draft assembly and long reads
-- **Core Function**: Provides functionality for assembly tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hairsplitter`
+- **Haplotype Recovery**: HairSplitter identifies and reconstructs collapsed haplotypes.
+
+- **Long Read Analysis**: Uses long sequencing reads to resolve haplotypes.
+
+- **Assembly Improvement**: Enhances draft assemblies by resolving haplotype diversity.
+
+- **Phased Variants**: Identifies phased genetic variants across haplotypes.
+
+- **Structural Variation**: Detects structural variants between haplotypes.
+
+- **Diploid Genome Analysis**: Analyzes diploid genome structures.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Read Quality**: Low-quality reads may affect haplotype resolution.
+
+- **Assembly Quality**: Results depend on initial assembly quality.
+
+- **Computational Resources**: May require significant computational resources.
+
+- **Memory Usage**: Large genomes may require significant memory.
+
+- **Parameter Tuning**: May require careful parameter optimization.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Recover haplotypes
+**Args:** `hairsplitter -a assembly.fasta -r reads.fastq -o haplotypes/`
+**Explanation:** Recovers collapsed haplotypes from assembly and reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Paired-end reads
+**Args:** `hairsplitter -a assembly.fasta -1 reads_1.fastq -2 reads_2.fastq -o haplotypes/`
+**Explanation:** Processes paired-end sequencing data.
+
+### With reference
+**Args:** `hairsplitter -a assembly.fasta -r reads.fastq -ref reference.fasta -o haplotypes/`
+**Explanation:** Uses reference genome for improved phasing.
+
+### Quality filtering
+**Args:** `hairsplitter -a assembly.fasta -r reads.fastq -q 20 -o haplotypes/`
+**Explanation:** Filters reads by quality score.
+
+### Batch processing
+**Args:** `for f in *.fasta; do hairsplitter -a $f -r reads.fastq -o ${f%.fasta}_haplotypes/; done`
+**Explanation:** Processes multiple assembly files.
+
+### Generate statistics
+**Args:** `hairsplitter -a assembly.fasta -r reads.fastq -stats -o stats.txt`
+**Explanation:** Generates haplotype recovery statistics.
+
+### Help command
+**Args:** `hairsplitter --help`
+**Explanation:** Shows available options and usage information.

@@ -1,30 +1,32 @@
 ---
 name: vamb
-category: metagenomics
-description: Variational autoencoder for metagenomic binning.
-tags: [vamb, metagenomics]
+category: bioinformatics
+description: VAMB - Variational Autoencoder for Metagenomic Binning.
+tags: [vamb, metagenomics, binning, machine-learning]
 author: oxo-call-community
-source_url: "https://vamb.readthedocs.io/en/latest"
+source_url: "https://github.com/RasmussenLab/vamb"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vamb (v5.0.4) - Variational autoencoder for metagenomic binning.
-- **Core Function**: Variational autoencoder for metagenomic binning.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vamb`
+- **Tool Overview**: VAMB - A variational autoencoder for metagenomic binning.
+- **Core Function**: Uses deep learning for metagenomic binning.
+- **Input**: Metagenomic sequences, abundance profiles.
+- **Output**: Binned contigs.
+- **Installation**: Install via pip
+- **Use Case**: Metagenomics, binning, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for training.
+- **Training Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run VAMB binning
+**Args:** `vamb --outdir bins/ --fasta contigs.fasta --rpkm abundances.tsv`
+**Explanation:** Perform metagenomic binning with VAMB.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vamb --outdir bins/ --fasta contigs.fasta --rpkm abundances.tsv --cuda`
+**Explanation:** Use GPU acceleration.

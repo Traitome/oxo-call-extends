@@ -1,30 +1,38 @@
 ---
 name: zipstrain
 category: metagenomics
-description: Fast strain-level metagenomics.
-tags: [zipstrain, metagenomics]
+description: Fast strain-level metagenomics analysis tool
+tags: [zipstrain, metagenomics, strain-level, variant-analysis]
 author: oxo-call-community
 source_url: "https://github.com/OlmLab/ZipStrain"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zipstrain (v0.7.6) - Fast strain-level metagenomics.
-- **Core Function**: Fast strain-level metagenomics.
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: ZipStrain is a fast tool for strain-level analysis of metagenomic data
+- **Core Function**: Enables rapid identification and quantification of bacterial strains from metagenomic samples
+- **Input/Output**: Accepts aligned BAM files and reference genomes, outputs strain profiles
+- **Variant Calling**: Detects single nucleotide polymorphisms (SNPs) at strain level
+- **Population Genetics**: Analyzes genetic variation within microbial communities
 - **Installation**: `conda install -c bioconda zipstrain`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Reference Genome Quality**: Results depend heavily on the quality of the reference genome
+- **Low Coverage Regions**: May miss variants in regions with low sequencing coverage
+- **Complex Communities**: Struggles with highly diverse microbial communities
+- **Computational Requirements**: Memory-intensive for large datasets
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run strain profiling
+**Args:** `zipstrain analyze -b sample.bam -r reference.fasta -o output_dir`
+**Explanation:** Perform strain-level analysis on aligned reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Call variants
+**Args:** `zipstrain variant -b sample.bam -r reference.fasta -o variants.vcf`
+**Explanation:** Call variants at strain level and output in VCF format.
+
+### Compare samples
+**Args:** `zipstrain compare -d sample1_dir sample2_dir -o comparison.tsv`
+**Explanation:** Compare strain profiles between multiple samples.

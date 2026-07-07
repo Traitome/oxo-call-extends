@@ -1,30 +1,32 @@
 ---
 name: ucsc-rowstocols
-category: formatting
-description: Convert rows to columns and vice versa in a text file.
-tags: [ucsc-rowstocols, formatting]
+category: utility
+description: UCSC rowsToCols - Tool for transposing rows to columns.
+tags: [ucsc-rowstocols, ucsc, transpose, matrix, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-rowstocols (v482) - Convert rows to columns and vice versa in a text file.
-- **Core Function**: Convert rows to columns and vice versa in a text file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-rowstocols`
+- **Tool Overview**: UCSC rowsToCols - A tool for transposing rows to columns.
+- **Core Function**: Transposes matrix data from rows to columns.
+- **Input**: Matrix file.
+- **Output**: Transposed matrix.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Matrix operations, data transformation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large matrices.
+- **Format Requirements**: Requires proper matrix format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Transpose rows to columns
+**Args:** `rowsToCols input.txt > transposed.txt`
+**Explanation:** Transpose matrix.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `rowsToCols -verbose input.txt > transposed.txt`
+**Explanation:** Transpose with verbose output.

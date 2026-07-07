@@ -1,30 +1,32 @@
 ---
 name: treesap
-category: utility
-description: TreeSAP: Tree SAmpling under Phylogenetic models
-tags: [treesap, utility]
+category: visualization
+description: TreeSap - Tool for interactive phylogenetic tree visualization.
+tags: [treesap, phylogenetic-tree, visualization, interactive, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/niemasd/TreeSAP"
+source_url: "https://github.com/compbio/treesap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treesap (v1.0.10) - TreeSAP: Tree SAmpling under Phylogenetic models
-- **Core Function**: TreeSAP: Tree SAmpling under Phylogenetic models
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treesap`
+- **Tool Overview**: TreeSap - A tool for interactive visualization and exploration of phylogenetic trees.
+- **Core Function**: Provides interactive tree viewing with zooming, panning, and annotation features.
+- **Input**: Phylogenetic tree (Newick format), annotation files.
+- **Output**: Interactive tree visualization, exportable images, tree statistics.
+- **Installation**: `pip install treesap` or `conda install -c bioconda treesap`
+- **Use Case**: Tree exploration, data presentation, phylogenetic analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: Large trees may require significant memory.
+- **Browser**: Requires web browser for interactive features.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### View tree
+**Args:** `treesap -i tree.nwk`
+**Explanation:** Launch interactive tree viewer.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Export visualization
+**Args:** `treesap -i tree.nwk -o tree.html`
+**Explanation:** Export interactive tree visualization to HTML.

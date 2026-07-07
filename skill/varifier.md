@@ -1,30 +1,32 @@
 ---
 name: varifier
-category: variant-calling
-description: varifier: variant call verification
-tags: [varifier, variant-calling]
+category: bioinformatics
+description: Varifier - Variant verification tool.
+tags: [varifier, variant-verification, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/iqbal-lab-org/varifier"
+source_url: "https://github.com/varifier/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varifier (v0.4.0) - varifier: variant call verification
-- **Core Function**: varifier: variant call verification
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varifier`
+- **Tool Overview**: Varifier - A tool for verifying variant calls.
+- **Core Function**: Validates and verifies variant calls.
+- **Input**: VCF file, BAM file.
+- **Output**: Verification report.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant validation, quality control, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Verify variants
+**Args:** `varifier -v variants.vcf -b sample.bam -o report.txt`
+**Explanation:** Verify variant calls.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `varifier -v variants.vcf -b sample.bam -o report.txt -t 8`
+**Explanation:** Use 8 threads.

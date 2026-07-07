@@ -1,30 +1,64 @@
 ---
 name: harmonypy
-category: utility
-description: A data integration algorithm.
-tags: [harmonypy, utility]
+category: bioinformatics
+description: HarmonyPy performs data integration and batch effect correction for single-cell sequencing data.
+tags: [harmonypy, single-cell, data-integration, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/slowkow/harmonypy"
 ---
 
 ## Concepts
 
-- **Tool Overview**: harmonypy (v0.2.0) - A data integration algorithm.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda harmonypy`
+- **Data Integration**: HarmonyPy integrates multiple datasets.
+
+- **Batch Effect Correction**: Corrects batch effects in sequencing data.
+
+- **Single-Cell Analysis**: Optimized for single-cell sequencing data.
+
+- **Dimensionality Reduction**: Performs dimensionality reduction.
+
+- **Clustering**: Supports cell clustering analysis.
+
+- **Visualization**: Aids in data visualization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Batch Size**: Ensure balanced batch sizes.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **Data Quality**: Results depend on input data quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Integrate datasets
+**Args:** `python -c "import harmonypy as hm; hm.run_harmony(data, batch_labels)"`
+**Explanation:** Integrates single-cell datasets using Harmony.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With PCA input
+**Args:** `python -c "import harmonypy as hm; hm.run_harmony(pca_matrix, batch_labels)"`
+**Explanation:** Uses PCA matrix as input for integration.
+
+### Batch processing
+**Args:** `for batch in batches: harmonypy.run_harmony(data[batch], batch_labels)`
+**Explanation:** Processes multiple batches sequentially.
+
+### Generate report
+**Args:** `harmonypy --input data.h5ad --output integrated.h5ad --report`
+**Explanation:** Generates integration report.
+
+### Quality filtering
+**Args:** `harmonypy --input data.h5ad --min-cells 10 --output filtered.h5ad`
+**Explanation:** Filters cells by minimum count.
+
+### Visualization
+**Args:** `harmonypy --input data.h5ad --plot --output umap.png`
+**Explanation:** Generates UMAP visualization.
+
+### Help command
+**Args:** `harmonypy --help`
+**Explanation:** Shows available options and usage information.

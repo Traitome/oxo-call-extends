@@ -1,30 +1,32 @@
 ---
 name: vcf2cytosure
-category: formatting
-description: Convert VCF with structural variations to CytoSure format
-tags: [vcf2cytosure, formatting, vcf]
+category: bioinformatics
+description: vcf2cytosure - VCF to CytoSure format converter.
+tags: [vcf2cytosure, format-conversion, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/NBISweden/vcf2cytosure"
+source_url: "https://github.com/vcf2cytosure/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2cytosure (v0.9.3) - Convert VCF with structural variations to CytoSure format
-- **Core Function**: Convert VCF with structural variations to CytoSure format
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2cytosure`
+- **Tool Overview**: vcf2cytosure - A tool for converting VCF to CytoSure format.
+- **Core Function**: Converts VCF files to CytoSure array format.
+- **Input**: VCF file.
+- **Output**: CytoSure format file.
+- **Installation**: Install via pip or conda
+- **Use Case**: Format conversion, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Limitations**: Limited to CytoSure format.
+- **Memory**: May require significant memory for large VCF files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to CytoSure
+**Args:** `vcf2cytosure -i input.vcf -o output.cyto`
+**Explanation:** Convert VCF to CytoSure format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcf2cytosure -i input.vcf -o output.cyto -s hg38`
+**Explanation:** Specify genome build.

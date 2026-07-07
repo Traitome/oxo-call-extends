@@ -1,31 +1,56 @@
 ---
 name: potrace
-category: alignment
-description: A tool for tracing a bitmap, which means, transforming a bitmap into a smooth, scalable image
-tags: ["potrace", "alignment"]
+category: programming
+description: potrace converts bitmap images to vector graphics.
+tags: [potrace, programming, graphics, bitmap]
 author: oxo-call-community
 source_url: "http://potrace.sourceforge.net"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A tool for tracing a bitmap, which means, transforming a bitmap into a smooth, scalable image (version 1.11)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda potrace`
+- **Tool Overview**: potrace traces bitmap images.
+- **Core Function**: Vectorization.
+- **Algorithm**: Uses Bezier curve methods.
+- **Input Format**: Accepts PBM/PGM/PPM/BMP files.
+- **Output**: Produces vector graphics.
+- **Use Case**: Image processing, graphics conversion.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large images require memory.
+- **Image Quality**: Results depend on input quality.
+- **Complexity**: May have tracing errors.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `potrace --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Trace bitmap
+**Args:** `potrace input.pbm -o output.svg`
+**Explanation:** Converts bitmap to SVG vector.
 
+### With parameters
+**Args:** `potrace -p params.txt input.pbm -o output.svg`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `potrace -v input.pbm -o output.svg`
+**Explanation:** Runs with verbose output.
+
+### Output format
+**Args:** `potrace input.pbm -o output.eps -e`
+**Explanation:** Outputs in EPS format.
+
+### Quality settings
+**Args:** `potrace -a 1.0 -t 1 input.pbm -o output.svg`
+**Explanation:** Adjusts angle and threshold parameters.
+
+### Generate report
+**Args:** `potrace --info input.pbm`
+**Explanation:** Shows image information.

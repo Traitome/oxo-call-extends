@@ -1,31 +1,56 @@
 ---
 name: predictosaurus
 category: variant-calling
-description: Predictosaurus is a command-line tool designed for uncertainty-aware haplotype-based genomic variant effect prediction.
-tags: ["predictosaurus", "variant-calling"]
+description: predictosaurus performs uncertainty-aware haplotype-based variant effect prediction.
+tags: [predictosaurus, variant-calling, effect-prediction, haplotype]
 author: oxo-call-community
-source_url: "https://github.com/fxwiegand/predictosaurus/blob/v0.10.2/README.md"
+source_url: "https://github.com/fxwiegand/predictosaurus"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Predictosaurus is a command-line tool designed for uncertainty-aware haplotype-based genomic variant effect prediction. (version 0.10.2)
-- **Core Function**: Processes bioinformatics data related to variant-calling
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda predictosaurus`
+- **Tool Overview**: predictosaurus predicts variant effects.
+- **Core Function**: Variant effect prediction.
+- **Algorithm**: Uses haplotype-based methods.
+- **Input Format**: Accepts VCF files.
+- **Output**: Produces effect predictions.
+- **Use Case**: Variant annotation, clinical genetics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Prediction Accuracy**: May have false positives.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `predictosaurus --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Call variants
-**Args:** `-i aligned.bam -r reference.fasta -o variants.vcf`
-**Explanation:** Identifies variants from aligned reads.
+### Predict variant effects
+**Args:** `predictosaurus -i variants.vcf -o effects.txt`
+**Explanation:** Predicts effects of genetic variants.
 
+### With parameters
+**Args:** `predictosaurus -i variants.vcf -p params.yaml -o effects.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `predictosaurus -v -i variants.vcf -o effects.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `predictosaurus -t 4 -i variants.vcf -o effects.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `predictosaurus -i variants.vcf -o effects.json --json`
+**Explanation:** Outputs in JSON format.
+
+### Generate report
+**Args:** `predictosaurus -i variants.vcf -o effects.txt --report report.html`
+**Explanation:** Generates HTML report.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedrestricttopositions
-category: qc
-description: Filter bed file, restricting to only ones that match chrom/start/ends specified in restrict.bed file.
-tags: [ucsc-bedrestricttopositions, qc]
+category: utility
+description: UCSC bedRestrictToPositions - Tool for restricting BED regions to specific positions.
+tags: [ucsc-bedrestricttopositions, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedrestricttopositions (v482) - Filter bed file, restricting to only ones that match chrom/start/ends specified in restrict.bed file.
-- **Core Function**: Filter bed file, restricting to only ones that match chrom/start/ends specified in restrict.bed file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedrestricttopositions`
+- **Tool Overview**: UCSC bedRestrictToPositions - A tool for restricting BED regions to specific positions.
+- **Core Function**: Filters or clips BED regions based on specified positions.
+- **Input**: BED file, position constraints.
+- **Output**: Restricted BED file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Region filtering, target enrichment, data subsetting.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Coordinate Matching**: Requires exact position matching.
+- **File Format**: Requires proper BED format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Restrict to positions
+**Args:** `bedRestrictToPositions -i input.bed -positions targets.bed > output.bed`
+**Explanation:** Restrict BED regions to target positions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With padding
+**Args:** `bedRestrictToPositions -i input.bed -positions targets.bed -padding 100 > output.bed`
+**Explanation:** Restrict with padding around target positions.

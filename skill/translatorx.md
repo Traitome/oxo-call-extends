@@ -1,30 +1,32 @@
 ---
 name: translatorx
-category: alignment
-description: Multiple alignment of nucleotide sequences guided by amino acid information
-tags: [translatorx, alignment]
+category: analysis
+description: TranslatorX - Tool for aligning protein-coding DNA sequences.
+tags: [translatorx, sequence-alignment, codon-alignment, phylogenetics, dna]
 author: oxo-call-community
-source_url: "http://pc16141.mncn.csic.es/"
+source_url: "https://github.com/enyojs/translatorx"
 ---
 
 ## Concepts
 
-- **Tool Overview**: translatorx (v1.1) - Multiple alignment of nucleotide sequences guided by amino acid information
-- **Core Function**: Multiple alignment of nucleotide sequences guided by amino acid information
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda translatorx`
+- **Tool Overview**: TranslatorX - A tool for aligning protein-coding DNA sequences by translating to proteins first.
+- **Core Function**: Aligns DNA sequences by translating to amino acids, aligning proteins, and back-translating.
+- **Input**: DNA sequences (FASTA), genetic code table.
+- **Output**: Aligned DNA sequences, protein alignments, codon-based alignment.
+- **Installation**: `pip install translatorx`
+- **Use Case**: Phylogenetic analysis, sequence comparison, molecular evolution.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Frame Shifts**: Requires correct reading frame for accurate alignment.
+- **Ambiguity Codes**: May have issues with ambiguous nucleotide codes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align coding sequences
+**Args:** `translatorx -i dna.fasta -o aligned.fasta`
+**Explanation:** Align protein-coding DNA sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With custom genetic code
+**Args:** `translatorx -i sequences.fasta -g 11 -o codon_aligned.fasta`
+**Explanation:** Align sequences using specific genetic code.

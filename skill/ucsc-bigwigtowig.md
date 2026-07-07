@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigwigtowig
-category: formatting
-description: Convert bigWig to wig. This will keep more of the same structure of the original wig than bigWigToBedGraph does, but still will break up large stepped sections into smaller ones.
-tags: [ucsc-bigwigtowig, formatting]
+category: utility
+description: UCSC bigWigToWig - Tool for converting BigWig to Wig format.
+tags: [ucsc-bigwigtowig, ucsc, format-conversion, bigwig, wig]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigwigtowig (v482) - Convert bigWig to wig. This will keep more of the same structure of the original wig than bigWigToBedGraph does, but still will break up large stepped sections into smaller ones.
-- **Core Function**: Convert bigWig to wig. This will keep more of the same structure of the original wig than bigWigToBedGraph does, but still will break up large stepped sections into smaller ones.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigwigtowig`
+- **Tool Overview**: UCSC bigWigToWig - A tool for converting BigWig format to Wig format.
+- **Core Function**: Converts indexed BigWig files to plain Wig format.
+- **Input**: BigWig file.
+- **Output**: Wig format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data extraction, analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Size**: Output may be significantly larger than input.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to Wig
+**Args:** `bigWigToWig input.bw output.wig`
+**Explanation:** Convert BigWig to Wig format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With region
+**Args:** `bigWigToWig -chrom=chr1 -start=1 -end=1000000 input.bw output.wig`
+**Explanation:** Extract specific region from BigWig.

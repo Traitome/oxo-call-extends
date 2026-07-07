@@ -1,30 +1,32 @@
 ---
 name: variant-effect-predictor
-category: variant-calling
-description: The VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.
-tags: [variant-effect-predictor, variant-calling]
+category: bioinformatics
+description: VEP - Variant Effect Predictor.
+tags: [variant-effect-predictor, vep, variant-annotation, bioinformatics]
 author: oxo-call-community
-source_url: "http://www.ensembl.org/info/docs/tools/vep/index.html"
+source_url: "https://github.com/Ensembl/ensembl-vep"
 ---
 
 ## Concepts
 
-- **Tool Overview**: variant-effect-predictor (v87) - The VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.
-- **Core Function**: The VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda variant-effect-predictor`
+- **Tool Overview**: VEP - Variant Effect Predictor from Ensembl.
+- **Core Function**: Predicts the functional effects of genetic variants.
+- **Input**: VCF file.
+- **Output**: Annotated VCF file.
+- **Installation**: Install via conda or source
+- **Use Case**: Variant annotation, functional analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Databases**: Requires Ensembl databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate variants
+**Args:** `vep -i input.vcf -o output.vcf --cache`
+**Explanation:** Annotate variants using cache.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vep -i input.vcf -o output.vcf --cache --fork 8`
+**Explanation:** Use 8 forks.

@@ -1,30 +1,32 @@
 ---
 name: vitap
-category: metagenomics
-description: Viral Taxonomic Assignment Pipeline
-tags: [vitap, metagenomics]
+category: bioinformatics
+description: ViTaP - Variant analysis tool.
+tags: [vitap, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/DrKaiyangZheng/VITAP/blob/main/README.md"
+source_url: "https://github.com/vitap/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vitap (v1.12) - Viral Taxonomic Assignment Pipeline (VITAP) is a tool designed to address the growing need for accurate and comprehensive taxonomic assignments of DNA and RNA viral sequences based on ICTV VMR and UniRef90.
-- **Core Function**: Viral Taxonomic Assignment Pipeline
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vitap`
+- **Tool Overview**: ViTaP - Variant prioritization tool.
+- **Core Function**: Prioritizes variants based on impact.
+- **Input**: VCF file.
+- **Output**: Prioritized variants.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Databases**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Prioritize variants
+**Args:** `vitap -i input.vcf -o prioritized.txt`
+**Explanation:** Prioritize variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vitap -i input.vcf -o prioritized.txt -m impact`
+**Explanation:** Prioritize by impact.

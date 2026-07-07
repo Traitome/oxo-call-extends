@@ -1,30 +1,32 @@
 ---
 name: vpt-plugin-cellpose2
-category: utility
-description: Cellpose2 plugin for the Vizgen Post-processing Tool
-tags: [vpt-plugin-cellpose2, utility]
+category: bioinformatics
+description: VPT-Plugin-Cellpose2 - Cellpose2 plugin for VPT.
+tags: [vpt-plugin-cellpose2, cell-segmentation, bioinformatics, imaging]
 author: oxo-call-community
-source_url: "https://github.com/Vizgen/vpt-plugin-cellpose2"
+source_url: "https://github.com/vpt-plugin-cellpose2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vpt-plugin-cellpose2 (v1.0.1) - Cellpose2 plugin for the Vizgen Post-processing Tool
-- **Core Function**: Cellpose2 plugin for the Vizgen Post-processing Tool
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vpt-plugin-cellpose2`
+- **Tool Overview**: VPT-Plugin-Cellpose2 - Cell segmentation plugin.
+- **Core Function**: Provides Cellpose2 segmentation for VPT.
+- **Input**: Image data.
+- **Output**: Segmentation masks.
+- **Installation**: Install via pip
+- **Use Case**: Cell segmentation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large images.
+- **Dependencies**: Requires VPT and Cellpose2.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run segmentation
+**Args:** `vpt segment -i image.tif -o mask.tif --method cellpose2`
+**Explanation:** Run Cellpose2 segmentation.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vpt segment -i image.tif -o mask.tif --method cellpose2 -m cyto`
+**Explanation:** Use cytoplasm model.

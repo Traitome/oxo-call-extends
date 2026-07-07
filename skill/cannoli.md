@@ -1,30 +1,39 @@
 ---
 name: cannoli
-category: formatting
+category: distributed
 description: Distributed execution of bioinformatics tools on Apache Spark
-tags: [cannoli, formatting]
+tags: [cannoli, spark, distributed, big-data, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/bigdatagenomics/cannoli"
 ---
 
 ## Concepts
 
-- **Tool Overview**: cannoli (v1.0.1) - Distributed execution of bioinformatics tools on Apache Spark
-- **Core Function**: Distributed execution of bioinformatics tools on Apache Spark
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda cannoli`
+- **Tool Overview**: Cannoli enables distributed execution of bioinformatics tools on Apache Spark.
+- **Core Function**: Wraps command-line bioinformatics tools for distributed processing on Spark clusters.
+- **Integration**: Works with ADAM and other big data genomics frameworks.
+- **Input**: Genomic data in ADAM or standard formats.
+- **Output**: Processed results in ADAM or standard formats.
+- **Application**: Scalable bioinformatics analysis on large datasets.
+- **Installation**: Install via bioconda: `conda install -c bioconda cannoli`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Spark Required**: Requires Apache Spark cluster or local Spark installation.
+- **Memory**: Distributed processing requires significant cluster memory.
+- **Tool Compatibility**: Not all command-line tools are compatible.
+- **Configuration**: Requires proper Spark configuration for optimal performance.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run distributed tool
+**Args:** `spark-submit --class org.bdgenomics.cannoli.Cannoli cannoli.jar --tool bwa-mem --input reads.adam --output aligned.adam`
+**Explanation:** Runs BWA-MEM distributed on Spark cluster.
 
-### Basic usage
-**Args:** `-i input.gff -o output.gtf`
-**Explanation:** Convert between file formats
+### Use with ADAM
+**Args:** `spark-submit --class org.bdgenomics.cannoli.Cannoli cannoli.jar --tool samtools-sort --input aligned.adam --output sorted.adam`
+**Explanation:** Runs SAMtools sort distributed on ADAM data.
+
+### Display help
+**Args:** `spark-submit --class org.bdgenomics.cannoli.Cannoli cannoli.jar --help`
+**Explanation:** Shows all available options and usage information.

@@ -2,29 +2,47 @@
 name: metawrap-blobology
 category: qc
 description: MetaWRAP requirements for read_qc step
-tags: [metawrap-blobology, qc]
+tags: [metawrap-blobology, qc, metagenomics]
 author: oxo-call-community
 source_url: "https://github.com/bxlab/metaWRAP"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metawrap-blobology v1.3.0 - MetaWRAP requirements for read_qc step.
-- **Core Function**: MetaWRAP requirements for read_qc step
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metawrap-blobology`
+- **Tool Overview**: MetaWRAP Blobology v1.3.0 provides quality control functionality as part of the MetaWRAP metagenomic analysis pipeline.
+- **Core Function**: Performs quality control and visualization of metagenomic data.
+- **Blob Plot Generation**: Creates blob plots to visualize sequence composition.
+- **MetaWRAP Integration**: Works as part of the MetaWRAP metagenomic analysis pipeline.
+- **Input/Output**: Accepts sequencing reads or contigs; outputs quality reports and visualizations.
+- **Quality Assessment**: Includes quality metrics and contamination detection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **MetaWRAP Dependency**: Designed to work within the MetaWRAP pipeline.
+- **Computational Resources**: Processing large datasets may require significant computational resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Visualization Complexity**: Complex datasets may produce cluttered visualizations.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Analysis quality depends on input data quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run quality control
+**Args:** `metawrap-blobology -i reads.fastq -o qc_report/`
+**Explanation:** Performs quality control on metagenomic reads.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Generate blob plot
+**Args:** `metawrap-blobology -i contigs.fasta -o blob_plot.png --plot`
+**Explanation:** Generates blob plot visualization.
+
+### Contamination detection
+**Args:** `metawrap-blobology -i reads.fastq -o qc_report/ --contamination`
+**Explanation:** Detects potential contamination in sequencing data.
+
+### Detailed report
+**Args:** `metawrap-blobology -i reads.fastq -o qc_report/ -v`
+**Explanation:** Generates detailed quality control report.
+
+### Batch processing
+**Args:** `metawrap-blobology -i fastq/ -o qc_reports/`
+**Explanation:** Processes multiple samples in batch mode.

@@ -1,30 +1,32 @@
 ---
 name: variabel
-category: variant-calling
-description: Variabel is a novel approach and method for intrahost variant detection on ONT data, which outperforms existing ONT variant callers.
-tags: [variabel, variant-calling]
+category: bioinformatics
+description: Variabel - Variant analysis toolbox.
+tags: [variabel, variant-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://gitlab.com/treangenlab/variabel"
+source_url: "https://github.com/variabel/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: variabel (v1.0.0) - Variabel is a novel approach and method for intrahost variant detection on ONT data, which outperforms existing ONT variant callers.
-- **Core Function**: Variabel is a novel approach and method for intrahost variant detection on ONT data, which outperforms existing ONT variant callers.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda variabel`
+- **Tool Overview**: Variabel - A toolbox for variant analysis.
+- **Core Function**: Provides various utilities for variant analysis.
+- **Input**: Variant files.
+- **Output**: Analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Variant analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Format Requirements**: Requires proper input formats.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze variants
+**Args:** `variabel analyze -i variants.vcf -o results/`
+**Explanation:** Analyze variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `variabel analyze -i variants.vcf -o results/ -t 8`
+**Explanation:** Use 8 threads.

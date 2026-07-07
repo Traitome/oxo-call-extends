@@ -1,30 +1,32 @@
 ---
 name: ucsc-fafilter
-category: qc
-description: Filter fa records, selecting ones that match the specified conditions.
-tags: [ucsc-fafilter, qc]
+category: utility
+description: UCSC faFilter - Tool for filtering FASTA sequences.
+tags: [ucsc-fafilter, ucsc, fasta, sequence-filtering, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fafilter (v482) - Filter fa records, selecting ones that match the specified conditions.
-- **Core Function**: Filter fa records, selecting ones that match the specified conditions.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fafilter`
+- **Tool Overview**: UCSC faFilter - A tool for filtering FASTA sequences.
+- **Core Function**: Filters sequences based on various criteria.
+- **Input**: FASTA file.
+- **Output**: Filtered FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence filtering, quality control, data preparation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Filter Criteria**: Requires appropriate filter parameters.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter sequences
+**Args:** `faFilter -minSize=1000 input.fa > filtered.fa`
+**Explanation:** Filter sequences by minimum size.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With multiple filters
+**Args:** `faFilter -minSize=1000 -maxN=0.1 input.fa > filtered.fa`
+**Explanation:** Filter by size and N content.

@@ -1,31 +1,56 @@
 ---
 name: rasusa
 category: alignment
-description: Randomly subsample sequencing reads or alignments
-tags: ["rasusa", "alignment", "sam"]
+description: RasUSA randomly subsamples sequencing reads or alignments to reduce dataset size.
+tags: [rasusa, alignment, subsampling, sequencing]
 author: oxo-call-community
 source_url: "https://github.com/mbhall88/rasusa"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Randomly subsample sequencing reads or alignments (version 4.0.0)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rasusa`
+- **Tool Overview**: rasusa subsamples reads.
+- **Core Function**: Read subsampling.
+- **Algorithm**: Uses random sampling.
+- **Input Format**: Accepts FASTQ/BAM files.
+- **Output**: Produces subsampled files.
+- **Use Case**: Data reduction.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Sampling Rate**: Affects results.
+- **Parameters**: Must be configured.
+- **Runtime**: Subsampling may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rasusa --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Subsample reads
+**Args:** `rasusa subsample -i reads.fastq -o subsampled.fastq -n 1000000`
+**Explanation:** Subsamples to 1M reads.
 
+### With parameters
+**Args:** `rasusa subsample -i reads.fastq -p params.yaml -o subsampled.fastq`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rasusa -v subsample -i reads.fastq -o subsampled.fastq`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rasusa -t 4 subsample -i reads.fastq -o subsampled.fastq`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With coverage
+**Args:** `rasusa subsample -i reads.fastq -c 30 -o subsampled.fastq`
+**Explanation:** Subsamples to 30x coverage.
+
+### Generate report
+**Args:** `rasusa subsample -i reads.fastq -o subsampled.fastq --report report.html`
+**Explanation:** Generates HTML report.

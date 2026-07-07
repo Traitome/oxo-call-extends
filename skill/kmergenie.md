@@ -1,31 +1,52 @@
 ---
 name: kmergenie
 category: assembly
-description: KmerGenie estimates the best k-mer length for genome de novo assembly.
-tags: [kmergenie, assembly]
+description: KmerGenie estimates the best k-mer length for genome de novo assembly
+tags: [kmergenie, assembly, k-mer, genome-assembly, optimization]
 author: oxo-call-community
 source_url: "http://kmergenie.bx.psu.edu"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kmergenie v1.7051 - KmerGenie estimates the best k-mer length for genome de novo assembly..
-- **Core Function**: KmerGenie estimates the best k-mer length for genome de novo assembly.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda kmergenie`
+- **K-mer Length Optimization**: Estimates optimal k-mer length for assembly
+- **De Novo Assembly**: Supports reference-free genome assembly
+- **Read Analysis**: Analyzes read characteristics to recommend k-mer size
+- **Quality Assessment**: Evaluates assembly quality at different k-mer lengths
+- **Parameter Selection**: Automates the often trial-and-error process of k-mer selection
+- **Multiple Assemblers**: Can work with various de Bruijn graph assemblers
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Computational Time**: Testing multiple k-mer lengths is time-consuming
+- **Memory Usage**: Large k-mer lengths require significant memory
+- **Read Length**: Requires sufficient read length for accurate estimation
+- **Genome Complexity**: Complex genomes may need different k-mer strategies
+- **Heterozygosity**: High heterozygosity affects optimal k-mer selection
+- **Assembly Software**: Recommendations may be specific to certain assemblers
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Estimate best k-mer size
+**Args:** `kmergenie reads.fastq -o output`
+**Explanation:** Estimates optimal k-mer length from sequencing reads.
 
-### Estimate best k
-**Args:** `-k 151 -l reads.lst -o output`
-**Explanation:** Estimates best k-mer size for genome assembly from read files.
+### Specify k-mer range
+**Args:** `kmergenie reads.fastq -k 21-121 -o output`
+**Explanation:** Tests k-mer sizes from 21 to 121.
 
+### Paired-end reads
+**Args:** `kmergenie -l reads.lst -o output`
+**Explanation:** Uses file list for paired-end reads.
+
+### Set output directory
+**Args:** `kmergenie reads.fastq -o kmer_analysis/`
+**Explanation:** Specifies output directory for results.
+
+### Quick estimation
+**Args:** `kmergenie reads.fastq --quick -o output`
+**Explanation:** Runs faster estimation with fewer k-mer values.
+
+### Custom k-mer list
+**Args:** `kmergenie reads.fastq -k 21,31,41,51,61,71 -o output`
+**Explanation:** Tests specific k-mer sizes only.

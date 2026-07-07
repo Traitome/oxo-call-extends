@@ -1,30 +1,32 @@
 ---
 name: virstrain
-category: utility
-description: An RNA/DNA virus strain-level identification tool for short reads.
-tags: [virstrain, utility]
+category: bioinformatics
+description: VirStrain - Viral strain identification.
+tags: [virstrain, viral-genomics, strain-identification, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/liaoherui/VirStrain"
+source_url: "https://github.com/virstrain/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virstrain (v1.18) - An RNA/DNA virus strain-level identification tool for short reads.
-- **Core Function**: An RNA/DNA virus strain-level identification tool for short reads.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virstrain`
+- **Tool Overview**: VirStrain - Identifies viral strains.
+- **Core Function**: Determines viral strain from sequencing data.
+- **Input**: Sequence data.
+- **Output**: Strain identification.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral epidemiology, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database**: Requires strain database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Identify strain
+**Args:** `virstrain -i reads.fastq -o strain.txt`
+**Explanation:** Identify viral strain.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virstrain -i reads.fastq -o strain.txt -d strain_db`
+**Explanation:** Use custom database.

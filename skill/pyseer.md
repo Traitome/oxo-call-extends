@@ -1,31 +1,56 @@
 ---
 name: pyseer
 category: programming
-description: Sequence Element Enrichment Analysis (SEER), python implementation.
-tags: ["pyseer", "programming"]
+description: PySEER is a Python implementation of Sequence Element Enrichment Analysis (SEER) for GWAS.
+tags: [pyseer, programming, gwas, enrichment]
 author: oxo-call-community
 source_url: "https://pyseer.readthedocs.io/en/master"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Sequence Element Enrichment Analysis (SEER), python implementation. (version 1.4.1)
-- **Core Function**: Processes bioinformatics data related to programming
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pyseer`
+- **Tool Overview**: pyseer performs GWAS enrichment.
+- **Core Function**: Association mapping.
+- **Algorithm**: Uses linear mixed models.
+- **Input Format**: Accepts genotype/phenotype data.
+- **Output**: Produces association results.
+- **Use Case**: GWAS analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Population Structure**: Must be accounted for.
+- **Multiple Testing**: Must be corrected.
+- **Runtime**: Analysis may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pyseer --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Run analysis
+**Args:** `pyseer --phenotypes pheno.txt --genotypes geno.vcf -o results.txt`
+**Explanation:** Performs GWAS analysis.
 
+### With parameters
+**Args:** `pyseer --phenotypes pheno.txt -p params.yaml -o results.txt`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pyseer -v --phenotypes pheno.txt -o results.txt`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pyseer -t 4 --phenotypes pheno.txt -o results.txt`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Kinship matrix
+**Args:** `pyseer --phenotypes pheno.txt --kinship kinship.txt -o results.txt`
+**Explanation:** Uses custom kinship matrix.
+
+### Generate report
+**Args:** `pyseer --phenotypes pheno.txt -o results.txt --report report.html`
+**Explanation:** Generates HTML report.

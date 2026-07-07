@@ -1,30 +1,30 @@
 ---
 name: biocutils
 category: utility
-description: Miscellaneous utilities for BiocPy, mostly to mimic base functionality in R.
-tags: [biocutils, utility]
+description: Miscellaneous utilities for BiocPy, mostly to mimic base functionality in R
+tags: [biocpy, utilities, r-interoperability]
 author: oxo-call-community
-source_url: "https://github.com/biocpy/biocutils"
+source_url: "https://github.com/BiocPy/biocutils"
 ---
 
 ## Concepts
 
-- **Tool Overview**: biocutils (v0.3.4) - Miscellaneous utilities for BiocPy, mostly to mimic base functionality in R.
-- **Core Function**: Miscellaneous utilities for BiocPy, mostly to mimic base functionality in R.
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda biocutils`
+- **Tool Overview**: biocutils is a Python library providing utilities for the BiocPy project, primarily mirroring R's base functionality for easier transition from R to Python.
+- **R Interoperability**: Provides R-like functions such as `match`, `order`, `unique`, and `table` that are familiar to R/Bioconductor users.
+- **Named Lists**: Implements NamedList data structure similar to R's named lists.
+- **BiocObject**: Base class for BiocPy objects with common methods.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **R-Centric Design**: Functions follow R semantics which may differ from Python conventions.
+- **BiocPy Ecosystem**: Primarily designed for use within the BiocPy ecosystem.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Use match function
+**Args:** `from biocutils import match; result = match(['a', 'b'], ['b', 'c', 'a'])`
+**Explanation:** Finds indices of first matches, similar to R's match() function.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### Create NamedList
+**Args:** `from biocutils import NamedList; nl = NamedList(a=[1,2,3], b='hello')`
+**Explanation:** Creates a named list object with named elements.

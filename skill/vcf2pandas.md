@@ -1,30 +1,32 @@
 ---
 name: vcf2pandas
-category: formatting
-description: Package to convert a VCF into a pandas dataframe.
-tags: [vcf2pandas, formatting, vcf]
+category: bioinformatics
+description: vcf2pandas - VCF to pandas DataFrame converter.
+tags: [vcf2pandas, vcf-processing, pandas, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/trentzz/vcf2pandas"
+source_url: "https://github.com/vcf2pandas/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcf2pandas (v0.2.0) - Package to convert a VCF into a pandas dataframe.
-- **Core Function**: Package to convert a VCF into a pandas dataframe.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcf2pandas`
+- **Tool Overview**: vcf2pandas - A tool for converting VCF to pandas DataFrame.
+- **Core Function**: Loads VCF data into pandas DataFrame for analysis.
+- **Input**: VCF file.
+- **Output**: pandas DataFrame.
+- **Installation**: Install via pip
+- **Use Case**: Data analysis, Python scripting, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Dependencies**: Requires pandas and PyVCF.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load VCF to DataFrame
+**Args:** `python -c "import vcf2pandas; df = vcf2pandas.read_vcf('input.vcf')"`
+**Explanation:** Load VCF to pandas DataFrame.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "import vcf2pandas; df = vcf2pandas.read_vcf('input.vcf', fields=['CHROM', 'POS', 'REF', 'ALT'])"`
+**Explanation:** Select specific fields.

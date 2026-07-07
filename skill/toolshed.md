@@ -1,30 +1,32 @@
 ---
 name: toolshed
 category: utility
-description: flexible and easy file manipulation
-tags: [toolshed, utility]
+description: ToolShed - Tool management and sharing platform for bioinformatics.
+tags: [toolshed, tool-management, bioinformatics, sharing, workflow]
 author: oxo-call-community
-source_url: "https://github.com/brentp/toolshed"
+source_url: "https://github.com/galaxyproject/toolshed"
 ---
 
 ## Concepts
 
-- **Tool Overview**: toolshed (v0.4.8) - flexible and easy file manipulation
-- **Core Function**: flexible and easy file manipulation
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda toolshed`
+- **Tool Overview**: ToolShed - A platform for sharing and managing bioinformatics tools and workflows.
+- **Core Function**: Provides a repository for sharing tools, versions, and dependencies for Galaxy and other workflow systems.
+- **Input**: Tool wrappers, configuration files, metadata.
+- **Output**: Shared tools, version tracking, dependency management.
+- **Installation**: Galaxy ToolShed is a web service; tools can be installed via Galaxy interface.
+- **Use Case**: Tool sharing, reproducible research, collaborative bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Dependency Management**: Tool dependencies may conflict with existing installations.
+- **Version Compatibility**: Tools may require specific versions of dependencies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Install tool
+**Args:** `galaxy-tool-shed install tool_name --version 1.0.0`
+**Explanation:** Install a tool from the ToolShed.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Search tools
+**Args:** `galaxy-tool-shed search --query "variant calling"`
+**Explanation:** Search for variant calling tools in the ToolShed.

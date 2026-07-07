@@ -1,30 +1,32 @@
 ---
 name: unetcoreograph
-category: programming
-description: UNetCoreograph - Automated segmentation of nuclei in 3D imaging data.
-tags: [unetcoreograph, programming]
+category: visualization
+description: UNetCoreograph - Tool for neural network visualization.
+tags: [unetcoreograph, visualization, neural-network, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/HMS-IDAC/UNetCoreograph"
+source_url: "https://github.com/unetcoreograph/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unetcoreograph (v2.4.6) - UNetCoreograph is a Python tool for segmenting and analyzing nuclei in tissue images using a U-Net based model.
-- **Core Function**: UNetCoreograph - Automated segmentation of nuclei in 3D imaging data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unetcoreograph`
+- **Tool Overview**: UNetCoreograph - A tool for visualizing neural network architectures.
+- **Core Function**: Generates visual representations of neural networks.
+- **Input**: Network configuration file.
+- **Output**: Visualization image.
+- **Installation**: Install via pip
+- **Use Case**: Model visualization, deep learning, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May struggle with very large networks.
+- **Dependencies**: Requires graph visualization libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Visualize network
+**Args:** `unetcoreograph -i model.json -o network.png`
+**Explanation:** Generate network visualization.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unetcoreograph -i model.json -o network.png -dpi 300`
+**Explanation:** Generate high-resolution visualization.

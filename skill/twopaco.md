@@ -1,30 +1,32 @@
 ---
 name: twopaco
-category: utility
-description: A fast constructor of the compressed de Bruijn graph from many genomes.
-tags: [twopaco, utility]
+category: assembly
+description: TwoPaCo - Tool for constructing de Bruijn graphs from sequencing data.
+tags: [twopaco, de-bruijn-graph, genome-assembly, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/medvedevgroup/TwoPaCo"
 ---
 
 ## Concepts
 
-- **Tool Overview**: twopaco (v1.1.0) - A fast constructor of the compressed de Bruijn graph from many genomes.
-- **Core Function**: A fast constructor of the compressed de Bruijn graph from many genomes.
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TwoPaCo - A tool for efficiently constructing de Bruijn graphs from sequencing reads.
+- **Core Function**: Builds de Bruijn graphs for genome assembly and sequence analysis.
+- **Input**: Sequencing reads (FASTQ), k-mer size.
+- **Output**: De Bruijn graph, assembly graphs, k-mer statistics.
 - **Installation**: `conda install -c bioconda twopaco`
+- **Use Case**: Genome assembly, sequence analysis, k-mer counting.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **k-mer Selection**: Requires appropriate k-mer size selection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build de Bruijn graph
+**Args:** `twopaco -k 31 -i reads.fastq -o graph`
+**Explanation:** Build de Bruijn graph with k-mer size 31.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With multiple files
+**Args:** `twopaco -k 25 -i reads_1.fastq -i reads_2.fastq -o graph`
+**Explanation:** Build graph from multiple read files.

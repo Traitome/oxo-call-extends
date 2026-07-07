@@ -2,29 +2,47 @@
 name: mgca
 category: annotation
 description: Microbial genome component and annotation pipeline
-tags: [mgca, annotation]
+tags: [mgca, annotation, microbial]
 author: oxo-call-community
 source_url: "https://github.com/liaochenlanruo/mgca/blob/master/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mgca v0.0.0 - Microbial genome component and annotation pipeline..
-- **Core Function**: Microbial genome component and annotation pipeline
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mgca`
+- **Tool Overview**: mgca is a pipeline for microbial genome component analysis and annotation.
+- **Core Function**: Analyzes and annotates microbial genome components.
+- **Component Analysis**: Identifies and analyzes genomic components.
+- **Gene Annotation**: Annotates coding regions and non-coding RNAs.
+- **Input/Output**: Accepts microbial genome sequences; outputs annotated features.
+- **Integrated Pipeline**: Combines multiple analysis steps.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Microbial Specific**: Designed for microbial genomes.
+- **Computational Resources**: Processing large genomes may require significant computational resources.
+- **Memory Requirements**: Memory usage can be high for large input datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal results.
+- **Data Quality**: Annotation quality depends on input sequence quality.
+- **Database Requirements**: Requires annotation databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Annotate microbial genome
+**Args:** `mgca -i genome.fasta -o annotation.gff`
+**Explanation:** Annotates microbial genome sequence.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom database
+**Args:** `mgca -i genome.fasta -d database/ -o annotation.gff`
+**Explanation:** Uses custom annotation database.
+
+### Component analysis
+**Args:** `mgca analyze -i genome.fasta -o components.txt`
+**Explanation:** Analyzes genome components.
+
+### Detailed output
+**Args:** `mgca -i genome.fasta -o annotation.gff -v`
+**Explanation:** Generates detailed annotation.
+
+### Batch processing
+**Args:** `mgca -i genomes/ -o annotations/`
+**Explanation:** Processes multiple genomes in batch mode.

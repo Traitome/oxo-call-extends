@@ -1,31 +1,56 @@
 ---
 name: pretextmap
 category: alignment
-description: Paired REad TEXTure Mapper. Converts SAM formatted read pairs into genome contact maps.
-tags: ["pretextmap", "alignment", "sam"]
+description: pretextmap converts SAM read pairs into genome contact maps.
+tags: [pretextmap, alignment, sam, hi-c]
 author: oxo-call-community
 source_url: "https://github.com/sanger-tol/PretextMap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Paired REad TEXTure Mapper. Converts SAM formatted read pairs into genome contact maps. (version 0.2.4)
-- **Core Function**: Processes bioinformatics data related to alignment
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pretextmap`
+- **Tool Overview**: pretextmap creates contact maps from SAM data.
+- **Core Function**: Contact map generation.
+- **Algorithm**: Uses paired-end mapping methods.
+- **Input Format**: Accepts SAM/BAM files.
+- **Output**: Produces Pretext contact maps.
+- **Use Case**: Hi-C data processing, genome mapping.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on sequencing quality.
+- **Mapping Accuracy**: May have false contacts.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `PretextMap --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic alignment
-**Args:** `-i input.fastq -r reference.fasta -o output.bam`
-**Explanation:** Aligns input reads to reference genome.
+### Generate contact map
+**Args:** `PretextMap -i aligned.sam -o contact_map.pretext`
+**Explanation:** Converts SAM read pairs to contact map.
 
+### With parameters
+**Args:** `PretextMap -i aligned.sam -p params.yaml -o contact_map.pretext`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `PretextMap -v -i aligned.sam -o contact_map.pretext`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `PretextMap -t 4 -i aligned.sam -o contact_map.pretext`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `PretextMap -i aligned.sam -o contact_map.txt --txt`
+**Explanation:** Outputs in text format.
+
+### Generate report
+**Args:** `PretextMap -i aligned.sam -o contact_map.pretext --report report.html`
+**Explanation:** Generates HTML report.

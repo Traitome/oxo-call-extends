@@ -1,30 +1,32 @@
 ---
 name: ucsc-psltobigpsl
-category: formatting
-description: Converts psl to bigPsl input (bed format with extra fields).
-tags: [ucsc-psltobigpsl, formatting]
+category: utility
+description: UCSC pslToBigPsl - Tool for converting PSL to bigPsl.
+tags: [ucsc-psltobigpsl, ucsc, psl, bigpsl, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-psltobigpsl (v482) - Converts psl to bigPsl input (bed format with extra fields).
-- **Core Function**: Converts psl to bigPsl input (bed format with extra fields).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-psltobigpsl`
+- **Tool Overview**: UCSC pslToBigPsl - A tool for converting PSL to bigPsl format.
+- **Core Function**: Converts PSL alignments to binary bigPsl format.
+- **Input**: PSL file, chrom.sizes file.
+- **Output**: bigPsl binary file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser tracks, data compression.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Chromosome Sizes**: Requires chrom.sizes file.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert PSL to bigPsl
+**Args:** `pslToBigPsl input.psl chrom.sizes > output.bb`
+**Explanation:** Convert PSL to bigPsl format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslToBigPsl -name=alignments input.psl chrom.sizes > output.bb`
+**Explanation:** Add track name.

@@ -1,30 +1,32 @@
 ---
 name: udocker
-category: containerization
-description: Freely available tools for computational molecular biology.
-tags: [udocker, containerization]
+category: container
+description: udocker - A user-friendly tool to run docker containers without root privileges.
+tags: [udocker, docker, container, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/indigo-dc/udocker"
 ---
 
 ## Concepts
 
-- **Tool Overview**: udocker (v1.1.1) - Freely available tools for computational molecular biology.
-- **Core Function**: Freely available tools for computational molecular biology.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda udocker`
+- **Tool Overview**: udocker - A tool to run docker containers without requiring root privileges.
+- **Core Function**: Enables container execution for non-privileged users.
+- **Input**: Docker image or container specification.
+- **Output**: Container execution environment.
+- **Installation**: Install via pip or source
+- **Use Case**: Containerization, reproducible research, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Performance**: May have performance overhead compared to native docker.
+- **Network**: Container networking may be limited.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run container
+**Args:** `udocker run ubuntu:latest echo "Hello"`
+**Explanation:** Run a simple command in container.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Pull and run
+**Args:** `udocker pull ubuntu:latest && udocker run ubuntu:latest`
+**Explanation:** Pull image and run container.

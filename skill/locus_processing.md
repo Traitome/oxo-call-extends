@@ -1,30 +1,52 @@
 ---
 name: locus_processing
 category: utility
-description: Tools for working with locus definition files
-tags: [locus_processing, utility]
+description: locus_processing - Tools for working with locus definition files
+tags: [locus_processing, utility, locus-definition, bioinformatics, genomics, tools]
 author: oxo-call-community
 source_url: "https://github.com/LUMC/locus_processing"
 ---
 
 ## Concepts
 
-- **Tool Overview**: locus_processing v0.0.4 - Tools for working with locus definition files.
-- **Core Function**: Tools for working with locus definition files
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda locus_processing`
+- **Locus Definition**: Working with locus definition files
+- **File Processing**: Processing genomic locus data
+- **Coordinate Conversion**: Converting genomic coordinates
+- **Annotation Processing**: Processing locus annotations
+- **Data Validation**: Validating locus definitions
+- **File Formatting**: Formatting locus data files
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Coordinate System**: Zero-based vs one-based considerations
+- **File Format**: Strict format requirements
+- **Data Consistency**: Requires consistent data formatting
+- **Version Compatibility**: API may change between versions
+- **Error Handling**: Requires careful error checking
+- **Input Validation**: Input validation may be limited
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Process locus file
+**Args:** `locus_processing process -i loci.txt -o processed.txt`
+**Explanation:** Processes locus definition file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Convert coordinates
+**Args:** `locus_processing convert -i loci.txt -o converted.txt -f bed`
+**Explanation:** Converts locus coordinates to BED format.
+
+### Validate loci
+**Args:** `locus_processing validate -i loci.txt`
+**Explanation:** Validates locus definitions.
+
+### Merge files
+**Args:** `locus_processing merge -i loci1.txt loci2.txt -o merged.txt`
+**Explanation:** Merges multiple locus files.
+
+### Filter loci
+**Args:** `locus_processing filter -i loci.txt -o filtered.txt -c chr1`
+**Explanation:** Filters loci by chromosome.
+
+### Statistics
+**Args:** `locus_processing stats -i loci.txt -o stats.txt`
+**Explanation:** Generates locus statistics.

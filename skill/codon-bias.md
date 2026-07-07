@@ -1,30 +1,44 @@
 ---
 name: codon-bias
 category: utility
-description: codon usage bias analysis tools
-tags: [codon-bias, utility]
+description: Codon usage bias analysis tools
+tags: [codon-bias, codon-usage, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/alondmnt/codon-bias"
 ---
 
 ## Concepts
 
-- **Tool Overview**: codon-bias (v0.3.5) - codon usage bias analysis tools
-- **Core Function**: codon usage bias analysis tools
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda codon-bias`
+- **Tool Overview**: codon-bias is a tool for analyzing codon usage bias in nucleotide sequences, providing insights into gene expression levels and evolutionary patterns.
+- **Core Function**: Calculates various codon usage statistics and indices to quantify codon bias in sequences.
+- **Algorithm**: Computes codon usage frequencies, effective number of codons (ENC), relative synonymous codon usage (RSCU), and other metrics.
+- **Input**: Nucleotide sequences in FASTA format.
+- **Output**: Codon usage statistics and bias indices.
+- **Application**: Gene expression analysis, evolutionary studies, and codon optimization.
+- **Installation**: Install via bioconda: `conda install -c bioconda codon-bias`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Sequence Quality**: Requires high-quality sequence data.
+- **Codon Table**: Must specify correct codon table for the organism.
+- **Sequence Length**: Short sequences may produce unreliable statistics.
+- **GC Content**: GC content affects codon usage patterns.
+- **Multi-gene Analysis**: May need normalization when comparing multiple genes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Analyze codon bias in sequence
+**Args:** `codon-bias -i sequence.fasta -o bias_results.txt`
+**Explanation:** Calculates codon usage bias statistics for input sequence.
 
-### Basic usage
-**Args:** `--input input_file --output output_file`
-**Explanation:** Process input and generate output
+### With custom codon table
+**Args:** `codon-bias -i sequence.fasta -c 11 -o bias_results.txt`
+**Explanation:** Uses codon table 11 (bacterial) for analysis.
+
+### Compare multiple sequences
+**Args:** `codon-bias -i *.fasta -o bias_results.txt`
+**Explanation:** Analyzes codon bias across multiple sequences.
+
+### Display help
+**Args:** `codon-bias --help`
+**Explanation:** Shows all available options and usage information.

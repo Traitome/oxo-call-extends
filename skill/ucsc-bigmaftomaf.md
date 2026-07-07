@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigmaftomaf
-category: formatting
-description: Convert bigMaf to maf file.
-tags: [ucsc-bigmaftomaf, formatting]
+category: utility
+description: UCSC bigMafToMaf - Tool for converting bigMaf to MAF format.
+tags: [ucsc-bigmaftomaf, ucsc, format-conversion, bigmaf, maf]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigmaftomaf (v482) - Convert bigMaf to maf file.
-- **Core Function**: Convert bigMaf to maf file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigmaftomaf`
+- **Tool Overview**: UCSC bigMafToMaf - A tool for converting bigMaf format to MAF format.
+- **Core Function**: Converts indexed bigMaf files to plain MAF format.
+- **Input**: bigMaf file.
+- **Output**: MAF format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment analysis, data sharing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Size**: Output may be significantly larger.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to MAF
+**Args:** `bigMafToMaf input.bigmaf output.maf`
+**Explanation:** Convert bigMaf to MAF format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With region
+**Args:** `bigMafToMaf -chrom=chr1 -start=1 -end=1000000 input.bigmaf output.maf`
+**Explanation:** Extract specific region from bigMaf.

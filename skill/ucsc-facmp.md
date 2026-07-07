@@ -1,30 +1,32 @@
 ---
 name: ucsc-facmp
 category: utility
-description: Compare two .fa files.
-tags: [ucsc-facmp, utility]
+description: UCSC faCmp - Tool for comparing FASTA sequences.
+tags: [ucsc-facmp, ucsc, fasta, sequence-comparison, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-facmp (v482) - Compare two .fa files.
-- **Core Function**: Compare two .fa files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-facmp`
+- **Tool Overview**: UCSC faCmp - A tool for comparing FASTA sequences.
+- **Core Function**: Compares two FASTA files for differences.
+- **Input**: Two FASTA files.
+- **Output**: Comparison report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence comparison, validation, quality control.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sequence Names**: Requires matching sequence names.
+- **Memory**: May require significant memory for large sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compare FASTA files
+**Args:** `faCmp ref.fa query.fa > diff.txt`
+**Explanation:** Compare two FASTA files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `faCmp -verbose ref.fa query.fa > diff.txt`
+**Explanation:** Compare with verbose output.

@@ -1,30 +1,32 @@
 ---
 name: x-mapper
-category: alignment
-description: Genomic sequence aligner
-tags: [x-mapper, alignment]
+category: bioinformatics
+description: X-Mapper - Sequence mapping tool.
+tags: [x-mapper, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/mathjeff/mapper"
+source_url: "https://github.com/x-mapper/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: x-mapper (v1.2.1) - Genomic sequence aligner
-- **Core Function**: Genomic sequence aligner
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda x-mapper`
+- **Tool Overview**: X-Mapper - Sequence mapping tool.
+- **Core Function**: Maps sequences to reference.
+- **Input**: FASTQ reads.
+- **Output**: SAM/BAM file.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence alignment, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Map reads
+**Args:** `x-mapper -i reads.fastq -r ref.fasta -o alignment.sam`
+**Explanation:** Map reads to reference.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `x-mapper -i reads.fastq -r ref.fasta -o alignment.sam -t 8`
+**Explanation:** Use 8 threads.

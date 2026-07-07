@@ -1,30 +1,43 @@
 ---
 name: geneimpacts
-category: variant-calling
-description: prioritize effects of variant annotations from VEP, SnpEff, et al.
-tags: [geneimpacts, variant-calling]
+category: variant-annotation
+description: GeneImpacts - Prioritizes effects of variant annotations from VEP, SnpEff, and other variant callers.
+tags: [geneimpacts, variant-annotation, vep, snpeff, variant-prioritization]
 author: oxo-call-community
 source_url: "https://github.com/brentp/geneimpacts"
 ---
 
 ## Concepts
-
-- **Tool Overview**: geneimpacts (v0.3.7) - prioritize effects of variant annotations from VEP, SnpEff, et al.
-- **Core Function**: Provides functionality for variant-calling tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda geneimpacts`
+- **Variant Prioritization**: Prioritizes variants by their functional impact.
+- **Annotation Parsing**: Parses annotations from VEP and SnpEff.
+- **Impact Classification**: Classifies variants by predicted impact.
+- **Effect Ranking**: Ranks variants by severity.
+- **Filtering**: Filters variants based on impact criteria.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Annotation Quality**: Depends on high-quality variant annotations.
+- **Tool Compatibility**: Requires specific annotation formats.
+- **Threshold Selection**: Impact thresholds require careful selection.
+- **False Positives**: May incorrectly classify variant impacts.
+- **Interpretation**: Impact predictions require biological interpretation.
 
 ## Examples
+### Prioritize variants
+**Args:** `geneimpacts variants.vcf -o prioritized.txt`
+**Explanation:** Prioritizes variants by their functional impact.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter by impact
+**Args:** `geneimpacts variants.vcf -i HIGH,MODERATE -o filtered.txt`
+**Explanation:** Filters variants to include only HIGH and MODERATE impact.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Parse VEP output
+**Args:** `geneimpacts --vep vep_output.txt -o prioritized.txt`
+**Explanation:** Processes VEP annotation output.
+
+### Parse SnpEff output
+**Args:** `geneimpacts --snpeff snpeff_output.vcf -o prioritized.txt`
+**Explanation:** Processes SnpEff annotation output.
+
+### Generate report
+**Args:** `geneimpacts variants.vcf -r report.txt`
+**Explanation:** Generates detailed impact report.

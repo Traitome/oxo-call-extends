@@ -1,30 +1,56 @@
 ---
 name: hilinetojuicer
-category: alignment
-description: Convert HiLine SAM alignments to Juicer format
-tags: [hilinetojuicer, alignment, SAM]
+category: bioinformatics
+description: HiLineToJuicer converts HiLine SAM alignments to Juicer format for Hi-C data analysis.
+tags: [hilinetojuicer, Hi-C, format-conversion, bioinformatics]
 author: oxo-call-community
 source_url: "https://pypi.org/project/HiLineToJuicer/0.0.2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hilinetojuicer (v0.0.2) - Convert HiLine SAM alignments to Juicer format
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hilinetojuicer`
+- **Format Conversion**: HiLineToJuicer converts alignment formats.
+
+- **Hi-C Data**: Handles Hi-C sequencing data.
+
+- **SAM Format**: Reads SAM alignment files.
+
+- **Juicer Format**: Produces Juicer-compatible output.
+
+- **Data Integration**: Facilitates data integration between tools.
+
+- **Contact Maps**: Supports contact map generation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **File Compatibility**: Ensure compatibility between versions.
+
+- **Data Integrity**: Verify data integrity after conversion.
+
+- **Memory Usage**: Large files may require significant memory.
+
+- **Format Validation**: Validate input format before conversion.
+
+- **Output Quality**: Verify output quality after conversion.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert SAM to Juicer format
+**Args:** `hilinetojuicer --input alignments.sam --output juicer.txt`
+**Explanation:** Converts HiLine SAM alignments to Juicer format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Batch processing
+**Args:** `for f in *.sam; do hilinetojuicer --input $f --output ${f%.sam}_juicer.txt; done`
+**Explanation:** Processes multiple SAM files.
+
+### With quality filtering
+**Args:** `hilinetojuicer --input alignments.sam --output juicer.txt --quality 20`
+**Explanation:** Filters alignments by quality score.
+
+### Generate statistics
+**Args:** `hilinetojuicer --input alignments.sam --output juicer.txt --stats`
+**Explanation:** Generates conversion statistics.
+
+### Help command
+**Args:** `hilinetojuicer --help`
+**Explanation:** Shows available options and usage information.

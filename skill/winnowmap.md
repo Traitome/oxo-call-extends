@@ -1,30 +1,32 @@
 ---
 name: winnowmap
-category: alignment
-description: Winnowmap is a long-read mapping algorithm optimized for mapping ONT and PacBio reads to repetitive reference sequences.
-tags: [winnowmap, alignment]
+category: bioinformatics
+description: Winnowmap - Long-read mapping tool.
+tags: [winnowmap, sequence-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/marbl/Winnowmap/blob/v2.03/README.md"
+source_url: "https://github.com/marbl/Winnowmap"
 ---
 
 ## Concepts
 
-- **Tool Overview**: winnowmap (v2.03) - Winnowmap is a long-read mapping algorithm optimized for mapping ONT and PacBio reads to repetitive reference sequences.
-- **Core Function**: Winnowmap is a long-read mapping algorithm optimized for mapping ONT and PacBio reads to repetitive reference sequences.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda winnowmap`
+- **Tool Overview**: Winnowmap - Long-read mapping tool.
+- **Core Function**: Maps long reads to reference genome.
+- **Input**: FASTQ reads.
+- **Output**: SAM/BAM file.
+- **Installation**: Install via conda or source
+- **Use Case**: Sequence alignment, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Map reads
+**Args:** `winnowmap -ax map-pb ref.fasta reads.fastq > alignment.sam`
+**Explanation:** Map PacBio reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `winnowmap -ax map-ont -t 8 ref.fasta reads.fastq > alignment.sam`
+**Explanation:** Map ONT reads with 8 threads.

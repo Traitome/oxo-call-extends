@@ -1,30 +1,32 @@
 ---
 name: wtforms-components
-category: utility
-description: Additional fields, validators and widgets for WTForms.
-tags: [wtforms-components, utility]
+category: bioinformatics
+description: WTForms-Components - Form utilities.
+tags: [wtforms-components, forms, python, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/kvesteri/wtforms-components"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wtforms-components (v0.10.0) - Additional fields, validators and widgets for WTForms.
-- **Core Function**: Additional fields, validators and widgets for WTForms.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wtforms-components`
+- **Tool Overview**: WTForms-Components - Additional WTForms fields.
+- **Core Function**: Extends WTForms with custom fields.
+- **Input**: Form definition.
+- **Output**: Enhanced form.
+- **Installation**: Install via pip
+- **Use Case**: Web forms, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Dependencies**: Requires WTForms.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Use components
+**Args:** `python -c "from wtforms_components import TimeField"`
+**Explanation:** Import TimeField.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "field = TimeField('Time', validators=[DataRequired()])"`
+**Explanation:** Create time field.

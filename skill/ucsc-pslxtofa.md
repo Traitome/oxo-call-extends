@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslxtofa
-category: formatting
-description: Convert pslx (with sequence) to fasta file.
-tags: [ucsc-pslxtofa, formatting]
+category: utility
+description: UCSC pslxToFa - Tool for converting PSLX to FASTA.
+tags: [ucsc-pslxtofa, ucsc, pslx, fasta, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslxtofa (v482) - Convert pslx (with sequence) to fasta file.
-- **Core Function**: Convert pslx (with sequence) to fasta file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslxtofa`
+- **Tool Overview**: UCSC pslxToFa - A tool for converting PSLX to FASTA format.
+- **Core Function**: Extracts sequences from PSLX alignments.
+- **Input**: PSLX file, sequence file.
+- **Output**: FASTA file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Sequence extraction, alignment analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSLX format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert PSLX to FASTA
+**Args:** `pslxToFa input.pslx ref.fa > output.fa`
+**Explanation:** Extract sequences from PSLX.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslxToFa -verbose input.pslx ref.fa > output.fa`
+**Explanation:** Extract with verbose output.

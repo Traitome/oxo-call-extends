@@ -1,30 +1,32 @@
 ---
 name: transannot
-category: expression
-description: TransAnnot: a fast transcriptome annotation pipeline.
-tags: [transannot, expression]
+category: annotation
+description: TransAnnot - Tool for transposon annotation in genomes.
+tags: [transannot, transposon, annotation, genome-annotation, repeat-elements]
 author: oxo-call-community
-source_url: "https://github.com/soedinglab/transannot/blob/4-8cd2fdc/README.md"
+source_url: "https://github.com/compbio/transannot"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transannot (v4.0.0) - TransAnnot: a fast transcriptome annotation pipeline.
-- **Core Function**: TransAnnot: a fast transcriptome annotation pipeline.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transannot`
+- **Tool Overview**: TransAnnot - A tool for annotating transposon elements in genomic sequences.
+- **Core Function**: Identifies and classifies transposon elements and generates annotations.
+- **Input**: Genome sequences (FASTA), transposon database.
+- **Output**: Transposon annotations (GFF/GTF), classification reports.
+- **Installation**: `pip install transannot` or `conda install -c bioconda transannot`
+- **Use Case**: Genome annotation, repeat element identification, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database**: Results depend on transposon database completeness.
+- **Complexity**: Highly repetitive genomes may be computationally intensive.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Annotate transposons
+**Args:** `transannot -i genome.fasta -d transposon_db -o annotations.gff`
+**Explanation:** Annotate transposon elements in genome sequence.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Classify repeats
+**Args:** `transannot classify -i repeats.fasta -o classification.txt`
+**Explanation:** Classify transposon sequences into families.

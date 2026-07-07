@@ -1,30 +1,32 @@
 ---
 name: vcfkit
-category: variant-calling
-description: VCF-kit is a command-line based collection of utilities for performing analysis on Variant Call Format (VCF) files.
-tags: [vcfkit, variant-calling, vcf]
+category: bioinformatics
+description: VCF-kit - VCF analysis toolkit.
+tags: [vcfkit, vcf-processing, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/AndersenLab/VCF-kit"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcfkit (v0.2.9) - VCF-kit is a command-line based collection of utilities for performing analysis on Variant Call Format (VCF) files.
-- **Core Function**: VCF-kit is a command-line based collection of utilities for performing analysis on Variant Call Format (VCF) files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcfkit`
+- **Tool Overview**: VCF-kit - A comprehensive toolkit for VCF analysis.
+- **Core Function**: Provides various utilities for VCF manipulation and analysis.
+- **Input**: VCF file.
+- **Output**: Analysis results.
+- **Installation**: Install via pip
+- **Use Case**: VCF analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large VCF files.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate stats
+**Args:** `vk stats input.vcf`
+**Explanation:** Generate VCF statistics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vk filter -f "QUAL > 30" input.vcf > filtered.vcf`
+**Explanation:** Filter VCF by quality.

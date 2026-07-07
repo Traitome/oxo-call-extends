@@ -1,30 +1,32 @@
 ---
 name: ucsc-headrest
 category: utility
-description: Return all *but* the first N lines of a file.
-tags: [ucsc-headrest, utility]
+description: UCSC headRest - Tool for header manipulation.
+tags: [ucsc-headrest, ucsc, text-processing, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-headrest (v482) - Return all *but* the first N lines of a file.
-- **Core Function**: Return all *but* the first N lines of a file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-headrest`
+- **Tool Overview**: UCSC headRest - A tool for manipulating file headers.
+- **Core Function**: Extracts or removes headers from files.
+- **Input**: Text file.
+- **Output**: Modified file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, data manipulation, file preparation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Header Detection**: Requires proper header format.
+- **Encoding**: May require proper character encoding.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Remove header
+**Args:** `headRest -remove input.txt > output.txt`
+**Explanation:** Remove header from file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Extract header
+**Args:** `headRest -extract input.txt > header.txt`
+**Explanation:** Extract header lines.

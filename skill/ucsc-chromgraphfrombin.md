@@ -1,30 +1,32 @@
 ---
 name: ucsc-chromgraphfrombin
-category: formatting
-description: Convert chromGraph binary to ascii format.
-tags: [ucsc-chromgraphfrombin, formatting]
+category: utility
+description: UCSC chromGraphFromBin - Tool for creating chromGraph from binary files.
+tags: [ucsc-chromgraphfrombin, ucsc, visualization, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chromgraphfrombin (v482) - Convert chromGraph binary to ascii format.
-- **Core Function**: Convert chromGraph binary to ascii format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chromgraphfrombin`
+- **Tool Overview**: UCSC chromGraphFromBin - A tool for creating chromGraph from binary data.
+- **Core Function**: Generates chromGraph from binary format.
+- **Input**: Binary graph data.
+- **Output**: ChromGraph file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Visualization, graph generation, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Binary Format**: Requires proper binary format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Create chromGraph
+**Args:** `chromGraphFromBin input.bin > output.graph`
+**Explanation:** Convert binary to chromGraph format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `chromGraphFromBin -minVal=0 input.bin > output.graph`
+**Explanation:** Create with minimum value threshold.

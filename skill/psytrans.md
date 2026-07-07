@@ -1,31 +1,56 @@
 ---
 name: psytrans
 category: expression
-description: psytrans.py - Parasite & Symbiont Transcriptome Separation
-tags: ["psytrans", "expression", "fasta"]
+description: psytrans separates parasite and symbiont transcriptomes from mixed sequencing data.
+tags: [psytrans, expression, transcriptomics, parasite]
 author: oxo-call-community
 source_url: "https://github.com/rivera10/psytrans"
 ---
 
 ## Concepts
 
-- **Tool Overview**: psytrans.py - Parasite & Symbiont Transcriptome Separation (version 2.0.0)
-- **Core Function**: Processes bioinformatics data related to expression
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda psytrans`
+- **Tool Overview**: psytrans separates transcriptomes.
+- **Core Function**: Transcriptome separation.
+- **Algorithm**: Uses sequence alignment.
+- **Input Format**: Accepts mixed RNA-seq reads.
+- **Output**: Produces separated transcriptomes.
+- **Use Case**: Parasite-host transcriptomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Results depend on input quality.
+- **Sequence Similarity**: May affect separation.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `psytrans --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Separate transcriptomes
+**Args:** `psytrans -i mixed_reads.fastq -r host_reference.fasta -p parasite_reference.fasta -o output_dir`
+**Explanation:** Separates parasite/symbiont from host transcriptomes.
 
+### With parameters
+**Args:** `psytrans -i mixed_reads.fastq -r host_reference.fasta -p parasite_reference.fasta -params params.yaml -o output_dir`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `psytrans -v -i mixed_reads.fastq -r host_reference.fasta -p parasite_reference.fasta -o output_dir`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `psytrans -t 4 -i mixed_reads.fastq -r host_reference.fasta -p parasite_reference.fasta -o output_dir`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `psytrans -i mixed_reads.fastq -r host_reference.fasta -p parasite_reference.fasta -o output_dir --fasta`
+**Explanation:** Outputs in FASTA format.
+
+### Generate report
+**Args:** `psytrans -i mixed_reads.fastq -r host_reference.fasta -p parasite_reference.fasta -o output_dir --report report.html`
+**Explanation:** Generates HTML report.

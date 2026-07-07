@@ -2,29 +2,47 @@
 name: mirmachine
 category: utility
 description: A command line to tool detect miRNA homologs in genome sequences.
-tags: [mirmachine, utility]
+tags: [mirmachine, utility, microrna]
 author: oxo-call-community
 source_url: "https://github.com/sinanugur/MirMachine"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mirmachine v0.3.0.3 - A command line to tool detect miRNA homologs in genome sequences..
-- **Core Function**: A command line to tool detect miRNA homologs in genome sequences.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mirmachine`
+- **Tool Overview**: MirMachine v0.3.0.3 detects miRNA homologs in genome sequences.
+- **Core Function**: Identifies conserved miRNA genes across species.
+- **Homolog Detection**: Finds miRNA homologs in target genomes.
+- **Phylogenetic Analysis**: Supports evolutionary studies of miRNAs.
+- **Input/Output**: Accepts genome sequences; outputs miRNA predictions.
+- **Comparative Genomics**: Supports cross-species miRNA analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **miRNA Specific**: Designed for miRNA homolog detection.
+- **Computational Resources**: Scanning large genomes may require significant resources.
+- **Memory Requirements**: Memory usage depends on genome size.
+- **Parameter Tuning**: May require parameter adjustment for optimal detection.
+- **Data Quality**: Results depend on input sequence quality.
+- **Reference miRNAs**: Requires appropriate reference miRNA sequences.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Detect miRNA homologs
+**Args:** `mirmachine -i genome.fasta -m mature.fa -o results/`
+**Explanation:** Detects miRNA homologs in genome.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With precursors
+**Args:** `mirmachine -i genome.fasta -m mature.fa -p precursor.fa -o results/`
+**Explanation:** Uses precursor sequences for validation.
+
+### Detailed output
+**Args:** `mirmachine -i genome.fasta -m mature.fa -o results/ -v`
+**Explanation:** Generates detailed prediction report.
+
+### Batch processing
+**Args:** `mirmachine -i genomes/ -m mature.fa -o results/`
+**Explanation:** Processes multiple genome files.
+
+### Generate statistics
+**Args:** `mirmachine -i genome.fasta -m mature.fa -o results/ -s stats.txt`
+**Explanation:** Generates detection statistics.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-chainsort
 category: utility
-description: Sort chains.  By default sorts by score.
-tags: [ucsc-chainsort, utility]
+description: UCSC chainSort - Tool for sorting chain alignments.
+tags: [ucsc-chainsort, ucsc, chain-alignment, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-chainsort (v482) - Sort chains.  By default sorts by score.
-- **Core Function**: Sort chains.  By default sorts by score.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-chainsort`
+- **Tool Overview**: UCSC chainSort - A tool for sorting chain alignments by target coordinates.
+- **Core Function**: Sorts chain alignments by chromosome and position.
+- **Input**: Unsorted chain alignment file.
+- **Output**: Sorted chain file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Alignment sorting, data organization, genome comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Sort Order**: Requires correct sort order specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sort chains
+**Args:** `chainSort input.chain > sorted.chain`
+**Explanation:** Sort chain alignments by target coordinates.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### By query
+**Args:** `chainSort -query input.chain > sorted.chain`
+**Explanation:** Sort chains by query coordinates.

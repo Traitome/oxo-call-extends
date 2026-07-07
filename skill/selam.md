@@ -1,30 +1,56 @@
 ---
 name: selam
 category: population-genomics
-description: Simulation of Epistasis Local adaptation, with Ancestry and Mate choice
-tags: [selam, population-genomics]
+description: selam - Simulation of Epistasis, Local adaptation, Ancestry and Mate choice
+tags: ["selam", "population-genomics", "simulation", "epistasis"]
 author: oxo-call-community
-source_url: "https://github.com/russcd/SELAM/"
+source_url: "https://github.com/russcd/SELAM"
 ---
 
 ## Concepts
 
-- **Tool Overview**: selam (v0.9) - Simulation of Epistasis Local adaptation, with Ancestry and Mate choice
-- **Core Function**: Simulation of Epistasis Local adaptation, with Ancestry and Mate choice
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda selam`
+- **Tool Overview**: selam (v0.9) simulates population genetics with epistasis, local adaptation, ancestry, and mate choice.
+- **Core Function**: Simulates complex evolutionary scenarios in structured populations.
+- **Algorithm**: Uses forward-time population genetic simulation.
+- **Input/Output**: Accepts configuration files and produces population genetic outputs.
+- **Epistasis Modeling**: Specifically designed to model epistatic interactions.
+- **Applications**: Population genetics research, evolutionary biology, and adaptation studies.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Computational Resources**: May require significant compute resources for large simulations.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Configuration Complexity**: Configuration files can be complex.
+- **Memory Usage**: High memory requirements for large population sizes.
+- **Run Time**: Long simulation times for complex scenarios.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run simulation
+**Args:** `selam -c config.txt -o output/`
+**Explanation:** `-c` configuration file; `-o` output directory.
 
-### Basic usage
-**Args:** `selam -i <input.vcf> -o <output_dir>`
-**Explanation:** Run selam with typical input and output options.
+### Verbose mode
+**Args:** `selam -c config.txt -v -o output/`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Check configuration
+**Args:** `selam -c config.txt --check`
+**Explanation:** Validates configuration file.
+
+### Help command
+**Args:** `selam --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `selam --version`
+**Explanation:** Shows current version.
+
+### Example configuration
+**Args:** `selam --example-config > config.txt`
+**Explanation:** Generates example configuration file.
+
+### Debug mode
+**Args:** `selam -c config.txt -d -o output/`
+**Explanation:** `-d` enables debug mode.

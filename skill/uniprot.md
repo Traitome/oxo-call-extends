@@ -1,30 +1,32 @@
 ---
 name: uniprot
-category: utility
-description: Retrieve protein sequence identifiers and metadata from http://uniprot.org
-tags: [uniprot, utility]
+category: database
+description: UniProt - Universal Protein Resource tools.
+tags: [uniprot, protein-database, bioinformatics, proteomics]
 author: oxo-call-community
-source_url: "http://github.com/boscoh/uniprot"
+source_url: "https://www.uniprot.org/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: uniprot (v1.3) - Retrieve protein sequence identifiers and metadata from http://uniprot.org
-- **Core Function**: Retrieve protein sequence identifiers and metadata from http://uniprot.org
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda uniprot`
+- **Tool Overview**: UniProt - Tools for accessing and analyzing protein data.
+- **Core Function**: Retrieves and processes protein sequence data.
+- **Input**: Protein identifiers or sequences.
+- **Output**: Protein information and annotations.
+- **Installation**: Install via pip or use web API
+- **Use Case**: Protein analysis, annotation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity for API access.
+- **Rate Limits**: May have API rate limits.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Retrieve protein
+**Args:** `uniprot retrieve P05067`
+**Explanation:** Retrieve protein by accession.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Batch retrieval
+**Args:** `uniprot batch -i accessions.txt -o proteins.fasta`
+**Explanation:** Batch retrieve proteins.

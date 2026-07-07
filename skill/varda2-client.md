@@ -1,30 +1,32 @@
 ---
 name: varda2-client
-category: population-genomics
-description: A python CLI to Varda2 frequency database server.
-tags: [varda2-client, population-genomics]
+category: bioinformatics
+description: VARDA2 Client - Variant Archive and Data Analysis client.
+tags: [varda2-client, variant-database, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/varda/varda2-client"
+source_url: "https://github.com/varda2/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: varda2-client (v0.9) - A python CLI to Varda2 frequency database server.
-- **Core Function**: A python CLI to Varda2 frequency database server.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda varda2-client`
+- **Tool Overview**: VARDA2 Client - Client for accessing VARDA2 variant database.
+- **Core Function**: Accesses and queries variant archive.
+- **Input**: Query parameters.
+- **Output**: Variant data.
+- **Installation**: Install via pip
+- **Use Case**: Variant database access, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Authentication**: May require API credentials.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Query database
+**Args:** `varda2-client query --gene=BRCA1 --output=results.json`
+**Explanation:** Query variants by gene.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Download data
+**Args:** `varda2-client download --id=VAR001 --output=variant.vcf`
+**Explanation:** Download variant data.

@@ -1,30 +1,32 @@
 ---
 name: umis
-category: utility
-description: Tools for processing UMI RNA-tag data.
-tags: [umis, utility]
+category: bioinformatics
+description: UMIs - Toolkit for Unique Molecular Identifier processing.
+tags: [umis, umi, sequencing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/vals/umis/blob/v1.0.9/README.md"
+source_url: "https://github.com/vals/umis"
 ---
 
 ## Concepts
 
-- **Tool Overview**: umis (v1.0.9) - Tools for processing UMI RNA-tag data.
-- **Core Function**: Tools for processing UMI RNA-tag data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda umis`
+- **Tool Overview**: UMIs - A toolkit for processing Unique Molecular Identifiers.
+- **Core Function**: UMI extraction, deduplication, and analysis.
+- **Input**: FASTQ or BAM files.
+- **Output**: Processed reads with UMI information.
+- **Installation**: Install via pip
+- **Use Case**: UMI-based sequencing analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **UMI Pattern**: Requires correct UMI pattern specification.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Extract UMIs
+**Args:** `umis extract --input reads.fastq --output umi_reads.fastq`
+**Explanation:** Extract UMIs from reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Deduplicate by UMI
+**Args:** `umis dedup --input aligned.bam --output deduplicated.bam`
+**Explanation:** Deduplicate reads by UMI.

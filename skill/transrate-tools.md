@@ -1,30 +1,32 @@
 ---
 name: transrate-tools
 category: utility
-description: Command-line tools used by transrate for processing bam files.
-tags: [transrate-tools, utility, bam]
+description: TransRate Tools - Companion tools for TransRate assembly evaluation.
+tags: [transrate-tools, transcriptome, assembly, quality-control, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/blahah/transrate-tools"
+source_url: "https://github.com/blahah/transrate"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transrate-tools (v1.0.0) - Command-line tools used by transrate for processing bam files.
-- **Core Function**: Command-line tools used by transrate for processing bam files.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transrate-tools`
+- **Tool Overview**: TransRate Tools - Companion utilities for TransRate transcriptome assembly evaluation.
+- **Core Function**: Provides additional utilities for preprocessing, filtering, and analyzing transcriptome assemblies.
+- **Input**: Transcriptome assemblies, sequencing data, quality metrics.
+- **Output**: Filtered assemblies, quality reports, assembly statistics.
+- **Installation**: Included with TransRate installation
+- **Use Case**: Transcriptome assembly processing, quality control, data preparation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Dependency**: Requires TransRate for full functionality.
+- **Format Requirements**: Requires specific input formats.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter assembly
+**Args:** `transrate-tools filter -i assembly.fasta -q 20 -o filtered.fasta`
+**Explanation:** Filter low-quality transcripts from assembly.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Statistics
+**Args:** `transrate-tools stats -i assembly.fasta -o statistics.txt`
+**Explanation:** Generate assembly statistics.

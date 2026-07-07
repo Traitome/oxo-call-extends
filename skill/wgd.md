@@ -1,30 +1,32 @@
 ---
 name: wgd
-category: utility
-description: wgd v2: a suite of tools to uncover and date ancient polyploidy and whole-genome duplication
-tags: [wgd, utility]
+category: bioinformatics
+description: WGD - Whole-genome duplication analysis.
+tags: [wgd, comparative-genomics, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://wgdv2.readthedocs.io/en/latest/"
+source_url: "https://github.com/wgd/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgd (v2.0.38) - wgd v2: a suite of tools to uncover and date ancient polyploidy and whole-genome duplication
-- **Core Function**: wgd v2: a suite of tools to uncover and date ancient polyploidy and whole-genome duplication
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgd`
+- **Tool Overview**: WGD - Whole-genome duplication analysis tool.
+- **Core Function**: Analyzes ancient whole-genome duplications.
+- **Input**: Genome sequences.
+- **Output**: WGD analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Comparative genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect WGD
+**Args:** `wgd detect -i genome.fasta -o wgd.txt`
+**Explanation:** Detect WGD events.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgd dating -i wgd.txt -o dating.txt`
+**Explanation:** Date WGD events.

@@ -1,30 +1,32 @@
 ---
 name: vgan
-category: utility
-description: Suite of tools for pangenomics built using vg
-tags: [vgan, utility]
+category: bioinformatics
+description: VGAN - Variational autoencoder for genomics.
+tags: [vgan, machine-learning, genomics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/grenaud/vgan"
+source_url: "https://github.com/vgan/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vgan (v3.1.0) - Suite of tools for pangenomics built using vg
-- **Core Function**: Suite of tools for pangenomics built using vg
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vgan`
+- **Tool Overview**: VGAN - Variational autoencoder for genomic data.
+- **Core Function**: Applies deep learning to genomic data analysis.
+- **Input**: Genomic data matrix.
+- **Output**: Latent representations.
+- **Installation**: Install via pip
+- **Use Case**: Dimensionality reduction, genomic analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Training Time**: May require long training times.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Train VGAN
+**Args:** `vgan train -i data.csv -o model/`
+**Explanation:** Train VGAN model.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vgan train -i data.csv -o model/ -e 100 -b 64`
+**Explanation:** Train with 100 epochs, batch size 64.

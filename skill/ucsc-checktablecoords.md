@@ -1,30 +1,32 @@
 ---
 name: ucsc-checktablecoords
-category: variant-calling
-description: Check invariants on genomic coords in table(s).
-tags: [ucsc-checktablecoords, variant-calling]
+category: utility
+description: UCSC checkTableCoords - Tool for checking table coordinates.
+tags: [ucsc-checktablecoords, ucsc, quality-control, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-checktablecoords (v482) - Check invariants on genomic coords in table(s).
-- **Core Function**: Check invariants on genomic coords in table(s).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-checktablecoords`
+- **Tool Overview**: UCSC checkTableCoords - A tool for validating coordinate ranges in database tables.
+- **Core Function**: Checks that coordinates in tables are valid and within bounds.
+- **Input**: Database table or BED file.
+- **Output**: Validation report.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quality control, database validation, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Table Format**: Requires proper table format.
+- **Chromosome Names**: Requires matching chromosome names.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check table coordinates
+**Args:** `checkTableCoords -db=hg38 -table=myTable`
+**Explanation:** Validate coordinates in database table.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With BED file
+**Args:** `checkTableCoords -bed=regions.bed -chromSizes=chrom.sizes`
+**Explanation:** Check BED file coordinates.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-psltopslx
-category: formatting
-description: Convert from psl to pslx format, which includes sequences.
-tags: [ucsc-psltopslx, formatting]
+category: utility
+description: UCSC pslToPslx - Tool for converting PSL to PSLX.
+tags: [ucsc-psltopslx, ucsc, psl, pslx, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-psltopslx (v482) - Convert from psl to pslx format, which includes sequences.
-- **Core Function**: Convert from psl to pslx format, which includes sequences.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-psltopslx`
+- **Tool Overview**: UCSC pslToPslx - A tool for converting PSL to PSLX format.
+- **Core Function**: Converts PSL alignments to PSLX format.
+- **Input**: PSL file, sequence file.
+- **Output**: PSLX file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert PSL to PSLX
+**Args:** `pslToPslx input.psl ref.fa > output.pslx`
+**Explanation:** Convert PSL to PSLX format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslToPslx -verbose input.psl ref.fa > output.pslx`
+**Explanation:** Convert with verbose output.

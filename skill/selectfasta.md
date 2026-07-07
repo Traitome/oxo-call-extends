@@ -1,30 +1,56 @@
 ---
 name: selectfasta
-category: utility
-description: FASTA or FASTQ select from a list of header names
-tags: [selectfasta, utility, fasta, fastq]
+category: sequence-analysis
+description: selectfasta - Select sequences from FASTA/FASTQ by header names
+tags: ["selectfasta", "sequence-analysis", "FASTA", "FASTQ"]
 author: oxo-call-community
-source_url: "https://github.com/andvides/selectFasta/"
+source_url: "https://github.com/andvides/selectFasta"
 ---
 
 ## Concepts
 
-- **Tool Overview**: selectfasta (v3.1) - FASTA or FASTQ select from a list of header names
-- **Core Function**: FASTA or FASTQ select from a list of header names
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda selectfasta`
+- **Tool Overview**: selectfasta (v3.1) selects sequences from FASTA/FASTQ files by header names.
+- **Core Function**: Filters sequence files based on header lists.
+- **Algorithm**: Uses pattern matching to identify and extract sequences.
+- **Input/Output**: Accepts FASTA/FASTQ files and header lists; produces filtered sequences.
+- **Sequence Filtering**: Focuses on selective extraction of sequences.
+- **Applications**: Sequence analysis, data preprocessing, and subset selection.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Header Format**: Requires consistent header format in input files.
+- **Case Sensitivity**: May be case sensitive depending on implementation.
+- **Memory Usage**: High memory requirements for large sequence files.
+- **Input Format**: Requires correct FASTA/FASTQ format.
+- **Performance**: May be slow for very large files.
+- **Duplicate Headers**: May have issues with duplicate headers.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Select sequences
+**Args:** `selectfasta -i input.fasta -l headers.txt -o output.fasta`
+**Explanation:** `-i` input FASTA; `-l` header list; `-o` output file.
 
-### Basic usage
-**Args:** `selectfasta -i <input_file> -o <output_file>`
-**Explanation:** Run selectfasta with typical input and output options.
+### FASTQ input
+**Args:** `selectfasta -i input.fastq -l headers.txt -o output.fastq -f fastq`
+**Explanation:** `-f fastq` specifies FASTQ format.
+
+### Inverse selection
+**Args:** `selectfasta -i input.fasta -l headers.txt -o output.fasta -v`
+**Explanation:** `-v` inverts selection (exclude specified headers).
+
+### Verbose logging
+**Args:** `selectfasta -i input.fasta -l headers.txt -v -o output.fasta`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `selectfasta --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `selectfasta --version`
+**Explanation:** Shows current version.
+
+### Compressed input
+**Args:** `selectfasta -i input.fasta.gz -l headers.txt -o output.fasta`
+**Explanation:** Handles gzip compressed input.

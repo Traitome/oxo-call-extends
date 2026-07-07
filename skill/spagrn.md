@@ -1,30 +1,64 @@
 ---
 name: spagrn
-category: expression
-description: A comprehensive tool to infer TF-centered, spatial gene regulatory networks for the spatially resolved transcriptomics (SRT) data.
-tags: [spagrn, expression]
+category: spatial-omics
+description: SpaGRN - TF-centered spatial gene regulatory network inference
+tags: [spagrn, spatial-omics, gene-regulatory-networks, spatial-transcriptomics, tf]
 author: oxo-call-community
 source_url: "https://github.com/BGI-Qingdao/SpaGRN"
 ---
 
 ## Concepts
 
-- **Tool Overview**: spagrn (v1.1.0) - A comprehensive tool to infer TF-centered, spatial gene regulatory networks for the spatially resolved transcriptomics (SRT) data.
-- **Core Function**: A comprehensive tool to infer TF-centered, spatial gene regulatory networks for the spatially resolved transcriptomics (SRT) data.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: spagrn (v1.1.0) - A spatial gene regulatory network tool
+- **Core Function**: Infers TF-centered spatial gene regulatory networks
+- **Input/Output**: Accepts spatial transcriptomics data; outputs GRNs
+- **Algorithm**: Spatial analysis for regulatory network inference
 - **Installation**: `conda install -c bioconda spagrn`
+- **Key Features**: Spatial GRNs, TF analysis, spatial transcriptomics
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly formatted spatial transcriptomics data
+- **Spatial Information**: Requires spatial coordinates for analysis
+- **TF Database**: Requires TF database for network inference
+- **Memory Usage**: Large spatial datasets require significant memory
+- **Output Format**: Output format depends on configuration
+- **Interpretation**: Results require biological interpretation
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `spagrn --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `spagrn -i <input.bam> -g <annotation.gtf> -o <output.tsv>`
-**Explanation:** Run spagrn with typical input and output options.
+### Basic GRN inference
+**Args:** `spagrn -i spatial_data.tsv -o grn.tsv`
+**Explanation:** Infer spatial gene regulatory network.
+
+### With TF list
+**Args:** `spagrn -i spatial_data.tsv -t tf_list.txt -o grn.tsv`
+**Explanation:** Use specific TF list for inference.
+
+### With spatial coordinates
+**Args:** `spagrn -i spatial_data.tsv -c coordinates.tsv -o grn.tsv`
+**Explanation:** Use spatial coordinates for analysis.
+
+### With cell types
+**Args:** `spagrn -i spatial_data.tsv -a cell_types.tsv -o grn.tsv`
+**Explanation:** Use cell type annotations.
+
+### Output detailed network
+**Args:** `spagrn -i spatial_data.tsv -o grn.tsv --detailed`
+**Explanation:** Output detailed network information.
+
+### Output statistics
+**Args:** `spagrn -i spatial_data.tsv -o grn.tsv --stats`
+**Explanation:** Output network statistics.
+
+### Generate report
+**Args:** `spagrn -i spatial_data.tsv -o grn.tsv --report`
+**Explanation:** Generate network inference report.
+
+### With threads
+**Args:** `spagrn -i spatial_data.tsv -o grn.tsv -p 8`
+**Explanation:** Use multiple threads for inference.

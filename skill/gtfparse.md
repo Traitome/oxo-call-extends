@@ -1,30 +1,64 @@
 ---
 name: gtfparse
-category: formatting
-description: Parsing library for extracting data frames of genomic features from GTF files.
-tags: [gtfparse, formatting, GTF]
+category: bioinformatics
+description: gtfparse is a Python library for parsing GTF files and extracting genomic features into pandas DataFrames.
+tags: [gtfparse, python, GTF-parsing, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/openvax/gtfparse"
 ---
 
 ## Concepts
 
-- **Tool Overview**: gtfparse (v2.6.2) - Parsing library for extracting data frames of genomic features from GTF files.
-- **Core Function**: Provides functionality for formatting tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gtfparse`
+- **GTF Parsing**: gtfparse parses GTF (Gene Transfer Format) files.
+
+- **DataFrame Output**: Extracts genomic features into pandas DataFrames.
+
+- **Feature Extraction**: Extracts genes, transcripts, exons, and other features.
+
+- **Coordinate Handling**: Properly handles genomic coordinates.
+
+- **Attribute Parsing**: Parses GTF attributes into separate columns.
+
+- **Filtering**: Supports filtering by feature type, gene, etc.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **GTF Format**: Ensure input files are properly formatted GTF.
+
+- **Memory Usage**: Large GTF files may require significant memory.
+
+- **Attribute Consistency**: Inconsistent attributes across features can cause issues.
+
+- **Coordinate System**: Be aware of 0-based vs 1-based coordinate systems.
+
+- **Version Compatibility**: Ensure compatibility with pandas versions.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Parse GTF file
+**Args:** `from gtfparse import read_gtf; df = read_gtf('genes.gtf')`
+**Explanation:** Reads GTF file into a pandas DataFrame.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Extract genes only
+**Args:** `df = read_gtf('genes.gtf', filter_feature_type='gene')`
+**Explanation:** Extracts only gene features from GTF.
+
+### Extract transcripts
+**Args:** `df = read_gtf('genes.gtf', filter_feature_type='transcript')`
+**Explanation:** Extracts only transcript features.
+
+### Filter by gene name
+**Args:** `df = read_gtf('genes.gtf'); df = df[df['gene_name'] == 'BRCA1']`
+**Explanation:** Filters DataFrame by specific gene name.
+
+### Get exons for a gene
+**Args:** `exons = df[(df['feature'] == 'exon') & (df['gene_name'] == 'BRCA1')]`
+**Explanation:** Extracts exons for a specific gene.
+
+### Write to CSV
+**Args:** `df.to_csv('features.csv', index=False)`
+**Explanation:** Saves parsed features to CSV file.
+
+### Parse with custom attributes
+**Args:** `df = read_gtf('genes.gtf', usecols=['gene_id', 'gene_name', 'start', 'end'])`
+**Explanation:** Reads only specified columns from GTF.

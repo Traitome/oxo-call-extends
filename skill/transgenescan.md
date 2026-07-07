@@ -1,30 +1,32 @@
 ---
 name: transgenescan
-category: expression
-description: Software tool for finding genes in assembled transcripts from metatranscriptomic sequences.
-tags: [transgenescan, expression]
+category: annotation
+description: TransGeneScan - Tool for gene prediction in transcript sequences.
+tags: [transgenescan, gene-prediction, transcriptome, annotation, orf]
 author: oxo-call-community
-source_url: "https://github.com/COL-IU/TransGeneScan"
+source_url: "https://github.com/compbio/transgenescan"
 ---
 
 ## Concepts
 
-- **Tool Overview**: transgenescan (v1.3.0) - Software tool for finding genes in assembled transcripts from metatranscriptomic sequences.
-- **Core Function**: Software tool for finding genes in assembled transcripts from metatranscriptomic sequences.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda transgenescan`
+- **Tool Overview**: TransGeneScan - A tool for predicting gene structures from transcript sequences.
+- **Core Function**: Identifies gene structures, exons, and splice sites from RNA-seq data.
+- **Input**: Transcript sequences (FASTA), genome sequence (optional).
+- **Output**: Gene predictions (GTF), exon annotations, coding regions.
+- **Installation**: `pip install transgenescan` or `conda install -c bioconda transgenescan`
+- **Use Case**: Gene prediction, transcriptome annotation, genome analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complex Genes**: May have difficulty with complex gene structures.
+- **Evidence Integration**: May benefit from additional evidence sources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Predict genes
+**Args:** `transgenescan -i transcripts.fasta -o gene_predictions.gtf`
+**Explanation:** Predict gene structures from transcript sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With genome
+**Args:** `transgenescan -i transcripts.fasta -g genome.fasta -o predictions/`
+**Explanation:** Integrate genome sequence for improved predictions.

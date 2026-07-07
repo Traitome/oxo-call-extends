@@ -1,30 +1,32 @@
 ---
 name: vardict-java
 category: variant-calling
-description: Java port of the VarDict variant discovery program
-tags: [vardict-java, variant-calling]
+description: VarDictJava - Java implementation of VarDict variant caller.
+tags: [vardict-java, variant-calling, bioinformatics, genomics]
 author: oxo-call-community
 source_url: "https://github.com/AstraZeneca-NGS/VarDictJava"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vardict-java (v1.8.3) - Java port of the VarDict variant discovery program
-- **Core Function**: Java port of the VarDict variant discovery program
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vardict-java`
+- **Tool Overview**: VarDictJava - Java implementation of VarDict variant caller.
+- **Core Function**: Calls variants from sequencing data.
+- **Input**: BAM file, BED file.
+- **Output**: VCF file.
+- **Installation**: Install via conda or download from GitHub
+- **Use Case**: Variant calling, cancer genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Java Version**: Requires Java 8 or higher.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Call variants
+**Args:** `java -jar VarDict.jar -G ref.fasta -f 0.01 -N sample -b sample.bam -R regions.bed`
+**Explanation:** Call variants from BAM file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `java -jar VarDict.jar -G ref.fasta -f 0.01 -N sample -b sample.bam -R regions.bed -t 8`
+**Explanation:** Use 8 threads.

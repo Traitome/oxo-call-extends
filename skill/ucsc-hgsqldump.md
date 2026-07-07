@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgsqldump
 category: utility
-description: Execute mysqldump using passwords from .hg.conf.
-tags: [ucsc-hgsqldump, utility]
+description: UCSC hgSqlDump - Tool for dumping SQL database.
+tags: [ucsc-hgsqldump, ucsc, database, sql, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgsqldump (v482) - Execute mysqldump using passwords from .hg.conf.
-- **Core Function**: Execute mysqldump using passwords from .hg.conf.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgsqldump`
+- **Tool Overview**: UCSC hgSqlDump - A tool for dumping SQL database tables.
+- **Core Function**: Exports database tables to SQL dump files.
+- **Input**: Database name and table.
+- **Output**: SQL dump file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Database backup, data export, migration.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large tables.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Dump database table
+**Args:** `hgSqlDump -db=hg38 -table=knownGene > dump.sql`
+**Explanation:** Dump database table to SQL file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgSqlDump -db=hg38 -table=knownGene -verbose > dump.sql`
+**Explanation:** Dump with verbose output.

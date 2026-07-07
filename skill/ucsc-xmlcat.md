@@ -1,30 +1,32 @@
 ---
 name: ucsc-xmlcat
-category: formatting
-description: Concatenate xml files together, stuffing all records inside a single outer tag.
-tags: [ucsc-xmlcat, formatting]
+category: utility
+description: UCSC xmlCat - Tool for concatenating XML files.
+tags: [ucsc-xmlcat, ucsc, xml, concatenate, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-xmlcat (v482) - Concatenate xml files together, stuffing all records inside a single outer tag.
-- **Core Function**: Concatenate xml files together, stuffing all records inside a single outer tag.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-xmlcat`
+- **Tool Overview**: UCSC xmlCat - A tool for concatenating XML files.
+- **Core Function**: Combines multiple XML files into one.
+- **Input**: XML files.
+- **Output**: Combined XML file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: XML processing, data aggregation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **XML Structure**: Requires well-formed XML.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Concatenate XML files
+**Args:** `xmlCat input1.xml input2.xml > output.xml`
+**Explanation:** Combine XML files.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `xmlCat -verbose input1.xml input2.xml > output.xml`
+**Explanation:** Combine with verbose output.

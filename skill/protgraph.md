@@ -1,31 +1,56 @@
 ---
 name: protgraph
 category: utility
-description: ProtGraph, a graph generator for proteins.
-tags: ["protgraph", "utility"]
+description: protgraph generates protein graphs for sequence analysis and visualization.
+tags: [protgraph, utility, proteomics, graph-analysis]
 author: oxo-call-community
 source_url: "https://github.com/mpc-bioinformatics/ProtGraph"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ProtGraph, a graph generator for proteins. (version 0.3.12)
-- **Core Function**: Processes bioinformatics data related to utility
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda protgraph`
+- **Tool Overview**: protgraph builds protein graphs.
+- **Core Function**: Graph generation.
+- **Algorithm**: Uses graph theory methods.
+- **Input Format**: Accepts FASTA files.
+- **Output**: Produces graph structures.
+- **Use Case**: Protein sequence analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large proteins require memory.
+- **Data Quality**: Results depend on input quality.
+- **Graph Complexity**: May affect performance.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `protgraph --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Generate graph
+**Args:** `protgraph -i proteins.fasta -o graph.gml`
+**Explanation:** Creates protein graph from FASTA.
 
+### With parameters
+**Args:** `protgraph -i proteins.fasta --params params.yaml -o graph.gml`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `protgraph -v -i proteins.fasta -o graph.gml`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `protgraph -t 4 -i proteins.fasta -o graph.gml`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `protgraph -i proteins.fasta -o graph.dot --dot`
+**Explanation:** Outputs in DOT format.
+
+### Generate report
+**Args:** `protgraph -i proteins.fasta -o graph.gml --report report.html`
+**Explanation:** Generates HTML report.

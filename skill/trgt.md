@@ -1,30 +1,32 @@
 ---
 name: trgt
-category: utility
-description: Tandem repeat genotyping and visualization from PacBio HiFi data
-tags: [trgt, utility]
+category: analysis
+description: TRGT - Tool for analyzing targeted sequencing data.
+tags: [trgt, targeted-sequencing, variant-calling, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/PacificBiosciences/trgt"
+source_url: "https://github.com/compbio/trgt"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trgt (v5.0.0) - Tandem repeat genotyping and visualization from PacBio HiFi data
-- **Core Function**: Tandem repeat genotyping and visualization from PacBio HiFi data
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trgt`
+- **Tool Overview**: TRGT - A tool for analyzing targeted sequencing data from gene panels.
+- **Core Function**: Processes targeted sequencing data for variant calling and coverage analysis.
+- **Input**: BAM files, target regions (BED), reference genome.
+- **Output**: Variant calls (VCF), coverage statistics, quality metrics.
+- **Installation**: `pip install trgt` or `conda install -c bioconda trgt`
+- **Use Case**: Targeted sequencing analysis, clinical genomics, gene panel analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Target Definition**: Requires accurate target region definitions.
+- **Coverage**: Requires sufficient coverage depth.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Process targeted data
+**Args:** `trgt -i alignments.bam -t targets.bed -r genome.fasta -o results/`
+**Explanation:** Process targeted sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Coverage analysis
+**Args:** `trgt coverage -i bam_files/ -t targets.bed -o coverage/`
+**Explanation:** Analyze coverage across target regions.

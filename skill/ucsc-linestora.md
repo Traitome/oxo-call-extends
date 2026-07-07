@@ -1,30 +1,32 @@
 ---
 name: ucsc-linestora
-category: formatting
-description: Generate .ra format from lines with pipe-separated fields.
-tags: [ucsc-linestora, formatting]
+category: utility
+description: UCSC lineStorA - Tool for line storage.
+tags: [ucsc-linestora, ucsc, text-processing, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-linestora (v482) - Generate .ra format from lines with pipe-separated fields.
-- **Core Function**: Generate .ra format from lines with pipe-separated fields.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-linestora`
+- **Tool Overview**: UCSC lineStorA - A tool for storing and retrieving lines.
+- **Core Function**: Efficiently stores and retrieves text lines.
+- **Input**: Text file.
+- **Output**: Processed text.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, data manipulation, indexing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Encoding**: Requires proper character encoding.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Store lines
+**Args:** `lineStorA input.txt > output.txt`
+**Explanation:** Process and store lines.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `lineStorA -sort input.txt > output.txt`
+**Explanation:** Sort lines during processing.

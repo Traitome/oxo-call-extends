@@ -1,30 +1,32 @@
 ---
 name: tower-cli
 category: utility
-description: The Tower CLI an interface to Nextflow Tower via the CLI.
-tags: [tower-cli, utility]
+description: Tower CLI - Command-line interface for Nextflow Tower.
+tags: [tower-cli, nextflow, tower, workflow, cli]
 author: oxo-call-community
-source_url: "https://docs.seqera.io/platform-cloud/platform-cloud"
+source_url: "https://github.com/seqeralabs/tower-cli"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tower-cli (v0.25.0) - The Tower CLI an interface to Nextflow Tower via the CLI.
-- **Core Function**: The Tower CLI an interface to Nextflow Tower via the CLI.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tower-cli`
+- **Tool Overview**: Tower CLI - A command-line interface for interacting with Nextflow Tower platform.
+- **Core Function**: Manages workflow execution, monitors pipelines, and interacts with Tower platform.
+- **Input**: Tower credentials, workflow configurations.
+- **Output**: Workflow status, execution logs, pipeline results.
+- **Installation**: `pip install tower-cli`
+- **Use Case**: Workflow management, pipeline monitoring, automation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Credentials**: Requires Tower platform credentials and API access.
+- **Network**: Requires network connectivity to Tower server.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Submit workflow
+**Args:** `tw submission create --workflow my_workflow.nf --params params.json`
+**Explanation:** Submit workflow to Tower for execution.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Monitor workflow
+**Args:** `tw submission logs --id 12345`
+**Explanation:** View logs for running workflow.

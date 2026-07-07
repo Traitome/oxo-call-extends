@@ -1,31 +1,56 @@
 ---
 name: rattle
 category: expression
-description: Reference-free reconstruction and quantification of transcriptomes from long-read sequencing.
-tags: ["rattle", "expression"]
+description: RATTLE performs reference-free reconstruction and quantification of transcriptomes from long-read sequencing.
+tags: [rattle, expression, transcriptomics, long-reads]
 author: oxo-call-community
 source_url: "https://github.com/comprna/RATTLE/blob/v1.0/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Reference-free reconstruction and quantification of transcriptomes from long-read sequencing. (version 1.0)
-- **Core Function**: Processes bioinformatics data related to expression
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda rattle`
+- **Tool Overview**: rattle reconstructs transcripts.
+- **Core Function**: Transcriptome reconstruction.
+- **Algorithm**: Uses clustering methods.
+- **Input Format**: Accepts long reads.
+- **Output**: Produces transcripts.
+- **Use Case**: RNA-seq analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Read Coverage**: Affects reconstruction.
+- **Parameters**: Must be configured.
+- **Runtime**: Reconstruction may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `rattle --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Reconstruct transcripts
+**Args:** `rattle reconstruct -i long_reads.fastq -o transcripts.fasta`
+**Explanation:** Reconstructs transcriptome.
 
+### With parameters
+**Args:** `rattle reconstruct -i long_reads.fastq -p params.yaml -o transcripts.fasta`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `rattle -v reconstruct -i long_reads.fastq -o transcripts.fasta`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `rattle -t 4 reconstruct -i long_reads.fastq -o transcripts.fasta`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Quantify transcripts
+**Args:** `rattle quantify -i long_reads.fastq -o quantification.txt`
+**Explanation:** Quantifies transcript expression.
+
+### Generate report
+**Args:** `rattle reconstruct -i long_reads.fastq -o transcripts.fasta --report report.html`
+**Explanation:** Generates HTML report.

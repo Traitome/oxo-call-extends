@@ -1,30 +1,32 @@
 ---
 name: trimal
-category: alignment
-description: A tool for the automated removal of spurious sequences or poorly aligned regions from a multiple sequence alignment
-tags: [trimal, alignment]
+category: analysis
+description: TrimAl - Tool for automated alignment trimming.
+tags: [trimal, sequence-alignment, alignment-trimming, phylogenetics, bioinformatics]
 author: oxo-call-community
-source_url: "https://trimal.readthedocs.io"
+source_url: "https://github.com/trimAl/trimAl"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trimal (v1.5.1) - A tool for the automated removal of spurious sequences or poorly aligned regions from a multiple sequence alignment
-- **Core Function**: A tool for the automated removal of spurious sequences or poorly aligned regions from a multiple sequence alignment
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TrimAl - A tool for automated trimming of multiple sequence alignments.
+- **Core Function**: Removes poorly aligned regions, gaps, and low-quality columns from alignments.
+- **Input**: Sequence alignments (FASTA, PHYLIP, etc.).
+- **Output**: Trimmed alignments, trimming statistics.
 - **Installation**: `conda install -c bioconda trimal`
+- **Use Case**: Phylogenetic analysis, alignment quality improvement, sequence analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Over-trimming**: May remove important conserved regions.
+- **Parameter Selection**: Requires careful parameter selection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Trim alignment
+**Args:** `trimal -in alignment.fasta -out trimmed.fasta -automated1`
+**Explanation:** Automatically trim alignment using default parameters.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With gap threshold
+**Args:** `trimal -in align.fasta -out clean.fasta -gt 0.8`
+**Explanation:** Remove columns with more than 20% gaps.

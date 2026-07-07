@@ -1,30 +1,48 @@
 ---
 name: mcroni
 category: utility
-description: mcr-1 analysis
-tags: [mcroni, utility]
+description: Analysis tool for mcr-1 gene detection and characterization.
+tags: [mcroni, mcr-1, antimicrobial-resistance]
 author: oxo-call-community
 source_url: "https://github.com/liampshaw/mcroni"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mcroni v1.0.4 - mcr-1 analysis.
-- **Core Function**: mcr-1 analysis
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: mcroni analyzes mcr-1 colistin resistance gene.
+- **Core Function**: Detects and characterizes mcr-1 variants.
+- **Resistance Detection**: Identifies mcr-1 gene in sequences.
+- **Variant Analysis**: Analyzes mcr-1 variants and mutations.
+- **Input/Output**: Accepts FASTA/FASTQ, produces analysis reports.
 - **Installation**: `conda install -c bioconda mcroni`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Sequence Quality**: Low-quality sequences affect detection.
+- **Reference Database**: Requires up-to-date reference sequences.
+- **False Positives**: May produce false positive results.
+- **Memory Requirements**: Large datasets require memory.
+- **Parameter Tuning**: Requires careful threshold adjustment.
+- **Output Interpretation**: Results require careful interpretation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Detect mcr-1
+**Args:** `mcroni detect -i genome.fasta -o results.txt`
+**Explanation:** Detects mcr-1 gene in genome.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Variant analysis
+**Args:** `mcroni variant -i genome.fasta -o variants.txt`
+**Explanation:** Analyzes mcr-1 variants.
+
+### Multiple samples
+**Args:** `mcroni batch -d genomes/ -o results/`
+**Explanation:** Processes multiple genome files.
+
+### Verbose output
+**Args:** `mcroni detect -i genome.fasta -v -o results.txt`
+**Explanation:** Shows detailed detection information.
+
+### Help documentation
+**Args:** `mcroni --help`
+**Explanation:** Displays available commands and options.

@@ -1,30 +1,32 @@
 ---
 name: ucsc-bigpsltopsl
-category: formatting
-description: Convert bigPsl file to psl.
-tags: [ucsc-bigpsltopsl, formatting]
+category: utility
+description: UCSC bigPslToPsl - Tool for extracting PSL from bigPsl format.
+tags: [ucsc-bigpsltopsl, ucsc, format-conversion, bigpsl, psl]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bigpsltopsl (v482) - Convert bigPsl file to psl.
-- **Core Function**: Convert bigPsl file to psl.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bigpsltopsl`
+- **Tool Overview**: UCSC bigPslToPsl - A tool for extracting PSL alignments from bigPsl format.
+- **Core Function**: Converts bigPsl files to plain PSL format.
+- **Input**: bigPsl file.
+- **Output**: PSL format alignment file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, alignment analysis, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Size**: Output may be significantly larger.
+- **Index Requirement**: Requires indexed bigPsl file.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to PSL
+**Args:** `bigPslToPsl input.bigpsl output.psl`
+**Explanation:** Convert bigPsl to PSL format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With region
+**Args:** `bigPslToPsl -chrom=chr1 input.bigpsl output.psl`
+**Explanation:** Extract alignments from specific chromosome.

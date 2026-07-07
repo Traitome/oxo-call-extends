@@ -1,30 +1,39 @@
 ---
 name: dawg
 category: variant-calling
-description: DNA Assembly with Gaps (Dawg) is an application designed to simulate the evolution of recombinant DNA sequences in continuous time based on the robust general time reversible model with gamma and invariant rate heterogeneity and a novel length-dependent model of gap formation.
-tags: [dawg, variant-calling]
+description: Dawg - DNA Assembly with Gaps - simulates recombinant DNA sequence evolution
+tags: [dawg, variant-calling, simulation, molecular-evolution, recombination]
 author: oxo-call-community
 source_url: "https://github.com/reedacartwright/dawg"
 ---
 
 ## Concepts
 
-- **Tool Overview**: dawg (v2.0.beta1) - DNA Assembly with Gaps (Dawg) is an application designed to simulate the evolution of recombinant DNA sequences in continuous time based on the robust general time reversible model with gamma and invariant rate heterogeneity and a novel length-dependent model of gap formation.
-- **Core Function**: DNA Assembly with Gaps (Dawg) is an application designed to simulate the evolution of recombinant DNA sequences in continuous time based on the robust general time reversible model with gamma and invariant rate heterogeneity and a novel length-dependent model of gap formation.
-- **Input/Output**: Standard bioinformatics formats
+- **Tool Overview**: dawg (v2.0.beta1+) simulates the evolution of recombinant DNA sequences using the general time reversible model.
+- **Core Function**: Simulates DNA sequence evolution with recombination, gap formation, and rate heterogeneity.
+- **Input/Output**: Input: Ancestral sequence, model parameters. Output: Simulated sequences, evolutionary history.
+- **Algorithm**: Uses continuous-time Markov chain with gamma and invariant rate heterogeneity.
+- **Key Features**: Recombination simulation, length-dependent gaps, population genetics.
 - **Installation**: `conda install -c bioconda dawg`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Parameter Complexity**: Requires careful parameter specification for realistic simulations.
+- **Computational Time**: Complex simulations may be computationally intensive.
+- **Memory Usage**: Large populations or long sequences require significant memory.
+- **Model Assumptions**: Results depend on model assumptions and parameter choices.
+- **Validation**: Simulated data should be validated against expectations.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Simulate sequence evolution
+**Args:** `dawg -i ancestral.fasta -o simulated.fasta -t 100`
+**Explanation:** Simulate 100 generations of sequence evolution.
 
-### Basic usage
-**Args:** `-i aligned.bam -r reference.fasta -o variants.vcf`
-**Explanation:** Call variants from aligned reads
+### Include recombination
+**Args:** `dawg -i ancestral.fasta -o simulated.fasta -r 0.01 -t 100`
+**Explanation:** Simulate with recombination rate of 0.01 per generation.
+
+### Use gamma rate heterogeneity
+**Args:** `dawg -i ancestral.fasta -o simulated.fasta -g 4.0 -t 100`
+**Explanation:** Simulate with gamma rate heterogeneity (shape=4.0).

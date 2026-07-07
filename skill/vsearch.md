@@ -1,30 +1,32 @@
 ---
 name: vsearch
-category: metagenomics
-description: A versatile open source tool for metagenomics (USEARCH alternative).
-tags: [vsearch, metagenomics]
+category: bioinformatics
+description: VSEARCH - Sequence analysis tool.
+tags: [vsearch, sequence-analysis, bioinformatics, metagenomics]
 author: oxo-call-community
-source_url: "https://torognes.github.io/vsearch"
+source_url: "https://github.com/torognes/vsearch"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vsearch (v2.30.6) - A versatile open source tool for metagenomics (USEARCH alternative).
-- **Core Function**: A versatile open source tool for metagenomics (USEARCH alternative).
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vsearch`
+- **Tool Overview**: VSEARCH - Versatile sequence analysis tool.
+- **Core Function**: Performs sequence clustering and analysis.
+- **Input**: FASTA/Q files.
+- **Output**: Clustered sequences.
+- **Installation**: Install via conda or source
+- **Use Case**: Metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster sequences
+**Args:** `vsearch --cluster_fast input.fasta --id 0.97 --centroids output.fasta`
+**Explanation:** Cluster sequences at 97% identity.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vsearch --usearch_global query.fasta --db db.fasta --id 0.9 --out results.txt`
+**Explanation:** Search for similar sequences.

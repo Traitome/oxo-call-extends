@@ -1,30 +1,32 @@
 ---
 name: ucsc-genepredtobed
-category: formatting
-description: Convert from genePred to bed format. Does not yet handle genePredExt.
-tags: [ucsc-genepredtobed, formatting]
+category: utility
+description: UCSC genePredToBed - Tool for converting gene predictions to BED format.
+tags: [ucsc-genepredtobed, ucsc, gene-prediction, bed, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-genepredtobed (v482) - Convert from genePred to bed format. Does not yet handle genePredExt.
-- **Core Function**: Convert from genePred to bed format. Does not yet handle genePredExt.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-genepredtobed`
+- **Tool Overview**: UCSC genePredToBed - A tool for converting gene predictions to BED format.
+- **Core Function**: Converts genePred format to BED format.
+- **Input**: Gene prediction file.
+- **Output**: BED format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, genome browser tracks, visualization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper genePred format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to BED
+**Args:** `genePredToBed genes.txt > genes.bed`
+**Explanation:** Convert gene predictions to BED.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `genePredToBed -type=bed12 genes.txt > genes.bed`
+**Explanation:** Output BED12 format.

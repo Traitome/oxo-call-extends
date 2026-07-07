@@ -1,30 +1,48 @@
 ---
 name: metabinner
 category: utility
-description: Ensemble binning method to recover individual genomes from complex microbial communities
-tags: [metabinner, utility]
+description: Ensemble binning method for recovering individual genomes from complex microbial communities.
+tags: [metabinner, metagenomics, binning]
 author: oxo-call-community
 source_url: "https://github.com/ziyewang/MetaBinner"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metabinner v1.4.4 - Ensemble binning method to recover individual genomes from complex microbial communities.
-- **Core Function**: Ensemble binning method to recover individual genomes from complex microbial communities
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MetaBinner uses ensemble methods for metagenomic binning.
+- **Core Function**: Ensemble-based genome recovery.
+- **Multiple Binners**: Combines results from multiple binning tools.
+- **Machine Learning**: Uses ML for improved binning.
+- **MAG Quality**: Improves MAG completeness and purity.
 - **Installation**: `conda install -c bioconda metabinner`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Dependency Issues**: Requires multiple binning tools.
+- **Memory Requirements**: High memory usage.
+- **Computation Time**: Slow due to multiple binners.
+- **Parameter Tuning**: Complex configuration.
+- **Input Requirements**: Needs multiple input types.
+- **Result Integration**: Combining outputs may fail.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run ensemble binning
+**Args:** `metabinner -i contigs.fasta -a depth.txt -o bins/`
+**Explanation:** Runs ensemble binning.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With multiple depth files
+**Args:** `metabinner -i contigs.fasta -a sample1.txt,sample2.txt -o bins/`
+**Explanation:** Uses multiple samples.
+
+### Custom binners
+**Args:** `metabinner -i contigs.fasta -b metabat,maxbin -o bins/`
+**Explanation:** Uses specific binners.
+
+### High confidence bins
+**Args:** `metabinner -i contigs.fasta -c 0.9 -o bins/`
+**Explanation:** Filters for high confidence bins.
+
+### Help documentation
+**Args:** `metabinner --help`
+**Explanation:** Displays available options.

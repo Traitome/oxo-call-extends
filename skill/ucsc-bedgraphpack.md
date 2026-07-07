@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedgraphpack
 category: utility
-description: Pack together adjacent records representing same value.
-tags: [ucsc-bedgraphpack, utility]
+description: UCSC bedGraphPack - Tool for compressing bedGraph files.
+tags: [ucsc-bedgraphpack, ucsc, bedgraph, compression, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedgraphpack (v482) - Pack together adjacent records representing same value.
-- **Core Function**: Pack together adjacent records representing same value.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedgraphpack`
+- **Tool Overview**: UCSC bedGraphPack - A tool for compressing bedGraph format files.
+- **Core Function**: Compresses bedGraph data for efficient storage.
+- **Input**: bedGraph format file.
+- **Output**: Compressed bedGraph file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Data compression, storage optimization, genome browser.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper bedGraph format.
+- **Decompression**: Requires decompression for analysis.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compress bedGraph
+**Args:** `bedGraphPack input.bedgraph output.bedgraph.pack`
+**Explanation:** Compress bedGraph file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Uncompress
+**Args:** `bedGraphPack -unpack input.bedgraph.pack output.bedgraph`
+**Explanation:** Decompress bedGraph file.

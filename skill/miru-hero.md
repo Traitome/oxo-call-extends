@@ -9,22 +9,40 @@ source_url: "https://gitlab.com/LPCDRP/miru-hero"
 
 ## Concepts
 
-- **Tool Overview**: miru-hero v0.10.0 - Calculate the number and position of MIRU and Spoligotype sequences from a FASTA file, output results to a file, and print octal Spoligotype results, MIRU results, and lineage results to screen.
-- **Core Function**: Compute MIRU and Spoligotype from a M. tuberculosis genome
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda miru-hero`
+- **Tool Overview**: miru-hero v0.10.0 computes MIRU and Spoligotype from M. tuberculosis genomes.
+- **Core Function**: Identifies MIRU-VNTR loci and Spoligotype patterns.
+- **MIRU Analysis**: Detects Mycobacterial Interspersed Repetitive Units.
+- **Spoligotyping**: Identifies spacer oligonucleotide typing patterns.
+- **Lineage Prediction**: Predicts M. tuberculosis lineage.
+- **Input/Output**: Accepts genome sequences; outputs typing results.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **M. tuberculosis Specific**: Designed for Mycobacterium tuberculosis analysis.
+- **Computational Resources**: Processing large genomes may require significant resources.
+- **Memory Requirements**: Memory usage depends on genome size.
+- **Parameter Tuning**: May require parameter adjustment for optimal typing.
+- **Data Quality**: Results depend on input sequence quality.
+- **Reference Standards**: Requires appropriate reference databases.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Compute MIRU and Spoligotype
+**Args:** `miru-hero -i genome.fasta -o results.txt`
+**Explanation:** Computes MIRU and Spoligotype from genome.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With verbose output
+**Args:** `miru-hero -i genome.fasta -o results.txt -v`
+**Explanation:** Shows detailed typing results.
+
+### Lineage prediction
+**Args:** `miru-hero -i genome.fasta -o results.txt -l`
+**Explanation:** Predicts M. tuberculosis lineage.
+
+### Batch processing
+**Args:** `miru-hero -i fasta/ -o results/`
+**Explanation:** Processes multiple genome files.
+
+### Generate report
+**Args:** `miru-hero -i genome.fasta -o results.txt -r report.html`
+**Explanation:** Generates HTML analysis report.

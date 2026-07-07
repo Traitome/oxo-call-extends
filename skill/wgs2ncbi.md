@@ -1,30 +1,32 @@
 ---
 name: wgs2ncbi
-category: programming
-description: Toolkit for preparing genomes for submission to NCBI
-tags: [wgs2ncbi, programming]
+category: bioinformatics
+description: WGS2NCBI - Whole-genome sequencing submission tool.
+tags: [wgs2ncbi, data-submission, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/naturalis/wgs2ncbi"
+source_url: "https://github.com/wgs2ncbi/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wgs2ncbi (v1.1.2) - Toolkit for preparing genomes for submission to NCBI
-- **Core Function**: Toolkit for preparing genomes for submission to NCBI
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wgs2ncbi`
+- **Tool Overview**: WGS2NCBI - NCBI submission helper.
+- **Core Function**: Prepares WGS data for NCBI submission.
+- **Input**: Sequence data.
+- **Output**: Submission-ready files.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data submission, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Prepare submission
+**Args:** `wgs2ncbi -i genome.fasta -o submission/`
+**Explanation:** Prepare NCBI submission.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wgs2ncbi -i genome.fasta -o submission/ -p project`
+**Explanation:** Specify project.

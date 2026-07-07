@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedremoveoverlap
 category: utility
-description: Remove overlapping records from a (sorted) bed file.
-tags: [ucsc-bedremoveoverlap, utility]
+description: UCSC bedRemoveOverlap - Tool for removing overlapping regions from BED files.
+tags: [ucsc-bedremoveoverlap, ucsc, bed-manipulation, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedremoveoverlap (v482) - Remove overlapping records from a (sorted) bed file.
-- **Core Function**: Remove overlapping records from a (sorted) bed file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedremoveoverlap`
+- **Tool Overview**: UCSC bedRemoveOverlap - A tool for removing overlapping regions within a BED file.
+- **Core Function**: Merges or removes overlapping regions to create non-overlapping sets.
+- **Input**: BED file with potentially overlapping regions.
+- **Output**: BED file with non-overlapping regions.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Peak merging, region simplification, data cleaning.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Strand Awareness**: May not consider strand by default.
+- **Merge Strategy**: Requires appropriate merge strategy selection.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Remove overlaps
+**Args:** `bedRemoveOverlap -i input.bed > output.bed`
+**Explanation:** Remove overlapping regions from BED file.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Merge overlapping
+**Args:** `bedRemoveOverlap -merge -i input.bed > merged.bed`
+**Explanation:** Merge overlapping regions.

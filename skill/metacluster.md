@@ -2,29 +2,47 @@
 name: metacluster
 category: alignment
 description: MetaCluster5.1 is a new software for binning short pair-end reads
-tags: [metacluster, alignment, sequence, alignment]
+tags: [metacluster, alignment, metagenomics, binning, reads]
 author: oxo-call-community
 source_url: "http://i.cs.hku.hk/~alse/MetaCluster/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: metacluster v5.1 - MetaCluster5.1 is an unsupervised binning method that can (1) samples with low-abundance species, or (2) samples (even with high-abundance) with many extremely-low-abundance species. The input file should be in fasta format. Every odd-number read and its next read are supposed to be pair-end reads..
-- **Core Function**: MetaCluster5.1 is a new software for binning short pair-end reads
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda metacluster`
+- **Tool Overview**: MetaCluster v5.1 is an unsupervised binning method designed for binning short paired-end reads from metagenomic samples.
+- **Core Function**: Groups sequencing reads into bins based on sequence composition and coverage patterns without requiring reference genomes.
+- **Low-abundance Detection**: Specifically designed to handle samples with low-abundance species and many extremely-low-abundance species.
+- **Paired-end Support**: Optimized for paired-end sequencing data where odd-numbered reads and their next read are treated as pairs.
+- **Input/Output**: Accepts FASTA-formatted paired-end reads; outputs read bins with taxonomic assignments when possible.
+- **Unsupervised Learning**: Uses machine learning algorithms to automatically group reads without prior knowledge.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Input Format**: Requires specific input format where paired reads are consecutive in the file.
+- **Read Length**: Performance may vary with different read lengths.
+- **Complex Communities**: May struggle with highly complex metagenomic communities.
+- **Computational Resources**: Memory usage can be high for large datasets.
+- **Parameter Tuning**: May require parameter adjustment for optimal binning results.
+- **Contamination**: Cross-contamination between bins can occur with closely related species.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run binning on paired-end reads
+**Args:** `MetaCluster -i reads.fasta -o bins/`
+**Explanation:** Bins paired-end reads from input FASTA file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Specify k-mer size
+**Args:** `MetaCluster -i reads.fasta -k 25 -o bins/`
+**Explanation:** Uses k-mer size of 25 for binning.
+
+### With coverage information
+**Args:** `MetaCluster -i reads.fasta -c coverage.txt -o bins/`
+**Explanation:** Incorporates coverage information for improved binning.
+
+### Output bin statistics
+**Args:** `MetaCluster -i reads.fasta -o bins/ -s`
+**Explanation:** Generates statistics for each bin.
+
+### Run in parallel mode
+**Args:** `MetaCluster -i reads.fasta -o bins/ -p 8`
+**Explanation:** Uses 8 threads for parallel processing.

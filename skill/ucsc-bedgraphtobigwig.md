@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedgraphtobigwig
-category: formatting
-description: Convert a bedGraph file to bigWig format.
-tags: [ucsc-bedgraphtobigwig, formatting]
+category: utility
+description: UCSC bedGraphToBigWig - Tool for converting bedGraph to BigWig format.
+tags: [ucsc-bedgraphtobigwig, ucsc, format-conversion, bedgraph, bigwig]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedgraphtobigwig (v482) - Convert a bedGraph file to bigWig format.
-- **Core Function**: Convert a bedGraph file to bigWig format.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedgraphtobigwig`
+- **Tool Overview**: UCSC bedGraphToBigWig - A tool for converting bedGraph format to BigWig format.
+- **Core Function**: Converts bedGraph files to indexed BigWig format.
+- **Input**: bedGraph file, chromosome sizes file.
+- **Output**: BigWig format file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser visualization, data sharing, efficient access.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Sorted Input**: Requires sorted bedGraph input.
+- **Chromosome Names**: Requires matching chromosome names in sizes file.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert to BigWig
+**Args:** `bedGraphToBigWig input.bedgraph chrom.sizes output.bw`
+**Explanation:** Convert bedGraph to BigWig format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With compression
+**Args:** `bedGraphToBigWig -compress input.bedgraph chrom.sizes output.bw`
+**Explanation:** Convert with compression.

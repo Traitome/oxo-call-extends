@@ -1,22 +1,56 @@
 ---
 name: panqc
 category: qc
-description: A toolkit for quality control & adjustment of nucleotide redundancy in bacterial pan-genome analyses
-tags: [panqc, qc]
+description: PanQC provides quality control and redundancy correction for pangenome analyses.
+tags: [panqc, qc, pangenome, quality-control]
 author: oxo-call-community
 source_url: "https://github.com/maxgmarin/panqc"
 ---
 
 ## Concepts
-- **Tool Overview**: panqc is a pan-genome quality control toolkit that evaluates and corrects for nucleotide redundancy in pan-genome analyses. The panqc Nucleotide Redundancy Correction (NRC) pipeline adjusts for redundancy at the DNA level within pan-genome estimates by comparing genes classified as absent at the amino acid level against their corresponding assemblies at the nucleotide level and by clustering genes using k-mer based nucleotide similarity metrics.
-- **Core Function**: Processes bioinformatics data for qc tasks.
-- **Input/Output**: Standard bioinformatics formats (FASTA/FASTQ, BAM, VCF, etc.).
-- **Installation**: `conda install -c bioconda panqc`
+
+- **Tool Overview**: PanQC evaluates and corrects nucleotide redundancy in pangenomes.
+- **Core Function**: Performs quality control for pangenome analysis.
+- **Algorithm**: Uses k-mer based similarity metrics for redundancy detection.
+- **Input Format**: Accepts pangenome annotations and sequence files.
+- **Output**: Produces corrected pangenome data and statistics.
+- **Use Case**: Pangenome quality control, redundancy correction.
 
 ## Pitfalls
-- **Version**: Options may vary between versions.
+
+- **Version Differences**: Options may vary between versions.
+- **Memory Usage**: Large datasets require memory.
+- **Computational Cost**: Analysis can be computationally intensive.
+- **Parameter Sensitivity**: Results depend on parameters.
+- **Runtime**: Analysis may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
-### Help
-**Args:** `--help`
-**Explanation:** Shows available options.
+
+### Display help
+**Args:** `panqc --help`
+**Explanation:** Shows available options and usage instructions.
+
+### Run quality control
+**Args:** `panqc -i pangenome/ -o qc_results/`
+**Explanation:** Performs pangenome quality control.
+
+### Redundancy correction
+**Args:** `panqc nrc -i pangenome/ -o corrected/`
+**Explanation:** Runs Nucleotide Redundancy Correction.
+
+### Verbose mode
+**Args:** `panqc -v -i pangenome/ -o qc_results/`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `panqc -t 16 -i pangenome/ -o qc_results/`
+**Explanation:** Uses 16 threads for parallel processing.
+
+### Output format
+**Args:** `panqc -i pangenome/ -o qc_results.json --json`
+**Explanation:** Outputs in JSON format.
+
+### Statistics
+**Args:** `panqc stats -i pangenome/ -o stats.txt`
+**Explanation:** Generates quality control statistics.

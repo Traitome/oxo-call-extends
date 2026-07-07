@@ -2,29 +2,47 @@
 name: minirmd
 category: qc
 description: Remove duplicate and near-duplicate reads
-tags: [minirmd, qc]
+tags: [minirmd, qc, deduplication]
 author: oxo-call-community
 source_url: "https://github.com/yuansliu/minirmd"
 ---
 
 ## Concepts
 
-- **Tool Overview**: minirmd v1.1 - Remove duplicate and near-duplicate reads.
-- **Core Function**: Remove duplicate and near-duplicate reads
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda minirmd`
+- **Tool Overview**: MiniRMD v1.1 removes duplicate and near-duplicate reads.
+- **Core Function**: Identifies and removes redundant sequencing reads.
+- **Read Deduplication**: Eliminates duplicate reads from datasets.
+- **Near-duplicate Detection**: Identifies similar but not identical reads.
+- **Input/Output**: Accepts FASTQ files; outputs deduplicated reads.
+- **Quality Control**: Supports sequencing data preprocessing workflows.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Read-specific**: Designed for sequencing read data.
+- **Computational Resources**: Processing large datasets may require significant resources.
+- **Memory Requirements**: Memory usage depends on dataset size.
+- **Parameter Tuning**: May require parameter adjustment for optimal deduplication.
+- **Data Quality**: Results depend on input read quality.
+- **Threshold Sensitivity**: Choice of similarity threshold affects results.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Remove duplicates
+**Args:** `minirmd -i reads.fastq -o deduplicated.fastq`
+**Explanation:** Removes duplicate reads from FASTQ file.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With near-duplicate detection
+**Args:** `minirmd -i reads.fastq -o deduplicated.fastq -n`
+**Explanation:** Enables near-duplicate detection.
+
+### Custom threshold
+**Args:** `minirmd -i reads.fastq -o deduplicated.fastq -t 0.95`
+**Explanation:** Uses 95% similarity threshold.
+
+### Batch processing
+**Args:** `minirmd -i fastq/ -o deduplicated/`
+**Explanation:** Processes multiple FASTQ files.
+
+### Generate statistics
+**Args:** `minirmd -i reads.fastq -o deduplicated.fastq -s stats.txt`
+**Explanation:** Generates deduplication statistics.

@@ -1,30 +1,56 @@
 ---
 name: short-read-connector
 category: utility
-description: Short read connector enables the comparisons of two read sets.
-tags: [short-read-connector, utility]
+description: short-read-connector - Comparison of two read sets
+tags: ["short-read-connector", "utility", "read-comparison", "GATB"]
 author: oxo-call-community
 source_url: "https://github.com/GATB/short_read_connector"
 ---
 
 ## Concepts
 
-- **Tool Overview**: short-read-connector (v1.2.0) - Short read connector enables the comparisons of two read sets.
-- **Core Function**: Short read connector enables the comparisons of two read sets.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda short-read-connector`
+- **Tool Overview**: short-read-connector (v1.2.0) enables comparison of two read sets.
+- **Core Function**: Identifies common sequences between read datasets.
+- **Algorithm**: Uses k-mer based comparison approach.
+- **Input/Output**: Accepts FASTQ files and produces comparison results.
+- **Read Comparison**: Focuses on identifying shared sequences.
+- **Applications**: Metagenomics, read deduplication, and sequence comparison.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **k-mer Size**: Choosing appropriate k-mer size is critical.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compare read sets
+**Args:** `short-read-connector -a reads_a.fastq -b reads_b.fastq -o results.txt`
+**Explanation:** `-a/-b` input read sets; `-o` output results.
 
-### Basic usage
-**Args:** `short-read-connector -i <input_file> -o <output_file>`
-**Explanation:** Run short-read-connector with typical input and output options.
+### With k-mer size
+**Args:** `short-read-connector -a reads_a.fastq -b reads_b.fastq -k 31 -o results.txt`
+**Explanation:** `-k 31` k-mer size.
+
+### Verbose logging
+**Args:** `short-read-connector -v -a reads_a.fastq -b reads_b.fastq -o results.txt`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `short-read-connector --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `short-read-connector --version`
+**Explanation:** Shows current version.
+
+### Threaded mode
+**Args:** `short-read-connector -t 8 -a reads_a.fastq -b reads_b.fastq -o results.txt`
+**Explanation:** `-t 8` uses 8 threads.
+
+### Output format
+**Args:** `short-read-connector -a reads_a.fastq -b reads_b.fastq -f csv -o results.csv`
+**Explanation:** `-f csv` CSV output format.

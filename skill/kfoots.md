@@ -1,30 +1,52 @@
 ---
 name: kfoots
 category: utility
-description: The package provides methods for fitting multivariate count data with a mixture model or a hidden markov model. Each mixture component is a negative multivariate random variable and an EM algorithm is used to maximize the likelihood.
-tags: [kfoots, utility]
+description: Fits multivariate count data with mixture models or hidden Markov models using EM algorithm.
+tags: [kfoots, utility, mixture model, HMM, EM algorithm, count data]
 author: oxo-call-community
 source_url: "http://github.com/lamortenera/kfoots"
 ---
 
 ## Concepts
 
-- **Tool Overview**: kfoots (v1.0) - The package provides methods for fitting multivariate count data with a mixture model or a hidden markov model. Each mixture component is a negative multivariate random variable and an EM algorithm is used to maximize the likelihood.
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda kfoots`
+- **Tool Overview**: kfoots (v1.0) - Fits multivariate count data with statistical models.
+- **Mixture Models**: Uses mixture of negative multinomial distributions.
+- **Hidden Markov Model**: Supports HMM for sequential data.
+- **EM Algorithm**: Uses Expectation-Maximization for likelihood maximization.
+- **Multivariate Analysis**: Handles multi-dimensional count data.
+- **Bioinformatics Applications**: Used in genomic and transcriptomic analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Model Selection**: Choosing appropriate model is critical.
+- **Initialization**: Poor initialization affects convergence.
+- **Overfitting**: May overfit complex models.
+- **Computation Time**: Complex models can be slow.
+- **Memory Usage**: Large datasets require memory.
+- **Convergence**: May not converge to optimal solution.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Fit mixture model
+**Args:** `kfoots fit -i counts.txt -o model.pkl -k 3`
+**Explanation:** Fits mixture model with 3 components.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Fit HMM
+**Args:** `kfoots fit -i counts.txt -o model.pkl -m hmm -k 3`
+**Explanation:** Fits hidden Markov model with 3 states.
+
+### Predict clusters
+**Args:** `kfoots predict -i new_data.txt -m model.pkl -o predictions.txt`
+**Explanation:** Predicts cluster assignments for new data.
+
+### Evaluate model
+**Args:** `kfoots evaluate -i counts.txt -m model.pkl -o metrics.txt`
+**Explanation:** Evaluates model performance.
+
+### Cross-validation
+**Args:** `kfoots cv -i counts.txt -k 3 -f 5 -o cv_results.txt`
+**Explanation:** Performs 5-fold cross-validation.
+
+### Generate synthetic data
+**Args:** `kfoots simulate -n 1000 -k 3 -o synthetic.txt`
+**Explanation:** Generates synthetic count data.

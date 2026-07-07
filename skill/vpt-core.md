@@ -1,30 +1,32 @@
 ---
 name: vpt-core
-category: utility
-description: Core components for the Vizgen Post-processing Tool
-tags: [vpt-core, utility]
+category: bioinformatics
+description: VPT-Core - Core library for VPT tools.
+tags: [vpt-core, bioinformatics, library, visualization]
 author: oxo-call-community
-source_url: "https://github.com/Vizgen/vpt-core"
+source_url: "https://github.com/vpt-core/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vpt-core (v1.2.0) - Core components for the Vizgen Post-processing Tool
-- **Core Function**: Core components for the Vizgen Post-processing Tool
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vpt-core`
+- **Tool Overview**: VPT-Core - Core library for visualization tools.
+- **Core Function**: Provides core utilities for VPT tools.
+- **Input**: Various data types.
+- **Output**: Processed data.
+- **Installation**: Install via pip
+- **Use Case**: Bioinformatics, visualization.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Dependencies**: Requires other VPT packages.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Use core functions
+**Args:** `python -c "from vpt_core import utils; utils.process_data()"`
+**Explanation:** Use core utilities.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "utils.visualize(data)"`
+**Explanation:** Visualize data.

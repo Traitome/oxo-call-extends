@@ -1,30 +1,32 @@
 ---
 name: ucsc-sqltoxml
-category: formatting
-description: Dump out all or part of a relational database to XML, guided.
-tags: [ucsc-sqltoxml, formatting]
+category: utility
+description: UCSC sqlToXml - Tool for converting SQL to XML.
+tags: [ucsc-sqltoxml, ucsc, sql, xml, format-conversion]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-sqltoxml (v482) - Dump out all or part of a relational database to XML, guided.
-- **Core Function**: Dump out all or part of a relational database to XML, guided.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-sqltoxml`
+- **Tool Overview**: UCSC sqlToXml - A tool for converting SQL results to XML.
+- **Core Function**: Converts SQL query results to XML format.
+- **Input**: SQL query results.
+- **Output**: XML file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Format conversion, data exchange, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large result sets.
+- **XML Structure**: Requires proper XML structure understanding.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Convert SQL to XML
+**Args:** `sqlToXml input.sql > output.xml`
+**Explanation:** Convert SQL to XML format.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `sqlToXml -verbose input.sql > output.xml`
+**Explanation:** Convert with verbose output.

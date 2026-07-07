@@ -1,30 +1,32 @@
 ---
 name: ucsc-fastqstatsandsubsample
 category: utility
-description: Go through a fastq file doing sanity checks and collecting stats.
-tags: [ucsc-fastqstatsandsubsample, utility, fastq]
+description: UCSC fastqStatsAndSubsample - Tool for FASTQ statistics and subsampling.
+tags: [ucsc-fastqstatsandsubsample, ucsc, fastq, sequencing, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-fastqstatsandsubsample (v482) - Go through a fastq file doing sanity checks and collecting stats.
-- **Core Function**: Go through a fastq file doing sanity checks and collecting stats.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-fastqstatsandsubsample`
+- **Tool Overview**: UCSC fastqStatsAndSubsample - A tool for FASTQ statistics and subsampling.
+- **Core Function**: Generates statistics and creates subsamples from FASTQ files.
+- **Input**: FASTQ file.
+- **Output**: Statistics report and/or subsampled FASTQ.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quality control, data subsampling, sequencing analysis.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **File Format**: Requires proper FASTQ format.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate statistics
+**Args:** `fastqStatsAndSubsample input.fastq > stats.txt`
+**Explanation:** Generate FASTQ statistics.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Subsample reads
+**Args:** `fastqStatsAndSubsample -subsample=10000 input.fastq > subsample.fastq`
+**Explanation:** Extract 10,000 random reads.

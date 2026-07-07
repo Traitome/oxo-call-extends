@@ -1,30 +1,32 @@
 ---
 name: unikseq
-category: utility
-description: Unique DNA sequence region identification using a k-mer approach
-tags: [unikseq, utility]
+category: bioinformatics
+description: UniKSeq - Unique sequence analysis tool.
+tags: [unikseq, sequence-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/BirolLab/unikseq"
+source_url: "https://github.com/unikseq/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unikseq (v2.0.1) - Unique DNA sequence region identification using a k-mer approach
-- **Core Function**: Unique DNA sequence region identification using a k-mer approach
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unikseq`
+- **Tool Overview**: UniKSeq - A tool for analyzing unique sequence features.
+- **Core Function**: Identifies unique sequences and patterns.
+- **Input**: Sequence files (FASTA/FASTQ).
+- **Output**: Unique sequence analysis results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Sequence analysis, marker identification, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Computation Time**: May be slow for complex analyses.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Find unique sequences
+**Args:** `unikseq -i input.fasta -o unique_seqs.fasta`
+**Explanation:** Extract unique sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unikseq -i input.fasta -o unique_seqs.fasta -min_length 100`
+**Explanation:** Set minimum sequence length.

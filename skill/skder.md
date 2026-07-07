@@ -1,30 +1,56 @@
 ---
 name: skder
-category: utility
-description: skDER & CiDDER: efficient & high-resolution dereplication methods for microbial genomes
-tags: [skder, utility]
+category: assembly
+description: skDER - Microbial genome dereplication
+tags: ["skder", "assembly", "dereplication", "microbial"]
 author: oxo-call-community
 source_url: "https://github.com/raufs/skDER"
 ---
 
 ## Concepts
 
-- **Tool Overview**: skder (v1.3.4) - skDER & CiDDER: efficient & high-resolution dereplication methods for microbial genomes
-- **Core Function**: skDER & CiDDER: efficient & high-resolution dereplication methods for microbial genomes
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda skder`
+- **Tool Overview**: skDER (v1.3.4) performs efficient dereplication of microbial genomes.
+- **Core Function**: Identifies and removes redundant genome sequences.
+- **Algorithm**: Uses k-mer based clustering for dereplication.
+- **Input/Output**: Accepts FASTA sequences and produces non-redundant set.
+- **Genome Dereplication**: Specialized for microbial genome clustering.
+- **Applications**: Metagenomics, genome collection curation, redundancy removal.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Computational Resources**: May require significant compute resources.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Input Quality**: Results depend on sequence quality.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Limited documentation available.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Dereplicate genomes
+**Args:** `skder -i genomes/ -o dereplicated/`
+**Explanation:** `-i` input directory; `-o` output directory.
 
-### Basic usage
-**Args:** `skder -i <input_file> -o <output_file>`
-**Explanation:** Run skder with typical input and output options.
+### With CiDDER mode
+**Args:** `skder -i genomes/ -c -o dereplicated/`
+**Explanation:** `-c` use CiDDER algorithm.
+
+### With threshold
+**Args:** `skder -i genomes/ -t 0.99 -o dereplicated/`
+**Explanation:** `-t 0.99` similarity threshold.
+
+### Help command
+**Args:** `skder --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `skder --version`
+**Explanation:** Shows current version.
+
+### Verbose mode
+**Args:** `skder -v -i genomes/ -o dereplicated/`
+**Explanation:** `-v` verbose output.
+
+### Threaded mode
+**Args:** `skder -t 8 -i genomes/ -o dereplicated/`
+**Explanation:** `-t 8` uses 8 threads.

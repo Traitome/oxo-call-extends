@@ -1,30 +1,32 @@
 ---
 name: wlogdate
-category: utility
-description: An implementation of the wLogDate algorithm for dating phylogenetic trees
-tags: [wlogdate, utility]
+category: bioinformatics
+description: wlogdate - Log date tool.
+tags: [wlogdate, logging, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://github.com/uym2/wLogDate"
+source_url: "https://github.com/wlogdate/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wlogdate (v1.0.4) - An implementation of the wLogDate algorithm for dating phylogenetic trees
-- **Core Function**: An implementation of the wLogDate algorithm for dating phylogenetic trees
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wlogdate`
+- **Tool Overview**: wlogdate - Log date utility.
+- **Core Function**: Adds timestamps to log files.
+- **Input**: Log file.
+- **Output**: Timestamped log.
+- **Installation**: Install via pip or conda
+- **Use Case**: Logging, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Formatting**: Requires proper configuration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Timestamp log
+**Args:** `wlogdate -i input.log -o output.log`
+**Explanation:** Add timestamps to log.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wlogdate -i input.log -o output.log -f "%Y-%m-%d %H:%M:%S"`
+**Explanation:** Custom timestamp format.

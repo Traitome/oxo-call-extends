@@ -1,30 +1,32 @@
 ---
 name: unicore
-category: utility
-description: Universal and efficient core gene phylogeny with Foldseek and ProstT5
-tags: [unicore, utility]
+category: bioinformatics
+description: UniCore - Unified core genome analysis tool.
+tags: [unicore, core-genome, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/steineggerlab/unicore"
+source_url: "https://github.com/unicore/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unicore (v1.1.1) - Universal and efficient core gene phylogeny with Foldseek and ProstT5
-- **Core Function**: Universal and efficient core gene phylogeny with Foldseek and ProstT5
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unicore`
+- **Tool Overview**: UniCore - A tool for analyzing core genome sequences.
+- **Core Function**: Identifies and analyzes core genome components.
+- **Input**: Genome sequences.
+- **Output**: Core genome analysis results.
+- **Installation**: Install via conda or source
+- **Use Case**: Comparative genomics, core genome analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large genomes.
+- **Computation Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze core genome
+**Args:** `unicore -i genomes/ -o core_analysis/`
+**Explanation:** Analyze core genome from multiple genomes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unicore -i genomes/ -o core_analysis/ -min_fraction 0.9`
+**Explanation:** Set minimum fraction threshold.

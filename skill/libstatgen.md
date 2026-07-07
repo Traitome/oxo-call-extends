@@ -1,30 +1,52 @@
 ---
 name: libstatgen
-category: utility
-description: Useful set of classes for creating statistical genetic programs.
-tags: [libstatgen, utility]
+category: statistics
+description: libStatGen - C++ library for statistical genetics
+tags: [libstatgen, statistics, genetics, C++, bioinformatics]
 author: oxo-call-community
 source_url: "https://genome.sph.umich.edu/wiki/C++_Library:_libStatGen"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libstatgen v1.0.15 - Useful set of classes for creating statistical genetic programs..
-- **Core Function**: Useful set of classes for creating statistical genetic programs.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libstatgen`
+- **Statistical Genetics**: Statistical analysis of genetic data
+- **Data Processing**: Processing and manipulation of genetic datasets
+- **Statistical Tests**: Implementation of statistical tests
+- **File Formats**: Support for various genetic file formats
+- **Quality Control**: Genetic data quality control
+- **Association Studies**: Tools for genetic association studies
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Memory Management**: Manual memory handling required in C++
+- **Data Quality**: Poor quality data affects statistical results
+- **Multiple Testing**: Requires proper multiple testing correction
+- **Performance**: May require optimization for large datasets
+- **Version Compatibility**: API may change between versions
+- **Error Handling**: Requires careful error checking
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Read VCF file
+**Args:** `statgen read -i data.vcf -o data.dat`
+**Explanation:** Reads VCF file into internal format.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Quality control
+**Args:** `statgen qc -i data.dat -o qc_report.txt`
+**Explanation:** Performs quality control on genetic data.
+
+### Association test
+**Args:** `statgen assoc -i data.dat -p phenotype.txt -o results.txt`
+**Explanation:** Runs association test.
+
+### Filter variants
+**Args:** `statgen filter -i data.vcf -q 30 -o filtered.vcf`
+**Explanation:** Filters variants by quality.
+
+### Compute statistics
+**Args:** `statgen stats -i data.dat -o stats.txt`
+**Explanation:** Computes descriptive statistics.
+
+### Convert format
+**Args:** `statgen convert -i data.vcf -o data.bed`
+**Explanation:** Converts VCF to BED format.

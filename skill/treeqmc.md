@@ -1,30 +1,32 @@
 ---
 name: treeqmc
-category: utility
-description: TREE-QMC is a quartet-based method for estimating species trees from gene trees.
-tags: [treeqmc, utility]
+category: analysis
+description: TreeQMC - Tool for quartet-based phylogenetic tree construction.
+tags: [treeqmc, phylogenetic-tree, quartet, phylogenetics, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/molloy-lab/TREE-QMC"
+source_url: "https://github.com/compbio/treeqmc"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treeqmc (v3.0.1) - TREE-QMC is a quartet-based method for estimating species trees from gene trees.
-- **Core Function**: TREE-QMC is a quartet-based method for estimating species trees from gene trees.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treeqmc`
+- **Tool Overview**: TreeQMC - A tool for constructing phylogenetic trees using quartet maximum compatibility.
+- **Core Function**: Builds trees by maximizing the number of compatible quartet topologies.
+- **Input**: Sequence data, quartet topologies.
+- **Output**: Phylogenetic tree (Newick format), compatibility scores.
+- **Installation**: `pip install treeqmc` or `conda install -c bioconda treeqmc`
+- **Use Case**: Phylogenetic inference, evolutionary analysis, tree reconciliation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Quartet Selection**: Requires appropriate quartet sampling strategy.
+- **Large Datasets**: May be slow for very large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Build tree
+**Args:** `treeqmc -i sequences.fasta -o tree.nwk`
+**Explanation:** Construct phylogenetic tree using quartet compatibility.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With bootstrap
+**Args:** `treeqmc -i alignment.fasta -b -o tree_with_bootstrap.nwk`
+**Explanation:** Build tree with bootstrap support.

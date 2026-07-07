@@ -1,30 +1,52 @@
 ---
 name: livekraken
 category: metagenomics
-description: LiveKraken is a real-time metagenomic classifier for Illumina sequencing data.
-tags: [livekraken, metagenomics]
+description: LiveKraken - Real-time metagenomic classifier for Illumina sequencing
+tags: [livekraken, metagenomics, real-time, classification, Illumina, bioinformatics]
 author: oxo-call-community
 source_url: "https://gitlab.com/SimonHTausch/LiveKraken"
 ---
 
 ## Concepts
 
-- **Tool Overview**: livekraken v1.0 - LiveKraken is a real-time metagenomic classifier for Illumina sequencing data..
-- **Core Function**: LiveKraken is a real-time metagenomic classifier for Illumina sequencing data.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda livekraken`
+- **Real-time Classification**: Real-time metagenomic classification
+- **K-mer Analysis**: K-mer based taxonomic classification
+- **Illumina Sequencing**: Optimized for Illumina sequencing data
+- **Streaming Analysis**: Streaming analysis of sequencing data
+- **Taxonomic Profiling**: Taxonomic profiling of metagenomic samples
+- **Rapid Detection**: Rapid detection of pathogens
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Reference Database**: Requires large reference database
+- **Memory Usage**: Memory-intensive for real-time processing
+- **Speed vs Accuracy**: Trade-off between speed and accuracy
+- **Parameter Tuning**: Requires careful parameter optimization
+- **Data Rate**: Must handle high data rates
+- **False Positives**: May produce false positive identifications
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Real-time classification
+**Args:** `livekraken -i reads.fastq -o results.txt`
+**Explanation:** Performs real-time metagenomic classification.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Stream from stdin
+**Args:** `cat reads.fastq | livekraken -o results.txt`
+**Explanation:** Processes reads from standard input.
+
+### Custom database
+**Args:** `livekraken -i reads.fastq -o results.txt -d custom_db`
+**Explanation:** Uses custom reference database.
+
+### Threads
+**Args:** `livekraken -i reads.fastq -o results.txt -t 8`
+**Explanation:** Uses 8 threads for parallel processing.
+
+### Minimum confidence
+**Args:** `livekraken -i reads.fastq -o results.txt -c 0.8`
+**Explanation:** Sets minimum confidence threshold to 0.8.
+
+### Output format
+**Args:** `livekraken -i reads.fastq -o results.json -f json`
+**Explanation:** Outputs results in JSON format.

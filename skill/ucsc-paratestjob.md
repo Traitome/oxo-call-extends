@@ -1,30 +1,32 @@
 ---
 name: ucsc-paratestjob
 category: utility
-description: Version 12.18.
-tags: [ucsc-paratestjob, utility]
+description: UCSC paraTestJob - Tool for testing parallel jobs.
+tags: [ucsc-paratestjob, ucsc, parallel, test, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-paratestjob (v482) - Version 12.18.
-- **Core Function**: Version 12.18.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-paratestjob`
+- **Tool Overview**: UCSC paraTestJob - A tool for testing parallel jobs.
+- **Core Function**: Tests parallel job submission and execution.
+- **Input**: Test parameters.
+- **Output**: Test results.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Testing, debugging, cluster validation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Configuration**: Requires proper cluster configuration.
+- **Dependencies**: Requires test environment.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Test parallel job
+**Args:** `paraTestJob`
+**Explanation:** Run parallel job test.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `paraTestJob -verbose`
+**Explanation:** Run with verbose output.

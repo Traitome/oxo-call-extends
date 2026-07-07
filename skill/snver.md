@@ -1,30 +1,60 @@
 ---
 name: snver
-category: utility
-description: SNVer is a statistical tool for calling common and rare variants in analysis of pool or individual next-generation sequencing data. It reports one single overall p-value for evaluating the significance of a candidate locus being a variant, based on which multiplicity control can be obtained. Loci with any (low) coverage can be tested and depth of coverage will be quantitatively factored into final significance calculation. SNVer runs very fast, making it feasible for analysis of whole-exome sequencing data, or even whole-genome sequencing data.
-tags: [snver, utility]
+category: variant-analysis
+description: SNVer - Statistical tool for calling variants in pooled and individual NGS data
+tags: [snver, variant-analysis, pooled-seq, statistics, ngs]
 author: oxo-call-community
 source_url: "http://snver.sourceforge.net/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: snver (v0.5.3) - SNVer is a statistical tool for calling common and rare variants in analysis of pool or individual next-generation sequencing data. It reports one single overall p-value for evaluating the significance of a candidate locus being a variant, based on which multiplicity control can be obtained. Loci with any (low) coverage can be tested and depth of coverage will be quantitatively factored into final significance calculation. SNVer runs very fast, making it feasible for analysis of whole-exome sequencing data, or even whole-genome sequencing data.
-- **Core Function**: SNVer is a statistical tool for calling common and rare variants in analysis of pool or individual next-generation sequencing data. It reports one single overall p-value for evaluating the significance of a candidate locus being a variant, based on which multiplicity control can be obtained. Loci with any (low) coverage can be tested and depth of coverage will be quantitatively factored into final significance calculation. SNVer runs very fast, making it feasible for analysis of whole-exome sequencing data, or even whole-genome sequencing data.
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: snver (v0.5.3) - A statistical variant caller for pooled and individual data
+- **Core Function**: Calls common and rare variants with statistical significance
+- **Input/Output**: Accepts BAM files; outputs VCF with variant calls and p-values
+- **Algorithm**: Uses statistical model for variant significance testing
 - **Installation**: `conda install -c bioconda snver`
+- **Key Features**: Pooled sequencing, statistical testing, rare variant detection
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly aligned BAM files
+- **Reference Genome**: Must use compatible reference genome
+- **Pool Size**: Pool size affects statistical power
+- **Coverage**: Low coverage reduces variant detection accuracy
+- **Multiple Testing**: Requires correction for multiple testing
+- **Computation Time**: Large datasets can be slow to process
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `snver --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `snver -i <input_file> -o <output_file>`
-**Explanation:** Run snver with typical input and output options.
+### Individual variant calling
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf`
+**Explanation:** Call variants from individual sample.
+
+### Pooled variant calling
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf --pool-size 10`
+**Explanation:** Call variants from pooled sample.
+
+### With p-value threshold
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf --p-value 0.01`
+**Explanation:** Set p-value threshold for significance.
+
+### With coverage filter
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf --min-coverage 10`
+**Explanation:** Set minimum coverage threshold.
+
+### Rare variant detection
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf --rare`
+**Explanation:** Enable rare variant detection mode.
+
+### Common variant detection
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf --common`
+**Explanation:** Enable common variant detection mode.
+
+### Generate report
+**Args:** `snver -i aligned.bam -r reference.fasta -o variants.vcf --report`
+**Explanation:** Generate variant calling report.

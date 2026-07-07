@@ -1,30 +1,32 @@
 ---
 name: wg-blimp
-category: alignment
-description: wg-blimp (Whole Genome BisuLfIte sequencing Methylation analysis Pipeline)
-tags: [wg-blimp, alignment]
+category: bioinformatics
+description: WG-Blimp - Whole-genome bisulfite sequencing analysis.
+tags: [wg-blimp, dna-methylation, bioinformatics, epigenomics]
 author: oxo-call-community
-source_url: "https://github.com/MarWoes/wg-blimp"
+source_url: "https://github.com/wg-blimp/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wg-blimp (v0.10.0) - wg-blimp (Whole Genome BisuLfIte sequencing Methylation analysis Pipeline) can be utilised to analyse WGBS data. It performs alignment, qc, methylation calling, DMR calling, segmentation and annotation using a multitude of tools.
-- **Core Function**: wg-blimp (Whole Genome BisuLfIte sequencing Methylation analysis Pipeline)
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wg-blimp`
+- **Tool Overview**: WG-Blimp - Bisulfite sequencing analysis tool.
+- **Core Function**: Analyzes DNA methylation data.
+- **Input**: Bisulfite sequencing data.
+- **Output**: Methylation calls.
+- **Installation**: Install via pip or conda
+- **Use Case**: Epigenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze methylation
+**Args:** `wg-blimp -i reads.fastq -o methylation.txt`
+**Explanation:** Analyze DNA methylation.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wg-blimp -i reads.fastq -o methylation.txt -t 8`
+**Explanation:** Use 8 threads.

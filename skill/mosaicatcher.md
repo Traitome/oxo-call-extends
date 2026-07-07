@@ -1,30 +1,48 @@
 ---
 name: mosaicatcher
 category: expression
-description: mosaicatcher: counts Strand-seq reads and classifies strand states of each chromosome in each cell using a Hidden Markov Model.
-tags: [mosaicatcher, expression]
+description: Counts Strand-seq reads and classifies strand states using Hidden Markov Model.
+tags: [mosaicatcher, expression, single-cell]
 author: oxo-call-community
 source_url: "https://github.com/friendsofstrandseq/mosaicatcher/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: mosaicatcher v0.3.1 - mosaicatcher: counts Strand-seq reads and classifies strand states of each chromosome in each cell using a Hidden Markov Model..
-- **Core Function**: mosaicatcher: counts Strand-seq reads and classifies strand states of each chromosome in each cell using a Hidden Markov Model.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda mosaicatcher`
+- **Tool Overview**: mosaicatcher v0.3.1 analyzes Strand-seq data using Hidden Markov Model.
+- **Core Function**: Classifies strand states of chromosomes in single cells.
+- **Strand-seq**: Designed for Strand-sequencing data analysis.
+- **Hidden Markov Model**: Uses HMM for state classification.
+- **Single-Cell Analysis**: Supports single-cell sequencing data.
+- **Input/Output**: Accepts aligned reads; outputs strand state classifications.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Strand-seq Specific**: Designed for Strand-sequencing data.
+- **Memory Requirements**: Memory usage depends on cell count.
+- **Parameter Tuning**: May require parameter adjustment for HMM.
+- **Data Quality**: Results depend on sequencing quality.
+- **Chromosome Coverage**: Requires sufficient coverage per chromosome.
+- **Computational Resources**: Large datasets may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Run strand state classification
+**Args:** `mosaicatcher -i alignments.bam -o strand_states.txt`
+**Explanation:** Classifies strand states using HMM.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom parameters
+**Args:** `mosaicatcher -i alignments.bam -p params.yaml -o strand_states.txt`
+**Explanation:** Uses custom HMM parameters.
+
+### Generate visualization
+**Args:** `mosaicatcher -i alignments.bam -v -o strand_states.txt`
+**Explanation:** Generates strand state visualization.
+
+### Batch processing
+**Args:** `mosaicatcher -i bam/ -o results/`
+**Explanation:** Processes multiple samples.
+
+### Generate report
+**Args:** `mosaicatcher -i alignments.bam -r report.html -o strand_states.txt`
+**Explanation:** Generates analysis report.

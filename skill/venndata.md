@@ -1,30 +1,32 @@
 ---
 name: venndata
-category: utility
-description: Package for plotting Venn diagrams with more than 3 sets
-tags: [venndata, utility]
+category: bioinformatics
+description: venndata - Venn diagram data analysis.
+tags: [venndata, visualization, venn-diagram, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/mandalsubhajit/venndata"
+source_url: "https://github.com/venndata/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: venndata (v0.1.0) - Package for plotting Venn diagrams with more than 3 sets
-- **Core Function**: Package for plotting Venn diagrams with more than 3 sets
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda venndata`
+- **Tool Overview**: venndata - Venn diagram generation tool.
+- **Core Function**: Generates Venn diagrams from set data.
+- **Input**: Set data files.
+- **Output**: Venn diagram.
+- **Installation**: Install via pip or conda
+- **Use Case**: Data visualization, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: Limited to small number of sets.
+- **Dependencies**: Requires plotting libraries.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate Venn
+**Args:** `venndata -i set1.txt set2.txt set3.txt -o venn.png`
+**Explanation:** Generate 3-set Venn diagram.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `venndata -i set1.txt set2.txt -o venn.png -c red,blue`
+**Explanation:** Custom colors.

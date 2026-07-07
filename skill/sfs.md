@@ -1,30 +1,56 @@
 ---
 name: sfs
 category: utility
-description: CLI tool for site frequency spectra.
-tags: [sfs, utility]
+description: sfs - CLI tool for site frequency spectra analysis
+tags: ["sfs", "utility", "population-genomics", "frequency-spectrum"]
 author: oxo-call-community
 source_url: "https://github.com/malthesr/sfs"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sfs (v0.1.0) - CLI tool for site frequency spectra.
-- **Core Function**: CLI tool for site frequency spectra.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda sfs`
+- **Tool Overview**: sfs (v0.1.0) is a CLI tool for site frequency spectra analysis.
+- **Core Function**: Calculates and analyzes site frequency spectra from genomic data.
+- **Algorithm**: Uses statistical methods for frequency spectrum calculations.
+- **Input/Output**: Accepts VCF files and produces frequency spectrum statistics.
+- **Population Genetics**: Focuses on allele frequency analysis.
+- **Applications**: Population genetics, evolutionary biology, and genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Memory Usage**: High memory requirements for large datasets.
+- **Input Format**: Requires correct VCF format.
+- **Parameter Tuning**: Requires careful adjustment for optimal results.
+- **Version Compatibility**: Different versions may have breaking changes.
+- **Documentation**: Some features have limited documentation.
+- **Dependency**: Requires appropriate input data format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate SFS
+**Args:** `sfs calculate -i input.vcf -o sfs.txt`
+**Explanation:** `-i` input VCF; `-o` output SFS.
 
-### Basic usage
-**Args:** `sfs -i <input_file> -o <output_file>`
-**Explanation:** Run sfs with typical input and output options.
+### With population map
+**Args:** `sfs calculate -i input.vcf -p populations.txt -o sfs.txt`
+**Explanation:** `-p` population map file.
+
+### Plot SFS
+**Args:** `sfs plot -i sfs.txt -o plot.png`
+**Explanation:** Generates plot of frequency spectrum.
+
+### Verbose logging
+**Args:** `sfs -v calculate -i input.vcf -o sfs.txt`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `sfs --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `sfs --version`
+**Explanation:** Shows current version.
+
+### Multiple chromosomes
+**Args:** `sfs calculate -i chr1.vcf -i chr2.vcf -o combined_sfs.txt`
+**Explanation:** Processes multiple VCF files.

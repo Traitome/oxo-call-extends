@@ -1,30 +1,32 @@
 ---
 name: ucsc-pslswap
 category: utility
-description: Swap target and query in psls.
-tags: [ucsc-pslswap, utility]
+description: UCSC pslSwap - Tool for swapping query and target.
+tags: [ucsc-pslswap, ucsc, psl, swap, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-pslswap (v482) - Swap target and query in psls.
-- **Core Function**: Swap target and query in psls.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-pslswap`
+- **Tool Overview**: UCSC pslSwap - A tool for swapping query and target in PSL alignments.
+- **Core Function**: Swaps query and target coordinates.
+- **Input**: PSL file.
+- **Output**: Swapped PSL file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Coordinate transformation, alignment processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Format Requirements**: Requires proper PSL format.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Swap query and target
+**Args:** `pslSwap input.psl > swapped.psl`
+**Explanation:** Swap query and target.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `pslSwap -verbose input.psl > swapped.psl`
+**Explanation:** Swap with verbose output.

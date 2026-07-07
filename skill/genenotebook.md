@@ -1,30 +1,43 @@
 ---
 name: genenotebook
-category: utility
-description: A colleborative notebook for comparative genomics
-tags: [genenotebook, utility]
+category: data-management
+description: GeneNotebook - A collaborative notebook for comparative genomics and sequence analysis.
+tags: [genenotebook, collaborative, genomics, sequence-analysis]
 author: oxo-call-community
 source_url: "https://genenotebook.github.io"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genenotebook (v0.3.2) - A colleborative notebook for comparative genomics
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genenotebook`
+- **Collaborative Analysis**: Supports collaborative genomic analysis.
+- **Sequence Viewer**: Provides interactive sequence viewing.
+- **Comparative Genomics**: Facilitates comparative genomics studies.
+- **Annotation Management**: Manages genome annotations.
+- **Data Sharing**: Enables sharing of genomic data and analyses.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Synchronization**: Requires proper data synchronization.
+- **Access Control**: Requires careful access management.
+- **Large Data Handling**: Large genomes require optimized viewing.
+- **Collaboration Conflicts**: Concurrent editing can cause conflicts.
+- **Backup**: Regular backups are essential.
 
 ## Examples
+### Start GeneNotebook server
+**Args:** `genenotebook start -d ./database/ -p 8080`
+**Explanation:** Starts GeneNotebook server on port 8080.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Import genome
+**Args:** `genenotebook import -g genome.fasta -n "My Genome"`
+**Explanation:** Imports genome sequence into GeneNotebook.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Add annotations
+**Args:** `genenotebook annotate -g genome_id -a annotations.gff`
+**Explanation:** Adds annotations to a genome.
+
+### Export data
+**Args:** `genenotebook export -g genome_id -o genome_data/`
+**Explanation:** Exports genome data and annotations.
+
+### Share project
+**Args:** `genenotebook share -p project_id -u user@example.com`
+**Explanation:** Shares a project with another user.

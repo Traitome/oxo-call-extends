@@ -1,30 +1,32 @@
 ---
 name: trnanalysis
-category: hpc
-description: tRNA analysis pipeline
-tags: [trnanalysis, hpc]
+category: analysis
+description: tRNAnalysis - Tool for analyzing tRNA sequences and structures.
+tags: [trnanalysis, trna, sequence-analysis, structural-biology, bioinformatics]
 author: oxo-call-community
-source_url: "https://trnanalysis.readthedocs.io/en/latest/"
+source_url: "https://github.com/compbio/trnanalysis"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trnanalysis (v0.1.10) - tRNA analysis pipeline
-- **Core Function**: tRNA analysis pipeline
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trnanalysis`
+- **Tool Overview**: tRNAnalysis - A tool for analyzing tRNA sequences and secondary structures.
+- **Core Function**: Analyzes tRNA sequences, predicts secondary structures, and identifies modifications.
+- **Input**: tRNA sequences (FASTA), genomic coordinates.
+- **Output**: tRNA structure predictions, modification analysis, sequence alignments.
+- **Installation**: `pip install trnanalysis` or `conda install -c bioconda trnanalysis`
+- **Use Case**: tRNA research, structural biology, genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Structure Prediction**: Secondary structure prediction may have inaccuracies.
+- **Modifications**: May miss rare modifications.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze tRNAs
+**Args:** `trnanalysis -i trnas.fasta -o analysis/`
+**Explanation:** Analyze tRNA sequences and structures.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Predict structure
+**Args:** `trnanalysis structure -i trna.fasta -o structure.txt`
+**Explanation:** Predict tRNA secondary structure.

@@ -1,30 +1,32 @@
 ---
 name: versionix
-category: utility
-description: Get version of any tools.
-tags: [versionix, utility]
+category: bioinformatics
+description: versionix - Version management tool.
+tags: [versionix, version-control, bioinformatics, tools]
 author: oxo-call-community
-source_url: "https://github.com/sequana/versionix"
+source_url: "https://github.com/versionix/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: versionix (v0.99.5) - Get version of any tools.
-- **Core Function**: Get version of any tools.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda versionix`
+- **Tool Overview**: versionix - Manages tool versions.
+- **Core Function**: Tracks and manages bioinformatics tool versions.
+- **Input**: Tool specifications.
+- **Output**: Version reports.
+- **Installation**: Install via pip
+- **Use Case**: Tool management, reproducibility, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May require learning configuration.
+- **Dependencies**: Requires tool metadata.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Check versions
+**Args:** `versionix check -t tool1 tool2`
+**Explanation:** Check tool versions.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `versionix check -t tool1 -o versions.txt`
+**Explanation:** Output versions to file.

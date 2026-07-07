@@ -1,30 +1,56 @@
 ---
 name: scrnasim-toolz
-category: programming
-description: Tools used by scRNAsim workflow.
-tags: [scrnasim-toolz, programming]
+category: single-cell
+description: scrnasim-toolz - Tools used by scRNAsim workflow
+tags: ["scrnasim-toolz", "single-cell", "RNA-seq", "simulation"]
 author: oxo-call-community
 source_url: "https://github.com/zavolanlab/scRNAsim-toolz"
 ---
 
 ## Concepts
 
-- **Tool Overview**: scrnasim-toolz (v0.1.1) - Tools used by scRNAsim workflow.
-- **Core Function**: Tools used by scRNAsim workflow.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda scrnasim-toolz`
+- **Tool Overview**: scrnasim-toolz (v0.1.1) provides tools used by the scRNAsim workflow.
+- **Core Function**: Supports single-cell RNA-seq data simulation.
+- **Algorithm**: Implements various simulation strategies for scRNA-seq data.
+- **Input/Output**: Accepts configuration files and produces simulated data.
+- **Workflow Integration**: Designed to work with the scRNAsim pipeline.
+- **Applications**: Single-cell RNA-seq simulation, method testing, and benchmarking.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Workflow Dependency**: Designed for use with scRNAsim workflow.
+- **Parameter Tuning**: Requires careful adjustment for realistic simulations.
+- **Computational Resources**: May require significant compute resources.
+- **Memory Usage**: High memory requirements for large simulations.
+- **Documentation**: Some features have limited documentation.
+- **Version Compatibility**: Different versions may have breaking changes.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run simulation
+**Args:** `scrnasim-toolz simulate -c config.yaml -o output/`
+**Explanation:** `-c` configuration file; `-o` output directory.
 
-### Basic usage
-**Args:** `scrnasim-toolz <config_file>`
-**Explanation:** Run scrnasim-toolz with typical input and output options.
+### Generate config
+**Args:** `scrnasim-toolz generate-config -o config.yaml`
+**Explanation:** Generates template configuration file.
+
+### Validate config
+**Args:** `scrnasim-toolz validate-config -c config.yaml`
+**Explanation:** Validates configuration file.
+
+### Verbose logging
+**Args:** `scrnasim-toolz simulate -c config.yaml -v -o output/`
+**Explanation:** `-v` enables verbose output for debugging.
+
+### Help command
+**Args:** `scrnasim-toolz --help`
+**Explanation:** Shows available commands and options.
+
+### Version check
+**Args:** `scrnasim-toolz --version`
+**Explanation:** Shows current version.
+
+### List commands
+**Args:** `scrnasim-toolz list`
+**Explanation:** Lists available commands.

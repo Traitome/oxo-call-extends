@@ -1,30 +1,43 @@
 ---
 name: gmtk
-category: programming
-description: A publicly available toolkit for rapidly prototyping statistical models using dynamic graphical models (DGMs) and dynamic Bayesian networks (DBNs)
-tags: [gmtk, programming]
+category: statistical-modeling
+description: gmtk - Toolkit for prototyping statistical models using dynamic graphical models.
+tags: [gmtk, statistical-modeling, graphical-models, Bayesian-networks]
 author: oxo-call-community
 source_url: "http://melodi.ee.washington.edu/gmtk/"
 ---
 
 ## Concepts
-
-- **Tool Overview**: gmtk (v1.4.4) - A publicly available toolkit for rapidly prototyping statistical models using dynamic graphical models (DGMs) and dynamic Bayesian networks (DBNs)
-- **Core Function**: Provides functionality for programming tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda gmtk`
+- **Dynamic Graphical Models**: Implements DGMs.
+- **Bayesian Networks**: Uses dynamic Bayesian networks.
+- **Statistical Modeling**: Prototypes statistical models.
+- **Parameter Estimation**: Estimates model parameters.
+- **Inference**: Performs inference.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Model Complexity**: Complex model specification.
+- **Parameter Initialization**: Requires careful initialization.
+- **Computational Intensity**: Training can be slow.
+- **Convergence Issues**: May have convergence problems.
+- **Documentation**: Limited documentation.
 
 ## Examples
+### Train model
+**Args:** `gmtk train -i training.data -m model.gmtk -o trained.gmtk`
+**Explanation:** Trains statistical model.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Inference
+**Args:** `gmtk infer -i test.data -m trained.gmtk -o predictions.txt`
+**Explanation:** Performs inference.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Evaluate
+**Args:** `gmtk evaluate -i test.data -m trained.gmtk -o eval.txt`
+**Explanation:** Evaluates model.
+
+### Generate report
+**Args:** `gmtk train -i training.data -m model.gmtk -r -o report.html`
+**Explanation:** Generates training report.
+
+### Batch processing
+**Args:** `gmtk train -l datasets.txt -m model.gmtk -o ./models/`
+**Explanation:** Processes multiple datasets.

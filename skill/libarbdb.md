@@ -1,30 +1,52 @@
 ---
 name: libarbdb
-category: alignment
-description: ARB 6 Sequence Analysis Suite
-tags: [libarbdb, alignment, alignment]
+category: phylogeny
+description: ARB Sequence Analysis Suite for sequence database management and phylogeny
+tags: [libarbdb, phylogeny, sequence-analysis, rRNA, database]
 author: oxo-call-community
 source_url: "http://www.arb-home.de"
 ---
 
 ## Concepts
 
-- **Tool Overview**: libarbdb v6.0.6 - "ARB (ARBor, Latin: tree): A software environment for maintaining databases of molecular sequences and additional information, and for analyzing the sequence data, with emphasis on phylogeny reconstruction.  The programs have primarily been developed for ribosomal ribonucleic acid (rRNA) sequences and, therefore, contain special tools for alignment and analysis of these structures. However, other molecular sequence data can also be handled. Protein gene sequences and predicted protein primary structures as well as protein secondary structures can be stored in the same database.  The ARB package is designed for graphical user interface. Program control and data display are available in a hierarchical set of windows and subwindows. The majority of operations can be controlled using the mouse for moving the pointer and the left mouse button for initiating and performing operations".
-- **Core Function**: ARB 6 Sequence Analysis Suite
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda libarbdb`
+- **Sequence Database**: Maintains databases of molecular sequences
+- **Phylogeny Reconstruction**: Specialized tools for phylogenetic analysis
+- **rRNA Analysis**: Optimized for ribosomal RNA sequences
+- **Sequence Alignment**: Tools for sequence alignment
+- **Protein Analysis**: Handles protein sequences and structures
+- **Graphical Interface**: GUI-based sequence analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Learning Curve**: Complex interface requires learning
+- **Memory Usage**: Large databases require significant memory
+- **File Compatibility**: Limited format support
+- **Version Compatibility**: Older versions may have bugs
+- **Computational Resources**: Phylogeny reconstruction is computationally intensive
+- **Database Maintenance**: Regular updates required
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Create database
+**Args:** `arb -c new_database.arb`
+**Explanation:** Creates new ARB database.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Import sequences
+**Args:** `arb -i sequences.fasta -d database.arb`
+**Explanation:** Imports sequences into database.
+
+### Align sequences
+**Args:** `arb align -d database.arb -o aligned.fasta`
+**Explanation:** Performs sequence alignment.
+
+### Build phylogeny
+**Args:** `arb phylogeny -d database.arb -o tree.nwk`
+**Explanation:** Constructs phylogenetic tree.
+
+### Export sequences
+**Args:** `arb export -d database.arb -o export.fasta`
+**Explanation:** Exports sequences from database.
+
+### Database statistics
+**Args:** `arb stats -d database.arb`
+**Explanation:** Shows database statistics.

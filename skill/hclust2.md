@@ -1,30 +1,60 @@
 ---
 name: hclust2
-category: utility
-description: hclust2 is a handy tool for plotting heat-maps
-tags: [hclust2, utility]
+category: bioinformatics
+description: hclust2 is a tool for plotting heatmaps and hierarchical clustering.
+tags: [hclust2, heatmap, clustering, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/SegataLab/hclust2"
 ---
 
 ## Concepts
 
-- **Tool Overview**: hclust2 (v1.0.0) - hclust2 is a handy tool for plotting heat-maps
-- **Core Function**: Provides functionality for utility tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda hclust2`
+- **Heatmap Plotting**: hclust2 generates heatmaps.
+
+- **Hierarchical Clustering**: Performs hierarchical clustering.
+
+- **Data Visualization**: Visualizes high-dimensional data.
+
+- **Cluster Analysis**: Analyzes clustering patterns.
+
+- **Dendrogram**: Generates dendrograms.
+
+- **Matrix Visualization**: Visualizes data matrices.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Scale**: Large datasets may require downsampling.
+
+- **Parameter Tuning**: Requires careful parameter optimization.
+
+- **Computational Resources**: May require significant resources.
+
+- **Memory Usage**: Large datasets may require significant memory.
+
+- **Image Quality**: Adjust parameters for optimal image quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate heatmap
+**Args:** `hclust2 --input matrix.txt --output heatmap.png`
+**Explanation:** Generates heatmap from matrix data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With clustering
+**Args:** `hclust2 --input matrix.txt --cluster --output heatmap.png`
+**Explanation:** Performs hierarchical clustering and plots heatmap.
+
+### Batch processing
+**Args:** `for f in *.txt; do hclust2 --input $f --output ${f%.txt}_heatmap.png; done`
+**Explanation:** Processes multiple matrix files.
+
+### Custom colors
+**Args:** `hclust2 --input matrix.txt --colors viridis --output heatmap.png`
+**Explanation:** Uses custom color palette.
+
+### Dendrogram only
+**Args:** `hclust2 --input matrix.txt --dendrogram --output dendrogram.png`
+**Explanation:** Generates dendrogram only.
+
+### Help command
+**Args:** `hclust2 --help`
+**Explanation:** Shows available options and usage information.

@@ -1,31 +1,56 @@
 ---
 name: pprodigal
 category: annotation
-description: PProdigal - Parallelized gene prediction based on Prodigal.
-tags: ["pprodigal", "annotation"]
+description: pprodigal is a parallelized gene prediction tool based on Prodigal.
+tags: [pprodigal, annotation, gene-prediction, parallel]
 author: oxo-call-community
 source_url: "https://github.com/sjaenick/pprodigal"
 ---
 
 ## Concepts
 
-- **Tool Overview**: PProdigal - Parallelized gene prediction based on Prodigal. (version 1.0.1)
-- **Core Function**: Processes bioinformatics data related to annotation
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pprodigal`
+- **Tool Overview**: pprodigal predicts genes.
+- **Core Function**: Parallel gene prediction.
+- **Algorithm**: Uses Prodigal-based methods.
+- **Input Format**: Accepts FASTA files.
+- **Output**: Produces gene annotations.
+- **Use Case**: Genome annotation, metagenomics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large genomes require memory.
+- **Data Quality**: Results depend on sequence quality.
+- **Prediction Accuracy**: May have false positives.
+- **Runtime**: Processing may take significant time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `pprodigal --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Annotate features
-**Args:** `-i genome.fasta -o annotation.gff`
-**Explanation:** Predicts and annotates genomic features.
+### Predict genes
+**Args:** `pprodigal -i genome.fasta -o genes.gff`
+**Explanation:** Predicts genes from genome sequence.
 
+### With parameters
+**Args:** `pprodigal -i genome.fasta -p params.yaml -o genes.gff`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `pprodigal -v -i genome.fasta -o genes.gff`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `pprodigal -t 4 -i genome.fasta -o genes.gff`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `pprodigal -i genome.fasta -o genes.fasta --fasta`
+**Explanation:** Outputs in FASTA format.
+
+### Generate report
+**Args:** `pprodigal -i genome.fasta -o genes.gff --report report.html`
+**Explanation:** Generates HTML report.

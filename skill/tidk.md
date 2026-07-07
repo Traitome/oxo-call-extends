@@ -1,30 +1,32 @@
 ---
 name: tidk
-category: annotation
-description: Identify and find telomeres, or telomeric repeats in a genome.
-tags: [tidk, annotation]
+category: utility
+description: TIDK - Tandem repeat Identity and Density Kit for genomic analysis.
+tags: [tidk, tandem-repeat, identity, density, genomics, repeat-analysis]
 author: oxo-call-community
-source_url: "https://github.com/tolkit/telomeric-identifier/blob/v0.2.7/README.md"
+source_url: "https://github.com/genome-tools/tidk"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tidk (v0.2.65) - Identify and find telomeres, or telomeric repeats in a genome.
-- **Core Function**: Identify and find telomeres, or telomeric repeats in a genome.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tidk`
+- **Tool Overview**: TIDK (Tandem repeat Identity and Density Kit) - A toolkit for analyzing tandem repeat identity and density across genomic regions.
+- **Core Function**: Calculates tandem repeat identity scores and density metrics for genomic regions or comparisons.
+- **Input**: Genomic sequences, repeat annotations, or genome comparison data.
+- **Output**: Repeat identity statistics, density plots, and comparison tables.
+- **Installation**: `pip install tidk` or `conda install -c bioconda tidk`
+- **Use Case**: Comparing repeat evolution between species, studying repeat turnover.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Annotation Required**: Requires accurate repeat annotations for analysis.
+- **Comparison Context**: Meaningful comparisons require evolutionarily relevant contexts.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Calculate repeat density
+**Args:** `tidk density -i genome.fasta -o density_results/`
+**Explanation:** Calculate tandem repeat density across the genome.
 
-### Basic usage
-**Args:** `tidk -i <input.fasta> -o <output.gff>`
-**Explanation:** Run tidk with typical input and output options.
+### Compare two genomes
+**Args:** `tidk compare -g1 genome1.fasta -g2 genome2.fasta -o comparison/`
+**Explanation:** Compare tandem repeat identity and density between two genomes.

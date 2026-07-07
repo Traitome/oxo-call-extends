@@ -1,30 +1,32 @@
 ---
 name: unifrac-binaries
-category: metagenomics
-description: Fast phylogenetic diversity calculations
-tags: [unifrac-binaries, metagenomics]
+category: bioinformatics
+description: UniFrac - Phylogenetic beta diversity tool.
+tags: [unifrac-binaries, unifrac, phylogenetic-diversity, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/biocore/unifrac-binaries"
+source_url: "https://github.com/biocore/unifrac"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unifrac-binaries (v1.6) - UniFrac is a commonly phylogenetic diversity distance metric used in microbiome research. The metric relates two microbiome samples together within the context of an evolutionary history, and produces a distance that corresponds to how similar two samples by the amount of overlapping branch length. This package contains command line utilities and a shared library.
-- **Core Function**: Fast phylogenetic diversity calculations
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unifrac-binaries`
+- **Tool Overview**: UniFrac - A tool for calculating phylogenetic beta diversity.
+- **Core Function**: Computes UniFrac distances between microbial communities.
+- **Input**: OTU table, phylogenetic tree.
+- **Output**: Distance matrix.
+- **Installation**: Install via conda or source
+- **Use Case**: Microbiome analysis, community ecology, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Tree Requirements**: Requires rooted phylogenetic tree.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compute UniFrac distance
+**Args:** `unifrac -i otu_table.txt -t tree.nwk -o distances.txt`
+**Explanation:** Compute UniFrac distances.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Weighted UniFrac
+**Args:** `unifrac -i otu_table.txt -t tree.nwk -o distances.txt -w`
+**Explanation:** Compute weighted UniFrac.

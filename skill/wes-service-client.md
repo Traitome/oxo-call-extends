@@ -1,30 +1,32 @@
 ---
 name: wes-service-client
-category: hpc
-description: Implementation of the GA4GH Workflow Execution Service, a REST service for running workflows; client support only
-tags: [wes-service-client, hpc]
+category: bioinformatics
+description: WES-Service-Client - Workflow Execution Service client.
+tags: [wes-service-client, workflow, bioinformatics, api]
 author: oxo-call-community
-source_url: "https://github.com/common-workflow-language/workflow-service"
+source_url: "https://github.com/ga4gh/wes-service"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wes-service-client (v2.7) - Implementation of the GA4GH Workflow Execution Service, a REST service for running workflows; client support only
-- **Core Function**: Implementation of the GA4GH Workflow Execution Service, a REST service for running workflows; client support only
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wes-service-client`
+- **Tool Overview**: WES-Service-Client - GA4GH WES API client.
+- **Core Function**: Interacts with Workflow Execution Service.
+- **Input**: Workflow files.
+- **Output**: Execution results.
+- **Installation**: Install via pip
+- **Use Case**: Workflow execution, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Network**: Requires network connectivity.
+- **Complexity**: May have steep learning curve.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Submit workflow
+**Args:** `wes-client submit -u https://wes.example.com -w workflow.wdl`
+**Explanation:** Submit workflow to WES server.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `wes-client status -u https://wes.example.com -r run_id`
+**Explanation:** Check workflow status.

@@ -1,30 +1,32 @@
 ---
 name: treerecs
-category: utility
-description: correct, rearrange and (re-)root gene trees with regard to a given species tree
-tags: [treerecs, utility]
+category: analysis
+description: TreeRecs - Tool for phylogenetic tree reconciliation.
+tags: [treerecs, phylogenetic-tree, reconciliation, gene-tree, species-tree]
 author: oxo-call-community
-source_url: "https://project.inria.fr/treerecs/"
+source_url: "https://github.com/compbio/treerecs"
 ---
 
 ## Concepts
 
-- **Tool Overview**: treerecs (v1.2) - correct, rearrange and (re-)root gene trees with regard to a given species tree
-- **Core Function**: correct, rearrange and (re-)root gene trees with regard to a given species tree
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda treerecs`
+- **Tool Overview**: TreeRecs - A tool for reconciling gene trees with species trees.
+- **Core Function**: Infers gene duplication, loss, and transfer events by reconciling gene and species trees.
+- **Input**: Gene trees, species tree, optional sequence data.
+- **Output**: Reconciled trees, duplication/loss/transfer events, reconciliation scores.
+- **Installation**: `pip install treerecs` or `conda install -c bioconda treerecs`
+- **Use Case**: Phylogenomics, gene family evolution, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Tree Quality**: Requires accurate gene and species trees.
+- **Complexity**: May have difficulties with large gene families.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Reconcile trees
+**Args:** `treerecs -g gene_trees.nwk -s species_tree.nwk -o reconciliation/`
+**Explanation:** Reconcile gene trees with species tree.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With sequences
+**Args:** `treerecs -g genes.nwk -s species.nwk -a sequences.fasta -o results/`
+**Explanation:** Reconcile trees with sequence data for improved accuracy.

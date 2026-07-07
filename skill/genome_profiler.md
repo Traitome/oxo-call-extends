@@ -1,30 +1,43 @@
 ---
 name: genome_profiler
-category: hpc
-description: Prokaryotic genome and plasmid profiling pipeline.
-tags: [genome_profiler, hpc]
+category: genome-analysis
+description: GenomeProfiler - Prokaryotic genome and plasmid profiling pipeline.
+tags: [genome_profiler, prokaryotic-genomics, plasmid-profiling, pipeline]
 author: oxo-call-community
 source_url: "https://github.com/Syrinx55/GenomeProfiler/blob/v0.4.2/README.md"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genome_profiler (v0.4.2) - Prokaryotic genome and plasmid profiling pipeline.
-- **Core Function**: Provides functionality for hpc tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genome_profiler`
+- **Prokaryotic Genomics**: Analyzes prokaryotic genomes.
+- **Plasmid Profiling**: Profiles plasmids in bacterial genomes.
+- **Genome Analysis**: Performs comprehensive genome analysis.
+- **Annotation**: Annotates genomic features.
+- **Comparative Analysis**: Supports comparative genomics.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Assembly Quality**: Depends on high-quality assemblies.
+- **Computational Resources**: Large datasets require significant resources.
+- **Database Updates**: Requires regular database updates.
+- **False Positives**: May detect false plasmid signals.
+- **Validation**: Results should be validated experimentally.
 
 ## Examples
+### Profile genome
+**Args:** `genome_profiler -i genome.fasta -o results/`
+**Explanation:** Profiles prokaryotic genome and plasmids.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### With annotations
+**Args:** `genome_profiler -i genome.fasta -a annotations.gff -o results/`
+**Explanation:** Uses existing annotations for profiling.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Plasmid analysis
+**Args:** `genome_profiler -i genome.fasta -p -o plasmid_results/`
+**Explanation:** Focuses on plasmid analysis.
+
+### Batch processing
+**Args:** `genome_profiler -i ./genomes/ -o ./results/`
+**Explanation:** Processes multiple genome files in batch.
+
+### Generate report
+**Args:** `genome_profiler -i genome.fasta -r -o report.html`
+**Explanation:** Generates comprehensive profiling report.

@@ -1,30 +1,32 @@
 ---
 name: unifire
-category: utility
-description: UniFIRE is the official protein annotator from Uniprot. It runs both UniRule and ARBA to assign protein function.
-tags: [unifire, utility]
+category: bioinformatics
+description: UniFire - Unified functional inference engine.
+tags: [unifire, functional-inference, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/cmatKhan/unifire/"
+source_url: "https://github.com/unifire/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: unifire (v1.0.1) - UniFIRE is the official protein annotator from Uniprot. It runs both UniRule and ARBA to assign protein function.
-- **Core Function**: UniFIRE is the official protein annotator from Uniprot. It runs both UniRule and ARBA to assign protein function.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda unifire`
+- **Tool Overview**: UniFire - A tool for functional inference from omics data.
+- **Core Function**: Infers functional relationships from multi-omics data.
+- **Input**: Omics data matrix.
+- **Output**: Functional inference results.
+- **Installation**: Install via pip or conda
+- **Use Case**: Multi-omics integration, functional analysis, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Requirements**: Requires properly formatted omics data.
+- **Computation Time**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run functional inference
+**Args:** `unifire -i omics_data.csv -o results/`
+**Explanation:** Perform functional inference.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `unifire -i omics_data.csv -o results/ -k 10`
+**Explanation:** Set number of neighbors.

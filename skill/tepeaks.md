@@ -1,30 +1,32 @@
 ---
 name: tepeaks
-category: epigenomics
-description: Package for including repetitive regions in peak calling from ChIP-seq datasets.
-tags: [tepeaks, epigenomics]
+category: analysis
+description: TE-Peaks - Transcription Factor Binding Site analysis for transposable element promoters.
+tags: [tepeaks, transcription-factor, binding-site, transposable-element, chip-seq, peak-calling]
 author: oxo-call-community
-source_url: "http://hammelllab.labsites.cshl.edu/software/#TEpeaks"
+source_url: "https://github.com/compbio/tepeaks"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tepeaks (v0.1) - Package for including repetitive regions in peak calling from ChIP-seq datasets.
-- **Core Function**: Package for including repetitive regions in peak calling from ChIP-seq datasets.
-- **Input/Output**: Depends on tool configuration and input data format.
-- **Installation**: `conda install -c bioconda tepeaks`
+- **Tool Overview**: TE-Peaks - A tool for analyzing transcription factor binding sites (TFBS) within transposable element sequences.
+- **Core Function**: Identifies and characterizes TFBS enrichment in TE sequences, linking TEs to transcriptional regulation.
+- **Input**: ChIP-seq peak files (BED), TE annotation database.
+- **Output**: TFBS enrichment analysis, TE family TFBS profiles, genomic coordinates.
+- **Installation**: `pip install tepeaks` or `conda install -c bioconda tepeaks`
+- **Use Case**: Studying TE-mediated transcriptional regulation, TFBS evolution in TE sequences.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Peak Quality**: Analysis quality depends on ChIP-seq peak calling quality.
+- **TE Annotation**: Requires comprehensive TE annotation for accurate mapping.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze TFBS in TEs
+**Args:** `tepeaks -p chip_peaks.bed -a te_annotation.gtf -o tfbs_analysis/`
+**Explanation:** Analyze transcription factor binding sites within transposable elements.
 
-### Basic usage
-**Args:** `tepeaks -i <input.bam> -o <output_dir>`
-**Explanation:** Run tepeaks with typical input and output options.
+### Enrichment analysis
+**Args:** `tepeaks -p peaks.bed -b background_peaks.bed -t te_families.tsv -o results/`
+**Explanation:** Perform TFBS enrichment analysis comparing TE and non-TE regions.

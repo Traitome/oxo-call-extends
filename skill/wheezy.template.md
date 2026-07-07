@@ -1,30 +1,32 @@
 ---
 name: wheezy.template
-category: programming
-description: A lightweight template library.
-tags: [wheezy.template, programming]
+category: bioinformatics
+description: wheezy.template - Template engine.
+tags: [wheezy.template, templating, python, bioinformatics]
 author: oxo-call-community
-source_url: "https://wheezytemplate.readthedocs.io/en/latest"
+source_url: "https://github.com/akorn/wheezy.template"
 ---
 
 ## Concepts
 
-- **Tool Overview**: wheezy.template (v3.2.5) - A lightweight template library.
-- **Core Function**: A lightweight template library.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda wheezy.template`
+- **Tool Overview**: wheezy.template - Lightweight template engine.
+- **Core Function**: Processes template files.
+- **Input**: Template file.
+- **Output**: Rendered output.
+- **Installation**: Install via pip
+- **Use Case**: Template processing, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complexity**: May have steep learning curve.
+- **Security**: Requires proper escaping.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Render template
+**Args:** `python -c "from wheezy.template import Engine; e = Engine()"`
+**Explanation:** Create template engine.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `python -c "e.render('template.txt', {'name': 'test'})"`
+**Explanation:** Render template with context.

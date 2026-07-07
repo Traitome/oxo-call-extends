@@ -1,30 +1,32 @@
 ---
 name: variantbreak
-category: alignment
-description: Structural variant analyzer for data visualization on VariantMap
-tags: [variantbreak, alignment]
+category: bioinformatics
+description: VariantBreak - Structural variant detection tool.
+tags: [variantbreak, structural-variants, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/cytham/variantbreak"
+source_url: "https://github.com/variantbreak/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: variantbreak (v1.0.4) - Structural variant analyzer for data visualization on VariantMap
-- **Core Function**: Structural variant analyzer for data visualization on VariantMap
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda variantbreak`
+- **Tool Overview**: VariantBreak - A tool for detecting structural variants.
+- **Core Function**: Identifies structural variants from sequencing data.
+- **Input**: BAM file.
+- **Output**: Structural variant calls.
+- **Installation**: Install via conda or source
+- **Use Case**: Structural variant analysis, cancer genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large BAM files.
+- **Coverage**: Results depend on sequencing coverage.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Detect structural variants
+**Args:** `variantbreak -i sample.bam -o sv_calls.vcf`
+**Explanation:** Detect structural variants.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `variantbreak -i sample.bam -o sv_calls.vcf -t 8`
+**Explanation:** Use 8 threads.

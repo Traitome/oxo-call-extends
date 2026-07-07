@@ -1,30 +1,32 @@
 ---
 name: ucsc-hgloadbed
 category: utility
-description: Load a generic bed file into database.
-tags: [ucsc-hgloadbed, utility]
+description: UCSC hgLoadBed - Tool for loading BED files into database.
+tags: [ucsc-hgloadbed, ucsc, database, bed, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-hgloadbed (v482) - Load a generic bed file into database.
-- **Core Function**: Load a generic bed file into database.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-hgloadbed`
+- **Tool Overview**: UCSC hgLoadBed - A tool for loading BED files into MySQL database.
+- **Core Function**: Loads BED format data into genome browser database.
+- **Input**: BED file.
+- **Output**: Database tables.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Genome browser, data loading, annotation.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Database Access**: Requires database credentials.
+- **Memory**: May require significant memory for large files.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Load BED to database
+**Args:** `hgLoadBed -db=hg38 -table=myTrack input.bed`
+**Explanation:** Load BED file to database.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `hgLoadBed -db=hg38 -table=myTrack -verbose input.bed`
+**Explanation:** Load with verbose output.

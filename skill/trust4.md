@@ -1,30 +1,32 @@
 ---
 name: trust4
-category: expression
-description: TCR and BCR assembly from bulk or single-cell RNA-seq data.
-tags: [trust4, expression]
+category: analysis
+description: TRUST4 - Tool for T-cell receptor and B-cell receptor repertoire analysis.
+tags: [trust4, tcr, bcr, immune-repertoire, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/liulab-dfci/TRUST4/blob/v1.1.9/README.md"
+source_url: "https://github.com/liulab-dfci/TRUST4"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trust4 (v1.1.9) - TCR and BCR assembly from bulk or single-cell RNA-seq data.
-- **Core Function**: TCR and BCR assembly from bulk or single-cell RNA-seq data.
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TRUST4 - A tool for analyzing T-cell receptor (TCR) and B-cell receptor (BCR) repertoires from sequencing data.
+- **Core Function**: Reconstructs TCR/BCR sequences and analyzes repertoire diversity.
+- **Input**: FASTQ reads, reference germline sequences.
+- **Output**: Reconstructed sequences, clonotype frequencies, diversity metrics.
 - **Installation**: `conda install -c bioconda trust4`
+- **Use Case**: Immunology research, cancer immunotherapy, vaccine development.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Reads Quality**: Requires high-quality sequencing data.
+- **Reference Database**: Results depend on germline reference quality.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze TCR repertoire
+**Args:** `run-trust4.py -f reads.fastq -o tcr_repertoire/`
+**Explanation:** Analyze T-cell receptor repertoire from sequencing data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### BCR analysis
+**Args:** `run-trust4.py -f bcr_reads.fastq -b -o bcr_results/`
+**Explanation:** Analyze B-cell receptor repertoire.

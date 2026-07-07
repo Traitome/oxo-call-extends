@@ -1,30 +1,43 @@
 ---
 name: genoflu
-category: hpc
-description: Influenza data pipeline to automate genotyping assignment.
-tags: [genoflu, hpc]
+category: viral-analysis
+description: GenoFLU - Influenza data pipeline to automate genotyping assignment.
+tags: [genoflu, influenza, viral-genotyping, pipeline]
 author: oxo-call-community
 source_url: "https://github.com/USDA-VS/GenoFLU"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genoflu (v1.07) - Influenza data pipeline to automate genotyping assignment.
-- **Core Function**: Provides functionality for hpc tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genoflu`
+- **Influenza Genotyping**: Automates influenza genotyping assignment.
+- **Viral Analysis**: Analyzes influenza viral sequences.
+- **Data Pipeline**: Provides automated analysis pipeline.
+- **Sequence Classification**: Classifies influenza sequences.
+- **Strain Identification**: Identifies influenza strains.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Data Quality**: Requires high-quality sequence data.
+- **Database Updates**: Requires regular database updates.
+- **Computational Resources**: Large datasets require significant resources.
+- **False Positives**: May misclassify divergent strains.
+- **Validation**: Results should be validated with confirmatory methods.
 
 ## Examples
+### Run influenza genotyping
+**Args:** `genoflu -i sequences.fasta -o results/`
+**Explanation:** Automates influenza genotyping assignment.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Batch processing
+**Args:** `genoflu -i ./fasta_files/ -o ./results/`
+**Explanation:** Processes multiple sequence files in batch.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Update database
+**Args:** `genoflu --update-db`
+**Explanation:** Updates reference database.
+
+### Generate report
+**Args:** `genoflu -i sequences.fasta -r -o report.html`
+**Explanation:** Generates detailed genotyping report.
+
+### Validate results
+**Args:** `genoflu -i sequences.fasta -v -o validation.txt`
+**Explanation:** Validates genotyping results.

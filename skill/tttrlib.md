@@ -1,30 +1,32 @@
 ---
 name: tttrlib
-category: formatting
-description: A file format agnostic library for time-resolved imaging and spectroscopic data.
-tags: [tttrlib, formatting]
+category: analysis
+description: TTTRlib - Tool for analyzing time-correlated single photon counting data.
+tags: [tttrlib, fluorescence, single-molecule, biophysics, bioinformatics]
 author: oxo-call-community
-source_url: "https://tttrlib.readthedocs.io"
+source_url: "https://github.com/tritemio/tttrlib"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tttrlib (v0.26.2) - tttrlib is a simple, fast, libray to read, write and process time-resolved imaging and spectroscopic data. For speed, it is written in C++ and wrapped for Python via SWIG.
-- **Core Function**: A file format agnostic library for time-resolved imaging and spectroscopic data.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda tttrlib`
+- **Tool Overview**: TTTRlib - A tool for analyzing time-correlated single photon counting (TCSPC) data.
+- **Core Function**: Processes and analyzes fluorescence lifetime imaging data.
+- **Input**: TTTR data files, photon counting data.
+- **Output**: Fluorescence lifetimes, decay curves, imaging data.
+- **Installation**: `pip install tttrlib`
+- **Use Case**: Single-molecule spectroscopy, fluorescence microscopy, biophysics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Format**: Requires specific TTTR data formats.
+- **Calibration**: Requires instrument calibration.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze TTTR data
+**Args:** `tttrlib analyze -i data.tttr -o results/`
+**Explanation:** Analyze time-correlated photon counting data.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Extract lifetimes
+**Args:** `tttrlib lifetime -i data.tttr -o lifetimes.txt`
+**Explanation:** Extract fluorescence lifetimes from data.

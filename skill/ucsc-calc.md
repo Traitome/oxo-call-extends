@@ -1,30 +1,32 @@
 ---
 name: ucsc-calc
 category: utility
-description: Little command line calculator
-tags: [ucsc-calc, utility]
+description: UCSC calc - Tool for simple arithmetic calculations.
+tags: [ucsc-calc, ucsc, calculator, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "http://hgdownload.cse.ucsc.edu/admin/exe/"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-calc (v357) - Little command line calculator
-- **Core Function**: Little command line calculator
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-calc`
+- **Tool Overview**: UCSC calc - A command-line calculator tool.
+- **Core Function**: Performs arithmetic calculations and unit conversions.
+- **Input**: Mathematical expression.
+- **Output**: Calculation result.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Quick calculations, unit conversion, scripting.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Expression Parsing**: Requires proper expression syntax.
+- **Precision**: May have precision limitations.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Simple calculation
+**Args:** `calc "2 + 3 * 4"`
+**Explanation:** Perform arithmetic calculation.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Unit conversion
+**Args:** `calc "1000 bp to kb"`
+**Explanation:** Convert base pairs to kilobases.

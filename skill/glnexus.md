@@ -1,30 +1,43 @@
 ---
 name: glnexus
 category: variant-calling
-description: scalable gVCF merging and joint variant calling for population sequencing projects.
-tags: [glnexus, variant-calling, VCF]
+description: glnexus - Scalable gVCF merging and joint variant calling for population sequencing.
+tags: [glnexus, variant-calling, gVCF, joint-calling]
 author: oxo-call-community
-source_url: "https://github.com/dnanexus-rnd/GLnexus"
+source_url: "https://github.com/dnanexus-rND/GLnexus"
 ---
 
 ## Concepts
-
-- **Tool Overview**: glnexus (v1.4.1) - scalable gVCF merging and joint variant calling for population sequencing projects.
-- **Core Function**: Provides functionality for variant-calling tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda glnexus`
+- **gVCF Merging**: Merges multiple gVCF files.
+- **Joint Variant Calling**: Performs joint variant calling.
+- **Population Studies**: Designed for population studies.
+- **Scalable**: Scalable to large cohorts.
+- **VCF Format**: Outputs standard VCF format.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Sample Size**: Large cohorts require memory.
+- **Reference Consistency**: Requires consistent reference.
+- **gVCF Quality**: Depends on gVCF quality.
+- **Computational Resources**: Requires resources.
+- **Result Validation**: Results should be validated.
 
 ## Examples
+### Merge gVCFs
+**Args:** `glnexus merge -i samples.gvcf -o merged.bcf`
+**Explanation:** Merges multiple gVCFs.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Joint call
+**Args:** `glnexus joint -i samples.gvcf -o joint.vcf`
+**Explanation:** Performs joint variant calling.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### With config
+**Args:** `glnexus merge -i samples.gvcf -c config.txt -o merged.bcf`
+**Explanation:** Uses custom configuration.
+
+### Generate report
+**Args:** `glnexus merge -i samples.gvcf -r -o merged.bcf`
+**Explanation:** Generates merging report.
+
+### Batch processing
+**Args:** `glnexus merge -l samples.txt -o ./merged/`
+**Explanation:** Processes multiple sample sets.

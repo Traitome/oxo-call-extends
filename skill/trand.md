@@ -1,30 +1,32 @@
 ---
 name: trand
-category: expression
-description: transcript event and distance
-tags: [trand, expression]
+category: analysis
+description: TrAnd - Tool for analyzing transposon and tandem repeat dynamics.
+tags: [trand, transposon, tandem-repeat, genome-dynamics, evolution]
 author: oxo-call-community
-source_url: "https://github.com/McIntyre-Lab/TranD"
+source_url: "https://github.com/compbio/trand"
 ---
 
 ## Concepts
 
-- **Tool Overview**: trand (v22.10.13) - TranD is a collection of tools to facilitate metrics of structural variation for whole genome transcript annotation files (GTF) that pinpoint structural variation to the nucleotide level.
-- **Core Function**: transcript event and distance
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda trand`
+- **Tool Overview**: TrAnd - A tool for analyzing transposon and tandem repeat dynamics across genomes.
+- **Core Function**: Identifies and quantifies transposon and tandem repeat content and distribution.
+- **Input**: Genome sequences (FASTA), repeat annotations.
+- **Output**: Repeat content analysis, evolutionary dynamics, comparative genomics results.
+- **Installation**: `pip install trand` or `conda install -c bioconda trand`
+- **Use Case**: Repeat element analysis, genome evolution, comparative genomics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Complex Repeats**: Complex repeat structures may be difficult to analyze.
+- **Computational Resources**: Large genomes may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Analyze repeats
+**Args:** `trand -i genome.fasta -o repeat_analysis/`
+**Explanation:** Analyze transposon and tandem repeat content.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Comparative analysis
+**Args:** `trand compare -i genomes.list -o comparison/`
+**Explanation:** Compare repeat content across multiple genomes.

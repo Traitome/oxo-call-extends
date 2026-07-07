@@ -2,29 +2,47 @@
 name: ms2query
 category: utility
 description: Reliable and fast MS/MS spectral based analogue search.
-tags: [ms2query, utility]
+tags: [ms2query, utility, proteomics]
 author: oxo-call-community
 source_url: "https://github.com/iomega/ms2query"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ms2query v1.5.4 - Reliable and fast MS/MS spectral based analogue search..
-- **Core Function**: Reliable and fast MS/MS spectral based analogue search.
-- **Input/Output**: Depends on tool function. Check documentation for details.
-- **Installation**: `conda install -c bioconda ms2query`
+- **Tool Overview**: MS2Query v1.5.4 performs fast MS/MS spectral similarity search.
+- **Core Function**: Searches for analogues using MS/MS spectrum comparison.
+- **Spectral Search**: Finds similar spectra from reference databases.
+- **Fast Algorithm**: Optimized for rapid spectral matching.
+- **Metabolomics**: Specialized for metabolomics data analysis.
+- **Input/Output**: Accepts query spectra; outputs similar spectrum matches.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **MS/MS Specific**: Designed for mass spectrometry data.
+- **Database Dependence**: Requires spectral reference database.
+- **Memory Requirements**: Memory usage depends on database size.
+- **Parameter Tuning**: May require parameter adjustment for matching.
+- **Data Quality**: Results depend on spectrum quality.
+- **Computational Resources**: Large databases may require significant resources.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Search for analogues
+**Args:** `ms2query -i query_spectra.mgf -d library.mgf -o results.txt`
+**Explanation:** Searches for similar spectra in reference library.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### With custom similarity threshold
+**Args:** `ms2query -i query_spectra.mgf -d library.mgf -t 0.8 -o results.txt`
+**Explanation:** Uses 0.8 similarity threshold.
+
+### Batch processing
+**Args:** `ms2query -i mgf/ -d library.mgf -o results/`
+**Explanation:** Processes multiple query files.
+
+### Generate report
+**Args:** `ms2query -i query_spectra.mgf -d library.mgf -r report.html -o results.txt`
+**Explanation:** Generates HTML report of matches.
+
+### Update library
+**Args:** `ms2query update_library -d library.mgf -a new_spectra.mgf -o library_updated.mgf`
+**Explanation:** Adds new spectra to reference library.

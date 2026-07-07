@@ -1,31 +1,56 @@
 ---
 name: ribotaper
 category: hpc
-description: RiboTaper is a new analysis pipeline for Ribosome Profiling (Ribo-seq) experiments, which exploits the triplet periodicity of ribosomal footprints to call translated regions.
-tags: ["ribotaper", "hpc"]
+description: RiboTaper identifies translated regions from ribosome profiling data using triplet periodicity.
+tags: [ribotaper, hpc, ribosome-profiling, translation]
 author: oxo-call-community
 source_url: "https://ohlerlab.mdc-berlin.de/software/RiboTaper_126/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: RiboTaper is a new analysis pipeline for Ribosome Profiling (Ribo-seq) experiments, which exploits the triplet periodicity of ribosomal footprints to call translated regions. (version 1.3.1)
-- **Core Function**: Processes bioinformatics data related to hpc
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda ribotaper`
+- **Tool Overview**: ribotaper detects translated regions.
+- **Core Function**: Translation detection.
+- **Algorithm**: Uses triplet periodicity methods.
+- **Input Format**: Accepts ribosome profiling data.
+- **Output**: Produces translated region calls.
+- **Use Case**: Translation analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large datasets require memory.
+- **Data Quality**: Affects detection.
+- **Parameters**: Must be configured.
+- **Runtime**: Processing may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `RiboTaper --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Call translated regions
+**Args:** `RiboTaper -i riboseq.bam -o regions.gff`
+**Explanation:** Identifies translated regions.
 
+### With parameters
+**Args:** `RiboTaper -i riboseq.bam -p params.yaml -o regions.gff`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `RiboTaper -v -i riboseq.bam -o regions.gff`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `RiboTaper -t 4 -i riboseq.bam -o regions.gff`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With annotation
+**Args:** `RiboTaper -i riboseq.bam -a genes.gtf -o regions.gff`
+**Explanation:** Uses gene annotation.
+
+### Generate report
+**Args:** `RiboTaper -i riboseq.bam -o regions.gff --report report.html`
+**Explanation:** Generates HTML report.

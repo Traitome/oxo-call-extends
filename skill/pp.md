@@ -1,31 +1,56 @@
 ---
 name: pp
 category: programming
-description: Parallel and distributed programming for Python
-tags: ["pp", "programming"]
+description: pp provides parallel and distributed programming for Python.
+tags: [pp, programming, parallel, distributed]
 author: oxo-call-community
 source_url: "http://www.parallelpython.com"
 ---
 
 ## Concepts
 
-- **Tool Overview**: Parallel and distributed programming for Python (version 1.6.5)
-- **Core Function**: Processes bioinformatics data related to programming
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda pp`
+- **Tool Overview**: pp enables parallel Python execution.
+- **Core Function**: Parallel task distribution.
+- **Algorithm**: Uses job scheduling methods.
+- **Input Format**: Accepts Python functions.
+- **Output**: Produces parallel results.
+- **Use Case**: High-performance computing, bioinformatics.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Parallel tasks require memory.
+- **Communication Overhead**: May have latency issues.
+- **Scalability**: Limited by available resources.
+- **Debugging**: Parallel code is harder to debug.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `python -c "import pp; help(pp)"`
+**Explanation:** Shows available options and usage instructions.
 
-### Basic usage
-**Args:** `<input_files>`
-**Explanation:** Process input files according to tool function.
+### Basic parallel task
+**Args:** `python -c "import pp; job_server = pp.Server(); job = job_server.submit(func, args)"`
+**Explanation:** Submits parallel task to job server.
 
+### With parameters
+**Args:** `python script.py --workers 4`
+**Explanation:** Uses 4 worker processes.
+
+### Verbose mode
+**Args:** `python -v script.py`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `python script.py --threads 4`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### Output format
+**Args:** `python script.py --output results.json`
+**Explanation:** Outputs results in JSON format.
+
+### Generate report
+**Args:** `python script.py --report report.html`
+**Explanation:** Generates HTML report.

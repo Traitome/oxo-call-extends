@@ -1,30 +1,32 @@
 ---
 name: ucsc-subcolumn
 category: utility
-description: Substitute one column in a tab-separated file.
-tags: [ucsc-subcolumn, utility]
+description: UCSC subColumn - Tool for column substitution.
+tags: [ucsc-subcolumn, ucsc, substitution, column, text-processing]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-subcolumn (v482) - Substitute one column in a tab-separated file.
-- **Core Function**: Substitute one column in a tab-separated file.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-subcolumn`
+- **Tool Overview**: UCSC subColumn - A tool for column substitution in files.
+- **Core Function**: Substitutes values in specific columns.
+- **Input**: Input file, column index, substitution mapping.
+- **Output**: Modified file.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Text processing, data manipulation, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large files.
+- **Column Index**: Requires correct column specification.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Substitute column values
+**Args:** `subColumn -col=2 -from=old -to=new input.txt > output.txt`
+**Explanation:** Replace values in column 2.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `subColumn -col=2 -verbose -from=old -to=new input.txt > output.txt`
+**Explanation:** Replace with verbose output.

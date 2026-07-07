@@ -1,30 +1,43 @@
 ---
 name: genescanner
-category: alignment
-description: Mutation analysis on nucleotide/protein alignments with Excel reports
-tags: [genescanner, alignment, FASTA]
+category: variant-analysis
+description: GeneScanner - Mutation analysis on nucleotide/protein alignments with Excel reports.
+tags: [genescanner, mutation-analysis, alignment, variant-detection]
 author: oxo-call-community
 source_url: "https://github.com/jeju2486/GeneScanner/wiki/GeneScanner"
 ---
 
 ## Concepts
-
-- **Tool Overview**: genescanner (v1.0.1) - Mutation analysis on nucleotide/protein alignments with Excel reports
-- **Core Function**: Provides functionality for alignment tasks.
-- **Input/Output**: Standard bioinformatics formats supported.
-- **Installation**: `conda install -c bioconda genescanner`
+- **Mutation Analysis**: Analyzes mutations in sequence alignments.
+- **Alignment Comparison**: Compares multiple sequence alignments.
+- **Variant Detection**: Identifies variants in nucleotide/protein sequences.
+- **Report Generation**: Generates Excel reports for analysis results.
+- **Quality Assessment**: Assesses sequence quality and coverage.
 
 ## Pitfalls
-
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Alignment Quality**: Depends on high-quality sequence alignments.
+- **Mutation Calling**: May miss low-frequency mutations.
+- **False Positives**: May detect false mutations.
+- **Report Interpretation**: Requires careful interpretation of results.
+- **Format Compatibility**: Requires specific input formats.
 
 ## Examples
+### Analyze mutations
+**Args:** `genescanner -i alignment.fasta -o mutations.xlsx`
+**Explanation:** Analyzes mutations in sequence alignment and generates Excel report.
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Compare multiple alignments
+**Args:** `genescanner -i align1.fasta align2.fasta -o comparison.xlsx`
+**Explanation:** Compares multiple sequence alignments.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Process input file and generate output.
+### Filter by quality
+**Args:** `genescanner -i alignment.fasta -q 20 -o mutations.xlsx`
+**Explanation:** Filters variants by quality score.
+
+### Generate summary
+**Args:** `genescanner -i alignment.fasta -s -o summary.txt`
+**Explanation:** Generates summary statistics of mutations.
+
+### Batch processing
+**Args:** `genescanner -i ./alignments/ -o ./reports/`
+**Explanation:** Processes multiple alignment files in batch.

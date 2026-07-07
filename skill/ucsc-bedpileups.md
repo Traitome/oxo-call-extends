@@ -1,30 +1,32 @@
 ---
 name: ucsc-bedpileups
-category: utility
-description: Find (exact) overlaps if any in bed input.
-tags: [ucsc-bedpileups, utility]
+category: analysis
+description: UCSC bedPileups - Tool for generating pileups from BED files.
+tags: [ucsc-bedpileups, ucsc, pileup-analysis, bioinformatics, genomics]
 author: oxo-call-community
-source_url: "https://github.com/ucscGenomeBrowser/kent/blob/v482_base/README"
+source_url: "https://genome.ucsc.edu/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: ucsc-bedpileups (v482) - Find (exact) overlaps if any in bed input.
-- **Core Function**: Find (exact) overlaps if any in bed input.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda ucsc-bedpileups`
+- **Tool Overview**: UCSC bedPileups - A tool for generating pileup information from BED files.
+- **Core Function**: Creates pileup tracks from aligned reads in BED format.
+- **Input**: BED file with alignment information.
+- **Output**: Pileup data.
+- **Installation**: Part of UCSC utilities
+- **Use Case**: Read depth analysis, coverage visualization, variant calling.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires specific BED format with read information.
+- **Memory**: May require significant memory for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Generate pileup
+**Args:** `bedPileups -i alignments.bed > pileup.txt`
+**Explanation:** Generate pileup from aligned reads.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With quality filter
+**Args:** `bedPileups -minQ 30 -i alignments.bed > pileup.txt`
+**Explanation:** Generate pileup with quality filter.

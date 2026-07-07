@@ -1,30 +1,52 @@
 ---
 name: maxentscan
 category: expression
-description: MaxEntScan is based on the approach for modeling the sequences of short sequence motifs such as those involved in RNA splicing which simultaneously accounts for non-adjacent as well as adjacent dependencies between positions. This method is based on the 'Maximum Entropy Principle' and generalizes most previous probabilistic models of sequence motifs such as weight matrix models and inhomogeneous Markov models.
-tags: [maxentscan, expression]
+description: Maximum Entropy model for predicting RNA splicing sites and sequence motifs.
+tags: [maxentscan, splicing, motif-analysis]
 author: oxo-call-community
 source_url: "http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html"
 ---
 
 ## Concepts
 
-- **Tool Overview**: maxentscan v0_2004.04.21 - MaxEntScan is based on the approach for modeling the sequences of short sequence motifs such as those involved in RNA splicing which simultaneously accounts for non-adjacent as well as adjacent dependencies between positions. This method is based on the 'Maximum Entropy Principle' and generalizes most previous probabilistic models of sequence motifs such as weight matrix models and inhomogeneous Markov models..
-- **Core Function**: MaxEntScan is based on the approach for modeling the sequences of short sequence motifs such as those involved in RNA splicing which simultaneously accounts for non-adjacent as well as adjacent dependencies between positions. This method is based on the 'Maximum Entropy Principle' and generalizes most previous probabilistic models of sequence motifs such as weight matrix models and inhomogeneous Markov models.
-- **Input/Output**: Depends on tool function. Check documentation for details.
+- **Tool Overview**: MaxEntScan predicts RNA splicing sites using maximum entropy models.
+- **Core Function**: Scores splice acceptor and donor sites.
+- **Maximum Entropy**: Uses MaxEnt principle for motif modeling.
+- **Position Dependencies**: Accounts for non-adjacent position dependencies.
+- **Input/Output**: Accepts FASTA sequences, produces splice site scores.
 - **Installation**: `conda install -c bioconda maxentscan`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format for your data.
+- **Sequence Context**: Requires proper sequence context around splice sites.
+- **Model Limitations**: Trained on specific organisms/data types.
+- **Score Interpretation**: Scores require careful interpretation.
+- **Alternative Splicing**: May not capture all alternative splicing events.
+- **Memory Requirements**: Processing large sequences may require memory.
+- **Output Format**: May need parsing for downstream analysis.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options.
+### Score splice donor sites
+**Args:** `score5.pl sequences.fasta`
+**Explanation:** Scores potential 5' splice donor sites.
 
-### Basic usage
-**Args:** `<input_file>`
-**Explanation:** Process input file with default parameters.
+### Score splice acceptor sites
+**Args:** `score3.pl sequences.fasta`
+**Explanation:** Scores potential 3' splice acceptor sites.
+
+### Output detailed results
+**Args:** `score5.pl -d sequences.fasta`
+**Explanation:** Shows detailed scoring information.
+
+### Batch processing
+**Args:** `score5.pl *.fasta`
+**Explanation:** Processes multiple FASTA files.
+
+### Custom model
+**Args:** `score5.pl -m custom_model.mod sequences.fasta`
+**Explanation:** Uses custom scoring model.
+
+### Help documentation
+**Args:** `score5.pl -h`
+**Explanation:** Displays available options.

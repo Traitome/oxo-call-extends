@@ -1,30 +1,32 @@
 ---
 name: toposort
 category: utility
-description: 
-tags: [toposort, utility]
+description: TopoSort - Topological sorting tool for bioinformatics workflows.
+tags: [toposort, topological-sort, workflow, dependencies, graph]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/compbio/toposort"
 ---
 
 ## Concepts
 
-- **Tool Overview**: toposort (v1.4) - 
-- **Core Function**: 
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda toposort`
+- **Tool Overview**: TopoSort - A tool for performing topological sorting on directed acyclic graphs (DAGs).
+- **Core Function**: Orders tasks or nodes based on their dependencies for workflow execution.
+- **Input**: Graph definition, dependency list, workflow configuration.
+- **Output**: Topologically sorted order, execution plan.
+- **Installation**: `pip install toposort`
+- **Use Case**: Workflow scheduling, dependency resolution, pipeline management.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Cycles**: Will fail if graph contains cycles.
+- **Input Format**: Requires specific input format for dependencies.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Sort dependencies
+**Args:** `toposort -i dependencies.txt -o sorted.txt`
+**Explanation:** Perform topological sort on dependency graph.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Workflow order
+**Args:** `toposort --workflow workflow.json -o execution_order.txt`
+**Explanation:** Generate execution order for workflow tasks.

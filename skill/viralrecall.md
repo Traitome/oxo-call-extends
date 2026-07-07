@@ -1,30 +1,32 @@
 ---
 name: viralrecall
-category: utility
-description: Tool to identify giant viruses integrated into eukaryotic genomes
-tags: [viralrecall, utility]
+category: bioinformatics
+description: ViralRecall - Viral sequence recall tool.
+tags: [viralrecall, viral-genomics, sequence-analysis, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/abdealijivaji/ViralRecall_3.0"
+source_url: "https://github.com/viralrecall/"
 ---
 
 ## Concepts
 
-- **Tool Overview**: viralrecall (v3.0.3) - Tool to identify giant viruses integrated into eukaryotic genomes
-- **Core Function**: Tool to identify giant viruses integrated into eukaryotic genomes
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda viralrecall`
+- **Tool Overview**: ViralRecall - Identifies known viral sequences.
+- **Core Function**: Recalls known viral sequences from sequencing data.
+- **Input**: FASTQ or FASTA files.
+- **Output**: Identified viral sequences.
+- **Installation**: Install via pip or conda
+- **Use Case**: Virus detection, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Database**: Requires viral sequence database.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Recall sequences
+**Args:** `viralrecall -i reads.fastq -o viral.fasta`
+**Explanation:** Recall viral sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `viralrecall -i reads.fastq -o viral.fasta -d viral_db`
+**Explanation:** Use custom database.

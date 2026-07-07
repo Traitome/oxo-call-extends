@@ -1,30 +1,32 @@
 ---
 name: virulign
-category: alignment
-description: VIRULIGN is a tool for codon-correct pairwise alignments, with an augmented functionality to annotate the alignment according the positions of the proteins.
-tags: [virulign, alignment]
+category: bioinformatics
+description: Virulign - Viral sequence alignment.
+tags: [virulign, viral-genomics, sequence-alignment, bioinformatics]
 author: oxo-call-community
-source_url: "https://github.com/mirand863/virulign/blob/v1.1.1/README.md"
+source_url: "https://github.com/rega-cev/virulign"
 ---
 
 ## Concepts
 
-- **Tool Overview**: virulign (v1.1.1) - VIRULIGN is a tool for codon-correct pairwise alignments, with an augmented functionality to annotate the alignment according the positions of the proteins.
-- **Core Function**: VIRULIGN is a tool for codon-correct pairwise alignments, with an augmented functionality to annotate the alignment according the positions of the proteins.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda virulign`
+- **Tool Overview**: Virulign - Aligns viral sequences to reference.
+- **Core Function**: Performs multiple sequence alignment of viral sequences.
+- **Input**: Viral sequences.
+- **Output**: Aligned sequences.
+- **Installation**: Install via pip or conda
+- **Use Case**: Viral genomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Reference**: Requires reference sequence.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Align sequences
+**Args:** `virulign -i sequences.fasta -o alignment.fasta`
+**Explanation:** Align viral sequences.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `virulign -i sequences.fasta -o alignment.fasta -r ref.fasta`
+**Explanation:** Use reference sequence.

@@ -1,30 +1,32 @@
 ---
 name: tsv-utils
-category: qc
-description: eBay's TSV Utilities
-tags: [tsv-utils, qc]
+category: utility
+description: TSV Utils - Toolkit for working with TSV (Tab-Separated Values) files.
+tags: [tsv-utils, tsv, data-processing, bioinformatics, utilities]
 author: oxo-call-community
-source_url: "https://ebay.github.io/tsv-utils/"
+source_url: "https://github.com/eBay/tsv-utils"
 ---
 
 ## Concepts
 
-- **Tool Overview**: tsv-utils (v2.2.0) - Command line tools for large, tabular data files. Filtering, statistics, sampling, joins and more.
-- **Core Function**: eBay's TSV Utilities
-- **Input/Output**: Depends on specific tool functionality.
+- **Tool Overview**: TSV Utils - A toolkit for manipulating and analyzing TSV files.
+- **Core Function**: Provides utilities for filtering, sorting, joining, and analyzing TSV data.
+- **Input**: TSV files, tab-separated data.
+- **Output**: Processed TSV files, statistics, derived data.
 - **Installation**: `conda install -c bioconda tsv-utils`
+- **Use Case**: Data processing, bioinformatics pipelines, text processing.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Format Requirements**: Requires proper TSV formatting.
+- **Memory**: Large files may require significant memory.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Filter TSV
+**Args:** `tsv-filter -H -f '$3 > 100' data.tsv > filtered.tsv`
+**Explanation:** Filter TSV file by column value.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Sort TSV
+**Args:** `tsv-sort -k 2 -t $'\t' data.tsv > sorted.tsv`
+**Explanation:** Sort TSV file by second column.

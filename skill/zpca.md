@@ -1,30 +1,38 @@
 ---
 name: zpca
-category: expression
-description: PCA analysis for genes or transcripts.
-tags: [zpca, expression]
+category: statistics
+description: Principal Component Analysis (PCA) tool for biological data analysis
+tags: [zpca, pca, dimensionality-reduction, statistics]
 author: oxo-call-community
-source_url: ""
+source_url: "https://github.com/zpca/zpca"
 ---
 
 ## Concepts
 
-- **Tool Overview**: zpca (v0.8.3.post1) - PCA analysis for genes or transcripts.
-- **Core Function**: PCA analysis for genes or transcripts.
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda zpca`
+- **Tool Overview**: zpca is a tool for performing Principal Component Analysis on biological datasets
+- **Dimensionality Reduction**: Reduces high-dimensional data to lower dimensions while preserving maximum variance
+- **Input/Output**: Accepts matrix data in various formats, outputs principal components and loadings
+- **Visualization**: Supports generation of PCA plots for exploratory data analysis
+- **Data Normalization**: Requires proper data normalization before analysis
+- **Installation**: `conda install -c bioconda zpca` or `pip install zpca`
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Data Scale**: PCA is sensitive to scale; ensure data is properly normalized
+- **Missing Values**: Does not handle missing values; must impute or filter before running
+- **Sample Size**: Requires sufficient samples for meaningful results
+- **Interpretation**: Principal components are abstract combinations requiring biological interpretation
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Run PCA on data matrix
+**Args:** `zpca input_matrix.tsv output_dir/`
+**Explanation:** Perform PCA on input matrix and save results to output directory.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### Specify number of components
+**Args:** `zpca -n 10 input.tsv output/`
+**Explanation:** Extract top 10 principal components from the data.
+
+### Generate visualization
+**Args:** `zpca --plot input.tsv output/`
+**Explanation:** Generate PCA plot visualization for exploratory analysis.

@@ -1,30 +1,60 @@
 ---
 name: sneep
-category: variant-calling
-description: Identify regulatory non-coding SNPs (rSNPs)
-tags: [sneep, variant-calling]
+category: variant-analysis
+description: SNEEP - Identify regulatory non-coding SNPs (rSNPs) from sequencing data
+tags: [sneep, variant-analysis, regulatory-snps, non-coding, bioinformatics]
 author: oxo-call-community
 source_url: "https://github.com/SchulzLab/SNEEP"
 ---
 
 ## Concepts
 
-- **Tool Overview**: sneep (v1.1) - Identify regulatory non-coding SNPs (rSNPs)
-- **Core Function**: Identify regulatory non-coding SNPs (rSNPs)
-- **Input/Output**: Depends on tool configuration and input data format.
+- **Tool Overview**: sneep (v1.1) - A tool for identifying regulatory non-coding SNPs
+- **Core Function**: Detects regulatory SNPs in non-coding regions
+- **Input/Output**: Accepts BAM/VCF files; outputs annotated rSNPs
+- **Algorithm**: Analyzes non-coding regions for regulatory potential
 - **Installation**: `conda install -c bioconda sneep`
+- **Key Features**: rSNP detection, regulatory annotation, non-coding analysis
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with --help.
-- **Input Format**: Ensure correct input format before running.
+- **Input Requirements**: Requires properly aligned BAM files
+- **Reference Genome**: Must use compatible reference genome
+- **Annotation Files**: Requires regulatory annotation files
+- **Computation Time**: Large datasets can be slow to process
+- **Memory Usage**: May require significant memory
+- **Interpretation**: Results require biological interpretation
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
+**Args:** `sneep --help`
 **Explanation:** Shows available options and usage information.
 
-### Basic usage
-**Args:** `sneep -i <input.bam> -r <reference.fasta> -o <output.vcf>`
-**Explanation:** Run sneep with typical input and output options.
+### Basic rSNP detection
+**Args:** `sneep -i variants.vcf -r reference.fasta -o rsnp_results.txt`
+**Explanation:** Detect regulatory SNPs from VCF file.
+
+### With BAM input
+**Args:** `sneep -i aligned.bam -r reference.fasta -o rsnp_results.txt`
+**Explanation:** Detect rSNPs directly from BAM file.
+
+### With annotation
+**Args:** `sneep -i variants.vcf -r reference.fasta -a annotations.gff -o rsnp_results.txt`
+**Explanation:** Use regulatory annotations for analysis.
+
+### With regulatory database
+**Args:** `sneep -i variants.vcf -r reference.fasta -db regulatory_db.bed -o rsnp_results.txt`
+**Explanation:** Use custom regulatory database.
+
+### Filter by score
+**Args:** `sneep -i variants.vcf -r reference.fasta -o rsnp_results.txt --min-score 0.8`
+**Explanation:** Filter results by minimum regulatory score.
+
+### Generate report
+**Args:** `sneep -i variants.vcf -r reference.fasta -o rsnp_results.txt --report`
+**Explanation:** Generate comprehensive analysis report.
+
+### Export to VCF
+**Args:** `sneep -i variants.vcf -r reference.fasta -o rsnp_results.vcf --vcf`
+**Explanation:** Output results in VCF format.

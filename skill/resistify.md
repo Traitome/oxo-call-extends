@@ -1,31 +1,56 @@
 ---
 name: resistify
 category: annotation
-description: A resistance gene annotation tool.
-tags: ["resistify", "annotation"]
+description: Resistify annotates resistance genes in bacterial genomes.
+tags: [resistify, annotation, resistance-genes, bacteria]
 author: oxo-call-community
 source_url: "https://github.com/SwiftSeal/resistify/blob/v2.1.0/README.md"
 ---
 
 ## Concepts
 
-- **Tool Overview**: A resistance gene annotation tool. (version 2.1.0)
-- **Core Function**: Processes bioinformatics data related to annotation
-- **Input/Output**: Standard bioinformatics formats
-- **Installation**: `conda install -c bioconda resistify`
+- **Tool Overview**: resistify annotates resistance.
+- **Core Function**: Resistance gene annotation.
+- **Algorithm**: Uses sequence comparison methods.
+- **Input Format**: Accepts genome sequences.
+- **Output**: Produces annotations.
+- **Use Case**: Antibiotic resistance analysis.
 
 ## Pitfalls
 
 - **Version Differences**: Options may vary between versions.
-- **Input Format**: Ensure correct input format.
+- **Memory Usage**: Large genomes require memory.
+- **Database Quality**: Affects annotation.
+- **Parameters**: Must be configured.
+- **Runtime**: Annotation may take time.
+- **Validation**: Results should be validated for correctness.
 
 ## Examples
 
 ### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+**Args:** `resistify --help`
+**Explanation:** Shows available options and usage instructions.
 
-### Annotate features
-**Args:** `-i genome.fasta -o annotation.gff`
-**Explanation:** Predicts and annotates genomic features.
+### Annotate resistance genes
+**Args:** `resistify annotate -i genome.fasta -o annotation.gff`
+**Explanation:** Annotates resistance genes in genome.
 
+### With parameters
+**Args:** `resistify annotate -i genome.fasta -p params.yaml -o annotation.gff`
+**Explanation:** Uses parameter configuration.
+
+### Verbose mode
+**Args:** `resistify -v annotate -i genome.fasta -o annotation.gff`
+**Explanation:** Runs with verbose output.
+
+### Number of threads
+**Args:** `resistify -t 4 annotate -i genome.fasta -o annotation.gff`
+**Explanation:** Uses 4 threads for parallel processing.
+
+### With database
+**Args:** `resistify annotate -i genome.fasta -d db_path -o annotation.gff`
+**Explanation:** Uses custom database.
+
+### Generate report
+**Args:** `resistify annotate -i genome.fasta -o annotation.gff --report report.html`
+**Explanation:** Generates HTML report.

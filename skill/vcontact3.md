@@ -1,30 +1,32 @@
 ---
 name: vcontact3
-category: assembly
-description: Viral Contig Automatic Clustering and Taxonomy
-tags: [vcontact3, assembly]
+category: bioinformatics
+description: vContact3 - Viral genome clustering tool.
+tags: [vcontact3, viral-genomics, clustering, bioinformatics]
 author: oxo-call-community
-source_url: "https://bitbucket.org/MAVERICLab/vcontact3/src/master/README.md"
+source_url: "https://github.com/RIVM-bioinformatics/vcontact3"
 ---
 
 ## Concepts
 
-- **Tool Overview**: vcontact3 (v3.1.6) - Viral Contig Automatic Clustering and Taxonomy
-- **Core Function**: Viral Contig Automatic Clustering and Taxonomy
-- **Input/Output**: Depends on specific tool functionality.
-- **Installation**: `conda install -c bioconda vcontact3`
+- **Tool Overview**: vContact3 - Updated viral genome clustering tool.
+- **Core Function**: Clusters viral genomes based on protein similarity.
+- **Input**: Protein sequences or genome annotations.
+- **Output**: Cluster network.
+- **Installation**: Install via conda
+- **Use Case**: Viral genomics, metagenomics, bioinformatics.
 
 ## Pitfalls
 
-- **Version Differences**: Options may vary between versions; always check with `--help`.
-- **Input Format**: Ensure correct input format before running.
+- **Memory**: May require significant memory for large datasets.
+- **Computation**: May be slow for large datasets.
 
 ## Examples
 
-### Display help
-**Args:** `--help`
-**Explanation:** Shows available options and usage information.
+### Cluster viral genomes
+**Args:** `vcontact3 --input proteins.faa --output-dir results/`
+**Explanation:** Cluster viral genomes.
 
-### Basic usage
-**Args:** `<input_file> -o <output_file>`
-**Explanation:** Standard input/output pattern for most bioinformatics tools.
+### With options
+**Args:** `vcontact3 --input proteins.faa --output-dir results/ --threads 8`
+**Explanation:** Use 8 threads.
